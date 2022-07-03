@@ -1,0 +1,46 @@
+--- 
+title: "Biomedical Data Science - introduction with case studies"
+author: "BIOF1001 teaching team"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+---
+
+```{r set-options, include=FALSE, purl=FALSE}
+# knitr pkg is needed throughout book
+if (!"knitr" %in% installed.packages()) {
+  install.packages("knitr", repos = "http://cran.rstudio.com")
+}
+library(knitr)
+# Set output options
+if (is_html_output()) {
+  options(width = 80)
+}
+if (is_latex_output()) {
+  options(width = 75)
+}
+options(digits = 7, bookdown.clean_book = TRUE, knitr.kable.NA = "NA")
+```
+
+
+# Welcome {-}
+Welcome to the book [Biomedical Data Science - an introduction with case studies](). 
+Most contents are demonstrated with R programming language.
+
+This book is designed as the lecture notes and textbook for 
+[BIOF1001: Introduction to Biomedical Data Science](),
+an undergraduate course (year 1) at the University of Hong Kong.
+
+
+**GitHub Repository:** you can find the source files on
+[statbiomed/BMDS-book](https://github.com/StatBiomed/BMDatSci-book).
+To build this book from the source files, use the following script in R:
+```
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+```

@@ -1,0 +1,13 @@
+\cleardoublepage
+
+(ref:modulesepart) Biomedical Data Modules
+
+```{r echo=FALSE, results="asis", purl=FALSE}
+if (is_latex_output()) {
+  cat("# (PART) (ref:modulesepart) {-} ")
+} else {
+  cat("# (PART) Biomedical Data Modules {-} ")
+}
+```
+
+# Personalised Genomic Medicine {#genomics}

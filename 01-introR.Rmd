@@ -1,0 +1,11 @@
+(ref:introsepart) Data Science Foundations
+
+```{r echo=FALSE, results="asis", purl=FALSE}
+if (is_latex_output()) {
+  cat("# (PART) (ref:introsepart) {-} ")
+} else {
+  cat("# (PART) Data Science Foundations {-} ")
+}
+```
+
+# Introduction to R programming {#introR}
