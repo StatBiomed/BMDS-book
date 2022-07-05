@@ -1,1 +1,1 @@
-# Introduction to Statistics {#introStats}
+# Introduction to Statistical testing {#introStats}

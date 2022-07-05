@@ -8,4 +8,359 @@ if (is_latex_output()) {
 }
 ```
 
+
 # Introduction to R programming {#introR}
+
+This notebook collects the scripts used for teaching in BIOF1001 for 
+Introduction to R (1 hour teaching). You can get this Rmd file 
+[here](https://github.com/StatBiomed/BMDatSci-book/blob/main/01-introR.Rmd).
+
+## Data types
+### nemeric (or double)
+```{r}
+x <- c(1.0, 2.0, 5.0, 7.0)
+x
+class(x)
+typeof(x)
+```
+
+### integer
+```{r}
+y <- c(1L, 2L, 5L, 7L)
+y
+typeof(y)
+```
+
+### logical
+```{r}
+z <- c(TRUE, TRUE, TRUE, FALSE)
+z
+typeof(z)
+```
+
+### character
+```{r}
+w <- c("aa", "bb", "5", "7")
+w
+typeof(w)
+```
+
+### Memeory usage
+As can be seen below, integer and logical uses only half of the memory of double (numeric) and character
+```{r}
+x <- c(1.0, 2.0, 5.0, 7.0)
+y <- c(1L, 2L, 5L, 7L)
+z <- c(TRUE, TRUE, TRUE, FALSE)
+w <- c("aa", "bb", "5", "7")
+
+object.size(x)
+```
+```{r}
+object.size(rep(x, 1000))
+object.size(rep(y, 1000))
+object.size(rep(z, 1000))
+object.size(rep(w, 1000))
+```
+
+## Data structures
+### Vector
+```{r}
+x <- c(1, 2, 5, 7)
+x
+typeof(x)
+
+x <- rep(3, 5)
+x
+typeof(x)
+
+x <- 1:12 # integer
+x
+typeof(x)
+```
+### Matrix
+```{r}
+A <- matrix(1:12, nrow=3)
+A
+
+B <- matrix(1:12, nrow=3, byrow=TRUE)
+B
+
+colnames(A) <- c("C1","C2","C3","C4")
+rownames(A) <- c("R1","R2","R3")
+A
+```
+
+#### Index Vector and Matrix
+N.B., when using logical as index, be careful if the index length is different from the vector
+```{r}
+x <- 1:12
+
+x[3]
+x[2:5]
+x[c(2, 5, 6)]
+
+x[c(TRUE, FALSE, FALSE, TRUE)] 
+```
+
+Now, index matrix. Very similar as vector, but it has both row and column.
+```{r}
+A <- matrix(1:12, nrow=3)
+colnames(A) <- c("C1","C2","C3","C4")
+rownames(A) <- c("R1","R2","R3")
+
+A[1, 2]
+A[1, "C2"]
+
+A[1, c(2, 3)]
+A[1:2, c(2, 3)]
+```
+Single row or column matrix will become a vector, unless using `drop=FALSE`
+```{r}
+A[1, 2:4]
+dim(A[1, 2:4])
+
+A[1, 2:4, drop=FALSE]
+dim(A[1, 2:4, drop=FALSE])
+```
+#### Modify values
+```{r}
+A[1, 2:4] <- c(-3, -5, 20)
+A
+```
+
+### List
+A list of any data structure: value, vector, matrix, etc
+```{r}
+x <- list(2.5, TRUE, 1:3)
+x
+str(x)
+```
+```{r}
+x <- list("a" = 2.5, "b" = TRUE, "c" = 1:3)
+x
+str(x)
+```
+
+#### Indexing list
+Different from vector and matrix, for list, you need to double-layer square brackets, either by numeric index or name. Alternatively, you can also use `$` symbol.
+```{r}
+x[[3]]
+
+x[["c"]]
+
+x$c
+```
+
+### Data Frame
+* A special type of List: A list of vectors with the same length.
+* Widely used as a rectangular data with flexible data type (like Excel)
+
+```{r}
+df <- data.frame("SN" = 1:2, "Age" = c(21,15), 
+                 "Name" = c("John","Dora"))
+df
+```
+
+```{r}
+df$Age[2]
+```
+
+```{r}
+# View(df)
+```
+
+### Factor vs vector
+Factor is a data structure used for fields that takes only predefined, finite number of values (categorical data)
+```{r}
+x = c("single", "married", "married", "single") # vector
+x
+
+class(x)
+typeof(x)
+```
+
+```{r}
+y = factor(c("single", "married", "married", "single"))
+y
+
+class(y)
+typeof(y)
+```
+
+#### Change the order of factor levels
+```{r}
+z <- factor(c("single", "married", "married", "single") , levels=c("single", "married"))
+z
+```
+
+#### Smaller memory as categorical data type
+```{r}
+x = c("single", "married", "married", "single") # vector
+y = factor(c("single", "married", "married", "single"))
+
+object.size(rep(x, 1000))
+object.size(rep(y, 1000))
+```
+
+
+## Read and write files (tables)
+Data is available in the data folder on the 
+[github repository](https://github.com/StatBiomed/BMDatSci-book/blob/main/data/intro)
+
+### Read file
+See full manuals: `help(read.table)` or `?read.table`
+```{r}
+help("read.table")
+
+?read.table
+```
+
+```{r}
+df = read.table("./data/intro/SRP029880.colData.tsv", sep="\t")
+df
+```
+### Write file
+
+```{r}
+df$frozen <- c(1, 1, 0, 0, 0, 1, 1, 0, 0, 0)
+write.table(df, "./data/outs/SRP029880.colData.add_frozen.tsv", sep="\t", quote=FALSE)
+```
+
+## Functions and Packages
+For example `mean()` is a function here and it is from the `base` package
+```{r}
+x <- 4:10
+mean(x)
+base::mean(x)
+```
+
+### Install packages
+It depends on where the package is stored. Please refers to the documentation of the specific package you want to install and use.
+
+1. CRAN  (the Comprehensive R Archive Network): main platform
+    - For example: `install.packages("ggplot2")`
+
+2. Bioconductor: primarily for biology related packages
+    - For example: `BiocManager::install("DESeq2")`
+
+```{r}
+#install.packages("ggplot2")
+```
+
+## Plotting
+### datasets
+Using a build-in dataset for illustration: iris (4 flower features in 3plants)
+```{r}
+head(iris)
+```
+```{r}
+summary(iris)
+```
+
+### Basic plotting
+#### Histogram
+```{r}
+hist(iris$Sepal.Length)
+```
+
+#### Scatter plot
+```{r}
+plot(x=iris$Sepal.Length, y=iris$Sepal.Width)
+```
+
+#### boxplot
+```{r}
+x1 <- iris$Sepal.Length[iris$Species == "setosa"]
+x2 <- iris$Sepal.Length[iris$Species == "versicolor"]
+x3 <- iris$Sepal.Length[iris$Species == "virginica"]
+
+boxplot(x1, x2, x3)
+```
+
+### ggplot2
+#### Install package
+```{r}
+if (!requireNamespace("ggplot2", quietly = TRUE))
+    install.packages("ggplot2")
+```
+
+#### Load package
+```{r}
+library(ggplot2)
+```
+
+#### Histogram
+```{r}
+ggplot(iris, aes(x=Sepal.Length)) + 
+  geom_histogram(bins = 8)
+```
+
+#### Scatter plot
+```{r}
+ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width)) + 
+    geom_point()
+```
+
+#### Box plot
+```{r}
+ggplot(iris, aes(x=Species, y=Sepal.Length)) + 
+    geom_boxplot()
+```
+
+## Scientific and statistical computating
+### Orders of operators
+See lecture slides.
+
+If you are not sure about a certain ordering, use brackets!
+
+```{r}
+5 * 2 > 4
+```
+
+```{r}
+5 * (2 > 4)
+```
+
+### Functions for statistics
+More theroy and practice to come in next session
+### Correlation
+```{r}
+cor(iris$Sepal.Length, iris$Petal.Length)
+```
+```{r}
+cor.test(iris$Sepal.Length, iris$Petal.Length)
+```
+### Hypothesis testing (t test)
+```{r}
+x1 <- iris$Sepal.Length[iris$Species == "setosa"]
+x2 <- iris$Sepal.Length[iris$Species == "versicolor"]
+x3 <- iris$Sepal.Length[iris$Species == "virginica"]
+
+t.test(x2, x3)
+```
+### Regression
+```{r}
+fit <- lm(Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width, data=iris)
+summary(fit) # show results
+```
+
+This means the fitted regression is: 
+`Sepal.Length ~ 1.856 + 0.65*Sepal.Width + 0.709*Petal.Length - 0.556*Petal.Width`
+
+We can check how good the regression is by plotting it out
+```{r}
+y_pred <- fit$coefficients[1] + 
+  fit$coefficients[2] * iris$Sepal.Width +
+  fit$coefficients[3] * iris$Petal.Length +
+  fit$coefficients[4] * iris$Petal.Width
+
+cor(iris$Sepal.Length, y_pred)
+```
+
+
+```{r}
+plot(iris$Sepal.Length, y_pred)
+```
+
+
+

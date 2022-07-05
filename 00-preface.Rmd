@@ -1,12 +1,41 @@
 # Preface {-}
-Introduction to this book
 
+This book is designed as the lecture notes and textbook for 
+[BIOF1001: Introduction to Biomedical Data Science](),
+an undergraduate course (Year 1) at the University of Hong Kong.
 
-## Introduction for students {-}
-
+## Introduction for readers {-}
 
 ### What we hope you will learn from this book {-}
+In part I, you will find a general introduction to data science:
 
+1) Quantitative methods: t-test, correlation analysis, clustering, linear 
+   regression, linear classification.
+2) Basic programming and visualisation skills: R scripts for the above methods 
+   and data visualisation.
+3) Gain familiarity with common databases in the biomedical domain. 
+4) Introduce ethical, legal, social and technological issues related to 
+   biomedical data sciences.
+5) Introduce good practice in managing a data science project and communicate 
+   results to key stakeholders.
+
+In part II, you will experience data types in five different biomedical topics,
+which will be illustrated with both introduction and cases that are suitable for
+problem-based learning format:
+
+1) Personalised genomic medicine, by Dr David Shih and Dr Yuanhua Huang
+2) Medical imaging and digital health, by Dr Joshua Ho and Dr Lequan Yu
+3) Infectious disease informatics, by Dr Tommy Lam and Dr Kathy Leung
+4) Population genetics and diseases, by Dr Clara Tang and Dr Wanling Yang
+5) Epidemiology of cancer and other diseases, by Jason Wong and Dr Carlos Wong
+
+
+### What we recommend you do while reading this book {-}
+To enhance the knowledge and skills learned from this book, we recommend the
+readers
+
+1) Read materials provided in each module
+2) Practice quantitative skills by solving problems using R
 
 ## Acknowledgements {-}
 

@@ -35,7 +35,7 @@ Most contents are demonstrated with R programming language.
 
 This book is designed as the lecture notes and textbook for 
 [BIOF1001: Introduction to Biomedical Data Science](),
-an undergraduate course (year 1) at the University of Hong Kong.
+an undergraduate course (Year 1) at the University of Hong Kong.
 
 
 **GitHub Repository:** you can find the source files on

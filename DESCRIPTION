@@ -1,6 +1,6 @@
-Package: placeholder
+Package: BMDSbook
 Type: Book
-Title: Does not matter.
+Title: Biomedical Data Science - Introduction with Case Studies
 Version: 0.0.1
-Imports: bookdown
+Imports: bookdown (>= 0.2.7)
 Remotes: rstudio/bookdown
