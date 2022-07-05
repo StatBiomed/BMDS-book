@@ -39,8 +39,4 @@ an undergraduate course (Year 1) at the University of Hong Kong.
 
 
 **GitHub Repository:** you can find the source files on
-[statbiomed/BMDS-book](https://github.com/StatBiomed/BMDatSci-book).
-To build this book from the source files, use the following script in R:
-```
-bookdown::render_book("index.Rmd", "bookdown::gitbook")
-```
+[StatBiomed/BMDS-book](https://github.com/StatBiomed/BMDS-book) and the way to re-build this book.

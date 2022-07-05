@@ -1,5 +1,21 @@
-[![Build Status](https://travis-ci.com/rstudio/bookdown-demo.svg?branch=master)](https://travis-ci.com/rstudio/bookdown-demo)
+# Welcome
 
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). Please see the page "[Get Started](https://bookdown.org/yihui/bookdown/get-started.html)" at https://bookdown.org/yihui/bookdown/ for how to compile this example into HTML. You may generate a copy of the book in `bookdown::pdf_book` format by calling `bookdown::render_book('index.Rmd', 'bookdown::pdf_book')`. More detailed instructions are available here https://bookdown.org/yihui/bookdown/build-the-book.html.
+Welcome to the book [Biomedical Data Science - an introduction with case studies](). 
+Most contents are demonstrated with R programming language.
 
-You can find the preview of this example at https://bookdown.org/yihui/bookdown-demo/.
+This book is designed as the lecture notes and textbook for 
+[BIOF1001: Introduction to Biomedical Data Science](),
+an undergraduate course (Year 1) at the University of Hong Kong.
+
+
+## Source files and re-build:
+you can find the source files on GitHub
+[StatBiomed/BMDS-book](https://github.com/StatBiomed/BMDS-book).
+
+To build this book from the source files, use the following script in R:
+```
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+```
+
+To release the build, you can simply copy the whole contents in the `_book` 
+folder to the `docs` folder and push it to this github repository.

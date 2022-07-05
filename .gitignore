@@ -5,3 +5,5 @@
 .RData
 .Ruserdata
 data/outs
+_book
+_bookdown_files
