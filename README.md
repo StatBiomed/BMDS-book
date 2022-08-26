@@ -3,7 +3,8 @@
 Welcome to the book [Biomedical Data Science - an introduction with case studies](). 
 Most contents are demonstrated with R programming language.
 
-This book is designed as the lecture notes and textbook for 
+This book is designed designed as a collection of R Markdown notebooks, as 
+supplementary to the lecture notes for the course 
 [BIOF1001: Introduction to Biomedical Data Science](),
 an undergraduate course (Year 1) at the University of Hong Kong.
 

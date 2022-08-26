@@ -1,11 +1,7 @@
 (ref:introsepart) Data Science Foundations
 
 ```{r echo=FALSE, results="asis", purl=FALSE}
-if (is_latex_output()) {
-  cat("# (PART) (ref:introsepart) {-} ")
-} else {
-  cat("# (PART) Data Science Foundations {-} ")
-}
+cat("# (PART) Data Science Foundations {-} ")
 ```
 
 
@@ -13,7 +9,8 @@ if (is_latex_output()) {
 
 This notebook collects the scripts used for teaching in BIOF1001 for 
 Introduction to R (1 hour teaching). You can get this Rmd file 
-[here](https://github.com/StatBiomed/BMDatSci-book/blob/main/01-introR.Rmd).
+[here](https://github.com/StatBiomed/BMDatSci-book/blob/main/01-introR.Rmd)
+(right click and "save link as" to download).
 
 ## Data types
 ### nemeric (or double)

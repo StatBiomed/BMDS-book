@@ -4,10 +4,14 @@ This book is designed as the lecture notes and textbook for
 [BIOF1001: Introduction to Biomedical Data Science](),
 an undergraduate course (Year 1) at the University of Hong Kong.
 
+This book is not aimed to be a comprehensive textbook, but rather more 
+Rmarkdown notebooks as supplementary to lecture notes so that students can 
+reproduce the teaching contents more easily.
+
 ## Introduction for readers {-}
 
-### What we hope you will learn from this book {-}
-In part I, you will find a general introduction to data science:
+### What we hope you will learn from this course / book {-}
+In part I, you will find a general introduction to data science (by Dr YH Huang):
 
 1) Quantitative methods: t-test, correlation analysis, clustering, linear 
    regression, linear classification.
@@ -26,15 +30,15 @@ problem-based learning format:
 1) Personalised genomic medicine, by Dr David Shih and Dr Yuanhua Huang
 2) Medical imaging and digital health, by Dr Joshua Ho and Dr Lequan Yu
 3) Infectious disease informatics, by Dr Tommy Lam and Dr Kathy Leung
-4) Population genetics and diseases, by Dr Clara Tang and Dr Wanling Yang
-5) Epidemiology of cancer and other diseases, by Jason Wong and Dr Carlos Wong
+4) Population genetics and diseases, by Dr Clara Tang and Dr Asif Javed
+5) Epidemiology of cancer and other diseases, by Dr Jason Wong and Dr Carlos Wong
 
 
 ### What we recommend you do while reading this book {-}
 To enhance the knowledge and skills learned from this book, we recommend the
 readers
 
-1) Read materials provided in each module
+1) Read materials/slides provided in each module
 2) Practice quantitative skills by solving problems using R
 
 ## Acknowledgements {-}
@@ -44,4 +48,19 @@ readers
 
 
 
-# About the authors {-}
+<!-- # About the authors {-} -->
+
+<!-- The authors are the teaching team for the BIOF1001 course (ordered by teaching  -->
+<!-- time): -->
+
+<!-- * Dr Yuanhua Huang (course coordinator) -->
+<!-- * Dr David Shih -->
+<!-- * Dr Joshua Ho -->
+<!-- * Dr Lequan Yu -->
+<!-- * Dr Tommy Lam -->
+<!-- * Dr Kathy Leung -->
+<!-- * Dr Clara Tang -->
+<!-- * Dr Asif Javed -->
+<!-- * Dr Jason Wong -->
+<!-- * Dr Carlos Wong -->
+
