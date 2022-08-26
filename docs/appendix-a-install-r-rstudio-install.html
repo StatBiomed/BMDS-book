@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Infectious Disease Informatics | Biomedical Data Science - introduction with case studies</title>
+  <title>Appendix A: Install R &amp; RStudio {#install} | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Infectious Disease Informatics | Biomedical Data Science - introduction with case studies" />
+  <meta property="og:title" content="Appendix A: Install R &amp; RStudio {#install} | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Infectious Disease Informatics | Biomedical Data Science - introduction with case studies" />
+  <meta name="twitter:title" content="Appendix A: Install R &amp; RStudio {#install} | Biomedical Data Science - introduction with case studies" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -23,15 +23,15 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2022-08-26" />
+<meta name="date" content="2022-08-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="image-digital.html"/>
-<link rel="next" href="genetics-dis.html"/>
+<link rel="prev" href="epidemiology.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -141,12 +141,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#introduction-for-readers"><i class="fa fa-check"></i>Introduction for readers</a>
 <ul>
-<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#what-we-hope-you-will-learn-from-this-course-book"><i class="fa fa-check"></i>What we hope you will learn from this course / book</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#what-we-hope-you-will-learn-from-this-book"><i class="fa fa-check"></i>What we hope you will learn from this book</a></li>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#what-we-recommend-you-do-while-reading-this-book"><i class="fa fa-check"></i>What we recommend you do while reading this book</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#last-notes"><i class="fa fa-check"></i>Last notes</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the authors</a></li>
 <li class="part"><span><b>I Data Science Foundations</b></span></li>
 <li class="chapter" data-level="1" data-path="introR.html"><a href="introR.html"><i class="fa fa-check"></i><b>1</b> Introduction to R programming</a>
 <ul>
@@ -189,8 +190,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.6.4" data-path="introR.html"><a href="introR.html#regression"><i class="fa fa-check"></i><b>1.6.4</b> Regression</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introML.html"><a href="introML.html"><i class="fa fa-check"></i><b>2</b> Introduction to Machine Learning</a></li>
-<li class="chapter" data-level="3" data-path="introStats.html"><a href="introStats.html"><i class="fa fa-check"></i><b>3</b> Introduction to Statistical testing</a></li>
+<li class="chapter" data-level="2" data-path="introStats.html"><a href="introStats.html"><i class="fa fa-check"></i><b>2</b> Introduction to Statistical testing</a></li>
+<li class="chapter" data-level="3" data-path="introML.html"><a href="introML.html"><i class="fa fa-check"></i><b>3</b> Introduction to Machine Learning</a></li>
 <li class="part"><span><b>II Biomedical Data Modules</b></span></li>
 <li class="chapter" data-level="4" data-path="genomics.html"><a href="genomics.html"><i class="fa fa-check"></i><b>4</b> Personalised Genomic Medicine</a></li>
 <li class="chapter" data-level="5" data-path="image-digital.html"><a href="image-digital.html"><i class="fa fa-check"></i><b>5</b> Medical Image and Digital Health</a></li>
@@ -198,23 +199,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="genetics-dis.html"><a href="genetics-dis.html"><i class="fa fa-check"></i><b>7</b> Population Genetics and Diseases</a></li>
 <li class="chapter" data-level="8" data-path="epidemiology.html"><a href="epidemiology.html"><i class="fa fa-check"></i><b>8</b> Epidemiology of Cancer and Other Diseases</a></li>
 <li class="part"><span><b>III Appendix</b></span></li>
-<li class="chapter" data-level="" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i>Appendix A: Install R &amp; RStudio</a>
+<li class="chapter" data-level="" data-path="appendix-a-install-r-rstudio-install.html"><a href="appendix-a-install-r-rstudio-install.html"><i class="fa fa-check"></i>Appendix A: Install R &amp; RStudio {#install}</a>
 <ul>
-<li class="chapter" data-level="" data-path="install.html"><a href="install.html#a.1-install-r"><i class="fa fa-check"></i>A.1 Install R</a>
+<li class="chapter" data-level="" data-path="appendix-a-install-r-rstudio-install.html"><a href="appendix-a-install-r-rstudio-install.html#a.1-install-r"><i class="fa fa-check"></i>A.1 Install R</a>
 <ul>
-<li class="chapter" data-level="" data-path="install.html"><a href="install.html#r-on-windows"><i class="fa fa-check"></i>R on Windows</a></li>
-<li class="chapter" data-level="" data-path="install.html"><a href="install.html#r-on-macos"><i class="fa fa-check"></i>R on macOS</a></li>
-<li class="chapter" data-level="" data-path="install.html"><a href="install.html#r-on-ubuntu"><i class="fa fa-check"></i>R on Ubuntu</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-install-r-rstudio-install.html"><a href="appendix-a-install-r-rstudio-install.html#r-on-windows"><i class="fa fa-check"></i>R on Windows</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-install-r-rstudio-install.html"><a href="appendix-a-install-r-rstudio-install.html#r-on-macos"><i class="fa fa-check"></i>R on macOS</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-install-r-rstudio-install.html"><a href="appendix-a-install-r-rstudio-install.html#r-on-ubuntu"><i class="fa fa-check"></i>R on Ubuntu</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="install.html"><a href="install.html#a.2-install-rstudio"><i class="fa fa-check"></i>A.2 Install RStudio</a></li>
-<li class="chapter" data-level="" data-path="install.html"><a href="install.html#a.3-use-r-inside-rstudio"><i class="fa fa-check"></i>A.3 Use R inside RStudio</a>
-<ul>
-<li class="chapter" data-level="" data-path="install.html"><a href="install.html#r-studio"><i class="fa fa-check"></i>R studio</a></li>
-<li class="chapter" data-level="" data-path="install.html"><a href="install.html#set-working-directory"><i class="fa fa-check"></i>Set working directory</a></li>
-<li class="chapter" data-level="" data-path="install.html"><a href="install.html#some-general-knowledge"><i class="fa fa-check"></i>Some general knowledge</a></li>
-<li class="chapter" data-level="" data-path="install.html"><a href="install.html#install-packages-1"><i class="fa fa-check"></i>Install packages</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="install.html"><a href="install.html#a4.-cloud-computing"><i class="fa fa-check"></i>A4. Cloud computing</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-install-r-rstudio-install.html"><a href="appendix-a-install-r-rstudio-install.html#a.2-install-rstudio"><i class="fa fa-check"></i>A.2 Install RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -237,17 +230,151 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="infectious-dis" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Infectious Disease Informatics<a href="infectious-dis.html#infectious-dis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="appendix-a-install-r-rstudio-install" class="section level1 unnumbered hasAnchor">
+<h1>Appendix A: Install R &amp; RStudio {#install}<a href="appendix-a-install-r-rstudio-install.html#appendix-a-install-r-rstudio-install" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This manual covers the installation of both R and RStudio for three different
+operating systems: Windows, macOS and Ubuntu. You only need to follow the one
+that you are using on your computer.</p>
+<p><strong>Difference between R and RStudio</strong></p>
+<ul>
+<li><p>R is the backbone of R programming. Once R is installed, you can use it
+via its build-in <code>R Console</code> (self-contained), terminal or any third-party
+integrated development environment (IDE), e.g., RStudio.</p></li>
+<li><p>RStudio is a multi-facet and user-friendly IDE that can make R programming and
+data analysis in one place and easy to manage. We recommend using RStudio
+and only demonstrate with it, while you are free to use any other alternative.</p></li>
+</ul>
+<div id="a.1-install-r" class="section level2 unnumbered hasAnchor">
+<h2>A.1 Install R<a href="appendix-a-install-r-rstudio-install.html#a.1-install-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="r-on-windows" class="section level3 unnumbered hasAnchor">
+<h3>R on Windows<a href="appendix-a-install-r-rstudio-install.html#r-on-windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Open an internet browser and go to <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>.</li>
+<li>Click on the <code>Download R for Windows</code> link at the top of the page.</li>
+<li>Choose the <code>base</code> and then Click on the <code>Download R 4.2.1 for Windows</code>
+link at the top of the page (or a new version if this manual is outdated).</li>
+<li>Once the download is finished, you will obtain a file named
+<code>R-4.2.1-win.exe</code> or similar depending on the version that you download.</li>
+<li>Most of the time, you will likely want to go with the defaults, so click the
+button <code>Next</code> until the process is complete.</li>
+</ul>
+</div>
+<div id="r-on-macos" class="section level3 unnumbered hasAnchor">
+<h3>R on macOS<a href="appendix-a-install-r-rstudio-install.html#r-on-macos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Open an internet browser and go to <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>.</li>
+<li>Click on the <code>Download R for macOS</code> link at the top of the page.</li>
+<li>Click on the file containing the latest version of R under the
+<strong>Latest release</strong>.</li>
+<li>Save the <code>.pkg</code> file, double-click it to open, and follow the installation
+instructions.
+<strong>Note</strong>, there are two versions of the .pkg installation file according to
+the CPU model: Intel Macs (Intel-based) or M1 Macs (ARM-based).
+<strong>Please choose accordingly</strong>.</li>
+</ul>
+</div>
+<div id="r-on-ubuntu" class="section level3 unnumbered hasAnchor">
+<h3>R on Ubuntu<a href="appendix-a-install-r-rstudio-install.html#r-on-ubuntu" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As it is common, prior to installing R, let us update the system package index
+and upgrade all our installed packages using the following two commands:</p>
+<pre><code>sudo apt update
+sudo apt -y upgrade</code></pre>
+<p>After that, all that you have to do is run the following in the command line to
+install base R.</p>
+<pre><code>sudo apt -y install r-base</code></pre>
+</div>
+</div>
+<div id="a.2-install-rstudio" class="section level2 unnumbered hasAnchor">
+<h2>A.2 Install RStudio<a href="appendix-a-install-r-rstudio-install.html#a.2-install-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that R is installed, you need to download and install RStudio.
+It is more straightforward to install RStudio and very similar across the three
+OS.</p>
+<ul>
+<li>Go to <a href="https://www.rstudio.com/products/rstudio/download/#download" class="uri">https://www.rstudio.com/products/rstudio/download/#download</a>. We are
+using `<code>RStudio Desktop</code> <strong>Free</strong> version.</li>
+<li>Click on the right file for your OS (e.g., <code>.exe</code> file for Windows)</li>
+<li>The installation process is very straightforward as the figure below.</li>
+</ul>
+<p><img src="images/RStudio_download.jpg" style="width:50.0%" /></p>
+<p><strong>Acknowledgements</strong>
+This manual is adapted and updated from the
+<a href="https://holab-hku.github.io/R-workshop/prerequisite.html">materials</a> produced
+by Xiunan Fang and other team members in Dr Joshua Ho’s lab.</p>
+<!-- ## Use R inside RStudio -->
+<!-- ### R studio  -->
+<!-- RStudio is very powerful for providing a a four pane work-spaces. -->
+<!-- Top-left panel: Your scripts of the R codes, script is good to keep a record of your work and also convenient for command execution. -->
+<!-- You can create a new script by: -->
+<!-- `` File –> New –> R Script`` -->
+<!-- Bottom-left panel: R console for R commands, where you actually run the R codes. -->
+<!-- Top-right panel: -->
+<!-- Workspace tab: All the data(more specifically, R objects) you have created in the ``Workspace`` and all previous commands you previously ran in the ``History``. -->
+<!-- Bottom-right panel: -->
+<!-- Files in your working directory(you probably should also set your working directory) in ``Files``, and the plots you have created in ``Plots``. -->
+<!-- ```{r fig4, echo=FALSE, message=FALSE, warning=FALSE} -->
+<!-- knitr::include_graphics("./images/rstudio.png") -->
+<!-- ``` -->
+<!-- ### Set working directory -->
+<!-- -  Create a folder named “R-workshop” in your preferred directory -->
+<!-- -  Create a "Data" folder in the "R-workshop"  -->
+<!-- -  Download the data from the GitHub: -->
+<!--   [holab-hku.github.io/R-workshop/data/](https://github.com/holab-hku/holab-hku.github.io/tree/master/R-prework/data) for this workshop and store the data in the "data" folder -->
+<!-- -  From RStudio, use the menu to change your working directory under  -->
+<!-- ``Session > Set Working Directory > Choose Directory`` -->
+<!-- -  Choose the directory to “R-workshop” -->
+<!-- ```{r fig5, echo=FALSE, message=FALSE, warning=FALSE} -->
+<!-- knitr::include_graphics("./images/directory.png") -->
+<!-- ``` -->
+<!-- Or you can type in the console: -->
+<!-- ``` -->
+<!-- setwd("/yourdirectory/R-workshop") -->
+<!-- ``` -->
+<!-- For Windows, the command might look like : -->
+<!-- ``` -->
+<!-- setwd("c:/yourdirectory/R-workshop") -->
+<!-- ``` -->
+<!-- ### Some general knowledge -->
+<!-- - R is case-sensitive -->
+<!-- - Type enter to run R code in console pane  -->
+<!-- - Ctrl-enter or Cmd-return if the code is in the scripts pane. -->
+<!-- - Comments comes after # will not be treated as codes -->
+<!-- - R has some pre-loaded data sets, to see the list of pre-loaded data, type ``data()`` -->
+<!-- - In R, a function is an object, a basic syntax of an R function looks like something below: -->
+<!-- ``` -->
+<!-- function_name <- function(arg_1, arg_2, ...) { -->
+<!--    actual function codes -->
+<!-- } -->
+<!-- ``` -->
+<!-- For example: -->
+<!-- ```{r} -->
+<!-- st.err <- function(x){ -->
+<!--   sd(x)/sqrt(length(x)) -->
+<!-- } -->
+<!-- ``` -->
+<!-- R contains a lot of build-in functions, you can use ``?`` to see the documentation of a function, there are also a lot if external libraries with specific functions. To use a library, we do: -->
+<!-- ``` -->
+<!-- install.packages('package_name') -->
+<!-- library(package_name) -->
+<!-- ``` -->
+<!-- ### Install packages -->
+<!-- There are several packages used in this workshop, in the R console, type: -->
+<!-- ``` -->
+<!-- install.packages('ggplot2') -->
+<!-- install.packages('gplots') -->
+<!-- install.packages('NMF') -->
+<!-- install.packages('stats') -->
+<!-- install.packages('ggfortify') -->
+<!-- ``` -->
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="image-digital.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="genetics-dis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="epidemiology.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -278,7 +405,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/statbiomed/BMDS-book/tree/main/06-M3-InfeciousDis.Rmd",
+"link": "https://github.com/statbiomed/BMDS-book/tree/main/09-installation.Rmd",
 "text": "Edit"
 },
 "history": {

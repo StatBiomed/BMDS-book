@@ -38,8 +38,8 @@ orders-of-operators
 functions-for-statistics
 hypothesis-testing-t-test
 regression
-introStats
 introML
+introStats
 genomics
 image-digital
 infectious-dis

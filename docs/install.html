@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Infectious Disease Informatics | Biomedical Data Science - introduction with case studies</title>
+  <title>Appendix A: Install R &amp; RStudio | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Infectious Disease Informatics | Biomedical Data Science - introduction with case studies" />
+  <meta property="og:title" content="Appendix A: Install R &amp; RStudio | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Infectious Disease Informatics | Biomedical Data Science - introduction with case studies" />
+  <meta name="twitter:title" content="Appendix A: Install R &amp; RStudio | Biomedical Data Science - introduction with case studies" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="image-digital.html"/>
-<link rel="next" href="genetics-dis.html"/>
+<link rel="prev" href="epidemiology.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -237,17 +237,164 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="infectious-dis" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Infectious Disease Informatics<a href="infectious-dis.html#infectious-dis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="install" class="section level1 unnumbered hasAnchor">
+<h1>Appendix A: Install R &amp; RStudio<a href="install.html#install" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This manual covers the installation of both R and RStudio for three different
+operating systems: Windows, macOS and Ubuntu. You only need to follow the one
+that you are using on your computer.</p>
+<p><strong>Difference between R and RStudio</strong></p>
+<ul>
+<li><p>R is the backbone of R programming. Once R is installed, you can use it
+via its build-in <code>R Console</code> (self-contained), terminal or any third-party
+integrated development environment (IDE), e.g., RStudio.</p></li>
+<li><p>RStudio is a multi-facet and user-friendly IDE that can make R programming and
+data analysis in one place and easy to manage. We recommend using RStudio
+and only demonstrate with it, while you are free to use any other alternative.</p></li>
+</ul>
+<p><strong>Acknowledgements</strong>
+This manual is adapted and updated from the
+<a href="https://holab-hku.github.io/R-workshop/prerequisite.html">materials</a> produced
+by Xiunan Fang and other team members in Dr Joshua Ho’s lab.</p>
+<div id="a.1-install-r" class="section level2 unnumbered hasAnchor">
+<h2>A.1 Install R<a href="install.html#a.1-install-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="r-on-windows" class="section level3 unnumbered hasAnchor">
+<h3>R on Windows<a href="install.html#r-on-windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Open an internet browser and go to <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>.</li>
+<li>Click on the <code>Download R for Windows</code> link at the top of the page.</li>
+<li>Choose the <code>base</code> and then Click on the <code>Download R 4.2.1 for Windows</code>
+link at the top of the page (or a new version if this manual is outdated).</li>
+<li>Once the download is finished, you will obtain a file named
+<code>R-4.2.1-win.exe</code> or similar depending on the version that you download.</li>
+<li>Most of the time, you will likely want to go with the defaults, so click the
+button <code>Next</code> until the process is complete.</li>
+</ul>
+</div>
+<div id="r-on-macos" class="section level3 unnumbered hasAnchor">
+<h3>R on macOS<a href="install.html#r-on-macos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Open an internet browser and go to <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>.</li>
+<li>Click on the <code>Download R for macOS</code> link at the top of the page.</li>
+<li>Click on the file containing the latest version of R under the
+<strong>Latest release</strong>.</li>
+<li>Save the <code>.pkg</code> file, double-click it to open, and follow the installation
+instructions.
+<strong>Note</strong>, there are two versions of the .pkg installation file according to
+the CPU model: Intel Macs (Intel-based) or M1 Macs (ARM-based).
+<strong>Please choose accordingly</strong>.</li>
+</ul>
+</div>
+<div id="r-on-ubuntu" class="section level3 unnumbered hasAnchor">
+<h3>R on Ubuntu<a href="install.html#r-on-ubuntu" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As it is common, prior to installing R, let us update the system package index
+and upgrade all our installed packages using the following two commands:</p>
+<pre><code>sudo apt update
+sudo apt -y upgrade</code></pre>
+<p>After that, all that you have to do is run the following in the command line to
+install base R.</p>
+<pre><code>sudo apt -y install r-base</code></pre>
+</div>
+</div>
+<div id="a.2-install-rstudio" class="section level2 unnumbered hasAnchor">
+<h2>A.2 Install RStudio<a href="install.html#a.2-install-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that R is installed, you need to download and install RStudio.
+It is more straightforward to install RStudio and very similar across the three
+OS.</p>
+<ul>
+<li>Go to <a href="https://www.rstudio.com/products/rstudio/download/#download" class="uri">https://www.rstudio.com/products/rstudio/download/#download</a>. We are
+using `<code>RStudio Desktop</code> <strong>Free</strong> version.</li>
+<li>Click on the right file for your OS (e.g., <code>.exe</code> file for Windows)</li>
+<li>The installation process is very straightforward as the figure below.</li>
+</ul>
+<p><img src="images/RStudio_download.jpg" style="width:65.0%" /></p>
+</div>
+<div id="a.3-use-r-inside-rstudio" class="section level2 unnumbered hasAnchor">
+<h2>A.3 Use R inside RStudio<a href="install.html#a.3-use-r-inside-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="r-studio" class="section level3 unnumbered hasAnchor">
+<h3>R studio<a href="install.html#r-studio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>RStudio is very powerful for providing a four-pane workspace.</p>
+<ul>
+<li><p>Top-left panel: Your scripts of the R codes, script is good to keep a record
+of your work and also convenient for command execution.</p>
+<p>You can create a new script by <code>File –&gt; New –&gt; R Script</code></p></li>
+<li><p>Bottom-left panel: R console for R commands, where you actually run the R
+codes.</p></li>
+<li><p>Top-right panel: Workspace tab: All the data(more specifically, R objects)
+you have created in the <code>Workspace</code> and all previous commands you
+previously ran in the <code>History</code>.</p></li>
+<li><p>Bottom-right panel: Files in your working directory(you probably should also
+set your working directory) in <code>Files</code>, and the plots you have created in
+<code>Plots</code>.</p></li>
+</ul>
+<p><img src="images/rstudio.png" style="width:65.0%" /></p>
+</div>
+<div id="set-working-directory" class="section level3 unnumbered hasAnchor">
+<h3>Set working directory<a href="install.html#set-working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Create a folder named “biof_Rdir” in your preferred directory</li>
+<li>Create a “data” folder in the “biof_Rdir”</li>
+<li>From RStudio, use the menu to change your working directory under
+<code>Session &gt; Set Working Directory &gt; Choose Directory</code></li>
+<li>Choose the directory to “biof_Rdir”</li>
+</ul>
+<p><img src="images/directory.png" style="width:65.0%" /></p>
+<p>Or you can type in the console:</p>
+<pre><code>setwd(&quot;/yourdirectory/biof_Rdir&quot;)</code></pre>
+<p>For Windows, the command might look like :</p>
+<pre><code>setwd(&quot;c:/yourdirectory/biof_Rdir&quot;)</code></pre>
+</div>
+<div id="some-general-knowledge" class="section level3 unnumbered hasAnchor">
+<h3>Some general knowledge<a href="install.html#some-general-knowledge" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>R is case-sensitive</li>
+<li>Type enter to run R code in the console pane</li>
+<li>Ctrl-enter or Cmd-return if the code is in the scripts pane.</li>
+<li>Comments come after # will not be treated as codes</li>
+<li>R has some pre-loaded data sets, to see the list of pre-loaded data, type
+<code>data()</code></li>
+<li>In R, a function is an object, a basic syntax of an R function looks like
+something below:</li>
+</ul>
+<pre><code>function_name &lt;- function(arg_1, arg_2, ...) {
+   actual function codes
+}</code></pre>
+<p>For example:</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="install.html#cb151-1" aria-hidden="true" tabindex="-1"></a>my_average <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb151-2"><a href="install.html#cb151-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(x)<span class="sc">/</span><span class="fu">length</span>(x)</span>
+<span id="cb151-3"><a href="install.html#cb151-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb151-4"><a href="install.html#cb151-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-5"><a href="install.html#cb151-5" aria-hidden="true" tabindex="-1"></a><span class="fu">my_average</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>))</span></code></pre></div>
+<pre><code>## [1] 4.25</code></pre>
+<p>R contains a lot of built-in functions, you can use <code>?</code> to see the
+documentation of a function, there are also a lot of external libraries with
+specific functions. To use a library, we do:</p>
+<pre><code>install.packages(&#39;package_name&#39;)
+library(package_name)</code></pre>
+</div>
+<div id="install-packages-1" class="section level3 unnumbered hasAnchor">
+<h3>Install packages<a href="install.html#install-packages-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are several packages used in this workshop, in the R console, type:</p>
+<pre><code>install.packages(&#39;ggplot2&#39;)
+install.packages(&#39;pheatmap&#39;)
+install.packages(&#39;aod&#39;)</code></pre>
+</div>
+</div>
+<div id="a4.-cloud-computing" class="section level2 unnumbered hasAnchor">
+<h2>A4. Cloud computing<a href="install.html#a4.-cloud-computing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In case you have limited computing power, you can still use cloud computing to
+finish this course. There can be multiple options and here we mainly recommend
+RStudio cloud (<a href="https://rstudio.cloud" class="uri">https://rstudio.cloud</a>). You can explore directly from their
+website.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="image-digital.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="genetics-dis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="epidemiology.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -278,7 +425,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/statbiomed/BMDS-book/tree/main/06-M3-InfeciousDis.Rmd",
+"link": "https://github.com/statbiomed/BMDS-book/tree/main/09-installation.Rmd",
 "text": "Edit"
 },
 "history": {
