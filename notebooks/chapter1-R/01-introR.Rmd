@@ -10,12 +10,22 @@ Introduction to R (1 hour teaching). You can get this Rmd file
 During computing, all data are loaded / stored in memory (RAM) through a group 
 of binary bits, usually 8 bits as a byte. In R language setting (similar to 
 some other programming languages), there are a few commonly used data types 
-that have specific number of byte to use.
+that have specific number of bytes to use.
+
+In R, you can use the `class()` and `typeof()` functions to check the class and 
+data type of any variable. In total, R has five data types:
+
+1. Numeric
+2. Integers
+3. Complex
+4. Logical
+5. Characters
 
 
 ### nemeric (or double)
-Numberic is the most common data type. It may also called `double` for 
-traditional reason.
+The `numberic` is for numeric values, as the most common and the **default** 
+data type. The `numberic` datatype saves values in double precision (double 
+number of bytes in memory), so the type is also `double`.
 
 ```{r}
 x <- c(1.0, 2.0, 5.0, 7.0)
@@ -25,20 +35,43 @@ typeof(x)
 ```
 
 ### integer
+The integer is another data type used for the set of all integers. You can use 
+the capital ‘L’ notation as a suffix to specify a particular value as the 
+integer data type. Also, you can convert a value into an integer type using the `as.integer()` function.
+
 ```{r}
 y <- c(1L, 2L, 5L, 7L)
 y
+class(y)
 typeof(y)
 ```
 
+```{r}
+# Assign a integer value to y
+y = 5
+ 
+# is y an integer?
+print(is.integer(y))
+```
+
+
 ### logical
+In R, the `logical` data type takes either a value of true or false. A `logical` 
+value is often generated when comparing between variables.
+
 ```{r}
 z <- c(TRUE, TRUE, TRUE, FALSE)
 z
 typeof(z)
 ```
 
+
 ### character
+In R, the `character` is a data type where you have all the alphabets and 
+special characters. It stores `character` values or `strings`. Strings in R can 
+contain alphabets, numbers, and symbols. The character type is usually denoted 
+by wrapping the value inside single or double inverted commas.
+
 ```{r}
 w <- c("aa", "bb", "5", "7")
 w
@@ -46,7 +79,7 @@ typeof(w)
 ```
 
 ### Memeory usage
-As can be seen below, integer and logical uses only half of the memory of double (numeric) and character
+As we will see below, integer and logical uses only half of the memory of double (numeric) and character.
 ```{r}
 x <- c(1.0, 2.0, 5.0, 7.0)
 y <- c(1L, 2L, 5L, 7L)
@@ -74,6 +107,9 @@ type (no matter double, integer, character or others).
 
 You can check the data type by using `typeof()` function and the length of the 
 vector by `length()` function.
+
+Since, a vector must have elements of the same type, this function will try and coerce elements to the same type, if they are different. Coercion is from lower 
+to higher types from logical to integer to double to character.
 
 More introduction see [here](https://www.datamentor.io/r-programming/vector/).
 
@@ -115,8 +151,17 @@ A
 Two index vector, you can use `logical` or `integer`, or the element name if it
 has.
 
+In R, the index *starts from 1*, unlike most programming languages where index 
+start from 0.
+
+We can also use negative integers to return all elements except that those 
+specified. But we cannot mix positive and negative integers while indexing and 
+real numbers, if used, are truncated to integers.
+
 **N.B.**, when using logical as index, be careful if the index length is 
 different from the vector.
+
+
 ```{r}
 x <- 1:12
 
@@ -156,7 +201,11 @@ A
 ```
 
 ### List
-A list of any data structure: value, vector, matrix, etc
+Different from `vector` that have all elements in the same data type, the `list`
+data structure can have components of mixed data types.
+
+More broadly, a `list` can contain a list of any data structure: value, vector, 
+matrix, etc
 ```{r}
 x <- list(2.5, TRUE, 1:3)
 x
@@ -169,7 +218,9 @@ str(x)
 ```
 
 #### Indexing list
-Different from vector and matrix, for list, you need to double-layer square brackets, either by numeric index or name. Alternatively, you can also use `$` symbol.
+Different from vector and matrix, for list, you need to double-layer square 
+brackets, either by numeric index or name. Alternatively, you can also use `$` 
+symbol.
 ```{r}
 x[[3]]
 
@@ -197,7 +248,8 @@ df$Age[2]
 ```
 
 ### Factor vs vector
-Factor is a data structure used for fields that takes only predefined, finite number of values (categorical data)
+Factor is a data structure used for fields that takes only predefined, finite 
+number of values (categorical data)
 ```{r}
 x = c("single", "married", "married", "single") # vector
 x
@@ -262,7 +314,8 @@ base::mean(x)
 ```
 
 ### Install packages
-It depends on where the package is stored. Please refers to the documentation of the specific package you want to install and use.
+It depends on where the package is stored. Please refers to the documentation 
+of the specific package you want to install and use.
 
 1. CRAN  (the Comprehensive R Archive Network): main platform
     - For example: `install.packages("ggplot2")`
@@ -350,6 +403,7 @@ If you are not sure about a certain ordering, use brackets!
 
 ### Functions for statistics
 More theroy and practice to come in next session
+
 ### Correlation
 ```{r}
 cor(iris$Sepal.Length, iris$Petal.Length)
@@ -357,6 +411,7 @@ cor(iris$Sepal.Length, iris$Petal.Length)
 ```{r}
 cor.test(iris$Sepal.Length, iris$Petal.Length)
 ```
+
 ### Hypothesis testing (t test)
 ```{r}
 x1 <- iris$Sepal.Length[iris$Species == "setosa"]
@@ -365,6 +420,7 @@ x3 <- iris$Sepal.Length[iris$Species == "virginica"]
 
 t.test(x2, x3)
 ```
+
 ### Regression
 ```{r}
 fit <- lm(Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width, data=iris)
@@ -389,5 +445,11 @@ cor(iris$Sepal.Length, y_pred)
 plot(iris$Sepal.Length, y_pred)
 ```
 
+
+**Resources** used here:
+
+- https://www.datamentor.io/r-programming/
+- https://www.geeksforgeeks.org/r-data-types/
+- https://data-flair.training/blogs/r-data-types/
 
 
