@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Introduction to Linear Regression | Biomedical Data Science - introduction with case studies</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Introduction to Linear Regression | Biomedical Data Science - introduction with case studies" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Introduction to Linear Regression | Biomedical Data Science - introduction with case studies" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="BIOF1001 teaching team" />
+
+
+<meta name="date" content="2022-08-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introR.html"/>
+<link rel="next" href="introClassifier.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">Biomedical Data Science</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#introduction-for-readers"><i class="fa fa-check"></i>Introduction for readers</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#what-we-hope-you-will-learn-from-this-course-book"><i class="fa fa-check"></i>What we hope you will learn from this course / book</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#what-we-recommend-you-do-while-reading-this-book"><i class="fa fa-check"></i>What we recommend you do while reading this book</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#last-notes"><i class="fa fa-check"></i>Last notes</a></li>
+</ul></li>
+<li class="part"><span><b>I Data Science Foundations</b></span></li>
+<li class="chapter" data-level="1" data-path="introR.html"><a href="introR.html"><i class="fa fa-check"></i><b>1</b> Introduction to R programming</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introR.html"><a href="introR.html#data-types"><i class="fa fa-check"></i><b>1.1</b> Data types</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="introR.html"><a href="introR.html#nemeric-or-double"><i class="fa fa-check"></i><b>1.1.1</b> nemeric (or double)</a></li>
+<li class="chapter" data-level="1.1.2" data-path="introR.html"><a href="introR.html#integer"><i class="fa fa-check"></i><b>1.1.2</b> integer</a></li>
+<li class="chapter" data-level="1.1.3" data-path="introR.html"><a href="introR.html#logical"><i class="fa fa-check"></i><b>1.1.3</b> logical</a></li>
+<li class="chapter" data-level="1.1.4" data-path="introR.html"><a href="introR.html#character"><i class="fa fa-check"></i><b>1.1.4</b> character</a></li>
+<li class="chapter" data-level="1.1.5" data-path="introR.html"><a href="introR.html#memeory-usage"><i class="fa fa-check"></i><b>1.1.5</b> Memeory usage</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introR.html"><a href="introR.html#data-structures"><i class="fa fa-check"></i><b>1.2</b> Data structures</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introR.html"><a href="introR.html#vector"><i class="fa fa-check"></i><b>1.2.1</b> Vector</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introR.html"><a href="introR.html#matrix"><i class="fa fa-check"></i><b>1.2.2</b> Matrix</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introR.html"><a href="introR.html#list"><i class="fa fa-check"></i><b>1.2.3</b> List</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introR.html"><a href="introR.html#data-frame"><i class="fa fa-check"></i><b>1.2.4</b> Data Frame</a></li>
+<li class="chapter" data-level="1.2.5" data-path="introR.html"><a href="introR.html#factor-vs-vector"><i class="fa fa-check"></i><b>1.2.5</b> Factor vs vector</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introR.html"><a href="introR.html#read-and-write-files-tables"><i class="fa fa-check"></i><b>1.3</b> Read and write files (tables)</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="introR.html"><a href="introR.html#read-file"><i class="fa fa-check"></i><b>1.3.1</b> Read file</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introR.html"><a href="introR.html#write-file"><i class="fa fa-check"></i><b>1.3.2</b> Write file</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introR.html"><a href="introR.html#functions-and-packages"><i class="fa fa-check"></i><b>1.4</b> Functions and Packages</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="introR.html"><a href="introR.html#install-packages"><i class="fa fa-check"></i><b>1.4.1</b> Install packages</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introR.html"><a href="introR.html#plotting"><i class="fa fa-check"></i><b>1.5</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="introR.html"><a href="introR.html#datasets"><i class="fa fa-check"></i><b>1.5.1</b> datasets</a></li>
+<li class="chapter" data-level="1.5.2" data-path="introR.html"><a href="introR.html#basic-plotting"><i class="fa fa-check"></i><b>1.5.2</b> Basic plotting</a></li>
+<li class="chapter" data-level="1.5.3" data-path="introR.html"><a href="introR.html#ggplot2"><i class="fa fa-check"></i><b>1.5.3</b> ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="introR.html"><a href="introR.html#scientific-and-statistical-computating"><i class="fa fa-check"></i><b>1.6</b> Scientific and statistical computating</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="introR.html"><a href="introR.html#orders-of-operators"><i class="fa fa-check"></i><b>1.6.1</b> Orders of operators</a></li>
+<li class="chapter" data-level="1.6.2" data-path="introR.html"><a href="introR.html#functions-for-statistics"><i class="fa fa-check"></i><b>1.6.2</b> Functions for statistics</a></li>
+<li class="chapter" data-level="1.6.3" data-path="introR.html"><a href="introR.html#hypothesis-testing-t-test"><i class="fa fa-check"></i><b>1.6.3</b> Hypothesis testing (t test)</a></li>
+<li class="chapter" data-level="1.6.4" data-path="introR.html"><a href="introR.html#regression"><i class="fa fa-check"></i><b>1.6.4</b> Regression</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introLinearReg.html"><a href="introLinearReg.html"><i class="fa fa-check"></i><b>2</b> Introduction to Linear Regression</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introLinearReg.html"><a href="introLinearReg.html#linear-regression-using-simulated-data"><i class="fa fa-check"></i><b>2.1</b> Linear Regression Using Simulated Data</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="introLinearReg.html"><a href="introLinearReg.html#simulating-data"><i class="fa fa-check"></i><b>2.1.1</b> Simulating data:</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introLinearReg.html"><a href="introLinearReg.html#model-efficacy"><i class="fa fa-check"></i><b>2.1.2</b> Model efficacy</a></li>
+<li class="chapter" data-level="2.1.3" data-path="introLinearReg.html"><a href="introLinearReg.html#r-squared"><i class="fa fa-check"></i><b>2.1.3</b> <em>R-Squared</em></a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="introLinearReg.html"><a href="introLinearReg.html#least-squares-using-simulated-data"><i class="fa fa-check"></i><b>2.2</b> Least Squares Using Simulated Data</a></li>
+<li class="chapter" data-level="2.3" data-path="introLinearReg.html"><a href="introLinearReg.html#diagnostic-check-of-a-fitted-regression-model"><i class="fa fa-check"></i><b>2.3</b> Diagnostic check of a fitted regression model</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introLinearReg.html"><a href="introLinearReg.html#residual-standard-errors-rse"><i class="fa fa-check"></i><b>2.3.1</b> Residual Standard Errors (RSE)</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introLinearReg.html"><a href="introLinearReg.html#p-values"><i class="fa fa-check"></i><b>2.3.2</b> p-values</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introLinearReg.html"><a href="introLinearReg.html#f-statistics"><i class="fa fa-check"></i><b>2.3.3</b> F-statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introLinearReg.html"><a href="introLinearReg.html#simple-linear-regression-with-lm-function"><i class="fa fa-check"></i><b>2.4</b> Simple Linear Regression with <code>lm</code> function</a></li>
+<li class="chapter" data-level="2.5" data-path="introLinearReg.html"><a href="introLinearReg.html#multiple-regression-with-lm-function"><i class="fa fa-check"></i><b>2.5</b> Multiple Regression with <code>lm</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introClassifier.html"><a href="introClassifier.html"><i class="fa fa-check"></i><b>3</b> Introduction to Classification</a></li>
+<li class="chapter" data-level="4" data-path="introHypoTest.html"><a href="introHypoTest.html"><i class="fa fa-check"></i><b>4</b> Introduction to Hypothesis testing</a></li>
+<li class="part"><span><b>II Biomedical Data Modules</b></span></li>
+<li class="chapter" data-level="5" data-path="genomics.html"><a href="genomics.html"><i class="fa fa-check"></i><b>5</b> Personalised Genomic Medicine</a></li>
+<li class="chapter" data-level="6" data-path="image-digital.html"><a href="image-digital.html"><i class="fa fa-check"></i><b>6</b> Medical Image and Digital Health</a></li>
+<li class="chapter" data-level="7" data-path="infectious-dis.html"><a href="infectious-dis.html"><i class="fa fa-check"></i><b>7</b> Infectious Disease Informatics</a></li>
+<li class="chapter" data-level="8" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>8</b> Population Genetics and Diseases</a></li>
+<li class="chapter" data-level="9" data-path="epidemiology.html"><a href="epidemiology.html"><i class="fa fa-check"></i><b>9</b> Epidemiology of Cancer and Other Diseases</a></li>
+<li class="part"><span><b>III Appendix</b></span></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i>Appendix A: Install R &amp; RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#a.1-install-r"><i class="fa fa-check"></i>A.1 Install R</a>
+<ul>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#r-on-windows"><i class="fa fa-check"></i>R on Windows</a></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#r-on-macos"><i class="fa fa-check"></i>R on macOS</a></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#r-on-ubuntu"><i class="fa fa-check"></i>R on Ubuntu</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#a.2-install-rstudio"><i class="fa fa-check"></i>A.2 Install RStudio</a></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#a.3-use-r-inside-rstudio"><i class="fa fa-check"></i>A.3 Use R inside RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#r-studio"><i class="fa fa-check"></i>R studio</a></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#set-working-directory"><i class="fa fa-check"></i>Set working directory</a></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#some-general-knowledge"><i class="fa fa-check"></i>Some general knowledge</a></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#install-packages-1"><i class="fa fa-check"></i>Install packages</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#a4.-cloud-computing"><i class="fa fa-check"></i>A4. Cloud computing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Biomedical Data Science - introduction with case studies</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introLinearReg" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Introduction to Linear Regression<a href="introLinearReg.html#introLinearReg" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Acknowledgements: this chapter is adapted and updated from the materials originally produced by STAT1005 teaching team, especially Prof. Jeff Yao.</p>
+<div id="linear-regression-using-simulated-data" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Linear Regression Using Simulated Data<a href="introLinearReg.html#linear-regression-using-simulated-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s first simulate some data and look at how the
+predicted values (<em>Y<sub>e</sub></em>) differ from the actual value (<em>Y</em>).</p>
+<div id="simulating-data" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Simulating data:<a href="introLinearReg.html#simulating-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>For <em>X</em>, we generate 100 normally distributed random numbers with mean 1.5
+and standard deviation 2.5.</p></li>
+<li><p>For predicted value <em>Y<sub>e</sub></em>, we assume an intercept (α) of 2 and a
+slope (β) of 0.3 and we write <span class="math inline">\(Y_e = 2 + 0.3 x\)</span></p>
+<p>Later, we will estimate the values of α and β using the least squares method
+and see how that changes the efficacy of the model.</p></li>
+<li><p>Though we estimate <span class="math inline">\(Y_e = \alpha + \beta X\)</span>, in reality Y is rarely perfectly
+linear. It usually has an error component or
+<strong>residual</strong>: <span class="math inline">\(Y = \alpha + \beta X + R\)</span>, where <em>R</em> is a random variable and
+is assumed to be normally distributed.</p>
+<p>Therefore for the actual value <em>Y</em>, we add a residual term (<code>res</code>), a random
+variable distributed normally with mean 0 and a standard deviation of 0.5.</p></li>
+</ul>
+<p>The following cell shows the code snippet to generate these numbers and convert
+these three columns in a data frame. Read through the code carefully and run
+the cell to output a sample of our simulated data.</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="introLinearReg.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix seed: each run gives the same random numbers so the same outputs. </span></span>
+<span id="cb146-2"><a href="introLinearReg.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Commenting out this line would read similar but different outputs at each run. </span></span>
+<span id="cb146-3"><a href="introLinearReg.html#cb146-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Try it out!</span></span>
+<span id="cb146-4"><a href="introLinearReg.html#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb146-5"><a href="introLinearReg.html#cb146-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-6"><a href="introLinearReg.html#cb146-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate data</span></span>
+<span id="cb146-7"><a href="introLinearReg.html#cb146-7" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fl">2.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">+</span> <span class="fl">1.5</span>   <span class="co"># Array of 100 values with mean = 1.5, stddev = 2.5</span></span>
+<span id="cb146-8"><a href="introLinearReg.html#cb146-8" aria-hidden="true" tabindex="-1"></a>ypred <span class="ot">=</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> X          <span class="co"># Prediction of Y, assuming a = 2, b = 0.3</span></span>
+<span id="cb146-9"><a href="introLinearReg.html#cb146-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-10"><a href="introLinearReg.html#cb146-10" aria-hidden="true" tabindex="-1"></a>res <span class="ot">=</span> <span class="fl">0.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)       <span class="co"># Generate 100 residual terms</span></span>
+<span id="cb146-11"><a href="introLinearReg.html#cb146-11" aria-hidden="true" tabindex="-1"></a>yact <span class="ot">=</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> X <span class="sc">+</span> res     <span class="co"># Actual values of Y</span></span>
+<span id="cb146-12"><a href="introLinearReg.html#cb146-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-13"><a href="introLinearReg.html#cb146-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dataframe to store our X, ypred, and yact values</span></span>
+<span id="cb146-14"><a href="introLinearReg.html#cb146-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&#39;X&#39;</span> <span class="ot">=</span> X, <span class="st">&#39;ypred&#39;</span> <span class="ot">=</span> ypred, <span class="st">&#39;yact&#39;</span> <span class="ot">=</span> yact)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="introLinearReg.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first six rows of our dataframe</span></span>
+<span id="cb147-2"><a href="introLinearReg.html#cb147-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<pre><code>##            X    ypred     yact
+## 1  4.6573857 3.397216 3.788145
+## 2  0.6844166 2.205325 1.816937
+## 3  4.8244982 3.447349 3.139354
+## 4  4.6810733 3.404322 3.427612
+## 5  2.5366036 2.760981 2.195788
+## 6 -2.3498751 1.295037 1.583397</code></pre>
+<p>Now let’s plot both the actual output (<code>yact</code>) and predicted output (<code>ypred</code>)
+against the input variable (<code>X</code>) to see what the difference between <code>yact</code> and
+<code>ypred</code> is, and therefore, to see how accurately the proposed equation
+(<code>ypred = 2 + 0.3 * X</code>) has been able to predict the value of the output:</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="introLinearReg.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can use basic plotting functions</span></span>
+<span id="cb149-2"><a href="introLinearReg.html#cb149-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(x=df$X, y=df$yact, col=&quot;red&quot;)</span></span>
+<span id="cb149-3"><a href="introLinearReg.html#cb149-3" aria-hidden="true" tabindex="-1"></a><span class="co"># lines(x=df$X, y=df$ypred, col=&quot;darkgreen&quot;)</span></span>
+<span id="cb149-4"><a href="introLinearReg.html#cb149-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-5"><a href="introLinearReg.html#cb149-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-6"><a href="introLinearReg.html#cb149-6" aria-hidden="true" tabindex="-1"></a><span class="co"># But let&#39;s use ggplot2 for higher flexibility</span></span>
+<span id="cb149-7"><a href="introLinearReg.html#cb149-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb149-8"><a href="introLinearReg.html#cb149-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-9"><a href="introLinearReg.html#cb149-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(X)) <span class="sc">+</span>                              <span class="co"># basic graphical object</span></span>
+<span id="cb149-10"><a href="introLinearReg.html#cb149-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>yact), <span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span>       <span class="co"># first layer</span></span>
+<span id="cb149-11"><a href="introLinearReg.html#cb149-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>ypred), <span class="at">colour=</span><span class="st">&quot;darkgreen&quot;</span>) <span class="sc">+</span>   <span class="co"># second layer</span></span>
+<span id="cb149-12"><a href="introLinearReg.html#cb149-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;Actual vs Predicted values from the dummy dataset&#39;</span>)</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+</div>
+<div id="model-efficacy" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Model efficacy<a href="introLinearReg.html#model-efficacy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>How do we know the values we calculate for α and β are giving us a good model?
+We can explain the total variability in our model with the
+<strong>Total Sum of Squares</strong> or SST:</p>
+<p><span class="math display">\[SST = \sum_{i=1}^n\Bigl(\text{yact}_i - \text{yavg}\Bigr)^2, \qquad\qquad \text{yavg}=\frac1n \sum_{i=1}^n \text{yact}_i\]</span></p>
+<p>Mathematically, we have</p>
+<p><span class="math display">\[ \sum_{i=1}^n\Bigl(\text{yact}_i - \text{yavg}\Bigr)^2
+= \sum_{i=1}^n\Bigl(\text{ypred}_i -\text{yavg} \Bigr)^2
++ \sum_{i=1}^n\Bigl(\text{yact}_i - \text{ypred}_i\Bigr)^2\]</span></p>
+<p>The identity reads as</p>
+<p><strong>Sum of Squares Total</strong> = <strong>Sum of Squares Regression</strong> + <strong>Sum of Squares Error</strong>,</p>
+<p>or simply ,</p>
+<p><strong>SST</strong> = <strong>SSR</strong> + <strong>SSE</strong>.</p>
+<p>The Regression Sum of Squares or SSR measures the variation of the
+regression/predicted values, and the Sum of Squares Error SSE the
+variation between the actual and the predicted values.<br />
+An alternative saying is that SSR is the difference explained by the model, SSE
+is the difference not explained by the model and is random, and SST is the
+total error.
+<strong>Note</strong>, we often use SSE (Sum of Squares Error) and SSD (Sum of Squares
+Difference) interchangeably.</p>
+</div>
+<div id="r-squared" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> <em>R-Squared</em><a href="introLinearReg.html#r-squared" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The higher the ratio of SSR to SST, the better the model is. This ratio is
+quantified by the <strong>coefficient of determination</strong> (also known as
+<strong><em>R<sup>2</sup></em></strong> or <strong><em>R</em>-squared</strong>):</p>
+<p><span class="math display">\[ R^2= \frac{SSR}{SST}\]</span></p>
+<p>Since <span class="math inline">\(SST= SSR+SSE\)</span>, <span class="math inline">\(\qquad 0\le R^2\le 1\)</span>.</p>
+<p>The closer it is to 1, the better the model. Note that there are many other
+factors that we need to analyse before we can conclude a linear regression
+model is effective, but a high <span class="math inline">\(R^2\)</span> is a pretty good indicator.</p>
+<p>Let’s see what the value of <span class="math inline">\(R^2\)</span> is for our simulated dataset.</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="introLinearReg.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean of Y</span></span>
+<span id="cb150-2"><a href="introLinearReg.html#cb150-2" aria-hidden="true" tabindex="-1"></a>ymean <span class="ot">=</span> <span class="fu">mean</span>(df<span class="sc">$</span>yact)</span>
+<span id="cb150-3"><a href="introLinearReg.html#cb150-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;Mean of Y =&#39;</span>, ymean)) <span class="co"># paste brings a white space by default</span></span></code></pre></div>
+<pre><code>## [1] &quot;Mean of Y = 2.44422555811815&quot;</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="introLinearReg.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate SSR and SST</span></span>
+<span id="cb152-2"><a href="introLinearReg.html#cb152-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;SSR&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;ypred&#39;</span>] <span class="sc">-</span> ymean)<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb152-3"><a href="introLinearReg.html#cb152-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;SST&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> ymean)<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb152-4"><a href="introLinearReg.html#cb152-4" aria-hidden="true" tabindex="-1"></a>SSR <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SSR&#39;</span>])</span>
+<span id="cb152-5"><a href="introLinearReg.html#cb152-5" aria-hidden="true" tabindex="-1"></a>SST <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SST&#39;</span>])</span>
+<span id="cb152-6"><a href="introLinearReg.html#cb152-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-7"><a href="introLinearReg.html#cb152-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate R-squared</span></span>
+<span id="cb152-8"><a href="introLinearReg.html#cb152-8" aria-hidden="true" tabindex="-1"></a>R2 <span class="ot">=</span> SSR <span class="sc">/</span> SST</span>
+<span id="cb152-9"><a href="introLinearReg.html#cb152-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;R2 =&#39;</span>, R2))</span></code></pre></div>
+<pre><code>## [1] &quot;R2 = 0.583160943681119&quot;</code></pre>
+<p>The value of <span class="math inline">\(R^2=0.583\)</span> suggests that <code>ypred</code> provides a decent prediction of
+the <code>yact</code>.</p>
+<p>We have randomly assumed some values for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>, but these may
+or may not be the best values. In the next step, we will use the least sum of
+square method to calculate the optimum value for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> to see if
+there is an improvement in <span class="math inline">\(R^2\)</span>.</p>
+<p>To get started on the next step, open the notebook called <code>02-linearReg-02.Rmd</code>.</p>
+</div>
+</div>
+<div id="least-squares-using-simulated-data" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Least Squares Using Simulated Data<a href="introLinearReg.html#least-squares-using-simulated-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now, using our simulated data from the previous step, let’s estimate the optimum values of our variable coefficients, <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. Using the predictor variable, <code>X</code>, and the output variable, <code>yact</code>, we will calculate the values of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> using the Least Squares method described in the lecture.</p>
+<p>The cell below creates the same dataframe as previously. Run the cell to get started!</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="introLinearReg.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb154-2"><a href="introLinearReg.html#cb154-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-3"><a href="introLinearReg.html#cb154-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate data</span></span>
+<span id="cb154-4"><a href="introLinearReg.html#cb154-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fl">2.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">+</span> <span class="fl">1.5</span>   <span class="co"># Array of 100 values with mean = 1.5, stddev = 2.5</span></span>
+<span id="cb154-5"><a href="introLinearReg.html#cb154-5" aria-hidden="true" tabindex="-1"></a>ypred <span class="ot">=</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> X          <span class="co"># Prediction of Y, assuming a = 2, b = 0.3</span></span>
+<span id="cb154-6"><a href="introLinearReg.html#cb154-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-7"><a href="introLinearReg.html#cb154-7" aria-hidden="true" tabindex="-1"></a>res <span class="ot">=</span> <span class="fl">0.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)       <span class="co"># Generate 100 residual terms</span></span>
+<span id="cb154-8"><a href="introLinearReg.html#cb154-8" aria-hidden="true" tabindex="-1"></a>yact <span class="ot">=</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> X <span class="sc">+</span> res     <span class="co"># Actual values of Y</span></span>
+<span id="cb154-9"><a href="introLinearReg.html#cb154-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-10"><a href="introLinearReg.html#cb154-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dataframe to store our X, ypred, and yact values</span></span>
+<span id="cb154-11"><a href="introLinearReg.html#cb154-11" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&#39;X&#39;</span> <span class="ot">=</span> X, <span class="st">&#39;ypred&#39;</span> <span class="ot">=</span> ypred, <span class="st">&#39;yact&#39;</span> <span class="ot">=</span> yact)</span></code></pre></div>
+<p>Just to reiterate, here are the formulas for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> again:</p>
+<p><span class="math display">\[\hat\beta=\frac{\sum_{i=1}^n(X_i-\bar X)(Y_i-\bar Y)}{\sum_{i=1}^n(X_i-\bar X)^2}=\frac{\text{cov}(X,Y)}{\text{var}(X)}\]</span></p>
+<p><span class="math display">\[\hat\alpha=\bar Y-\hat\beta * \bar X\]</span></p>
+<p>To calculate these coefficients, we will create a few more columns in our <code>df</code>
+data frame. We need to calculate <code>xmean</code> and <code>ymean</code> to calculate the covariance
+of X and Y (<code>xycov</code>) and the variance of X (<code>xvar</code>) before we can work out the
+values for <code>alpha</code> and <code>beta</code>.</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="introLinearReg.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean of X and Y</span></span>
+<span id="cb155-2"><a href="introLinearReg.html#cb155-2" aria-hidden="true" tabindex="-1"></a>xmean <span class="ot">=</span> <span class="fu">mean</span>(X)</span>
+<span id="cb155-3"><a href="introLinearReg.html#cb155-3" aria-hidden="true" tabindex="-1"></a>ymean <span class="ot">=</span> <span class="fu">mean</span>(yact)</span>
+<span id="cb155-4"><a href="introLinearReg.html#cb155-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-5"><a href="introLinearReg.html#cb155-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the terms needed for the numator and denominator of beta</span></span>
+<span id="cb155-6"><a href="introLinearReg.html#cb155-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;xycov&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;X&#39;</span>] <span class="sc">-</span> xmean) <span class="sc">*</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> ymean)</span>
+<span id="cb155-7"><a href="introLinearReg.html#cb155-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;xvar&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;X&#39;</span>] <span class="sc">-</span> xmean)<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb155-8"><a href="introLinearReg.html#cb155-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-9"><a href="introLinearReg.html#cb155-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate beta and alpha</span></span>
+<span id="cb155-10"><a href="introLinearReg.html#cb155-10" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;xycov&#39;</span>]) <span class="sc">/</span> <span class="fu">sum</span>(df[<span class="st">&#39;xvar&#39;</span>])</span>
+<span id="cb155-11"><a href="introLinearReg.html#cb155-11" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">=</span> ymean <span class="sc">-</span> (beta <span class="sc">*</span> xmean)</span>
+<span id="cb155-12"><a href="introLinearReg.html#cb155-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;alpha =&#39;</span>, alpha, <span class="st">&#39;;&#39;</span>, <span class="st">&#39;beta =&#39;</span>, beta))</span></code></pre></div>
+<pre><code>## [1] &quot;alpha = 1.93401265576322 ; beta = 0.327758955833308&quot;</code></pre>
+<p>As we can see, the values are only a little different from what we had assumed
+earlier.</p>
+<p>Let’s see how the value of <span class="math inline">\(R^2\)</span> changes if we use the new values of <span class="math inline">\(\alpha\)</span>
+and <span class="math inline">\(\beta\)</span>.</p>
+<p>The equation for the new model can be written as:
+<span class="math display">\[ y=1.934 + 0.328 * x \]</span></p>
+<p>Let’s create a new column in <code>df</code> to accommodate the values generated by this
+equation and call this <code>ypred2</code>, and calculate the new <span class="math inline">\(R^2\)</span>.</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="introLinearReg.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new column to store new predictions</span></span>
+<span id="cb157-2"><a href="introLinearReg.html#cb157-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;ypred2&#39;</span>] <span class="ot">=</span> alpha <span class="sc">+</span> beta <span class="sc">*</span> df[<span class="st">&#39;X&#39;</span>]</span>
+<span id="cb157-3"><a href="introLinearReg.html#cb157-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-4"><a href="introLinearReg.html#cb157-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate new SSR with new predictions of Y.</span></span>
+<span id="cb157-5"><a href="introLinearReg.html#cb157-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that SST remains the same since yact and ymean do not change.</span></span>
+<span id="cb157-6"><a href="introLinearReg.html#cb157-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;SSR2&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;ypred2&#39;</span>] <span class="sc">-</span> ymean)<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb157-7"><a href="introLinearReg.html#cb157-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;SST&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> ymean)<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb157-8"><a href="introLinearReg.html#cb157-8" aria-hidden="true" tabindex="-1"></a>SSR2 <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SSR2&#39;</span>])</span>
+<span id="cb157-9"><a href="introLinearReg.html#cb157-9" aria-hidden="true" tabindex="-1"></a>SST <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SST&#39;</span>])</span>
+<span id="cb157-10"><a href="introLinearReg.html#cb157-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-11"><a href="introLinearReg.html#cb157-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate new R2</span></span>
+<span id="cb157-12"><a href="introLinearReg.html#cb157-12" aria-hidden="true" tabindex="-1"></a>R2_2 <span class="ot">=</span> SSR2 <span class="sc">/</span> SST</span>
+<span id="cb157-13"><a href="introLinearReg.html#cb157-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;New R2 =&#39;</span>, R2_2))</span></code></pre></div>
+<pre><code>## [1] &quot;New R2 = 0.69524214766491&quot;</code></pre>
+<p>The new value of <span class="math inline">\(R^2= 0.695\)</span> shows a slight improvement from the previous
+value of <span class="math inline">\(R^2=0.583\)</span> (obtained with <span class="math inline">\(\alpha=2,~\beta=0.3\)</span>).</p>
+<p>Let’s also plot our new prediction model against the actual values and our
+earlier assumed model, just to get a better visual understanding.</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="introLinearReg.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb159-2"><a href="introLinearReg.html#cb159-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-3"><a href="introLinearReg.html#cb159-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Put color into aes</span></span>
+<span id="cb159-4"><a href="introLinearReg.html#cb159-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(X)) <span class="sc">+</span>                              <span class="co"># basic graphical object</span></span>
+<span id="cb159-5"><a href="introLinearReg.html#cb159-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>yact), <span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span>       <span class="co"># first layer</span></span>
+<span id="cb159-6"><a href="introLinearReg.html#cb159-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>ypred, <span class="at">colour=</span><span class="st">&quot;Guess&quot;</span>)) <span class="sc">+</span>       <span class="co"># second layer</span></span>
+<span id="cb159-7"><a href="introLinearReg.html#cb159-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>ypred2, <span class="at">colour=</span><span class="st">&quot;OLS&quot;</span>)) <span class="sc">+</span>        <span class="co"># third layer</span></span>
+<span id="cb159-8"><a href="introLinearReg.html#cb159-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">name=</span><span class="st">&quot;Models&quot;</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Guess&quot;</span><span class="ot">=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;OLS&quot;</span><span class="ot">=</span><span class="st">&quot;red&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb159-9"><a href="introLinearReg.html#cb159-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;Actual vs Predicted with guessed parameters vs Predicted with calculated parameters&#39;</span>)</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
+<p>As we can see, the <code>ypred2</code> and <code>ypred</code> are more or less overlapping since the
+respective values of ɑ and β are not very different.</p>
+<p>Next, we will explore other methods of determining model efficacy by using the
+notebook called <code>02-linearReg-03.Rmd</code>.</p>
+</div>
+<div id="diagnostic-check-of-a-fitted-regression-model" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Diagnostic check of a fitted regression model<a href="introLinearReg.html#diagnostic-check-of-a-fitted-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Apart from the <span class="math inline">\(R^2\)</span> statistic, there are other statistics and parameters that
+you need to look at in order to determine if the model is efficient. We will
+discuss some commonly used statistics – Residual Standard Errors, <span class="math inline">\(p\)</span>-values,
+and <span class="math inline">\(F\)</span>-statistics.</p>
+<div id="residual-standard-errors-rse" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Residual Standard Errors (RSE)<a href="introLinearReg.html#residual-standard-errors-rse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>RSE is a common statistic used to calculate the accuracy of values predicted by
+a model. It is an estimate of the variance of the error term, <code>res</code>. For a
+simple linear regression model, RSE is defined as:
+<span class="math display">\[  RSE^2 = \frac{SSE}{n-2} = \frac1{n-2} \sum_{i=1}^n  \Bigl(\text{yact}_i - \text{ypred}_i \Bigr)^2.
+\]</span></p>
+<p>In general,</p>
+<p><span class="math display">\[  RSE^2 = \frac{SSE}{n-p-1} = \frac1{n-p-1} \sum_{i=1}^n  \Bigl(\text{yact}_i - \text{ypred}_i \Bigr)^2.
+\]</span></p>
+<p>where <span class="math inline">\(p\)</span> is the number of predictor variables in a model where we have more
+than one predictor variables.</p>
+<p>A <strong>multiple linear regression</strong> model is a linear regression model with
+multiple predictors, written as<br />
+<span class="math display">\[  Y_e = \alpha +\beta_1 * X_1 +\cdots +\beta_p X_p.
+\]</span></p>
+<p>As you see, the parameters and predictors are subscripted from 1 up to the
+number of predictors <span class="math inline">\(p\)</span>.</p>
+<p>In multiple regression, the value of RSE generally decreases as we add
+variables that are more significant predictors of the output variable.</p>
+<p>Using our simulated data from the previous steps, the following code snippet
+shows how the RSE for a model can be calculated:</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="introLinearReg.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb160-2"><a href="introLinearReg.html#cb160-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-3"><a href="introLinearReg.html#cb160-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate data</span></span>
+<span id="cb160-4"><a href="introLinearReg.html#cb160-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fl">2.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">+</span> <span class="fl">1.5</span>   <span class="co"># Array of 100 values with mean = 1.5, stddev = 2.5</span></span>
+<span id="cb160-5"><a href="introLinearReg.html#cb160-5" aria-hidden="true" tabindex="-1"></a>res <span class="ot">=</span> <span class="fl">0.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)       <span class="co"># Generate 100 residual terms</span></span>
+<span id="cb160-6"><a href="introLinearReg.html#cb160-6" aria-hidden="true" tabindex="-1"></a>yact <span class="ot">=</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> X <span class="sc">+</span> res     <span class="co"># Actual values of Y</span></span>
+<span id="cb160-7"><a href="introLinearReg.html#cb160-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-8"><a href="introLinearReg.html#cb160-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dataframe to store our X, ypred, and yact values</span></span>
+<span id="cb160-9"><a href="introLinearReg.html#cb160-9" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&#39;X&#39;</span> <span class="ot">=</span> X, <span class="st">&#39;yact&#39;</span> <span class="ot">=</span> yact)</span>
+<span id="cb160-10"><a href="introLinearReg.html#cb160-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-11"><a href="introLinearReg.html#cb160-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean of X and Y</span></span>
+<span id="cb160-12"><a href="introLinearReg.html#cb160-12" aria-hidden="true" tabindex="-1"></a>xmean <span class="ot">=</span> <span class="fu">mean</span>(X)</span>
+<span id="cb160-13"><a href="introLinearReg.html#cb160-13" aria-hidden="true" tabindex="-1"></a>ymean <span class="ot">=</span> <span class="fu">mean</span>(yact)</span>
+<span id="cb160-14"><a href="introLinearReg.html#cb160-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-15"><a href="introLinearReg.html#cb160-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the terms needed for the numator and denominator of beta</span></span>
+<span id="cb160-16"><a href="introLinearReg.html#cb160-16" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;xycov&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;X&#39;</span>] <span class="sc">-</span> xmean) <span class="sc">*</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> ymean)</span>
+<span id="cb160-17"><a href="introLinearReg.html#cb160-17" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;xvar&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;X&#39;</span>] <span class="sc">-</span> xmean)<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb160-18"><a href="introLinearReg.html#cb160-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-19"><a href="introLinearReg.html#cb160-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate beta and alpha</span></span>
+<span id="cb160-20"><a href="introLinearReg.html#cb160-20" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;xycov&#39;</span>]) <span class="sc">/</span> <span class="fu">sum</span>(df[<span class="st">&#39;xvar&#39;</span>])</span>
+<span id="cb160-21"><a href="introLinearReg.html#cb160-21" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">=</span> ymean <span class="sc">-</span> (beta <span class="sc">*</span> xmean)</span>
+<span id="cb160-22"><a href="introLinearReg.html#cb160-22" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;alpha =&#39;</span>, alpha, <span class="st">&#39;;&#39;</span>, <span class="st">&#39;beta =&#39;</span>, beta))</span></code></pre></div>
+<pre><code>## [1] &quot;alpha = 1.93401265576322 ; beta = 0.327758955833308&quot;</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="introLinearReg.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store predictions as in previous step</span></span>
+<span id="cb162-2"><a href="introLinearReg.html#cb162-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;ypred&#39;</span>] <span class="ot">=</span> alpha <span class="sc">+</span> beta <span class="sc">*</span> df[<span class="st">&#39;X&#39;</span>]</span>
+<span id="cb162-3"><a href="introLinearReg.html#cb162-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-4"><a href="introLinearReg.html#cb162-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show first five rows of dataframe</span></span>
+<span id="cb162-5"><a href="introLinearReg.html#cb162-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<pre><code>##            X     yact      xycov       xvar    ypred
+## 1  4.6573857 3.788145  4.1671116  9.6144310 3.460513
+## 2  0.6844166 1.816937  0.5471556  0.7608280 2.158336
+## 3  4.8244982 3.139354  2.2715611 10.6786935 3.515285
+## 4  4.6810733 3.427612  3.0724952  9.7618890 3.468276
+## 5  2.5366036 2.195788 -0.2434518  0.9602676 2.765407
+## 6 -2.3498751 1.583397  3.3628671 15.2611034 1.163820</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="introLinearReg.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate SSE</span></span>
+<span id="cb164-2"><a href="introLinearReg.html#cb164-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;SSE&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> df[<span class="st">&#39;ypred&#39;</span>])<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb164-3"><a href="introLinearReg.html#cb164-3" aria-hidden="true" tabindex="-1"></a>SSE <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SSE&#39;</span>])</span>
+<span id="cb164-4"><a href="introLinearReg.html#cb164-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-5"><a href="introLinearReg.html#cb164-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate RSE</span></span>
+<span id="cb164-6"><a href="introLinearReg.html#cb164-6" aria-hidden="true" tabindex="-1"></a>RSE <span class="ot">=</span> <span class="fu">sqrt</span>(SSE <span class="sc">/</span> <span class="dv">98</span>)   <span class="co"># n = 100</span></span>
+<span id="cb164-7"><a href="introLinearReg.html#cb164-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;RSE =&#39;</span>, RSE))</span></code></pre></div>
+<pre><code>## [1] &quot;RSE = 0.481279277134956&quot;</code></pre>
+<p>The value of <code>RSE</code> comes out to be 0.48.</p>
+<p>As you might have guessed, the smaller the residual standard errors, the better
+the model is.</p>
+<p>The benchmark to compare this to is the mean of the actual values, <code>yact</code>. As
+shown previously, this value is <code>ymean = 2.54</code>. In plain English, this means we
+observe an error of 0.48 over 2.44 - approximately 19.69%.</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="introLinearReg.html#cb166-1" aria-hidden="true" tabindex="-1"></a>error <span class="ot">=</span> RSE <span class="sc">/</span> ymean</span>
+<span id="cb166-2"><a href="introLinearReg.html#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;Mean Y =&#39;</span>, ymean))</span></code></pre></div>
+<pre><code>## [1] &quot;Mean Y = 2.44422555811815&quot;</code></pre>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="introLinearReg.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;Error =&#39;</span>, error))</span></code></pre></div>
+<pre><code>## [1] &quot;Error = 0.196904608716023&quot;</code></pre>
+</div>
+<div id="p-values" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> p-values<a href="introLinearReg.html#p-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The calculation of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are estimates, not exact calculations.
+Whether their values are significant or not needs to be tested using a
+<strong>hypothesis test</strong>.</p>
+<p>In the equation, <span class="math inline">\(Y = \alpha + \beta X\)</span>, if we set <span class="math inline">\(\beta=0\)</span>, there will be no
+relation between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>. Therefore, the hypothesis tests whether the value
+of <span class="math inline">\(\beta\)</span> is non-zero or not.</p>
+<p><span class="math display">\[\begin{align*} \text{Null hypothesis}~  H_0~:~  \beta=0, &amp; \quad \text{versus} \\
+\text{Alternative hypothesis}~ H_1~:~ \beta\ne 0.&amp;  \end{align*}  \]</span></p>
+<p>Whenever a regression task is performed and <span class="math inline">\(\beta\)</span> is calculated, there will
+be an accompanying <strong>p-value</strong> corresponding to this hypothesis test. We will
+not go through how this is calculated in this course (you can learn more
+<a href="https://www.dummies.com/education/math/statistics/how-to-determine-a-p-value-when-testing-a-null-hypothesis/">here</a>),
+since it is calculated automatically by ready-made methods in R.</p>
+<p>If the p-value is less than a chosen <strong>significance level</strong> (e.g. 0.05) then
+the null hypothesis that <span class="math inline">\(\beta = 0\)</span> is rejected and <span class="math inline">\(\beta\)</span> is said to be
+<b>significant and non-zero</b>.</p>
+<p>In the case of multiple linear regression, the p-value associated with each
+<span class="math inline">\(\beta_k\)</span> can be used to weed out insignificant predictors from the model.
+The higher the p-value for <span class="math inline">\(\beta_k\)</span>, the less significant <span class="math inline">\(X_k\)</span> is to the
+model.</p>
+</div>
+<div id="f-statistics" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> F-statistics<a href="introLinearReg.html#f-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In a multiple regression model, apart from testing the significance of
+individual variables by checking the p-values, it is also necessary to check
+whether, as a group all the predictors are significant. This can be done using
+the following hypothesis:</p>
+<p><span class="math display">\[\begin{align*} \text{Null hypothesis}~  H_0~:~ &amp; \beta_1=\beta_2=\cdots=\beta_p=0, \quad \text{versus} \\
+\text{Alternative hypothesis}~ H_1~:~&amp; \text{at least one of the} ~\beta_k&#39;s ~ \text{is non zero}. \end{align*}  \]</span></p>
+<p>The statistic that is used to test this hypothesis is called the <strong>F-statistic</strong>
+and is defined as follows:</p>
+<p><span class="math display">\[  F\text{-statistic} = \text{Fisher statistic}=  \frac{ (SST-SSE)/p}{ SSE/(n-p-1)}
+\]</span></p>
+<p>where <span class="math inline">\(n\)</span> = number of rows (sample points) in the dataset and <span class="math inline">\(p\)</span> = number of
+predictor variables in the model.</p>
+<p>There is a <span class="math inline">\(p\)</span>-value that is associated with this <span class="math inline">\(F\)</span>-statistic. If the
+<span class="math inline">\(p\)</span>-value is smaller than the chosen significance level, the null hypothesis
+can be rejected.</p>
+<p>It is important to look at the F-statistic because:</p>
+<ul>
+<li>p-values are about individual relationships between predictors and the outcome
+variable. However, one predictor’s relationship with the output might be
+impacted by the presence of other variables.</li>
+<li>When the number of predictors in the model is very large and all the
+<span class="math inline">\(\beta_i\)</span> are very close to zero, the individual p-values associated with the
+predictors might give very small values so we might incorrectly conclude that
+there is a relationship between the predictors and the outcome.</li>
+</ul>
+</div>
+</div>
+<div id="simple-linear-regression-with-lm-function" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Simple Linear Regression with <code>lm</code> function<a href="introLinearReg.html#simple-linear-regression-with-lm-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are a few R packages, e.g., the built-in <code>stat</code> package have a <code>lm</code>
+(linear model) function to fit linear regression very easy - much easier than
+implementing from scratch like we did in the last lesson. See more details in the
+<a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm">lm manual</a>.</p>
+<p>We will start with the <code>datarium</code> library which contain the <code>advertising</code> data.</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="introLinearReg.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install datarium library if you haven&#39;t</span></span>
+<span id="cb170-2"><a href="introLinearReg.html#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;datarium&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb170-3"><a href="introLinearReg.html#cb170-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;datarium&quot;</span>)</span>
+<span id="cb170-4"><a href="introLinearReg.html#cb170-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb170-5"><a href="introLinearReg.html#cb170-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-6"><a href="introLinearReg.html#cb170-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datarium)</span>
+<span id="cb170-7"><a href="introLinearReg.html#cb170-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-8"><a href="introLinearReg.html#cb170-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data: then we will have a data.frame with name marketing</span></span>
+<span id="cb170-9"><a href="introLinearReg.html#cb170-9" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(marketing)</span>
+<span id="cb170-10"><a href="introLinearReg.html#cb170-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-11"><a href="introLinearReg.html#cb170-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(marketing)</span></code></pre></div>
+<pre><code>##   youtube facebook newspaper sales
+## 1  276.12    45.36     83.04 26.52
+## 2   53.40    47.16     54.12 12.48
+## 3   20.64    55.08     83.16 11.16
+## 4  181.80    49.56     70.20 22.20
+## 5  216.96    12.96     70.08 15.48
+## 6   10.44    58.68     90.00  8.64</code></pre>
+<p>We can also check summary statistics of each column</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="introLinearReg.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(marketing)</span></code></pre></div>
+<pre><code>##     youtube          facebook       newspaper          sales      
+##  Min.   :  0.84   Min.   : 0.00   Min.   :  0.36   Min.   : 1.92  
+##  1st Qu.: 89.25   1st Qu.:11.97   1st Qu.: 15.30   1st Qu.:12.45  
+##  Median :179.70   Median :27.48   Median : 30.90   Median :15.48  
+##  Mean   :176.45   Mean   :27.92   Mean   : 36.66   Mean   :16.83  
+##  3rd Qu.:262.59   3rd Qu.:43.83   3rd Qu.: 54.12   3rd Qu.:20.88  
+##  Max.   :355.68   Max.   :59.52   Max.   :136.80   Max.   :32.40</code></pre>
+<p>This dataset contains data about the advertising budget spent on YouTub, Radio, and
+Newspapers for a particular product and the resulting sales. We expect a
+positive correlation between such <b>advertising costs</b> and <b>sales</b>.</p>
+<p>Let’s start with <b> YouTub advertising costs</b> to create a simple linear
+regression model. First let’s plot the variables to get a better sense of
+their relationship:</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="introLinearReg.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create scatter plot</span></span>
+<span id="cb174-2"><a href="introLinearReg.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb174-3"><a href="introLinearReg.html#cb174-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-4"><a href="introLinearReg.html#cb174-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(marketing, <span class="fu">aes</span>(<span class="at">x=</span>youtube, <span class="at">y=</span>sales)) <span class="sc">+</span> </span>
+<span id="cb174-5"><a href="introLinearReg.html#cb174-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb174-6"><a href="introLinearReg.html#cb174-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;YouTube vs Sales&#39;</span>)</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<p>As YouTube advertisement cost increases, sales also increase – they are
+positively correlated!</p>
+<p>Now with the linear model <code>lm</code> function, let’s create a line of best fit using
+the least sum of square method.</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="introLinearReg.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit linear regression</span></span>
+<span id="cb175-2"><a href="introLinearReg.html#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="co"># By default it include an incepter, so it is equvialent to add &quot;+ 1&quot;</span></span>
+<span id="cb175-3"><a href="introLinearReg.html#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="co"># res.lm &lt;- lm(sales ~ youtube + 1, data = marketing)</span></span>
+<span id="cb175-4"><a href="introLinearReg.html#cb175-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb175-5"><a href="introLinearReg.html#cb175-5" aria-hidden="true" tabindex="-1"></a>res.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(sales <span class="sc">~</span> youtube, <span class="at">data =</span> marketing)</span></code></pre></div>
+<p>In the above code, we used <code>lm</code> to fit our simple linear regression model. This
+takes the formula <code>y ~ X</code>, where <code>X</code> is the predictor variable (YouTube
+advertising costs) and <code>y</code> is the output variable (Sales). Then, this function
+will return fitted model via a ordinary least squares (OLS) method. The <code>res.lm</code>
+is a list, you can get the it attributes by e.g., <code>res.lm$coefficients</code></p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="introLinearReg.html#cb176-1" aria-hidden="true" tabindex="-1"></a>res.lm<span class="sc">$</span>coefficients</span></code></pre></div>
+<pre><code>## (Intercept)     youtube 
+##  8.43911226  0.04753664</code></pre>
+<p>In the notation that we have been using, <span class="math inline">\(\alpha\)</span> is the intercept and <span class="math inline">\(\beta\)</span>
+is the slope i.e.:</p>
+<p><span class="math inline">\(\alpha = 8.439, \quad \beta = 0.048\)</span></p>
+<p>Thus, the equation for the model will be:</p>
+<p><span class="math inline">\(\text{Sales} = 8.439 + 0.048*\text{YouTube}\)</span></p>
+<p>Let’s also check an indicator of the model efficacy, <em>R<sup>2</sup></em>. Luckily,
+<code>summary</code> function can calculate it from the <code>lm</code> output and gives us a
+ready-made method for doing this so we don’t need to code all the math ourselves:</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="introLinearReg.html#cb178-1" aria-hidden="true" tabindex="-1"></a>res_summary <span class="ot">=</span> <span class="fu">summary</span>(res.lm)</span>
+<span id="cb178-2"><a href="introLinearReg.html#cb178-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb178-3"><a href="introLinearReg.html#cb178-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Again, res_summary is also a list</span></span>
+<span id="cb178-4"><a href="introLinearReg.html#cb178-4" aria-hidden="true" tabindex="-1"></a>res_summary<span class="sc">$</span>r.squared</span></code></pre></div>
+<pre><code>## [1] 0.6118751</code></pre>
+<p>We can also take a look at the model summary by writing this snippet:</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="introLinearReg.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out the summary</span></span>
+<span id="cb180-2"><a href="introLinearReg.html#cb180-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(res.lm)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = sales ~ youtube, data = marketing)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -10.0632  -2.3454  -0.2295   2.4805   8.6548 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 8.439112   0.549412   15.36   &lt;2e-16 ***
+## youtube     0.047537   0.002691   17.67   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.91 on 198 degrees of freedom
+## Multiple R-squared:  0.6119, Adjusted R-squared:  0.6099 
+## F-statistic: 312.1 on 1 and 198 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>There is a lot here. Of these results, we have discussed:</p>
+<ul>
+<li>R-squared</li>
+<li>F-statistic</li>
+<li>Prob (F-statistic) - this is the p-value of the F-statistic</li>
+<li>Intercept coef - this is <code>alpha</code></li>
+<li>YouTub coef - this is <code>beta</code> for predictor <code>YouTub</code></li>
+<li>P&gt;|t| - this is the p-value for our coefficients</li>
+</ul>
+<p>Now that we’ve fit a simple regression model, we can try to predict the values
+of sales based on the equation we just derived!</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="introLinearReg.html#cb182-1" aria-hidden="true" tabindex="-1"></a>sales_pred <span class="ot">=</span> <span class="fu">predict</span>(res.lm, <span class="at">newdata =</span> marketing[<span class="fu">c</span>(<span class="st">&#39;youtube&#39;</span>)])</span>
+<span id="cb182-2"><a href="introLinearReg.html#cb182-2" aria-hidden="true" tabindex="-1"></a>marketing[<span class="st">&#39;sales_pred&#39;</span>] <span class="ot">=</span> sales_pred</span></code></pre></div>
+<p>The <code>predict</code> fucntion predicts sales value for each row based on the model
+equation using YouTub costs. This is the equivalent of manually typing out our
+equation: <code>sales_pred = 8.439 + 0.048*(advert['youtube'])</code>.</p>
+<p>We can visualise our regression model by plotting <code>sales_pred</code> against the
+YouTube advertising costs to find the line of best fit:</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="introLinearReg.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb183-2"><a href="introLinearReg.html#cb183-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-3"><a href="introLinearReg.html#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(marketing, <span class="fu">aes</span>(<span class="at">x=</span>youtube)) <span class="sc">+</span> </span>
+<span id="cb183-4"><a href="introLinearReg.html#cb183-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>sales), <span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb183-5"><a href="introLinearReg.html#cb183-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>sales_pred), <span class="at">colour=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb183-6"><a href="introLinearReg.html#cb183-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;YouTube vs Sales&#39;</span>)</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<p>In the next step, we will add more features as predictors and see whether it improves our model. Go to the the notebook called <code>02-linearReg-05.Rmd</code>.</p>
+</div>
+<div id="multiple-regression-with-lm-function" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Multiple Regression with <code>lm</code> function<a href="introLinearReg.html#multiple-regression-with-lm-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A multiple linear regression is simply a linear regression that involves more
+than one predictor variable. It is represented as:
+<span class="math display">\[\qquad Y_e = \alpha + \beta_1*X_1  + \beta_2*X_2 + \dots  + \beta_p*X_p\]</span></p>
+<p>Each <em>β<sub>i</sub></em> will be estimated using the least sum of squares method.</p>
+<p>The data set is<br />
+<span class="math display">\[ \begin{array}
+       {~~}  Y_1, &amp;  X_1^{(1)},  &amp;  \ldots, &amp;  X_p^{(1)} \\
+        Y_2, &amp;  X_1^{(2)},  &amp;  \ldots, &amp;  X_p^{(2)} \\
+       \vdots  &amp; \vdots  &amp; \vdots &amp; \vdots \\
+      Y_n, &amp;  X_1^{(n)},  &amp;  \ldots, &amp;  X_p^{(n)}
+    \end{array}
+\]</span>
+For each sample <span class="math inline">\(i\)</span>, the predicted value by the model is:<br />
+<span class="math inline">\(\qquad Y_{i,e} = \alpha + \beta_1*X_1^{(i)} + \beta_2*X_2^{(i)} + \dots + \beta_p*X_p^{(i)}\)</span></p>
+<p>Define the sum of squares
+<span class="math display">\[   S(\alpha,\beta_1,\ldots,\beta_p) = \sum_{i=1}^n
+\left\{     Y_i -Y_{i,e}\right\}^2  =\sum_{i=1}^n \left\{
+    Y_i -\left( \alpha + \beta_1*X_1^{(i)}  + \beta_2*X_2^{(i)} + \dots  + \beta_p*X_p^{(i)}\right)\right\}^2
+\]</span>
+Least squares estimators: solve
+<span class="math display">\[ \frac{\partial  S(\alpha,\beta_1,\ldots,\beta_p)}{\partial \alpha}=0,\quad
+\frac{\partial S (\alpha,\beta_1,\ldots,\beta_p)}{\partial \beta_1}=0,\quad \ldots,\quad
+\frac{\partial S (\alpha,\beta_1,\ldots,\beta_p)}{\partial \beta_p}=0.
+\]</span>
+to obtain the <code>least squares estimators</code> of the parameters
+<span class="math display">\[ \hat\alpha, \hat\beta_1,\ldots,\hat\beta_p.
+\]</span>
+Note that be definition,
+<span class="math display">\[      SSE = S(\hat\alpha, \hat\beta_1,\ldots,\hat\beta_p).
+\]</span>
+In other words, the fitted SSE (sum of squares error) is the minimized
+value of the sum squares with the estimated values of the parameters.</p>
+<p><strong>The more varibles, the smaller the <span class="math inline">\(R^2\)</span></strong></p>
+<p>Consider two regression models</p>
+<ol style="list-style-type: upper-roman">
+<li><p><span class="math inline">\(\quad ~ Y_e = \alpha + \beta_1*X_1\)</span></p></li>
+<li><p><span class="math inline">\(\quad \tilde Y_e = \alpha + \beta_1*X_1 + \beta_2*X_2\)</span></p></li>
+</ol>
+<p>The model (II) has one more input variable <span class="math inline">\(X_2\)</span>.</p>
+<p>The <span class="math inline">\(SSE_I\)</span> of Model (I) is the minimum of</p>
+<p><span class="math display">\[   S_I(\alpha,\beta_1) = \sum_{i=1}^n \left\{
+    Y_i -\left( \alpha + \beta_1*X_1^{(i)} \right)\right\}^2
+\]</span>
+over all possible values of <span class="math inline">\((\alpha,\beta_1)\)</span>.</p>
+<p>The <span class="math inline">\(SSE_{II}\)</span> of Model (II) is the minimum of</p>
+<p><span class="math display">\[   S_{II}(\alpha,\beta_1,\beta_2) = \sum_{i=1}^n \left\{
+    Y_i -\left( \alpha + \beta_1*X_1^{(i)} +\beta_2*X_2^{(i)}  \right)\right\}^2.
+\]</span>
+over all possible values of <span class="math inline">\((\alpha,\beta_1,\beta_2)\)</span>.</p>
+<p>Because <span class="math inline">\(\quad S_I(\alpha,\beta_1) = S_{II}(\alpha,\beta_1,\beta_2=0 )\)</span>,</p>
+<p>we find that <span class="math inline">\(SSE_{II}\le SSE_I\)</span>, so
+<span class="math display">\[   R^2_{II} = SST - SSE_{II} \ge SST - SSE_{I} =  R^2_{I}.
+\]</span></p>
+<p>With this simple dataset of three predictor variables, there can be seven
+possible models:</p>
+<ol style="list-style-type: decimal">
+<li>Sales ~ YouTube</li>
+<li>Sales ~ Newspaper</li>
+<li>Sales ~ Facebook</li>
+<li>Sales ~ YouTube + Facebook</li>
+<li>Sales ~ YouTube + Newspaper</li>
+<li>Sales ~ Newspaper + Facebook</li>
+<li>Sales ~ YouTube + Facebook + Newspaper</li>
+</ol>
+<p>Generally, if there are p possible predictor variables, there can be
+<em>(2<sup>p</sup> - 1)</em> possible models – this can get large very quickly!</p>
+<p>Thankfully, there are a few guidelines to filter some of these and then
+navigate towards the most efficient one.</p>
+<ul>
+<li>Keep variables with low p-values and eliminate ones with high p-values</li>
+<li>Keep variables that increase the value of <strong>adjusted-<em>R<sup>2</sup></em></strong> – this
+penalizes the model for adding insignificant variables and increases when we
+add significant variables. It is calculated by:
+<span class="math display">\[ R^2_{adj} = 1- (1-R^2) \frac{n-1}{n-p-1}\]</span></li>
+</ul>
+<p>Based on these guidelines, there are two approaches to select the predictor
+variables in the final model:</p>
+<ul>
+<li><strong>Forward selection</strong>: start with a null model (no predictors), then add
+predictors one by one. If the p-value for the variable is small enough and the
+value of the adjusted-<em>R<sup>2</sup></em> goes up, the predictor is included in the
+model. Otherwise, it is not included.</li>
+<li><strong>Backward selection</strong>: starts with a model that has all the possible
+predictors and discard some of them. If the p-value of a predictor variable is
+large and adjusted-<em>R<sup>2</sup></em> is lower when removed, it is discarded from
+the model. Otherwise, it remains a part of the model.</li>
+</ul>
+<p>Many statistical programs give us an option to select from these approaches
+while implementing multiple linear regression.</p>
+<p>For now, let’s manually add a few variables and see how it changes the model
+parameters and efficacy. First, add the <code>newspaper</code> variable to the model:</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="introLinearReg.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datarium)</span>
+<span id="cb184-2"><a href="introLinearReg.html#cb184-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(marketing)</span>
+<span id="cb184-3"><a href="introLinearReg.html#cb184-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-4"><a href="introLinearReg.html#cb184-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(marketing)</span></code></pre></div>
+<pre><code>##   youtube facebook newspaper sales
+## 1  276.12    45.36     83.04 26.52
+## 2   53.40    47.16     54.12 12.48
+## 3   20.64    55.08     83.16 11.16
+## 4  181.80    49.56     70.20 22.20
+## 5  216.96    12.96     70.08 15.48
+## 6   10.44    58.68     90.00  8.64</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="introLinearReg.html#cb186-1" aria-hidden="true" tabindex="-1"></a>res_lm2 <span class="ot">=</span> <span class="fu">lm</span>(sales <span class="sc">~</span> youtube <span class="sc">+</span> newspaper, <span class="at">data=</span>marketing)</span>
+<span id="cb186-2"><a href="introLinearReg.html#cb186-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(res_lm2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = sales ~ youtube + newspaper, data = marketing)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -10.3477  -2.0815  -0.1138   2.2711  10.1415 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 6.929938   0.630405  10.993  &lt; 2e-16 ***
+## youtube     0.046901   0.002581  18.173  &lt; 2e-16 ***
+## newspaper   0.044219   0.010174   4.346 2.22e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.745 on 197 degrees of freedom
+## Multiple R-squared:  0.6458, Adjusted R-squared:  0.6422 
+## F-statistic: 179.6 on 2 and 197 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>As you see, the p-values for the coefficients are very small, suggesting that
+all the estimates are significant. The equation for this model will be:</p>
+<p><span class="math display">\[ \text{Sales} = 6.93+0.046* \text{YouTube} + 0.044 * \text{Newspaper}\]</span></p>
+<p>The values of <em>R<sup>2</sup></em> and adjusted <em>R<sup>2</sup></em> are 0.646 and 0.642,
+which is just a minor improvement from before (0.612 and 0.610, respectively).</p>
+<p>Similarly for RSE (3.745). Only a small decrease in RSE and error…</p>
+<p>Let’s take a closer look at the summary above. The Adj-R<sup>2</sup> increases
+slightly, but the F-statistic decreases (from 312.1 to 179.6), as does the
+associated p-value. This suggests that adding <code>newspaper</code> didn’t improve the
+model significantly.</p>
+<p>Let’s try adding <code>facebook</code> instead:</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="introLinearReg.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialise and fit new model with TV and Radio as predictors</span></span>
+<span id="cb188-2"><a href="introLinearReg.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="co"># model3 = smf.ols(&#39;Sales ~ TV + Radio&#39;, data=advert).fit()</span></span>
+<span id="cb188-3"><a href="introLinearReg.html#cb188-3" aria-hidden="true" tabindex="-1"></a><span class="co"># print(model3.summary())</span></span>
+<span id="cb188-4"><a href="introLinearReg.html#cb188-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-5"><a href="introLinearReg.html#cb188-5" aria-hidden="true" tabindex="-1"></a>res_lm3 <span class="ot">=</span> <span class="fu">lm</span>(sales <span class="sc">~</span> youtube <span class="sc">+</span> facebook, <span class="at">data=</span>marketing)</span>
+<span id="cb188-6"><a href="introLinearReg.html#cb188-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(res_lm3)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = sales ~ youtube + facebook, data = marketing)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -10.5572  -1.0502   0.2906   1.4049   3.3994 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  3.50532    0.35339   9.919   &lt;2e-16 ***
+## youtube      0.04575    0.00139  32.909   &lt;2e-16 ***
+## facebook     0.18799    0.00804  23.382   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.018 on 197 degrees of freedom
+## Multiple R-squared:  0.8972, Adjusted R-squared:  0.8962 
+## F-statistic: 859.6 on 2 and 197 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>This gives us the model:</p>
+<p><span class="math display">\[ \text{Sales} = 3.51+0.046* \text{YouTube} + 0.188 * \text{Facebook}\]</span></p>
+<p>The adjusted <em>R<sup>2</sup></em> value has improved considerably, as did the
+RSE and F-statistic, indicating an efficient model.</p>
+<p>Thus, we can conclude that <code>facebook</code> is a great addition to the model.<br />
+<code>YouTube</code> and <code>facebook</code> advertising costs together are able to predict sales
+well. But, can we improve it a bit further by combining all three predictor
+variables?</p>
+<p><strong>Try it out:</strong> see if you can figure out how to do this on your own!</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="introLinearReg.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialise and fit new model with TV, Newspaper, and Radio as predictors</span></span>
+<span id="cb190-2"><a href="introLinearReg.html#cb190-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb190-3"><a href="introLinearReg.html#cb190-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb190-4"><a href="introLinearReg.html#cb190-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print summary of regression results</span></span>
+<span id="cb190-5"><a href="introLinearReg.html#cb190-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate RSE - don&#39;t forget that the number of predictors p is now 3</span></span></code></pre></div>
+<p>You should get the equation:</p>
+<p><span class="math display">\[ \text{Sales} = 3.53+0.046*\text{YouTube} -0.001*\text{Newspaper} +0.188*\text{Facebook}\]</span></p>
+<p>You should also find that:</p>
+<ul>
+<li>RSE increases slightly,</li>
+<li>the coefficient for <code>newspaper</code> is negative, and</li>
+<li>the F-statistic decreases considerably from 859.6 to 570.3.</li>
+</ul>
+<p>All these suggest that the model actually became less efficient on addition of <code>newspaper</code>.</p>
+<p>Why?</p>
+<p>This step shows clearly that adding one more input variable <code>Newspaper</code> in
+Model 3 does not lead to any improvement.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introR.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introClassifier.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/statbiomed/BMDS-book/tree/main/01-introduction.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BMDatSci.pdf", "BMDatSci.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
