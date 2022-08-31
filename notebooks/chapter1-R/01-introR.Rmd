@@ -339,17 +339,17 @@ summary(iris)
 
 ### Basic plotting
 #### Histogram
-```{r}
+```{r fig1-hist}
 hist(iris$Sepal.Length)
 ```
 
 #### Scatter plot
-```{r}
+```{r fig1-scatter}
 plot(x=iris$Sepal.Length, y=iris$Sepal.Width)
 ```
 
 #### boxplot
-```{r}
+```{r fig1-box}
 x1 <- iris$Sepal.Length[iris$Species == "setosa"]
 x2 <- iris$Sepal.Length[iris$Species == "versicolor"]
 x3 <- iris$Sepal.Length[iris$Species == "virginica"]
@@ -370,19 +370,19 @@ library(ggplot2)
 ```
 
 #### Histogram
-```{r}
+```{r fig1-gghist}
 ggplot(iris, aes(x=Sepal.Length)) + 
   geom_histogram(bins = 8)
 ```
 
 #### Scatter plot
-```{r}
+```{r fig1-ggpoint}
 ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width)) + 
     geom_point()
 ```
 
 #### Box plot
-```{r}
+```{r fig1-ggbox}
 ggplot(iris, aes(x=Species, y=Sepal.Length)) + 
     geom_boxplot()
 ```
@@ -441,7 +441,7 @@ cor(iris$Sepal.Length, y_pred)
 ```
 
 
-```{r}
+```{r fig1-reg}
 plot(iris$Sepal.Length, y_pred)
 ```
 
