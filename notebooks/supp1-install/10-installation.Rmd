@@ -1,8 +1,4 @@
-(ref:appendixsepart) Appendix
 
-```{r echo=FALSE, results="asis", purl=FALSE}
-cat("# (PART) Appendix {-} ")
-```
 
 # Appendix A: Install R & RStudio {#install - }
 

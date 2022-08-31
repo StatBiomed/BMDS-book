@@ -1,0 +1,191 @@
+
+
+## Multiple Regression with `lm` function
+
+A multiple linear regression is simply a linear regression that involves more 
+than one predictor variable. It is represented as:
+$$\qquad Y_e = \alpha + \beta_1*X_1  + \beta_2*X_2 + \dots  + \beta_p*X_p$$  
+
+Each *β<sub>i</sub>* will be estimated using the least sum of squares method.
+
+The data set is  
+$$ \begin{array} 
+       {~~}  Y_1, &  X_1^{(1)},  &  \ldots, &  X_p^{(1)} \\
+        Y_2, &  X_1^{(2)},  &  \ldots, &  X_p^{(2)} \\
+       \vdots  & \vdots  & \vdots & \vdots \\
+      Y_n, &  X_1^{(n)},  &  \ldots, &  X_p^{(n)} 
+    \end{array}
+$$
+For each sample $i$, the predicted value by the model is:  
+$\qquad Y_{i,e} = \alpha + \beta_1*X_1^{(i)}  + \beta_2*X_2^{(i)} + \dots  + \beta_p*X_p^{(i)}$  
+
+
+Define the sum of squares 
+$$   S(\alpha,\beta_1,\ldots,\beta_p) = \sum_{i=1}^n 
+\left\{     Y_i -Y_{i,e}\right\}^2  =\sum_{i=1}^n \left\{ 
+    Y_i -\left( \alpha + \beta_1*X_1^{(i)}  + \beta_2*X_2^{(i)} + \dots  + \beta_p*X_p^{(i)}\right)\right\}^2
+$$
+Least squares estimators: solve 
+$$ \frac{\partial  S(\alpha,\beta_1,\ldots,\beta_p)}{\partial \alpha}=0,\quad 
+\frac{\partial S (\alpha,\beta_1,\ldots,\beta_p)}{\partial \beta_1}=0,\quad \ldots,\quad
+\frac{\partial S (\alpha,\beta_1,\ldots,\beta_p)}{\partial \beta_p}=0. 
+$$
+to obtain the `least squares estimators` of the parameters
+$$ \hat\alpha, \hat\beta_1,\ldots,\hat\beta_p.
+$$
+Note that be definition, 
+$$      SSE = S(\hat\alpha, \hat\beta_1,\ldots,\hat\beta_p).
+$$
+In other words, the fitted SSE (sum of squares error) is the minimized 
+value of the sum squares with the estimated values of the parameters.
+
+**The more varibles, the smaller the $R^2$**
+
+Consider two regression models
+
+(I)   $\quad ~ Y_e = \alpha + \beta_1*X_1$ 
+
+(II)  $\quad  \tilde Y_e = \alpha + \beta_1*X_1  + \beta_2*X_2$
+
+The model (II) has one more input variable $X_2$. 
+
+The $SSE_I$ of Model (I) is the minimum of
+
+$$   S_I(\alpha,\beta_1) = \sum_{i=1}^n \left\{ 
+    Y_i -\left( \alpha + \beta_1*X_1^{(i)} \right)\right\}^2
+$$
+over all possible values of $(\alpha,\beta_1)$.
+
+The $SSE_{II}$ of Model (II) is the minimum of 
+
+$$   S_{II}(\alpha,\beta_1,\beta_2) = \sum_{i=1}^n \left\{ 
+    Y_i -\left( \alpha + \beta_1*X_1^{(i)} +\beta_2*X_2^{(i)}  \right)\right\}^2. 
+$$
+over all possible values of $(\alpha,\beta_1,\beta_2)$.
+
+Because  $\quad S_I(\alpha,\beta_1) = S_{II}(\alpha,\beta_1,\beta_2=0 )$, 
+
+we find that $SSE_{II}\le SSE_I$, so 
+$$   R^2_{II} = SST - SSE_{II} \ge SST - SSE_{I} =  R^2_{I}.
+$$
+
+With this simple dataset of three predictor variables, there can be seven 
+possible models:
+
+1. Sales ~ YouTube
+2. Sales ~ Newspaper
+3. Sales ~ Facebook
+4. Sales ~ YouTube + Facebook
+5. Sales ~ YouTube + Newspaper
+6. Sales ~ Newspaper + Facebook
+7. Sales ~ YouTube + Facebook + Newspaper
+
+Generally, if there are p possible predictor variables, there can be 
+*(2<sup>p</sup> - 1)* possible models – this can get large very quickly!
+
+Thankfully, there are a few guidelines to filter some of these and then 
+navigate towards the most efficient one.
+
+- Keep variables with low p-values and eliminate ones with high p-values
+- Keep variables that increase the value of **adjusted-*R<sup>2</sup>*** – this
+  penalizes the model for adding insignificant variables and increases when we 
+  add significant variables. It is calculated by: 
+$$ R^2_{adj} = 1- (1-R^2) \frac{n-1}{n-p-1}$$
+
+Based on these guidelines, there are two approaches to select the predictor 
+variables in the final model:
+
+- **Forward selection**: start with a null model (no predictors), then add 
+predictors one by one. If the p-value for the variable is small enough and the 
+value of the adjusted-*R<sup>2</sup>* goes up, the predictor is included in the 
+model. Otherwise, it is not included.
+- **Backward selection**: starts with a model that has all the possible 
+predictors and discard some of them. If the p-value of a predictor variable is 
+large and adjusted-*R<sup>2</sup>* is lower when removed, it is discarded from 
+the model. Otherwise, it remains a part of the model.
+
+Many statistical programs give us an option to select from these approaches 
+while implementing multiple linear regression.
+
+For now, let’s manually add a few variables and see how it changes the model 
+parameters and efficacy. First, add the `newspaper` variable to the model:
+
+```{r}
+library(datarium)
+data(marketing)
+
+head(marketing)
+```
+
+```{r}
+res_lm2 = lm(sales ~ youtube + newspaper, data=marketing)
+summary(res_lm2)
+```
+
+
+As you see, the p-values for the coefficients are very small, suggesting that 
+all the estimates are significant. The equation for this model will be:
+
+ $$ \text{Sales} = 6.93+0.046* \text{YouTube} + 0.044 * \text{Newspaper}$$
+
+The values of *R<sup>2</sup>* and adjusted *R<sup>2</sup>* are 0.646 and 0.642, 
+which is just a minor improvement from before  (0.612 and 0.610, respectively).
+
+Similarly for RSE (3.745). Only a small decrease in RSE and error...
+
+Let’s take a closer look at the summary above. The Adj-R<sup>2</sup> increases 
+slightly, but the F-statistic decreases (from 312.1 to 179.6), as does the 
+associated p-value. This suggests that adding `newspaper` didn't improve the 
+model significantly.
+
+Let's try adding `facebook` instead:
+
+```{r}
+# Initialise and fit new model with TV and Radio as predictors
+# model3 = smf.ols('Sales ~ TV + Radio', data=advert).fit()
+# print(model3.summary())
+
+res_lm3 = lm(sales ~ youtube + facebook, data=marketing)
+summary(res_lm3)
+```
+
+This gives us the model:
+
+ $$ \text{Sales} = 3.51+0.046* \text{YouTube} + 0.188 * \text{Facebook}$$
+
+The adjusted *R<sup>2</sup>* value has improved considerably, as did the 
+RSE and F-statistic, indicating an efficient model.
+
+Thus, we can conclude that `facebook` is a great addition to the model.  
+`YouTube` and `facebook` advertising costs together are able to predict sales
+well. But, can we improve it a bit further by combining all three predictor 
+variables?
+
+**Try it out:** see if you can figure out how to do this on your own!
+
+```{r}
+# Initialise and fit new model with TV, Newspaper, and Radio as predictors
+
+
+# Print summary of regression results
+# Calculate RSE - don't forget that the number of predictors p is now 3
+
+```
+
+You should get the equation:
+
+$$ \text{Sales} = 3.53+0.046*\text{YouTube} -0.001*\text{Newspaper} +0.188*\text{Facebook}$$
+
+
+You should also find that:
+
+- RSE increases slightly,
+- the coefficient for `newspaper` is negative, and
+- the F-statistic decreases considerably from 859.6 to 570.3.
+
+All these suggest that the model actually became less efficient on addition of `newspaper`. 
+
+Why?
+
+This step shows clearly that adding one more input variable `Newspaper` in 
+Model 3 does not lead to any improvement. 

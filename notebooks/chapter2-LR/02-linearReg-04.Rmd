@@ -1,0 +1,137 @@
+
+## Simple Linear Regression with `lm` function
+
+There are a few R packages, e.g., the built-in `stat` package have a `lm` 
+(linear model) function to fit linear regression very easy - much easier than 
+implementing from scratch like we did in the last lesson. See more details in the 
+[lm manual](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm).
+
+We will start with the `datarium` library which contain the `advertising` data.
+
+```{r}
+# Install datarium library if you haven't
+if (!requireNamespace("datarium", quietly = TRUE)) {
+  install.packages("datarium")
+}
+
+library(datarium)
+
+# Load data: then we will have a data.frame with name marketing
+data(marketing)
+
+head(marketing)
+```
+
+We can also check summary statistics of each column
+```{r}
+summary(marketing)
+```
+
+
+This dataset contains data about the advertising budget spent on YouTub, Radio, and
+Newspapers for a particular product and the resulting sales. We expect a 
+positive correlation between such <b>advertising costs</b> and <b>sales</b>. 
+
+Let’s start with <b> YouTub advertising costs</b> to create a simple linear 
+regression model. First let’s plot the variables to get a better sense of 
+their relationship:
+
+```{r}
+# Create scatter plot
+library(ggplot2)
+
+ggplot(marketing, aes(x=youtube, y=sales)) + 
+  geom_point(colour="black") + 
+  ggtitle('YouTube vs Sales')
+```
+
+
+As YouTube advertisement cost increases, sales also increase – they are 
+positively correlated! 
+
+Now with the linear model `lm` function, let’s create a line of best fit using 
+the least sum of square method.
+
+```{r}
+# Fit linear regression
+# By default it include an incepter, so it is equvialent to add "+ 1"
+# res.lm <- lm(sales ~ youtube + 1, data = marketing)
+
+res.lm <- lm(sales ~ youtube, data = marketing)
+```
+
+
+In the above code, we used `lm` to fit our simple linear regression model. This 
+takes the formula `y ~ X`, where `X` is the predictor variable (YouTube 
+advertising costs) and `y` is the output variable (Sales). Then, this function 
+will return fitted model via a ordinary least squares (OLS) method. The `res.lm` 
+is a list, you can get the it attributes by e.g., `res.lm$coefficients`
+
+```{r}
+res.lm$coefficients
+```
+
+
+In the notation that we have been using, $\alpha$ is the intercept and  $\beta$ 
+is the slope i.e.:
+
+$\alpha = 8.439, \quad \beta = 0.048$
+
+Thus, the equation for the model will be:
+
+$\text{Sales} = 8.439 + 0.048*\text{YouTube}$
+
+Let's also check an indicator of the model efficacy, *R<sup>2</sup>*. Luckily, 
+`summary` function can calculate it from the `lm` output and gives us a 
+ready-made method for doing this so we don’t need to code all the math ourselves:
+
+```{r}
+res_summary = summary(res.lm)
+
+# Again, res_summary is also a list
+res_summary$r.squared
+```
+
+We can also take a look at the model summary by writing this snippet:
+
+```{r}
+# Print out the summary
+summary(res.lm)
+```
+
+There is a lot here. Of these results, we have discussed:
+
+- R-squared
+- F-statistic
+- Prob (F-statistic) - this is the p-value of the F-statistic
+- Intercept coef - this is `alpha`
+- YouTub coef - this is `beta` for predictor `YouTub`
+- P>|t| - this is the p-value for our coefficients
+
+
+Now that we’ve fit a simple regression model, we can try to predict the values 
+of sales based on the equation we just derived!
+
+```{r}
+sales_pred = predict(res.lm, newdata = marketing[c('youtube')])
+marketing['sales_pred'] = sales_pred
+```
+
+The `predict` fucntion predicts sales value for each row based on the model 
+equation using YouTub costs. This is the equivalent of manually typing out our 
+equation: `sales_pred = 8.439 + 0.048*(advert['youtube'])`.
+
+We can visualise our regression model by plotting `sales_pred` against the 
+YouTube advertising costs to find the line of best fit:
+
+```{r}
+library(ggplot2)
+
+ggplot(marketing, aes(x=youtube)) + 
+  geom_point(aes(y=sales), colour="black") + 
+  geom_line(aes(y=sales_pred), colour="red") +
+  ggtitle('YouTube vs Sales')
+```
+
+In the next step, we will add more features as predictors and see whether it improves our model. Go to the  the notebook called `02-linearReg-05.Rmd`.
+

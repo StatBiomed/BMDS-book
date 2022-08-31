@@ -1,0 +1,29 @@
+\cleardoublepage
+
+(ref:modulesepart) Biomedical Data Modules
+
+```{r echo=FALSE, results="asis", purl=FALSE}
+cat("# (PART) Biomedical Data Modules {-} ")
+```
+
+
+```{r child="notebooks/module1-genomics/M1-genomics.Rmd", echo=TRUE}
+```
+
+
+```{r child="notebooks/module2-image/M2-image-digital.Rmd", echo=TRUE}
+```
+
+
+```{r child="notebooks/module3-infectious/M3-infectious-dis.Rmd", echo=TRUE}
+```
+
+
+```{r child="notebooks/module4-genetics/M4-pop-genetics.Rmd", echo=TRUE}
+```
+
+
+```{r child="notebooks/module5-epidemi/M5-epidemiology.Rmd", echo=TRUE}
+```
+
+

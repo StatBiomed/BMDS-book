@@ -1,0 +1,11 @@
+source_name	group	frozen
+CASE_1	metastasized cancer	CASE	1
+CASE_2	metastasized cancer	CASE	1
+CASE_3	metastasized cancer	CASE	0
+CASE_4	metastasized cancer	CASE	0
+CASE_5	metastasized cancer	CASE	0
+CTRL_1	normal colon	CTRL	1
+CTRL_2	normal colon	CTRL	1
+CTRL_3	normal colon	CTRL	0
+CTRL_4	normal colon	CTRL	0
+CTRL_5	normal colon	CTRL	0

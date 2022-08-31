@@ -1,0 +1,10 @@
+(ref:appendixsepart) Appendix
+
+```{r echo=FALSE, results="asis", purl=FALSE}
+cat("# (PART) Appendix {-} ")
+```
+
+
+```{r child="notebooks/supp1-install/10-installation.Rmd", echo=TRUE}
+```
+

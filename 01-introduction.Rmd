@@ -1,0 +1,39 @@
+(ref:introsepart) Data Science Foundations
+
+```{r echo=FALSE, results="asis", purl=FALSE}
+cat("# (PART) Data Science Foundations {-} ")
+```
+
+```{r child="notebooks/chapter1-R/01-introR.Rmd", echo=TRUE}
+```
+
+
+
+# Introduction to Linear Regression {#introLinearReg}
+
+Acknowledgements: this chapter is adapted and updated from the materials originally produced by STAT1005 teaching team, especially Prof. Jeff Yao.
+
+```{r child="notebooks/chapter2-LR/02-linearReg-01.Rmd", echo=TRUE}
+```
+
+```{r child="notebooks/chapter2-LR/02-linearReg-02.Rmd", echo=TRUE}
+```
+
+```{r child="notebooks/chapter2-LR/02-linearReg-03.Rmd", echo=TRUE}
+```
+
+```{r child="notebooks/chapter2-LR/02-linearReg-04.Rmd", echo=TRUE}
+```
+
+```{r child="notebooks/chapter2-LR/02-linearReg-05.Rmd", echo=TRUE}
+```
+
+
+
+# Introduction to Classification {#introClassifier}
+
+
+
+# Introduction to Hypothesis testing {#introHypoTest}
+
+

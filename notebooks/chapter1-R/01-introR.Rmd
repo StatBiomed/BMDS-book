@@ -1,19 +1,22 @@
-(ref:introsepart) Data Science Foundations
-
-```{r echo=FALSE, results="asis", purl=FALSE}
-cat("# (PART) Data Science Foundations {-} ")
-```
-
 
 # Introduction to R programming {#introR}
 
 This notebook collects the scripts used for teaching in BIOF1001 for 
 Introduction to R (1 hour teaching). You can get this Rmd file 
-[here](https://github.com/StatBiomed/BMDatSci-book/blob/main/01-introR.Rmd)
+[here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR.Rmd)
 (right click and "save link as" to download).
 
 ## Data types
+During computing, all data are loaded / stored in memory (RAM) through a group 
+of binary bits, usually 8 bits as a byte. In R language setting (similar to 
+some other programming languages), there are a few commonly used data types 
+that have specific number of byte to use.
+
+
 ### nemeric (or double)
+Numberic is the most common data type. It may also called `double` for 
+traditional reason.
+
 ```{r}
 x <- c(1.0, 2.0, 5.0, 7.0)
 x
@@ -59,8 +62,21 @@ object.size(rep(z, 1000))
 object.size(rep(w, 1000))
 ```
 
+
 ## Data structures
+Data structure is one of most important features in programming. It involves 
+how the data is organised and can be accessed and modified. Using an appropriate
+data structure may largely improve the computing efficiency.
+
 ### Vector
+Vector is a basic data structure in R. It contains elements in the **same** data
+type (no matter double, integer, character or others). 
+
+You can check the data type by using `typeof()` function and the length of the 
+vector by `length()` function.
+
+More introduction see [here](https://www.datamentor.io/r-programming/vector/).
+
 ```{r}
 x <- c(1, 2, 5, 7)
 x
@@ -74,7 +90,15 @@ x <- 1:12 # integer
 x
 typeof(x)
 ```
+
 ### Matrix
+Matrix is a two-dimensional data structure. It is in principle build based on 
+vector but have more convenient built-in functions for computation.
+It has row and column, both of which can also have name. To check the dimensions,
+you can use the `dim()` function.
+
+More introduction see [here](https://www.datamentor.io/r-programming/matrix/).
+
 ```{r}
 A <- matrix(1:12, nrow=3)
 A
@@ -88,15 +112,19 @@ A
 ```
 
 #### Index Vector and Matrix
-N.B., when using logical as index, be careful if the index length is different from the vector
+Two index vector, you can use `logical` or `integer`, or the element name if it
+has.
+
+**N.B.**, when using logical as index, be careful if the index length is 
+different from the vector.
 ```{r}
 x <- 1:12
 
 x[3]
 x[2:5]
-x[c(2, 5, 6)]
+x[c(2, 5, 6)]                   # index with integer
 
-x[c(TRUE, FALSE, FALSE, TRUE)] 
+x[c(TRUE, FALSE, FALSE, TRUE)]  # index with logical value
 ```
 
 Now, index matrix. Very similar as vector, but it has both row and column.
@@ -111,7 +139,8 @@ A[1, "C2"]
 A[1, c(2, 3)]
 A[1:2, c(2, 3)]
 ```
-Single row or column matrix will become a vector, unless using `drop=FALSE`
+
+Single row or column matrix will become a vector, unless **using `drop=FALSE`**
 ```{r}
 A[1, 2:4]
 dim(A[1, 2:4])
@@ -119,6 +148,7 @@ dim(A[1, 2:4])
 A[1, 2:4, drop=FALSE]
 dim(A[1, 2:4, drop=FALSE])
 ```
+
 #### Modify values
 ```{r}
 A[1, 2:4] <- c(-3, -5, 20)
@@ -202,7 +232,7 @@ object.size(rep(y, 1000))
 
 ## Read and write files (tables)
 Data is available in the data folder on the 
-[github repository](https://github.com/StatBiomed/BMDatSci-book/blob/main/data/intro)
+[github repository](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R)
 
 ### Read file
 See full manuals: `help(read.table)` or `?read.table`
@@ -213,14 +243,14 @@ help("read.table")
 ```
 
 ```{r}
-df = read.table("./data/intro/SRP029880.colData.tsv", sep="\t")
+df = read.table("./SRP029880.colData.tsv", sep="\t")
 df
 ```
 ### Write file
 
 ```{r}
 df$frozen <- c(1, 1, 0, 0, 0, 1, 1, 0, 0, 0)
-write.table(df, "./data/outs/SRP029880.colData.add_frozen.tsv", sep="\t", quote=FALSE)
+write.table(df, "./SRP029880.colData.add_frozen.tsv", sep="\t", quote=FALSE)
 ```
 
 ## Functions and Packages

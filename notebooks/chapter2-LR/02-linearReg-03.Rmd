@@ -1,0 +1,161 @@
+
+
+## Diagnostic check of a fitted regression model 
+
+Apart from the $R^2$ statistic, there are other statistics and parameters that 
+you need to look at in order to determine if the model is efficient. We will 
+discuss some commonly used statistics – Residual Standard Errors, $p$-values, 
+and $F$-statistics.
+
+### Residual Standard Errors (RSE)
+
+RSE is a common statistic used to calculate the accuracy of values predicted by 
+a model. It is an estimate of the variance of the error term, `res`. For a 
+simple linear regression model, RSE is defined as: 
+$$  RSE^2 = \frac{SSE}{n-2} = \frac1{n-2} \sum_{i=1}^n  \Bigl(\text{yact}_i - \text{ypred}_i \Bigr)^2.
+$$
+
+In general, 
+
+$$  RSE^2 = \frac{SSE}{n-p-1} = \frac1{n-p-1} \sum_{i=1}^n  \Bigl(\text{yact}_i - \text{ypred}_i \Bigr)^2.
+$$
+ 
+where $p$ is the number of predictor variables in a model where we have more 
+than one predictor variables.
+
+ 
+A **multiple linear regression** model is a linear regression model with 
+multiple predictors, written as  
+$$  Y_e = \alpha +\beta_1 * X_1 +\cdots +\beta_p X_p.
+$$
+
+As you see, the parameters and predictors are subscripted from 1 up to the 
+number of predictors $p$. 
+
+In multiple regression, the value of RSE generally decreases as we add 
+variables that are more significant predictors of the output variable.
+
+Using our simulated data from the previous steps, the following code snippet 
+shows how the RSE for a model can be calculated:
+
+```{r}
+set.seed(0)
+
+# Generate data
+X = 2.5 * rnorm(100) + 1.5   # Array of 100 values with mean = 1.5, stddev = 2.5
+res = 0.5 * rnorm(100)       # Generate 100 residual terms
+yact = 2 + 0.3 * X + res     # Actual values of Y
+
+# Create dataframe to store our X, ypred, and yact values
+df = data.frame('X' = X, 'yact' = yact)
+
+# Calculate the mean of X and Y
+xmean = mean(X)
+ymean = mean(yact)
+
+# Calculate the terms needed for the numator and denominator of beta
+df['xycov'] = (df['X'] - xmean) * (df['yact'] - ymean)
+df['xvar'] = (df['X'] - xmean)**2
+
+# Calculate beta and alpha
+beta = sum(df['xycov']) / sum(df['xvar'])
+alpha = ymean - (beta * xmean)
+print(paste('alpha =', alpha, ';', 'beta =', beta))
+
+# Store predictions as in previous step
+df['ypred'] = alpha + beta * df['X']
+
+# Show first five rows of dataframe
+head(df)
+```
+
+
+```{r}
+# Calculate SSE
+df['SSE'] = (df['yact'] - df['ypred'])**2
+SSE = sum(df['SSE'])
+
+# Calculate RSE
+RSE = sqrt(SSE / 98)   # n = 100
+print(paste('RSE =', RSE))
+```
+
+The value of `RSE` comes out to be 0.48. 
+
+As you might have guessed, the smaller the residual standard errors, the better 
+the model is. 
+
+The benchmark to compare this to is the mean of the actual values, `yact`. As 
+shown previously, this value is `ymean = 2.54`. In plain English, this means we 
+observe an error of 0.48 over 2.44 - approximately 19.69%.
+
+
+```{r}
+error = RSE / ymean
+print(paste('Mean Y =', ymean))
+print(paste('Error =', error))
+```
+
+### p-values
+
+The calculation of $\alpha$  and $\beta$ are estimates, not exact calculations. 
+Whether their values are significant or not needs to be tested using a 
+**hypothesis test**.
+
+In the equation, $Y = \alpha + \beta X$, if we set $\beta=0$,  there will be no 
+relation between $Y$ and $X$. Therefore, the hypothesis tests whether the value 
+of $\beta$ is non-zero or not.
+
+$$\begin{align*} \text{Null hypothesis}~  H_0~:~  \beta=0, & \quad \text{versus} \\
+\text{Alternative hypothesis}~ H_1~:~ \beta\ne 0.&  \end{align*}  $$
+ 
+
+Whenever a regression task is performed and $\beta$ is calculated, there will 
+be an accompanying **p-value** corresponding to this hypothesis test. We will 
+not go through how this is calculated in this course (you can learn more
+[here](https://www.dummies.com/education/math/statistics/how-to-determine-a-p-value-when-testing-a-null-hypothesis/)), 
+since it is calculated automatically by ready-made methods in R.
+
+If the p-value is less than a chosen **significance level** (e.g. 0.05) then 
+the null hypothesis that $\beta = 0$ is rejected and $\beta$ is said to be 
+<b>significant and non-zero</b>.
+
+In the case of multiple linear regression, the p-value associated with each 
+$\beta_k$   can be used to weed out insignificant predictors from the model. 
+The higher the p-value for $\beta_k$, the less significant $X_k$  is to the 
+model.
+
+### F-statistics
+
+In a multiple regression model, apart from testing the significance of 
+individual variables by checking the p-values, it is also necessary to check 
+whether, as a group all the predictors are significant. This can be done using 
+the following hypothesis:
+
+$$\begin{align*} \text{Null hypothesis}~  H_0~:~ & \beta_1=\beta_2=\cdots=\beta_p=0, \quad \text{versus} \\
+\text{Alternative hypothesis}~ H_1~:~& \text{at least one of the} ~\beta_k's ~ \text{is non zero}. \end{align*}  $$
+ 
+
+The statistic that is used to test this hypothesis is called the **F-statistic** 
+and is defined as follows:
+
+$$  F\text{-statistic} = \text{Fisher statistic}=  \frac{ (SST-SSE)/p}{ SSE/(n-p-1)}
+$$
+
+where $n$ = number of rows (sample points) in the dataset and $p$ = number of 
+predictor variables in the model.
+
+There is a $p$-value that is associated with this $F$-statistic. If the 
+$p$-value is smaller than the chosen significance level, the null hypothesis 
+can be rejected.
+
+It is important to look at the F-statistic because:
+
+- p-values are about individual relationships between predictors and the outcome
+variable. However, one predictor's relationship with the output might be 
+impacted by the presence of other variables.
+- When the number of predictors in the model is very large and all the 
+$\beta_i$ are very close to zero, the individual p-values associated with the 
+predictors might give very small values so we might incorrectly conclude that 
+there is a relationship between the predictors and the outcome.
+
