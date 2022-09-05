@@ -56,7 +56,7 @@ against the input variable (`X`) to see what the difference between `yact` and
 `ypred` is, and therefore, to see how accurately the proposed equation 
 (`ypred = 2 + 0.3 * X`) has been able to predict the value of the output:
 
-```{r}
+```{r fig2-simu-scatter, out.width = '75%'}
 # You can use basic plotting functions
 # plot(x=df$X, y=df$yact, col="red")
 # lines(x=df$X, y=df$ypred, col="darkgreen")

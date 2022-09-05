@@ -1,0 +1,82 @@
+
+
+## Visualise logistic and logit functions
+
+In this chapter, we will focus on logistic regression for classification. 
+Let's first look at what logistic and logit function look like.
+
+### Logistic function
+
+Let's write our first function `logestic()` as follows.
+```{r}
+# Write your first function
+logistic <- function(y) {
+  exp(y) / (1 + exp(y))
+}
+
+# Try it with different values:
+logistic(0.1)
+logistic(c(-3, -2, 0.5, 3, 5))
+```
+
+This is the equivalent to the built-in `plogis()` function in the `stat` 
+package for the 
+[logistic distribution](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/Logistic):
+
+```{r}
+plogis(0.1)
+plogis(c(-3, -2, 0.5, 3, 5))
+```
+
+
+### Logit function
+Now, let look at the logistic's inverse function `logit()`, and let's define it
+manually. **Note**, this function only support input between 0 and 1.
+```{r}
+# Write your first function
+logit <- function(x) {
+  log(x / (1 - x))
+}
+
+# Try it with different values:
+logit(0.4)
+logit(c(0.2, 0.3, 0.5, 0.7, 0.9))
+logit(c(-1, 2, 0.4))
+```
+
+Again, the built-in `stat` package's logistic distribution has an equivalent 
+function `qlogis()`, though with a different name.
+
+```{r}
+qlogis(0.4)
+qlogis(c(0.2, 0.3, 0.5, 0.7, 0.9))
+qlogis(c(-1, 2, 0.4))
+```
+
+### Visualise the distribution
+Logisitc function
+```{r fig3-logistic, out.width = '60%'}
+# You can use seq() function to generate a vector
+# Check how to use it by help(seq) or ?seq
+x = seq(-7, 7, 0.3)
+df = data.frame('x'=x, 'logistic'=plogis(x))
+
+# You can plot by plot function
+# plot(x=df$x, y=df$logistic, type='o')
+
+# Or ggplot2
+library(ggplot2)
+ggplot(df, aes(x=x, y=logistic)) +
+  geom_point() + geom_line()
+```
+
+
+Logit function
+```{r fig3-logit, out.width = '60%'}
+x = seq(0.001, 0.999, 0.01)
+df = data.frame('x'=x, 'logit'=qlogis(x))
+
+ggplot(df, aes(x=x, y=logit)) +
+  geom_point() + geom_line()
+```
+

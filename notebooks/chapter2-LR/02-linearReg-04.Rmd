@@ -36,7 +36,7 @@ Let’s start with <b> YouTub advertising costs</b> to create a simple linear
 regression model. First let’s plot the variables to get a better sense of 
 their relationship:
 
-```{r}
+```{r fig2-sale-scatter, out.width = '75%'}
 # Create scatter plot
 library(ggplot2)
 
@@ -124,7 +124,7 @@ equation: `sales_pred = 8.439 + 0.048*(advert['youtube'])`.
 We can visualise our regression model by plotting `sales_pred` against the 
 YouTube advertising costs to find the line of best fit:
 
-```{r}
+```{r fig2-sale-pred, out.width = '75%'}
 library(ggplot2)
 
 ggplot(marketing, aes(x=youtube)) + 

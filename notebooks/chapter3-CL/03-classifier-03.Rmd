@@ -1,0 +1,210 @@
+
+## Cross-validation
+In last section, we split the whole dataset into 75% for training and 25% for
+testing. However, when the dataset is small, the test set may not be big enough 
+and introduce high variance on the assessment.
+
+One way to reduce this variance in assessment is performing cross-validation, 
+where we split the data into K folds and use K-1 folds for training and the 
+remaining fold for testing. This procedure will be repeated for fold 1 to fold 
+K as testing fold and all folds will be aggregated for joint assessment.
+
+K is usually taken 3, 5 or 10. In extreme case that K=n_sample, we call it 
+leave-one-out cross-validation (LOOCV).
+
+Let's load the dataset (again) first.
+```{r}
+# Load data
+library(mlbench)
+data(PimaIndiansDiabetes)
+```
+
+
+Besides implement the cross-validation from scratch, there are packages 
+supporting it well, including `caret` package. We will install it and use it for
+cross-validation here.
+```{r}
+# Install the caret library for cross-validation
+if (!requireNamespace("caret", quietly = TRUE)) {
+  install.packages("caret")
+}
+library(caret)
+
+# Define training control
+# We also want to have savePredictions=TRUE & classProbs=TRUE
+set.seed(0) 
+my_trControl <- trainControl(method = "cv", number = 5, 
+                             classProbs = TRUE,
+                             savePredictions = TRUE)
+
+# Train the model
+cv_model <- train(diabetes ~ ., data = PimaIndiansDiabetes, 
+                  method = "glm",
+                  family=binomial(),
+                  trControl = my_trControl)
+
+# Summarize the results
+print(cv_model)
+```
+
+We can also access to detailed prediction results after concatenating the K 
+folds:
+```{r}
+head(cv_model$pred)
+```
+
+We can double check the accuracy:
+```{r}
+CV_acc = mean(cv_model$pred$pred == cv_model$pred$obs)
+print(paste("Accuracy via 5-fold cross-validation", CV_acc))
+```
+
+
+## More assessment metrics
+
+### Two types of error
+In the above sections, we used the accuracy to perform model diagnosis, either 
+only on one testing dataset or aggregating cross multiple folds in cross-
+validation.
+
+Accuracy is a widely used metric for model evaluation, on the averaged error 
+rate. However, this metric still have limitations when assessing the model 
+performance, especially the following two:
+
+1. When the samples are highly imbalance, high accuracy may not mean a good 
+model. For example, for a sample with 990 negative samples and 10 positive 
+samples, a simple model by predicting for all sample as negative will give an 
+accuracy of 0.99. Thus, for highly imbalanced samples, we should be careful when
+interpreting the accuracy.
+
+2. In many scenarios, our tolerance on false positive errors and false negative 
+errors may be different and we want to know both for a certain model. They are
+often called as type I and II errors:
+
+- Type I error: false positive (rate)
+- Type II error: false negative (rate) - a joke way to remember what type II 
+   mean **N**egative has two stripes.
+
+Here, we use the diabetes dataset and their cross-validation results above to illustrate the two types of errors and the corresponding model performance 
+evaluation.
+
+
+```{r}
+# Let's start to define the values for the confusion matrix first
+# Recall what the difference between & vs &&
+# Read more: https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html
+
+TP = sum((cv_model$pred$obs == 'pos') & (cv_model$pred$pred == 'pos'))
+FN = sum((cv_model$pred$obs == 'pos') & (cv_model$pred$pred == 'neg'))
+
+FP = sum((cv_model$pred$obs == 'neg') & (cv_model$pred$pred == 'pos'))
+TN = sum((cv_model$pred$obs == 'neg') & (cv_model$pred$pred == 'neg'))
+
+print(paste('TP, FN, FP, TN:', TP, FN, FP, TN))
+```
+
+
+We can also use the `table()` function to get the whole confusion matrix.
+Read more about the 
+[table function](https://www.geeksforgeeks.org/create-a-tabular-representation-of-data-in-r-programming-table-function/)
+for counting the frequency of each element.
+A similar way is the 
+[confusionMatrix()](https://www.rdocumentation.org/packages/caret/versions/3.45/topics/confusionMatrix) 
+in `caret` package.
+```{r}
+# Calculate confusion matrix
+confusion_mtx = table(cv_model$pred[, c("obs", "pred")])
+confusion_mtx
+
+# similar function confusionMatrix
+# conf_mat = confusionMatrix(cv_model$pred$pred, cv_model$pred$obs)
+# conf_mat$table
+```
+
+We can also plot out the confusion matrix
+```{r fig-3-confusion-mtx, out.width = '60%'}
+# Change to data.frame before using ggplot
+confusion_df = as.data.frame(confusion_mtx)
+
+ggplot(confusion_df, aes(pred, obs, fill= Freq)) +
+  geom_tile() + geom_text(aes(label=Freq)) + 
+  scale_fill_gradient(low="white", high="darkgreen")
+```
+
+
+Also the false positive rate, false negative rate and true negative rate.
+**Note**, the denominator is always the number of **observed** samples with the
+`same` label, namely they are a constant for a specific dataset.
+```{r}
+FPR = FP / sum(cv_model$pred$obs == 'neg')
+FNR = FN / sum(cv_model$pred$obs == 'pos')
+TPR = TP / sum(cv_model$pred$obs == 'pos')
+
+print(paste("False positive rate:", FPR))
+print(paste("False negative rate:", FNR))
+print(paste("True positive rate:",  TPR))
+```
+
+### ROC curve
+
+In the above assessment, we only used $P>0.5$ to denote predicted label as 
+positive. We can imagine if we a lower cutoff lower, we will have more false 
+positives and fewer false negatives. Indeed, in different scenarios, people may 
+choose different level of cutoff for their tolerance of different types of 
+errors.
+
+Let's try cutoff $P>0.4$. Think what will you expect.
+```{r}
+# Original confusion matrix
+table(cv_model$pred[, c("obs", "pred")])
+
+# New confusion matrix with cutoff 0.4
+cv_model$pred$pred_new = as.integer(cv_model$pred$pos >= 0.4)
+table(cv_model$pred[, c("obs", "pred_new")])
+```
+
+Therefore, we may want to assess the model performance by varying the cutoffs
+and obtain a more systematic assessment.
+
+Actually, the Receiver operating characteristic (ROC) curve is what you need. It
+presents the TPR (sensitivity) vs the FPR (i.e., 1 - TNR or 1 - specificity) 
+when varying the cutoffs.
+
+In order to achieve this, we can calculate FPR and TPR manually by varying the 
+cutoff through a `for loop`. Read more about 
+[for loop](https://www.datamentor.io/r-programming/for-loop/) and you may try 
+write your own and here is an example from the 
+[cardelino package](https://github.com/single-cell-genetics/cardelino/blob/main/R/assessment.R#L211). 
+
+For simplicity, let use an existing tool implemented in the `plotROC` package:
+`plotROC::geom_roc()` that is compatible with ggplot2.
+
+```{r fig3-ROC, out.width = '75%'}
+# Install the plotROC library for plotting ROC curve
+if (!requireNamespace("plotROC", quietly = TRUE)) {
+  install.packages("plotROC")
+}
+
+library(ggplot2)
+library(plotROC)
+
+# You can set the n.cuts to show the cutoffs on the curve
+g = ggplot(cv_model$pred, aes(m = pos, d = as.integer(obs=='pos'))) +   
+  geom_roc(n.cuts=7, hjust = -0.4, vjust = 1.5) + 
+  coord_equal() + ggtitle("ROC curve")
+
+# Calculate AUC from the graph
+AUC_val = calc_auc(g)$AUC
+
+# Display the plot
+g + annotate("text", x=0.8, y=0.1, label=paste("AUC =", round(AUC_val, 4)))
+```
+
+
+### Homework
+Now, try another model with removing `triceps` and plot the ROC curve and 
+calculate the AUC score.
+
+Is it higher or lower than using the full features?
+
+

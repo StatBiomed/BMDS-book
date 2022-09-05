@@ -329,7 +329,7 @@ of the specific package you want to install and use.
 
 ## Plotting
 ### datasets
-Using a build-in dataset for illustration: iris (4 flower features in 3plants)
+Using a built-in dataset for illustration: iris (4 flower features in 3plants)
 ```{r}
 head(iris)
 ```
@@ -358,6 +358,8 @@ boxplot(x1, x2, x3)
 ```
 
 ### ggplot2
+See more instructions: http://www.sthda.com/english/wiki/ggplot2-essentials
+
 #### Install package
 ```{r}
 if (!requireNamespace("ggplot2", quietly = TRUE))
@@ -446,10 +448,11 @@ plot(iris$Sepal.Length, y_pred)
 ```
 
 
-**Resources** used here:
+## Resource links
 
 - https://www.datamentor.io/r-programming/
 - https://www.geeksforgeeks.org/r-data-types/
 - https://data-flair.training/blogs/r-data-types/
+- http://www.sthda.com/english/wiki/ggplot2-essentials
 
 

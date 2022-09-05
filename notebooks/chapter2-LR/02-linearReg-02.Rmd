@@ -79,7 +79,7 @@ value of $R^2=0.583$ (obtained with $\alpha=2,~\beta=0.3$).
 Let’s also plot our new prediction model against the actual values and our 
 earlier assumed model, just to get a better visual understanding. 
 
-```{r}
+```{r fig2-simu-OLS, out.width = '75%'}
 library(ggplot2)
 
 # Put color into aes

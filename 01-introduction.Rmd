@@ -32,6 +32,14 @@ Acknowledgements: this chapter is adapted and updated from the materials origina
 
 # Introduction to Classification {#introClassifier}
 
+```{r child="notebooks/chapter3-CL/03-classifier-01.Rmd", echo=TRUE}
+```
+
+```{r child="notebooks/chapter3-CL/03-classifier-02.Rmd", echo=TRUE}
+```
+
+```{r child="notebooks/chapter3-CL/03-classifier-03.Rmd", echo=TRUE}
+```
 
 
 # Introduction to Hypothesis testing {#introHypoTest}
