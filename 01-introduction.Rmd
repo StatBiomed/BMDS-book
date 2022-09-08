@@ -44,4 +44,8 @@ Acknowledgements: this chapter is adapted and updated from the materials origina
 
 # Introduction to Hypothesis testing {#introHypoTest}
 
+```{r child="notebooks/chapter4-HT/04-hypothesis-test-01.Rmd", echo=TRUE}
+```
 
+```{r child="notebooks/chapter4-HT/04-hypothesis-test-02.Rmd", echo=TRUE}
+```

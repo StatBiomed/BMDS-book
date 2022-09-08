@@ -1,0 +1,69 @@
+
+## Multiple testing
+
+Hypothetical null distribution. 
+Feel feel to try any null distribution, examples below
+
+```{r}
+## Example null distributions
+# t, normal or anything. we use chi-squared distribution as an example
+
+x_random = rchisq(n=1000, df=3)
+any_null_dist = dchisq(x_random, df=3)
+
+pvals_null = 1 - pchisq(x_random, df=3)
+```
+
+
+### Null distribution (of test statistic)
+
+
+```{r fig4-stat-null, out.width = '60%'}
+# Null distribution of test statistic
+hist(x_random)
+```
+
+### Null distribution of p value
+
+```{r fig4-pval-null, out.width = '60%'}
+# Null distribution of test statistic
+hist(pvals_null)
+```
+
+### Minimal p values in 10 tests
+
+```{r}
+# We use matrix to group 100 trials into a column
+# We then use apply() to calculate min value for each column
+
+pval_null_mtx = matrix(pvals_null, nrow=10)
+
+p_min_in10 = apply(pval_null_mtx, MARGIN=2, FUN=min)
+```
+
+```{r fig4-pmin-null, out.width = '60%'}
+hist(p_min_in10)
+```
+
+```{r}
+print(paste('Proportion of tests with min(p) < 0.05:', mean(p_min_in10 < 0.05)))
+```
+
+### Homework
+
+1. Make a simulation of score: group A and B
+2. B follows normal(mean=0, std=1); A follows normal(mean=0.1, std=1)
+3. Generate 100 samples for each group, and do a t test, is difference significant? Please use set.seed(0) beforehand.
+4. Try 3) again but general 3,00 samples this time, later 1,000 samples. What 
+   do you find? Think the relation between power and sample size.
+
+```{r}
+set.seed(0)
+
+n_sample = 100 # change this value to 1000 and 10000
+xB = rnorm(n_sample)
+xA = rnorm(n_sample, mean=0.1)
+t.test(xA, xB, var.equal = TRUE)
+```
+
+
