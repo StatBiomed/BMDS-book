@@ -1,0 +1,220 @@
+
+## Case study 1: splicing fedility prediction { #genomics-case1 }
+
+Scenario: As a computational biology researcher, you want to find out what sequence-related features function as a regulator for **splicing fidelity**. You conducted a deep RNA-seq experience and quantified the **splicing error frequency (SEF)** for 141 splicing error events in yeast. Based on your prior knowledge and curiosity, you plan to further define a set of sequence-related features and test how predictive they are.
+
+### Questions for Discussion
+
+**Q1.** What sequence-related features you would think of?
+
+**Q2.** Given a set of candidate features, what statistical methods can you use to determine if a feature genuinely contributes to splicing fidelity?
+
+**Q3.** Given a candidate feature set, what could be the best subset of features for predicting the splicing fidelity and in what sense?
+
+
+
+### Hands-on with regression model
+Now, you are given a dataset with 141 splicing error events containing Y for splicing error frequency (SEF) and 14 predictors X. Data set and template notebook are available on Moodle (recommended) and also on this 
+[GitHub Repo](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/module1-genomics/df_SEF_prediction.tsv).
+
+**The information for columns:**
+
+* RPG: Ribosomal Protein Gene
+* event: splicing error event type
+* shift: nucleotide shift between canonical (ref, reference) and erroneous (alt, alternative) splice sites
+* SEF: splicing error frequency
+* intronL_ref: intron length for canonical (ref) intron
+* 5ss_bpL_ref: length between 5 splice site to branch point
+* DeltaG_intron_ref: the energy score in the secondary RNA structure, calculated by [RNAFold](http://rna.tbi.univie.ac.at/cgi-bin/RNAWebSuite/RNAfold.cgi). The lower the more stable.
+* 5ss_motif_ref: the motif score of a sequence. The motif position weight matrix (PWM) is obtained by observed genes. The motif score is calculated as the log likelihood of each sequence given the PWM, followed by resealing to 100 for the maximum value. You can refer to *slide 7* in lecture topic 1.
+* intronL_alt: intron length for erroneous (alt) intron
+
+
+```{r}
+df = read.table("df_SEF_prediction.tsv", sep="\t", header=1)
+
+head(df)
+```
+
+#### A single feature
+**Q4.** Let’s start with a single feature, `bp_motif_ref`, is there a linear relationship with the output variable `SEF` Y? How do you determine it? 
+
+**Hint**: try scatter plot to visualise the data. See example we mentioned before
+https://statbiomed.github.io/BMDS-book/introR.html#scatter-plot-1
+
+```{r topic1-w1-scatter}
+# consider visualise it
+# df$SEF and df$bp_motif_ref
+
+library(ggplot2)
+
+# Write your codes here
+
+```
+
+
+How about doing a log transform for SEF score? Consider adding a pseudo count, e.g., 0.0001.
+```{r topic1-w1-log10}
+df["SEF_log"] = log10(df$SEF + 0.0001)
+
+# visualize it again
+
+
+```
+
+
+#### All features with lm
+**Q5.** Can you build a linear model to perform the prediction by using all features? How to obtain the assessment statistics?
+
+**Hint**: consider using the `lm` function. See examples we mentioned before
+https://statbiomed.github.io/BMDS-book/introLinearReg.html#simple-linear-regression-with-lm-function
+
+```{r}
+# For the formula, you can use this one, but you can also write your own:
+lr_fm1 = as.formula(paste("SEF_log ~ 1 + ", paste(colnames(df)[6:19], collapse=" + ")))
+
+# Write your codes for fitting the model here
+
+```
+
+
+#### Assessment on test data
+**Q6.** Can you perform the assessment on test data by splitting the data into training and test sets?
+
+We didn't introduce how perform training & test splitting in linear regression, but you can adapt the scripts that we introduced for logistic regression.
+
+**Hint**: you can recall the logistic regress chapter for the training & test spiting: https://statbiomed.github.io/BMDS-book/introClassifier.html#logistic-regression-on-diabetes
+
+You can also just use the codes below, but think what is the ratio between training and test sets here:
+
+```{r}
+set.seed(0)
+
+idx_train = sample(nrow(df),  size=0.5*nrow(df), replace = FALSE)
+df_train = df[idx_train, ]
+df_test  = df[-idx_train, ] # recall the meaning of negative symbol
+```
+
+Now, start training the model on the training set and predict on the test set.
+
+**Hint**: follow the codes here: https://statbiomed.github.io/BMDS-book/introClassifier.html#logistic-regression-on-diabetes
+```{r}
+# recall the predict function
+
+# lr_train = lm()
+# res_test = predict()
+
+
+```
+
+For calculating R^2, another quick way is using the Pearson's correlation coefficient R, as it gives equivalent values. We can do it with the following codes with the `cor()` function.
+
+```{r}
+# Please uncomment the codes below:
+
+# R_sqr = cor(res_test, df_test$SEF_log)**2
+# R_sqr
+
+# Alternative function
+# cor.test(res_test, df_test$SEF_log)
+```
+
+
+#### Cross-validation for regression
+**Q7.** Can you perform a 10-fold cross validation, calculate the R^2 between predicted and observed log(SEF), and plot it with ggplot?
+
+**Hint**: We didn't mention cross-validation for linear regression but again we can adapt the codes from the logistic regression chapter:
+https://statbiomed.github.io/BMDS-book/introClassifier.html#cross-validation
+
+You can also use the codes below, but try to fill the missing part (with question marks `???`) yourself.
+```{r}
+library(caret)
+
+# Define training control
+# We also want to have savePredictions=TRUE & classProbs=TRUE
+set.seed(0) 
+my_trControl <- trainControl(method = "cv", number = 10, 
+                             savePredictions = TRUE)
+
+# Train the model (uncomment the codes below)
+# cv_model <- train(???, data = ???, 
+#                   method = "lm",
+#                   trControl = my_trControl)
+
+# Summarize the results
+# mean(cv_model$resample$Rsquared)
+# print(cv_model)
+
+```
+
+By using `print(cv_model)`, we can see the *Rsquared* value, which is an average of all R^2 acoss K folds (each fold has its own R^2 on the test set).
+
+Now, let's manually calculate the R^2 between observed and predicted Y for all samples in an aggregated manner, despite that the Ys are predicted from different models in different folds. 
+
+```{r}
+# Uncomment the codes below to view the first a few lines of the data frame
+
+# head(cv_model$pred)
+```
+
+```{r}
+# Uncomment the codes below to calculate the R^2
+
+# cor(cv_model$pred$pred, cv_model$pred$obs)**2
+```
+
+#### A subset of features
+**Q8.** Can you try a subset of features and see if you can improve the performance?
+
+**Hint**: You can consider forward method as mentioned here by checking the $p$ value and only keep the significant ones (think which significance level $\alpha$ you would like to allow:
+https://statbiomed.github.io/BMDS-book/introLinearReg.html#multiple-regression-with-lm-function
+
+```{r}
+library(caret)
+
+# Define your new formular:
+# lr_fm2 = as.formula()
+
+
+set.seed(0)
+# Try the 10-fold cross-validation with the new feature set yourself
+# cv_model2 = ???
+
+```
+
+```{r}
+# Uncomment the codes below to calculate the R^2
+
+# cor(cv_model2$pred$pred, cv_model2$pred$obs)**2
+```
+
+
+
+### Open question
+
+**Q9.** Can you plot a scatter plot between log(SEF) vs X3ss_motif_ref, and colored by Ribosomal Protein Genes (RPG)? What did you see?
+
+**Hint**: follow the example on the diabetes data:
+https://statbiomed.github.io/BMDS-book/introClassifier.html#load-pima-indians-diabetes-database
+```{r}
+# Write you codes here with ggplot
+
+```
+
+**Q10.** Is the SEF score mainly driven by the RPG label or is it genuinely related to the 3’ss motif? How to test it?
+
+**Hint**: consider adding `RPG` as a covariate. Is 3'ss motif still significant?
+
+```{r}
+# Define your new model
+lr_fm3 = as.formula(paste("SEF_log ~", paste(colnames(df)[c(2,6:19)], collapse=" + ")))
+
+# Write you codes below to fit the model
+
+```
+
+
+**Acknowledgement:** this case study is adapted from the 
+[Figure 4](https://genome.cshlp.org/content/28/2/203/F4.expansion.html) for the following research article:
+
+* Aslanzadeh et al. *Transcription rate strongly affects splicing fidelity and cotranscriptionality in budding yeast*. Genome Research, 2018, 28 (2), 203-213

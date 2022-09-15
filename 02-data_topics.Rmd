@@ -7,7 +7,10 @@ cat("# (PART) Biomedical Data Modules {-} ")
 ```
 
 
-```{r child="notebooks/module1-genomics/M1-genomics.Rmd", echo=TRUE}
+# Personalised Genomic Medicine {#genomics}
+
+
+```{r child="notebooks/module1-genomics/M1-genomics-01.Rmd", echo=TRUE}
 ```
 
 
