@@ -1,0 +1,213 @@
+# Analysis of cBioportal mutation data
+
+Non-small cell lung cancer is a deadly disease, and we would like to identify
+mutations in genes that drive its formation and progression.
+George et al. (2015) has sequenced 120 small cell lung cancer samples and this
+data is available from [cBioportal](cbioportal).
+The original data is in the [MAF][maf], and we have selected a subset of the
+columns, normalized the column names, and made the data available as an RDS 
+file.
+
+In this exercise, we will explore the mutation data and examine genes that are
+frequently mutated in non-small cell lung cancer samples.
+We will implement a simple method for identifying candidate tumour suppressors
+based on loss-of-function mutations.
+
+
+## Exploratory analysis
+
+**Q1**. Load the data named `mutations_sclc_ucologne_2015.rds` into R.
+Examine it using `head`.
+In this `data.frame`, each row is a mutation detected in a particular gene
+from a particular sample in the study.
+For more information on the columns, see the [MAF specification][maf].
+```{r}
+?readRDS
+
+?head
+
+```
+
+**Q2**. Identify the top 10 most frequently mutated genes.
+```{r}
+# calculate count frequencies using table
+?table
+# freqs <- ???
+
+# sort the frequency vector in decreasing order
+?sort
+# freqs <- ???
+
+# select the first 10 genes in the freqs
+# freqs.top <- ???
+
+# obtain the gene names
+genes <- names(freqs.top);
+
+print(freqs.top)
+```
+**Q3**. Tabulate the count frequencies of `variant_class`.
+What proportion of variants are `Silent` or inside an `Intron`?
+```{r}
+?table
+```
+**Q4**. A variant class value `frame_shift_del` appears to be misspelt due to
+case sensitivity. Correct this error.
+```{r}
+# x$variant_class[x$variant_class == "frame_shift_del"] <- ???;
+
+```
+
+**Q5**. To help us simplify the variant classes into loss-of-function or neutral,
+let us import the `mutation_effects.tsv` data.
+```{r}
+?read.table
+# Hint: You need to set the `header` and `sep` arguments
+
+```
+
+**Q6**. Define a new column in `x` that converts the variant classes to effects.
+```{r}
+?match
+```
+
+**Q7**. Create a subset of the data for the most frequently mutated genes,
+and tabulate the mutation count frequencies of variant classes for each gene.
+```{r}
+# x.sub <- x[???, ]
+
+
+# order the factor levels based on `genes`,
+# which was previously sorted in decreasing order of frequency
+x.sub$gene <- factor(x.sub$gene, levels=genes);
+
+?table
+
+```
+
+**Q8**. Determine the number of mutations in each effect category, across all genes.
+Save the result in a variable named `overall.counts`.
+```{r}
+# overall.counts <- table(???);
+
+overall.counts
+```
+
+**Q9**. Tabulate the mutation count frequencies for each gene and effect.
+Save the results in a variable named `gene.counts`.
+Look up the frequently mutated genes in this matrix.
+```{r}
+# gene.counts <- table(???, ???);
+# gene.counts[???, ]
+
+```
+
+## Statistical analysis
+
+Here, we implemented a simple statistical test for assessing whether a
+gene is significantly frequently targeted by loss-of-function mutations,
+based on the Fisher's exact test.
+```{r}
+# Test whether a query gene has significantly more loss-of-function
+# mutations compared with other genes.
+# Requires global variables `gene.counts` and `overall.counts`
+lof_test <- function(gene) {
+  
+	# Construct the following contingency table:
+	#              neutral    lof
+	# other genes  a          b
+	# query gene   c          d
+	cols <- c("neutral", "loss_of_function");
+	gene.counts.sel <- gene.counts[gene, cols];
+	ct <- matrix(
+		c(
+			overall.counts[cols] - gene.counts.sel,
+			gene.counts.sel
+		),
+		byrow=TRUE,
+		ncol=2
+	);
+
+	# Test whether the lof mutations are greater in frequency compared 
+	# to neutral mutations in the query gene, in comparison to all other genes
+	fisher.test(ct, alternative="greater")
+}
+```
+
+**Q10**. Subset the `gene.counts` table for the *TP53* gene.
+Run `lof_test` on this gene.
+```{r}
+# gene.counts[???, ]
+# lof_test(???)
+
+```
+**Q11**. Now, test to see if *TTN* and *MUC16* are significantly frequently 
+targeted by loss-of-function mutations.
+```{r}
+# similar to above
+
+```
+
+**Q12**. Apply the loss-of-function test to all frequently mutated genes.
+```{r}
+?lapply
+```
+
+**Q13**. Extract odds ratio and p-values from the test results.
+```{r}
+odds.ratios <- vapply(hs, function(h) h$estimate, 0);
+# ps <- vapply(hs, function(h) ???, 0);
+
+```
+
+**Q14**. Since we tested many genes, we need to adjust for multiple hypothesis
+testing so that we can control the false discovery rate.
+So, adjust the p-values to obtain q-values.
+```{r}
+?p.adjust
+
+```
+
+**Q15**. Construct a results `data.frame` with gene names, odds ratio, p-values,
+and q-values that summarize the loss-of-function test results.
+```{r}
+# res <- data.frame(
+#	  gene = ???,
+#	  odds_ratio = ???,
+#	  p = ???,
+#	  q = ???
+# );
+
+?order
+#res <- res[order(???), ];
+
+```
+
+**Q16**. Identify the significant genes from the results `data.frame` at a
+false discovery rate of 5% (i.e. q-value threshold of 0.05).
+```{r}
+
+```
+
+**Q17**. Look up the significant genes in the `gene.counts` matrix.
+```{r}
+
+```
+
+## Literature search
+
+**Q18**. Do the significant genes appear to be involved in cancer?
+What general roles do they play?
+
+
+**Q19**. How do these genes contribute specifically to the formation
+or progression of small cell lung cancer?
+
+
+**Q20**. What are some possible ways of identifying oncogenes that are activated 
+by mutations or other genomic alterations?
+
+
+[cbioportal]: https://www.cbioportal.org
+[maf]: https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/
+
