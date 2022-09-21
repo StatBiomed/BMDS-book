@@ -1,4 +1,4 @@
-# Analysis of cBioportal mutation data
+## Case study 2: analysis of cBioportal mutation data { #genomics-case2 }
 
 Non-small cell lung cancer is a deadly disease, and we would like to identify
 mutations in genes that drive its formation and progression.
@@ -14,7 +14,7 @@ We will implement a simple method for identifying candidate tumour suppressors
 based on loss-of-function mutations.
 
 
-## Exploratory analysis
+### Exploratory analysis
 
 **Q1**. Load the data named `mutations_sclc_ucologne_2015.rds` into R.
 Examine it using `head`.
@@ -42,9 +42,9 @@ For more information on the columns, see the [MAF specification][maf].
 # freqs.top <- ???
 
 # obtain the gene names
-genes <- names(freqs.top);
+# genes <- names(freqs.top);
 
-print(freqs.top)
+# print(freqs.top)
 ```
 **Q3**. Tabulate the count frequencies of `variant_class`.
 What proportion of variants are `Silent` or inside an `Intron`?
@@ -79,7 +79,7 @@ and tabulate the mutation count frequencies of variant classes for each gene.
 
 # order the factor levels based on `genes`,
 # which was previously sorted in decreasing order of frequency
-x.sub$gene <- factor(x.sub$gene, levels=genes);
+# x.sub$gene <- factor(x.sub$gene, levels=genes);
 
 ?table
 
@@ -90,7 +90,7 @@ Save the result in a variable named `overall.counts`.
 ```{r}
 # overall.counts <- table(???);
 
-overall.counts
+# overall.counts
 ```
 
 **Q9**. Tabulate the mutation count frequencies for each gene and effect.
@@ -102,7 +102,7 @@ Look up the frequently mutated genes in this matrix.
 
 ```
 
-## Statistical analysis
+### Statistical analysis
 
 Here, we implemented a simple statistical test for assessing whether a
 gene is significantly frequently targeted by loss-of-function mutations,
@@ -155,7 +155,7 @@ targeted by loss-of-function mutations.
 
 **Q13**. Extract odds ratio and p-values from the test results.
 ```{r}
-odds.ratios <- vapply(hs, function(h) h$estimate, 0);
+# odds.ratios <- vapply(hs, function(h) h$estimate, 0);
 # ps <- vapply(hs, function(h) ???, 0);
 
 ```
@@ -194,7 +194,7 @@ false discovery rate of 5% (i.e. q-value threshold of 0.05).
 
 ```
 
-## Literature search
+### Literature search
 
 **Q18**. Do the significant genes appear to be involved in cancer?
 What general roles do they play?
