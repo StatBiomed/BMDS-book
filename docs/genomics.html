@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2022-09-15" />
+<meta name="date" content="2022-09-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -266,6 +266,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1.2" data-path="genomics.html"><a href="genomics.html#hands-on-with-regression-model"><i class="fa fa-check"></i><b>5.1.2</b> Hands-on with regression model</a></li>
 <li class="chapter" data-level="5.1.3" data-path="genomics.html"><a href="genomics.html#open-question"><i class="fa fa-check"></i><b>5.1.3</b> Open question</a></li>
 </ul></li>
+<li class="chapter" data-level="5.2" data-path="genomics.html"><a href="genomics.html#genomics-case2"><i class="fa fa-check"></i><b>5.2</b> Case study 2: analysis of cBioportal mutation data</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="genomics.html"><a href="genomics.html#exploratory-analysis"><i class="fa fa-check"></i><b>5.2.1</b> Exploratory analysis</a></li>
+<li class="chapter" data-level="5.2.2" data-path="genomics.html"><a href="genomics.html#statistical-analysis"><i class="fa fa-check"></i><b>5.2.2</b> Statistical analysis</a></li>
+<li class="chapter" data-level="5.2.3" data-path="genomics.html"><a href="genomics.html#literature-search"><i class="fa fa-check"></i><b>5.2.3</b> Literature search</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="image-digital.html"><a href="image-digital.html"><i class="fa fa-check"></i><b>6</b> Medical Image and Digital Health</a></li>
 <li class="chapter" data-level="7" data-path="infectious-dis.html"><a href="infectious-dis.html"><i class="fa fa-check"></i><b>7</b> Infectious Disease Informatics</a></li>
@@ -488,6 +494,148 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Aslanzadeh et al. <em>Transcription rate strongly affects splicing fidelity and cotranscriptionality in budding yeast</em>. Genome Research, 2018, 28 (2), 203-213</li>
 </ul>
+</div>
+</div>
+<div id="genomics-case2" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Case study 2: analysis of cBioportal mutation data<a href="genomics.html#genomics-case2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Non-small cell lung cancer is a deadly disease, and we would like to identify
+mutations in genes that drive its formation and progression.
+George et al. (2015) has sequenced 120 small cell lung cancer samples and this
+data is available from <a href="cbioportal">cBioportal</a>.
+The original data is in the <a href="https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/">MAF</a>, and we have selected a subset of the
+columns, normalized the column names, and made the data available as an RDS
+file.</p>
+<p>In this exercise, we will explore the mutation data and examine genes that are
+frequently mutated in non-small cell lung cancer samples.
+We will implement a simple method for identifying candidate tumour suppressors
+based on loss-of-function mutations.</p>
+<div id="exploratory-analysis" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Exploratory analysis<a href="genomics.html#exploratory-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Q1</strong>. Load the data named <code>mutations_sclc_ucologne_2015.rds</code> into R.
+Examine it using <code>head</code>.
+In this <code>data.frame</code>, each row is a mutation detected in a particular gene
+from a particular sample in the study.
+For more information on the columns, see the <a href="https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/">MAF specification</a>.</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="genomics.html#cb335-1" aria-hidden="true" tabindex="-1"></a>?readRDS</span>
+<span id="cb335-2"><a href="genomics.html#cb335-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb335-3"><a href="genomics.html#cb335-3" aria-hidden="true" tabindex="-1"></a>?head</span></code></pre></div>
+<p><strong>Q2</strong>. Identify the top 10 most frequently mutated genes.</p>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="genomics.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate count frequencies using table</span></span>
+<span id="cb336-2"><a href="genomics.html#cb336-2" aria-hidden="true" tabindex="-1"></a>?table</span>
+<span id="cb336-3"><a href="genomics.html#cb336-3" aria-hidden="true" tabindex="-1"></a><span class="co"># freqs &lt;- ???</span></span>
+<span id="cb336-4"><a href="genomics.html#cb336-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb336-5"><a href="genomics.html#cb336-5" aria-hidden="true" tabindex="-1"></a><span class="co"># sort the frequency vector in decreasing order</span></span>
+<span id="cb336-6"><a href="genomics.html#cb336-6" aria-hidden="true" tabindex="-1"></a>?sort</span>
+<span id="cb336-7"><a href="genomics.html#cb336-7" aria-hidden="true" tabindex="-1"></a><span class="co"># freqs &lt;- ???</span></span>
+<span id="cb336-8"><a href="genomics.html#cb336-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb336-9"><a href="genomics.html#cb336-9" aria-hidden="true" tabindex="-1"></a><span class="co"># select the first 10 genes in the freqs</span></span>
+<span id="cb336-10"><a href="genomics.html#cb336-10" aria-hidden="true" tabindex="-1"></a><span class="co"># freqs.top &lt;- ???</span></span>
+<span id="cb336-11"><a href="genomics.html#cb336-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb336-12"><a href="genomics.html#cb336-12" aria-hidden="true" tabindex="-1"></a><span class="co"># obtain the gene names</span></span>
+<span id="cb336-13"><a href="genomics.html#cb336-13" aria-hidden="true" tabindex="-1"></a><span class="co"># genes &lt;- names(freqs.top);</span></span>
+<span id="cb336-14"><a href="genomics.html#cb336-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb336-15"><a href="genomics.html#cb336-15" aria-hidden="true" tabindex="-1"></a><span class="co"># print(freqs.top)</span></span></code></pre></div>
+<p><strong>Q3</strong>. Tabulate the count frequencies of <code>variant_class</code>.
+What proportion of variants are <code>Silent</code> or inside an <code>Intron</code>?</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="genomics.html#cb337-1" aria-hidden="true" tabindex="-1"></a>?table</span></code></pre></div>
+<p><strong>Q4</strong>. A variant class value <code>frame_shift_del</code> appears to be misspelt due to
+case sensitivity. Correct this error.</p>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="genomics.html#cb338-1" aria-hidden="true" tabindex="-1"></a><span class="co"># x$variant_class[x$variant_class == &quot;frame_shift_del&quot;] &lt;- ???;</span></span></code></pre></div>
+<p><strong>Q5</strong>. To help us simplify the variant classes into loss-of-function or neutral,
+let us import the <code>mutation_effects.tsv</code> data.</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="genomics.html#cb339-1" aria-hidden="true" tabindex="-1"></a>?read.table</span>
+<span id="cb339-2"><a href="genomics.html#cb339-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Hint: You need to set the `header` and `sep` arguments</span></span></code></pre></div>
+<p><strong>Q6</strong>. Define a new column in <code>x</code> that converts the variant classes to effects.</p>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="genomics.html#cb340-1" aria-hidden="true" tabindex="-1"></a>?match</span></code></pre></div>
+<p><strong>Q7</strong>. Create a subset of the data for the most frequently mutated genes,
+and tabulate the mutation count frequencies of variant classes for each gene.</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="genomics.html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="co"># x.sub &lt;- x[???, ]</span></span>
+<span id="cb341-2"><a href="genomics.html#cb341-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb341-3"><a href="genomics.html#cb341-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb341-4"><a href="genomics.html#cb341-4" aria-hidden="true" tabindex="-1"></a><span class="co"># order the factor levels based on `genes`,</span></span>
+<span id="cb341-5"><a href="genomics.html#cb341-5" aria-hidden="true" tabindex="-1"></a><span class="co"># which was previously sorted in decreasing order of frequency</span></span>
+<span id="cb341-6"><a href="genomics.html#cb341-6" aria-hidden="true" tabindex="-1"></a><span class="co"># x.sub$gene &lt;- factor(x.sub$gene, levels=genes);</span></span>
+<span id="cb341-7"><a href="genomics.html#cb341-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb341-8"><a href="genomics.html#cb341-8" aria-hidden="true" tabindex="-1"></a>?table</span></code></pre></div>
+<p><strong>Q8</strong>. Determine the number of mutations in each effect category, across all genes.
+Save the result in a variable named <code>overall.counts</code>.</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="genomics.html#cb342-1" aria-hidden="true" tabindex="-1"></a><span class="co"># overall.counts &lt;- table(???);</span></span>
+<span id="cb342-2"><a href="genomics.html#cb342-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb342-3"><a href="genomics.html#cb342-3" aria-hidden="true" tabindex="-1"></a><span class="co"># overall.counts</span></span></code></pre></div>
+<p><strong>Q9</strong>. Tabulate the mutation count frequencies for each gene and effect.
+Save the results in a variable named <code>gene.counts</code>.
+Look up the frequently mutated genes in this matrix.</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="genomics.html#cb343-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gene.counts &lt;- table(???, ???);</span></span>
+<span id="cb343-2"><a href="genomics.html#cb343-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gene.counts[???, ]</span></span></code></pre></div>
+</div>
+<div id="statistical-analysis" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Statistical analysis<a href="genomics.html#statistical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here, we implemented a simple statistical test for assessing whether a
+gene is significantly frequently targeted by loss-of-function mutations,
+based on the Fisher’s exact test.</p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="genomics.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test whether a query gene has significantly more loss-of-function</span></span>
+<span id="cb344-2"><a href="genomics.html#cb344-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mutations compared with other genes.</span></span>
+<span id="cb344-3"><a href="genomics.html#cb344-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Requires global variables `gene.counts` and `overall.counts`</span></span>
+<span id="cb344-4"><a href="genomics.html#cb344-4" aria-hidden="true" tabindex="-1"></a>lof_test <span class="ot">&lt;-</span> <span class="cf">function</span>(gene) {</span>
+<span id="cb344-5"><a href="genomics.html#cb344-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb344-6"><a href="genomics.html#cb344-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Construct the following contingency table:</span></span>
+<span id="cb344-7"><a href="genomics.html#cb344-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">#              neutral    lof</span></span>
+<span id="cb344-8"><a href="genomics.html#cb344-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># other genes  a          b</span></span>
+<span id="cb344-9"><a href="genomics.html#cb344-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># query gene   c          d</span></span>
+<span id="cb344-10"><a href="genomics.html#cb344-10" aria-hidden="true" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;neutral&quot;</span>, <span class="st">&quot;loss_of_function&quot;</span>);</span>
+<span id="cb344-11"><a href="genomics.html#cb344-11" aria-hidden="true" tabindex="-1"></a>    gene.counts.sel <span class="ot">&lt;-</span> gene.counts[gene, cols];</span>
+<span id="cb344-12"><a href="genomics.html#cb344-12" aria-hidden="true" tabindex="-1"></a>    ct <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb344-13"><a href="genomics.html#cb344-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">c</span>(</span>
+<span id="cb344-14"><a href="genomics.html#cb344-14" aria-hidden="true" tabindex="-1"></a>            overall.counts[cols] <span class="sc">-</span> gene.counts.sel,</span>
+<span id="cb344-15"><a href="genomics.html#cb344-15" aria-hidden="true" tabindex="-1"></a>            gene.counts.sel</span>
+<span id="cb344-16"><a href="genomics.html#cb344-16" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb344-17"><a href="genomics.html#cb344-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">byrow=</span><span class="cn">TRUE</span>,</span>
+<span id="cb344-18"><a href="genomics.html#cb344-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">ncol=</span><span class="dv">2</span></span>
+<span id="cb344-19"><a href="genomics.html#cb344-19" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb344-20"><a href="genomics.html#cb344-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb344-21"><a href="genomics.html#cb344-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Test whether the lof mutations are greater in frequency compared </span></span>
+<span id="cb344-22"><a href="genomics.html#cb344-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># to neutral mutations in the query gene, in comparison to all other genes</span></span>
+<span id="cb344-23"><a href="genomics.html#cb344-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fisher.test</span>(ct, <span class="at">alternative=</span><span class="st">&quot;greater&quot;</span>)</span>
+<span id="cb344-24"><a href="genomics.html#cb344-24" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>Q10</strong>. Subset the <code>gene.counts</code> table for the <em>TP53</em> gene.
+Run <code>lof_test</code> on this gene.</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="genomics.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gene.counts[???, ]</span></span>
+<span id="cb345-2"><a href="genomics.html#cb345-2" aria-hidden="true" tabindex="-1"></a><span class="co"># lof_test(???)</span></span></code></pre></div>
+<p><strong>Q11</strong>. Now, test to see if <em>TTN</em> and <em>MUC16</em> are significantly frequently
+targeted by loss-of-function mutations.</p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="genomics.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="co"># similar to above</span></span></code></pre></div>
+<p><strong>Q12</strong>. Apply the loss-of-function test to all frequently mutated genes.</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="genomics.html#cb347-1" aria-hidden="true" tabindex="-1"></a>?lapply</span></code></pre></div>
+<p><strong>Q13</strong>. Extract odds ratio and p-values from the test results.</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="genomics.html#cb348-1" aria-hidden="true" tabindex="-1"></a><span class="co"># odds.ratios &lt;- vapply(hs, function(h) h$estimate, 0);</span></span>
+<span id="cb348-2"><a href="genomics.html#cb348-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ps &lt;- vapply(hs, function(h) ???, 0);</span></span></code></pre></div>
+<p><strong>Q14</strong>. Since we tested many genes, we need to adjust for multiple hypothesis
+testing so that we can control the false discovery rate.
+So, adjust the p-values to obtain q-values.</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="genomics.html#cb349-1" aria-hidden="true" tabindex="-1"></a>?p.adjust</span></code></pre></div>
+<p><strong>Q15</strong>. Construct a results <code>data.frame</code> with gene names, odds ratio, p-values,
+and q-values that summarize the loss-of-function test results.</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="genomics.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="co"># res &lt;- data.frame(</span></span>
+<span id="cb350-2"><a href="genomics.html#cb350-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     gene = ???,</span></span>
+<span id="cb350-3"><a href="genomics.html#cb350-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     odds_ratio = ???,</span></span>
+<span id="cb350-4"><a href="genomics.html#cb350-4" aria-hidden="true" tabindex="-1"></a><span class="co">#     p = ???,</span></span>
+<span id="cb350-5"><a href="genomics.html#cb350-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     q = ???</span></span>
+<span id="cb350-6"><a href="genomics.html#cb350-6" aria-hidden="true" tabindex="-1"></a><span class="co"># );</span></span>
+<span id="cb350-7"><a href="genomics.html#cb350-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb350-8"><a href="genomics.html#cb350-8" aria-hidden="true" tabindex="-1"></a>?order</span>
+<span id="cb350-9"><a href="genomics.html#cb350-9" aria-hidden="true" tabindex="-1"></a><span class="co">#res &lt;- res[order(???), ];</span></span></code></pre></div>
+<p><strong>Q16</strong>. Identify the significant genes from the results <code>data.frame</code> at a
+false discovery rate of 5% (i.e. q-value threshold of 0.05).</p>
+<p><strong>Q17</strong>. Look up the significant genes in the <code>gene.counts</code> matrix.</p>
+</div>
+<div id="literature-search" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Literature search<a href="genomics.html#literature-search" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Q18</strong>. Do the significant genes appear to be involved in cancer?
+What general roles do they play?</p>
+<p><strong>Q19</strong>. How do these genes contribute specifically to the formation
+or progression of small cell lung cancer?</p>
+<p><strong>Q20</strong>. What are some possible ways of identifying oncogenes that are activated
+by mutations or other genomic alterations?</p>
 </div>
 </div>
 </div>
