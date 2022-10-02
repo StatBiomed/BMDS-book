@@ -4,6 +4,13 @@
 cat("# (PART) Data Science Foundations {-} ")
 ```
 
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE, comment = "#>"
+)
+```
+
 ```{r child="notebooks/chapter1-R/01-introR.Rmd", echo=TRUE}
 ```
 

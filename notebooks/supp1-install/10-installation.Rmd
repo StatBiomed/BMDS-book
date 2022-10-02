@@ -2,11 +2,11 @@
 
 # Appendix A: Install R & RStudio {#install - }
 
-This manual covers the installation of both R and RStudio for three different 
+This manual covers the installation of both `R` and `RStudio` for three different 
 operating systems: Windows, macOS and Ubuntu. You only need to follow the one 
 that you are using on your computer.
 
-**Difference between R and RStudio**
+**Differences between R and RStudio**
 
 * R is the backbone of R programming. Once R is installed, you can use it 
   via its build-in `R Console` (self-contained), terminal or any third-party
@@ -45,9 +45,9 @@ by Xiunan Fang and other team members in Dr Joshua Ho's lab.
   the CPU model: Intel Macs (Intel-based) or M1 Macs (ARM-based). 
   **Please choose accordingly**.
 
-### R on Ubuntu {-}
+### R on Linux (Ubuntu) {-}
 
-As it is common, prior to installing R, let us update the system package index 
+As commonly used in Ubuntu, prior to installing R, let us update the system package index 
 and upgrade all our installed packages using the following two commands:
 ```
 sudo apt update
@@ -65,39 +65,40 @@ sudo apt -y install r-base
 ## A.2 Install RStudio {-}
 
 Now that R is installed, you need to download and install RStudio.
-It is more straightforward to install RStudio and very similar across the three 
-OS. 
+The installation of RStudio is more straightforward and very similar across the three Operating Systems. 
 
 - Go to https://www.rstudio.com/products/rstudio/download/#download. We are 
   using ```RStudio Desktop`` **Free** version.
-- Click on the right file for your OS (e.g., `.exe` file for Windows)
+- Click on the right file for your OS (e.g., `.exe` file for Windows or `.dmg` for MacOS)
 - The installation process is very straightforward as the figure below.
 
-![](./images/RStudio_download.jpg){width=65%}
+![](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/supp1-install/images/RStudio_download.jpg){width=65%}
 
 
 
 ## A.3 Use R inside RStudio {-}
 ### R studio {-}
-RStudio is very powerful for providing a four-pane workspace.
+RStudio is a very powerful IDE and provides many useful tools through a four-pane workspace.
+By default the four panels are placed as follows (you can also change the 
+setting for your own preference):
 
-* Top-left panel: Your scripts of the R codes, script is good to keep a record 
+1. Top-left panel: Your scripts of the R codes, script is good to keep a record 
   of your work and also convenient for command execution.
 
   You can create a new script by `` File –> New –> R Script``
 
-* Bottom-left panel: R console for R commands, where you actually run the R 
+2. Bottom-left panel: R console for R commands, where you actually run the R 
   codes.
 
-* Top-right panel: Workspace tab: All the data(more specifically, R objects) 
+3. Top-right panel: Workspace tab: All the data(more specifically, R objects) 
   you have created in the ``Workspace`` and all previous commands you 
   previously ran in the ``History``.
 
-* Bottom-right panel: Files in your working directory(you probably should also 
+4. Bottom-right panel: Files in your working directory(you probably should also 
   set your working directory) in ``Files``, and the plots you have created in 
   ``Plots``.
 
-![](./images/rstudio.png){width=65%}
+![](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/supp1-install/images/rstudio.png){width=65%}
 
 ### Set working directory {-}
 -  Create a folder named “biof_Rdir” in your preferred directory
@@ -106,7 +107,7 @@ RStudio is very powerful for providing a four-pane workspace.
 ``Session > Set Working Directory > Choose Directory``
 -  Choose the directory to “biof_Rdir”
 
-![](./images/directory.png){width=65%}
+![](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/supp1-install/images/directory.png){width=65%}
 
 Or you can type in the console:
 ```
@@ -141,7 +142,7 @@ my_average <- function(x){
 my_average(c(1, 4, 5, 7))
 ```
 
-R contains a lot of built-in functions, you can use ``?`` to see the 
+R contains a lot of built-in functions, you can use ``?`` or ``help()`` to see the 
 documentation of a function, there are also a lot of external libraries with 
 specific functions. To use a library, we do:
 ```

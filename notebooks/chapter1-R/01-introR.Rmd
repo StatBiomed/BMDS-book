@@ -2,17 +2,14 @@
 # Introduction to R programming {#introR}
 
 This notebook collects the scripts used for teaching in BIOF1001 for 
-Introduction to R (1 hour teaching). You can get this Rmd file 
+Introduction to R (1 hour teaching). You can get this Rmd file on Moodle or
 [here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR.Rmd)
-(right click and "save link as" to download).
+(right-click and "save link as" to download).
 
 ## Data types
-During computing, all data are loaded / stored in memory (RAM) through a group 
-of binary bits, usually 8 bits as a byte. In R language setting (similar to 
-some other programming languages), there are a few commonly used data types 
-that have specific number of bytes to use.
-
-In R, you can use the `class()` and `typeof()` functions to check the class and 
+In R language setting (similar to some other programming languages), there are 
+a few commonly used data types that are predefined in the built-in environment.
+You can use the `class()` and `typeof()` functions to check the class and 
 data type of any variable. In total, R has five data types:
 
 1. Numeric
@@ -22,9 +19,10 @@ data type of any variable. In total, R has five data types:
 5. Characters
 
 
+
 ### nemeric (or double)
-The `numberic` is for numeric values, as the most common and the **default** 
-data type. The `numberic` datatype saves values in double precision (double 
+The `numeric` is for numeric values, as the most common and the **default** 
+data type. The `numeric` datatype saves values in double precision (double 
 number of bytes in memory), so the type is also `double`.
 
 ```{r}
@@ -57,7 +55,7 @@ print(is.integer(y))
 
 ### logical
 In R, the `logical` data type takes either a value of true or false. A `logical` 
-value is often generated when comparing between variables.
+value is often generated when comparing variables.
 
 ```{r}
 z <- c(TRUE, TRUE, TRUE, FALSE)
@@ -79,39 +77,46 @@ typeof(w)
 ```
 
 ### Memeory usage
-As we will see below, integer and logical uses only half of the memory of double (numeric) and character.
-```{r}
-x <- c(1.0, 2.0, 5.0, 7.0)
-y <- c(1L, 2L, 5L, 7L)
-z <- c(TRUE, TRUE, TRUE, FALSE)
-w <- c("aa", "bb", "5", "7")
+Each data type is explicitly defined, especially the size of the memory.
 
-object.size(x)
-```
+When initializing a certain data type, there are a few small bytes used to store
+basic information. Let's look at the empty values.
+
 ```{r}
-object.size(rep(x, 1000))
-object.size(rep(y, 1000))
-object.size(rep(z, 1000))
-object.size(rep(w, 1000))
+object.size(numeric())
+object.size(integer())
+object.size(logical())
+object.size(character())
+```
+
+To illustrate, let's use 1000 elements below to show the memory size usage 
+for each data type. 
+As we will see, integer and logical use 4 bytes per element, which is only half 
+of the memory usage by double (numeric) and character of 8 bytes.
+
+```{r}
+object.size(rep(1, 1000))
+object.size(rep(1L, 1000))
+object.size(rep(TRUE, 1000))
+object.size(rep("aa", 1000))
 ```
 
 
 ## Data structures
-Data structure is one of most important features in programming. It involves 
+Data structure is one of the most important features in programming. It involves 
 how the data is organised and can be accessed and modified. Using an appropriate
-data structure may largely improve the computing efficiency.
+data structure may largely improve computing efficiency.
 
 ### Vector
 Vector is a basic data structure in R. It contains elements in the **same** data
 type (no matter double, integer, character or others). 
-
 You can check the data type by using `typeof()` function and the length of the 
 vector by `length()` function.
 
-Since, a vector must have elements of the same type, this function will try and coerce elements to the same type, if they are different. Coercion is from lower 
-to higher types from logical to integer to double to character.
+Since a vector has elements of the same type, this function will try and coerce elements to the same type, if they are different. Coercion is from lower 
+to higher types, i.e., from logical to integer to double to a character.
 
-More introduction see [here](https://www.datamentor.io/r-programming/vector/).
+See more introduction [here](https://www.datamentor.io/r-programming/vector/).
 
 ```{r}
 x <- c(1, 2, 5, 7)
@@ -128,12 +133,12 @@ typeof(x)
 ```
 
 ### Matrix
-Matrix is a two-dimensional data structure. It is in principle build based on 
-vector but have more convenient built-in functions for computation.
-It has row and column, both of which can also have name. To check the dimensions,
+Matrix is a two-dimensional data structure. It is in principle built based on 
+vector but has more convenient built-in functions for computation.
+It has rows and columns, both of which can also have names. To check the dimensions,
 you can use the `dim()` function.
 
-More introduction see [here](https://www.datamentor.io/r-programming/matrix/).
+See more introduction [here](https://www.datamentor.io/r-programming/matrix/).
 
 ```{r}
 A <- matrix(1:12, nrow=3)
@@ -148,17 +153,17 @@ A
 ```
 
 #### Index Vector and Matrix
-Two index vector, you can use `logical` or `integer`, or the element name if it
+To index vector, you can use `logical` or `integer`, or the `element name` if it
 has.
 
-In R, the index *starts from 1*, unlike most programming languages where index 
-start from 0.
+Note, when using an `integer` for indexing, the index *starts from 1* in R, unlike 
+most programming languages where the index starts from 0.
 
-We can also use negative integers to return all elements except that those 
+We can also use negative integers to return all elements except those 
 specified. But we cannot mix positive and negative integers while indexing and 
-real numbers, if used, are truncated to integers.
+real numbers if used are truncated to integers.
 
-**N.B.**, when using logical as index, be careful if the index length is 
+**N.B.**, when using logical as the index, be careful if the index length is 
 different from the vector.
 
 
@@ -166,22 +171,27 @@ different from the vector.
 x <- 1:12
 
 x[3]
+
 x[2:5]
+
 x[c(2, 5, 6)]                   # index with integer
 
 x[c(TRUE, FALSE, FALSE, TRUE)]  # index with logical value
 ```
 
-Now, index matrix. Very similar as vector, but it has both row and column.
+Now, let's index a matrix. It is very similar to vector, but it has both rows and columns.
 ```{r}
 A <- matrix(1:12, nrow=3)
 colnames(A) <- c("C1","C2","C3","C4")
 rownames(A) <- c("R1","R2","R3")
+A
 
 A[1, 2]
+
 A[1, "C2"]
 
 A[1, c(2, 3)]
+
 A[1:2, c(2, 3)]
 ```
 
@@ -201,16 +211,20 @@ A
 ```
 
 ### List
-Different from `vector` that have all elements in the same data type, the `list`
+Different from `vector` that has all elements in the same data type, the `list`
 data structure can have components of mixed data types.
-
 More broadly, a `list` can contain a list of any data structure: value, vector, 
-matrix, etc
+matrix, etc.
+
+We can use `str()` function to view the structure of a list (or any object).
 ```{r}
 x <- list(2.5, TRUE, 1:3)
 x
+
 str(x)
 ```
+
+We can also have a name for each element:
 ```{r}
 x <- list("a" = 2.5, "b" = TRUE, "c" = 1:3)
 x
@@ -218,9 +232,8 @@ str(x)
 ```
 
 #### Indexing list
-Different from vector and matrix, for list, you need to double-layer square 
-brackets, either by numeric index or name. Alternatively, you can also use `$` 
-symbol.
+Different from vector and matrix, for a `list`, you need to use **double-layer square brackets**, 
+either by numeric index or name. Alternatively, you can also use `$` symbol with the name.
 ```{r}
 x[[3]]
 
@@ -230,8 +243,10 @@ x$c
 ```
 
 ### Data Frame
-* A special type of List: A list of vectors with the same length.
-* Widely used as a rectangular data with flexible data type (like Excel)
+Data frame is widely used for rectangular data, where each column has the same 
+data type (vector) but different columns can have different data types (like Excel)
+
+As you guess, the data frame is a special type of `list`: A list of vectors with the same length.
 
 ```{r}
 df <- data.frame("SN" = 1:2, "Age" = c(21,15), 
@@ -248,8 +263,13 @@ df$Age[2]
 ```
 
 ### Factor vs vector
-Factor is a data structure used for fields that takes only predefined, finite 
+For vector, if it only contains pre-defined values (which can have specified 
+orders), you may consider using factor.
+
+* Factor is a data structure used for fields that takes only predefined, finite 
 number of values (categorical data)
+* The order of predefined values can be specified, instead of alphabetic by default
+
 ```{r}
 x = c("single", "married", "married", "single") # vector
 x
@@ -265,6 +285,7 @@ y
 class(y)
 typeof(y)
 ```
+
 
 #### Change the order of factor levels
 ```{r}
@@ -283,35 +304,60 @@ object.size(rep(y, 1000))
 
 
 ## Read and write files (tables)
-Data is available in the data folder on the 
-[github repository](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R)
+Besides operating in the R environment, we also want to read data from files or
+write results into files.
+
+For tables, R has convenient built-in function `read.table()` and `write.table()`.
 
 ### Read file
-See full manuals: `help(read.table)` or `?read.table`
+We can use `read.table()` function to read tables, e.g., in comma separated 
+values (csv) or tab separated values (tsv) formats. 
+See full manuals: `help(read.table)` or `?read.table` or its 
+[online manual](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/read.table)
 ```{r}
 help("read.table")
 
 ?read.table
 ```
 
+Here, let read an example file. Data is available on Moodle and on the 
+[github repository](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R)
+
 ```{r}
 df = read.table("./SRP029880.colData.tsv", sep="\t")
 df
 ```
-### Write file
 
+
+### Write file
+The above file is loaded as a data frame. Here, let's add an extra column to 
+indicate if the sample is frozen or not, then save it into a file.
 ```{r}
 df$frozen <- c(1, 1, 0, 0, 0, 1, 1, 0, 0, 0)
 write.table(df, "./SRP029880.colData.add_frozen.tsv", sep="\t", quote=FALSE)
 ```
 
+
+
 ## Functions and Packages
-For example `mean()` is a function here and it is from the `base` package
+As experienced above, we have used function multiple times, e.g., 
+`read.table` and `typeof`. 
+
+As one more example `mean()` is a function here and it is from the `base` package
 ```{r}
 x <- 4:10
 mean(x)
+
 base::mean(x)
 ```
+
+Generally speaking, A function is a set of statements organized together to 
+perform a specific task. Many lines of codes are packed into one function & it’s reusable. 
+
+A function can be written in the same R file and loaded, or it can be 
+distributed as part of a package. For using such functions, we need to install
+the corresponding package and load it.
+
 
 ### Install packages
 It depends on where the package is stored. Please refers to the documentation 
@@ -323,19 +369,92 @@ of the specific package you want to install and use.
 2. Bioconductor: primarily for biology related packages
     - For example: `BiocManager::install("DESeq2")`
 
+As an example, we can install the powerful plotting package `ggplot2` from CRAN.
 ```{r}
 #install.packages("ggplot2")
 ```
 
+
+### Apply function repeatly
+We may often want to use a certain function for multiple times, e.g., calculate
+the sample mean for many genes. There are multiple ways to achieve it, e.g., via a
+`for loop`. Here, we will introduce `apply` and its variants for this purpose.
+
+See more introductions [here](https://ademos.people.uic.edu/Chapter4.html).
+
+#### apply, lapply, sapply and vapply
+
+In short, the `apply()` function and its variants apply a certain function to
+each element of a vector, a matrix, or a list.
+
+##### apply for matrix
+
+The `apply(X, MARGIN, FUN)` function works for `matrix` (or `array`) for rows or columns. For example, calculating the median of each column:
+
+```{r}
+my.matrx <- matrix(1:15, nrow = 5, ncol = 3)
+my.matrx
+
+apply(my.matrx, 2, median)
+```
+
+##### lapply, sapply, and vapply for list or vector
+
+The above `apply` function requires `MARGIN`, hence won't work for vector or 
+list. There are a few variants to support lists or vectors for different purposes.
+
+From the [manual](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/lapply), we can find out the arguments for these three functions:
+
+* `lapply(X, FUN, …)`
+* `sapply(X, FUN, …, simplify = TRUE, USE.NAMES = TRUE)`
+* `vapply(X, FUN, FUN.VALUE, …, USE.NAMES = TRUE)`
+
+Let's look at examples. The `lapply` works for vector and list and returns a `list`:
+```{r}
+A<-c(1:9)
+B<-c(1:12)
+C<-c(1:15)
+my.lst<-list(A,B,C)
+
+lapply(my.lst, median)
+```
+
+If you want the return as a vector, you can use `sapply()` for `simplified` output:
+```{r}
+sapply(my.lst, median)
+```
+
+If you want to check the data type of the return, you can further use the `vapply` function. An error will be raised if the data type does not match.
+
+**Note**, the `FUN.VALUE` argument takes the value as a template, so the use of 
+`numeric(1)` or any numeric value, e.g., `3` is the same.
+
+```{r}
+vapply(my.lst, median, numeric(1))
+
+vapply(my.lst, median, 3)
+
+# try this
+# vapply(my.lst, median, character(1))
+```
+
+
+
 ## Plotting
 ### datasets
-Using a built-in dataset for illustration: iris (4 flower features in 3plants)
+Let's use a built-in dataset for illustration: `iris` (4 flower features in 3 plants)
 ```{r}
 head(iris)
 ```
+
 ```{r}
 summary(iris)
 ```
+
+There are two common ways of plotting:
+
+1. the built-in plotting functions
+2. the ggplot format
 
 ### Basic plotting
 #### Histogram
@@ -360,14 +479,11 @@ boxplot(x1, x2, x3)
 ### ggplot2
 See more instructions: http://www.sthda.com/english/wiki/ggplot2-essentials
 
-#### Install package
+#### Install and load package
 ```{r}
 if (!requireNamespace("ggplot2", quietly = TRUE))
     install.packages("ggplot2")
-```
 
-#### Load package
-```{r}
 library(ggplot2)
 ```
 
@@ -404,12 +520,13 @@ If you are not sure about a certain ordering, use brackets!
 ```
 
 ### Functions for statistics
-More theroy and practice to come in next session
+More theory and practice to come in next session
 
 ### Correlation
 ```{r}
 cor(iris$Sepal.Length, iris$Petal.Length)
 ```
+
 ```{r}
 cor.test(iris$Sepal.Length, iris$Petal.Length)
 ```
@@ -449,6 +566,8 @@ plot(iris$Sepal.Length, y_pred)
 
 
 ## Resource links
+
+This notebook adapts contents from these resources:
 
 - https://www.datamentor.io/r-programming/
 - https://www.geeksforgeeks.org/r-data-types/
