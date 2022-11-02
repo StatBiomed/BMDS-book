@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Population Genetics and Diseases | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Population Genetics and Diseases | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2022-10-02" />
+<meta name="date" content="2022-11-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -276,7 +276,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="image-digital.html"><a href="image-digital.html"><i class="fa fa-check"></i><b>6</b> Medical Image and Digital Health</a></li>
 <li class="chapter" data-level="7" data-path="infectious-dis.html"><a href="infectious-dis.html"><i class="fa fa-check"></i><b>7</b> Infectious Disease Informatics</a></li>
-<li class="chapter" data-level="8" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>8</b> Population Genetics and Diseases</a></li>
+<li class="chapter" data-level="8" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>8</b> Population Genetics and Diseases</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="pop-genetics.html"><a href="pop-genetics.html#case-study-1-heritability-and-human-traits"><i class="fa fa-check"></i><b>8.1</b> Case study 1: Heritability and human traits</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="pop-genetics.html"><a href="pop-genetics.html#part-1"><i class="fa fa-check"></i><b>8.1.1</b> Part 1</a></li>
+<li class="chapter" data-level="8.1.2" data-path="pop-genetics.html"><a href="pop-genetics.html#questions-for-discussion-1"><i class="fa fa-check"></i><b>8.1.2</b> Questions for Discussion</a></li>
+<li class="chapter" data-level="8.1.3" data-path="pop-genetics.html"><a href="pop-genetics.html#hands-on-with-regression-model-1"><i class="fa fa-check"></i><b>8.1.3</b> Hands-on with regression model</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="epidemiology.html"><a href="epidemiology.html"><i class="fa fa-check"></i><b>9</b> Epidemiology of Cancer and Other Diseases</a></li>
 <li class="part"><span><b>III Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i>Appendix A: Install R &amp; RStudio</a>
@@ -320,7 +328,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="pop-genetics" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Chapter 8</span> Population Genetics and Diseases<a href="pop-genetics.html#pop-genetics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Contents to be added.</p>
+<div id="case-study-1-heritability-and-human-traits" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Case study 1: Heritability and human traits<a href="pop-genetics.html#case-study-1-heritability-and-human-traits" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="part-1" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Part 1<a href="pop-genetics.html#part-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>** Scenario: ** You are a researcher working on a twin study on cardiovascular traits to assess the genetic and environmental contribution relevant to metabolism and cardiovascular disease risk. You have recruited a cohort of volunteer adult twins of the same ancestry. The volunteers have undergone a series of baseline clinical evaluations and performed genotyping on a panel of single nucleotide polymorphisms that may be associated with the traits.!</p>
+</div>
+<div id="questions-for-discussion-1" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Questions for Discussion<a href="pop-genetics.html#questions-for-discussion-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Q1.</strong> Besides the clinical measurements, what data do you need to collect from the subjects?</p>
+<p><strong>Q2.</strong> How is genotype data represented for statistical genetic analysis?</p>
+<p><strong>Q3.</strong> How can you test for association between genotypes and phenotypes (binary and quantitative)?</p>
+</div>
+<div id="hands-on-with-regression-model-1" class="section level3 hasAnchor" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> Hands-on with regression model<a href="pop-genetics.html#hands-on-with-regression-model-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now, you are given a dataset of the twin cohort with a cardiovascular phenotype and 5 quantitative trait loci (QTL). Data set and template notebook are available on Moodle (recommended) and also on this
+<a href="https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/module4-genetics/dataTwin.dat">GitHub Repo</a>.</p>
+<p><strong>The information for columns:</strong></p>
+<ul>
+<li>zygosity: 1 for monozygotic (MZ) and 2 for dizygotic (DZ) twin</li>
+<li>T1QTL_A[1-5] and T2QTL_A[1-5]: 5 quantitative loci (A1-A5) in additive coding for Twin 1 (T1) and Twin 2 (T2) respectively</li>
+<li>The same 5 QTL (D1-D5) in dominance coding for T1 and T2</li>
+<li>Phenotype scores of T1 and T2</li>
+</ul>
+</div>
+</div>
 </div>
             </section>
 
