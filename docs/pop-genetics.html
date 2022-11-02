@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2022-11-02" />
+<meta name="date" content="2022-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -281,8 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="pop-genetics.html"><a href="pop-genetics.html#case-study-1-heritability-and-human-traits"><i class="fa fa-check"></i><b>8.1</b> Case study 1: Heritability and human traits</a>
 <ul>
 <li class="chapter" data-level="8.1.1" data-path="pop-genetics.html"><a href="pop-genetics.html#part-1"><i class="fa fa-check"></i><b>8.1.1</b> Part 1</a></li>
-<li class="chapter" data-level="8.1.2" data-path="pop-genetics.html"><a href="pop-genetics.html#questions-for-discussion-1"><i class="fa fa-check"></i><b>8.1.2</b> Questions for Discussion</a></li>
-<li class="chapter" data-level="8.1.3" data-path="pop-genetics.html"><a href="pop-genetics.html#hands-on-with-regression-model-1"><i class="fa fa-check"></i><b>8.1.3</b> Hands-on with regression model</a></li>
+<li class="chapter" data-level="8.1.2" data-path="pop-genetics.html"><a href="pop-genetics.html#part-2"><i class="fa fa-check"></i><b>8.1.2</b> Part 2</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="epidemiology.html"><a href="epidemiology.html"><i class="fa fa-check"></i><b>9</b> Epidemiology of Cancer and Other Diseases</a></li>
@@ -332,16 +331,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.1</span> Case study 1: Heritability and human traits<a href="pop-genetics.html#case-study-1-heritability-and-human-traits" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="part-1" class="section level3 hasAnchor" number="8.1.1">
 <h3><span class="header-section-number">8.1.1</span> Part 1<a href="pop-genetics.html#part-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>** Scenario: ** You are a researcher working on a twin study on cardiovascular traits to assess the genetic and environmental contribution relevant to metabolism and cardiovascular disease risk. You have recruited a cohort of volunteer adult twins of the same ancestry. The volunteers have undergone a series of baseline clinical evaluations and performed genotyping on a panel of single nucleotide polymorphisms that may be associated with the traits.!</p>
+<p><strong>Scenario:</strong> You are a researcher working on a twin study on cardiovascular traits to assess the genetic and environmental contribution relevant to metabolism and cardiovascular disease risk. You have recruited a cohort of volunteer adult twins of the same ancestry. The volunteers have undergone a series of baseline clinical evaluations and performed genotyping on a panel of single nucleotide polymorphisms that may be associated with the traits.!</p>
+<div id="questions-for-discussion-1" class="section level4 hasAnchor" number="8.1.1.1">
+<h4><span class="header-section-number">8.1.1.1</span> Questions for Discussion<a href="pop-genetics.html#questions-for-discussion-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<strong>Q1.</strong> Besides the clinical measurements, what data do you need to collect from the subjects?
+<details>
+<summary>
+<strong>Answers:</strong>
+</summary>
+<ul>
+<li>Sex</li>
+<li>Age</li>
+<li>Other confounding factors, e.g. BMI, blood pressure, smoking status, etc.</li>
+</ul>
+</details>
+<strong>Q2.</strong> How is genotype data represented for statistical genetic analysis?<br />
+
+<details>
+<summary>
+<strong>Answers:</strong>
+</summary>
+<ul>
+<li>Allele: 0/1, 1/2, A/C, etc</li>
+<li>Genotype: 0 0, 0 1, 1 0, 1 1</li>
+<li>Genotype probabilities: P(0/0)=0, P(0/1)=1, P(1/1)=0</li>
+<li>Genotype dosage: 0/1/2, 0.678 (continuous from 0-1 or 0-2)</li>
+</ul>
+</details>
+<strong>Q3.</strong> How can you test for association between genotypes and phenotypes (binary and quantitative)?
+<details>
+<summary>
+<strong>Answers:</strong>
+</summary>
+<ul>
+<li>Allelic chi-square test</li>
+<li>Fisher’s exact test</li>
+<li>Linear/Logistic regression</li>
+<li>Linear mixed model</li>
+</ul>
+</details>
 </div>
-<div id="questions-for-discussion-1" class="section level3 hasAnchor" number="8.1.2">
-<h3><span class="header-section-number">8.1.2</span> Questions for Discussion<a href="pop-genetics.html#questions-for-discussion-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Q1.</strong> Besides the clinical measurements, what data do you need to collect from the subjects?</p>
-<p><strong>Q2.</strong> How is genotype data represented for statistical genetic analysis?</p>
-<p><strong>Q3.</strong> How can you test for association between genotypes and phenotypes (binary and quantitative)?</p>
-</div>
-<div id="hands-on-with-regression-model-1" class="section level3 hasAnchor" number="8.1.3">
-<h3><span class="header-section-number">8.1.3</span> Hands-on with regression model<a href="pop-genetics.html#hands-on-with-regression-model-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="hands-on-exercise-association-test" class="section level4 hasAnchor" number="8.1.1.2">
+<h4><span class="header-section-number">8.1.1.2</span> Hands-on exercise : Association test<a href="pop-genetics.html#hands-on-exercise-association-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Now, you are given a dataset of the twin cohort with a cardiovascular phenotype and 5 quantitative trait loci (QTL). Data set and template notebook are available on Moodle (recommended) and also on this
 <a href="https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/module4-genetics/dataTwin.dat">GitHub Repo</a>.</p>
 <p><strong>The information for columns:</strong></p>
@@ -351,6 +382,125 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The same 5 QTL (D1-D5) in dominance coding for T1 and T2</li>
 <li>Phenotype scores of T1 and T2</li>
 </ul>
+<p><strong>Download the data <code>dataTwin.dat</code> to your working directory.</strong> Start the RStudio program and set the working directory.</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="pop-genetics.html#cb158-1" aria-hidden="true" tabindex="-1"></a>dataTwin <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;dataTwin.dat&quot;</span>,<span class="at">h=</span>T)</span></code></pre></div>
+<p><strong>Exploratory analysis</strong></p>
+<ul>
+<li>A1-5: The QTLs are biallelic with two alleles A and a. The genotypes aa, Aa, and AA are coded additively as 0 (aa), 1 (Aa) and 2 (AA).</li>
+<li>D1-5: The genotypes aa, Aa, and AA are coded as 0 (aa), 1 (Aa) and 0 (AA).</li>
+</ul>
+<p><strong>Q1.</strong> How many MZ and DZ volunteers are there?</p>
+<p><strong>Q2.</strong> How are the genotypes represented?</p>
+<p><strong>Q3.</strong> Are the QTL independent of each other?</p>
+<p><strong>Q4.</strong> Are there outliers in phenotypes?</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="pop-genetics.html#cb159-1" aria-hidden="true" tabindex="-1"></a>?table</span>
+<span id="cb159-2"><a href="pop-genetics.html#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write your codes here</span></span>
+<span id="cb159-3"><a href="pop-genetics.html#cb159-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-4"><a href="pop-genetics.html#cb159-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Any outlier &gt;4SD?</span></span></code></pre></div>
+<p><strong>Q5.</strong> Compute the genotype frequencies for each variant. Compute the allele frequencies.</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="pop-genetics.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write your codes here</span></span></code></pre></div>
+<p>Test for association between variants and phenotype for T1
+* Regress “phenoT1” on T1QTL_A1 to estimate the proportion of variance explained (R2).
+* Model: phenoT1 = b0 + b1* T1QTL_A1 + e
+* Calculate the conditonal mean of phenotype (i.e. phenotypic mean conditional genotype)</p>
+<p>If the relationship between the QTL and the phenotype is perfectly linear, the regression line
+should pass through the conditional means (c_means), and the differences between the conditional means should
+be about equal.</p>
+<p><strong>Q6.</strong> What are the values of b0, b1? Is QTL1 significant associated with the phenotype at alpha&lt;0.01 (multiple testing of 5 loci)?</p>
+<p><strong>Q7.</strong> What is the proportion of phenotypic variance explained?</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="pop-genetics.html#cb161-1" aria-hidden="true" tabindex="-1"></a>?lm</span>
+<span id="cb161-2"><a href="pop-genetics.html#cb161-2" aria-hidden="true" tabindex="-1"></a>?glm</span>
+<span id="cb161-3"><a href="pop-genetics.html#cb161-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Write your codes here</span></span>
+<span id="cb161-4"><a href="pop-genetics.html#cb161-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb161-5"><a href="pop-genetics.html#cb161-5" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the conditional mean (c_means)</span></span>
+<span id="cb161-6"><a href="pop-genetics.html#cb161-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb161-7"><a href="pop-genetics.html#cb161-7" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize the fitting</span></span></code></pre></div>
+<p>To test this “linearity”, we can use the dominant coding of the QTL and add the dominance term to the regression model.
+* Model: phenoT1 = b0 + b1* T1QTL_A1 + b2* T1QTL_D1 + e
+* Repeat for the other 4 QTL and determine which QTL shows strongest association with the phenotype
+* Repeat for T2.</p>
+<p><strong>Q8.</strong> Why can’t we analyse T1 and T2 together?</p>
+<p><strong>Q9.</strong> Is there a dominance effect?</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="pop-genetics.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write your codes here</span></span>
+<span id="cb162-2"><a href="pop-genetics.html#cb162-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-3"><a href="pop-genetics.html#cb162-3" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize the fitting</span></span></code></pre></div>
+<p>If the subjects with top 5% of the phenotype score are considered as cases, perform case-control association test for most significant SNP (from Q3) and interpret the result.</p>
+<p><strong>Q10.</strong> What are the odds ratio, p-value, and 95% confidence interval?</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="pop-genetics.html#cb163-1" aria-hidden="true" tabindex="-1"></a>?quantile</span>
+<span id="cb163-2"><a href="pop-genetics.html#cb163-2" aria-hidden="true" tabindex="-1"></a>?seq</span>
+<span id="cb163-3"><a href="pop-genetics.html#cb163-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-4"><a href="pop-genetics.html#cb163-4" aria-hidden="true" tabindex="-1"></a><span class="co"># odds ratio</span></span>
+<span id="cb163-5"><a href="pop-genetics.html#cb163-5" aria-hidden="true" tabindex="-1"></a><span class="co"># p-value</span></span>
+<span id="cb163-6"><a href="pop-genetics.html#cb163-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 95% confidence interval?</span></span></code></pre></div>
+</div>
+</div>
+<div id="part-2" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Part 2<a href="pop-genetics.html#part-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Scenario:</strong> You are asked to estimate the additive and dominance genetic variance explained using regression-based method and a classical twin design.</p>
+<p>Given standardization of phenotype and the ADE model, we assume that the phenotypic variance equals</p>
+<p><span class="math inline">\(\sigma^{2}_{P}\)</span> = <span class="math inline">\(\sigma^{2}_{A}\)</span> + <span class="math inline">\(\sigma^{2}_{D}\)</span> + <span class="math inline">\(\sigma^{2}_{E}\)</span>, where</p>
+<p><span class="math inline">\(\sigma^{2}_{P}\)</span> is the phenotypic variance,</p>
+<p><span class="math inline">\(\sigma^{2}_{A}\)</span> is additive genetic variance,</p>
+<p><span class="math inline">\(\sigma^{2}_{D}\)</span> is dominance genetic variance, and</p>
+<p><span class="math inline">\(\sigma^{2}_{E}\)</span> is unshared environmental variance.</p>
+<p>cov(MZ) = cor(MZ) = rMZ= <span class="math inline">\(\sigma^{2}_{A}\)</span> + <span class="math inline">\(\sigma^{2}_{D}\)</span></p>
+<p>cov(DZ) = cor(DZ) = rDZ = 0.5 * <span class="math inline">\(\sigma^{2}_{A}\)</span> + 0.25 * <span class="math inline">\(\sigma^{2}_{D}\)</span>, where</p>
+<p>the coefficients 1/2 and 1/4 are based on quantitative genetic theory (Mather &amp; Jinks, 1971).</p>
+<p>By solving the unknowns, the Falconer’s equations for the ADE model:</p>
+<p><span class="math inline">\(\sigma^{2}_{A}\)</span> = 4*rDZ - rMZ</p>
+<p><span class="math inline">\(\sigma^{2}_{D}\)</span> = 2<em>rMZ - 4</em>rDZ</p>
+<p><span class="math inline">\(\sigma^{2}_{E}\)</span> = 1 - ^{2}<em>{A} - ^{2}</em>{D}</p>
+<div id="questions-for-discussions" class="section level4 hasAnchor" number="8.1.2.1">
+<h4><span class="header-section-number">8.1.2.1</span> Questions for discussions :<a href="pop-genetics.html#questions-for-discussions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Q1.</strong> What is missing heritability of common traits in the era of genome-wide association analysis (GWAS)?</p>
+<p><strong>Q2.</strong> What are the potential sources of missing heritability?</p>
+<ul>
+<li>Suggested reading:
+<ul>
+<li>Manolio TA, Collins FS, Cox NJ, et al. Finding the missing heritability of complex diseases. Nature. 2009 ;461(7265):747-753. <a href="doi:10.1038/nature08494" class="uri">doi:10.1038/nature08494</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="hands-on-exercise-variance-explained" class="section level4 hasAnchor" number="8.1.2.2">
+<h4><span class="header-section-number">8.1.2.2</span> Hands-on exercise : variance explained<a href="pop-genetics.html#hands-on-exercise-variance-explained" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Q1.</strong> What is the variance of the phenotype?</p>
+<p><strong>Q2.</strong> Compute the explained variance attributable to the additive genetic component of the QTL with strongest association in Part 1.</p>
+<p><strong>Q3.</strong> Compute the explained variance attributable to the dominance genetic component of the QTL with strongest association in Part 1.</p>
+<p>R2 from the regression represents the proportion of phenotypic variance explained; thus the raw explained variance component is R2 times the variance of the phenotype (var_pheno).</p>
+<details>
+<summary>
+<strong>Example for T1 on QTL1</strong>
+</summary>
+<ul>
+<li>The proportion of explained variance are 0.02732 (additive) and 0.03658 (total: additive + dominance).</li>
+<li>As the predictors are uncorrelated, the proportion of explained variance by dominance = 0.03658 - 0.02732 = 0.00926</li>
+<li>Given the phenotypic variance of 15.102, then
+<ul>
+<li>Total genetic: 0.03658*15.102 = 0.552</li>
+<li>Additive genetic: 0.02732*15.102 = 0.412</li>
+<li>Dominance genetic: 0.00926*15.102 = 0.140</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="pop-genetics.html#cb164-1" aria-hidden="true" tabindex="-1"></a>var_pheno <span class="ot">&lt;-</span> <span class="fu">var</span>(dataTwin<span class="sc">$</span>phenoT1)  <span class="co"># the variance of the phenotype</span></span>
+<span id="cb164-2"><a href="pop-genetics.html#cb164-2" aria-hidden="true" tabindex="-1"></a>var_pheno</span>
+<span id="cb164-3"><a href="pop-genetics.html#cb164-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 15.10257</span></span>
+<span id="cb164-4"><a href="pop-genetics.html#cb164-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(linAD1)<span class="sc">$</span>r.squared           <span class="co"># proportion of explained variance by total genetic component</span></span>
+<span id="cb164-5"><a href="pop-genetics.html#cb164-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.03658132</span></span>
+<span id="cb164-6"><a href="pop-genetics.html#cb164-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(linA1)<span class="sc">$</span>r.squared            <span class="co"># proportion of explained variance by additive component</span></span>
+<span id="cb164-7"><a href="pop-genetics.html#cb164-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.02731675</span></span>
+<span id="cb164-8"><a href="pop-genetics.html#cb164-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(linAD1)<span class="sc">$</span>r.squared<span class="sc">*</span>var_pheno <span class="co"># (raw) variance component of total genetic component</span></span>
+<span id="cb164-9"><a href="pop-genetics.html#cb164-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.5524719</span></span>
+<span id="cb164-10"><a href="pop-genetics.html#cb164-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(linA1)<span class="sc">$</span>r.squared<span class="sc">*</span>var_pheno  <span class="co"># (raw) variance component of additive genetic component</span></span>
+<span id="cb164-11"><a href="pop-genetics.html#cb164-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.4125531</span></span>
+<span id="cb164-12"><a href="pop-genetics.html#cb164-12" aria-hidden="true" tabindex="-1"></a>(<span class="fu">summary</span>(linAD1)<span class="sc">$</span>r.squared<span class="sc">-</span><span class="fu">summary</span>(linA1)<span class="sc">$</span>r.squared)<span class="sc">*</span>var_pheno  <span class="co"># (raw) variance component of dominance genetic component</span></span>
+<span id="cb164-13"><a href="pop-genetics.html#cb164-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.1399188</span></span></code></pre></div>
+</details>
+<p><strong>Q4.</strong> Estimate the variance explained by all the QTL using linear regression.</p>
+<p>Based on our regression results, we have estimates of the total genetic variance as well as the A and D components. In practice, this is impossible as we do not know all the variants associated with any polygenic trait.</p>
+<p>Now, let’s estimate the A (additive genetic) and D (dominance) variance with the classical twin design using Falconer’s equations based on ADE model.</p>
+<p><strong>Q5.</strong> Compute rMZ and rDZ.</p>
+<p><strong>Q6.</strong> Estimate the additive and dominance genetic variances using the Falconer’s equations for the ADE model.</p>
+</div>
 </div>
 </div>
 </div>
