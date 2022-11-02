@@ -1,4 +1,28 @@
 
 # Population Genetics and Diseases {#pop-genetics}
 
-Contents to be added.
+## 1 - Heritability and human traits
+
+## Case study 1: Association test
+
+** Scenario: ** You are a researcher working on a twin study on cardiovascular traits to assess the genetic and environmental contribution relevant to metabolism and cardiovascular disease risk. You have recruited a cohort of volunteer adult twins of the same ancestry. The volunteers have undergone a series of baseline clinical evaluations and performed genotyping on a panel of single nucleotide polymorphisms that may be associated with the traits.!
+
+
+### Questions for Discussion
+
+**Q1.** Besides the clinical measurements, what data do you need to collect from the subjects?
+
+**Q2.** How is genotype data represented for statistical genetic analysis?  
+
+**Q3.** How can you test for association between genotypes and phenotypes (binary and quantitative)? 
+
+
+### Hands-on with regression model
+Now, you are given a dataset of the twin cohort with a cardiovascular phenotype and 5 quantitative trait loci (QTL). Data set and template notebook are available on Moodle (recommended) and also on this 
+[GitHub Repo](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/module4-genetics/dataTwin.dat).
+
+**The information for columns:**
+- zygosity: 1 for monozygotic (MZ) and 2 for dizygotic (DZ) twin
+- T1QTL_A[1-5] and T2QTL_A[1-5]: 5 quantitative loci (A1-A5) in additive coding for Twin 1 (T1) and Twin 2 (T2) respectively
+- The same 5 QTL (D1-D5) in dominance coding for T1 and T2
+- Phenotype scores of T1 and T2
