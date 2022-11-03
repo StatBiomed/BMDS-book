@@ -209,7 +209,7 @@ $\sigma^{2}_{A}$ = 4*rDZ - rMZ
 
 $\sigma^{2}_{D}$ = 2*rMZ - 4*rDZ
 
-$\sigma^{2}_{E}$ = 1 - \sigma^{2}_{A} - \sigma^{2}_{D}
+$\sigma^{2}_{E}$ = 1 - $\sigma^{2}_{A}$ - $\sigma^{2}_{D}$
 
 #### Questions for discussions :
 
@@ -238,7 +238,7 @@ R2 from the regression represents the proportion of phenotypic variance explaine
   * Total genetic: 0.03658*15.102 = 0.552
   * Additive genetic: 0.02732*15.102 = 0.412
   * Dominance genetic: 0.00926*15.102 = 0.140
-```{r varianceR}
+```{r varianceR, eval=F}
 var_pheno <- var(dataTwin$phenoT1)  # the variance of the phenotype
 var_pheno
 summary(linAD1)$r.squared           # proportion of explained variance by total genetic component
