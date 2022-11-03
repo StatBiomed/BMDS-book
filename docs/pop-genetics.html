@@ -484,18 +484,24 @@ be about equal.</p>
 <h3><span class="header-section-number">8.1.2</span> Part 2<a href="pop-genetics.html#part-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Scenario:</strong> You are asked to estimate the additive and dominance genetic variance explained using regression-based method and a classical twin design.</p>
 <p>Given standardization of phenotype and the ADE model, we assume that the phenotypic variance equals</p>
-<p><span class="math inline">\(\sigma^{2}_{P}\)</span> = <span class="math inline">\(\sigma^{2}_{A}\)</span> + <span class="math inline">\(\sigma^{2}_{D}\)</span> + <span class="math inline">\(\sigma^{2}_{E}\)</span>, where</p>
-<p><span class="math inline">\(\sigma^{2}_{P}\)</span> is the phenotypic variance,</p>
-<p><span class="math inline">\(\sigma^{2}_{A}\)</span> is additive genetic variance,</p>
-<p><span class="math inline">\(\sigma^{2}_{D}\)</span> is dominance genetic variance, and</p>
-<p><span class="math inline">\(\sigma^{2}_{E}\)</span> is unshared environmental variance.</p>
-<p>cov(MZ) = cor(MZ) = rMZ= <span class="math inline">\(\sigma^{2}_{A}\)</span> + <span class="math inline">\(\sigma^{2}_{D}\)</span></p>
-<p>cov(DZ) = cor(DZ) = rDZ = 0.5 * <span class="math inline">\(\sigma^{2}_{A}\)</span> + 0.25 * <span class="math inline">\(\sigma^{2}_{D}\)</span>, where</p>
+<span class="math display">\[\begin{aligned}
+  \sigma^{2}_{P} &amp;= \sigma^{2}_{A} + \sigma^{2}_{D} + \sigma^{2}_{E}\text{, where}\\
+  &amp;\sigma^{2}_{P} \text{  is the phenotypic variance,}\\
+  &amp;\sigma^{2}_{A} \text{  is additive genetic variance,}\\
+  &amp;\sigma^{2}_{D} \text{  is dominance genetic variance, and}\\
+  &amp;\sigma^{2}_{E} \text{  is unshared environmental variance}
+\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}
+  cov(MZ) &amp;= cor(MZ) = rMZ= \sigma^{2}_{A} + \sigma^{2}_{D}\\
+  cov(DZ) &amp;= cor(DZ) = rDZ = 0.5 * \sigma^{2}_{A} + 0.25 * \sigma^{2}_{D}\text{, where}\\
+\end{aligned}\]</span>
 <p>the coefficients 1/2 and 1/4 are based on quantitative genetic theory (Mather &amp; Jinks, 1971).</p>
 <p>By solving the unknowns, the Falconer’s equations for the ADE model:</p>
-<p><span class="math inline">\(\sigma^{2}_{A}\)</span> = 4*rDZ - rMZ</p>
-<p><span class="math inline">\(\sigma^{2}_{D}\)</span> = 2<em>rMZ - 4</em>rDZ</p>
-<p><span class="math inline">\(\sigma^{2}_{E}\)</span> = 1 - ^{2}<em>{A} - ^{2}</em>{D}</p>
+<span class="math display">\[\begin{aligned}
+  \sigma^{2}_{A} &amp;= 4*rDZ - rMZ\\
+  \sigma^{2}_{D} &amp;= 2*rMZ - 4*rDZ\\
+  \sigma^{2}_{E} &amp;= 1 - \sigma^{2}_{A} - \sigma^{2}_{D}
+\end{aligned}\]</span>
 <div id="questions-for-discussions" class="section level4 hasAnchor" number="8.1.2.1">
 <h4><span class="header-section-number">8.1.2.1</span> Questions for discussions :<a href="pop-genetics.html#questions-for-discussions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>Q1.</strong> What is missing heritability of common traits in the era of genome-wide association analysis (GWAS)?</p>
