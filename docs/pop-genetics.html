@@ -449,7 +449,7 @@ be about equal.</p>
 <p>By solving the unknowns, the Falconer’s equations for the ADE model:</p>
 <p><span class="math inline">\(\sigma^{2}_{A}\)</span> = 4*rDZ - rMZ</p>
 <p><span class="math inline">\(\sigma^{2}_{D}\)</span> = 2<em>rMZ - 4</em>rDZ</p>
-<p><span class="math inline">\(\sigma^{2}_{E}\)</span> = 1 - ^{2}<em>{A} - ^{2}</em>{D}</p>
+<p><span class="math inline">\(\sigma^{2}_{E}\)</span> = 1 - <span class="math inline">\(\sigma^{2}_{A}\)</span> - <span class="math inline">\(\sigma^{2}_{D}\)</span></p>
 <div id="questions-for-discussions" class="section level4 hasAnchor" number="8.1.2.1">
 <h4><span class="header-section-number">8.1.2.1</span> Questions for discussions :<a href="pop-genetics.html#questions-for-discussions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>Q1.</strong> What is missing heritability of common traits in the era of genome-wide association analysis (GWAS)?</p>
@@ -483,17 +483,11 @@ be about equal.</p>
 </ul>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="pop-genetics.html#cb164-1" aria-hidden="true" tabindex="-1"></a>var_pheno <span class="ot">&lt;-</span> <span class="fu">var</span>(dataTwin<span class="sc">$</span>phenoT1)  <span class="co"># the variance of the phenotype</span></span>
 <span id="cb164-2"><a href="pop-genetics.html#cb164-2" aria-hidden="true" tabindex="-1"></a>var_pheno</span>
-<span id="cb164-3"><a href="pop-genetics.html#cb164-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 15.10257</span></span>
-<span id="cb164-4"><a href="pop-genetics.html#cb164-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(linAD1)<span class="sc">$</span>r.squared           <span class="co"># proportion of explained variance by total genetic component</span></span>
-<span id="cb164-5"><a href="pop-genetics.html#cb164-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.03658132</span></span>
-<span id="cb164-6"><a href="pop-genetics.html#cb164-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(linA1)<span class="sc">$</span>r.squared            <span class="co"># proportion of explained variance by additive component</span></span>
-<span id="cb164-7"><a href="pop-genetics.html#cb164-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.02731675</span></span>
-<span id="cb164-8"><a href="pop-genetics.html#cb164-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(linAD1)<span class="sc">$</span>r.squared<span class="sc">*</span>var_pheno <span class="co"># (raw) variance component of total genetic component</span></span>
-<span id="cb164-9"><a href="pop-genetics.html#cb164-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.5524719</span></span>
-<span id="cb164-10"><a href="pop-genetics.html#cb164-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(linA1)<span class="sc">$</span>r.squared<span class="sc">*</span>var_pheno  <span class="co"># (raw) variance component of additive genetic component</span></span>
-<span id="cb164-11"><a href="pop-genetics.html#cb164-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.4125531</span></span>
-<span id="cb164-12"><a href="pop-genetics.html#cb164-12" aria-hidden="true" tabindex="-1"></a>(<span class="fu">summary</span>(linAD1)<span class="sc">$</span>r.squared<span class="sc">-</span><span class="fu">summary</span>(linA1)<span class="sc">$</span>r.squared)<span class="sc">*</span>var_pheno  <span class="co"># (raw) variance component of dominance genetic component</span></span>
-<span id="cb164-13"><a href="pop-genetics.html#cb164-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.1399188</span></span></code></pre></div>
+<span id="cb164-3"><a href="pop-genetics.html#cb164-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(linAD1)<span class="sc">$</span>r.squared           <span class="co"># proportion of explained variance by total genetic component</span></span>
+<span id="cb164-4"><a href="pop-genetics.html#cb164-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(linA1)<span class="sc">$</span>r.squared            <span class="co"># proportion of explained variance by additive component</span></span>
+<span id="cb164-5"><a href="pop-genetics.html#cb164-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(linAD1)<span class="sc">$</span>r.squared<span class="sc">*</span>var_pheno <span class="co"># (raw) variance component of total genetic component</span></span>
+<span id="cb164-6"><a href="pop-genetics.html#cb164-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(linA1)<span class="sc">$</span>r.squared<span class="sc">*</span>var_pheno  <span class="co"># (raw) variance component of additive genetic component</span></span>
+<span id="cb164-7"><a href="pop-genetics.html#cb164-7" aria-hidden="true" tabindex="-1"></a>(<span class="fu">summary</span>(linAD1)<span class="sc">$</span>r.squared<span class="sc">-</span><span class="fu">summary</span>(linA1)<span class="sc">$</span>r.squared)<span class="sc">*</span>var_pheno  <span class="co"># (raw) variance component of dominance genetic component</span></span></code></pre></div>
 </details>
 <p><strong>Q4.</strong> Estimate the variance explained by all the QTL using linear regression.</p>
 <p>Based on our regression results, we have estimates of the total genetic variance as well as the A and D components. In practice, this is impossible as we do not know all the variants associated with any polygenic trait.</p>
