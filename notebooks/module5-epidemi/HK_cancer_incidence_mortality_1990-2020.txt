@@ -1,4 +1,4 @@
-Type	Sex	Cancer.Type	Year	Non-Hodgkin lymphoma	Prostate	Oral	Kaposi	Leukaemia	Hodgkin lymphoma	Colorectum	Nasal	Oesophagus	Penis	Stomach	Testis	Biliary	Eye	Mesothelioma	Liver	Brain	Kidney	Non-melanoma skin	Thyroid	Multiple myeloma	Thymus	Bladder	Small intestine	Sarcoma	Pancreas	Nasopharynx	Breast	Melanoma	Lung	Larynx	Cervix	Placenta	Uterus	Ovary	Vulva
+Type	Sex	Age	Year	Non-Hodgkin lymphoma	Prostate	Oral	Kaposi	Leukaemia	Hodgkin lymphoma	Colorectum	Nasal	Oesophagus	Penis	Stomach	Testis	Biliary	Eye	Mesothelioma	Liver	Brain	Kidney	Non-melanoma skin	Thyroid	Multiple myeloma	Thymus	Bladder	Small intestine	Sarcoma	Pancreas	Nasopharynx	Breast	Melanoma	Lung	Larynx	Cervix	Placenta	Uterus	Ovary	Vulva
 incidence	male	0-19	1990-1999	137	0	18	0	356	35	15	4	0	2	5	61	0	29	0	58	212	24	8	22	1	12	6	0	137	4	33	0	3	6	1	0	0	0	0	0
 incidence	male	20-44	1990-1999	596	10	324	0	509	64	1087	53	158	19	429	275	36	8	0	1741	368	141	211	250	43	71	165	31	320	106	3049	6	50	1036	86	0	0	0	0	0
 incidence	male	45-64	1990-1999	997	481	1165	0	453	47	4644	109	1873	78	1990	80	322	9	0	5702	393	530	613	288	210	70	1266	102	281	514	3724	28	82	8420	824	0	0	0	0	0
