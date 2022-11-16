@@ -402,4 +402,21 @@ plot_child
 HKCancer_inc_age_sum_csq
 ```
 
-## 4. Exising cancer funding data
+## 4. Existing cancer funding data
+
+The Hong Kong government established in Health and Medical Research Fund (HMRF) in 2011 to specifically provide research funding for health and medical research in Hong Kong. Since 2016 over 370 projects in the category of Cancer has been funded for a total of \~\$400 M dollars. A list of all funded projects can be found on the Health Bureau [webpage](https://rfs1.healthbureau.gov.hk/search/#/fundedsearch/basicsearch?lang=en). You would like to use this data to see if there is any association between previous project funding and the epidemiology of cancers in Hong Kong.
+
+[Discussion points:]{.underline}
+
+-   How many projects have been allocated to different cancer types?
+-   Is there any correlation between funding and cancer incidence and mortality?
+
+
+### Download HMRF grants data
+
+```{r loadpopulation}
+HKPop<- read.table("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/HK_population_1965-2022.txt", 
+    sep = "\t", header = TRUE, stringsAsFactor=FALSE, check.names = FALSE)
+HKPop
+```
+
