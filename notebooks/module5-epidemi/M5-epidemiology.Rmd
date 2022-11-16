@@ -1,13 +1,13 @@
 ---
-title: "BIOF1001 - Cancer epidemiology"
-output:
-  html_document: default
-  pdf_document: default
-date: "2022-11-15"
-author:
-- name: "Jason Wong"
-  affilitation: "School of Biomedical Sciences"
 ---
+---
+
+# Cancer Epidemiology
+
+*by Dr Jason Wong*
+
+Course: BIOF1001\
+Date: 17-11-2022
 
 [The RMarkdown notebook to run your own code can be downloaded here](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/M5-epidemiology.Rmd)
 
@@ -406,3 +406,5 @@ plot_child<-ggplot(HKCancer_inc_age_sum_csq[-37,],aes(x=reorder(cancer,-as.numer
 plot_child
 HKCancer_inc_age_sum_csq
 ```
+
+## 4. Exising cancer funding data
