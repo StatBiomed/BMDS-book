@@ -81,7 +81,7 @@ No.	Fund	Ref. No.	Project Title	Applicant(s)
 80	HMRF - Advanced Medical Research	4150266	Interleukin-1 receptor associated kinase 1 (IRAK1) is a target that drives liver tumor initiating cells and sorafenib resistance in hepatocellular carcinoma	LEE Kin-Wah Terence
 81	HMRF - Advanced Medical Research	4150406	CCCTC-binding factor (CTCF) in hepatocellular carcinoma: functional characterization of its role in tumorigenesis and its potential in targeted therapy.	KO Chi Bun
 82	HMRF - Advanced Medical Research	4150606	Clinical application of pleural fluid fatty acid synthase and pleural fluid total free fatty acids as cancer biomarkers in malignant pleural effusions	LAM Ching Wan
-83	HMRF - Advanced Medical Research	4150726	Optimizing the selection of patients with metastatic colorectal cancer for liver resection – An immuno-clinical scoring system incorporating circulating tumor cell enumeration and clinical factors.	LAM Ka-on
+83	HMRF - Advanced Medical Research	4150726	Optimizing the selection of patients with metastatic colorectal cancer for liver resection - An immuno-clinical scoring system incorporating circulating tumor cell enumeration and clinical factors.	LAM Ka-on
 84	HMRF - Advanced Medical Research	4150776	Characterization of a novel tumor suppressive long non-coding RNA linc-ALDH1A2-1 in hepatocellular carcinoma	WONG Carmen Chak Lui
 85	HMRF - Advanced Medical Research	4150826	Characterization of the effect of Maelstrom in cancer stemness in hepatocellular carcinoma	GUAN Xin-yuan
 86	HMRF - Advanced Medical Research	4150856	Therapeutic potential of targeting CDK7-dependent and super-enhancer associated oncogene addiction in liver cancer	WONG Chun-ming
@@ -193,7 +193,7 @@ No.	Fund	Ref. No.	Project Title	Applicant(s)
 192	HMRF - Advanced Medical Research	7182096	Targeting exosome Nidogen-1 as a potential treatment of liver cancer	MAO Xiaowen
 193	HMRF - Advanced Medical Research	7182296	Therapeutic strategies targeting ER stress in chondrosarcoma based on tumor progression in single-cell resolution	CHEUNG Sin Chi Kelvin
 194	HMRF - Advanced Medical Research	7182346	Prediction of recurrence and survival using big data analytics and machine learning in patients with hepatocellular carcinoma after curative surgery	CHIU Wan Hang Keith
-195	HMRF - Advanced Medical Research	7182366	Patient-specific human induced pluripotent stem cell based multi-organ model for validation of genetic risks for anthracycline cardiotoxicity in childhood cancer patients – a pilot study	CHEUNG Yiu-fai
+195	HMRF - Advanced Medical Research	7182366	Patient-specific human induced pluripotent stem cell based multi-organ model for validation of genetic risks for anthracycline cardiotoxicity in childhood cancer patients - a pilot study	CHEUNG Yiu-fai
 196	HMRF - Advanced Medical Research	7182416	Investigation and enumeration of circulating tumour cells during different stages of oral cavity cancer	CHOI Siu-Wai
 197	HMRF - Advanced Medical Research	7182526	The Role of Homoharringtonine (HHT) and Combined Therapy of Homoharringtonine with Everolimus in the Treatment of Acute Lymphoblastic Leukaemia	SIN CHUN FUNG
 198	HMRF - Advanced Medical Research	7182546	Targeting the glycolytic enzyme PFKFB4 in liver cancer underlying p53 mutation: mechanistic insight and therapeutic implication	CHAN LO KONG
@@ -241,7 +241,7 @@ No.	Fund	Ref. No.	Project Title	Applicant(s)
 240	HMRF - Advanced Medical Research	8192926	Clinical significance of real-timing longitudinal monitoring of liquid biopsies for advanced colorectal cancer	KO Mun Yee
 241	HMRF - Advanced Medical Research	8192936	A prototype artificial intelligence algorithm versus Liver Imaging Reporting and Data System (LI-RADS) criteria in diagnosing hepatocellular carcinoma on computed tomography: a randomized trial	SETO Wai-Kay Walter
 242	HMRF - Advanced Medical Research	8193066	Identification of microbiota associated with colorectal cancer (CRC) metastasis and chemoresistance, and evaluation of their roles as predictive biomarker for response to chemotherapy.	FOO Chi Chung
-243	HMRF - Advanced Medical Research	8193106	Modelling myeloproliferative neoplasms (MPNs) in a multi-colour transgenic zebrafish – mechanistic and therapeutic insights	SUN Xuan
+243	HMRF - Advanced Medical Research	8193106	Modelling myeloproliferative neoplasms (MPNs) in a multi-colour transgenic zebrafish - mechanistic and therapeutic insights	SUN Xuan
 244	HMRF - Advanced Medical Research	8193116	Therapeutic effect of DPP-4 inhibitors, which are approved to treat diabetes, on improving prognosis of post-operative colorectal cancer patients	LAW Wai Lun
 245	HMRF - Advanced Medical Research	8193206	Molecular basis and therapeutic potential of ketogenic diet as an adjuvant to receptor tyrosine kinase inhibitor (TKi) targeted therapy in hepatocellular carcinoma	TONG Man
 246	HMRF - Advanced Medical Research	8193416	Inhibition of hypoxia-induced hyaluronan synthase 3 (HAS3) to subvert the immune suppressive microenvironment in liver cancer	WONG Chak Lui Carmen
@@ -261,7 +261,7 @@ No.	Fund	Ref. No.	Project Title	Applicant(s)
 260	HMRF - Advanced Medical Research	9200576	Individualized prediction of acute radiation esophagitis in lung cancer patients through domain adaptation in a hybrid prospective and retrospective study	CAI Jing
 261	HMRF - Advanced Medical Research	9200706	Long-term swallowing dysfunction in nasopharyngeal cancer survivors after definitive intensity-modulated radiotherapy: prevalence and radiation dose-toxicity analysis	CHOW Chung Hang James
 262	HMRF - Advanced Medical Research	9200956	Characterisation of the role of long non-coding RNA, NORAD on HBX mediated chromosome instability.	CHING Wilson Yick-pang
-263	HMRF - Advanced Medical Research	9201046	Efficacy and safety of ropeginterferon alfa-2b for pre-fibrotic primary myelofibrosis and DIPSS low/intermediate-1 risk myelofibrosis – the ROPEG-MF trial	SINGH GILL Harinder Harry
+263	HMRF - Advanced Medical Research	9201046	Efficacy and safety of ropeginterferon alfa-2b for pre-fibrotic primary myelofibrosis and DIPSS low/intermediate-1 risk myelofibrosis - the ROPEG-MF trial	SINGH GILL Harinder Harry
 264	HMRF - Advanced Medical Research	9201616	Development of photoresponisve prodrug nanoparticles based on mTOR inhibitors for the treatment of skin cancer	WANG Weiping
 265	HMRF - Advanced Medical Research	9201706	Clinical utility of epigenomic profiling for primary liver tumors in Chinese children	LIU Anthony Pak-yin
 266	HMRF - Advanced Medical Research	9201856	Improved patient management through genomic analysis of uterine smooth muscle tumor of uncertain malignant potential (STUMP)	IP Philip Pun Ching
@@ -272,7 +272,7 @@ No.	Fund	Ref. No.	Project Title	Applicant(s)
 271	HMRF - Advanced Medical Research	9202326	The blockage of tumor-endothelial crosstalk as a therapeutic approach for liver cancer	YAM Judy Wai Ping
 272	HMRF - Advanced Medical Research	9202626	Evaluation of the combination of Mebendazole plus Navitoclax for the treatment of non-alcoholic fatty liver disease associated-hepatocellular carcinoma	YU Jun
 273	HMRF - Advanced Medical Research	9202846	Psychosocial and functional outcomes in Chinese survivors of adolescent and young adult (AYA) cancer: a pilot study	CHEUNG Yin Ting
-274	HMRF - Advanced Medical Research	9203106	Verification of the beneficial effect and safe use of combined FOLFOX and patrinia heterophylla herbal extract in colorectal cancer – proof-of-concept for clinical use	LAU Clara Bik San
+274	HMRF - Advanced Medical Research	9203106	Verification of the beneficial effect and safe use of combined FOLFOX and patrinia heterophylla herbal extract in colorectal cancer - proof-of-concept for clinical use	LAU Clara Bik San
 275	HMRF - Advanced Medical Research	9203176	Targeting synthetic lethality interaction of MTAP and PRMT5/MAT2A axis in primary, recurrent and metastatic nasopharyngeal carcinoma	TSANG Anna Chi Man
 276	HMRF - Advanced Medical Research	9203216	Investigation of the utility of CDK4/6 inhibitors in lung adenocarcinoma with patient-derived organoids: a preclinical, translational study	CHEUNG Ho Kwan Alvin
 277	HMRF - Advanced Medical Research	9203576	Development of light-responsive nanocarriers as controlled drug release platform for triple-negative breast cancer therapy	LO Pik Kwan Peggy
@@ -304,7 +304,7 @@ No.	Fund	Ref. No.	Project Title	Applicant(s)
 303	HMRF - Health and Health Services (former HHSRF)	12131801	A randomised controlled trial to assess the effectiveness and cost effectiveness of acupuncture in the management of chemotherapy-induced peripheral neuropathy	Molasiotis A
 304	HMRF - Health and Health Services (former HHSRF)	12132571	Diet after diagnosis: a qualitative study to explore the dietary choices made by newly diagnosed breast cancer patients	Fielding R
 305	HMRF - Health and Health Services (former HHSRF)	12132881	Prenatal perfluorooctane sulfonate (PFOS) exposure and the risk of hepatocellular carcinoma: an in vivo mechanistic study	Lai KP
-306	HMRF - Health and Health Services (former HHSRF)	12132931	Developing and testing a decision aid to support Chinese parents’ HPV vaccination decision-making for adolescent girls: a randomised controlled trial	Lam WWT
+306	HMRF - Health and Health Services (former HHSRF)	12132931	Developing and testing a decision aid to support Chinese parents' HPV vaccination decision-making for adolescent girls: a randomised controlled trial	Lam WWT
 307	HMRF - Health and Health Services (former HHSRF)	12132941	A prospective randomized study on health-related quality of life of patients with incidental small (<2cm) asymptomatic thyroid nodules and cost-effectiveness analysis in managing small incidental thyroid nodules	Lang B
 308	HMRF - Health and Health Services (former HHSRF)	12133101	Autophagy in hypoxia-induced chemo-resistance in hepatocellular carcinoma and its potential as a novel therapeutic target	Liu XB
 309	HMRF - Health and Health Services (former HHSRF)	12133111	Effectiveness of a brief, self-determination intervention for smoking cessation (immediate or progressive) among people attending emergency departments: a randomised controlled trial	Li WHC
@@ -326,8 +326,8 @@ No.	Fund	Ref. No.	Project Title	Applicant(s)
 325	HMRF - Health and Health Services (former HHSRF)	14151841	Development of an explanatory model to explore the cervical cancer screening behaviour of ethnic minority women	CHAN Dorothy Ngo Sheung
 326	HMRF - Health and Health Services (former HHSRF)	14153141	Identifying priority research questions for addressing unmet cancer palliative care needs using Chinese medicine with a systematic approach	CHUNG Vincent Chi-ho
 327	HMRF - Health and Health Services (former HHSRF)	14153311	EGFR mutation testing in blood for guiding EGFR tyrosine kinase inhibitor treatment in patients with non-small cell lung cancer: A systematic review and cost-effectiveness analysis	TANG Jinling
-328	HMRF - Health and Health Services (former HHSRF)	15160531	EGFR mutation-guided first-line target therapies of advanced non-small-cell lung cancer (NSCLC) – A health economic analysis	YOU Joyce Hoi-sze
-329	HMRF - Health and Health Services (former HHSRF)	15160551	Risk of hepatocellular carcinoma in patients with chronic hepatitis B achieved complete viral suppression – role of on-treatment hepatitis B surface/core-related antigen (HBsAg/HBcrAg) levels	WONG Lai Hung
+328	HMRF - Health and Health Services (former HHSRF)	15160531	EGFR mutation-guided first-line target therapies of advanced non-small-cell lung cancer (NSCLC) - A health economic analysis	YOU Joyce Hoi-sze
+329	HMRF - Health and Health Services (former HHSRF)	15160551	Risk of hepatocellular carcinoma in patients with chronic hepatitis B achieved complete viral suppression - role of on-treatment hepatitis B surface/core-related antigen (HBsAg/HBcrAg) levels	WONG Lai Hung
 330	HMRF - Health and Health Services (former HHSRF)	15160691	Investigating the prognostic significance and therapeutic value of RAPTOR-ness for Head and Neck Cancer (HNC)	LUI Vivian Wai-yan
 331	HMRF - Health and Health Services (former HHSRF)	15161231	A randomized controlled trial evaluating two e-health interventions (presence/absence of motivational interviewing) in increasing colorectal cancer screening among people aged 50-60 with moderate risk	LAU Joseph Tak-fai
 332	HMRF - Health and Health Services (former HHSRF)	15161641	Return to work and work productivity in breast cancer: a longitudinal study	LAM Wendy Wing-tak
@@ -365,7 +365,7 @@ No.	Fund	Ref. No.	Project Title	Applicant(s)
 364	HMRF - Health and Health Services (former HHSRF)	18191641	Delineation of reactive oxygen species (ROS)-mediated signaling pathways involved in developing chemoresistance in ovarian cancer	CHAN Karen
 365	HMRF - Health and Health Services (former HHSRF)	18191851	Understanding preferences for low-dose aspirin use in primary prevention of colorectal cancer among clinicians and the general public in Hong Kong: A discrete choice experiment	Esther CHAN Wai-yin
 366	HMRF - Health and Health Services (former HHSRF)	18192021	Therapeutic effect of human ??-T-cell-derived-exosomes on nasopharyngeal carcinoma in preclinical models	TU Wenwei
-367	HMRF - Health and Health Services (former HHSRF)	18192121	Cancer survivors’ perspective towards the feasibility and acceptability of a community-based multi-disciplinary cancer survivorship intervention: A qualitative study.	Wendy LAM Wing-tak
+367	HMRF - Health and Health Services (former HHSRF)	18192121	Cancer survivors' perspective towards the feasibility and acceptability of a community-based multi-disciplinary cancer survivorship intervention: A qualitative study.	Wendy LAM Wing-tak
 368	HMRF - Health and Health Services (former HHSRF)	18192141	Elucidation of the reversal effect of baicalin on hepatocellular carcinoma-associated cachexia	FENG Yibin
 369	HMRF - Health and Health Services (former HHSRF)	18192731	Ranunculi Ternati Radix inhibits STAT3 signaling through upregulating miR-351 to exert anti-melanoma effects	FU Xiuqiong
 370	HMRF - Health and Health Services (former HHSRF)	18192921	Mechanistic characterization of the MT2-induced Pgp inhibition and the chemosensitization on combining MT2 with Taxol in treating multi-drug resistant cancer in vitro and in vivo.	LUI Ki
