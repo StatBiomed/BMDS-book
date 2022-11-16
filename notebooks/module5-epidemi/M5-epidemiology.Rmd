@@ -1,7 +1,3 @@
----
----
----
-
 # Cancer Epidemiology
 
 *by Dr Jason Wong*
