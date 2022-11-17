@@ -15,7 +15,7 @@ Liver	97
 Lung	22
 Melanoma	2
 Mesothelioma	6
-myeloma	0
+Multiple myeloma	0
 Nasal	0
 Nasopharynx	24
 Non-Hodgkin lymphoma	2
@@ -23,7 +23,7 @@ Skin	2
 Oesophagus	7
 Oral	5
 Ovary	14
-Pancreas	0
+Pancreas	2
 Penis	0
 Placenta	0
 Prostate	6
