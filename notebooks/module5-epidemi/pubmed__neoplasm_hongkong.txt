@@ -34,7 +34,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 36344580	Machine learning based personalized drug response prediction for lung cancer patients	Qureshi R	Sci Rep	2022
 36344505	PA-MSHA induces inflamed tumor microenvironment and sensitizes tumor to anti-PD-1 therapy	Huang M	Cell Death Dis	2022
 36109339	Organogold(III) Complexes Display Conditional Photoactivities: Evolving From Photodynamic into Photoactivated Chemotherapy in Response to O(2) Consumption for Robust Cancer Therapy	Luo Y	Angew Chem Int Ed Engl	2022
-36084547	Histone demethylase KDM2A suppresses EGF-TSPAN8 pathway to inhibit breast cancer cell migration and invasion in vitro	Zhang H	Biochem Biophys Res Commun	2022
+36084547	Histone demethylase KDM2A suppresses EGF-TSPAN8 pathway to inhibit breast cancer cell migration and invasion in vitro	Zhang H	Biochem Biophys Res Commun	2022
 36354476	Real-Time Detection of Circulating Tumor Cells in Bloodstream Using Plasmonic Fiber Sensors	Zhu S	Biosensors (Basel)	2022
 36354472	A Microfluidic Platform Revealing Interactions between Leukocytes and Cancer Cells on Topographic Micropatterns	Cui X	Biosensors (Basel)	2022
 35960210	Pharmacogenomic Profiling of Pediatric Acute Myeloid Leukemia to Identify Therapeutic Vulnerabilities and Inform Functional Precision Medicine	Wang H	Blood Cancer Discov	2022
@@ -65,7 +65,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 36029643	Isoliquiritigenin inhibits pancreatic cancer progression through blockade of p38 MAPK-regulated autophagy	Zhang Z	Phytomedicine	2022
 36002247	Third Asia-Pacific consensus recommendations on colorectal cancer screening and postpolypectomy surveillance	Sung JJY	Gut	2022
 35946566	Association of genetic polymorphisms of CYP3A4 and CYP2D6 with gefitinib-induced toxicities	Kwok WC	Anticancer Drugs	2022
-35927597	ASO Visual Abstract: A Noninvasive Tool Based on Magnetic Resonance Imaging Radiomics for the Preoperative Prediction of Pathological Complete Response to Neoadjuvant Chemotherapy in Breast Cancer	Li C	Ann Surg Oncol	2022
+35927597	ASO Visual Abstract: A Noninvasive Tool Based on Magnetic Resonance Imaging Radiomics for the Preoperative Prediction of Pathological Complete Response to Neoadjuvant Chemotherapy in Breast Cancer	Li C	Ann Surg Oncol	2022
 35915875	Better preservation of erectile function in localized prostate cancer patients with modern proton therapy: Is it cost-effective?	Li G	Prostate	2022
 35915869	Association between duration of gonadotrophin-releasing hormone agonist use and cardiovascular risks: A population-based competing-risk analysis	Chan JSK	Prostate	2022
 35894804	Inhibition of lysyl oxidase-like 2 overcomes adhesion-dependent drug resistance in the collagen-enriched liver cancer microenvironment	Gong L	Hepatol Commun	2022
@@ -85,7 +85,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 35258755	Role of Serum M2BPGi Levels in Predicting Persistence of Advanced Fibrosis in Chronic Hepatitis B Virus Infection	Mak LY	Dig Dis Sci	2022
 35232776	Squalene epoxidase drives cancer cell proliferation and promotes gut dysbiosis to accelerate colorectal carcinogenesis	Li C	Gut	2022
 34997350	Prognostic value of hepatocyte growth factor for muscle-invasive bladder cancer	Katayama S	J Cancer Res Clin Oncol	2022
-34816510	'We can bear it!' Unpacking barriers to hepatocellular carcinoma screening among patients with hepatitis B: A qualitative study	Li C	J Clin Nurs	2022
+34816510	'We can bear it!' Unpacking barriers to hepatocellular carcinoma screening among patients with hepatitis B: A qualitative study	Li C	J Clin Nurs	2022
 33177354	Worldwide Techniques and Outcomes in Robot-assisted Minimally Invasive Esophagectomy (RAMIE): Results From the Multicenter International Registry	Kingma BF	Ann Surg	2022
 36364213	Crosstalk between Depression and Breast Cancer via Hepatic Epoxide Metabolism: A Central Comorbidity Mechanism	Ye Z	Molecules	2022
 36362047	Characterization of a Potent, Selective, and Safe Inhibitor, Ac15(Az8)(2), in Reversing Multidrug Resistance Mediated by Breast Cancer Resistance Protein (BCRP/ABCG2)	Chong TC	Int J Mol Sci	2022
@@ -163,7 +163,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 35644638	PRAME immunostain expression in sebaceous lesions, cutaneous carcinomas and adnexal structures	Ng JKM	Pathology	2022
 35643251	Association of Adjuvant Radiation Therapy With Long-Term Overall and Recurrence-Free Survival After Hepatectomy for Hepatocellular Carcinoma: A Multicenter Propensity-Matched Study	Gou XX	Int J Radiat Oncol Biol Phys	2022
 35633413	Needs assessment instruments for family caregivers of cancer patients receiving palliative care: a systematic review	Cheng Q	Support Care Cancer	2022
-35488387	Association between antibiotic consumption and colon and rectal cancer development in older individuals: A territory-wide study	Cheung KS	Cancer Med	2022
+35488387	Association between antibiotic consumption and colon and rectal cancer development in older individuals: A territory-wide study	Cheung KS	Cancer Med	2022
 35445336	Impact of Three-Dimensional (3D) Visualization on Laparoscopic Hepatectomy for Hepatocellular Carcinoma	Au KP	Ann Surg Oncol	2022
 35420299	Deep learning-based automatic segmentation of meningioma from multiparametric MRI for preoperative meningioma differentiation using radiomic features: a multicentre study	Chen H	Eur Radiol	2022
 35396872	Effects of decisional conflict, decision regret and self-stigma on quality of life for breast cancer survivors: A cross-sectional, multisite study in China	Zhuang H	J Adv Nurs	2022
@@ -301,7 +301,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 34732679	Parental Stress as the Mediator Between Symptom Burden and the Quality of Life of Chinese Children With Cancer	Lam W	Cancer Nurs	2022
 34571257	Fatty Pancreas Is Independently Associated With Subsequent Diabetes Mellitus Development: A 10-Year Prospective Cohort Study	Chan TT	Clin Gastroenterol Hepatol	2022
 34541834	Identification of hub genes in bladder cancer based on weighted gene co-expression network analysis from TCGA database	Wang L	Cancer Rep (Hoboken)	2022
-34374936	The mini player with diverse functions: extracellular vesicles in cell biology, disease, and therapeutics	Thakur A	Protein Cell	2022
+34374936	The mini player with diverse functions: extracellular vesicles in cell biology, disease, and therapeutics	Thakur A	Protein Cell	2022
 34281426	The moderated associations of self-compassion with physiological and psychological stress responses: Comparisons between cancer caregivers and non-caregivers	Wai Wa Chan E	J Health Psychol	2022
 34039694	Safety and tolerability of subcutaneous trastuzumab and intravenous pertuzumab as adjuvant treatment for HER2 positive breast cancer: a pilot study	Wong CY	Postgrad Med J	2022
 33226318	Suicidal/self-harm behaviors among cancer patients: a population-based competing risk analysis	Men VY	Psychol Med	2022
@@ -392,7 +392,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 35413332	Performance of screening tests for esophageal squamous cell carcinoma: a systematic review and meta-analysis	Wong MCS	Gastrointest Endosc	2022
 35412943	Incidence of myeloid malignancies by subtype in Hong Kong and comparisons with Asian and white men and women in the United States	Bassig BA	Leuk Lymphoma	2022
 35404017	Synergistic activities of the histone deacetylase inhibitors with conventional cytotoxic chemotherapies in angiosarcomas	Zhang Y	Invest New Drugs	2022
-35393759	An international multicenter propensity-score matched and coarsened-exact matched analysis comparing robotic versus laparoscopic partial liver resections of the anterolateral segments	Kadam P	J Hepatobiliary Pancreat Sci	2022
+35393759	An international multicenter propensity-score matched and coarsened-exact matched analysis comparing robotic versus laparoscopic partial liver resections of the anterolateral segments	Kadam P	J Hepatobiliary Pancreat Sci	2022
 35358527	Potential obesogenic effects of TBBPA and its alternatives TBBPS and TCBPA revealed by metabolic perturbations in human hepatoma cells	Yu Y	Sci Total Environ	2022
 35351523	Unique molecular characteristics of NAFLD-associated liver cancer accentuate ?-catenin/TNFRSF19-mediated immune evasion	Wong AM	J Hepatol	2022
 35347517	Prognostic Role of Preoperative Vascular Cell Adhesion Molecule-1 Plasma Levels in Urothelial Carcinoma of the Bladder Treated With Radical Cystectomy	Mori K	Ann Surg Oncol	2022
@@ -446,9 +446,9 @@ PMID	Title	First Author	Journal/Book	Publication Year
 35846746	EBV Infection and Its Regulated Metabolic Reprogramming in Nasopharyngeal Tumorigenesis	Yang T	Front Cell Infect Microbiol	2022
 35793490	Mediastinal Serous Cavity Mesothelioma in Two Dogs	McDonough SP	J Am Anim Hosp Assoc	2022
 35761037	Human papillomavirus targets the YAP1-LATS2 feedback loop to drive cervical cancer development	Huang C	Oncogene	2022
-35732831	The 5th edition of the World Health Organization Classification of Haematolymphoid Tumours: Myeloid and Histiocytic/Dendritic Neoplasms	Khoury JD	Leukemia	2022
+35732831	The 5th edition of the World Health Organization Classification of Haematolymphoid Tumours: Myeloid and Histiocytic/Dendritic Neoplasms	Khoury JD	Leukemia	2022
 35732829	The 5th edition of the World Health Organization Classification of Haematolymphoid Tumours: Lymphoid Neoplasms	Alaggio R	Leukemia	2022
-35730913	New Xanthene Dyes with NIR-II Emission Beyond 1200 nm for Efficient Tumor Angiography and Photothermal Therapy	Zhang C	Small	2022
+35730913	New Xanthene Dyes with NIR-II Emission Beyond 1200 nm for Efficient Tumor Angiography and Photothermal Therapy	Zhang C	Small	2022
 35728084	The Cancer-Related Symptoms Puzzle: Piecing Cancer-Related Cognitive Impairment to Cancer Care Research	Ho MH	Cancer Nurs	2022
 35709581	A comprehensive evaluation of PM(2.5)-bound PAHs and their derivative in winter from six megacities in China: Insight the source-dependent health risk and secondary reactions	Sun J	Environ Int	2022
 35699041	Developmental artificial neural network model to evaluate the preoperative safe limit of future liver remnant volume for HCC combined with clinically significant portal hypertension	Lu HZ	Future Oncol	2022
@@ -464,7 +464,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 35608067	Germline mutations in Chinese ovarian cancer with or without breast cancer	Kwong A	Mol Genet Genomic Med	2022
 35597384	Overcoming immunotherapeutic resistance in PDAC: SIRP?-CD47 blockade	Alausa A	Pharmacol Res	2022
 35595819	Aberrant cholesterol metabolic signaling impairs antitumor immunosurveillance through natural killer T cell dysfunction in obese liver	Tang W	Cell Mol Immunol	2022
-35576849	Artificial intelligence-powered programmed death ligand 1 analyser reduces interobserver variation in tumour proportion score for non-small cell lung cancer with better prediction of immunotherapy response	Choi S	Eur J Cancer	2022
+35576849	Artificial intelligence-powered programmed death ligand 1 analyser reduces interobserver variation in tumour proportion score for non-small cell lung cancer with better prediction of immunotherapy response	Choi S	Eur J Cancer	2022
 35570200	Personalized treatment for hepatocellular carcinoma: Current status and future perspectives	Chan SL	J Gastroenterol Hepatol	2022
 35568736	A first-in-human Phase I dose-escalation trial of the novel therapeutic peptide, ALM201, demonstrates a favourable safety profile in unselected patients with ovarian cancer and other advanced solid tumours	El Helali A	Br J Cancer	2022
 35501486	A T cell resilience model associated with response to immunotherapy in multiple tumor types	Zhang Y	Nat Med	2022
@@ -501,7 +501,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 34454852	The Value of Preoperative Plasma VEGF Levels in Urothelial Carcinoma of the Bladder Treated with Radical Cystectomy	Mori K	Eur Urol Focus	2022
 34390318	Chemotherapy is a risk factor of lymphopenia before adjuvant radiotherapy in breast cancer	Chen F	Cancer Rep (Hoboken)	2022
 34387627	Abdominal Complications During Treatment for Pediatric Acute Myeloid Leukemia	Borgstedt-Bendixen SE	J Pediatr Hematol Oncol	2022
-34363123	3D T1-weighted turbo spin echo contrast-enhanced MRI at 1.5 T for frameless brain metastases radiotherapy	Yuan J	J Cancer Res Clin Oncol	2022
+34363123	3D T1-weighted turbo spin echo contrast-enhanced MRI at 1.5 T for frameless brain metastases radiotherapy	Yuan J	J Cancer Res Clin Oncol	2022
 34357411	The real-world efficacy and safety of anlotinib in advanced non-small cell lung cancer	Wang F	J Cancer Res Clin Oncol	2022
 34167801	Surgery in Chinese children affected by 45,X/46,XY disorders of sex development: A 20-year experience in a single center	Wong YS	J Pediatr Surg	2022
 33647386	Cellular heterogeneity and plasticity in liver cancer	Chan LK	Semin Cancer Biol	2022
@@ -513,7 +513,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 35765099	Sparse logistic regression revealed the associations between HBV PreS quasispecies and hepatocellular carcinoma	Jia JA	Virol J	2022
 35765089	PITX2C increases the stemness features of hepatocellular carcinoma cells by up-regulating key developmental factors in liver progenitor	Jiang L	J Exp Clin Cancer Res	2022
 35666242	Scintillator-based radiocatalytic superoxide radical production for long-term tumor DNA damage	Wang C	Biomater Sci	2022
-35653181	"One Stone, Four Birds" Ion Engineering to Fabricate Versatile Core-Shell Organosilica Nanoparticles for Intelligent Nanotheranostics	Yan S	ACS Nano	2022
+35653181	One Stone, Four Birds Ion Engineering to Fabricate Versatile Core-Shell Organosilica Nanoparticles for Intelligent Nanotheranostics	Yan S	ACS Nano	2022
 35806128	The Dysregulation of MicroRNAs in the Development of Cervical Pre-Cancer-An Update	Choi PW	Int J Mol Sci	2022
 35789644	Association of PTPRT Mutations with Cancer Metastasis in Multiple Cancer Types	Chen C	Biomed Res Int	2022
 35752862	An N-glycoproteomic site-mapping analysis reveals glycoprotein alterations in esophageal squamous cell carcinoma	Gao Y	J Transl Med	2022
@@ -550,7 +550,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 35437924	Transforming primary human hepatocytes into hepatocellular carcinoma with genetically defined factors	Jiang Z	EMBO Rep	2022
 35681547	High Expression of a Cancer Stemness-Related Gene, Chromobox 8 (CBX8), in Normal Tissue Adjacent to the Tumor (NAT) Is Associated with Poor Prognosis of Colorectal Cancer Patients	Ng L	Cells	2022
 35395074	Rab13 Sustains Breast Cancer Stem Cells by Supporting Tumor-Stroma Cross-talk	Wang H	Cancer Res	2022
-35385804	A pH-Dependent rhodamine fluorophore with antiproliferative activity of bladder cancer in Vitro/Vivo and apoptosis mechanism	Lu D	Eur J Med Chem	2022
+35385804	A pH-Dependent rhodamine fluorophore with antiproliferative activity of bladder cancer in Vitro/Vivo and apoptosis mechanism	Lu D	Eur J Med Chem	2022
 35682457	Educational Interventions to Promote Cervical Cancer Screening among Rural Populations: A Systematic Review	Zhang M	Int J Environ Res Public Health	2022
 35813476	Integrative Analyses of m6A Regulators Identify that METTL3 is Associated with HPV Status and Immunosuppressive Microenvironment in HPV-related Cancers	Yu R	Int J Biol Sci	2022
 35659326	How we treat NK/T-cell lymphomas	Tse E	J Hematol Oncol	2022
@@ -647,13 +647,13 @@ PMID	Title	First Author	Journal/Book	Publication Year
 35576390	Pathophysiological mechanisms of ALPPS: experimental model	Wang R	Br J Surg	2022
 35350066	Suppression of Endothelial Cell FAK Expression Reduces Pancreatic Ductal Adenocarcinoma Metastasis after Gemcitabine Treatment	Roy-Luzarraga M	Cancer Res	2022
 35510498	Fluid shear stress regulates the survival of circulating tumor cells via nuclear expansion	Xu Z	J Cell Sci	2022
-35562732	Analysis of the unmet needs of Palestinian advanced cancer patients and their relationship to emotional distress: results from a cross-sectional study	Abu-Odah H	BMC Palliat Care	2022
+35562732	Analysis of the unmet needs of Palestinian advanced cancer patients and their relationship to emotional distress: results from a cross-sectional study	Abu-Odah H	BMC Palliat Care	2022
 35562334	N6-methyladenosine regulated FGFR4 attenuates ferroptotic cell death in recalcitrant HER2-positive breast cancer	Zou Y	Nat Commun	2022
 35323862	Reducing healthcare disparities using multiple multiethnic data distributions with fine-tuning of transfer learning	Toseef M	Brief Bioinform	2022
 35628212	Network-Pharmacology-Based Study on Active Phytochemicals and Molecular Mechanism of Cnidium monnieri in Treating Hepatocellular Carcinoma	Khan SA	Int J Mol Sci	2022
 35549776	Real-time automatic prediction of treatment response to transcatheter arterial chemoembolization in patients with hepatocellular carcinoma using deep learning based on digital subtraction angiography videos	Zhang L	Cancer Imaging	2022
 35546241	Incidence, mortality, risk factors, and trends for Hodgkin lymphoma: a global data analysis	Huang J	J Hematol Oncol	2022
-35427483	Generating functional cells through enhanced interspecies chimerism with human pluripotent stem cells	Zhu Y	Stem Cell Reports	2022
+35427483	Generating functional cells through enhanced interspecies chimerism with human pluripotent stem cells	Zhu Y	Stem Cell Reports	2022
 35077220	Cancer Risks Associated With BRCA1 and BRCA2 Pathogenic Variants	Li S	J Clin Oncol	2022
 35526071	Endothelial nitric oxide synthase (eNOS)-NO signaling axis functions to promote the growth of prostate cancer stem-like cells	Gao W	Stem Cell Res Ther	2022
 35526007	A novel tRNA-derived fragment AS-tDR-007333 promotes the malignancy of NSCLC via the HSPB1/MED29 and ELK4/MED29 axes	Yang W	J Hematol Oncol	2022
@@ -706,7 +706,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 35129877	Carboplatin-induced renal salt-wasting syndrome in pediatric patients with intracranial germ cell tumors and concomitant diabetes insipidus	Wan T	Pediatr Blood Cancer	2022
 35099615	A latent class analysis of resilience and its relationship with depressive symptoms in the parents of children with cancer	Luo Y	Support Care Cancer	2022
 35083540	Urban-rural differences in financial toxicity and its effect on cancer survivors' health-related quality of life and emotional status: a latent class analysis	Xu RH	Support Care Cancer	2022
-35066088	The updated BCLC staging system needs further refinement: A surgeon's perspective	Xu X	J Hepatol	2022
+35066088	The updated BCLC staging system needs further refinement: A surgeon's perspective	Xu X	J Hepatol	2022
 35059866	Mapping chemotherapy-induced peripheral neuropathy phenotype and health-related quality of life in patients with cancer through exploratory analysis of multimodal assessment data	Wang M	Support Care Cancer	2022
 35028953	Immunomodulatory potential of natural products from herbal medicines as immune checkpoints inhibitors: Helping to fight against cancer via multiple targets	Zhong Z	Med Res Rev	2022
 34865574	Alpha-Fetoprotein in Predicting Survival of Patients with Ruptured Hepatocellular Carcinoma after Resection	She WH	J Invest Surg	2022
@@ -784,7 +784,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 35138529	Afatinib alone and in combination with vinorelbine or paclitaxel, in patients with HER2-positive breast cancer who failed or progressed on prior trastuzumab and/or lapatinib (LUX-Breast 2): an open-label, multicenter, phase II trial	Hickish T	Breast Cancer Res Treat	2022
 35132824	Evoking Highly Immunogenic Ferroptosis Aided by Intramolecular Motion-Induced Photo-Hyperthermia for Cancer Therapy	Chen C	Adv Sci (Weinh)	2022
 35088579	DEPDC1B Promotes Melanoma Angiogenesis and Metastasis through Sequestration of Ubiquitin Ligase CDC16 to Stabilize Secreted SCUBE3	Hu F	Adv Sci (Weinh)	2022
-35078679	Total and differential white blood cell count and cause-specific mortality in 436 750 Taiwanese adults	Chan SHT	Nutr Metab Cardiovasc Dis	2022
+35078679	Total and differential white blood cell count and cause-specific mortality in 436 750 Taiwanese adults	Chan SHT	Nutr Metab Cardiovasc Dis	2022
 35064935	Parallel evolution of two distinct lymphoid proliferations in clonal haematopoiesis	Attygalle AD	Histopathology	2022
 35064610	The novel finding of an FGFR1::TACC1 fusion in an undifferentiated spindle cell sarcoma of soft tissue with aggressive clinical course	Yau DT	Genes Chromosomes Cancer	2022
 35064058	Night Shift Work, MTNR1B rs10830963 Polymorphism, and Prostate Cancer Risk: Findings from a Prospective, Population-Based Study	Yang L	Cancer Epidemiol Biomarkers Prev	2022
@@ -811,7 +811,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 34796691	Multimarker Panels for Detection of Early Stage Hepatocellular Carcinoma: A Prospective, Multicenter, Case-Control Study	Piratvisuth T	Hepatol Commun	2022
 34776258	A comprehensive review of interventional ablation techniques for the management of thyroid nodules and metastatic lymph nodes	Kuo JH	Surgery	2022
 34772581	Sensorineural Hearing Loss in Nasopharyngeal Carcinoma Survivors in the Modern Treatment Era - The Early and Late Effects of Radiation and Cisplatin	Yip PL	Clin Oncol (R Coll Radiol)	2022
-34735674	A phase 1 study of pegylated recombinant arginase (PEG-BCT-100) in combination with systemic chemotherapy (capecitabine and oxaliplatin)[PACOX] in advanced hepatocellular carcinoma patients	Yau T	Invest New Drugs	2022
+34735674	A phase 1 study of pegylated recombinant arginase (PEG-BCT-100) in combination with systemic chemotherapy (capecitabine and oxaliplatin)[PACOX] in advanced hepatocellular carcinoma patients	Yau T	Invest New Drugs	2022
 34704322	Using suicide notes to understand suicide among cancer patients: A mixed-method study	Men YV	Psychooncology	2022
 34687488	Clinicopathological features and resistance mechanisms in HIP1-ALK-rearranged lung cancer: A multicenter study	Kang J	Genes Chromosomes Cancer	2022
 34665987	ABCC4, ITPA, NUDT15, TPMT and their interaction as genetic predictors of 6-mercaptopurine intolerance in chinese patients with acute lymphoblastic leukemia	Fan POL	Pediatr Hematol Oncol	2022
@@ -859,7 +859,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 35451414	A case report of tumor lysis syndrome after stage-one ALPPS	Cheung HH	Medicine (Baltimore)	2022
 35326424	Advances in High Throughput Proteomics Profiling in Establishing Potential Biomarkers for Gastrointestinal Cancer	Islam Khan MZ	Cells	2022
 35263137	Biomimetic multifunctional persistent luminescence nanoprobes for long-term near-infrared imaging and therapy of cerebral and cerebellar gliomas	Kong J	Sci Adv	2022
-35272669	Brucein D augments the chemosensitivity of gemcitabine in pancreatic cancer via inhibiting the Nrf2 pathway	Zhang J	J Exp Clin Cancer Res	2022
+35272669	Brucein D augments the chemosensitivity of gemcitabine in pancreatic cancer via inhibiting the Nrf2 pathway	Zhang J	J Exp Clin Cancer Res	2022
 35136933	Improving bulk RNA-seq classification by transferring gene signature from single cells in acute myeloid leukemia	Wang R	Brief Bioinform	2022
 35336972	Oropharyngeal Shedding of Gammaherpesvirus DNA by Cats, and Natural Infection of Salivary Epithelium	Rose EC	Viruses	2022
 35264616	A comprehensive systematic review and network meta-analysis: the role of anti-angiogenic agents in advanced epithelial ovarian cancer	Helali AE	Sci Rep	2022
@@ -880,7 +880,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 35122343	Influential barriers perceived by South Asians in Hong Kong to undergoing cervical cancer screening	Chan DNS	Eur J Cancer Care (Engl)	2022
 35121847	Validation and refinement of a RUNX1 mutation-associated gene expression signature in blast crisis chronic myeloid leukemia	Lee KL	Leukemia	2022
 35121521	Effectiveness of psychoeducational interventions among caregivers of patients with cancer: A systematic review and meta-analysis	Cheng Q	Int J Nurs Stud	2022
-35121396	Refining TNM-8 M1 categories with anatomic subgroups for previously untreated de novo metastatic nasopharyngeal carcinoma	Chan SK	Oral Oncol	2022
+35121396	Refining TNM-8 M1 categories with anatomic subgroups for previously untreated de novo metastatic nasopharyngeal carcinoma	Chan SK	Oral Oncol	2022
 35121029	A novel nomogram to predict overall survival in head and neck cancer survivors with radiation-induced brain necrosis	Pan D	Radiother Oncol	2022
 35120895	Myricetin inhibits interferon-?-induced PD-L1 and IDO1 expression in lung cancer cells	Chen YC	Biochem Pharmacol	2022
 35114386	Lung cancer organoids, a promising model still with long way to go	Ma HC	Crit Rev Oncol Hematol	2022
@@ -905,7 +905,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 34654966	Development and validation of a preoperative CT-based radiomic nomogram to predict pathology invasiveness in patients with a solitary pulmonary nodule: a machine learning approach, multicenter, diagnostic study	Huang L	Eur Radiol	2022
 34621044	Efficacy and safety of cabozantinib for patients with advanced hepatocellular carcinoma based on albumin-bilirubin grade	Kelley RK	Br J Cancer	2022
 34619251	Asian perspective on NAFLD-associated HCC	Yip TC	J Hepatol	2022
-34609579	Comparison of Survival Outcomes in Transarterial Ethanol Ablation and Liver Resection for Solitary Hepatocellular Carcinoma???5 cm in Patients Stratified by Liver Function	Yu SCH	Cardiovasc Intervent Radiol	2022
+34609579	Comparison of Survival Outcomes in Transarterial Ethanol Ablation and Liver Resection for Solitary Hepatocellular Carcinoma???5 cm in Patients Stratified by Liver Function	Yu SCH	Cardiovasc Intervent Radiol	2022
 34608670	Lymphoepithelioma-like neoplasm of the biliary tract with 'probable low malignant potential'	Khandakar B	Histopathology	2022
 34596079	Radical Minimally Invasive Surgery After Immuno-chemotherapy in Initially-unresectable Stage IIIB Non-small cell Lung Cancer	Deng H	Ann Surg	2022
 34586677	A comparison of two methods for the detection of circulating tumour cells in patients with oral cavity cancer	Curtin J	J Oral Pathol Med	2022
@@ -914,7 +914,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 34518900	Nab-paclitaxel plus S-1 with or without PD-1 inhibitor in pancreatic ductal adenocarcinoma with only hepatic metastases: a retrospective cohort study	Liu Q	Langenbecks Arch Surg	2022
 34435409	Prenatal diagnosis of umbilical cord hemangioma	Lok WY	Ultrasound Obstet Gynecol	2022
 34154876	Characterization and clinicopathological significance of circulating tumour cells in patients with oral squamous cell carcinoma	Curtin J	Int J Oral Maxillofac Surg	2022
-34145694	Functional anorectal studies in patients with low anterior resection syndrome	Chen SC	Neurogastroenterol Motil	2022
+34145694	Functional anorectal studies in patients with low anterior resection syndrome	Chen SC	Neurogastroenterol Motil	2022
 33883477	Effect of Two Interventions on Sleep Quality for Adolescent and Young Adult Cancer Survivors: A Pilot Randomized Controlled Trial	Li L	Cancer Nurs	2022
 33855642	Pilot randomized sham-controlled trial of self-acupressure to manage the symptom cluster of insomnia, depression, and anxiety in cancer patients undergoing chemotherapy	Hoang HTX	Sleep Breath	2022
 33370490	Nutritional status in patients of mandibular osteoradionecrosis: A single-institution experience	Huang Q	Oral Dis	2022
@@ -988,14 +988,14 @@ PMID	Title	First Author	Journal/Book	Publication Year
 34763992	Central Nervous System Tumor Classification: An Update on the Integration of Tumor Genetics	McLendon RE	Hematol Oncol Clin North Am	2022
 34736970	Reply to: "An EASL position paper for systemic treatment of hepatocellular carcinoma: Go forward courageously"	Sangro B	J Hepatol	2022
 34735739	Organic/Inorganic Self-Assembled Hybrid Nano-Architectures for Cancer Therapy Applications	Yang C	Macromol Biosci	2022
-34713508	Brain-Targeted Aggregation-Induced-Emission Nanoparticles with Near-Infrared Imaging at 1550 nm Boosts Orthotopic Glioblastoma Theranostics	Wang J	Adv Mater	2022
+34713508	Brain-Targeted Aggregation-Induced-Emission Nanoparticles with Near-Infrared Imaging at 1550 nm Boosts Orthotopic Glioblastoma Theranostics	Wang J	Adv Mater	2022
 34695605	The 2021 WHO Classification of Tumors of the Thymus and Mediastinum: What Is New in Thymic Epithelial, Germ Cell, and Mesenchymal Tumors?	Marx A	J Thorac Oncol	2022
 34644447	Alectinib-induced red cell morphological changes in a patient with underlying ?-thalassaemia trait	Li THS	Int J Lab Hematol	2022
 34643976	Current status of organoid culture in urological malignancy	Tse RT	Int J Urol	2022
 34626839	Deep RNA Sequencing Revealed Fusion Junctional Heterogeneity May Predict Crizotinib Treatment Efficacy in ALK-Rearranged NSCLC	Song Z	J Thorac Oncol	2022
 34626838	IMpower150 Final Exploratory Analyses for Atezolizumab Plus Bevacizumab and Chemotherapy in Key NSCLC Patient Subgroups With EGFR Mutations or Metastases in the Liver or Brain	Nogami N	J Thorac Oncol	2022
 34625658	Pharmacological inhibition of serine synthesis enhances temozolomide efficacy by decreasing O(6)-methylguanine DNA methyltransferase (MGMT) expression and reactive oxygen species (ROS)-mediated DNA damage in glioblastoma	Jin L	Lab Invest	2022
-34604920	Comparison of Chemoembolization, Radioembolization, and Transarterial Ethanol Ablation for Huge Hepatocellular Carcinoma (??10 cm) in Tumour Response and Long-Term Survival Outcome	Yu SCH	Cardiovasc Intervent Radiol	2022
+34604920	Comparison of Chemoembolization, Radioembolization, and Transarterial Ethanol Ablation for Huge Hepatocellular Carcinoma (??10 cm) in Tumour Response and Long-Term Survival Outcome	Yu SCH	Cardiovasc Intervent Radiol	2022
 34563631	Effect of Light Therapy on Cancer-Related Fatigue: A Systematic Review and Meta-Analysis	Xiao P	J Pain Symptom Manage	2022
 34563627	Acupuncture for Quality of Life in Gastric Cancer Patients Undergoing Adjuvant Chemotherapy	Zhu YJ	J Pain Symptom Manage	2022
 34528128	EUS-guided fiducial marker insertion for radiotherapy in advanced esophageal carcinoma: submucosal insertion may lead to less migration when compared to intratumoral insertion	Chan SM	Surg Endosc	2022
@@ -1003,7 +1003,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 34504307	Anti-tumor effects of vitamin D in glioblastoma: mechanism and therapeutic implications	Lo CS	Lab Invest	2022
 34496658	The effectiveness of pre- and post-operative rehabilitation for lung cancer: A systematic review and meta-analysis on postoperative pulmonary complications and length of hospital stay	Xu X	Clin Rehabil	2022
 34432121	A deep learning-machine learning fusion approach for the classification of benign, malignant, and intermediate bone tumors	Liu R	Eur Radiol	2022
-34406489	Adjuvant transarterial chemotherapy for margin-positive resection of hepatocellular carcinoma-a propensity score matched analysis	Fok AJ	Langenbecks Arch Surg	2022
+34406489	Adjuvant transarterial chemotherapy for margin-positive resection of hepatocellular carcinoma-a propensity score matched analysis	Fok AJ	Langenbecks Arch Surg	2022
 34023175	Dietary decision-making in Chinese breast cancer survivors: A qualitative study	Tang JWC	Patient Educ Couns	2022
 33692094	Targeting cancer-associated fibroblast-secreted WNT2 restores dendritic cell-mediated antitumour immunity	Huang TX	Gut	2022
 33200536	The impact of robotics in liver surgery: A worldwide systematic review and short-term outcomes meta-analysis on 2,728 cases	Ciria R	J Hepatobiliary Pancreat Sci	2022
@@ -1050,7 +1050,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 34980204	Epigenetic regulation of ferroptosis via ETS1/miR-23a-3p/ACSL4 axis mediates sorafenib resistance in human hepatocellular carcinoma	Lu Y	J Exp Clin Cancer Res	2022
 34980153	A liquid biopsy signature predicts treatment response to fluoropyrimidine plus platinum therapy in patients with metastatic or unresectable gastric cancer: implications for precision oncology	Lee IS	Mol Cancer	2022
 34726688	CHMP2B regulates TDP-43 phosphorylation and cytotoxicity independent of autophagy via CK1	Deng X	J Cell Biol	2022
-35944892	In Vivo Genome-Wide CRISPR Activation Screening Identifies Functionally Important Long Noncoding RNAs in Hepatocellular Carcinoma	Wong LS	Cell Mol Gastroenterol Hepatol	2022
+35944892	In Vivo Genome-Wide CRISPR Activation Screening Identifies Functionally Important Long Noncoding RNAs in Hepatocellular Carcinoma	Wong LS	Cell Mol Gastroenterol Hepatol	2022
 35921175	A Nurse-Led mHealth Self-Management Program (mChemotherapy) for Breast Cancer Patients Undergoing Chemotherapy: Study Protocol of a Randomized Controlled Pilot Study	Shi N	Cancer Control	2022
 35899305	Small Interfering RNA in Colorectal Cancer Liver Metastasis Therapy	Xie J	Technol Cancer Res Treat	2022
 35770775	Cancer Incidence and Mortality in Asian Countries: A Trend Analysis	Huang J	Cancer Control	2022
@@ -1077,7 +1077,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 35156588	Drug Repurposing for Cancer Therapy in the Era of Precision Medicine	K W To K	Curr Mol Pharmacol	2022
 35094986	Early onset of severe lymphopenia during definitive radiotherapy correlates with mean body dose and predicts poor survival in cervical cancer	Yang L	Cancer Biomark	2022
 35051440	Personalised radiation therapy taking both the tumour and patient into consideration	Overgaard J	Radiother Oncol	2022
-35020119	A Phase IIIb Open-Label, Single-Arm Study of Afatinib in EGFR TKI-Naïve Patients with EGFRm+ NSCLC: Final Analysis, with a Focus on Patients Enrolled at Sites in China	Tu HY	Target Oncol	2022
+35020119	A Phase IIIb Open-Label, Single-Arm Study of Afatinib in EGFR TKI-Naïve Patients with EGFRm+ NSCLC: Final Analysis, with a Focus on Patients Enrolled at Sites in China	Tu HY	Target Oncol	2022
 34976591	Development of CD44E/s dual-targeting DNA aptamer as nanoprobe to deliver treatment in hepatocellular carcinoma	Lo CW	Nanotheranostics	2022
 34975311	Cell death mechanisms induced by synergistic effects of halofuginone and artemisinin in colorectal cancer cells	Gong RH	Int J Med Sci	2022
 34972721	Prevalence and Determinants of Vaginal Infection With Human Papillomavirus Among Female University Students in Vietnam	VAN Trang N	In Vivo	2022
@@ -1138,7 +1138,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 34357854	Examining the roles of fatalism, stigma, and risk perception on cancer information seeking and avoidance among Chinese adults in Hong Kong	Lee PhD EWJ	J Psychosoc Oncol	2022
 34351682	Verifying the Benefits of Radical Treatment in Posttransplant Hepatocellular Carcinoma Oligo-recurrence: A Propensity Score Analysis	Au KP	Liver Transpl	2022
 34339597	Association of malignant neoplasms with semen quality in Guangdong province, China: A propensity score matching analysis	Fan Z	Andrology	2022
-34314560	Risk perception, treatment adherence, and personality during COVID-19 pandemic: An international study on cancer patients	Cheli S	Psychooncology	2022
+34314560	Risk perception, treatment adherence, and personality during COVID-19 pandemic: An international study on cancer patients	Cheli S	Psychooncology	2022
 34258631	The Chinese version of Posttraumatic Growth and Depreciation Inventory-Expanded version (PTGDI-X) for cancer survivors	Ho SMY	Support Care Cancer	2022
 34238142	Nitric Oxide and Immune Responses in Cancer: Searching for New Therapeutic Strategies	Sahebnasagh A	Curr Med Chem	2022
 34236464	A CT-based radiomics nomogram for differentiation of squamous cell carcinoma and non-Hodgkin's lymphoma of the palatine tonsil	Dong C	Eur Radiol	2022
@@ -1237,7 +1237,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 33991259	Prognostic value of non-smoking, non-alcohol drinking status in oral cavity cancer	Adeoye J	Clin Oral Investig	2021
 33982178	Standardization for oncologic head and neck surgery	Ronen O	Eur Arch Otorhinolaryngol	2021
 33942405	Effects of non-pharmacological interventions on preoperative anxiety and postoperative pain in patients undergoing breast cancer surgery: A systematic review	Tola YO	J Clin Nurs	2021
-33865803	Intraoperative parathyroid hormone assay for parathyroid cyst - be cautious	Chow TL	Eur Ann Otorhinolaryngol Head Neck Dis	2021
+33865803	Intraoperative parathyroid hormone assay for parathyroid cyst - be cautious	Chow TL	Eur Ann Otorhinolaryngol Head Neck Dis	2021
 33852512	Hepatopulmonary syndrome delays postoperative recovery and increases pulmonary complications after hepatectomy	Li YJ	Eur J Gastroenterol Hepatol	2021
 33850270	A cross-sectional study on gut microbiota in prostate cancer patients with prostatectomy or androgen deprivation therapy	Li JKM	Prostate Cancer Prostatic Dis	2021
 33686237	Beyond immune checkpoint blockade: emerging immunological strategies	Kubli SP	Nat Rev Drug Discov	2021
@@ -1320,7 +1320,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 34334638	Perihilar Cholangiocarcinoma - Novel Benchmark Values for Surgical and Oncological Outcomes From 24 Expert Centers	Mueller M	Ann Surg	2021
 34324843	Management of Gastrointestinal Side Effects of Immune Checkpoint Inhibitors	Lui RN	Clin Gastroenterol Hepatol	2021
 34324065	Genetic evidence for the causal association between programmed death-ligand 1 and lung cancer	Yang Z	J Cancer Res Clin Oncol	2021
-34313348	"Fact or fiction?": Oral cavity cancer in nonsmoking, nonalcohol drinking patients as a distinct entity-Scoping review	Adeoye J	Head Neck	2021
+34313348	Fact or fiction?: Oral cavity cancer in nonsmoking, nonalcohol drinking patients as a distinct entity-Scoping review	Adeoye J	Head Neck	2021
 34310354	Improving Outcome of Superior Mediastinal Lymph Node Dissection During Esophagectomy: A Novel Approach Combining Continuous and Intermittent Recurrent Laryngeal Nerve Monitoring	Wong IYH	Ann Surg	2021
 34246785	Prognostic and therapeutic evaluation of nasopharyngeal carcinoma by dynamic contrast-enhanced (DCE), diffusion-weighted (DW) magnetic resonance imaging (MRI) and magnetic resonance spectroscopy (MRS)	Mui AWL	Magn Reson Imaging	2021
 34246124	In vivo liquid biopsy for glioblastoma malignancy by the AFM and LSPR based sensing of exosomal CD44 and CD133 in a mouse model	Thakur A	Biosens Bioelectron	2021
@@ -1426,7 +1426,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 34579732	Measuring health-related social deprivation in small areas: development of an index and examination of its association with cancer mortality	Wang K	Int J Equity Health	2021
 34552066	Super-enhancer-based identification of a BATF3/IL-2R-module reveals vulnerabilities in anaplastic large cell lymphoma	Liang HC	Nat Commun	2021
 34551052	DTX@VTX NPs synergy PD-L1 immune checkpoint nanoinhibitor to reshape immunosuppressive tumor microenvironment for enhancing chemo-immunotherapy	Zhang R	J Mater Chem B	2021
-34622236	Effector T cell responses unleashed by regulatory T cell ablation exacerbate oral squamous cell carcinoma	Chao JL	Cell Rep Med	2021
+34622236	Effector T cell responses unleashed by regulatory T cell ablation exacerbate oral squamous cell carcinoma	Chao JL	Cell Rep Med	2021
 34298292	Morphological and hemodynamic analysis of the patient-specific renal cell carcinoma models	Huang X	J Biomech	2021
 34292792	Safety, Efficacy, and Pharmacodynamics of Tremelimumab Plus Durvalumab for Patients With Unresectable Hepatocellular Carcinoma: Randomized Expansion of a Phase I/II Study	Kelley RK	J Clin Oncol	2021
 34528972	Native point defect modulated Cr(3+)-LaAlO(3) as an in vitro excited contrast medium for in vivo near-infrared persistent deep-tissue bio-imaging	Lu L	Chem Commun (Camb)	2021
@@ -1600,7 +1600,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 34299514	Aspochalasin H1: A New Cyclic Aspochalasin from Hawaiian Plant-Associated Endophytic Fungus Aspergillus sp. FT1307	Qader M	Molecules	2021
 34256908	Oncogenic mutations drive intestinal cancer initiation through paracrine remodeling	Yan HHN	Cancer Cell	2021
 34253663	Awareness, attitude and barriers of colorectal cancer screening among high-risk populations in China: a cross-sectional study	Huang RL	BMJ Open	2021
-33787881	Smoking and nasopharyngeal cancer: individual data meta-analysis of six prospective studies on 334 935 men	Lin JH	Int J Epidemiol	2021
+33787881	Smoking and nasopharyngeal cancer: individual data meta-analysis of six prospective studies on 334 935 men	Lin JH	Int J Epidemiol	2021
 34233671	Metagenome-wide association study of gut microbiome revealed potential microbial marker set for diagnosis of pediatric myasthenia gravis	Liu P	BMC Med	2021
 34321844	Human immune repertoire in hepatitis B virus infection	Zhan Q	World J Gastroenterol	2021
 34234122	Whole-genome profiling of nasopharyngeal carcinoma reveals viral-host co-operation in inflammatory NF-?B activation and immune escape	Bruce JP	Nat Commun	2021
@@ -1809,7 +1809,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 33624337	A multi-centre randomized controlled trial of mobile gynaecological cancer support program for patients with gynaecological cancer undergoing chemotherapy: Study protocol	Lin H	J Adv Nurs	2021
 33619588	Clinical and molecular heterogeneity of pineal parenchymal tumors: a consensus study	Liu APY	Acta Neuropathol	2021
 33609692	The cholinergic system in joint health and osteoarthritis: a narrative-review	Lauwers M	Osteoarthritis Cartilage	2021
-33569983	ALTA-2: Phase II study of brigatinib in patients with ALK-positive, advanced non-small-cell lung cancer who progressed on alectinib or ceritinib	Kim ES	Future Oncol	2021
+33569983	ALTA-2: Phase II study of brigatinib in patients with ALK-positive, advanced non-small-cell lung cancer who progressed on alectinib or ceritinib	Kim ES	Future Oncol	2021
 33512635	PKM2 promotes cell metastasis and inhibits autophagy via the JAK/STAT3 pathway in hepatocellular carcinoma	Yu Z	Mol Cell Biochem	2021
 33499700	microRNA-21: a key modulator in oncogenic viral infections	He G	RNA Biol	2021
 33462714	Clear cell carcinoma of the urinary bladder: a systematic review	Chan EO	Int Urol Nephrol	2021
@@ -2017,7 +2017,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 33217448	RNA N(6)-Methyladenosine Methyltransferase METTL3 Facilitates Colorectal Cancer by Activating the m(6)A-GLUT1-mTORC1 Axis and Is a Therapeutic Target	Chen H	Gastroenterology	2021
 33205473	Factors associated with participation in colorectal cancer screening: A population-based study of 7200 individuals	Huang J	Eur J Cancer Care (Engl)	2021
 33164569	The patient's perspective on treatment with dacomitinib: patient-reported outcomes from the Phase III trial ARCHER 1050	Paty J	Future Oncol	2021
-33150799	Phase III study of selpercatinib versus chemotherapy ± pembrolizumab in untreated RET positive non-small-cell lung cancer	Solomon BJ	Future Oncol	2021
+33150799	Phase III study of selpercatinib versus chemotherapy ± pembrolizumab in untreated RET positive non-small-cell lung cancer	Solomon BJ	Future Oncol	2021
 33107344	Epidemiology, burden of disease, and unmet needs in the treatment of ulcerative colitis in Asia	Wei SC	Expert Rev Gastroenterol Hepatol	2021
 33096168	Risk factors for symptomatic radiation pneumonitis after stereotactic body radiation therapy (SBRT) in patients with non-small cell lung cancer	Liu Y	Radiother Oncol	2021
 33065633	Transplant Oncology in Primary and Metastatic Liver Tumors: Principles, Evidence, and Opportunities	Sapisochin G	Ann Surg	2021
@@ -2132,7 +2132,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 32682755	Hybrid Theater Facilitates Lung-Preserving Multimodal Treatment for Multiple Pulmonary Metastases	Yu PSY	Ann Thorac Surg	2021
 32576017	Efficacy and safety of radiotherapy for primary liver cancer	Chen W	Chin Clin Oncol	2021
 32514730	The mental health of women with polycystic ovary syndrome: a systematic review and meta-analysis	Yin X	Arch Womens Ment Health	2021
-32493078	"Pauci-Hemosiderotic" Fibrolipomatous Tumor: A Mimicker of Various Lipomatous Lesions	Pang CY	Int J Surg Pathol	2021
+32493078	Pauci-Hemosiderotic Fibrolipomatous Tumor: A Mimicker of Various Lipomatous Lesions	Pang CY	Int J Surg Pathol	2021
 32404001	Economic evaluation alongside a randomised controlled trial to assess the effectiveness and cost-effectiveness of acupuncture in the management of chemotherapy-induced peripheral neuropathy	Molassiotis A	Acupunct Med	2021
 32393843	Second malignant neoplasms after treatment of non-Hodgkin's lymphoma-a retrospective multinational study of 189 children and adolescents	Attarbaschi A	Leukemia	2021
 32238916	Exosomes derived from nasopharyngeal carcinoma cells induce IL-6 production from macrophages to promote tumorigenesis	Wang X	Cell Mol Immunol	2021
@@ -2254,7 +2254,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 32617980	Identification of novel genes in testicular cancer microenvironment based on ESTIMATE algorithm-derived immune scores	Ke ZB	J Cell Physiol	2021
 32605790	Cytoreductive surgery and hyperthermic intraperitoneal chemotherapy (HIPEC) for colorectal and appendiceal peritoneal metastases - The Hong Kong experience and literature review	Chow FC	Asian J Surg	2021
 32402543	Intraoperative parathyroid hormone (IOPTH) assay might be better than the second-generation assay in parathyroidectomy for primary hyperparathyroidism	Lang BH	Surgery	2021
-32389886	Type 2 Diabetes and Metformin Use Associate With Outcomes of Patients With Nonalcoholic Steatohepatitis-Related, Child-Pugh A Cirrhosis	Vilar-Gomez E	Clin Gastroenterol Hepatol	2021
+32389886	Type 2 Diabetes and Metformin Use Associate With Outcomes of Patients With Nonalcoholic Steatohepatitis-Related, Child-Pugh A Cirrhosis	Vilar-Gomez E	Clin Gastroenterol Hepatol	2021
 32384034	Infantile Hemangioma: An Updated Review	Leung AKC	Curr Pediatr Rev	2021
 32376335	New insights on missed colonic lesions during colonoscopy through artificial intelligence-assisted real-time detection (with video)	Lui TKL	Gastrointest Endosc	2021
 32358777	Complementary medicine use in US adults with a history of colorectal cancer: a nationally representative survey	Wong CH	Support Care Cancer	2021
@@ -2387,7 +2387,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 33040630	Genomic characterization reveals potential biomarkers in nasopharyngeal carcinoma patients with relapse	Cho WCS	Expert Rev Mol Diagn	2020
 33001135	Efficacy and Safety of Nivolumab Plus Ipilimumab in Patients With Advanced Hepatocellular Carcinoma Previously Treated With Sorafenib: The CheckMate 040 Randomized Clinical Trial	Yau T	JAMA Oncol	2020
 32989915	Detection of circulating genetically abnormal cells in peripheral blood for early diagnosis of non-small cell lung cancer	Liu WR	Thorac Cancer	2020
-32976790	In Regard to Chou et al	Chow JCH	Int J Radiat Oncol Biol Phys	2020
+32976790	In Regard to Chou et al	Chow JCH	Int J Radiat Oncol Biol Phys	2020
 32974760	Secondary prevention for hepatocellular carcinoma in patients with chronic hepatitis B: are all the nucleos(t)ide analogues the same?	Yip TC	J Gastroenterol	2020
 32951256	East Asia expert opinion on treatment initiation for chronic hepatitis B	Kao JH	Aliment Pharmacol Ther	2020
 32939056	Metaplastic breast cancers frequently express immune checkpoint markers FOXP3 and PD-L1	Kalaw E	Br J Cancer	2020
@@ -2415,7 +2415,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 32692211	Quality of end-of-life care of advanced cancer patients in mainland China-a retrospective cohort of 441 hospital-death in a public funded comprehensive hospital	Li JS	Ann Palliat Med	2020
 32655009	Upper Gastrointestinal Cancer in China: Spatial Epidemiologic Evidence from Screening Areas	Li P	Cancer Prev Res (Phila)	2020
 32648365	Reply	Chiang KY	Respirology	2020
-32623343	"Sushi roll" technique for precise total tongue functional reconstruction using a pre-sutured femoral anterolateral myocutaneous flap	Zhou X	Oral Oncol	2020
+32623343	Sushi roll technique for precise total tongue functional reconstruction using a pre-sutured femoral anterolateral myocutaneous flap	Zhou X	Oral Oncol	2020
 32622798	Real-time evaluation of swallowing in patients with oral cancers by using cine-magnetic resonance imaging based on T2-weighted sequences	Tanaka T	Oral Surg Oral Med Oral Pathol Oral Radiol	2020
 32591891	Accuracy of ultrasound in the characterisation of deep soft tissue masses: a prospective study	Griffith JF	Eur Radiol	2020
 32588210	Pre-treatment amide proton transfer imaging predicts treatment outcome in nasopharyngeal carcinoma	Qamar S	Eur Radiol	2020
@@ -2424,7 +2424,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 32504248	Infiltration of T cells promotes the metastasis of ovarian cancer cells via the modulation of metastasis-related genes and PD-L1 expression	Wang JJ	Cancer Immunol Immunother	2020
 32488897	Outdoor light at night and postmenopausal breast cancer risk in the NIH-AARP diet and health study	Xiao Q	Int J Cancer	2020
 32480430	The functional role of surface molecules on extracellular vesicles in cancer, autoimmune diseases, and coagulopathy	Lam KCK	J Leukoc Biol	2020
-32471010	Healthcare utilization and direct medical cost in the years during and after cancer diagnosis in patients with type 2 diabetes mellitus	Wu T	J Diabetes Investig	2020
+32471010	Healthcare utilization and direct medical cost in the years during and after cancer diagnosis in patients with type 2 diabetes mellitus	Wu T	J Diabetes Investig	2020
 32470501	Central Airway Toxicity After High Dose Radiation: A Combined Analysis of Prospective Clinical Trials for Non-Small Cell Lung Cancer	Wang W	Int J Radiat Oncol Biol Phys	2020
 32469487	What Is the 10-year Survivorship of Cemented Distal Femoral Endoprostheses for Tumor Reconstructions and What Radiographic Features Are Associated with Survival?	Piakong P	Clin Orthop Relat Res	2020
 32357362	Randomised controlled trial: Can topical timolol maleate prevent complications for small superficial infantile haemangiomata in high-risk areas?	Cheng JWCH	Pediatr Res	2020
@@ -2631,7 +2631,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 32253678	Actual long-term survival in HCC patients with portal vein tumor thrombus after liver resection: a nationwide study	Chen ZH	Hepatol Int	2020
 32239695	Experience with provisional WHO-entities large B-cell lymphoma with IRF4-rearrangement and Burkitt-like lymphoma with 11q aberration in paediatric patients of the NHL-BFM group	Au-Yeung RKH	Br J Haematol	2020
 32139898	53BP1 loss rescues embryonic lethality but not genomic instability of BRCA1 total knockout mice	Chen J	Cell Death Differ	2020
-32027406	"Search less, verify more"-Reviewing salivary biomarkers in oral cancer detection	Adeoye J	J Oral Pathol Med	2020
+32027406	Search less, verify more-Reviewing salivary biomarkers in oral cancer detection	Adeoye J	J Oral Pathol Med	2020
 31983058	Genome-wide DNA methylation profiling identifies two novel genes in cervical neoplasia	El-Zein M	Int J Cancer	2020
 31980306	Multicenter analysis of long-term oncologic outcomes of hepatectomy for elderly patients with hepatocellular carcinoma	Xing H	HPB (Oxford)	2020
 31974133	Gastric microbes associated with gastric inflammation, atrophy and intestinal metaplasia 1 year after Helicobacter pylori eradication	Sung JJY	Gut	2020
@@ -2721,7 +2721,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 32627525	Effective Phototheranostics of Brain Tumor Assisted by Near-Infrared-II Light-Responsive Semiconducting Polymer Nanoparticles	Wen G	ACS Appl Mater Interfaces	2020
 32863943	m(6)A RNA modification modulates PI3K/Akt/mTOR signal pathway in Gastrointestinal Cancer	Zhao Q	Theranostics	2020
 32710731	Prognostic validation and treatment decision making of the 8(th) edition of the American Joint Committee on Cancer pathological staging system for elderly women with early-stage breast cancer	Wu SG	Aging (Albany NY)	2020
-32703223	Psychometric testing of the Functional Assessment of Cancer Therapy/Gynecologic Oncology Group-Neurotoxicity (FACT/GOG-Ntx) subscale in a longitudinal study of cancer patients treated with chemotherapy	Cheng HL	Health Qual Life Outcomes	2020
+32703223	Psychometric testing of the Functional Assessment of Cancer Therapy/Gynecologic Oncology Group-Neurotoxicity (FACT/GOG-Ntx) subscale in a longitudinal study of cancer patients treated with chemotherapy	Cheng HL	Health Qual Life Outcomes	2020
 32792858	Cancer stem cell property and gene signature in bone-metastatic Breast Cancer cells	Luo A	Int J Biol Sci	2020
 32678024	Bacteria pathogens drive host colonic epithelial cell promoter hypermethylation of tumor suppressor genes in colorectal cancer	Xia X	Microbiome	2020
 32589989	Adapting Head and Neck Cancer Management in the Time of COVID-19	Mehanna H	Int J Radiat Oncol Biol Phys	2020
@@ -2751,7 +2751,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 32548680	Liquid-liquid phase separation in biology: mechanisms, physiological functions and human diseases	Zhang H	Sci China Life Sci	2020
 32541318	Tropomyosin receptor kinase inhibitors in the management of sarcomas	Wilding CP	Curr Opin Oncol	2020
 32534633	Recommendations for head and neck surgical oncology practice in a setting of acute severe resource constraint during the COVID-19 pandemic: an international consensus	Mehanna H	Lancet Oncol	2020
-32524500	Denosumab Versus Zoledronic Acid in Bone Disease Treatment of Newly Diagnosed Multiple Myeloma: An International, Double-Blind, Randomized Controlled Phase 3 Study-Asian Subgroup Analysis	Huang SY	Adv Ther	2020
+32524500	Denosumab Versus Zoledronic Acid in Bone Disease Treatment of Newly Diagnosed Multiple Myeloma: An International, Double-Blind, Randomized Controlled Phase 3 Study-Asian Subgroup Analysis	Huang SY	Adv Ther	2020
 32510874	A new mouse esophageal cancer cell line (mEC25)-derived pre-clinical syngeneic tumor model for immunotherapy	Huang T	Cancer Commun (Lond)	2020
 32500997	Programmed Self-Assembly of Protein-Coated AIE-Featured Nanoparticles with Dual Imaging and Targeted Therapy to Cancer Cells	Li J	ACS Appl Mater Interfaces	2020
 32491932	Cabozantinib in combination with atezolizumab versus sorafenib in treatment-naive advanced hepatocellular carcinoma: COSMIC-312 Phase III study design	Kelley RK	Future Oncol	2020
@@ -2933,7 +2933,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 32167660	Delayed presentation, diagnosis, and psychosocial aspects of male breast cancer	Co M	Cancer Med	2020
 32162306	Receptor tyrosine kinase fusions act as a significant alternative driver of the serrated pathway in colorectal cancer development	Chan AW	J Pathol	2020
 32155300	Circulating Epstein-Barr virus microRNAs BART7-3p and BART13-3p as novel biomarkers in nasopharyngeal carcinoma	Lu T	Cancer Sci	2020
-32152720	Transarterial Ethanol Ablation for Small Hepatocellular Carcinoma (??3 cm): A Comparative Study Versus Radiofrequency Ablation	Yu SCH	Cardiovasc Intervent Radiol	2020
+32152720	Transarterial Ethanol Ablation for Small Hepatocellular Carcinoma (??3 cm): A Comparative Study Versus Radiofrequency Ablation	Yu SCH	Cardiovasc Intervent Radiol	2020
 32151713	Upgraded Standardized Minimal Residual Disease Detection by Next-Generation Sequencing in Multiple Myeloma	Yao Q	J Mol Diagn	2020
 32144472	A bioengineered arginine-depleting enzyme as a long-lasting therapeutic agent against cancer	Chung SF	Appl Microbiol Biotechnol	2020
 32141939	Treatment options and results of adjuvant treatment in nonmuscle-invasive bladder cancer (NMIBC) during the Bacillus Calmette-Guérin shortage	Fankhauser CD	Curr Opin Urol	2020
@@ -2969,7 +2969,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 31324577	Diffusion Kurtosis Imaging in the Assessment of Cervical Carcinoma	Wang M	Acad Radiol	2020
 31296585	Physically active individuals have a 23% lower risk of any colorectal neoplasia and a 27% lower risk of advanced colorectal neoplasia than their non-active counterparts: systematic review and meta-analysis of observational studies	Wang J	Br J Sports Med	2020
 32391193	Heterogeneity of immune microenvironment in ovarian cancer and its clinical significance: a retrospective study	Gao Y	Oncoimmunology	2020
-32353864	A modified arginine-depleting enzyme NEI-01 inhibits growth of pancreatic cancer cells	Chow JPH	PLoS One	2020
+32353864	A modified arginine-depleting enzyme NEI-01 inhibits growth of pancreatic cancer cells	Chow JPH	PLoS One	2020
 32365569	Functional Implications of Cathelicidin Antimicrobial Protein in Breast Cancer and Tumor-Associated Macrophage Microenvironment	Chen J	Biomolecules	2020
 32349708	High incidence of hepatocellular carcinoma and cirrhotic complications in patients with psychiatric illness: a territory-wide cohort study	Yip TC	BMC Gastroenterol	2020
 32390697	Malignant gastric outlet obstruction: Which is the best therapeutic option?	Troncone E	World J Gastroenterol	2020
@@ -3008,7 +3008,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 32245911	Patient-reported outcomes after surgery or radiotherapy for localised prostate cancer: a retrospective study	Ng CF	Hong Kong Med J	2020
 32238885	Prediction model for short-term mortality after palliative radiotherapy for patients having advanced cancer: a cohort study from routine electronic medical data	Lee SF	Sci Rep	2020
 32191318	Sequencing Analysis of Plasma Epstein-Barr Virus DNA Reveals Nasopharyngeal Carcinoma-Associated Single Nucleotide Variant Profiles	Lam WKJ	Clin Chem	2020
-32151507	Genomic origin and EGFR-TKI treatments of pulmonary adenosquamous carcinoma	Lin G	Ann Oncol	2020
+32151507	Genomic origin and EGFR-TKI treatments of pulmonary adenosquamous carcinoma	Lin G	Ann Oncol	2020
 32134570	Vertically Coated Graphene Oxide Micro-Well Arrays for Highly Efficient Cancer Spheroid Formation and Drug Screening	Kim CH	Adv Healthc Mater	2020
 32133676	Modelling NAFLD disease burden in four Asian regions-2019-2030	Estes C	Aliment Pharmacol Ther	2020
 32123313	Gastric cancer: genome damaged by bugs	Zhao Y	Oncogene	2020
@@ -3039,7 +3039,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 31872299	A systematic review and meta-analysis of couple-based intervention on sexuality and the quality of life of cancer patients and their partners	Li M	Support Care Cancer	2020
 31822971	Qualitative and quantitative comparison of image quality between single-shot echo-planar and interleaved multi-shot echo-planar diffusion-weighted imaging in female pelvis	An H	Eur Radiol	2020
 31790765	The chances of hepatic resection curing hepatocellular carcinoma	Cucchetti A	J Hepatol	2020
-31778798	Final Overall Survival and Other Efficacy and Safety Results From ASCEND-3: Phase II Study of Ceritinib in ALKi-Naive Patients With ALK-Rearranged NSCLC	Nishio M	J Thorac Oncol	2020
+31778798	Final Overall Survival and Other Efficacy and Safety Results From ASCEND-3: Phase II Study of Ceritinib in ALKi-Naive Patients With ALK-Rearranged NSCLC	Nishio M	J Thorac Oncol	2020
 31755196	A large real-world cohort study examining the effects of long-term entecavir on hepatocellular carcinoma and HBsAg seroclearance	Ko KL	J Viral Hepat	2020
 31712009	Atypical presentations of intracranial dysgerminoma mimicking central nervous system inflammatory or demyelinating disease	Zhou Y	Can J Ophthalmol	2020
 31692069	M2-polarized tumor-associated macrophages promote epithelial-mesenchymal transition via activation of the AKT3/PRAS40 signaling pathway in intrahepatic cholangiocarcinoma	Sun D	J Cell Biochem	2020
@@ -3171,7 +3171,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 31792089	Statins Were Associated with a Reduced Gastric Cancer Risk in Patients with Eradicated Helicobacter Pylori Infection: A Territory-Wide Propensity Score Matched Study	Cheung KS	Cancer Epidemiol Biomarkers Prev	2020
 31778267	Phase 1 study of capmatinib in MET-positive solid tumor patients: Dose escalation and expansion of selected cohorts	Bang YJ	Cancer Sci	2020
 31774468	Long-term Effects of Repeat Hepatectomy vs Percutaneous Radiofrequency Ablation Among Patients With Recurrent Hepatocellular Carcinoma: A Randomized Clinical Trial	Xia Y	JAMA Oncol	2020
-31773213	Low-dose pembrolizumab induced complete radiologic and molecular response of posttransplant lymphoproliferative disorder presenting as classical Hodgkin lymphoma	Sim JPY	Ann Hematol	2020
+31773213	Low-dose pembrolizumab induced complete radiologic and molecular response of posttransplant lymphoproliferative disorder presenting as classical Hodgkin lymphoma	Sim JPY	Ann Hematol	2020
 31759241	The cue-responding behavior of nurses to cancer patients: Implication to oncology nursing education	Lam W	Nurse Educ Today	2020
 31744829	In Vivo Epigenetic CRISPR Screen Identifies Asf1a as an Immunotherapeutic Target in Kras-Mutant Lung Adenocarcinoma	Li F	Cancer Discov	2020
 31739938	Radiation Therapy for Thoracic Malignancies	Lee VH	Hematol Oncol Clin North Am	2020
@@ -3303,7 +3303,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 31375307	Differences Between the East and the West in Managing Advanced-Stage Non-small Cell Lung Cancer	Lee VHF	Clin Oncol (R Coll Radiol)	2020
 31352802	Metabolic Alterations Induced by Kudingcha Lead to Cancer Cell Apoptosis and Metastasis Inhibition	Zhu S	Nutr Cancer	2020
 31345672	Automatic segmentation for adaptive planning in nasopharyngeal carcinoma IMRT: Time, geometrical, and dosimetric analysis	Fung NTC	Med Dosim	2020
-31276672	Linked color imaging versus narrow-band imaging for colorectal polyp detection: a prospective randomized tandem colonoscopy study	Leung WK	Gastrointest Endosc	2020
+31276672	Linked color imaging versus narrow-band imaging for colorectal polyp detection: a prospective randomized tandem colonoscopy study	Leung WK	Gastrointest Endosc	2020
 31267214	Interobserver agreement of whole-body magnetic resonance imaging is superior to whole-body computed tomography for assessing disease burden in patients with multiple myeloma	Lai AYT	Eur Radiol	2020
 31130499	Co-existing malignant lesions in atypical ductal hyperplasia - Pathology, probability, predictors and prognosis	Co M	Asian J Surg	2020
 31114026	Artemisinin compounds sensitize cancer cells to ferroptosis by regulating iron homeostasis	Chen GQ	Cell Death Differ	2020
@@ -3348,7 +3348,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 31702880	Immune Checkpoint Blockade Mediated by a Small-Molecule Nanoinhibitor Targeting the PD-1/PD-L1 Pathway Synergizes with Photodynamic Therapy to Elicit Antitumor Immunity and Antimetastatic Effects on Breast Cancer	Zhang R	Small	2019
 31672853	A Novel Online Calculator Based on Serum Biomarkers to Detect Hepatocellular Carcinoma among Patients with Hepatitis B	Yang T	Clin Chem	2019
 31646712	MicroRNA-338-5p reverses chemoresistance and inhibits invasion of esophageal squamous cell carcinoma cells by targeting Id-1	Han L	Cancer Sci	2019
-31638181	Apoptosis induced by bruceine D in human non?small?cell lung cancer cells involves mitochondrial ROS?mediated death signaling	Xie JH	Int J Mol Med	2019
+31638181	Apoptosis induced by bruceine D in human non?small?cell lung cancer cells involves mitochondrial ROS?mediated death signaling	Xie JH	Int J Mol Med	2019
 31629951	XIAOPI formula promotes breast cancer chemosensitivity via inhibiting CXCL1/HMGB1-mediated autophagy	Wang N	Biomed Pharmacother	2019
 31605322	ASO Author Reflections: Resolving the Challenges in the Management of Mammary Phyllodes Tumor	Tsang JY	Ann Surg Oncol	2019
 31595562	Recent Progress in Ferroptosis Inducers for Cancer Therapy	Liang C	Adv Mater	2019
@@ -3415,7 +3415,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 31514083	MiR-let-7a/f-CCR7 signaling is involved in the anti-metastatic effects of an herbal formula comprising Sophorae Flos and Lonicerae Japonicae Flos in melanoma	Liu YX	Phytomedicine	2019
 31501887	Afatinib versus methotrexate as second-line treatment in Asian patients with recurrent or metastatic squamous cell carcinoma of the head and neck progressing on or after platinum-based therapy (LUX-Head & Neck 3): an open-label, randomised phase III trial	Guo Y	Ann Oncol	2019
 31487202	Recent advances in the diagnosis and treatment of natural killer/T-cell lymphomas	Tse E	Expert Rev Hematol	2019
-31486964	Preoperative transcatheter arterial chemoembolization for surgical resection of huge hepatocellular carcinoma (??10 cm): a multicenter propensity matching analysis	Li C	Hepatol Int	2019
+31486964	Preoperative transcatheter arterial chemoembolization for surgical resection of huge hepatocellular carcinoma (??10 cm): a multicenter propensity matching analysis	Li C	Hepatol Int	2019
 31486135	p53 Promotes chemoresponsiveness by regulating hexokinase II gene transcription and metabolic reprogramming in epithelial ovarian cancer	Han CY	Mol Carcinog	2019
 31473470	Rapid detection of chromosomal translocation and precise breakpoint characterization in acute myeloid leukemia by nanopore long-read sequencing	Au CH	Cancer Genet	2019
 31469202	Dietary changes adopted by Chinese colorectal cancer patients: A qualitative study	Tang JWC	Eur J Cancer Care (Engl)	2019
@@ -3471,10 +3471,10 @@ PMID	Title	First Author	Journal/Book	Publication Year
 31761762	Serum amyloid A1 polymorphisms as risk factors in oesophageal squamous cell carcinoma	Lung HL	Hong Kong Med J	2019
 31761757	Streptococcus bovis bacteraemia should be investigated for early detection of colorectal pathology	Ng SC	Hong Kong Med J	2019
 31726488	Sessile serrated adenoma/polyps: Why we should be working flat out to understand more about these flat lesions?	Lui RN	J Gastroenterol Hepatol	2019
-31664194	Recurrent noncoding U1 snRNA mutations drive cryptic splicing in SHH medulloblastoma	Suzuki H	Nature	2019
+31664194	Recurrent noncoding U1 snRNA mutations drive cryptic splicing in SHH medulloblastoma	Suzuki H	Nature	2019
 31642191	Management of advanced prostate cancer in Hong Kong: Insights from an APCCC-Derived survey	Poon DM	Asia Pac J Clin Oncol	2019
 31642178	Efficacy of endoscopy in assessing the local disease response in nasopharyngeal carcinoma patients after treated with intensity-modulated radiotherapy	Ng JTY	Asia Pac J Clin Oncol	2019
-31642175	Osimertinib 160 mg daily for advanced non-small cell lung cancer with leptomeningeal metastasis: A case report	Tsang MW	Asia Pac J Clin Oncol	2019
+31642175	Osimertinib 160 mg daily for advanced non-small cell lung cancer with leptomeningeal metastasis: A case report	Tsang MW	Asia Pac J Clin Oncol	2019
 31629678	Re-evaluating genetic variants identified in candidate gene studies of breast cancer risk using data from nearly 280,000 women of Asian and European ancestry	Yang Y	EBioMedicine	2019
 31619576	Sexual function, self-esteem, and general well-being in Chinese adult survivors of childhood cancers: a cross-sectional survey	Ng CF	Hong Kong Med J	2019
 31601774	Emergency attendances and hospitalisations for complications after transrectal ultrasound-guided prostate biopsies: a five-year retrospective multicentre study	Cheng KC	Hong Kong Med J	2019
@@ -3561,7 +3561,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 31305807	In vitro anticancer activity of AIEgens	Yin F	Biomater Sci	2019
 31296646	Diabetes Increases Risk of Gastric Cancer After Helicobacter pylori Eradication: A Territory-Wide Study With Propensity Score Analysis	Cheung KS	Diabetes Care	2019
 31283407	Outcome of Infants Younger Than 1 Year With Acute Lymphoblastic Leukemia Treated With the Interfant-06 Protocol: Results From an International Phase III Randomized Study	Pieters R	J Clin Oncol	2019
-31257704	Robot-assisted single-port radical prostatectomy: A phase 1 clinical study	Ng CF	Int J Urol	2019
+31257704	Robot-assisted single-port radical prostatectomy: A phase 1 clinical study	Ng CF	Int J Urol	2019
 31252300	Radiation-induced hypoglossal nerve palsy after definitive radiotherapy for nasopharyngeal carcinoma: Clinical predictors and dose-toxicity relationship	Chow JCH	Radiother Oncol	2019
 31243850	Effects of dignity therapy on dignity, psychological well-being, and quality of life among palliative care cancer patients: A systematic review and meta-analysis	Xiao J	Psychooncology	2019
 31235657	CD71(+) Population Enriched by HPV-E6 Protein Promotes Cancer Aggressiveness and Radioresistance in Cervical Cancer Cells	Leung TH	Mol Cancer Res	2019
@@ -3731,7 +3731,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 30916852	Application of UPLC-MS/MS to simultaneously detect four bioactive compounds in the tumour-shrinking decoction (FM1523) for uterine fibroids treatment	Cheng IC	Phytochem Anal	2019
 30912808	Current Treatment Landscape of Nasopharyngeal Carcinoma and Potential Trials Evaluating the Value of Immunotherapy	Le QT	J Natl Cancer Inst	2019
 30910259	Multiple modulatory activities of Andrographis paniculata on immune responses and xenograft growth in esophageal cancer preclinical models	Yue GG	Phytomedicine	2019
-30902613	Updated Efficacy and Safety Data and Impact of the EML4-ALK Fusion Variant on the Efficacy of Alectinib in Untreated ALK-Positive Advanced Non-Small Cell Lung Cancer in the Global Phase III ALEX Study	Camidge DR	J Thorac Oncol	2019
+30902613	Updated Efficacy and Safety Data and Impact of the EML4-ALK Fusion Variant on the Efficacy of Alectinib in Untreated ALK-Positive Advanced Non-Small Cell Lung Cancer in the Global Phase III ALEX Study	Camidge DR	J Thorac Oncol	2019
 30900105	A Nomogram for Predicting Cancer-Specific Survival of TNM 8th Edition Stage I Non-small-cell Lung Cancer	Zeng Y	Ann Surg Oncol	2019
 30859354	Regulatory network reconstruction of five essential microRNAs for survival analysis in breast cancer by integrating miRNA and mRNA expression datasets	He K	Funct Integr Genomics	2019
 30832545	Cost-effectiveness of Screening for Nasopharyngeal Carcinoma among Asian American Men in the United States	Harris JP	Otolaryngol Head Neck Surg	2019
@@ -3823,7 +3823,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 30617017	A painful rash after chemotherapy	Ching S	Eur J Intern Med	2019
 30598500	An Open-Label, Multicenter, Phase I, Dose Escalation Study with Phase II Expansion Cohort to Determine the Safety, Pharmacokinetics, and Preliminary Antitumor Activity of Intravenous TKM-080301 in Subjects with Advanced Hepatocellular Carcinoma	El Dika I	Oncologist	2019
 30557543	The Optimal Treatment for Stage IIIA-N2 Non-Small Cell Lung Cancer: A Network Meta-Analysis	Zhao Y	Ann Thorac Surg	2019
-30515899	Low-dose aspirin can reduce colorectal cancer mortality after surgery: A 10-year follow-up of 13 528 colorectal cancer patients	Sung JJY	J Gastroenterol Hepatol	2019
+30515899	Low-dose aspirin can reduce colorectal cancer mortality after surgery: A 10-year follow-up of 13 528 colorectal cancer patients	Sung JJY	J Gastroenterol Hepatol	2019
 30362549	The role of iron metabolism in cancer therapy focusing on tumor-associated macrophages	Dong D	J Cell Physiol	2019
 30269251	Successful robotic extirpation of diaphragmatic seeding of hepatocellular carcinoma after previous rupture	Lee KF	J Robot Surg	2019
 30260424	An update on cancer after kidney transplantation	Cheung CY	Nephrol Dial Transplant	2019
@@ -4124,7 +4124,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 30117266	Overlapping radiofrequency ablation planning and robot-assisted needle insertion for large liver tumors	Liu P	Int J Med Robot	2019
 30116874	Venetian blind shadowing on ultrasound	Chin LHQ	Abdom Radiol (NY)	2019
 30082212	Preoperative prealbumin level as an independent predictor of long-term prognosis after liver resection for hepatocellular carcinoma: a multi-institutional study	Li JD	HPB (Oxford)	2019
-30033832	Multiple myeloma in patients up to 30 years of age: a multicenter retrospective study of 52 cases	Jurczyszyn A	Leuk Lymphoma	2019
+30033832	Multiple myeloma in patients up to 30 years of age: a multicenter retrospective study of 52 cases	Jurczyszyn A	Leuk Lymphoma	2019
 30003531	Molecular biomarkers for prognosis of gastrointestinal stromal tumor	Liu X	Clin Transl Oncol	2019
 29944019	Epstein-Barr Virus-Associated Nodal Marginal Zone Lymphoma: Part of the Spectrum of Posttransplant Lymphoproliferative Disorder?	Cheung CY	Int J Surg Pathol	2019
 29932287	Risk, pattern and survival impact of second primary tumors in patients with nasopharyngeal carcinoma following definitive intensity-modulated radiotherapy	Chow JCH	Asia Pac J Clin Oncol	2019
@@ -4210,7 +4210,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 30353603	Efficacy of musical training on psychological outcomes and quality of life in Chinese pediatric brain tumor survivors	Cheung AT	Psychooncology	2019
 30343502	Reply to Human papillomavirus and World Health Organization type III nasopharyngeal carcinoma: Multicenter study from an endemic area in Southern China	Chan JYW	Cancer	2019
 30341649	Is bridge to surgery stenting a safe alternative to emergency surgery in malignant colonic obstruction: a meta-analysis of randomized control trials	Foo CC	Surg Endosc	2019
-30321508	Cough in Patients With Lung Cancer: A Longitudinal Observational Study of Characterization and Clinical Associations	Harle ASM	Chest	2019
+30321508	Cough in Patients With Lung Cancer: A Longitudinal Observational Study of Characterization and Clinical Associations	Harle ASM	Chest	2019
 30315777	Streptococcus gallolyticus Bacteremia and Colorectal Carcinoma	Wong HK	Gastroenterology	2019
 30311026	Recurrent grade 4 panuveitis with serous retinal detachment related to nivolumab treatment in a patient with metastatic renal cell carcinoma	Wang W	Cancer Immunol Immunother	2019
 30270490	Treatment outcome and pattern of failure in hepatoblastoma treated with a consensus protocol in Hong Kong	Liu APY	Pediatr Blood Cancer	2019
@@ -4412,7 +4412,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 30101540	Addressing Cancer Chemotherapeutic Toxicity, Resistance, and Heterogeneity: Novel Theranostic Use of DNA-Encoded Small Molecule Libraries	Kolodny G	Bioessays	2018
 30076850	SPZ1 is critical for chemoresistance and aggressiveness in drug-resistant breast cancer cells	Liu X	Biochem Pharmacol	2018
 30073257	Association of Preoperative Antiviral Treatment With Incidences of Microvascular Invasion and Early Tumor Recurrence in Hepatitis B Virus-Related Hepatocellular Carcinoma	Li Z	JAMA Surg	2018
-30066894	Inhibition of ornithine decarboxylase 1 facilitates pegylated arginase treatment in lung adenocarcinoma xenograft models	Lam SK	Oncol Rep	2018
+30066894	Inhibition of ornithine decarboxylase 1 facilitates pegylated arginase treatment in lung adenocarcinoma xenograft models	Lam SK	Oncol Rep	2018
 30057191	Does the lung nodule look aggressive enough to warrant a more extensive operation?	Kuan-Yew Hsin M	J Thorac Cardiovasc Surg	2018
 30040052	Receptor-based Surrogate Subtypes and Discrepancies with Breast Cancer Intrinsic Subtypes: Implications for Image Biomarker Development	Jamshidi N	Radiology	2018
 30017832	Frequency of Brain Metastases and Multikinase Inhibitor Outcomes in Patients With RET-Rearranged Lung Cancers	Drilon A	J Thorac Oncol	2018
@@ -4420,7 +4420,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 29997150	Modulation of Circulating Protein Biomarkers in Cancer Patients Receiving Bevacizumab and the Anti-Endoglin Antibody, TRC105	Liu Y	Mol Cancer Ther	2018
 29968419	Selective Inhibition of Lysine-Specific Demethylase 5A (KDM5A) Using a Rhodium(III) Complex for Triple-Negative Breast Cancer Therapy	Yang GJ	Angew Chem Int Ed Engl	2018
 29968360	Activation of sterol regulatory element-binding protein 1 (SREBP1)-mediated lipogenesis by the Epstein-Barr virus-encoded latent membrane protein 1 (LMP1) promotes cell proliferation and progression of nasopharyngeal carcinoma	Lo AK	J Pathol	2018
-29966800	Results of PROFILE 1029, a Phase III Comparison of First-Line Crizotinib versus Chemotherapy in East Asian Patients with ALK-Positive Advanced Non-Small Cell Lung Cancer	Wu YL	J Thorac Oncol	2018
+29966800	Results of PROFILE 1029, a Phase III Comparison of First-Line Crizotinib versus Chemotherapy in East Asian Patients with ALK-Positive Advanced Non-Small Cell Lung Cancer	Wu YL	J Thorac Oncol	2018
 29950351	Phase II Studies with Refametinib or Refametinib plus Sorafenib in Patients with RAS-Mutated Hepatocellular Carcinoma	Lim HY	Clin Cancer Res	2018
 29948154	Pediatric low-grade gliomas can be molecularly stratified for risk	Yang RR	Acta Neuropathol	2018
 29943377	Development of Conversion Functions Mapping the FACT-B Total Score to the EQ-5D-5L Utility Value by Three Linking Methods and Comparison with the Ordinary Least Square Method	Lee CF	Appl Health Econ Health Policy	2018
@@ -4435,7 +4435,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 29727254	Case-Matched Analysis Comparing Endoscopic Submucosal Dissection and Surgical Removal of Difficult Colorectal Polyps	Fung TLD	J Laparoendosc Adv Surg Tech A	2018
 29696328	Does Intermittent Pringle Maneuver Increase Postoperative Complications After Hepatectomy for Hepatocellular Carcinoma? A Randomized Controlled Trial	Lee KF	World J Surg	2018
 29688269	Polycystic ovary syndrome: possible involvement of androgen-induced, chemerin-mediated ovarian recruitment of monocytes/macrophages	Lima PDA	Biol Reprod	2018
-29665624	Risk of gastrointestinal bleeding and benefit from colorectal cancer reduction from long-term use of low-dose aspirin: A retrospective study of 612 509 patients	Tsoi KK	J Gastroenterol Hepatol	2018
+29665624	Risk of gastrointestinal bleeding and benefit from colorectal cancer reduction from long-term use of low-dose aspirin: A retrospective study of 612 509 patients	Tsoi KK	J Gastroenterol Hepatol	2018
 29390932	Recent advances in the management of multiple myeloma: clinical impact based on resource-stratification. Consensus statement of the Asian Myeloma Network at the 16th international myeloma workshop	Tan D	Leuk Lymphoma	2018
 29361818	Preclinical Study of Novel Curcumin Analogue SSC-5 Using Orthotopic Tumor Xenograft Model for Esophageal Squamous Cell Carcinoma	Tung LN	Cancer Res Treat	2018
 30267319	Therapeutic Strategies in EGFR Mutant Non-Small Cell Lung Cancer	Loong HH	Curr Treat Options Oncol	2018
@@ -4482,7 +4482,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 29956873	Guilt among husband caregivers of Chinese women with breast cancer: The roles of male gender-role norm, caregiving burden and coping processes	Yeung NCY	Eur J Cancer Care (Engl)	2018
 29956794	Discovery of rafoxanide as a dual CDK4/6 inhibitor for the treatment of skin cancer	Shi X	Oncol Rep	2018
 29893646	Head and Neck Tumors: Amide Proton Transfer MRI	Law BKH	Radiology	2018
-29885479	Liquid Biopsy for Advanced Non-Small Cell Lung Cancer (NSCLC): A Statement Paper from the IASLC	Rolfo C	J Thorac Oncol	2018
+29885479	Liquid Biopsy for Advanced Non-Small Cell Lung Cancer (NSCLC): A Statement Paper from the IASLC	Rolfo C	J Thorac Oncol	2018
 29857128	Insight into the roles of vitamins C and D against cancer: Myth or truth?	Zhao CN	Cancer Lett	2018
 29855617	Control of PD-L1 expression by miR-140/142/340/383 and oncogenic activation of the OCT4-miR-18a pathway in cervical cancer	Dong P	Oncogene	2018
 29842986	NIR-controlled morphology transformation and pulsatile drug delivery based on multifunctional phototheranostic nanoparticles for photoacoustic imaging-guided photothermal-chemotherapy	Yang J	Biomaterials	2018
@@ -4563,7 +4563,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 29733831	Fibrosis Severity as a Determinant of Cause-Specific Mortality in Patients With Advanced Nonalcoholic Fatty Liver Disease: A Multi-National Cohort Study	Vilar-Gomez E	Gastroenterology	2018
 29729257	Association Between Bacteremia From Specific Microbes and Subsequent Diagnosis of Colorectal Cancer	Kwong TNY	Gastroenterology	2018
 29704517	DUOXA1-mediated ROS production promotes cisplatin resistance by activating ATR-Chk1 pathway in ovarian cancer	Meng Y	Cancer Lett	2018
-29689435	Exploring Radiotherapy Targeting Strategy and Dose: A Pooled Analysis of Cooperative Group Trials of Combined Modality Therapy for Stage III NSCLC	Schild SE	J Thorac Oncol	2018
+29689435	Exploring Radiotherapy Targeting Strategy and Dose: A Pooled Analysis of Cooperative Group Trials of Combined Modality Therapy for Stage III NSCLC	Schild SE	J Thorac Oncol	2018
 29689266	Alterations in Enteric Virome Are Associated With Colorectal Cancer and Survival Outcomes	Nakatsu G	Gastroenterology	2018
 29679099	Radiation-induced carotid artery lesions	Fernández-Alvarez V	Strahlenther Onkol	2018
 29663669	Preliminary efficacy and tolerability of chemohormonal therapy in metastatic hormone-naïve prostate cancer: The first real-life experience in Asia	Poon DMC	Asia Pac J Clin Oncol	2018
@@ -4607,7 +4607,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 29876948	Review article: Asia-Pacific consensus recommendations on endoscopic tissue acquisition for biliary strictures	Sun B	Aliment Pharmacol Ther	2018
 29875066	Pembrolizumab in patients with advanced hepatocellular carcinoma previously treated with sorafenib (KEYNOTE-224): a non-randomised, open-label phase 2 trial	Zhu AX	Lancet Oncol	2018
 29859830	Unravelling the molecular signatures in HNSCC: Is the homogenous paradigm becoming obsolete?	Gopinath D	Oral Oncol	2018
-29845223	Apoptosis induced by 9,11?dehydroergosterol peroxide from Ganoderma Lucidum mycelium in human malignant melanoma cells is Mcl?1 dependent	Zheng L	Mol Med Rep	2018
+29845223	Apoptosis induced by 9,11?dehydroergosterol peroxide from Ganoderma Lucidum mycelium in human malignant melanoma cells is Mcl?1 dependent	Zheng L	Mol Med Rep	2018
 29808014	Alpha-fetoprotein kinetics in patients with hepatocellular carcinoma receiving ramucirumab or placebo: an analysis of the phase 3 REACH study	Chau I	Br J Cancer	2018
 29807803	Prevalence and Clinicopathologic Significance of BRAF V600E Mutation in Chinese Multiple Myeloma Patients	Cheung CHY	Clin Lymphoma Myeloma Leuk	2018
 29804902	Ribociclib plus endocrine therapy for premenopausal women with hormone-receptor-positive, advanced breast cancer (MONALEESA-7): a randomised phase 3 trial	Tripathy D	Lancet Oncol	2018
@@ -4630,7 +4630,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 29656130	Robotic resection of benign nonadrenal retroperitoneal tumors: A consecutive case series	Liu Q	Int J Surg	2018
 29653820	Afatinib as First-line Treatment of Older Patients With EGFR Mutation-Positive Non-Small-Cell Lung Cancer: Subgroup Analyses of the LUX-Lung 3, LUX-Lung 6, and LUX-Lung 7 Trials	Wu YL	Clin Lung Cancer	2018
 29636188	Staging nodal metastases in nasopharyngeal carcinoma: which method should be used to measure nodal dimension on MRI?	Ai QY	Clin Radiol	2018
-29631166	Second near-infrared emissive lanthanide complex for fast renal-clearable in vivo optical bioimaging and tiny tumor detection	Li Y	Biomaterials	2018
+29631166	Second near-infrared emissive lanthanide complex for fast renal-clearable in vivo optical bioimaging and tiny tumor detection	Li Y	Biomaterials	2018
 29630856	CD147 Induces Epithelial-to-Mesenchymal Transition by Disassembling Cellular Apoptosis Susceptibility Protein/E-Cadherin/?-Catenin Complex in Human Endometriosis	Wang C	Am J Pathol	2018
 29604392	IGF2 induces CD133 expression in esophageal cancer cells to promote cancer stemness	Xu WW	Cancer Lett	2018
 29603490	Socioeconomic status and quality of life among Chinese American breast cancer survivors: The mediating roles of social support and social constraints	You J	Psychooncology	2018
@@ -4646,7 +4646,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 29361002	Aspirin and Risk of Gastric Cancer After Helicobacter pylori Eradication: A Territory-Wide Study	Cheung KS	J Natl Cancer Inst	2018
 29360137	cHCC-CCA: Consensus terminology for primary liver carcinomas with both hepatocytic and cholangiocytic differentation	Brunt E	Hepatology	2018
 29281151	Quantitative intravoxel incoherent motion parameters derived from whole-tumor volume for assessing pathological complete response to neoadjuvant chemotherapy in locally advanced rectal cancer	Xu Q	J Magn Reson Imaging	2018
-29156898	"More care, research and recognition" for neuro-palliative development	Chan KY	Ann Palliat Med	2018
+29156898	More care, research and recognition for neuro-palliative development	Chan KY	Ann Palliat Med	2018
 28701030	Crizotinib versus Chemotherapy in Asian Patients with ALK-Positive Advanced Non-small Cell Lung Cancer	Nishio M	Cancer Res Treat	2018
 30050935	Caffeine Sensitizes U87-MG Human Glioblastoma Cells to Temozolomide through Mitotic Catastrophe by Impeding G2 Arrest	Li N	Biomed Res Int	2018
 29954444	Differential incidence trends of colon and rectal cancers in Hong Kong: an age-period-cohort analysis	Zhang B	Cancer Commun (Lond)	2018
@@ -4941,7 +4941,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 29144183	Age and rest-activity rhythm as predictors of survival in patients with newly diagnosed lung cancer	Chang WP	Chronobiol Int	2018
 29133573	The RARS-MAD1L1 Fusion Gene Induces Cancer Stem Cell-like Properties and Therapeutic Resistance in Nasopharyngeal Carcinoma	Zhong Q	Clin Cancer Res	2018
 29119708	Eukaryotic Initiation Factor 5A2 Contributes to the Maintenance of CD133(+) Hepatocellular Carcinoma Cells via the c-Myc/microRNA-29b Axis	Bai HY	Stem Cells	2018
-29117588	Metabolic profiling on the effect of 2,2',4,4'-tetrabromodiphenyl ether (BDE-47) in MCF-7 cells	Wei J	Chemosphere	2018
+29117588	Metabolic profiling on the effect of 2,2',4,4'-tetrabromodiphenyl ether (BDE-47) in MCF-7 cells	Wei J	Chemosphere	2018
 29078004	The JAK2/STAT3 pathway is involved in the anti-melanoma effects of atractylenolide I	Fu XQ	Exp Dermatol	2018
 29072774	Human papillomavirus and World Health Organization type III nasopharyngeal carcinoma: Multicenter study from an endemic area in Southern China	Huang WB	Cancer	2018
 29070526	Circulating Tumor Cells from Different Vascular Sites Exhibit Spatial Heterogeneity in Epithelial and Mesenchymal Composition and Distinct Clinical Significance in Hepatocellular Carcinoma	Sun YF	Clin Cancer Res	2018
@@ -5016,7 +5016,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 29252899	Lung Cancer Radiogenomics: The Increasing Value of Imaging in Personalized Management of Lung Cancer Patients	Vardhanabhuti V	J Thorac Imaging	2018
 29241762	Eltrombopag for advanced myelodysplastic syndromes or acute myeloid leukaemia and severe thrombocytopenia (ASPIRE): a randomised, placebo-controlled, phase 2 trial	Mittelman M	Lancet Haematol	2018
 29232579	Structure-based identification of a NEDD8-activating enzyme inhibitor via drug repurposing	Wu KJ	Eur J Med Chem	2018
-29227816	The use of breast imaging for predicting response to neoadjuvant lapatinib, trastuzumab and their combination in HER2-positive breast cancer: Results from Neo-ALTTO	Di Cosimo S	Eur J Cancer	2018
+29227816	The use of breast imaging for predicting response to neoadjuvant lapatinib, trastuzumab and their combination in HER2-positive breast cancer: Results from Neo-ALTTO	Di Cosimo S	Eur J Cancer	2018
 29180076	Delineation of the primary tumour Clinical Target Volumes (CTV-P) in laryngeal, hypopharyngeal, oropharyngeal and oral cavity squamous cell carcinoma: AIRO, CACA, DAHANCA, EORTC, GEORCC, GORTEC, HKNPCSG, HNCIG, IAG-KHT, LPRHHT, NCIC CTG, NCRI, NRG Oncology, PHNS, SBRT, SOMERA, SRO, SSHNO, TROG consensus guidelines	Grégoire V	Radiother Oncol	2018
 29154808	Genetic host factors in Helicobacter pylori-induced carcinogenesis: Emerging new paradigms	Mommersteeg MC	Biochim Biophys Acta Rev Cancer	2018
 29153464	International guideline for the delineation of the clinical target volumes (CTV) for nasopharyngeal carcinoma	Lee AW	Radiother Oncol	2018
@@ -5110,7 +5110,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 29026057	Pathological outcome for Chinese patients with low-risk prostate cancer eligible for active surveillance and undergoing radical prostatectomy: comparison of six different active surveillance protocols	Tsang CF	Hong Kong Med J	2017
 28993411	Sleeping Beauty Insertional Mutagenesis in Mice Identifies Drivers of Steatosis-Associated Hepatic Tumors	Tschida BR	Cancer Res	2017
 28972277	High sensitivity and specificity in proposed clinical diagnostic criteria for anti-N-methyl-D-aspartate receptor encephalitis	Ho ACC	Dev Med Child Neurol	2017
-28943394	Response to Wang et al. Re: How to choose and compare between radiofrequency ablation and transarterial chemoembolization for recurrent hepatocellular carcinoma?	Koh PS	HPB (Oxford)	2017
+28943394	Response to Wang et al. Re: How to choose and compare between radiofrequency ablation and transarterial chemoembolization for recurrent hepatocellular carcinoma?	Koh PS	HPB (Oxford)	2017
 28938163	Tumor cell-targeted delivery of CRISPR/Cas9 by aptamer-functionalized lipopolymer for therapeutic genome editing of VEGFA in osteosarcoma	Liang C	Biomaterials	2017
 28936895	A study on the post-radiotherapy changes of temporomandibular joint in nasopharyngeal carcinoma patients	Wu VW	Br J Radiol	2017
 28924999	Bone marrow xanthomas associated with hypertriglyceridemia	Chan NCN	Am J Hematol	2017
@@ -5118,7 +5118,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 28857384	Translation and validation of translation in cross-cultural research: Strategies used in a study of cervical cancer screening among ethnic minorities	Chan DNS	Int J Nurs Pract	2017
 28850876	Co-trained convolutional neural networks for automated detection of prostate cancer in multi-parametric MRI	Yang X	Med Image Anal	2017
 28828693	Leonine facies due to Sezary syndrome: complete clinical, radiologic, and molecular remission with alemtuzumab	Kho B	Ann Hematol	2017
-28823860	Gavage of Fecal Samples From Patients With Colorectal Cancer Promotes Intestinal Carcinogenesis in Germ-Free and Conventional Mice	Wong SH	Gastroenterology	2017
+28823860	Gavage of Fecal Samples From Patients With Colorectal Cancer Promotes Intestinal Carcinogenesis in Germ-Free and Conventional Mice	Wong SH	Gastroenterology	2017
 28812941	Self-retaining magnetic implant: A novel design of orbital prosthesis for the exenterated orbit	Mak ST	Orbit	2017
 28800546	MR-based respiratory and cardiac motion correction for PET imaging	Küstner T	Med Image Anal	2017
 28798282	Feasibility and safety of extended adjuvant temozolomide beyond six cycles for patients with glioblastoma	Hsieh SY	Hong Kong Med J	2017
@@ -5233,7 +5233,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 28966033	Integrated Molecular Meta-Analysis of 1,000 Pediatric High-Grade and Diffuse Intrinsic Pontine Glioma	Mackay A	Cancer Cell	2017
 29048800	[Determination of urine catecholamines and metanephrines by reversed-phase liquid chromatography-tandem mass spectrometry]	Cheuk MY	Se Pu	2017
 28991194	PARP1 in Carcinomas and PARP1 Inhibitors as Antineoplastic Drugs	Wang L	Int J Mol Sci	2017
-28985567	Genetic and Functional Drivers of Diffuse Large B Cell Lymphoma	Reddy A	Cell	2017
+28985567	Genetic and Functional Drivers of Diffuse Large B Cell Lymphoma	Reddy A	Cell	2017
 28981115	miR-23a/b promote tumor growth and suppress apoptosis by targeting PDCD4 in gastric cancer	Hu X	Cell Death Dis	2017
 28915002	MicroRNA-Catalyzed Cancer Therapeutics Based on DNA-Programmed Nanoparticle Complex	Luo X	ACS Appl Mater Interfaces	2017
 28857673	ASVAC2017: 6th Asian Vaccine Conference	Goh DYT	Hum Vaccin Immunother	2017
@@ -5363,7 +5363,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 28587748	Liquid biopsy of PIK3CA mutations in cervical cancer in Hong Kong Chinese women	Chung TKH	Gynecol Oncol	2017
 28583885	The fourth edition of the head and neck World Health Organization blue book: editors' perspectives	El-Naggar AK	Hum Pathol	2017
 28555635	The Association between Distal Findings and Proximal Colorectal Neoplasia: A Systematic Review and Meta-Analysis	Huang JLW	Am J Gastroenterol	2017
-28542715	Hyperleucocytosis in paediatric acute myeloid leukaemia - the challenge of white blood cell counts above 200 × 10(9) /l. The NOPHO experience 1984-2014	Zeller B	Br J Haematol	2017
+28542715	Hyperleucocytosis in paediatric acute myeloid leukaemia - the challenge of white blood cell counts above 200 × 10(9) /l. The NOPHO experience 1984-2014	Zeller B	Br J Haematol	2017
 28526646	Iatrogenic Sigmoid Sinus Occlusion Rescued by Graft Repair and Endovascular Thrombolysis	Li LF	World Neurosurg	2017
 28522590	Notch Inhibitor PF-03084014 Inhibits Hepatocellular Carcinoma Growth and Metastasis via Suppression of Cancer Stemness due to Reduced Activation of Notch1-Stat3	Wu CX	Mol Cancer Ther	2017
 28504687	The kinesin KIF14 is overexpressed in medulloblastoma and downregulation of KIF14 suppressed tumor proliferation and induced apoptosis	Li KK	Lab Invest	2017
@@ -5501,7 +5501,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 28306570	Use of corticosteroids for pain control in cancer patients with bone metastases: a comprehensive literature review	Lim FMY	Curr Opin Support Palliat Care	2017
 28282537	A large solitary fibroma of the deep compartment of the sole	Lui TH	Foot (Edinb)	2017
 28278490	Outcomes after oesophageal perforation: a retrospective cohort study of patients with different aetiologies	Law TT	Hong Kong Med J	2017
-28259820	BCLB, methylated in hepatocellular carcinoma, is a starvation stress sensor that induces apoptosis and autophagy through the AMPK-mTOR signaling cascade	Liu X	Cancer Lett	2017
+28259820	BCLB, methylated in hepatocellular carcinoma, is a starvation stress sensor that induces apoptosis and autophagy through the AMPK-mTOR signaling cascade	Liu X	Cancer Lett	2017
 28244168	CCAT2: A novel oncogenic long non-coding RNA in human cancers	Xin Y	Cell Prolif	2017
 28230926	Association between high expression of phosphorylated Akt and mammalian target of rapamycin and improved survival in salivary gland adenoid cystic carcinoma	Ouyang DQ	Head Neck	2017
 28058554	Prognosis of Intrahepatic Cholangiocarcinomas with HBV Infection is Better than Those with Hepatolithiasis After R0 Liver Resection: A Propensity Score Matching Analysis	Wang Q	Ann Surg Oncol	2017
@@ -5512,7 +5512,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 27783358	Robotic-assisted minimally invasive esophagectomy for treatment of esophageal carcinoma	Chiu PW	J Robot Surg	2017
 27780749	Efficacy, Tolerability, and Biomarker Analyses of Once-Every-2-Weeks Cetuximab Plus First-Line FOLFOX or FOLFIRI in Patients With KRAS or All RAS Wild-Type Metastatic Colorectal Cancer: The Phase 2 APEC Study	Cheng AL	Clin Colorectal Cancer	2017
 27741377	Comparison of set up accuracy among three common immobilisation systems for intensity modulated radiotherapy of nasopharyngeal carcinoma patients	Lin CG	J Med Radiat Sci	2017
-27720911	Predicted Increases in Incidence of Colorectal Cancer in Developed and Developing Regions, in Association With Ageing Populations	Tsoi KKF	Clin Gastroenterol Hepatol	2017
+27720911	Predicted Increases in Incidence of Colorectal Cancer in Developed and Developing Regions, in Association With Ageing Populations	Tsoi KKF	Clin Gastroenterol Hepatol	2017
 27479290	Dyadic associations between psychological distress and sleep disturbance among Chinese patients with cancer and their spouses	Chan JSM	Psychooncology	2017
 28562643	Alcohol-dysregulated microRNAs in hepatitis B virus-related hepatocellular carcinoma	Zheng H	PLoS One	2017
 28561752	Melatonin Inhibits Androgen Receptor Splice Variant-7 (AR-V7)-Induced Nuclear Factor-Kappa B (NF-?B) Activation and NF-?B Activator-Induced AR-V7 Expression in Prostate Cancer Cells: Potential Implications for the Use of Melatonin in Castration-Resistant Prostate Cancer (CRPC) Therapy	Liu VWS	Int J Mol Sci	2017
@@ -5563,7 +5563,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 28184982	Disseminated fusarium infection after ibrutinib therapy in chronic lymphocytic leukaemia	Chan TS	Ann Hematol	2017
 28138731	'Sack of marbles' in mature cystic ovarian teratoma	Lee KH	Abdom Radiol (NY)	2017
 28126350	Peptostreptococcus anaerobius Induces Intracellular Cholesterol Biosynthesis in Colon Cells to Induce Proliferation and Causes Dysplasia in Mice	Tsoi H	Gastroenterology	2017
-28111235	Comparison of Segmentectomy and Lobectomy in Stage IA Adenocarcinomas	Zhao ZR	J Thorac Oncol	2017
+28111235	Comparison of Segmentectomy and Lobectomy in Stage IA Adenocarcinomas	Zhao ZR	J Thorac Oncol	2017
 28060514	Targeted Covalent Inhibition of Grb2-Sos1 Interaction through Proximity-Induced Conjugation in Breast Cancer Cells	Yu Y	Mol Pharm	2017
 28059452	Shp2 promotes liver cancer stem cell expansion by augmenting ?-catenin signaling and predicts chemotherapeutic response of patients	Xiang D	Hepatology	2017
 28032656	Endoscopic ultrasonography-guided drainage of pancreatic fluid collections	Ang TL	Dig Endosc	2017
@@ -5728,7 +5728,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 28109471	Smoking status regulates a novel panel of PIWI-interacting RNAs in head and neck squamous cell carcinoma	Krishnan AR	Oral Oncol	2017
 28083995	BEX3 contributes to cisplatin chemoresistance in nasopharyngeal carcinoma	Gao W	Cancer Med	2017
 28075468	MicroRNA-138-5p controls sensitivity of nasopharyngeal carcinoma to radiation by targeting EIF4EBP1	Gao W	Oncol Rep	2017
-28058578	PD-L1 expression and tumor infiltrating PD-1+ lymphocytes associated with outcome in HER2+ breast cancer patients	Tsang JY	Breast Cancer Res Treat	2017
+28058578	PD-L1 expression and tumor infiltrating PD-1+ lymphocytes associated with outcome in HER2+ breast cancer patients	Tsang JY	Breast Cancer Res Treat	2017
 28033672	TXNIP mediates the differential responses of A549 cells to sodium butyrate and sodium 4-phenylbutyrate treatment	Jin X	Cancer Med	2017
 28004979	Epigenetic Silencing of the Human 18?kDa Translocator Protein in a T Cell Leukemia Cell Line	Middleton RJ	DNA Cell Biol	2017
 27986441	Silent genetic alterations identified by targeted next-generation sequencing in pheochromocytoma/paraganglioma: A clinicopathological correlations	Pillai S	Exp Mol Pathol	2017
@@ -5835,7 +5835,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 28009736	Esophageal Cancer: Associations With (pN+) Lymph Node Metastases	Rice TW	Ann Surg	2017
 28005510	Case 237: Renal Cell Carcinoma with Osseous Metaplasia	Lai BM	Radiology	2017
 27924482	Identification of Small Molecule Modulators of MicroRNA by Library Screening	Xiao Z	Methods Mol Biol	2017
-27919654	American Brachytherapy Society: Brachytherapy treatment recommendations for locally advanced cervix cancer for low-income and middle-income countries	Suneja G	Brachytherapy	2017
+27919654	American Brachytherapy Society: Brachytherapy treatment recommendations for locally advanced cervix cancer for low-income and middle-income countries	Suneja G	Brachytherapy	2017
 27913398	Cancer burden with ageing population in urban regions in China: projection on cancer registry data from World Health Organization	Tsoi KK	Br Med Bull	2017
 27910031	Recurrent Cytogenetic Abnormalities in Multiple Myeloma	Chan NC	Methods Mol Biol	2017
 27910030	Recurrent Cytogenetic Abnormalities in Non-Hodgkin's Lymphoma and Chronic Lymphocytic Leukemia	Ma ES	Methods Mol Biol	2017
@@ -5854,7 +5854,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 27750029	Significance of Size of Persistent/Recurrent Central Nodal Disease on Surgical Morbidity and Response to Therapy in Reoperative Neck Dissection for Papillary Thyroid Carcinoma	Lang BH	Thyroid	2017
 27667731	Bayesian variable selection and estimation in semiparametric joint models of multivariate longitudinal and survival data	Tang AM	Biom J	2017
 27657480	Sonodynamic action of hypocrellin B triggers cell apoptoisis of breast cancer cells involving caspase pathway	Jia Y	Ultrasonics	2017
-27639803	Cell Culture System for Analysis of Genetic Heterogeneity Within Hepatocellular Carcinomas and Response to Pharmacologic Agents	Gao Q	Gastroenterology	2017
+27639803	Cell Culture System for Analysis of Genetic Heterogeneity Within Hepatocellular Carcinomas and Response to Pharmacologic Agents	Gao Q	Gastroenterology	2017
 27627612	Reply to Nomograms need to be presented in full	Choi HC	Cancer	2017
 27619971	The role of microRNAs in intrahepatic cholangiocarcinoma	Li Z	J Cell Mol Med	2017
 27614792	Gland segmentation in colon histology images: The glas challenge contest	Sirinukunwattana K	Med Image Anal	2017
@@ -5946,7 +5946,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 27897231	Platycodin D potentiates proliferation inhibition and apoptosis induction upon AKT inhibition via feedback blockade in non-small cell lung cancer cells	Li T	Sci Rep	2016
 27793011	Metastasis-suppressing NID2, an epigenetically-silenced gene, in the pathogenesis of nasopharyngeal carcinoma and esophageal squamous cell carcinoma	Chai AW	Oncotarget	2016
 27738317	The prevalence of EGFR mutation in patients with non-small cell lung cancer: a systematic review and meta-analysis	Zhang YL	Oncotarget	2016
-27598239	Synthesis of platinum(II) and palladium(II) complexes with 9,9-dihexyl-4,5-diazafluorene and their in vivo antitumour activity against Hep3B xenografted mice	Wang QW	Eur J Med Chem	2016
+27598239	Synthesis of platinum(II) and palladium(II) complexes with 9,9-dihexyl-4,5-diazafluorene and their in vivo antitumour activity against Hep3B xenografted mice	Wang QW	Eur J Med Chem	2016
 27774548	A biotin-conjugated glutathione-responsive FRET-based fluorescent probe with a ferrocenyl BODIPY as the dark quencher	Shi WJ	Dalton Trans	2016
 27769067	CFTR is a potential marker for nasopharyngeal carcinoma prognosis and metastasis	Tu Z	Oncotarget	2016
 27765911	Integrin ?2?1 inhibits MST1 kinase phosphorylation and activates Yes-associated protein oncogenic signaling in hepatocellular carcinoma	Wong KF	Oncotarget	2016
@@ -6232,7 +6232,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 27126245	Feasibility Study of Texture Analysis Using Ultrasound Shear Wave Elastography to Predict Malignancy in Thyroid Nodules	Bhatia KS	Ultrasound Med Biol	2016
 27102722	Combinatorial epigenetic deregulation by Helicobacter pylori and Epstein-Barr virus infections in gastric tumourigenesis	Wu WK	J Pathol	2016
 27063000	Neuropilin-2 promotes tumourigenicity and metastasis in oesophageal squamous cell carcinoma through ERK-MAPK-ETV4-MMP-E-cadherin deregulation	Fung TM	J Pathol	2016
-27061242	CD8(+) tumor-infiltrating lymphocytes contribute to spontaneous "healing" in HER2-positive ductal carcinoma in situ	Morita M	Cancer Med	2016
+27061242	CD8(+) tumor-infiltrating lymphocytes contribute to spontaneous "healing" in HER2-positive ductal carcinoma in situ	Morita M	Cancer Med	2016
 27055073	Phenotyping malignant pleural effusions	Lui MM	Curr Opin Pulm Med	2016
 26887657	Asia-Pacific Hematology Consortium Report on approach to multiple myeloma. Survey results from the 6th International Hematologic Malignancies Conference: Bridging the Gap 2015, Beijing, China	Lu J	Leuk Lymphoma	2016
 26850306	Alkynyl gold(I) phosphane complexes: Evaluation of structure-activity-relationships for the phosphane ligands, effects on key signaling proteins and preliminary in-vivo studies with a nanoformulated complex	Andermark V	J Inorg Biochem	2016
@@ -6300,7 +6300,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 26891606	Anticipatory Nausea, Risk Factors, and Its Impact on Chemotherapy-Induced Nausea and Vomiting: Results From the Pan European Emesis Registry Study	Molassiotis A	J Pain Symptom Manage	2016
 26867494	Novel pre-mRNA splicing of intronically integrated HBV generates oncogenic chimera in hepatocellular carcinoma	Chiu YT	J Hepatol	2016
 26842883	Activation of GPER suppresses epithelial mesenchymal transition of triple negative breast cancer cells via NF-?B signals	Chen ZJ	Mol Oncol	2016
-26836897	Efficacy of EGFR Tyrosine Kinase Inhibitors in the Adjuvant Treatment for Operable Non-small Cell Lung Cancer by a Meta-Analysis	Huang Q	Chest	2016
+26836897	Efficacy of EGFR Tyrosine Kinase Inhibitors in the Adjuvant Treatment for Operable Non-small Cell Lung Cancer by a Meta-Analysis	Huang Q	Chest	2016
 26830409	Management of perianal extramammary Paget's disease involving the dentate line without abdominoperineal resection	Lo OS	Tech Coloproctol	2016
 26826650	Calcium signaling orchestrates glioblastoma development: Facts and conjunctures	Leclerc C	Biochim Biophys Acta	2016
 26823568	Radiation Dosimetry of Whole-Body Dual-Tracer 18F-FDG and 11C-Acetate PET/CT for Hepatocellular Carcinoma	Liu D	J Nucl Med	2016
@@ -6309,7 +6309,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 26775025	Role of the GALAD and BALAD-2 Serologic Models in Diagnosis of Hepatocellular Carcinoma and Prediction of Survival in Patients	Berhane S	Clin Gastroenterol Hepatol	2016
 26729199	Genetic variants in EBV reactivation-related genes and the risk and survival of breast cancer	Zhang W	Tumour Biol	2016
 26706240	Natural products in the discovery of novel sonosensitizers	Pang X	Pharmacol Ther	2016
-26656298	Low Rates of Malignancy and Mortality in Asymptomatic Patients With Suspected Neoplastic Pancreatic Cysts Beyond 5 Years of Surveillance	Kwong WT	Clin Gastroenterol Hepatol	2016
+26656298	Low Rates of Malignancy and Mortality in Asymptomatic Patients With Suspected Neoplastic Pancreatic Cysts Beyond 5 Years of Surveillance	Kwong WT	Clin Gastroenterol Hepatol	2016
 26582743	Lymphocyte subsets contribute to the degree of lobulitis and ductitis in sclerosing lymphocytic lobulitis of the breast	Chen LY	J Clin Pathol	2016
 26384591	Assessing perioperative body weight changes in patients thyroidectomized for a benign nontoxic nodular goitre	Lang BH	Clin Endocrinol (Oxf)	2016
 26044586	Assessment of mental health literacy in patients with breast cancer	Cheung YT	J Oncol Pharm Pract	2016
@@ -6432,7 +6432,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 26764240	Targeting AMPK signaling in combating ovarian cancers: opportunities and challenges	Yung MM	Acta Biochim Biophys Sin (Shanghai)	2016
 26725262	Association between multiple skin tags and metabolic syndrome: A multicentre cross-sectional study in primary care	Hui ES	Diabetes Metab	2016
 26725169	Clinical Evaluation of a 3-D Automatic Annotation Method for Breast Ultrasound Imaging	Jiang WW	Ultrasound Med Biol	2016
-26714945	Postoperative Adjuvant Transcatheter Arterial Chemoembolization After R0 Hepatectomy Improves Outcomes of Patients Who have Hepatocellular Carcinoma with Microvascular Invasion	Sun JJ	Ann Surg Oncol	2016
+26714945	Postoperative Adjuvant Transcatheter Arterial Chemoembolization After R0 Hepatectomy Improves Outcomes of Patients Who have Hepatocellular Carcinoma with Microvascular Invasion	Sun JJ	Ann Surg Oncol	2016
 26691353	Near-infrared fluorescent peptide probes for imaging of tumor in vivo and their biotoxicity evaluation	Liu L	J Biomed Mater Res A	2016
 26646946	Should ALPPS be Used for Liver Resection in Intermediate-Stage HCC?	D'Haese JG	Ann Surg Oncol	2016
 26635306	Impact of skeletal-related events on survival in patients with metastatic prostate cancer prescribed androgen deprivation therapy	Wong KW	Hong Kong Med J	2016
@@ -6773,7 +6773,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 26457759	The consensus molecular subtypes of colorectal cancer	Guinney J	Nat Med	2015
 26398439	Adapalene inhibits the activity of cyclin-dependent kinase 2 in colorectal carcinoma	Shi XN	Mol Med Rep	2015
 26386386	Exploiting a novel miR-519c-HuR-ABCG2 regulatory pathway to overcome chemoresistance in colorectal cancer	To KK	Exp Cell Res	2015
-26382973	Prognostic Nomograms for Pre- and Postoperative Predictions of Long-Term Survival for Patients Who Underwent Liver Resection for Huge Hepatocellular Carcinoma	Li Y	J Am Coll Surg	2015
+26382973	Prognostic Nomograms for Pre- and Postoperative Predictions of Long-Term Survival for Patients Who Underwent Liver Resection for Huge Hepatocellular Carcinoma	Li Y	J Am Coll Surg	2015
 26378065	Variant Profiling of Candidate Genes in Pancreatic Ductal Adenocarcinoma	Huang J	Clin Chem	2015
 26337623	IDH1 mutation-associated long non-coding RNA expression profile changes in glioma	Zhang XQ	J Neurooncol	2015
 26327464	A mouse model of luciferase-transfected stromal cells of giant cell tumor of bone	Lau CP	Connect Tissue Res	2015
@@ -6783,7 +6783,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 26282643	Obesity, Aspirin, and Risk of Colorectal Cancer in Carriers of Hereditary Colorectal Cancer: A Prospective Investigation in the CAPP2 Study	Movahedi M	J Clin Oncol	2015
 26259513	IFITM1 promotes the metastasis of human colorectal cancer via CAV-1	Yu F	Cancer Lett	2015
 26239774	Modified Anterior Approach for the ALPPS Procedure: How We Do It	Chan AC	World J Surg	2015
-26239567	Plasma EGFR Mutation Detection Associated With Survival Outcomes in Advanced-Stage Lung Cancer	Lam DC	Clin Lung Cancer	2015
+26239567	Plasma EGFR Mutation Detection Associated With Survival Outcomes in Advanced-Stage Lung Cancer	Lam DC	Clin Lung Cancer	2015
 26211626	The FHL2 regulation in the transcriptional circuitry of human cancers	Cao CY	Gene	2015
 26208777	Statin and the risk of hepatocellular carcinoma and death in a hospital-based hepatitis B-infected population: A propensity score landmark analysis	Hsiang JC	J Hepatol	2015
 26154577	Comparison of Survival Outcomes Between Right Posterior Sectionectomy and Right Hepatectomy for Hepatocellular Carcinoma in Cirrhotic Liver: A Single-Centre Experience	Yip VS	World J Surg	2015
@@ -6979,7 +6979,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 26073099	Prediction of mortality after radical cystectomy for bladder cancer by machine learning techniques	Wang G	Comput Biol Med	2015
 26072937	Focused parathyroidectomy without intra-operative parathyroid hormone monitoring for primary hyperparathyroidism: results in a low-volume hospital	Chow TL	J Laryngol Otol	2015
 26058853	Pediatric hematopoietic stem cell transplantation in China: Data and trends during 1998-2012	Du H	Pediatr Transplant	2015
-26026424	The strategies for treating primary hepatocellular carcinoma with portal vein tumor thrombus	Zhang ZM	Int J Surg	2015
+26026424	The strategies for treating primary hepatocellular carcinoma with portal vein tumor thrombus	Zhang ZM	Int J Surg	2015
 26022528	Cervical cancer prevention practices through screening and vaccination: A cross-sectional study among Hong Kong Chinese women	Wang LD	Gynecol Oncol	2015
 26006018	Epstein-Barr virus BZLF1 protein impairs accumulation of host DNA damage proteins at damage sites in response to DNA damage	Yang J	Lab Invest	2015
 25988710	Pelitinib (EKB-569) targets the up-regulation of ABCB1 and ABCG2 induced by hyperthermia to eradicate lung cancer	To KK	Br J Pharmacol	2015
@@ -6997,7 +6997,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 25809060	High False Positivity in Positron Emission Tomography is a Potential Diagnostic Pitfall in Patients with Suspected Adrenal Metastasis	Lang BH	World J Surg	2015
 25753387	The Journey	Sridhar S	J Gen Intern Med	2015
 25736877	Protocadherin20 Acts as a Tumor Suppressor Gene: Epigenetic Inactivation in Nasopharyngeal Carcinoma	Chen T	J Cell Biochem	2015
-25724708	Diagnostic Accuracy of a Qualitative Fecal Immunochemical Test Varies With Location of Neoplasia But Not Number of Specimens	Wong MC	Clin Gastroenterol Hepatol	2015
+25724708	Diagnostic Accuracy of a Qualitative Fecal Immunochemical Test Varies With Location of Neoplasia But Not Number of Specimens	Wong MC	Clin Gastroenterol Hepatol	2015
 25607756	International Consensus on Standardization of Data Collection for Complications Associated With Esophagectomy: Esophagectomy Complications Consensus Group (ECCG)	Low DE	Ann Surg	2015
 25544988	Consumption of salted meat and its interactions with alcohol drinking and tobacco smoking on esophageal squamous-cell carcinoma	Lin S	Int J Cancer	2015
 25413245	Relationship between intravoxel incoherent motion diffusion-weighted MRI and dynamic contrast-enhanced MRI in tissue perfusion of cervical cancers	Lee EY	J Magn Reson Imaging	2015
@@ -8130,7 +8130,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 24258573	Salvage therapy beyond targeted therapy in lung adenocarcinoma	Ho JC	Semin Respir Crit Care Med	2013
 24225578	Newly available antibodies with practical applications in surgical pathology	Chan JK	Int J Surg Pathol	2013
 24206230	Advanced technologies for studying circulating tumor cells at the protein level	Chan CM	Expert Rev Proteomics	2013
-24199592	Immortalized human fetal bone marrow-derived mesenchymal stromal cell expressing suicide gene for anti-tumor therapy in vitro and in vivo	Lee WY	Cytotherapy	2013
+24199592	Immortalized human fetal bone marrow-derived mesenchymal stromal cell expressing suicide gene for anti-tumor therapy in vitro and in vivo	Lee WY	Cytotherapy	2013
 24191714	Promoter hypermethylation of BCL6B gene is a potential plasma DNA biomarker for gastric cancer	Yang Q	Biomarkers	2013
 24150195	CRTC3-MAML2 fusion transcript in a bronchial mucoepidermoid carcinoma	Chan ES	Pathology	2013
 24141859	Sperm cryopreservation for Chinese male cancer patients: a 17-year retrospective analysis in an assisted reproductive unit in Hong Kong	Chung JP	Hong Kong Med J	2013
@@ -8949,7 +8949,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 22107997	Dynamic PET-CT studies for characterizing nasopharyngeal carcinoma metabolism: comparison of analytical methods	Huang B	Nucl Med Commun	2012
 22098536	Use of antiviral therapy in surveillance: impact on outcome of hepatitis B-related hepatocellular carcinoma	Chan SL	Liver Int	2012
 22009689	Inhibition of NOTCH3 signalling significantly enhances sensitivity to cisplatin in EBV-associated nasopharyngeal carcinoma	Man CH	J Pathol	2012
-21971728	Trajectories of body image and sexuality during the first year following diagnosis of breast cancer and their relationship to 6 years psychosocial outcomes	Lam WW	Breast Cancer Res Treat	2012
+21971728	Trajectories of body image and sexuality during the first year following diagnosis of breast cancer and their relationship to 6 years psychosocial outcomes	Lam WW	Breast Cancer Res Treat	2012
 21969071	A potential human hepatocellular carcinoma inhibitor from Bauhinia purpurea L. seeds: from purification to mechanism exploration	Fang EF	Arch Toxicol	2012
 21948054	Uveitis as the initial manifestation of diffuse large B-cell lymphoma	Chan TS	Am J Hematol	2012
 21937593	A 37-year observation of mortality in Chinese chrysotile asbestos workers	Wang X	Thorax	2012
@@ -9269,7 +9269,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 21110776	Gold(III) porphyrin 1a prolongs the survival of melanoma-bearing mice and inhibits angiogenesis	Lum CT	Acta Oncol	2011
 21053072	Using urine microscopy and cytology for early detection of bladder cancer in male patients with lower urinary tract symptoms	Chan ES	Int Urol Nephrol	2011
 20926737	Proteomic and functional analyses reveal the potential involvement of endoplasmic reticulum stress and ?-CP1 in the anticancer activities of oridonin in HepG2 cells	Wang H	Integr Cancer Ther	2011
-20838853	Knockdown of interferon-induced transmembrane protein 1 (IFITM1) inhibits proliferation, migration, and invasion of glioma cells	Yu F	J Neurooncol	2011
+20838853	Knockdown of interferon-induced transmembrane protein 1 (IFITM1) inhibits proliferation, migration, and invasion of glioma cells	Yu F	J Neurooncol	2011
 20693491	Moderate coffee consumption reduces the risk of hepatocellular carcinoma in hepatitis B chronic carriers: a case-control study	Leung WW	J Epidemiol Community Health	2011
 20618309	Semiparametric transformation models with time-varying coefficients for recurrent and terminal events	Zhao X	Biometrics	2011
 20163425	Laparoscopic sphincter-preserving total mesorectal excision: 10-year report	Cheung HY	Colorectal Dis	2011
@@ -9461,7 +9461,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 21080051	Dietary patterns and breast cancer risk among Chinese women	Zhang CX	Cancer Causes Control	2011
 21069738	Furanodienone inhibits cell proliferation and survival by suppressing ER? signaling in human breast cancer MCF-7 cells	Li YW	J Cell Biochem	2011
 20979057	Lupeol targets liver tumor-initiating cells through phosphatase and tensin homolog modulation	Lee TK	Hepatology	2011
-20976462	Second primary squamous cell carcinoma arising in the skin of a pectoralis major myocutaneous flap 12 years after floor of mouth reconstruction	Ho AC	Eur Arch Otorhinolaryngol	2011
+20976462	Second primary squamous cell carcinoma arising in the skin of a pectoralis major myocutaneous flap 12 years after floor of mouth reconstruction	Ho AC	Eur Arch Otorhinolaryngol	2011
 20969896	Susceptibility of Hep3B cells in different phases of cell cycle to tBid	Ma SH	Biochim Biophys Acta	2011
 20955818	Patients with polyps larger than 5 mm in computed tomography colonoscopy screening have high risk for advanced colonic neoplasia in Asia	Sung JJ	Clin Gastroenterol Hepatol	2011
 20951699	The microRNA miR-139 suppresses metastasis and progression of hepatocellular carcinoma by down-regulating Rho-kinase 2	Wong CC	Gastroenterology	2011
@@ -9584,7 +9584,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 20091869	Epstein-Barr virus infection in immortalized nasopharyngeal epithelial cells: regulation of infection and phenotypic characterization	Tsang CM	Int J Cancer	2010
 20014074	Trajectories of psychological distress among Chinese women diagnosed with breast cancer	Lam WW	Psychooncology	2010
 19757013	Influences of mastery, spousal support, and adaptive coping on sexual drive and satisfaction among chinese gynecologic cancer survivors	Tang CS	Arch Sex Behav	2010
-19756924	The impact of sentinel lymph node biopsy in patients with a core biopsy diagnosis of ductal carcinoma in situ	Hung WK	Breast Cancer	2010
+19756924	The impact of sentinel lymph node biopsy in patients with a core biopsy diagnosis of ductal carcinoma in situ	Hung WK	Breast Cancer	2010
 20488613	Dysregulation of cellular signaling in gastric cancer	Wu WK	Cancer Lett	2010
 20603606	WNT5A antagonizes WNT/?-catenin signaling and is frequently silenced by promoter CpG methylation in esophageal squamous cell carcinoma	Li J	Cancer Biol Ther	2010
 20856939	Inhibition of melanoma growth by subcutaneous administration of hTERTC27 viral cocktail in C57BL/6 mice	Huo L	PLoS One	2010
@@ -12065,7 +12065,7 @@ PMID	Title	First Author	Journal/Book	Publication Year
 15143926	Repeated resections of extrahepatic metastases after hepatic resection: an aggressive approach to hepatocellular carcinoma	O'Suilleabhain CB	Hepatogastroenterology	2004
 15142168	Growth inhibition and cell cycle arrest effects of epigallocatechin gallate in the NBT-II bladder tumour cell line	Chen JJ	BJU Int	2004
 15142116	FLT-3 aberrations in acute promyelocytic leukaemia: clinicopathological associations and prognostic impact	Au WY	Br J Haematol	2004
-15138426	"Cystic" parotid swelling on FNA: significance on clinical management	Wong DS	Otolaryngol Head Neck Surg	2004
+15138426	Cystic parotid swelling on FNA: significance on clinical management	Wong DS	Otolaryngol Head Neck Surg	2004
 15136248	Granulocytic sarcoma of the lacrimal gland	Hon C	Haematologica	2004
 15136246	Bull's neck in Hodgkin's disease: a CT imaging appraisal	Chim CS	Haematologica	2004
 15126563	Genistein enhances insulin-like growth factor signaling pathway in human breast cancer (MCF-7) cells	Chen WF	J Clin Endocrinol Metab	2004
