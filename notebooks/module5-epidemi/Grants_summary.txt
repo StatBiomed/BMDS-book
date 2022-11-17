@@ -1,7 +1,7 @@
 Cancer	Grants
 Biliary	0
 Bladder	0
-Brain	0
+Brain	2
 Breast	34
 Cervix	9
 Colorectum	40
@@ -13,13 +13,13 @@ Larynx	0
 Leukaemia	18
 Liver	97
 Lung	22
-Melanoma	0
+Melanoma	2
 Mesothelioma	6
 myeloma	0
 Nasal	0
 Nasopharynx	24
-Non-Hodgkin lymphoma	0
-Skin	0
+Non-Hodgkin lymphoma	2
+Skin	2
 Oesophagus	7
 Oral	5
 Ovary	14
@@ -27,11 +27,11 @@ Pancreas	0
 Penis	0
 Placenta	0
 Prostate	6
-Sarcoma	0
-Small intestine	0
+Sarcoma	2
+Small intestine	1
 Stomach	5
 Testis	0
 Thymus	0
-Thyroid	0
-Uterus	0
+Thyroid	2
+Uterus	1
 Vulva	0
