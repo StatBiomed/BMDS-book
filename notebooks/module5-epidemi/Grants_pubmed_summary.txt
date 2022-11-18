@@ -1,0 +1,37 @@
+Cancer	Grants	Pubmed
+Biliary	0	72
+Bladder	0	141
+Brain	2	294
+Breast	34	1147
+Cervix	9	408
+Colorectum	40	857
+Eye	2	27
+Hodgkin lymphoma	0	21
+Kaposi	0	6
+Kidney	0	133
+Larynx	0	8
+Leukaemia	18	515
+Liver	97	2077
+Lung	22	773
+Melanoma	0	99
+Mesothelioma	6	58
+Multiple myeloma	0	104
+Nasal	0	14
+Nasopharynx	24	1113
+Non-Hodgkin lymphoma	0	55
+Skin	0	32
+Oesophagus	7	404
+Oral	5	229
+Ovary	14	354
+Pancreas	2	141
+Penis	0	7
+Placenta	0	9
+Prostate	6	322
+Sarcoma	2	216
+Small intestine	0	11
+Stomach	5	455
+Testis	0	18
+Thymus	0	3
+Thyroid	2	231
+Uterus	0	72
+Vulva	0	8
