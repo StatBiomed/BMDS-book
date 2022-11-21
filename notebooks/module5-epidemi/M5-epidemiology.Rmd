@@ -1,10 +1,20 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+
 # Cancer Epidemiology
 
 *by Dr Jason Wong*
 
-*Date: 16-11-2022*
+*Date: 16-11-2022 (Updated 21-11-2022)*
 
 [The RMarkdown notebook to run your own code can be downloaded here](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/M5-epidemiology.Rmd)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
 
 ## 1. Scenario
 
@@ -163,9 +173,11 @@ do.call('grid.arrange',c(p,ncol=3,nrow=12))
 if (!require("ggplot2")) install.packages("gglot2")
 if (!require("gridExtra")) install.packages("gridExtra")
 if (!require("ggpubr")) install.packages("ggpubr")
+if (!require("dplyr")) install.packages("dplyr")
 library(ggplot2)
 library(gridExtra)
 library(ggpubr)
+library(dplyr)
 
 HKCancer_mort <- HKCancer[HKCancer$Type=='mortality',]
 
@@ -402,21 +414,125 @@ plot_child
 HKCancer_inc_age_sum_csq
 ```
 
-## 4. Existing cancer funding data
+## 4. Existing cancer funding and publication data
 
 The Hong Kong government established in Health and Medical Research Fund (HMRF) in 2011 to specifically provide research funding for health and medical research in Hong Kong. Since 2016 over 370 projects in the category of Cancer has been funded for a total of \~\$400 M dollars. A list of all funded projects can be found on the Health Bureau [webpage](https://rfs1.healthbureau.gov.hk/search/#/fundedsearch/basicsearch?lang=en). You would like to use this data to see if there is any association between previous project funding and the epidemiology of cancers in Hong Kong.
 
+We can also do a similar thing with publications and ask if the research publications in Hong Kong have been aligned with the incidence and mortality. We can obtain this data from PubMed using the following terms: [("Hong Kong"[Affiliation]) AND (neoplasms[MeSH Terms])](https://pubmed.ncbi.nlm.nih.gov/?term=%28%22Hong+Kong%22%5BAffiliation%5D%29+AND+%28neoplasms%5BMeSH+Terms%5D%29)
+
+The data has been predownloaded as the Pubmed API via R is a bit slow.
+
 [Discussion points:]{.underline}
 
--   How many projects have been allocated to different cancer types?
+-   Why has research publications increased dramatically in recent years? Is there something unsual with the dataset?
+-   What are the main cancer types being researched in Hong Kong?
 -   Is there any correlation between funding and cancer incidence and mortality?
 
+### Download HMRF grants and Pubmed data
 
-### Download HMRF grants data
+```{r load HMRF}
 
-```{r loadpopulation}
-HKPop<- read.table("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/HK_population_1965-2022.txt", 
-    sep = "\t", header = TRUE, stringsAsFactor=FALSE, check.names = FALSE)
-HKPop
+HMRF<- read.delim("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/HMRF_cancer_grants.txt", sep = "\t", header = TRUE, stringsAsFactor=FALSE, check.names = TRUE)
+#HMRF
+
+pubmed<- read.delim("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/pubmed__neoplasm_hongkong.txt", sep = "\t", header = TRUE, stringsAsFactor=FALSE, check.names = TRUE)
+#pubmed
+
+hist(pubmed$Publication.Year)
+
 ```
 
+### Make word cloud for grants
+
+```{r wordcloud grants, fig.height=8, fig.width=10}
+if (!require("ggwordcloud")) install.packages("ggwordcloud")
+if (!require("tm")) install.packages("tm")
+if (!require("dplyr")) install.packages("dplyr")
+if (!require("RColorBrewer")) install.packages("RColorBrewer")
+library(ggwordcloud)
+library(tm)
+library(dplyr)
+library(RColorBrewer)
+
+#Create a vector containing only the text
+gtext <- HMRF$Project.Title
+# Create a corpus  
+gdocs <- Corpus(VectorSource(gtext))
+gdocs <- gdocs %>%
+  tm_map(removePunctuation) %>%
+  tm_map(stripWhitespace)
+gdocs <- tm_map(gdocs, content_transformer(tolower))
+gdocs <- tm_map(gdocs, removeWords, stopwords("english"))
+
+gdtm <- TermDocumentMatrix(gdocs) 
+gmatrix <- as.matrix(gdtm) 
+gwords <- sort(rowSums(gmatrix),decreasing=TRUE) 
+gdf <- data.frame(word = names(gwords),freq=gwords)
+
+set.seed(1235) # for reproducibility 
+gp<-ggwordcloud(words = gdf$word, freq = gdf$freq, min.freq = 1,max.words=200, random.order=FALSE, rot.per=0.35,            colors=brewer.pal(8, "Dark2"))
+#gp
+
+#Create a vector containing only the text
+pmtext <- pubmed$Title
+# Create a corpus  
+pmdocs <- Corpus(VectorSource(pmtext))
+pmdocs <- pmdocs %>%
+  tm_map(removePunctuation) %>%
+  tm_map(stripWhitespace)
+pmdocs <- tm_map(pmdocs, content_transformer(tolower))
+pmdocs <- tm_map(pmdocs, removeWords, stopwords("english"))
+
+pmdtm <- TermDocumentMatrix(pmdocs) 
+pmmatrix <- as.matrix(pmdtm) 
+pmwords <- sort(rowSums(pmmatrix),decreasing=TRUE) 
+pmdf <- data.frame(word = names(pmwords),freq=pmwords)
+
+set.seed(1235) # for reproducibility 
+pm<-ggwordcloud(words = pmdf$word, freq = pmdf$freq, min.freq = 1,max.words=200, random.order=FALSE, rot.per=0.35,            colors=brewer.pal(8, "Dark2"))
+grid.arrange(arrangeGrob(pm, top = 'Pubmed'),arrangeGrob(gp, top = 'Grants'),nrow=2,heights=c(6,6))
+
+
+```
+
+### Make compare grant funding with incidence and mortality
+
+```{r grants versus incidence and mortality,  fig.height=8, fig.width=10}
+
+if (!require("ggrepel")) install.packages("ggrepel")
+if (!require("ggplot2")) install.packages("gglot2")
+if (!require("gridExtra")) install.packages("gridExtra")
+library(ggrepel)
+library(ggplot2)
+library(gridExtra)
+
+
+grantpmsum<- read.delim("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/Grants_pubmed_summary.txt", sep = "\t", header = TRUE, stringsAsFactor=FALSE, check.names = TRUE)
+grantpmsum
+
+HKCancer_inc <- HKCancer[HKCancer$Type=='incidence',]
+HKCancer_inc_sum <- data.frame(incidence=colSums(HKCancer_inc[,-(1:4)]))
+
+HKCancer_mort <- HKCancer[HKCancer$Type=='mortality',]
+HKCancer_mort_sum <- data.frame(mortality=colSums(HKCancer_inc[,-(1:4)]))
+
+HKCancer_compare <-data.frame(cancer=grantpmsum$Cancer, grants=grantpmsum$Grants, pubmed=grantpmsum$Pubmed, incidence=colSums(HKCancer_inc[,-(1:4)]), mortality=colSums(HKCancer_mort[,-(1:4)]))
+
+gp<-ggplot(HKCancer_compare, aes(y=grants, x=pubmed)) + geom_point() + scale_color_brewer(palette="Dark2") + theme_classic() +  geom_label_repel(data=HKCancer_compare, aes(label=cancer),  nudge_x = 2, size = 3.5,label.size = NA ,min.segment.length =unit(0, 'lines'), max.overlaps = 45, box.padding = 0.4) + stat_cor(method = "pearson", label.x = 3, label.y = 90)
+
+pinc<-ggplot(HKCancer_compare, aes(y=pubmed, x=incidence)) + geom_point() + scale_color_brewer(palette="Dark2") + theme_classic() +  geom_label_repel(data=HKCancer_compare, aes(label=cancer),  nudge_x = 2, size = 3.5,label.size = NA ,min.segment.length =unit(0, 'lines'), max.overlaps = 15, box.padding = 0.5)+ stat_cor(method = "pearson", label.x = 40000, label.y = 0)
+
+pmor<-ggplot(HKCancer_compare, aes(y=pubmed, x=mortality)) + geom_point() + scale_color_brewer(palette="Dark2") + theme_classic() +  geom_label_repel(data=HKCancer_compare, aes(label=cancer),  nudge_x = 2, size = 3.5,label.size = NA ,min.segment.length =unit(0, 'lines'), max.overlaps = 15, box.padding = 0.5) + stat_cor(method = "pearson", label.x = 40000, label.y = 0)
+
+
+ginc<-ggplot(HKCancer_compare, aes(y=grants, x=incidence)) + geom_point() + scale_color_brewer(palette="Dark2") + theme_classic() +  geom_label_repel(data=HKCancer_compare, aes(label=cancer),  nudge_x = 2, size = 3.5,label.size = NA ,min.segment.length =unit(0, 'lines'), max.overlaps = 40, box.padding = 0.4) + stat_cor(method = "pearson", label.x = 40000, label.y = 0)
+
+gmor<-ggplot(HKCancer_compare, aes(y=grants, x=mortality)) + geom_point() + scale_color_brewer(palette="Dark2") + theme_classic() +  geom_label_repel(data=HKCancer_compare, aes(label=cancer),  nudge_x = 2, size = 3.5,label.size = NA ,min.segment.length =unit(0, 'lines'), max.overlaps = 40, box.padding = 0.4) + stat_cor(method = "pearson", label.x = 40000, label.y = 0)
+
+grid.arrange(gp,ginc,gmor,pinc, pmor, ncol=3)
+
+```
+
+## 5. Task (to be completed in Tutotial 2 by 3:00pm and shared with other tutorial group)
+
+As a group, discuss what cancer type you think is most worthy of funding in Hong Kong. Prepare 2-3 PowerPoint/Google Slides summarising your decision. Include some points and figures supporting your final conclusion. If possible also include suggestions of what other data/analyses can be performed and/or other cancer types that are also in need of funding in Hong Kong.
