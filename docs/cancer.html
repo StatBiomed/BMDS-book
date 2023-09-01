@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Cancer genomics and epidemiology | Biomedical Data Science - introduction with case studies</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Cancer genomics and epidemiology | Biomedical Data Science - introduction with case studies" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Cancer genomics and epidemiology | Biomedical Data Science - introduction with case studies" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="BIOF1001 teaching team" />
+
+
+<meta name="date" content="2023-09-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="infectious-dis.html"/>
+<link rel="next" href="pop-genetics.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">Biomedical Data Science</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#introduction-for-readers"><i class="fa fa-check"></i>Introduction for readers</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#what-you-will-learn-from-this-coursebook"><i class="fa fa-check"></i>What you will learn from this course/book</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#what-we-recommend-you-do-while-reading-this-book"><i class="fa fa-check"></i>What we recommend you do while reading this book</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#other-reference-books"><i class="fa fa-check"></i>Other reference books</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+</ul></li>
+<li class="part"><span><b>I Data Science Foundations</b></span></li>
+<li class="chapter" data-level="1" data-path="introR.html"><a href="introR.html"><i class="fa fa-check"></i><b>1</b> Introduction to R programming</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introR.html"><a href="introR.html#data-types"><i class="fa fa-check"></i><b>1.1</b> Data types</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="introR.html"><a href="introR.html#nemeric-or-double"><i class="fa fa-check"></i><b>1.1.1</b> nemeric (or double)</a></li>
+<li class="chapter" data-level="1.1.2" data-path="introR.html"><a href="introR.html#integer"><i class="fa fa-check"></i><b>1.1.2</b> integer</a></li>
+<li class="chapter" data-level="1.1.3" data-path="introR.html"><a href="introR.html#logical"><i class="fa fa-check"></i><b>1.1.3</b> logical</a></li>
+<li class="chapter" data-level="1.1.4" data-path="introR.html"><a href="introR.html#character"><i class="fa fa-check"></i><b>1.1.4</b> character</a></li>
+<li class="chapter" data-level="1.1.5" data-path="introR.html"><a href="introR.html#memeory-usage"><i class="fa fa-check"></i><b>1.1.5</b> Memeory usage</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introR.html"><a href="introR.html#data-structures"><i class="fa fa-check"></i><b>1.2</b> Data structures</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introR.html"><a href="introR.html#vector"><i class="fa fa-check"></i><b>1.2.1</b> Vector</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introR.html"><a href="introR.html#matrix"><i class="fa fa-check"></i><b>1.2.2</b> Matrix</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introR.html"><a href="introR.html#list"><i class="fa fa-check"></i><b>1.2.3</b> List</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introR.html"><a href="introR.html#data-frame"><i class="fa fa-check"></i><b>1.2.4</b> Data Frame</a></li>
+<li class="chapter" data-level="1.2.5" data-path="introR.html"><a href="introR.html#factor-vs-vector"><i class="fa fa-check"></i><b>1.2.5</b> Factor vs vector</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introR.html"><a href="introR.html#read-and-write-files-tables"><i class="fa fa-check"></i><b>1.3</b> Read and write files (tables)</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="introR.html"><a href="introR.html#read-file"><i class="fa fa-check"></i><b>1.3.1</b> Read file</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introR.html"><a href="introR.html#write-file"><i class="fa fa-check"></i><b>1.3.2</b> Write file</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introR.html"><a href="introR.html#functions-and-packages"><i class="fa fa-check"></i><b>1.4</b> Functions and Packages</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="introR.html"><a href="introR.html#install-packages"><i class="fa fa-check"></i><b>1.4.1</b> Install packages</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introR.html"><a href="introR.html#apply-function-repeatly"><i class="fa fa-check"></i><b>1.4.2</b> Apply function repeatly</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introR.html"><a href="introR.html#plotting"><i class="fa fa-check"></i><b>1.5</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="introR.html"><a href="introR.html#datasets"><i class="fa fa-check"></i><b>1.5.1</b> datasets</a></li>
+<li class="chapter" data-level="1.5.2" data-path="introR.html"><a href="introR.html#basic-plotting"><i class="fa fa-check"></i><b>1.5.2</b> Basic plotting</a></li>
+<li class="chapter" data-level="1.5.3" data-path="introR.html"><a href="introR.html#ggplot2"><i class="fa fa-check"></i><b>1.5.3</b> ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="introR.html"><a href="introR.html#scientific-and-statistical-computating"><i class="fa fa-check"></i><b>1.6</b> Scientific and statistical computating</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="introR.html"><a href="introR.html#orders-of-operators"><i class="fa fa-check"></i><b>1.6.1</b> Orders of operators</a></li>
+<li class="chapter" data-level="1.6.2" data-path="introR.html"><a href="introR.html#functions-for-statistics"><i class="fa fa-check"></i><b>1.6.2</b> Functions for statistics</a></li>
+<li class="chapter" data-level="1.6.3" data-path="introR.html"><a href="introR.html#correlation"><i class="fa fa-check"></i><b>1.6.3</b> Correlation</a></li>
+<li class="chapter" data-level="1.6.4" data-path="introR.html"><a href="introR.html#hypothesis-testing-t-test"><i class="fa fa-check"></i><b>1.6.4</b> Hypothesis testing (t test)</a></li>
+<li class="chapter" data-level="1.6.5" data-path="introR.html"><a href="introR.html#regression"><i class="fa fa-check"></i><b>1.6.5</b> Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="introR.html"><a href="introR.html#resource-links"><i class="fa fa-check"></i><b>1.7</b> Resource links</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introLinearReg.html"><a href="introLinearReg.html"><i class="fa fa-check"></i><b>2</b> Introduction to Linear Regression</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introLinearReg.html"><a href="introLinearReg.html#linear-regression-using-simulated-data"><i class="fa fa-check"></i><b>2.1</b> Linear Regression Using Simulated Data</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="introLinearReg.html"><a href="introLinearReg.html#simulating-data"><i class="fa fa-check"></i><b>2.1.1</b> Simulating data:</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introLinearReg.html"><a href="introLinearReg.html#model-efficacy"><i class="fa fa-check"></i><b>2.1.2</b> Model efficacy</a></li>
+<li class="chapter" data-level="2.1.3" data-path="introLinearReg.html"><a href="introLinearReg.html#r-squared"><i class="fa fa-check"></i><b>2.1.3</b> <em>R-Squared</em></a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="introLinearReg.html"><a href="introLinearReg.html#least-squares-using-simulated-data"><i class="fa fa-check"></i><b>2.2</b> Least Squares Using Simulated Data</a></li>
+<li class="chapter" data-level="2.3" data-path="introLinearReg.html"><a href="introLinearReg.html#diagnostic-check-of-a-fitted-regression-model"><i class="fa fa-check"></i><b>2.3</b> Diagnostic check of a fitted regression model</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introLinearReg.html"><a href="introLinearReg.html#residual-standard-errors-rse"><i class="fa fa-check"></i><b>2.3.1</b> Residual Standard Errors (RSE)</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introLinearReg.html"><a href="introLinearReg.html#p-values"><i class="fa fa-check"></i><b>2.3.2</b> p-values</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introLinearReg.html"><a href="introLinearReg.html#f-statistics"><i class="fa fa-check"></i><b>2.3.3</b> F-statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introLinearReg.html"><a href="introLinearReg.html#simple-linear-regression-with-lm-function"><i class="fa fa-check"></i><b>2.4</b> Simple Linear Regression with <code>lm</code> function</a></li>
+<li class="chapter" data-level="2.5" data-path="introLinearReg.html"><a href="introLinearReg.html#multiple-regression-with-lm-function"><i class="fa fa-check"></i><b>2.5</b> Multiple Regression with <code>lm</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introClassifier.html"><a href="introClassifier.html"><i class="fa fa-check"></i><b>3</b> Introduction to Classification</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="introClassifier.html"><a href="introClassifier.html#visualise-logistic-and-logit-functions"><i class="fa fa-check"></i><b>3.1</b> Visualise logistic and logit functions</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="introClassifier.html"><a href="introClassifier.html#logistic-function"><i class="fa fa-check"></i><b>3.1.1</b> Logistic function</a></li>
+<li class="chapter" data-level="3.1.2" data-path="introClassifier.html"><a href="introClassifier.html#logit-function"><i class="fa fa-check"></i><b>3.1.2</b> Logit function</a></li>
+<li class="chapter" data-level="3.1.3" data-path="introClassifier.html"><a href="introClassifier.html#visualise-the-distribution"><i class="fa fa-check"></i><b>3.1.3</b> Visualise the distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="introClassifier.html"><a href="introClassifier.html#logistic-regression-on-diabetes"><i class="fa fa-check"></i><b>3.2</b> Logistic regression on Diabetes</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="introClassifier.html"><a href="introClassifier.html#load-pima-indians-diabetes-database"><i class="fa fa-check"></i><b>3.2.1</b> Load Pima Indians Diabetes Database</a></li>
+<li class="chapter" data-level="3.2.2" data-path="introClassifier.html"><a href="introClassifier.html#fit-logistic-regression"><i class="fa fa-check"></i><b>3.2.2</b> Fit logistic regression</a></li>
+<li class="chapter" data-level="3.2.3" data-path="introClassifier.html"><a href="introClassifier.html#assess-on-test-data"><i class="fa fa-check"></i><b>3.2.3</b> Assess on test data</a></li>
+<li class="chapter" data-level="3.2.4" data-path="introClassifier.html"><a href="introClassifier.html#model-selection-and-diagnosis"><i class="fa fa-check"></i><b>3.2.4</b> Model selection and diagnosis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="introClassifier.html"><a href="introClassifier.html#cross-validation"><i class="fa fa-check"></i><b>3.3</b> Cross-validation</a></li>
+<li class="chapter" data-level="3.4" data-path="introClassifier.html"><a href="introClassifier.html#more-assessment-metrics"><i class="fa fa-check"></i><b>3.4</b> More assessment metrics</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="introClassifier.html"><a href="introClassifier.html#two-types-of-error"><i class="fa fa-check"></i><b>3.4.1</b> Two types of error</a></li>
+<li class="chapter" data-level="3.4.2" data-path="introClassifier.html"><a href="introClassifier.html#roc-curve"><i class="fa fa-check"></i><b>3.4.2</b> ROC curve</a></li>
+<li class="chapter" data-level="3.4.3" data-path="introClassifier.html"><a href="introClassifier.html#homework"><i class="fa fa-check"></i><b>3.4.3</b> Homework</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="introHypoTest.html"><a href="introHypoTest.html"><i class="fa fa-check"></i><b>4</b> Introduction to Hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="introHypoTest.html"><a href="introHypoTest.html#hypothesis-testing-and-p-value"><i class="fa fa-check"></i><b>4.1</b> Hypothesis testing and <em>p</em> value</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="introHypoTest.html"><a href="introHypoTest.html#example-1-probability-of-rolling-a-six"><i class="fa fa-check"></i><b>4.1.1</b> Example 1: probability of rolling a six?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="introHypoTest.html"><a href="introHypoTest.html#permutation-test"><i class="fa fa-check"></i><b>4.2</b> Permutation test</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="introHypoTest.html"><a href="introHypoTest.html#example-2-difference-in-birth-weight"><i class="fa fa-check"></i><b>4.2.1</b> Example 2: difference in birth weight</a></li>
+<li class="chapter" data-level="4.2.2" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-approximated-by-resampling"><i class="fa fa-check"></i><b>4.2.2</b> Null distribution approximated by resampling</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="introHypoTest.html"><a href="introHypoTest.html#t-test"><i class="fa fa-check"></i><b>4.3</b> <em>t</em> test</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="introHypoTest.html"><a href="introHypoTest.html#derivation-of-t-distribution"><i class="fa fa-check"></i><b>4.3.1</b> Derivation of t distribution</a></li>
+<li class="chapter" data-level="4.3.2" data-path="introHypoTest.html"><a href="introHypoTest.html#direct-use-of-t.test"><i class="fa fa-check"></i><b>4.3.2</b> Direct use of <code>t.test()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="introHypoTest.html"><a href="introHypoTest.html#glm-test"><i class="fa fa-check"></i><b>4.4</b> GLM test</a></li>
+<li class="chapter" data-level="4.5" data-path="introHypoTest.html"><a href="introHypoTest.html#multiple-testing"><i class="fa fa-check"></i><b>4.5</b> Multiple testing</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-test-statistic"><i class="fa fa-check"></i><b>4.5.1</b> Null distribution (of test statistic)</a></li>
+<li class="chapter" data-level="4.5.2" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-p-value"><i class="fa fa-check"></i><b>4.5.2</b> Null distribution of p value</a></li>
+<li class="chapter" data-level="4.5.3" data-path="introHypoTest.html"><a href="introHypoTest.html#minimal-p-values-in-10-tests"><i class="fa fa-check"></i><b>4.5.3</b> Minimal p values in 10 tests</a></li>
+<li class="chapter" data-level="4.5.4" data-path="introHypoTest.html"><a href="introHypoTest.html#homework-1"><i class="fa fa-check"></i><b>4.5.4</b> Homework</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Biomedical Data Modules</b></span></li>
+<li class="chapter" data-level="5" data-path="image-digital.html"><a href="image-digital.html"><i class="fa fa-check"></i><b>5</b> Medical Image and Digital Health</a></li>
+<li class="chapter" data-level="6" data-path="infectious-dis.html"><a href="infectious-dis.html"><i class="fa fa-check"></i><b>6</b> Infectious Disease Informatics</a></li>
+<li class="chapter" data-level="7" data-path="cancer.html"><a href="cancer.html"><i class="fa fa-check"></i><b>7</b> Cancer genomics and epidemiology</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="cancer.html"><a href="cancer.html#cancer-case1"><i class="fa fa-check"></i><b>7.1</b> Case study 1: analysis of cBioportal mutation data</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="cancer.html"><a href="cancer.html#exploratory-analysis"><i class="fa fa-check"></i><b>7.1.1</b> Exploratory analysis</a></li>
+<li class="chapter" data-level="7.1.2" data-path="cancer.html"><a href="cancer.html#statistical-analysis"><i class="fa fa-check"></i><b>7.1.2</b> Statistical analysis</a></li>
+<li class="chapter" data-level="7.1.3" data-path="cancer.html"><a href="cancer.html#literature-search"><i class="fa fa-check"></i><b>7.1.3</b> Literature search</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="cancer.html"><a href="cancer.html#cancer-case2"><i class="fa fa-check"></i><b>7.2</b> Case study 2: Cancer Epidemiology</a></li>
+<li class="chapter" data-level="7.3" data-path="cancer.html"><a href="cancer.html#scenario"><i class="fa fa-check"></i><b>7.3</b> 1. Scenario</a></li>
+<li class="chapter" data-level="7.4" data-path="cancer.html"><a href="cancer.html#hong-kong-population"><i class="fa fa-check"></i><b>7.4</b> 2. Hong Kong population</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="cancer.html"><a href="cancer.html#download-population-data"><i class="fa fa-check"></i><b>7.4.1</b> Download population data</a></li>
+<li class="chapter" data-level="7.4.2" data-path="cancer.html"><a href="cancer.html#format-data-for-plotting"><i class="fa fa-check"></i><b>7.4.2</b> Format data for plotting</a></li>
+<li class="chapter" data-level="7.4.3" data-path="cancer.html"><a href="cancer.html#plotting-population-data"><i class="fa fa-check"></i><b>7.4.3</b> Plotting population data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="cancer.html"><a href="cancer.html#cancer-registry-data"><i class="fa fa-check"></i><b>7.5</b> 3. Cancer registry data</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="cancer.html"><a href="cancer.html#download-cancer-registry-data"><i class="fa fa-check"></i><b>7.5.1</b> Download cancer registry data</a></li>
+<li class="chapter" data-level="7.5.2" data-path="cancer.html"><a href="cancer.html#a.-visualise-changes-in-incidence-and-mortality"><i class="fa fa-check"></i><b>7.5.2</b> 3a. Visualise changes in incidence and mortality</a></li>
+<li class="chapter" data-level="7.5.3" data-path="cancer.html"><a href="cancer.html#b.-calculate-cancer-risk-and-mortality-rate"><i class="fa fa-check"></i><b>7.5.3</b> 3b. Calculate cancer risk and mortality rate</a></li>
+<li class="chapter" data-level="7.5.4" data-path="cancer.html"><a href="cancer.html#c.-mortality-incidence-ratio"><i class="fa fa-check"></i><b>7.5.4</b> 3c. Mortality-incidence ratio</a></li>
+<li class="chapter" data-level="7.5.5" data-path="cancer.html"><a href="cancer.html#d.-paired-t-test-on-mortality-incidence-ratio-change"><i class="fa fa-check"></i><b>7.5.5</b> 3d. Paired t-test on mortality-incidence ratio change</a></li>
+<li class="chapter" data-level="7.5.6" data-path="cancer.html"><a href="cancer.html#e.-childhood-versus-elderly-cancers"><i class="fa fa-check"></i><b>7.5.6</b> 3e. Childhood versus elderly cancers</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="cancer.html"><a href="cancer.html#existing-cancer-funding-and-publication-data"><i class="fa fa-check"></i><b>7.6</b> 4. Existing cancer funding and publication data</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="cancer.html"><a href="cancer.html#download-hmrf-grants-and-pubmed-data"><i class="fa fa-check"></i><b>7.6.1</b> Download HMRF grants and Pubmed data</a></li>
+<li class="chapter" data-level="7.6.2" data-path="cancer.html"><a href="cancer.html#make-word-cloud-for-grants"><i class="fa fa-check"></i><b>7.6.2</b> Make word cloud for grants</a></li>
+<li class="chapter" data-level="7.6.3" data-path="cancer.html"><a href="cancer.html#make-compare-grant-funding-with-incidence-and-mortality"><i class="fa fa-check"></i><b>7.6.3</b> Make compare grant funding with incidence and mortality</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="cancer.html"><a href="cancer.html#task-to-be-completed-in-tutotial-2-by-300pm-and-shared-with-other-tutorial-group"><i class="fa fa-check"></i><b>7.7</b> 5. Task (to be completed in Tutotial 2 by 3:00pm and shared with other tutorial group)</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>8</b> Population Genetics and Diseases</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="pop-genetics.html"><a href="pop-genetics.html#case-study-1-heritability-and-human-traits"><i class="fa fa-check"></i><b>8.1</b> Case study 1: Heritability and human traits</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="pop-genetics.html"><a href="pop-genetics.html#part-1"><i class="fa fa-check"></i><b>8.1.1</b> Part 1</a></li>
+<li class="chapter" data-level="8.1.2" data-path="pop-genetics.html"><a href="pop-genetics.html#part-2"><i class="fa fa-check"></i><b>8.1.2</b> Part 2</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Appendix</b></span></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i>Appendix A: Install R &amp; RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#a.1-install-r"><i class="fa fa-check"></i>A.1 Install R</a>
+<ul>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#r-on-windows"><i class="fa fa-check"></i>R on Windows</a></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#r-on-macos"><i class="fa fa-check"></i>R on macOS</a></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#r-on-linux-ubuntu"><i class="fa fa-check"></i>R on Linux (Ubuntu)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#a.2-install-rstudio"><i class="fa fa-check"></i>A.2 Install RStudio</a></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#a.3-use-r-inside-rstudio"><i class="fa fa-check"></i>A.3 Use R inside RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#r-studio"><i class="fa fa-check"></i>R studio</a></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#set-working-directory"><i class="fa fa-check"></i>Set working directory</a></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#some-general-knowledge"><i class="fa fa-check"></i>Some general knowledge</a></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#install-packages-1"><i class="fa fa-check"></i>Install packages</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#a4.-cloud-computing"><i class="fa fa-check"></i>A4. Cloud computing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Biomedical Data Science - introduction with case studies</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cancer" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Cancer genomics and epidemiology<a href="cancer.html#cancer" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="cancer-case1" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Case study 1: analysis of cBioportal mutation data<a href="cancer.html#cancer-case1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Non-small cell lung cancer is a deadly disease, and we would like to identify
+mutations in genes that drive its formation and progression.
+George et al. (2015) has sequenced 120 small cell lung cancer samples and this
+data is available from <a href="cbioportal">cBioportal</a>.
+The original data is in the <a href="https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/">MAF</a>, and we have selected a subset of the
+columns, normalized the column names, and made the data available as an RDS
+file.</p>
+<p>In this exercise, we will explore the mutation data and examine genes that are
+frequently mutated in non-small cell lung cancer samples.
+We will implement a simple method for identifying candidate tumour suppressors
+based on loss-of-function mutations.</p>
+<div id="exploratory-analysis" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Exploratory analysis<a href="cancer.html#exploratory-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Q1</strong>. Load the data named <code>mutations_sclc_ucologne_2015.rds</code> into R.
+Examine it using <code>head</code>.
+In this <code>data.frame</code>, each row is a mutation detected in a particular gene
+from a particular sample in the study.
+For more information on the columns, see the <a href="https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/">MAF specification</a>.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="cancer.html#cb128-1" tabindex="-1"></a>?readRDS</span>
+<span id="cb128-2"><a href="cancer.html#cb128-2" tabindex="-1"></a></span>
+<span id="cb128-3"><a href="cancer.html#cb128-3" tabindex="-1"></a>?head</span></code></pre></div>
+<p><strong>Q2</strong>. Identify the top 10 most frequently mutated genes.</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="cancer.html#cb129-1" tabindex="-1"></a><span class="co"># calculate count frequencies using table</span></span>
+<span id="cb129-2"><a href="cancer.html#cb129-2" tabindex="-1"></a>?table</span>
+<span id="cb129-3"><a href="cancer.html#cb129-3" tabindex="-1"></a><span class="co"># freqs &lt;- ???</span></span>
+<span id="cb129-4"><a href="cancer.html#cb129-4" tabindex="-1"></a></span>
+<span id="cb129-5"><a href="cancer.html#cb129-5" tabindex="-1"></a><span class="co"># sort the frequency vector in decreasing order</span></span>
+<span id="cb129-6"><a href="cancer.html#cb129-6" tabindex="-1"></a>?sort</span>
+<span id="cb129-7"><a href="cancer.html#cb129-7" tabindex="-1"></a><span class="co"># freqs &lt;- ???</span></span>
+<span id="cb129-8"><a href="cancer.html#cb129-8" tabindex="-1"></a></span>
+<span id="cb129-9"><a href="cancer.html#cb129-9" tabindex="-1"></a><span class="co"># select the first 10 genes in the freqs</span></span>
+<span id="cb129-10"><a href="cancer.html#cb129-10" tabindex="-1"></a><span class="co"># freqs.top &lt;- ???</span></span>
+<span id="cb129-11"><a href="cancer.html#cb129-11" tabindex="-1"></a></span>
+<span id="cb129-12"><a href="cancer.html#cb129-12" tabindex="-1"></a><span class="co"># obtain the gene names</span></span>
+<span id="cb129-13"><a href="cancer.html#cb129-13" tabindex="-1"></a><span class="co"># genes &lt;- names(freqs.top);</span></span>
+<span id="cb129-14"><a href="cancer.html#cb129-14" tabindex="-1"></a></span>
+<span id="cb129-15"><a href="cancer.html#cb129-15" tabindex="-1"></a><span class="co"># print(freqs.top)</span></span></code></pre></div>
+<p><strong>Q3</strong>. Tabulate the count frequencies of <code>variant_class</code>.
+What proportion of variants are <code>Silent</code> or inside an <code>Intron</code>?</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="cancer.html#cb130-1" tabindex="-1"></a>?table</span></code></pre></div>
+<p><strong>Q4</strong>. A variant class value <code>frame_shift_del</code> appears to be misspelt due to
+case sensitivity. Correct this error.</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="cancer.html#cb131-1" tabindex="-1"></a><span class="co"># x$variant_class[x$variant_class == &quot;frame_shift_del&quot;] &lt;- ???;</span></span></code></pre></div>
+<p><strong>Q5</strong>. To help us simplify the variant classes into loss-of-function or neutral,
+let us import the <code>mutation_effects.tsv</code> data.</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="cancer.html#cb132-1" tabindex="-1"></a>?read.table</span>
+<span id="cb132-2"><a href="cancer.html#cb132-2" tabindex="-1"></a><span class="co"># Hint: You need to set the `header` and `sep` arguments</span></span></code></pre></div>
+<p><strong>Q6</strong>. Define a new column in <code>x</code> that converts the variant classes to effects.</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="cancer.html#cb133-1" tabindex="-1"></a>?match</span></code></pre></div>
+<p><strong>Q7</strong>. Create a subset of the data for the most frequently mutated genes,
+and tabulate the mutation count frequencies of variant classes for each gene.</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="cancer.html#cb134-1" tabindex="-1"></a><span class="co"># x.sub &lt;- x[???, ]</span></span>
+<span id="cb134-2"><a href="cancer.html#cb134-2" tabindex="-1"></a></span>
+<span id="cb134-3"><a href="cancer.html#cb134-3" tabindex="-1"></a></span>
+<span id="cb134-4"><a href="cancer.html#cb134-4" tabindex="-1"></a><span class="co"># order the factor levels based on `genes`,</span></span>
+<span id="cb134-5"><a href="cancer.html#cb134-5" tabindex="-1"></a><span class="co"># which was previously sorted in decreasing order of frequency</span></span>
+<span id="cb134-6"><a href="cancer.html#cb134-6" tabindex="-1"></a><span class="co"># x.sub$gene &lt;- factor(x.sub$gene, levels=genes);</span></span>
+<span id="cb134-7"><a href="cancer.html#cb134-7" tabindex="-1"></a></span>
+<span id="cb134-8"><a href="cancer.html#cb134-8" tabindex="-1"></a>?table</span></code></pre></div>
+<p><strong>Q8</strong>. Determine the number of mutations in each effect category, across all genes.
+Save the result in a variable named <code>overall.counts</code>.</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="cancer.html#cb135-1" tabindex="-1"></a><span class="co"># overall.counts &lt;- table(???);</span></span>
+<span id="cb135-2"><a href="cancer.html#cb135-2" tabindex="-1"></a></span>
+<span id="cb135-3"><a href="cancer.html#cb135-3" tabindex="-1"></a><span class="co"># overall.counts</span></span></code></pre></div>
+<p><strong>Q9</strong>. Tabulate the mutation count frequencies for each gene and effect.
+Save the results in a variable named <code>gene.counts</code>.
+Look up the frequently mutated genes in this matrix.</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="cancer.html#cb136-1" tabindex="-1"></a><span class="co"># gene.counts &lt;- table(???, ???);</span></span>
+<span id="cb136-2"><a href="cancer.html#cb136-2" tabindex="-1"></a><span class="co"># gene.counts[???, ]</span></span></code></pre></div>
+</div>
+<div id="statistical-analysis" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Statistical analysis<a href="cancer.html#statistical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here, we implemented a simple statistical test for assessing whether a
+gene is significantly frequently targeted by loss-of-function mutations,
+based on the Fisher’s exact test.</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="cancer.html#cb137-1" tabindex="-1"></a><span class="co"># Test whether a query gene has significantly more loss-of-function</span></span>
+<span id="cb137-2"><a href="cancer.html#cb137-2" tabindex="-1"></a><span class="co"># mutations compared with other genes.</span></span>
+<span id="cb137-3"><a href="cancer.html#cb137-3" tabindex="-1"></a><span class="co"># Requires global variables `gene.counts` and `overall.counts`</span></span>
+<span id="cb137-4"><a href="cancer.html#cb137-4" tabindex="-1"></a>lof_test <span class="ot">&lt;-</span> <span class="cf">function</span>(gene) {</span>
+<span id="cb137-5"><a href="cancer.html#cb137-5" tabindex="-1"></a>  </span>
+<span id="cb137-6"><a href="cancer.html#cb137-6" tabindex="-1"></a>    <span class="co"># Construct the following contingency table:</span></span>
+<span id="cb137-7"><a href="cancer.html#cb137-7" tabindex="-1"></a>    <span class="co">#              neutral    lof</span></span>
+<span id="cb137-8"><a href="cancer.html#cb137-8" tabindex="-1"></a>    <span class="co"># other genes  a          b</span></span>
+<span id="cb137-9"><a href="cancer.html#cb137-9" tabindex="-1"></a>    <span class="co"># query gene   c          d</span></span>
+<span id="cb137-10"><a href="cancer.html#cb137-10" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;neutral&quot;</span>, <span class="st">&quot;loss_of_function&quot;</span>);</span>
+<span id="cb137-11"><a href="cancer.html#cb137-11" tabindex="-1"></a>    gene.counts.sel <span class="ot">&lt;-</span> gene.counts[gene, cols];</span>
+<span id="cb137-12"><a href="cancer.html#cb137-12" tabindex="-1"></a>    ct <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb137-13"><a href="cancer.html#cb137-13" tabindex="-1"></a>        <span class="fu">c</span>(</span>
+<span id="cb137-14"><a href="cancer.html#cb137-14" tabindex="-1"></a>            overall.counts[cols] <span class="sc">-</span> gene.counts.sel,</span>
+<span id="cb137-15"><a href="cancer.html#cb137-15" tabindex="-1"></a>            gene.counts.sel</span>
+<span id="cb137-16"><a href="cancer.html#cb137-16" tabindex="-1"></a>        ),</span>
+<span id="cb137-17"><a href="cancer.html#cb137-17" tabindex="-1"></a>        <span class="at">byrow=</span><span class="cn">TRUE</span>,</span>
+<span id="cb137-18"><a href="cancer.html#cb137-18" tabindex="-1"></a>        <span class="at">ncol=</span><span class="dv">2</span></span>
+<span id="cb137-19"><a href="cancer.html#cb137-19" tabindex="-1"></a>    );</span>
+<span id="cb137-20"><a href="cancer.html#cb137-20" tabindex="-1"></a></span>
+<span id="cb137-21"><a href="cancer.html#cb137-21" tabindex="-1"></a>    <span class="co"># Test whether the lof mutations are greater in frequency compared </span></span>
+<span id="cb137-22"><a href="cancer.html#cb137-22" tabindex="-1"></a>    <span class="co"># to neutral mutations in the query gene, in comparison to all other genes</span></span>
+<span id="cb137-23"><a href="cancer.html#cb137-23" tabindex="-1"></a>    <span class="fu">fisher.test</span>(ct, <span class="at">alternative=</span><span class="st">&quot;greater&quot;</span>)</span>
+<span id="cb137-24"><a href="cancer.html#cb137-24" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>Q10</strong>. Subset the <code>gene.counts</code> table for the <em>TP53</em> gene.
+Run <code>lof_test</code> on this gene.</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="cancer.html#cb138-1" tabindex="-1"></a><span class="co"># gene.counts[???, ]</span></span>
+<span id="cb138-2"><a href="cancer.html#cb138-2" tabindex="-1"></a><span class="co"># lof_test(???)</span></span></code></pre></div>
+<p><strong>Q11</strong>. Now, test to see if <em>TTN</em> and <em>MUC16</em> are significantly frequently
+targeted by loss-of-function mutations.</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="cancer.html#cb139-1" tabindex="-1"></a><span class="co"># similar to above</span></span></code></pre></div>
+<p><strong>Q12</strong>. Apply the loss-of-function test to all frequently mutated genes.</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="cancer.html#cb140-1" tabindex="-1"></a>?lapply</span></code></pre></div>
+<p><strong>Q13</strong>. Extract odds ratio and p-values from the test results.</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="cancer.html#cb141-1" tabindex="-1"></a><span class="co"># odds.ratios &lt;- vapply(hs, function(h) h$estimate, 0);</span></span>
+<span id="cb141-2"><a href="cancer.html#cb141-2" tabindex="-1"></a><span class="co"># ps &lt;- vapply(hs, function(h) ???, 0);</span></span></code></pre></div>
+<p><strong>Q14</strong>. Since we tested many genes, we need to adjust for multiple hypothesis
+testing so that we can control the false discovery rate.
+So, adjust the p-values to obtain q-values.</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="cancer.html#cb142-1" tabindex="-1"></a>?p.adjust</span></code></pre></div>
+<p><strong>Q15</strong>. Construct a results <code>data.frame</code> with gene names, odds ratio, p-values,
+and q-values that summarize the loss-of-function test results.</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="cancer.html#cb143-1" tabindex="-1"></a><span class="co"># res &lt;- data.frame(</span></span>
+<span id="cb143-2"><a href="cancer.html#cb143-2" tabindex="-1"></a><span class="co">#     gene = ???,</span></span>
+<span id="cb143-3"><a href="cancer.html#cb143-3" tabindex="-1"></a><span class="co">#     odds_ratio = ???,</span></span>
+<span id="cb143-4"><a href="cancer.html#cb143-4" tabindex="-1"></a><span class="co">#     p = ???,</span></span>
+<span id="cb143-5"><a href="cancer.html#cb143-5" tabindex="-1"></a><span class="co">#     q = ???</span></span>
+<span id="cb143-6"><a href="cancer.html#cb143-6" tabindex="-1"></a><span class="co"># );</span></span>
+<span id="cb143-7"><a href="cancer.html#cb143-7" tabindex="-1"></a></span>
+<span id="cb143-8"><a href="cancer.html#cb143-8" tabindex="-1"></a>?order</span>
+<span id="cb143-9"><a href="cancer.html#cb143-9" tabindex="-1"></a><span class="co">#res &lt;- res[order(???), ];</span></span></code></pre></div>
+<p><strong>Q16</strong>. Identify the significant genes from the results <code>data.frame</code> at a
+false discovery rate of 5% (i.e. q-value threshold of 0.05).</p>
+<p><strong>Q17</strong>. Look up the significant genes in the <code>gene.counts</code> matrix.</p>
+</div>
+<div id="literature-search" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Literature search<a href="cancer.html#literature-search" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Q18</strong>. Do the significant genes appear to be involved in cancer?
+What general roles do they play?</p>
+<p><strong>Q19</strong>. How do these genes contribute specifically to the formation
+or progression of small cell lung cancer?</p>
+<p><strong>Q20</strong>. What are some possible ways of identifying oncogenes that are activated
+by mutations or other genomic alterations?</p>
+</div>
+</div>
+<div id="cancer-case2" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Case study 2: Cancer Epidemiology<a href="cancer.html#cancer-case2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><em>by Dr Jason Wong</em></p>
+<p><em>Date: 16-11-2022 (Updated 21-11-2022)</em></p>
+<p><a href="https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/M5-epidemiology.Rmd">The RMarkdown notebook to run your own code can be downloaded here</a></p>
+</div>
+<div id="scenario" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> 1. Scenario<a href="cancer.html#scenario" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You are a grants officer working for the Hong Kong Health Bureau. The HK government has recently announced new special funding in cancer research to be administered by the Bureau. You are tasked with coming up with a proposal for distribution of funding to specific cancer types that are in most need of research.</p>
+<p><u>Discussion points:</u></p>
+<ul>
+<li><p>What is important to consider when selecting a cancer type in need of research?</p></li>
+<li><p>What type of data is required?</p></li>
+</ul>
+</div>
+<div id="hong-kong-population" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> 2. Hong Kong population<a href="cancer.html#hong-kong-population" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You are aware that generally cancer is disease that affects the elderly more than the young. You decide to first take a closer look at the structure of the population of Hong Kong.</p>
+<p><a href="https://www.censtatd.gov.hk/en/web_table.html?id=1A">Historic population of Hong Kong</a> can be obtained from the Census and Statistics Department.</p>
+<p>An abridged version of the full historic population of Hong Kong is provided here containing the population of Hong Kong from 1965, 1975, 1985, 1995, 2005, 2015 and 2022 categorised by sex and age (0-19, 20-44, 45-64, 65+).</p>
+<p><u>Discussion points:</u></p>
+<ul>
+<li><p>What is the trend in Hong Kong’s population over the past ~60 years?</p></li>
+<li><p>What is the best way to visualise this data?</p></li>
+</ul>
+<div id="download-population-data" class="section level3 hasAnchor" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Download population data<a href="cancer.html#download-population-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="cancer.html#cb144-1" tabindex="-1"></a>HKPop<span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/HK_population_1965-2022.txt&quot;</span>, </span>
+<span id="cb144-2"><a href="cancer.html#cb144-2" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">stringsAsFactor=</span><span class="cn">FALSE</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb144-3"><a href="cancer.html#cb144-3" tabindex="-1"></a>HKPop</span>
+<span id="cb144-4"><a href="cancer.html#cb144-4" tabindex="-1"></a><span class="co">#&gt;      Sex   Age  1965  1975   1985   1995   2005   2015   2022</span></span>
+<span id="cb144-5"><a href="cancer.html#cb144-5" tabindex="-1"></a><span class="co">#&gt; 1   male  0-19 901.9 989.7  909.0  835.6  719.0  613.8  530.6</span></span>
+<span id="cb144-6"><a href="cancer.html#cb144-6" tabindex="-1"></a><span class="co">#&gt; 2   male 20-44 607.4 795.6 1210.2 1363.7 1263.7 1146.9 1039.2</span></span>
+<span id="cb144-7"><a href="cancer.html#cb144-7" tabindex="-1"></a><span class="co">#&gt; 3   male 45-64 266.5 414.3  525.9  615.7  896.6 1084.9 1046.2</span></span>
+<span id="cb144-8"><a href="cancer.html#cb144-8" tabindex="-1"></a><span class="co">#&gt; 4   male   65+  42.2  84.6  170.5  269.3  384.7  520.0  713.6</span></span>
+<span id="cb144-9"><a href="cancer.html#cb144-9" tabindex="-1"></a><span class="co">#&gt; 5 female  0-19 865.6 938.8  840.3  780.7  684.1  575.0  502.1</span></span>
+<span id="cb144-10"><a href="cancer.html#cb144-10" tabindex="-1"></a><span class="co">#&gt; 6 female 20-44 539.3 685.6 1093.7 1423.6 1530.4 1531.8 1338.7</span></span>
+<span id="cb144-11"><a href="cancer.html#cb144-11" tabindex="-1"></a><span class="co">#&gt; 7 female 45-64 286.3 400.7  470.7  535.0  884.7 1224.3 1314.7</span></span>
+<span id="cb144-12"><a href="cancer.html#cb144-12" tabindex="-1"></a><span class="co">#&gt; 8 female   65+  88.7 152.3  235.9  332.5  450.0  594.6  806.5</span></span></code></pre></div>
+</div>
+<div id="format-data-for-plotting" class="section level3 hasAnchor" number="7.4.2">
+<h3><span class="header-section-number">7.4.2</span> Format data for plotting<a href="cancer.html#format-data-for-plotting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here we convert the original dataframe into simplified format for ggplot2.</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="cancer.html#cb145-1" tabindex="-1"></a></span>
+<span id="cb145-2"><a href="cancer.html#cb145-2" tabindex="-1"></a>male<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(<span class="fu">colnames</span>(HKPop[<span class="dv">1</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">9</span>])),</span>
+<span id="cb145-3"><a href="cancer.html#cb145-3" tabindex="-1"></a>                 <span class="st">`</span><span class="at">0-19</span><span class="st">`</span>  <span class="ot">=</span> <span class="fu">as.numeric</span>(HKPop[<span class="dv">1</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">9</span>]),</span>
+<span id="cb145-4"><a href="cancer.html#cb145-4" tabindex="-1"></a>                 <span class="st">`</span><span class="at">20-44</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(HKPop[<span class="dv">2</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">9</span>]),</span>
+<span id="cb145-5"><a href="cancer.html#cb145-5" tabindex="-1"></a>                 <span class="st">`</span><span class="at">45-64</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(HKPop[<span class="dv">3</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">9</span>]),</span>
+<span id="cb145-6"><a href="cancer.html#cb145-6" tabindex="-1"></a>                 <span class="st">`</span><span class="at">65+</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(HKPop[<span class="dv">4</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">9</span>]),</span>
+<span id="cb145-7"><a href="cancer.html#cb145-7" tabindex="-1"></a>                 <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb145-8"><a href="cancer.html#cb145-8" tabindex="-1"></a></span>
+<span id="cb145-9"><a href="cancer.html#cb145-9" tabindex="-1"></a></span>
+<span id="cb145-10"><a href="cancer.html#cb145-10" tabindex="-1"></a></span>
+<span id="cb145-11"><a href="cancer.html#cb145-11" tabindex="-1"></a>female<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(<span class="fu">colnames</span>(HKPop[<span class="dv">1</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">9</span>])),</span>
+<span id="cb145-12"><a href="cancer.html#cb145-12" tabindex="-1"></a>                 <span class="st">`</span><span class="at">0-19</span><span class="st">`</span>  <span class="ot">=</span> <span class="fu">as.numeric</span>(HKPop[<span class="dv">5</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">9</span>]),</span>
+<span id="cb145-13"><a href="cancer.html#cb145-13" tabindex="-1"></a>                 <span class="st">`</span><span class="at">20-44</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(HKPop[<span class="dv">6</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">9</span>]),</span>
+<span id="cb145-14"><a href="cancer.html#cb145-14" tabindex="-1"></a>                 <span class="st">`</span><span class="at">45-64</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(HKPop[<span class="dv">7</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">9</span>]),</span>
+<span id="cb145-15"><a href="cancer.html#cb145-15" tabindex="-1"></a>                 <span class="st">`</span><span class="at">65+</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(HKPop[<span class="dv">8</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">9</span>]),</span>
+<span id="cb145-16"><a href="cancer.html#cb145-16" tabindex="-1"></a>                 <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb145-17"><a href="cancer.html#cb145-17" tabindex="-1"></a></span>
+<span id="cb145-18"><a href="cancer.html#cb145-18" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;tidyverse&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb145-19"><a href="cancer.html#cb145-19" tabindex="-1"></a>male<span class="ot">&lt;-</span><span class="fu">as_tibble</span>(male) <span class="sc">%&gt;%</span> <span class="fu">select</span>(year,<span class="st">`</span><span class="at">0-19</span><span class="st">`</span>,<span class="st">`</span><span class="at">20-44</span><span class="st">`</span>,<span class="st">`</span><span class="at">45-64</span><span class="st">`</span>,<span class="st">`</span><span class="at">65+</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="fu">gather</span> (<span class="at">key=</span><span class="st">&quot;age&quot;</span>,<span class="at">value=</span><span class="st">&quot;population (&#39;000s)&quot;</span>,<span class="sc">-</span>year)</span>
+<span id="cb145-20"><a href="cancer.html#cb145-20" tabindex="-1"></a>female<span class="ot">&lt;-</span><span class="fu">as_tibble</span>(female) <span class="sc">%&gt;%</span> <span class="fu">select</span>(year,<span class="st">`</span><span class="at">0-19</span><span class="st">`</span>,<span class="st">`</span><span class="at">20-44</span><span class="st">`</span>,<span class="st">`</span><span class="at">45-64</span><span class="st">`</span>,<span class="st">`</span><span class="at">65+</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="fu">gather</span> (<span class="at">key=</span><span class="st">&quot;age&quot;</span>,<span class="at">value=</span><span class="st">&quot;population (&#39;000s)&quot;</span>,<span class="sc">-</span>year)</span>
+<span id="cb145-21"><a href="cancer.html#cb145-21" tabindex="-1"></a>male</span>
+<span id="cb145-22"><a href="cancer.html#cb145-22" tabindex="-1"></a><span class="co">#&gt; # A tibble: 28 × 3</span></span>
+<span id="cb145-23"><a href="cancer.html#cb145-23" tabindex="-1"></a><span class="co">#&gt;     year age   `population (&#39;000s)`</span></span>
+<span id="cb145-24"><a href="cancer.html#cb145-24" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;</span></span>
+<span id="cb145-25"><a href="cancer.html#cb145-25" tabindex="-1"></a><span class="co">#&gt;  1  1965 0-19                  902.</span></span>
+<span id="cb145-26"><a href="cancer.html#cb145-26" tabindex="-1"></a><span class="co">#&gt;  2  1975 0-19                  990.</span></span>
+<span id="cb145-27"><a href="cancer.html#cb145-27" tabindex="-1"></a><span class="co">#&gt;  3  1985 0-19                  909 </span></span>
+<span id="cb145-28"><a href="cancer.html#cb145-28" tabindex="-1"></a><span class="co">#&gt;  4  1995 0-19                  836.</span></span>
+<span id="cb145-29"><a href="cancer.html#cb145-29" tabindex="-1"></a><span class="co">#&gt;  5  2005 0-19                  719 </span></span>
+<span id="cb145-30"><a href="cancer.html#cb145-30" tabindex="-1"></a><span class="co">#&gt;  6  2015 0-19                  614.</span></span>
+<span id="cb145-31"><a href="cancer.html#cb145-31" tabindex="-1"></a><span class="co">#&gt;  7  2022 0-19                  531.</span></span>
+<span id="cb145-32"><a href="cancer.html#cb145-32" tabindex="-1"></a><span class="co">#&gt;  8  1965 20-44                 607.</span></span>
+<span id="cb145-33"><a href="cancer.html#cb145-33" tabindex="-1"></a><span class="co">#&gt;  9  1975 20-44                 796.</span></span>
+<span id="cb145-34"><a href="cancer.html#cb145-34" tabindex="-1"></a><span class="co">#&gt; 10  1985 20-44                1210.</span></span>
+<span id="cb145-35"><a href="cancer.html#cb145-35" tabindex="-1"></a><span class="co">#&gt; # ℹ 18 more rows</span></span>
+<span id="cb145-36"><a href="cancer.html#cb145-36" tabindex="-1"></a>female</span>
+<span id="cb145-37"><a href="cancer.html#cb145-37" tabindex="-1"></a><span class="co">#&gt; # A tibble: 28 × 3</span></span>
+<span id="cb145-38"><a href="cancer.html#cb145-38" tabindex="-1"></a><span class="co">#&gt;     year age   `population (&#39;000s)`</span></span>
+<span id="cb145-39"><a href="cancer.html#cb145-39" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;</span></span>
+<span id="cb145-40"><a href="cancer.html#cb145-40" tabindex="-1"></a><span class="co">#&gt;  1  1965 0-19                  866.</span></span>
+<span id="cb145-41"><a href="cancer.html#cb145-41" tabindex="-1"></a><span class="co">#&gt;  2  1975 0-19                  939.</span></span>
+<span id="cb145-42"><a href="cancer.html#cb145-42" tabindex="-1"></a><span class="co">#&gt;  3  1985 0-19                  840.</span></span>
+<span id="cb145-43"><a href="cancer.html#cb145-43" tabindex="-1"></a><span class="co">#&gt;  4  1995 0-19                  781.</span></span>
+<span id="cb145-44"><a href="cancer.html#cb145-44" tabindex="-1"></a><span class="co">#&gt;  5  2005 0-19                  684.</span></span>
+<span id="cb145-45"><a href="cancer.html#cb145-45" tabindex="-1"></a><span class="co">#&gt;  6  2015 0-19                  575 </span></span>
+<span id="cb145-46"><a href="cancer.html#cb145-46" tabindex="-1"></a><span class="co">#&gt;  7  2022 0-19                  502.</span></span>
+<span id="cb145-47"><a href="cancer.html#cb145-47" tabindex="-1"></a><span class="co">#&gt;  8  1965 20-44                 539.</span></span>
+<span id="cb145-48"><a href="cancer.html#cb145-48" tabindex="-1"></a><span class="co">#&gt;  9  1975 20-44                 686.</span></span>
+<span id="cb145-49"><a href="cancer.html#cb145-49" tabindex="-1"></a><span class="co">#&gt; 10  1985 20-44                1094.</span></span>
+<span id="cb145-50"><a href="cancer.html#cb145-50" tabindex="-1"></a><span class="co">#&gt; # ℹ 18 more rows</span></span></code></pre></div>
+</div>
+<div id="plotting-population-data" class="section level3 hasAnchor" number="7.4.3">
+<h3><span class="header-section-number">7.4.3</span> Plotting population data<a href="cancer.html#plotting-population-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Uses ggplot2 and gridExtra to make line plot of male and female population data side-by-side.</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="cancer.html#cb146-1" tabindex="-1"></a></span>
+<span id="cb146-2"><a href="cancer.html#cb146-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;ggplot2&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;gglot2&quot;</span>)</span>
+<span id="cb146-3"><a href="cancer.html#cb146-3" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;gridExtra&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;gridExtra&quot;</span>)</span>
+<span id="cb146-4"><a href="cancer.html#cb146-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb146-5"><a href="cancer.html#cb146-5" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb146-6"><a href="cancer.html#cb146-6" tabindex="-1"></a><span class="co">#Import the necessary packages and libraries</span></span>
+<span id="cb146-7"><a href="cancer.html#cb146-7" tabindex="-1"></a>pmale<span class="ot">&lt;-</span><span class="fu">ggplot</span>(male,<span class="fu">aes</span>(<span class="at">x=</span>year,<span class="at">y=</span><span class="st">`</span><span class="at">population (&#39;000s)</span><span class="st">`</span>,<span class="at">group=</span>age))<span class="sc">+</span></span>
+<span id="cb146-8"><a href="cancer.html#cb146-8" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>age))<span class="sc">+</span></span>
+<span id="cb146-9"><a href="cancer.html#cb146-9" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>age))<span class="sc">+</span></span>
+<span id="cb146-10"><a href="cancer.html#cb146-10" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>)<span class="sc">+</span></span>
+<span id="cb146-11"><a href="cancer.html#cb146-11" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb146-12"><a href="cancer.html#cb146-12" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1600</span>)<span class="sc">+</span></span>
+<span id="cb146-13"><a href="cancer.html#cb146-13" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)<span class="sc">+</span></span>
+<span id="cb146-14"><a href="cancer.html#cb146-14" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1965</span>, <span class="dv">2022</span>, <span class="at">by =</span> <span class="dv">10</span>))<span class="sc">+</span></span>
+<span id="cb146-15"><a href="cancer.html#cb146-15" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;male&quot;</span>)</span>
+<span id="cb146-16"><a href="cancer.html#cb146-16" tabindex="-1"></a>pfemale<span class="ot">&lt;-</span><span class="fu">ggplot</span>(female,<span class="fu">aes</span>(<span class="at">x=</span>year,<span class="at">y=</span><span class="st">`</span><span class="at">population (&#39;000s)</span><span class="st">`</span>,<span class="at">group=</span>age))<span class="sc">+</span></span>
+<span id="cb146-17"><a href="cancer.html#cb146-17" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>age))<span class="sc">+</span></span>
+<span id="cb146-18"><a href="cancer.html#cb146-18" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>age))<span class="sc">+</span></span>
+<span id="cb146-19"><a href="cancer.html#cb146-19" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>)<span class="sc">+</span></span>
+<span id="cb146-20"><a href="cancer.html#cb146-20" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb146-21"><a href="cancer.html#cb146-21" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1600</span>)<span class="sc">+</span></span>
+<span id="cb146-22"><a href="cancer.html#cb146-22" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;right&quot;</span>,<span class="at">axis.title.y =</span> <span class="fu">element_blank</span>())<span class="sc">+</span></span>
+<span id="cb146-23"><a href="cancer.html#cb146-23" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1965</span>, <span class="dv">2022</span>, <span class="at">by =</span> <span class="dv">10</span>))<span class="sc">+</span></span>
+<span id="cb146-24"><a href="cancer.html#cb146-24" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;female&quot;</span>)</span>
+<span id="cb146-25"><a href="cancer.html#cb146-25" tabindex="-1"></a><span class="fu">grid.arrange</span>(pmale,pfemale,<span class="at">ncol=</span><span class="dv">2</span>,<span class="at">widths=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="fl">3.75</span>))</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/plot%20data-1.png" width="672" /></p>
+</div>
+</div>
+<div id="cancer-registry-data" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> 3. Cancer registry data<a href="cancer.html#cancer-registry-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is clear that Hong Kong has an aging population, thus cancer incidence would also likely increase. To examine cancer incidence and mortality in Hong Kong you obtain data from the <a href="https://www3.ha.org.hk/cancereg/">Hong Kong Cancer Registry</a>, which is maintained by the Hospital Authority.</p>
+<p>Cancer incidence data was summarised for the last three decades (1990-1999, 2000-2009 and 2010-2019).</p>
+<p><u>Discussion points:</u></p>
+<ul>
+<li><p>Has incidence been increasing for most cancers? How about mortality?</p></li>
+<li><p>How has cancer risk and mortality rate changed in the past 3 decades?</p></li>
+<li><p>Has the incidence-to-mortality ratio been decreasing generally? Is it statistically significant?</p></li>
+<li><p>Which cancer type has the highest incidence in children (0-19) when compared with the elderly (65+). Is this statistically significantly different to incidence of children versus elderly cancers in general?</p></li>
+</ul>
+<div id="download-cancer-registry-data" class="section level3 hasAnchor" number="7.5.1">
+<h3><span class="header-section-number">7.5.1</span> Download cancer registry data<a href="cancer.html#download-cancer-registry-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="cancer.html#cb147-1" tabindex="-1"></a>HKCancer<span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/HK_cancer_incidence_mortality_1990-2020.txt&quot;</span>,</span>
+<span id="cb147-2"><a href="cancer.html#cb147-2" tabindex="-1"></a>                      <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">stringsAsFactor=</span><span class="cn">FALSE</span>)</span>
+<span id="cb147-3"><a href="cancer.html#cb147-3" tabindex="-1"></a>HKCancer</span>
+<span id="cb147-4"><a href="cancer.html#cb147-4" tabindex="-1"></a><span class="co">#&gt;         Type    Sex   Age      Year Biliary Bladder Brain Breast Cervix</span></span>
+<span id="cb147-5"><a href="cancer.html#cb147-5" tabindex="-1"></a><span class="co">#&gt; 1  incidence   male  0-19 1990-1999       0       6   212      0      0</span></span>
+<span id="cb147-6"><a href="cancer.html#cb147-6" tabindex="-1"></a><span class="co">#&gt; 2  incidence   male 20-44 1990-1999      36     165   368      6      0</span></span>
+<span id="cb147-7"><a href="cancer.html#cb147-7" tabindex="-1"></a><span class="co">#&gt; 3  incidence   male 45-64 1990-1999     322    1266   393     28      0</span></span>
+<span id="cb147-8"><a href="cancer.html#cb147-8" tabindex="-1"></a><span class="co">#&gt; 4  incidence   male   65+ 1990-1999     830    2920   318     35      0</span></span>
+<span id="cb147-9"><a href="cancer.html#cb147-9" tabindex="-1"></a><span class="co">#&gt; 5  incidence   male  0-19 2000-2009       0       2   206      0      0</span></span>
+<span id="cb147-10"><a href="cancer.html#cb147-10" tabindex="-1"></a><span class="co">#&gt; 6  incidence   male 20-44 2000-2009      31     103   267      9      0</span></span>
+<span id="cb147-11"><a href="cancer.html#cb147-11" tabindex="-1"></a><span class="co">#&gt; 7  incidence   male 45-64 2000-2009     297     900   372     52      0</span></span>
+<span id="cb147-12"><a href="cancer.html#cb147-12" tabindex="-1"></a><span class="co">#&gt; 8  incidence   male   65+ 2000-2009    1134    3103   299     96      0</span></span>
+<span id="cb147-13"><a href="cancer.html#cb147-13" tabindex="-1"></a><span class="co">#&gt; 9  incidence   male  0-19 2010-2019       0       2   155      0      0</span></span>
+<span id="cb147-14"><a href="cancer.html#cb147-14" tabindex="-1"></a><span class="co">#&gt; 10 incidence   male 20-44 2010-2019      28      18   276     14      0</span></span>
+<span id="cb147-15"><a href="cancer.html#cb147-15" tabindex="-1"></a><span class="co">#&gt; 11 incidence   male 45-64 2010-2019     530     648   511     72      0</span></span>
+<span id="cb147-16"><a href="cancer.html#cb147-16" tabindex="-1"></a><span class="co">#&gt; 12 incidence   male   65+ 2010-2019    1568    2399   380    107      0</span></span>
+<span id="cb147-17"><a href="cancer.html#cb147-17" tabindex="-1"></a><span class="co">#&gt; 13 incidence female  0-19 1990-1999       0       2   149      6      0</span></span>
+<span id="cb147-18"><a href="cancer.html#cb147-18" tabindex="-1"></a><span class="co">#&gt; 14 incidence female 20-44 1990-1999      52      62   283   4228   1263</span></span>
+<span id="cb147-19"><a href="cancer.html#cb147-19" tabindex="-1"></a><span class="co">#&gt; 15 incidence female 45-64 1990-1999     246     246   238   5311   1839</span></span>
+<span id="cb147-20"><a href="cancer.html#cb147-20" tabindex="-1"></a><span class="co">#&gt; 16 incidence female   65+ 1990-1999     909    1199   284   4122   1574</span></span>
+<span id="cb147-21"><a href="cancer.html#cb147-21" tabindex="-1"></a><span class="co">#&gt; 17 incidence female  0-19 2000-2009       0       0   132      4      4</span></span>
+<span id="cb147-22"><a href="cancer.html#cb147-22" tabindex="-1"></a><span class="co">#&gt; 18 incidence female 20-44 2000-2009      34      39   223   5887   1204</span></span>
+<span id="cb147-23"><a href="cancer.html#cb147-23" tabindex="-1"></a><span class="co">#&gt; 19 incidence female 45-64 2000-2009     287     179   265  11833   1676</span></span>
+<span id="cb147-24"><a href="cancer.html#cb147-24" tabindex="-1"></a><span class="co">#&gt; 20 incidence female   65+ 2000-2009    1190    1090   237   5774   1329</span></span>
+<span id="cb147-25"><a href="cancer.html#cb147-25" tabindex="-1"></a><span class="co">#&gt; 21 incidence female  0-19 2010-2019       0       2   119      1      0</span></span>
+<span id="cb147-26"><a href="cancer.html#cb147-26" tabindex="-1"></a><span class="co">#&gt; 22 incidence female 20-44 2010-2019      36      17   223   6658   1294</span></span>
+<span id="cb147-27"><a href="cancer.html#cb147-27" tabindex="-1"></a><span class="co">#&gt; 23 incidence female 45-64 2010-2019     452     188   394  22096   2288</span></span>
+<span id="cb147-28"><a href="cancer.html#cb147-28" tabindex="-1"></a><span class="co">#&gt; 24 incidence female   65+ 2010-2019    1500     872   283  10337   1269</span></span>
+<span id="cb147-29"><a href="cancer.html#cb147-29" tabindex="-1"></a><span class="co">#&gt; 25 mortality   male  0-19 1990-1999       0       0    76      0      0</span></span>
+<span id="cb147-30"><a href="cancer.html#cb147-30" tabindex="-1"></a><span class="co">#&gt;    Colorectum Eye Hodgkin.lymphoma Kaposi Kidney Larynx Leukaemia Liver  Lung</span></span>
+<span id="cb147-31"><a href="cancer.html#cb147-31" tabindex="-1"></a><span class="co">#&gt; 1          15  29               35      0     24      1       356    58     6</span></span>
+<span id="cb147-32"><a href="cancer.html#cb147-32" tabindex="-1"></a><span class="co">#&gt; 2        1087   8               64      0    141     86       509  1741  1036</span></span>
+<span id="cb147-33"><a href="cancer.html#cb147-33" tabindex="-1"></a><span class="co">#&gt; 3        4644   9               47      0    530    824       453  5702  8420</span></span>
+<span id="cb147-34"><a href="cancer.html#cb147-34" tabindex="-1"></a><span class="co">#&gt; 4        8058  21               41      0    721   1265       623  4806 15152</span></span>
+<span id="cb147-35"><a href="cancer.html#cb147-35" tabindex="-1"></a><span class="co">#&gt; 5           5  38               32      0     20      0       329    33     3</span></span>
+<span id="cb147-36"><a href="cancer.html#cb147-36" tabindex="-1"></a><span class="co">#&gt; 6         957   8              119      9    221     37       437  1116   772</span></span>
+<span id="cb147-37"><a href="cancer.html#cb147-37" tabindex="-1"></a><span class="co">#&gt; 7        6418  18               77      4   1071    658       642  6015  7909</span></span>
+<span id="cb147-38"><a href="cancer.html#cb147-38" tabindex="-1"></a><span class="co">#&gt; 8       13352  13               77      8   1275   1125       864  5808 18870</span></span>
+<span id="cb147-39"><a href="cancer.html#cb147-39" tabindex="-1"></a><span class="co">#&gt; 9           6  26               53      0     31      0       338    24     2</span></span>
+<span id="cb147-40"><a href="cancer.html#cb147-40" tabindex="-1"></a><span class="co">#&gt; 10       1005  10              163     25    293     29       401   659   541</span></span>
+<span id="cb147-41"><a href="cancer.html#cb147-41" tabindex="-1"></a><span class="co">#&gt; 11      10034  28               87     18   1978    684      1033  6500  9523</span></span>
+<span id="cb147-42"><a href="cancer.html#cb147-42" tabindex="-1"></a><span class="co">#&gt; 12      18003  15              114     12   1977   1043      1381  6716 20588</span></span>
+<span id="cb147-43"><a href="cancer.html#cb147-43" tabindex="-1"></a><span class="co">#&gt; 13          2  33               10      0     25      0       296    37     7</span></span>
+<span id="cb147-44"><a href="cancer.html#cb147-44" tabindex="-1"></a><span class="co">#&gt; 14        932  11               61      0     98     13       393   353   597</span></span>
+<span id="cb147-45"><a href="cancer.html#cb147-45" tabindex="-1"></a><span class="co">#&gt; 15       3166   9               19      0    256     59       312  1093  2629</span></span>
+<span id="cb147-46"><a href="cancer.html#cb147-46" tabindex="-1"></a><span class="co">#&gt; 16       7728  16               33      0    503    130       534  2244  8428</span></span>
+<span id="cb147-47"><a href="cancer.html#cb147-47" tabindex="-1"></a><span class="co">#&gt; 17          5  14               30      0     15      0       219    13     5</span></span>
+<span id="cb147-48"><a href="cancer.html#cb147-48" tabindex="-1"></a><span class="co">#&gt; 18        938  12              122      2    120      5       405   212   625</span></span>
+<span id="cb147-49"><a href="cancer.html#cb147-49" tabindex="-1"></a><span class="co">#&gt; 19       4430  10               33      0    482     37       469  1041  3397</span></span>
+<span id="cb147-50"><a href="cancer.html#cb147-50" tabindex="-1"></a><span class="co">#&gt; 20      10810   8               35      0    830     85       723  2637  9517</span></span>
+<span id="cb147-51"><a href="cancer.html#cb147-51" tabindex="-1"></a><span class="co">#&gt; 21          5  14               32      0     19      0       237    21     0</span></span>
+<span id="cb147-52"><a href="cancer.html#cb147-52" tabindex="-1"></a><span class="co">#&gt; 22       1057   9              174      0    135      7       443   168   647</span></span>
+<span id="cb147-53"><a href="cancer.html#cb147-53" tabindex="-1"></a><span class="co">#&gt; 23       7200  16               58      4    887     47       786  1168  6312</span></span>
+<span id="cb147-54"><a href="cancer.html#cb147-54" tabindex="-1"></a><span class="co">#&gt; 24      13119  20               58      5   1203     84       913  3007 10872</span></span>
+<span id="cb147-55"><a href="cancer.html#cb147-55" tabindex="-1"></a><span class="co">#&gt; 25         10   3                0      0      2      0       120    36     1</span></span>
+<span id="cb147-56"><a href="cancer.html#cb147-56" tabindex="-1"></a><span class="co">#&gt;    Melanoma Mesothelioma Multiple.myeloma Nasal Nasopharynx</span></span>
+<span id="cb147-57"><a href="cancer.html#cb147-57" tabindex="-1"></a><span class="co">#&gt; 1         3            0                1     4          33</span></span>
+<span id="cb147-58"><a href="cancer.html#cb147-58" tabindex="-1"></a><span class="co">#&gt; 2        50            0               43    53        3049</span></span>
+<span id="cb147-59"><a href="cancer.html#cb147-59" tabindex="-1"></a><span class="co">#&gt; 3        82            0              210   109        3724</span></span>
+<span id="cb147-60"><a href="cancer.html#cb147-60" tabindex="-1"></a><span class="co">#&gt; 4       107            0              421   120        1212</span></span>
+<span id="cb147-61"><a href="cancer.html#cb147-61" tabindex="-1"></a><span class="co">#&gt; 5         1            0                1     7          16</span></span>
+<span id="cb147-62"><a href="cancer.html#cb147-62" tabindex="-1"></a><span class="co">#&gt; 6        41            5               38    38        2114</span></span>
+<span id="cb147-63"><a href="cancer.html#cb147-63" tabindex="-1"></a><span class="co">#&gt; 7        98           34              326   161        3750</span></span>
+<span id="cb147-64"><a href="cancer.html#cb147-64" tabindex="-1"></a><span class="co">#&gt; 8       137           77              674   137        1177</span></span>
+<span id="cb147-65"><a href="cancer.html#cb147-65" tabindex="-1"></a><span class="co">#&gt; 9         0            0                0     3          21</span></span>
+<span id="cb147-66"><a href="cancer.html#cb147-66" tabindex="-1"></a><span class="co">#&gt; 10       47            4               26    41        1339</span></span>
+<span id="cb147-67"><a href="cancer.html#cb147-67" tabindex="-1"></a><span class="co">#&gt; 11      186           51              525   174        3653</span></span>
+<span id="cb147-68"><a href="cancer.html#cb147-68" tabindex="-1"></a><span class="co">#&gt; 12      195          154              910   154        1207</span></span>
+<span id="cb147-69"><a href="cancer.html#cb147-69" tabindex="-1"></a><span class="co">#&gt; 13        2            0                1     1          13</span></span>
+<span id="cb147-70"><a href="cancer.html#cb147-70" tabindex="-1"></a><span class="co">#&gt; 14       44            0               19    31        1380</span></span>
+<span id="cb147-71"><a href="cancer.html#cb147-71" tabindex="-1"></a><span class="co">#&gt; 15       58            0              150    57        1157</span></span>
+<span id="cb147-72"><a href="cancer.html#cb147-72" tabindex="-1"></a><span class="co">#&gt; 16      102            0              417    93         536</span></span>
+<span id="cb147-73"><a href="cancer.html#cb147-73" tabindex="-1"></a><span class="co">#&gt; 17        2            0                0     5           6</span></span>
+<span id="cb147-74"><a href="cancer.html#cb147-74" tabindex="-1"></a><span class="co">#&gt; 18       41            8               21    36         942</span></span>
+<span id="cb147-75"><a href="cancer.html#cb147-75" tabindex="-1"></a><span class="co">#&gt; 19      102           12              185    74        1187</span></span>
+<span id="cb147-76"><a href="cancer.html#cb147-76" tabindex="-1"></a><span class="co">#&gt; 20      118           14              559    92         465</span></span>
+<span id="cb147-77"><a href="cancer.html#cb147-77" tabindex="-1"></a><span class="co">#&gt; 21        3            0                0     6           6</span></span>
+<span id="cb147-78"><a href="cancer.html#cb147-78" tabindex="-1"></a><span class="co">#&gt; 22       70           10               24    37         583</span></span>
+<span id="cb147-79"><a href="cancer.html#cb147-79" tabindex="-1"></a><span class="co">#&gt; 23      128           34              399   105        1145</span></span>
+<span id="cb147-80"><a href="cancer.html#cb147-80" tabindex="-1"></a><span class="co">#&gt; 24      179           24              636   102         389</span></span>
+<span id="cb147-81"><a href="cancer.html#cb147-81" tabindex="-1"></a><span class="co">#&gt; 25        2            0                0     0           6</span></span>
+<span id="cb147-82"><a href="cancer.html#cb147-82" tabindex="-1"></a><span class="co">#&gt;    Non.Hodgkin.lymphoma Non.melanoma.skin Oesophagus Oral Ovary Pancreas Penis</span></span>
+<span id="cb147-83"><a href="cancer.html#cb147-83" tabindex="-1"></a><span class="co">#&gt; 1                   137                 8          0   18     0        4     2</span></span>
+<span id="cb147-84"><a href="cancer.html#cb147-84" tabindex="-1"></a><span class="co">#&gt; 2                   596               211        158  324     0      106    19</span></span>
+<span id="cb147-85"><a href="cancer.html#cb147-85" tabindex="-1"></a><span class="co">#&gt; 3                   997               613       1873 1165     0      514    78</span></span>
+<span id="cb147-86"><a href="cancer.html#cb147-86" tabindex="-1"></a><span class="co">#&gt; 4                  1210               968       2203 1055     0      887   184</span></span>
+<span id="cb147-87"><a href="cancer.html#cb147-87" tabindex="-1"></a><span class="co">#&gt; 5                   111                 4          0    6     0        1     0</span></span>
+<span id="cb147-88"><a href="cancer.html#cb147-88" tabindex="-1"></a><span class="co">#&gt; 6                   454               220         82  312     0       71    18</span></span>
+<span id="cb147-89"><a href="cancer.html#cb147-89" tabindex="-1"></a><span class="co">#&gt; 7                  1216               917       1528 1354     0      780    71</span></span>
+<span id="cb147-90"><a href="cancer.html#cb147-90" tabindex="-1"></a><span class="co">#&gt; 8                  1756              1835       2126 1416     0     1440   199</span></span>
+<span id="cb147-91"><a href="cancer.html#cb147-91" tabindex="-1"></a><span class="co">#&gt; 9                   106                 1          0    9     0        1     0</span></span>
+<span id="cb147-92"><a href="cancer.html#cb147-92" tabindex="-1"></a><span class="co">#&gt; 10                  487               291         54  304     0      109    21</span></span>
+<span id="cb147-93"><a href="cancer.html#cb147-93" tabindex="-1"></a><span class="co">#&gt; 11                 1910              1782       1321 1941     0     1402   154</span></span>
+<span id="cb147-94"><a href="cancer.html#cb147-94" tabindex="-1"></a><span class="co">#&gt; 12                 2633              2975       1982 1813     0     2302   279</span></span>
+<span id="cb147-95"><a href="cancer.html#cb147-95" tabindex="-1"></a><span class="co">#&gt; 13                   75                 2          0   21    77        2     0</span></span>
+<span id="cb147-96"><a href="cancer.html#cb147-96" tabindex="-1"></a><span class="co">#&gt; 14                  444               156         48  241   854       60     0</span></span>
+<span id="cb147-97"><a href="cancer.html#cb147-97" tabindex="-1"></a><span class="co">#&gt; 15                  594               374        254  364   970      290     0</span></span>
+<span id="cb147-98"><a href="cancer.html#cb147-98" tabindex="-1"></a><span class="co">#&gt; 16                 1120              1249        761  485   776      875     0</span></span>
+<span id="cb147-99"><a href="cancer.html#cb147-99" tabindex="-1"></a><span class="co">#&gt; 17                   43                 4          1   20   108        0     0</span></span>
+<span id="cb147-100"><a href="cancer.html#cb147-100" tabindex="-1"></a><span class="co">#&gt; 18                  461               182         13  254  1299       62     0</span></span>
+<span id="cb147-101"><a href="cancer.html#cb147-101" tabindex="-1"></a><span class="co">#&gt; 19                  888               580        190  454  1846      461     0</span></span>
+<span id="cb147-102"><a href="cancer.html#cb147-102" tabindex="-1"></a><span class="co">#&gt; 20                 1409              2476        725  768   891     1329     0</span></span>
+<span id="cb147-103"><a href="cancer.html#cb147-103" tabindex="-1"></a><span class="co">#&gt; 21                   57                 4          0    9    84        3     0</span></span>
+<span id="cb147-104"><a href="cancer.html#cb147-104" tabindex="-1"></a><span class="co">#&gt; 22                  475               303         16  259  1466       92     0</span></span>
+<span id="cb147-105"><a href="cancer.html#cb147-105" tabindex="-1"></a><span class="co">#&gt; 23                 1561              1168        174  920  3166      923     0</span></span>
+<span id="cb147-106"><a href="cancer.html#cb147-106" tabindex="-1"></a><span class="co">#&gt; 24                 1883              3268        624 1091  1128     2101     0</span></span>
+<span id="cb147-107"><a href="cancer.html#cb147-107" tabindex="-1"></a><span class="co">#&gt; 25                   25                 0          0    1     0        3     0</span></span>
+<span id="cb147-108"><a href="cancer.html#cb147-108" tabindex="-1"></a><span class="co">#&gt;    Placenta Prostate Sarcoma Small.intestine Stomach Testis Thymus Thyroid</span></span>
+<span id="cb147-109"><a href="cancer.html#cb147-109" tabindex="-1"></a><span class="co">#&gt; 1         0        0     137               0       5     61     12      22</span></span>
+<span id="cb147-110"><a href="cancer.html#cb147-110" tabindex="-1"></a><span class="co">#&gt; 2         0       10     320              31     429    275     71     250</span></span>
+<span id="cb147-111"><a href="cancer.html#cb147-111" tabindex="-1"></a><span class="co">#&gt; 3         0      481     281             102    1990     80     70     288</span></span>
+<span id="cb147-112"><a href="cancer.html#cb147-112" tabindex="-1"></a><span class="co">#&gt; 4         0     3073     261             131    3634    129     59     194</span></span>
+<span id="cb147-113"><a href="cancer.html#cb147-113" tabindex="-1"></a><span class="co">#&gt; 5         0        0     118               0       6     57     16      21</span></span>
+<span id="cb147-114"><a href="cancer.html#cb147-114" tabindex="-1"></a><span class="co">#&gt; 6         0        6     307              34     331    395     96     333</span></span>
+<span id="cb147-115"><a href="cancer.html#cb147-115" tabindex="-1"></a><span class="co">#&gt; 7         0     1588     367             113    1954     65    137     447</span></span>
+<span id="cb147-116"><a href="cancer.html#cb147-116" tabindex="-1"></a><span class="co">#&gt; 8         0     8676     316             163    4256     44     94     278</span></span>
+<span id="cb147-117"><a href="cancer.html#cb147-117" tabindex="-1"></a><span class="co">#&gt; 9         0        1     110               1       2     53     23      17</span></span>
+<span id="cb147-118"><a href="cancer.html#cb147-118" tabindex="-1"></a><span class="co">#&gt; 10        0       18     299              46     192    587     68     496</span></span>
+<span id="cb147-119"><a href="cancer.html#cb147-119" tabindex="-1"></a><span class="co">#&gt; 11        0     4128     527             293    2158    100    137     834</span></span>
+<span id="cb147-120"><a href="cancer.html#cb147-120" tabindex="-1"></a><span class="co">#&gt; 12        0    14703     507             336    4720     15     85     424</span></span>
+<span id="cb147-121"><a href="cancer.html#cb147-121" tabindex="-1"></a><span class="co">#&gt; 13        1        0     128               1       1      0      3      80</span></span>
+<span id="cb147-122"><a href="cancer.html#cb147-122" tabindex="-1"></a><span class="co">#&gt; 14       13        0     283              22     492      0     38    1294</span></span>
+<span id="cb147-123"><a href="cancer.html#cb147-123" tabindex="-1"></a><span class="co">#&gt; 15        0        0     232              53     826      0     38     788</span></span>
+<span id="cb147-124"><a href="cancer.html#cb147-124" tabindex="-1"></a><span class="co">#&gt; 16        0        0     232             116    2319      0     38     479</span></span>
+<span id="cb147-125"><a href="cancer.html#cb147-125" tabindex="-1"></a><span class="co">#&gt; 17        0        0     105               0       2      0      1      81</span></span>
+<span id="cb147-126"><a href="cancer.html#cb147-126" tabindex="-1"></a><span class="co">#&gt; 18        8        0     322              24     379      0     64    1659</span></span>
+<span id="cb147-127"><a href="cancer.html#cb147-127" tabindex="-1"></a><span class="co">#&gt; 19        3        0     300              80     971      0    116    1570</span></span>
+<span id="cb147-128"><a href="cancer.html#cb147-128" tabindex="-1"></a><span class="co">#&gt; 20        0        0     247             153    2512      0     65     595</span></span>
+<span id="cb147-129"><a href="cancer.html#cb147-129" tabindex="-1"></a><span class="co">#&gt; 21        0        0      86               1       0      0      5     103</span></span>
+<span id="cb147-130"><a href="cancer.html#cb147-130" tabindex="-1"></a><span class="co">#&gt; 22       12        0     330              38     318      0     30    2291</span></span>
+<span id="cb147-131"><a href="cancer.html#cb147-131" tabindex="-1"></a><span class="co">#&gt; 23        3        0     509             221    1653      0     81    3200</span></span>
+<span id="cb147-132"><a href="cancer.html#cb147-132" tabindex="-1"></a><span class="co">#&gt; 24        0        0     351             251    2809      0     67     940</span></span>
+<span id="cb147-133"><a href="cancer.html#cb147-133" tabindex="-1"></a><span class="co">#&gt; 25        0        0      41               1       0      2      7       1</span></span>
+<span id="cb147-134"><a href="cancer.html#cb147-134" tabindex="-1"></a><span class="co">#&gt;    Uterus Vulva</span></span>
+<span id="cb147-135"><a href="cancer.html#cb147-135" tabindex="-1"></a><span class="co">#&gt; 1       0     0</span></span>
+<span id="cb147-136"><a href="cancer.html#cb147-136" tabindex="-1"></a><span class="co">#&gt; 2       0     0</span></span>
+<span id="cb147-137"><a href="cancer.html#cb147-137" tabindex="-1"></a><span class="co">#&gt; 3       0     0</span></span>
+<span id="cb147-138"><a href="cancer.html#cb147-138" tabindex="-1"></a><span class="co">#&gt; 4       0     0</span></span>
+<span id="cb147-139"><a href="cancer.html#cb147-139" tabindex="-1"></a><span class="co">#&gt; 5       0     0</span></span>
+<span id="cb147-140"><a href="cancer.html#cb147-140" tabindex="-1"></a><span class="co">#&gt; 6       0     0</span></span>
+<span id="cb147-141"><a href="cancer.html#cb147-141" tabindex="-1"></a><span class="co">#&gt; 7       0     0</span></span>
+<span id="cb147-142"><a href="cancer.html#cb147-142" tabindex="-1"></a><span class="co">#&gt; 8       0     0</span></span>
+<span id="cb147-143"><a href="cancer.html#cb147-143" tabindex="-1"></a><span class="co">#&gt; 9       0     0</span></span>
+<span id="cb147-144"><a href="cancer.html#cb147-144" tabindex="-1"></a><span class="co">#&gt; 10      0     0</span></span>
+<span id="cb147-145"><a href="cancer.html#cb147-145" tabindex="-1"></a><span class="co">#&gt; 11      0     0</span></span>
+<span id="cb147-146"><a href="cancer.html#cb147-146" tabindex="-1"></a><span class="co">#&gt; 12      0     0</span></span>
+<span id="cb147-147"><a href="cancer.html#cb147-147" tabindex="-1"></a><span class="co">#&gt; 13      2     1</span></span>
+<span id="cb147-148"><a href="cancer.html#cb147-148" tabindex="-1"></a><span class="co">#&gt; 14    478    49</span></span>
+<span id="cb147-149"><a href="cancer.html#cb147-149" tabindex="-1"></a><span class="co">#&gt; 15   1362    96</span></span>
+<span id="cb147-150"><a href="cancer.html#cb147-150" tabindex="-1"></a><span class="co">#&gt; 16    729   235</span></span>
+<span id="cb147-151"><a href="cancer.html#cb147-151" tabindex="-1"></a><span class="co">#&gt; 17      2     2</span></span>
+<span id="cb147-152"><a href="cancer.html#cb147-152" tabindex="-1"></a><span class="co">#&gt; 18    821    44</span></span>
+<span id="cb147-153"><a href="cancer.html#cb147-153" tabindex="-1"></a><span class="co">#&gt; 19   3071   147</span></span>
+<span id="cb147-154"><a href="cancer.html#cb147-154" tabindex="-1"></a><span class="co">#&gt; 20   1130   336</span></span>
+<span id="cb147-155"><a href="cancer.html#cb147-155" tabindex="-1"></a><span class="co">#&gt; 21      3     1</span></span>
+<span id="cb147-156"><a href="cancer.html#cb147-156" tabindex="-1"></a><span class="co">#&gt; 22   1165    57</span></span>
+<span id="cb147-157"><a href="cancer.html#cb147-157" tabindex="-1"></a><span class="co">#&gt; 23   6582   235</span></span>
+<span id="cb147-158"><a href="cancer.html#cb147-158" tabindex="-1"></a><span class="co">#&gt; 24   1864   486</span></span>
+<span id="cb147-159"><a href="cancer.html#cb147-159" tabindex="-1"></a><span class="co">#&gt; 25      0     0</span></span>
+<span id="cb147-160"><a href="cancer.html#cb147-160" tabindex="-1"></a><span class="co">#&gt;  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 23 rows ]</span></span></code></pre></div>
+</div>
+<div id="a.-visualise-changes-in-incidence-and-mortality" class="section level3 hasAnchor" number="7.5.2">
+<h3><span class="header-section-number">7.5.2</span> 3a. Visualise changes in incidence and mortality<a href="cancer.html#a.-visualise-changes-in-incidence-and-mortality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="cancer.html#cb148-1" tabindex="-1"></a><span class="co"># first plot incidence for each cancer type</span></span>
+<span id="cb148-2"><a href="cancer.html#cb148-2" tabindex="-1"></a></span>
+<span id="cb148-3"><a href="cancer.html#cb148-3" tabindex="-1"></a><span class="co">#Import the necessary packages and libraries</span></span>
+<span id="cb148-4"><a href="cancer.html#cb148-4" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;ggplot2&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;gglot2&quot;</span>)</span>
+<span id="cb148-5"><a href="cancer.html#cb148-5" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;gridExtra&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;gridExtra&quot;</span>)</span>
+<span id="cb148-6"><a href="cancer.html#cb148-6" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;ggpubr&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;ggpubr&quot;</span>)</span>
+<span id="cb148-7"><a href="cancer.html#cb148-7" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb148-8"><a href="cancer.html#cb148-8" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb148-9"><a href="cancer.html#cb148-9" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb148-10"><a href="cancer.html#cb148-10" tabindex="-1"></a></span>
+<span id="cb148-11"><a href="cancer.html#cb148-11" tabindex="-1"></a>HKCancer_inc <span class="ot">&lt;-</span> HKCancer[HKCancer<span class="sc">$</span>Type<span class="sc">==</span><span class="st">&#39;incidence&#39;</span>,]</span>
+<span id="cb148-12"><a href="cancer.html#cb148-12" tabindex="-1"></a></span>
+<span id="cb148-13"><a href="cancer.html#cb148-13" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fu">list</span>()</span>
+<span id="cb148-14"><a href="cancer.html#cb148-14" tabindex="-1"></a></span>
+<span id="cb148-15"><a href="cancer.html#cb148-15" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">ncol</span>(HKCancer_inc)<span class="sc">-</span><span class="dv">4</span>)){</span>
+<span id="cb148-16"><a href="cancer.html#cb148-16" tabindex="-1"></a>  p[[i]]<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_inc,<span class="fu">aes_string</span>(<span class="at">fill=</span><span class="fu">names</span>(HKCancer_inc)[<span class="dv">3</span>],<span class="at">x=</span><span class="fu">names</span>(HKCancer_inc)[<span class="dv">4</span>],</span>
+<span id="cb148-17"><a href="cancer.html#cb148-17" tabindex="-1"></a>                                         <span class="at">y=</span><span class="fu">names</span>(HKCancer_inc)[i<span class="sc">+</span><span class="dv">4</span>],<span class="at">group=</span><span class="fu">names</span>(HKCancer_inc)[<span class="dv">3</span>]))<span class="sc">+</span></span>
+<span id="cb148-18"><a href="cancer.html#cb148-18" tabindex="-1"></a>       <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>,<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)<span class="sc">+</span></span>
+<span id="cb148-19"><a href="cancer.html#cb148-19" tabindex="-1"></a>       <span class="fu">facet_wrap</span>(<span class="sc">~</span>Sex) <span class="sc">+</span></span>
+<span id="cb148-20"><a href="cancer.html#cb148-20" tabindex="-1"></a>       <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb148-21"><a href="cancer.html#cb148-21" tabindex="-1"></a>       <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>)<span class="sc">+</span></span>
+<span id="cb148-22"><a href="cancer.html#cb148-22" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)<span class="sc">+</span></span>
+<span id="cb148-23"><a href="cancer.html#cb148-23" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))<span class="sc">+</span> </span>
+<span id="cb148-24"><a href="cancer.html#cb148-24" tabindex="-1"></a>       <span class="fu">ggtitle</span>(<span class="fu">names</span>(HKCancer_inc)[i<span class="sc">+</span><span class="dv">4</span>])<span class="sc">+</span></span>
+<span id="cb148-25"><a href="cancer.html#cb148-25" tabindex="-1"></a>       <span class="fu">ylab</span>(<span class="st">&quot;Incidence&quot;</span>)</span>
+<span id="cb148-26"><a href="cancer.html#cb148-26" tabindex="-1"></a>}</span>
+<span id="cb148-27"><a href="cancer.html#cb148-27" tabindex="-1"></a><span class="fu">do.call</span>(<span class="st">&#39;grid.arrange&#39;</span>,<span class="fu">c</span>(p,<span class="at">ncol=</span><span class="dv">3</span>,<span class="at">nrow=</span><span class="dv">12</span>))</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/incidence-1.png" width="1344" /></p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="cancer.html#cb149-1" tabindex="-1"></a><span class="co"># now plot mortality for each cancer type</span></span>
+<span id="cb149-2"><a href="cancer.html#cb149-2" tabindex="-1"></a></span>
+<span id="cb149-3"><a href="cancer.html#cb149-3" tabindex="-1"></a><span class="co">#Import the necessary packages and libraries</span></span>
+<span id="cb149-4"><a href="cancer.html#cb149-4" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;ggplot2&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;gglot2&quot;</span>)</span>
+<span id="cb149-5"><a href="cancer.html#cb149-5" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;gridExtra&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;gridExtra&quot;</span>)</span>
+<span id="cb149-6"><a href="cancer.html#cb149-6" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;ggpubr&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;ggpubr&quot;</span>)</span>
+<span id="cb149-7"><a href="cancer.html#cb149-7" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;dplyr&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
+<span id="cb149-8"><a href="cancer.html#cb149-8" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb149-9"><a href="cancer.html#cb149-9" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb149-10"><a href="cancer.html#cb149-10" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb149-11"><a href="cancer.html#cb149-11" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb149-12"><a href="cancer.html#cb149-12" tabindex="-1"></a></span>
+<span id="cb149-13"><a href="cancer.html#cb149-13" tabindex="-1"></a>HKCancer_mort <span class="ot">&lt;-</span> HKCancer[HKCancer<span class="sc">$</span>Type<span class="sc">==</span><span class="st">&#39;mortality&#39;</span>,]</span>
+<span id="cb149-14"><a href="cancer.html#cb149-14" tabindex="-1"></a></span>
+<span id="cb149-15"><a href="cancer.html#cb149-15" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fu">list</span>()</span>
+<span id="cb149-16"><a href="cancer.html#cb149-16" tabindex="-1"></a><span class="co">#(ncol(HKCancer_inc)-4)</span></span>
+<span id="cb149-17"><a href="cancer.html#cb149-17" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">ncol</span>(HKCancer_mort)<span class="sc">-</span><span class="dv">4</span>)){</span>
+<span id="cb149-18"><a href="cancer.html#cb149-18" tabindex="-1"></a>  p[[i]]<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_mort,<span class="fu">aes_string</span>(<span class="at">fill=</span><span class="fu">names</span>(HKCancer_mort)[<span class="dv">3</span>],<span class="at">x=</span><span class="fu">names</span>(HKCancer_mort)[<span class="dv">4</span>],</span>
+<span id="cb149-19"><a href="cancer.html#cb149-19" tabindex="-1"></a>                                          <span class="at">y=</span><span class="fu">names</span>(HKCancer_mort)[i<span class="sc">+</span><span class="dv">4</span>],<span class="at">group=</span><span class="fu">names</span>(HKCancer_mort)[<span class="dv">3</span>]))<span class="sc">+</span></span>
+<span id="cb149-20"><a href="cancer.html#cb149-20" tabindex="-1"></a>       <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>,<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)<span class="sc">+</span></span>
+<span id="cb149-21"><a href="cancer.html#cb149-21" tabindex="-1"></a>       <span class="fu">facet_wrap</span>(<span class="sc">~</span>Sex) <span class="sc">+</span></span>
+<span id="cb149-22"><a href="cancer.html#cb149-22" tabindex="-1"></a>       <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb149-23"><a href="cancer.html#cb149-23" tabindex="-1"></a>       <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>)<span class="sc">+</span></span>
+<span id="cb149-24"><a href="cancer.html#cb149-24" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)<span class="sc">+</span></span>
+<span id="cb149-25"><a href="cancer.html#cb149-25" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))<span class="sc">+</span> </span>
+<span id="cb149-26"><a href="cancer.html#cb149-26" tabindex="-1"></a>       <span class="fu">ggtitle</span>(<span class="fu">names</span>(HKCancer_mort)[i<span class="sc">+</span><span class="dv">4</span>])<span class="sc">+</span></span>
+<span id="cb149-27"><a href="cancer.html#cb149-27" tabindex="-1"></a>       <span class="fu">ylab</span>(<span class="st">&quot;Mortality&quot;</span>)</span>
+<span id="cb149-28"><a href="cancer.html#cb149-28" tabindex="-1"></a>}</span>
+<span id="cb149-29"><a href="cancer.html#cb149-29" tabindex="-1"></a><span class="fu">do.call</span>(<span class="st">&#39;grid.arrange&#39;</span>,<span class="fu">c</span>(p,<span class="at">ncol=</span><span class="dv">3</span>,<span class="at">nrow=</span><span class="dv">12</span>))</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/mortality-1.png" width="1344" /></p>
+</div>
+<div id="b.-calculate-cancer-risk-and-mortality-rate" class="section level3 hasAnchor" number="7.5.3">
+<h3><span class="header-section-number">7.5.3</span> 3b. Calculate cancer risk and mortality rate<a href="cancer.html#b.-calculate-cancer-risk-and-mortality-rate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To calculate disease risk we need to calculated the number of new cases over the number of persons at risk over a specific time period. We have the incidence for each decade and can estimate the number of persons at risk based on the population in 1995, 2005 and 2015.</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="cancer.html#cb150-1" tabindex="-1"></a><span class="co"># cancer risk calculation</span></span>
+<span id="cb150-2"><a href="cancer.html#cb150-2" tabindex="-1"></a></span>
+<span id="cb150-3"><a href="cancer.html#cb150-3" tabindex="-1"></a>HKCancer_inc <span class="ot">&lt;-</span> HKCancer[HKCancer<span class="sc">$</span>Type<span class="sc">==</span><span class="st">&#39;incidence&#39;</span>,]</span>
+<span id="cb150-4"><a href="cancer.html#cb150-4" tabindex="-1"></a>HKCancer_inc_risk <span class="ot">&lt;-</span> HKCancer_inc[,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb150-5"><a href="cancer.html#cb150-5" tabindex="-1"></a></span>
+<span id="cb150-6"><a href="cancer.html#cb150-6" tabindex="-1"></a>risk <span class="ot">&lt;-</span> <span class="cf">function</span>(x,age,sex,year){</span>
+<span id="cb150-7"><a href="cancer.html#cb150-7" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.integer</span>(x)){</span>
+<span id="cb150-8"><a href="cancer.html#cb150-8" tabindex="-1"></a>    pop_n <span class="ot">&lt;-</span> HKPop <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sex<span class="sc">==</span>sex <span class="sc">&amp;</span> Age<span class="sc">==</span>age)</span>
+<span id="cb150-9"><a href="cancer.html#cb150-9" tabindex="-1"></a>    <span class="cf">if</span> (year <span class="sc">==</span> <span class="st">&quot;1990-1999&quot;</span>){ <span class="fu">return</span> (<span class="fu">as.double</span>(x)<span class="sc">/</span><span class="fu">as.double</span>(pop_n<span class="sc">$</span><span class="st">`</span><span class="at">1995</span><span class="st">`</span>)) }</span>
+<span id="cb150-10"><a href="cancer.html#cb150-10" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (year <span class="sc">==</span> <span class="st">&quot;2000-2009&quot;</span>) {<span class="fu">return</span> (<span class="fu">as.double</span>(x)<span class="sc">/</span><span class="fu">as.double</span>(pop_n<span class="sc">$</span><span class="st">`</span><span class="at">2005</span><span class="st">`</span>))}</span>
+<span id="cb150-11"><a href="cancer.html#cb150-11" tabindex="-1"></a>    <span class="cf">else</span> { <span class="fu">return</span> (<span class="fu">as.double</span>(x)<span class="sc">/</span><span class="fu">as.double</span>(pop_n<span class="sc">$</span><span class="st">`</span><span class="at">2015</span><span class="st">`</span>)) }</span>
+<span id="cb150-12"><a href="cancer.html#cb150-12" tabindex="-1"></a>  }</span>
+<span id="cb150-13"><a href="cancer.html#cb150-13" tabindex="-1"></a>  <span class="fu">return</span> (x)</span>
+<span id="cb150-14"><a href="cancer.html#cb150-14" tabindex="-1"></a>}</span>
+<span id="cb150-15"><a href="cancer.html#cb150-15" tabindex="-1"></a></span>
+<span id="cb150-16"><a href="cancer.html#cb150-16" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">5</span><span class="sc">:</span><span class="fu">ncol</span>(HKCancer_inc)){</span>
+<span id="cb150-17"><a href="cancer.html#cb150-17" tabindex="-1"></a>  HKCancer_inc_risk[<span class="fu">names</span>(HKCancer_inc)[i]] <span class="ot">&lt;-</span> <span class="fu">mapply</span>(risk,HKCancer_inc[,i],HKCancer_inc[,<span class="dv">3</span>],HKCancer_inc[,<span class="dv">2</span>],HKCancer_inc[,<span class="dv">4</span>])</span>
+<span id="cb150-18"><a href="cancer.html#cb150-18" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="cancer.html#cb151-1" tabindex="-1"></a><span class="co">#visualise cancer risk</span></span>
+<span id="cb151-2"><a href="cancer.html#cb151-2" tabindex="-1"></a></span>
+<span id="cb151-3"><a href="cancer.html#cb151-3" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fu">list</span>()</span>
+<span id="cb151-4"><a href="cancer.html#cb151-4" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">ncol</span>(HKCancer_inc_risk)<span class="sc">-</span><span class="dv">4</span>)){</span>
+<span id="cb151-5"><a href="cancer.html#cb151-5" tabindex="-1"></a>  p[[i]]<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_inc_risk,<span class="fu">aes_string</span>(<span class="at">fill=</span><span class="fu">names</span>(HKCancer_inc_risk)[<span class="dv">3</span>],<span class="at">x=</span><span class="fu">names</span>(HKCancer_inc_risk)[<span class="dv">4</span>],</span>
+<span id="cb151-6"><a href="cancer.html#cb151-6" tabindex="-1"></a>                                              <span class="at">y=</span><span class="fu">names</span>(HKCancer_inc_risk)[i<span class="sc">+</span><span class="dv">4</span>],<span class="at">group=</span><span class="fu">names</span>(HKCancer_inc_risk)[<span class="dv">3</span>]))<span class="sc">+</span></span>
+<span id="cb151-7"><a href="cancer.html#cb151-7" tabindex="-1"></a>       <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>,<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)<span class="sc">+</span></span>
+<span id="cb151-8"><a href="cancer.html#cb151-8" tabindex="-1"></a>       <span class="fu">facet_wrap</span>(<span class="sc">~</span>Sex) <span class="sc">+</span></span>
+<span id="cb151-9"><a href="cancer.html#cb151-9" tabindex="-1"></a>       <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb151-10"><a href="cancer.html#cb151-10" tabindex="-1"></a>       <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>)<span class="sc">+</span></span>
+<span id="cb151-11"><a href="cancer.html#cb151-11" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)<span class="sc">+</span></span>
+<span id="cb151-12"><a href="cancer.html#cb151-12" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))<span class="sc">+</span> </span>
+<span id="cb151-13"><a href="cancer.html#cb151-13" tabindex="-1"></a>       <span class="fu">ggtitle</span>(<span class="fu">names</span>(HKCancer_inc)[i<span class="sc">+</span><span class="dv">4</span>])<span class="sc">+</span></span>
+<span id="cb151-14"><a href="cancer.html#cb151-14" tabindex="-1"></a>       <span class="fu">ylab</span>(<span class="st">&quot;incidence per 1000&quot;</span>)</span>
+<span id="cb151-15"><a href="cancer.html#cb151-15" tabindex="-1"></a>}</span>
+<span id="cb151-16"><a href="cancer.html#cb151-16" tabindex="-1"></a><span class="fu">do.call</span>(<span class="st">&#39;grid.arrange&#39;</span>,<span class="fu">c</span>(p,<span class="at">ncol=</span><span class="dv">3</span>,<span class="at">nrow=</span><span class="dv">12</span>))</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/cancer%20risk%20visulisation-1.png" width="1344" /></p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="cancer.html#cb152-1" tabindex="-1"></a><span class="co"># mortality rate calculation</span></span>
+<span id="cb152-2"><a href="cancer.html#cb152-2" tabindex="-1"></a></span>
+<span id="cb152-3"><a href="cancer.html#cb152-3" tabindex="-1"></a>HKCancer_mort <span class="ot">&lt;-</span> HKCancer[HKCancer<span class="sc">$</span>Type<span class="sc">==</span><span class="st">&#39;mortality&#39;</span>,]</span>
+<span id="cb152-4"><a href="cancer.html#cb152-4" tabindex="-1"></a>HKCancer_mort_risk <span class="ot">&lt;-</span> HKCancer_mort[,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb152-5"><a href="cancer.html#cb152-5" tabindex="-1"></a></span>
+<span id="cb152-6"><a href="cancer.html#cb152-6" tabindex="-1"></a>risk <span class="ot">&lt;-</span> <span class="cf">function</span>(x,age,sex,year){</span>
+<span id="cb152-7"><a href="cancer.html#cb152-7" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.integer</span>(x)){</span>
+<span id="cb152-8"><a href="cancer.html#cb152-8" tabindex="-1"></a>    pop_n <span class="ot">&lt;-</span> HKPop <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sex<span class="sc">==</span>sex <span class="sc">&amp;</span> Age<span class="sc">==</span>age)</span>
+<span id="cb152-9"><a href="cancer.html#cb152-9" tabindex="-1"></a>    <span class="cf">if</span> (year <span class="sc">==</span> <span class="st">&quot;1990-1999&quot;</span>){ <span class="fu">return</span> (<span class="fu">as.double</span>(x)<span class="sc">/</span><span class="fu">as.double</span>(pop_n<span class="sc">$</span><span class="st">`</span><span class="at">1995</span><span class="st">`</span>)) }</span>
+<span id="cb152-10"><a href="cancer.html#cb152-10" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (year <span class="sc">==</span> <span class="st">&quot;2000-2009&quot;</span>) {<span class="fu">return</span> (<span class="fu">as.double</span>(x)<span class="sc">/</span><span class="fu">as.double</span>(pop_n<span class="sc">$</span><span class="st">`</span><span class="at">2005</span><span class="st">`</span>))}</span>
+<span id="cb152-11"><a href="cancer.html#cb152-11" tabindex="-1"></a>    <span class="cf">else</span> { <span class="fu">return</span> (<span class="fu">as.double</span>(x)<span class="sc">/</span><span class="fu">as.double</span>(pop_n<span class="sc">$</span><span class="st">`</span><span class="at">2015</span><span class="st">`</span>)) }</span>
+<span id="cb152-12"><a href="cancer.html#cb152-12" tabindex="-1"></a>  }</span>
+<span id="cb152-13"><a href="cancer.html#cb152-13" tabindex="-1"></a>  <span class="fu">return</span> (x)</span>
+<span id="cb152-14"><a href="cancer.html#cb152-14" tabindex="-1"></a>}</span>
+<span id="cb152-15"><a href="cancer.html#cb152-15" tabindex="-1"></a></span>
+<span id="cb152-16"><a href="cancer.html#cb152-16" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">5</span><span class="sc">:</span><span class="fu">ncol</span>(HKCancer_mort)){</span>
+<span id="cb152-17"><a href="cancer.html#cb152-17" tabindex="-1"></a>  HKCancer_mort_risk[<span class="fu">names</span>(HKCancer_mort)[i]] <span class="ot">&lt;-</span> <span class="fu">mapply</span>(risk,HKCancer_mort[,i],HKCancer_mort[,<span class="dv">3</span>],HKCancer_mort[,<span class="dv">2</span>],HKCancer_mort[,<span class="dv">4</span>])</span>
+<span id="cb152-18"><a href="cancer.html#cb152-18" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="cancer.html#cb153-1" tabindex="-1"></a><span class="co">#visualise mortality rate</span></span>
+<span id="cb153-2"><a href="cancer.html#cb153-2" tabindex="-1"></a></span>
+<span id="cb153-3"><a href="cancer.html#cb153-3" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fu">list</span>()</span>
+<span id="cb153-4"><a href="cancer.html#cb153-4" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">ncol</span>(HKCancer_mort_risk)<span class="sc">-</span><span class="dv">4</span>)){</span>
+<span id="cb153-5"><a href="cancer.html#cb153-5" tabindex="-1"></a>  p[[i]]<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_mort_risk,<span class="fu">aes_string</span>(<span class="at">fill=</span><span class="fu">names</span>(HKCancer_mort_risk)[<span class="dv">3</span>],<span class="at">x=</span><span class="fu">names</span>(HKCancer_mort_risk)[<span class="dv">4</span>],</span>
+<span id="cb153-6"><a href="cancer.html#cb153-6" tabindex="-1"></a>                                               <span class="at">y=</span><span class="fu">names</span>(HKCancer_mort_risk)[i<span class="sc">+</span><span class="dv">4</span>],<span class="at">group=</span><span class="fu">names</span>(HKCancer_mort_risk)[<span class="dv">3</span>]))<span class="sc">+</span></span>
+<span id="cb153-7"><a href="cancer.html#cb153-7" tabindex="-1"></a>       <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>,<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)<span class="sc">+</span></span>
+<span id="cb153-8"><a href="cancer.html#cb153-8" tabindex="-1"></a>       <span class="fu">facet_wrap</span>(<span class="sc">~</span>Sex) <span class="sc">+</span></span>
+<span id="cb153-9"><a href="cancer.html#cb153-9" tabindex="-1"></a>       <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb153-10"><a href="cancer.html#cb153-10" tabindex="-1"></a>       <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>)<span class="sc">+</span></span>
+<span id="cb153-11"><a href="cancer.html#cb153-11" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)<span class="sc">+</span></span>
+<span id="cb153-12"><a href="cancer.html#cb153-12" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))<span class="sc">+</span> </span>
+<span id="cb153-13"><a href="cancer.html#cb153-13" tabindex="-1"></a>       <span class="fu">ggtitle</span>(<span class="fu">names</span>(HKCancer_inc)[i<span class="sc">+</span><span class="dv">4</span>])<span class="sc">+</span></span>
+<span id="cb153-14"><a href="cancer.html#cb153-14" tabindex="-1"></a>       <span class="fu">ylab</span>(<span class="st">&quot;mortality per 1000&quot;</span>)</span>
+<span id="cb153-15"><a href="cancer.html#cb153-15" tabindex="-1"></a>}</span>
+<span id="cb153-16"><a href="cancer.html#cb153-16" tabindex="-1"></a><span class="fu">do.call</span>(<span class="st">&#39;grid.arrange&#39;</span>,<span class="fu">c</span>(p,<span class="at">ncol=</span><span class="dv">3</span>,<span class="at">nrow=</span><span class="dv">12</span>))</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/mortality%20rate%20visulisation-1.png" width="1344" /></p>
+</div>
+<div id="c.-mortality-incidence-ratio" class="section level3 hasAnchor" number="7.5.4">
+<h3><span class="header-section-number">7.5.4</span> 3c. Mortality-incidence ratio<a href="cancer.html#c.-mortality-incidence-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cancer research can be focused on improving cancer outcomes in a number of ways. For example cancer prevention research that seeks to reduce cancer incidence which would also ultimately reduce cancer mortality. Another area is cancer therapy which would not affect incidence but seeks to reduce mortality, or at least prolong survival. We don’t go into survival analysis in this tutorial, but a way to get an idea whether treatment is improving by looking at the mortality-incidence ratio.</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="cancer.html#cb154-1" tabindex="-1"></a></span>
+<span id="cb154-2"><a href="cancer.html#cb154-2" tabindex="-1"></a>HKCancer_inc <span class="ot">&lt;-</span> HKCancer[HKCancer<span class="sc">$</span>Type<span class="sc">==</span><span class="st">&#39;incidence&#39;</span>,]</span>
+<span id="cb154-3"><a href="cancer.html#cb154-3" tabindex="-1"></a>HKCancer_mort <span class="ot">&lt;-</span> HKCancer[HKCancer<span class="sc">$</span>Type<span class="sc">==</span><span class="st">&#39;mortality&#39;</span>,]</span>
+<span id="cb154-4"><a href="cancer.html#cb154-4" tabindex="-1"></a>HKCancer_mort_inc <span class="ot">&lt;-</span> HKCancer_mort[,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb154-5"><a href="cancer.html#cb154-5" tabindex="-1"></a></span>
+<span id="cb154-6"><a href="cancer.html#cb154-6" tabindex="-1"></a>risk <span class="ot">&lt;-</span> <span class="cf">function</span>(mort,inc){</span>
+<span id="cb154-7"><a href="cancer.html#cb154-7" tabindex="-1"></a>  <span class="cf">if</span> (inc <span class="sc">==</span> <span class="dv">0</span>){ <span class="fu">return</span> (<span class="dv">0</span>) }</span>
+<span id="cb154-8"><a href="cancer.html#cb154-8" tabindex="-1"></a>  <span class="fu">return</span> (<span class="fu">as.double</span>(mort)<span class="sc">/</span><span class="fu">as.double</span>(inc))</span>
+<span id="cb154-9"><a href="cancer.html#cb154-9" tabindex="-1"></a>}</span>
+<span id="cb154-10"><a href="cancer.html#cb154-10" tabindex="-1"></a></span>
+<span id="cb154-11"><a href="cancer.html#cb154-11" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">5</span><span class="sc">:</span><span class="fu">ncol</span>(HKCancer_mort)){</span>
+<span id="cb154-12"><a href="cancer.html#cb154-12" tabindex="-1"></a>  HKCancer_mort_inc[<span class="fu">names</span>(HKCancer_mort)[i]] <span class="ot">&lt;-</span> <span class="fu">mapply</span>(risk,HKCancer_mort[,i],HKCancer_inc[,i])</span>
+<span id="cb154-13"><a href="cancer.html#cb154-13" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="cancer.html#cb155-1" tabindex="-1"></a><span class="co">#visualise mortality incidence ratio</span></span>
+<span id="cb155-2"><a href="cancer.html#cb155-2" tabindex="-1"></a></span>
+<span id="cb155-3"><a href="cancer.html#cb155-3" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fu">list</span>()</span>
+<span id="cb155-4"><a href="cancer.html#cb155-4" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">ncol</span>(HKCancer_mort_inc)<span class="sc">-</span><span class="dv">4</span>)){</span>
+<span id="cb155-5"><a href="cancer.html#cb155-5" tabindex="-1"></a>  p[[i]]<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_mort_inc,<span class="fu">aes_string</span>(<span class="at">fill=</span><span class="fu">names</span>(HKCancer_mort_inc)[<span class="dv">3</span>],<span class="at">x=</span><span class="fu">names</span>(HKCancer_mort_inc)[<span class="dv">4</span>],</span>
+<span id="cb155-6"><a href="cancer.html#cb155-6" tabindex="-1"></a>                                              <span class="at">y=</span><span class="fu">names</span>(HKCancer_mort_inc)[i<span class="sc">+</span><span class="dv">4</span>],<span class="at">group=</span><span class="fu">names</span>(HKCancer_mort_inc)[<span class="dv">3</span>]))<span class="sc">+</span></span>
+<span id="cb155-7"><a href="cancer.html#cb155-7" tabindex="-1"></a>       <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>,<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)<span class="sc">+</span></span>
+<span id="cb155-8"><a href="cancer.html#cb155-8" tabindex="-1"></a>       <span class="fu">facet_wrap</span>(<span class="sc">~</span>Sex) <span class="sc">+</span></span>
+<span id="cb155-9"><a href="cancer.html#cb155-9" tabindex="-1"></a>       <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb155-10"><a href="cancer.html#cb155-10" tabindex="-1"></a>       <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>)<span class="sc">+</span></span>
+<span id="cb155-11"><a href="cancer.html#cb155-11" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)<span class="sc">+</span></span>
+<span id="cb155-12"><a href="cancer.html#cb155-12" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))<span class="sc">+</span> </span>
+<span id="cb155-13"><a href="cancer.html#cb155-13" tabindex="-1"></a>       <span class="fu">ggtitle</span>(<span class="fu">names</span>(HKCancer_inc)[i<span class="sc">+</span><span class="dv">4</span>])<span class="sc">+</span></span>
+<span id="cb155-14"><a href="cancer.html#cb155-14" tabindex="-1"></a>       <span class="fu">ylab</span>(<span class="st">&quot;mortality-incidence ratio&quot;</span>)</span>
+<span id="cb155-15"><a href="cancer.html#cb155-15" tabindex="-1"></a>}</span>
+<span id="cb155-16"><a href="cancer.html#cb155-16" tabindex="-1"></a><span class="fu">do.call</span>(<span class="st">&#39;grid.arrange&#39;</span>,<span class="fu">c</span>(p,<span class="at">ncol=</span><span class="dv">3</span>,<span class="at">nrow=</span><span class="dv">12</span>))</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/mortality%20incidence%20ratio%20visulisation-1.png" width="1344" /></p>
+</div>
+<div id="d.-paired-t-test-on-mortality-incidence-ratio-change" class="section level3 hasAnchor" number="7.5.5">
+<h3><span class="header-section-number">7.5.5</span> 3d. Paired t-test on mortality-incidence ratio change<a href="cancer.html#d.-paired-t-test-on-mortality-incidence-ratio-change" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In general, across the different cancer types is cancer treatment improving? We can use a paired t-test comparing the mortality-incidence ratio of cancers from the 1990-1999 period with the 2010-2019 period.</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="cancer.html#cb156-1" tabindex="-1"></a></span>
+<span id="cb156-2"><a href="cancer.html#cb156-2" tabindex="-1"></a><span class="co">#First sum up all incidence and mortality data for each cancer type across age and sex</span></span>
+<span id="cb156-3"><a href="cancer.html#cb156-3" tabindex="-1"></a></span>
+<span id="cb156-4"><a href="cancer.html#cb156-4" tabindex="-1"></a>HKCancer_inc_sum <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(HKCancer_inc[,<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)],<span class="fu">list</span>(HKCancer_inc<span class="sc">$</span>Year),<span class="at">FUN=</span>sum)</span>
+<span id="cb156-5"><a href="cancer.html#cb156-5" tabindex="-1"></a>HKCancer_mort_sum <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(HKCancer_mort[,<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)],<span class="fu">list</span>(HKCancer_mort<span class="sc">$</span>Year),<span class="at">FUN=</span>sum)</span>
+<span id="cb156-6"><a href="cancer.html#cb156-6" tabindex="-1"></a>HKCancer_mort_inc_year <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Year=</span>HKCancer_mort_sum[,<span class="dv">1</span>])</span>
+<span id="cb156-7"><a href="cancer.html#cb156-7" tabindex="-1"></a></span>
+<span id="cb156-8"><a href="cancer.html#cb156-8" tabindex="-1"></a>risk <span class="ot">&lt;-</span> <span class="cf">function</span>(mort,inc){</span>
+<span id="cb156-9"><a href="cancer.html#cb156-9" tabindex="-1"></a>  <span class="fu">return</span> (<span class="fu">as.double</span>(mort)<span class="sc">/</span><span class="fu">as.double</span>(inc))</span>
+<span id="cb156-10"><a href="cancer.html#cb156-10" tabindex="-1"></a>}</span>
+<span id="cb156-11"><a href="cancer.html#cb156-11" tabindex="-1"></a></span>
+<span id="cb156-12"><a href="cancer.html#cb156-12" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="fu">ncol</span>(HKCancer_mort_sum)){</span>
+<span id="cb156-13"><a href="cancer.html#cb156-13" tabindex="-1"></a>  HKCancer_mort_inc_year[<span class="fu">names</span>(HKCancer_mort_sum)[i]] <span class="ot">&lt;-</span> <span class="fu">mapply</span>(risk,HKCancer_mort_sum[,i],HKCancer_inc_sum[,i])</span>
+<span id="cb156-14"><a href="cancer.html#cb156-14" tabindex="-1"></a>}</span>
+<span id="cb156-15"><a href="cancer.html#cb156-15" tabindex="-1"></a></span>
+<span id="cb156-16"><a href="cancer.html#cb156-16" tabindex="-1"></a>HKCancer_mort_inc_year_m <span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="st">`</span><span class="at">1990-1999</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(HKCancer_mort_inc_year[<span class="dv">1</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">37</span>]),</span>
+<span id="cb156-17"><a href="cancer.html#cb156-17" tabindex="-1"></a>                                    <span class="st">`</span><span class="at">2000-2009</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(HKCancer_mort_inc_year[<span class="dv">2</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">37</span>]),</span>
+<span id="cb156-18"><a href="cancer.html#cb156-18" tabindex="-1"></a>                                    <span class="st">`</span><span class="at">2010-2019</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(HKCancer_mort_inc_year[<span class="dv">3</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">37</span>]),</span>
+<span id="cb156-19"><a href="cancer.html#cb156-19" tabindex="-1"></a>                                    <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb156-20"><a href="cancer.html#cb156-20" tabindex="-1"></a></span>
+<span id="cb156-21"><a href="cancer.html#cb156-21" tabindex="-1"></a>HKCancer_mort_inc_year_m<span class="sc">$</span>Cancer <span class="ot">&lt;-</span> <span class="fu">names</span>(HKCancer_mort_inc_year)[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb156-22"><a href="cancer.html#cb156-22" tabindex="-1"></a></span>
+<span id="cb156-23"><a href="cancer.html#cb156-23" tabindex="-1"></a>HKCancer_mort_inc_year_t<span class="ot">&lt;-</span><span class="fu">as_tibble</span>(HKCancer_mort_inc_year_m) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">Cancer</span><span class="st">`</span>,<span class="st">`</span><span class="at">1990-1999</span><span class="st">`</span>,<span class="st">`</span><span class="at">2000-2009</span><span class="st">`</span>,<span class="st">`</span><span class="at">2010-2019</span><span class="st">`</span>)<span class="sc">%&gt;%</span> <span class="fu">gather</span> (<span class="at">key=</span><span class="st">&quot;Year&quot;</span>,<span class="at">value=</span><span class="st">&quot;MIR&quot;</span>,<span class="sc">-</span>Cancer)</span>
+<span id="cb156-24"><a href="cancer.html#cb156-24" tabindex="-1"></a></span>
+<span id="cb156-25"><a href="cancer.html#cb156-25" tabindex="-1"></a>plot<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_mort_inc_year_t,<span class="fu">aes</span>(<span class="at">x=</span>Year,<span class="at">y=</span>MIR, <span class="at">color=</span>Year))<span class="sc">+</span></span>
+<span id="cb156-26"><a href="cancer.html#cb156-26" tabindex="-1"></a>       <span class="fu">geom_boxplot</span>(<span class="at">na.rm=</span>T) <span class="sc">+</span></span>
+<span id="cb156-27"><a href="cancer.html#cb156-27" tabindex="-1"></a>       <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb156-28"><a href="cancer.html#cb156-28" tabindex="-1"></a>       <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Dark2&quot;</span>)<span class="sc">+</span></span>
+<span id="cb156-29"><a href="cancer.html#cb156-29" tabindex="-1"></a>       <span class="fu">geom_jitter</span>(<span class="at">shape=</span><span class="dv">16</span>, <span class="at">position=</span><span class="fu">position_jitter</span>(<span class="fl">0.2</span>),<span class="at">na.rm=</span>T)<span class="sc">+</span></span>
+<span id="cb156-30"><a href="cancer.html#cb156-30" tabindex="-1"></a>       <span class="fu">ylab</span>(<span class="st">&quot;mortality-incidence ratio&quot;</span>)<span class="sc">+</span></span>
+<span id="cb156-31"><a href="cancer.html#cb156-31" tabindex="-1"></a>       <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="fl">1.2</span>) <span class="sc">+</span> <span class="fu">geom_signif</span>(<span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;1990-1999&quot;</span>, <span class="st">&quot;2010-2019&quot;</span>)),</span>
+<span id="cb156-32"><a href="cancer.html#cb156-32" tabindex="-1"></a>                                 <span class="at">map_signif_level=</span>F, <span class="at">test=</span> <span class="st">&quot;t.test&quot;</span>,<span class="at">test.args =</span> <span class="fu">list</span>(<span class="at">paired =</span> <span class="cn">TRUE</span>), <span class="at">na.rm =</span> T, <span class="at">y_position =</span> <span class="fu">c</span>(<span class="fl">1.1</span>, <span class="fl">1.3</span>)) <span class="sc">+</span></span>
+<span id="cb156-33"><a href="cancer.html#cb156-33" tabindex="-1"></a>       <span class="fu">geom_signif</span>(<span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;1990-1999&quot;</span>, <span class="st">&quot;2000-2009&quot;</span>)), <span class="at">map_signif_level=</span>F, <span class="at">test=</span> <span class="st">&quot;t.test&quot;</span>,<span class="at">test.args =</span> <span class="fu">list</span>(<span class="at">paired =</span> <span class="cn">TRUE</span>), <span class="at">na.rm =</span> T) <span class="sc">+</span></span>
+<span id="cb156-34"><a href="cancer.html#cb156-34" tabindex="-1"></a>       <span class="fu">geom_signif</span>(<span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;2000-2009&quot;</span>, <span class="st">&quot;2010-2019&quot;</span>)), <span class="at">map_signif_level=</span>F, <span class="at">test=</span> <span class="st">&quot;t.test&quot;</span>,<span class="at">test.args =</span> <span class="fu">list</span>(<span class="at">paired =</span> <span class="cn">TRUE</span>), <span class="at">na.rm =</span> T)</span>
+<span id="cb156-35"><a href="cancer.html#cb156-35" tabindex="-1"></a>plot</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/paired%20t-test-1.png" width="480" /></p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="cancer.html#cb157-1" tabindex="-1"></a></span>
+<span id="cb157-2"><a href="cancer.html#cb157-2" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fu">list</span>()</span>
+<span id="cb157-3"><a href="cancer.html#cb157-3" tabindex="-1"></a>p[[<span class="dv">1</span>]]<span class="ot">&lt;-</span><span class="fu">t.test</span>(HKCancer_mort_inc_year_m<span class="sc">$</span><span class="st">`</span><span class="at">1990-1999</span><span class="st">`</span>,HKCancer_mort_inc_year_m<span class="sc">$</span><span class="st">`</span><span class="at">2000-2009</span><span class="st">`</span>,<span class="at">paired=</span><span class="cn">TRUE</span>,<span class="at">alternative_m =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
+<span id="cb157-4"><a href="cancer.html#cb157-4" tabindex="-1"></a>p[[<span class="dv">2</span>]]<span class="ot">&lt;-</span><span class="fu">t.test</span>(HKCancer_mort_inc_year_m<span class="sc">$</span><span class="st">`</span><span class="at">1990-1999</span><span class="st">`</span>,HKCancer_mort_inc_year_m<span class="sc">$</span><span class="st">`</span><span class="at">2010-2019</span><span class="st">`</span>,<span class="at">paired=</span><span class="cn">TRUE</span>,<span class="at">alternative_m =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
+<span id="cb157-5"><a href="cancer.html#cb157-5" tabindex="-1"></a>p[[<span class="dv">3</span>]]<span class="ot">&lt;-</span><span class="fu">t.test</span>(HKCancer_mort_inc_year_m<span class="sc">$</span><span class="st">`</span><span class="at">2000-2009</span><span class="st">`</span>,HKCancer_mort_inc_year_m<span class="sc">$</span><span class="st">`</span><span class="at">2010-2019</span><span class="st">`</span>,<span class="at">paired=</span><span class="cn">TRUE</span>,<span class="at">alternative_m =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
+<span id="cb157-6"><a href="cancer.html#cb157-6" tabindex="-1"></a>p</span>
+<span id="cb157-7"><a href="cancer.html#cb157-7" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb157-8"><a href="cancer.html#cb157-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb157-9"><a href="cancer.html#cb157-9" tabindex="-1"></a><span class="co">#&gt;  Paired t-test</span></span>
+<span id="cb157-10"><a href="cancer.html#cb157-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb157-11"><a href="cancer.html#cb157-11" tabindex="-1"></a><span class="co">#&gt; data:  HKCancer_mort_inc_year_m$`1990-1999` and HKCancer_mort_inc_year_m$`2000-2009`</span></span>
+<span id="cb157-12"><a href="cancer.html#cb157-12" tabindex="-1"></a><span class="co">#&gt; t = 0.79695, df = 33, p-value = 0.4312</span></span>
+<span id="cb157-13"><a href="cancer.html#cb157-13" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true mean difference is not equal to 0</span></span>
+<span id="cb157-14"><a href="cancer.html#cb157-14" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb157-15"><a href="cancer.html#cb157-15" tabindex="-1"></a><span class="co">#&gt;  -0.01415536  0.03238636</span></span>
+<span id="cb157-16"><a href="cancer.html#cb157-16" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb157-17"><a href="cancer.html#cb157-17" tabindex="-1"></a><span class="co">#&gt; mean difference </span></span>
+<span id="cb157-18"><a href="cancer.html#cb157-18" tabindex="-1"></a><span class="co">#&gt;     0.009115498 </span></span>
+<span id="cb157-19"><a href="cancer.html#cb157-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb157-20"><a href="cancer.html#cb157-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb157-21"><a href="cancer.html#cb157-21" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb157-22"><a href="cancer.html#cb157-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb157-23"><a href="cancer.html#cb157-23" tabindex="-1"></a><span class="co">#&gt;  Paired t-test</span></span>
+<span id="cb157-24"><a href="cancer.html#cb157-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb157-25"><a href="cancer.html#cb157-25" tabindex="-1"></a><span class="co">#&gt; data:  HKCancer_mort_inc_year_m$`1990-1999` and HKCancer_mort_inc_year_m$`2010-2019`</span></span>
+<span id="cb157-26"><a href="cancer.html#cb157-26" tabindex="-1"></a><span class="co">#&gt; t = 2.1861, df = 33, p-value = 0.036</span></span>
+<span id="cb157-27"><a href="cancer.html#cb157-27" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true mean difference is not equal to 0</span></span>
+<span id="cb157-28"><a href="cancer.html#cb157-28" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb157-29"><a href="cancer.html#cb157-29" tabindex="-1"></a><span class="co">#&gt;  0.002055217 0.057209924</span></span>
+<span id="cb157-30"><a href="cancer.html#cb157-30" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb157-31"><a href="cancer.html#cb157-31" tabindex="-1"></a><span class="co">#&gt; mean difference </span></span>
+<span id="cb157-32"><a href="cancer.html#cb157-32" tabindex="-1"></a><span class="co">#&gt;      0.02963257 </span></span>
+<span id="cb157-33"><a href="cancer.html#cb157-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb157-34"><a href="cancer.html#cb157-34" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb157-35"><a href="cancer.html#cb157-35" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb157-36"><a href="cancer.html#cb157-36" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb157-37"><a href="cancer.html#cb157-37" tabindex="-1"></a><span class="co">#&gt;  Paired t-test</span></span>
+<span id="cb157-38"><a href="cancer.html#cb157-38" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb157-39"><a href="cancer.html#cb157-39" tabindex="-1"></a><span class="co">#&gt; data:  HKCancer_mort_inc_year_m$`2000-2009` and HKCancer_mort_inc_year_m$`2010-2019`</span></span>
+<span id="cb157-40"><a href="cancer.html#cb157-40" tabindex="-1"></a><span class="co">#&gt; t = 1.5413, df = 35, p-value = 0.1322</span></span>
+<span id="cb157-41"><a href="cancer.html#cb157-41" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true mean difference is not equal to 0</span></span>
+<span id="cb157-42"><a href="cancer.html#cb157-42" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb157-43"><a href="cancer.html#cb157-43" tabindex="-1"></a><span class="co">#&gt;  -0.005438019  0.039734021</span></span>
+<span id="cb157-44"><a href="cancer.html#cb157-44" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb157-45"><a href="cancer.html#cb157-45" tabindex="-1"></a><span class="co">#&gt; mean difference </span></span>
+<span id="cb157-46"><a href="cancer.html#cb157-46" tabindex="-1"></a><span class="co">#&gt;        0.017148</span></span></code></pre></div>
+</div>
+<div id="e.-childhood-versus-elderly-cancers" class="section level3 hasAnchor" number="7.5.6">
+<h3><span class="header-section-number">7.5.6</span> 3e. Childhood versus elderly cancers<a href="cancer.html#e.-childhood-versus-elderly-cancers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Although it is clear that the incidence of cancer is typically higher in the elderly, some cancers affect children as well. What cancer types disproportionate affect children? For each cancer type, compare the proportion of 0-19 versus 65+ incidence against the 0-19 versus 65+ incidence for all other cancer types.</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="cancer.html#cb158-1" tabindex="-1"></a><span class="co"># Examine the proportion of childhood </span></span>
+<span id="cb158-2"><a href="cancer.html#cb158-2" tabindex="-1"></a></span>
+<span id="cb158-3"><a href="cancer.html#cb158-3" tabindex="-1"></a>HKCancer_inc <span class="ot">&lt;-</span> HKCancer[HKCancer<span class="sc">$</span>Type<span class="sc">==</span><span class="st">&#39;incidence&#39;</span>,]</span>
+<span id="cb158-4"><a href="cancer.html#cb158-4" tabindex="-1"></a>HKCancer_inc_age_sum <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(HKCancer_inc[,<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)],<span class="fu">list</span>(HKCancer_inc<span class="sc">$</span>Age),<span class="at">FUN=</span>sum)</span>
+<span id="cb158-5"><a href="cancer.html#cb158-5" tabindex="-1"></a>HKCancer_inc_age_sum<span class="sc">$</span>Total<span class="ot">&lt;-</span> <span class="fu">rowSums</span>(HKCancer_inc_age_sum[,<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb158-6"><a href="cancer.html#cb158-6" tabindex="-1"></a>HKCancer_inc_age_sum_csq <span class="ot">&lt;-</span>  <span class="fu">data.frame</span>(<span class="at">cancer=</span><span class="fu">names</span>(HKCancer_inc_age_sum[,<span class="dv">2</span><span class="sc">:</span><span class="fu">ncol</span>(HKCancer_inc_age_sum)]))</span>
+<span id="cb158-7"><a href="cancer.html#cb158-7" tabindex="-1"></a></span>
+<span id="cb158-8"><a href="cancer.html#cb158-8" tabindex="-1"></a>pval <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb158-9"><a href="cancer.html#cb158-9" tabindex="-1"></a>ratio <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb158-10"><a href="cancer.html#cb158-10" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(<span class="fu">ncol</span>(HKCancer_inc_age_sum))){</span>
+<span id="cb158-11"><a href="cancer.html#cb158-11" tabindex="-1"></a>  val <span class="ot">=</span> <span class="fu">Map</span>(<span class="st">&#39;-&#39;</span>,HKCancer_inc_age_sum<span class="sc">$</span>Total,HKCancer_inc_age_sum[,i])</span>
+<span id="cb158-12"><a href="cancer.html#cb158-12" tabindex="-1"></a>  dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">cancer=</span>HKCancer_inc_age_sum[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>),i], <span class="at">other =</span><span class="fu">c</span>(val[[<span class="dv">1</span>]],val[[<span class="dv">2</span>]]))</span>
+<span id="cb158-13"><a href="cancer.html#cb158-13" tabindex="-1"></a>  pval <span class="ot">&lt;-</span> <span class="fu">append</span>(pval,<span class="fu">fisher.test</span>(dat)<span class="sc">$</span>p.val)</span>
+<span id="cb158-14"><a href="cancer.html#cb158-14" tabindex="-1"></a>  ratio<span class="ot">&lt;-</span> <span class="fu">append</span>(ratio,<span class="fu">log</span>(<span class="fu">as.double</span>(dat[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">+</span><span class="fl">0.1</span>)<span class="sc">/</span><span class="fu">as.double</span>(dat[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">+</span><span class="fl">0.1</span>)))</span>
+<span id="cb158-15"><a href="cancer.html#cb158-15" tabindex="-1"></a>}</span>
+<span id="cb158-16"><a href="cancer.html#cb158-16" tabindex="-1"></a>HKCancer_inc_age_sum_csq<span class="sc">$</span>pval <span class="ot">&lt;-</span> pval</span>
+<span id="cb158-17"><a href="cancer.html#cb158-17" tabindex="-1"></a>HKCancer_inc_age_sum_csq<span class="sc">$</span>ratio <span class="ot">&lt;-</span> ratio </span>
+<span id="cb158-18"><a href="cancer.html#cb158-18" tabindex="-1"></a></span>
+<span id="cb158-19"><a href="cancer.html#cb158-19" tabindex="-1"></a>plot_child<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_inc_age_sum_csq[<span class="sc">-</span><span class="dv">37</span>,],<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(cancer,<span class="sc">-</span><span class="fu">as.numeric</span>(ratio)),<span class="at">y=</span><span class="fu">as.numeric</span>(ratio)),<span class="at">fill=</span>cancer)<span class="sc">+</span></span>
+<span id="cb158-20"><a href="cancer.html#cb158-20" tabindex="-1"></a>       <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="at">fill=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
+<span id="cb158-21"><a href="cancer.html#cb158-21" tabindex="-1"></a>       <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="sc">-</span><span class="fl">4.12132318942113</span>, <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, </span>
+<span id="cb158-22"><a href="cancer.html#cb158-22" tabindex="-1"></a>                <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">linewidth=</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb158-23"><a href="cancer.html#cb158-23" tabindex="-1"></a>       <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb158-24"><a href="cancer.html#cb158-24" tabindex="-1"></a>       <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>)<span class="sc">+</span></span>
+<span id="cb158-25"><a href="cancer.html#cb158-25" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)<span class="sc">+</span></span>
+<span id="cb158-26"><a href="cancer.html#cb158-26" tabindex="-1"></a>       <span class="co">#theme(text = element_text(size = 10))+</span></span>
+<span id="cb158-27"><a href="cancer.html#cb158-27" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">axis.title.x=</span><span class="fu">element_blank</span>())<span class="sc">+</span></span>
+<span id="cb158-28"><a href="cancer.html#cb158-28" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb158-29"><a href="cancer.html#cb158-29" tabindex="-1"></a>       <span class="fu">ylab</span>(<span class="st">&quot;log((child+0.1)/(elderly+0.1)&quot;</span>)</span>
+<span id="cb158-30"><a href="cancer.html#cb158-30" tabindex="-1"></a>plot_child</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/childhood%20versus%20elderly-1.png" width="672" /></p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="cancer.html#cb159-1" tabindex="-1"></a>HKCancer_inc_age_sum_csq</span>
+<span id="cb159-2"><a href="cancer.html#cb159-2" tabindex="-1"></a><span class="co">#&gt;                  cancer          pval       ratio</span></span>
+<span id="cb159-3"><a href="cancer.html#cb159-3" tabindex="-1"></a><span class="co">#&gt; 1               Biliary  1.21618e-216   -11.17481</span></span>
+<span id="cb159-4"><a href="cancer.html#cb159-4" tabindex="-1"></a><span class="co">#&gt; 2               Bladder 9.601084e-314   -6.711128</span></span>
+<span id="cb159-5"><a href="cancer.html#cb159-5" tabindex="-1"></a><span class="co">#&gt; 3                 Brain             0   -0.615666</span></span>
+<span id="cb159-6"><a href="cancer.html#cb159-6" tabindex="-1"></a><span class="co">#&gt; 4                Breast             0   -7.519824</span></span>
+<span id="cb159-7"><a href="cancer.html#cb159-7" tabindex="-1"></a><span class="co">#&gt; 5                Cervix 1.635299e-126   -6.925188</span></span>
+<span id="cb159-8"><a href="cancer.html#cb159-8" tabindex="-1"></a><span class="co">#&gt; 6            Colorectum             0   -7.531208</span></span>
+<span id="cb159-9"><a href="cancer.html#cb159-9" tabindex="-1"></a><span class="co">#&gt; 7                   Eye 2.085337e-112   0.5039276</span></span>
+<span id="cb159-10"><a href="cancer.html#cb159-10" tabindex="-1"></a><span class="co">#&gt; 8      Hodgkin.lymphoma  3.658856e-81  -0.6227962</span></span>
+<span id="cb159-11"><a href="cancer.html#cb159-11" tabindex="-1"></a><span class="co">#&gt; 9                Kaposi       0.41662   -5.525453</span></span>
+<span id="cb159-12"><a href="cancer.html#cb159-12" tabindex="-1"></a><span class="co">#&gt; 10               Kidney  1.560619e-71   -3.882371</span></span>
+<span id="cb159-13"><a href="cancer.html#cb159-13" tabindex="-1"></a><span class="co">#&gt; 11               Larynx 1.963055e-113   -8.129416</span></span>
+<span id="cb159-14"><a href="cancer.html#cb159-14" tabindex="-1"></a><span class="co">#&gt; 12            Leukaemia             0   -1.043172</span></span>
+<span id="cb159-15"><a href="cancer.html#cb159-15" tabindex="-1"></a><span class="co">#&gt; 13                Liver             0   -4.909033</span></span>
+<span id="cb159-16"><a href="cancer.html#cb159-16" tabindex="-1"></a><span class="co">#&gt; 14                 Lung             0   -8.191896</span></span>
+<span id="cb159-17"><a href="cancer.html#cb159-17" tabindex="-1"></a><span class="co">#&gt; 15             Melanoma  6.246412e-15   -4.324192</span></span>
+<span id="cb159-18"><a href="cancer.html#cb159-18" tabindex="-1"></a><span class="co">#&gt; 16         Mesothelioma  5.396388e-09   -7.897668</span></span>
+<span id="cb159-19"><a href="cancer.html#cb159-19" tabindex="-1"></a><span class="co">#&gt; 17     Multiple.myeloma 6.126613e-106   -7.062026</span></span>
+<span id="cb159-20"><a href="cancer.html#cb159-20" tabindex="-1"></a><span class="co">#&gt; 18                Nasal  0.0001285609   -3.286427</span></span>
+<span id="cb159-21"><a href="cancer.html#cb159-21" tabindex="-1"></a><span class="co">#&gt; 19          Nasopharynx  4.628193e-74    -3.95948</span></span>
+<span id="cb159-22"><a href="cancer.html#cb159-22" tabindex="-1"></a><span class="co">#&gt; 20 Non.Hodgkin.lymphoma  4.513518e-11   -2.940272</span></span>
+<span id="cb159-23"><a href="cancer.html#cb159-23" tabindex="-1"></a><span class="co">#&gt; 21    Non.melanoma.skin             0   -6.315107</span></span>
+<span id="cb159-24"><a href="cancer.html#cb159-24" tabindex="-1"></a><span class="co">#&gt; 22           Oesophagus 1.377432e-251   -8.943186</span></span>
+<span id="cb159-25"><a href="cancer.html#cb159-25" tabindex="-1"></a><span class="co">#&gt; 23                 Oral 5.100139e-108   -4.379029</span></span>
+<span id="cb159-26"><a href="cancer.html#cb159-26" tabindex="-1"></a><span class="co">#&gt; 24                Ovary  0.0002847234    -2.34054</span></span>
+<span id="cb159-27"><a href="cancer.html#cb159-27" tabindex="-1"></a><span class="co">#&gt; 25             Pancreas  3.11451e-246   -6.690686</span></span>
+<span id="cb159-28"><a href="cancer.html#cb159-28" tabindex="-1"></a><span class="co">#&gt; 26                Penis  3.023792e-18   -5.753479</span></span>
+<span id="cb159-29"><a href="cancer.html#cb159-29" tabindex="-1"></a><span class="co">#&gt; 27             Placenta    0.07013259    2.397895</span></span>
+<span id="cb159-30"><a href="cancer.html#cb159-30" tabindex="-1"></a><span class="co">#&gt; 28             Prostate             0   -10.08778</span></span>
+<span id="cb159-31"><a href="cancer.html#cb159-31" tabindex="-1"></a><span class="co">#&gt; 29              Sarcoma 9.774701e-213   -1.028899</span></span>
+<span id="cb159-32"><a href="cancer.html#cb159-32" tabindex="-1"></a><span class="co">#&gt; 30      Small.intestine  1.479593e-31   -5.916202</span></span>
+<span id="cb159-33"><a href="cancer.html#cb159-33" tabindex="-1"></a><span class="co">#&gt; 31              Stomach             0   -7.137096</span></span>
+<span id="cb159-34"><a href="cancer.html#cb159-34" tabindex="-1"></a><span class="co">#&gt; 32               Testis  1.871184e-97 -0.09472556</span></span>
+<span id="cb159-35"><a href="cancer.html#cb159-35" tabindex="-1"></a><span class="co">#&gt; 33               Thymus  6.748934e-06   -1.915502</span></span>
+<span id="cb159-36"><a href="cancer.html#cb159-36" tabindex="-1"></a><span class="co">#&gt; 34              Thyroid  7.821825e-09   -2.194891</span></span>
+<span id="cb159-37"><a href="cancer.html#cb159-37" tabindex="-1"></a><span class="co">#&gt; 35               Uterus 1.457974e-105   -6.262217</span></span>
+<span id="cb159-38"><a href="cancer.html#cb159-38" tabindex="-1"></a><span class="co">#&gt; 36                Vulva  1.521831e-27   -5.552298</span></span>
+<span id="cb159-39"><a href="cancer.html#cb159-39" tabindex="-1"></a><span class="co">#&gt; 37                Total             1   -4.121323</span></span></code></pre></div>
+</div>
+</div>
+<div id="existing-cancer-funding-and-publication-data" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> 4. Existing cancer funding and publication data<a href="cancer.html#existing-cancer-funding-and-publication-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Hong Kong government established in Health and Medical Research Fund (HMRF) in 2011 to specifically provide research funding for health and medical research in Hong Kong. Since 2016 over 370 projects in the category of Cancer has been funded for a total of ~$400 M dollars. A list of all funded projects can be found on the Health Bureau <a href="https://rfs1.healthbureau.gov.hk/search/#/fundedsearch/basicsearch?lang=en">webpage</a>. You would like to use this data to see if there is any association between previous project funding and the epidemiology of cancers in Hong Kong.</p>
+<p>We can also do a similar thing with publications and ask if the research publications in Hong Kong have been aligned with the incidence and mortality. We can obtain this data from PubMed using the following terms: <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%28%22Hong+Kong%22%5BAffiliation%5D%29+AND+%28neoplasms%5BMeSH+Terms%5D%29">(“Hong Kong”[Affiliation]) AND (neoplasms[MeSH Terms])</a></p>
+<p>The data has been predownloaded as the Pubmed API via R is a bit slow.</p>
+<p><u>Discussion points:</u></p>
+<ul>
+<li>Why has research publications increased dramatically in recent years? Is there something unsual with the dataset?</li>
+<li>What are the main cancer types being researched in Hong Kong?</li>
+<li>Is there any correlation between funding and cancer incidence and mortality?</li>
+</ul>
+<div id="download-hmrf-grants-and-pubmed-data" class="section level3 hasAnchor" number="7.6.1">
+<h3><span class="header-section-number">7.6.1</span> Download HMRF grants and Pubmed data<a href="cancer.html#download-hmrf-grants-and-pubmed-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="cancer.html#cb160-1" tabindex="-1"></a></span>
+<span id="cb160-2"><a href="cancer.html#cb160-2" tabindex="-1"></a>HMRF<span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/HMRF_cancer_grants.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">stringsAsFactor=</span><span class="cn">FALSE</span>, <span class="at">check.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb160-3"><a href="cancer.html#cb160-3" tabindex="-1"></a><span class="co">#HMRF</span></span>
+<span id="cb160-4"><a href="cancer.html#cb160-4" tabindex="-1"></a></span>
+<span id="cb160-5"><a href="cancer.html#cb160-5" tabindex="-1"></a>pubmed<span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/pubmed__neoplasm_hongkong.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">stringsAsFactor=</span><span class="cn">FALSE</span>, <span class="at">check.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb160-6"><a href="cancer.html#cb160-6" tabindex="-1"></a><span class="co">#pubmed</span></span>
+<span id="cb160-7"><a href="cancer.html#cb160-7" tabindex="-1"></a></span>
+<span id="cb160-8"><a href="cancer.html#cb160-8" tabindex="-1"></a><span class="fu">hist</span>(pubmed<span class="sc">$</span>Publication.Year)</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/load%20HMRF-1.png" width="672" /></p>
+</div>
+<div id="make-word-cloud-for-grants" class="section level3 hasAnchor" number="7.6.2">
+<h3><span class="header-section-number">7.6.2</span> Make word cloud for grants<a href="cancer.html#make-word-cloud-for-grants" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<!-- ```{r wordcloud grants, fig.height=8, fig.width=10} -->
+<!-- if (!require("ggwordcloud")) install.packages("ggwordcloud") -->
+<!-- if (!require("tm")) install.packages("tm") -->
+<!-- if (!require("dplyr")) install.packages("dplyr") -->
+<!-- if (!require("RColorBrewer")) install.packages("RColorBrewer") -->
+<!-- library(ggwordcloud) -->
+<!-- library(tm) -->
+<!-- library(dplyr) -->
+<!-- library(RColorBrewer) -->
+<!-- #Create a vector containing only the text -->
+<!-- gtext <- HMRF$Project.Title -->
+<!-- # Create a corpus   -->
+<!-- gdocs <- Corpus(VectorSource(gtext)) -->
+<!-- gdocs <- gdocs %>% -->
+<!--   tm_map(removePunctuation) %>% -->
+<!--   tm_map(stripWhitespace) -->
+<!-- gdocs <- tm_map(gdocs, content_transformer(tolower)) -->
+<!-- gdocs <- tm_map(gdocs, removeWords, stopwords("english")) -->
+<!-- gdtm <- TermDocumentMatrix(gdocs)  -->
+<!-- gmatrix <- as.matrix(gdtm)  -->
+<!-- gwords <- sort(rowSums(gmatrix),decreasing=TRUE)  -->
+<!-- gdf <- data.frame(word = names(gwords),freq=gwords) -->
+<!-- set.seed(1235) # for reproducibility  -->
+<!-- gp<-ggwordcloud(words = gdf$word, freq = gdf$freq, min.freq = 1,max.words=200, random.order=FALSE, rot.per=0.35,            colors=brewer.pal(8, "Dark2")) -->
+<!-- #gp -->
+<!-- #Create a vector containing only the text -->
+<!-- pmtext <- pubmed$Title -->
+<!-- # Create a corpus   -->
+<!-- pmdocs <- Corpus(VectorSource(pmtext)) -->
+<!-- pmdocs <- pmdocs %>% -->
+<!--   tm_map(removePunctuation) %>% -->
+<!--   tm_map(stripWhitespace) -->
+<!-- pmdocs <- tm_map(pmdocs, content_transformer(tolower)) -->
+<!-- pmdocs <- tm_map(pmdocs, removeWords, stopwords("english")) -->
+<!-- pmdtm <- TermDocumentMatrix(pmdocs)  -->
+<!-- pmmatrix <- as.matrix(pmdtm)  -->
+<!-- pmwords <- sort(rowSums(pmmatrix),decreasing=TRUE)  -->
+<!-- pmdf <- data.frame(word = names(pmwords),freq=pmwords) -->
+<!-- set.seed(1235) # for reproducibility  -->
+<!-- pm<-ggwordcloud(words = pmdf$word, freq = pmdf$freq, min.freq = 1,max.words=200, random.order=FALSE, rot.per=0.35,            colors=brewer.pal(8, "Dark2")) -->
+<!-- grid.arrange(arrangeGrob(pm, top = 'Pubmed'),arrangeGrob(gp, top = 'Grants'),nrow=2,heights=c(6,6)) -->
+<!-- ``` -->
+</div>
+<div id="make-compare-grant-funding-with-incidence-and-mortality" class="section level3 hasAnchor" number="7.6.3">
+<h3><span class="header-section-number">7.6.3</span> Make compare grant funding with incidence and mortality<a href="cancer.html#make-compare-grant-funding-with-incidence-and-mortality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="cancer.html#cb161-1" tabindex="-1"></a></span>
+<span id="cb161-2"><a href="cancer.html#cb161-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;ggrepel&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;ggrepel&quot;</span>)</span>
+<span id="cb161-3"><a href="cancer.html#cb161-3" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;ggplot2&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;gglot2&quot;</span>)</span>
+<span id="cb161-4"><a href="cancer.html#cb161-4" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;gridExtra&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;gridExtra&quot;</span>)</span>
+<span id="cb161-5"><a href="cancer.html#cb161-5" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb161-6"><a href="cancer.html#cb161-6" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb161-7"><a href="cancer.html#cb161-7" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb161-8"><a href="cancer.html#cb161-8" tabindex="-1"></a></span>
+<span id="cb161-9"><a href="cancer.html#cb161-9" tabindex="-1"></a></span>
+<span id="cb161-10"><a href="cancer.html#cb161-10" tabindex="-1"></a>grantpmsum<span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/Grants_pubmed_summary.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">stringsAsFactor=</span><span class="cn">FALSE</span>, <span class="at">check.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb161-11"><a href="cancer.html#cb161-11" tabindex="-1"></a>grantpmsum</span>
+<span id="cb161-12"><a href="cancer.html#cb161-12" tabindex="-1"></a><span class="co">#&gt;                  Cancer Grants Pubmed</span></span>
+<span id="cb161-13"><a href="cancer.html#cb161-13" tabindex="-1"></a><span class="co">#&gt; 1               Biliary      0     72</span></span>
+<span id="cb161-14"><a href="cancer.html#cb161-14" tabindex="-1"></a><span class="co">#&gt; 2               Bladder      0    141</span></span>
+<span id="cb161-15"><a href="cancer.html#cb161-15" tabindex="-1"></a><span class="co">#&gt; 3                 Brain      2    294</span></span>
+<span id="cb161-16"><a href="cancer.html#cb161-16" tabindex="-1"></a><span class="co">#&gt; 4                Breast     34   1147</span></span>
+<span id="cb161-17"><a href="cancer.html#cb161-17" tabindex="-1"></a><span class="co">#&gt; 5                Cervix      9    408</span></span>
+<span id="cb161-18"><a href="cancer.html#cb161-18" tabindex="-1"></a><span class="co">#&gt; 6            Colorectum     40    857</span></span>
+<span id="cb161-19"><a href="cancer.html#cb161-19" tabindex="-1"></a><span class="co">#&gt; 7                   Eye      2     27</span></span>
+<span id="cb161-20"><a href="cancer.html#cb161-20" tabindex="-1"></a><span class="co">#&gt; 8      Hodgkin lymphoma      0     21</span></span>
+<span id="cb161-21"><a href="cancer.html#cb161-21" tabindex="-1"></a><span class="co">#&gt; 9                Kaposi      0      6</span></span>
+<span id="cb161-22"><a href="cancer.html#cb161-22" tabindex="-1"></a><span class="co">#&gt; 10               Kidney      0    133</span></span>
+<span id="cb161-23"><a href="cancer.html#cb161-23" tabindex="-1"></a><span class="co">#&gt; 11               Larynx      0      8</span></span>
+<span id="cb161-24"><a href="cancer.html#cb161-24" tabindex="-1"></a><span class="co">#&gt; 12            Leukaemia     18    515</span></span>
+<span id="cb161-25"><a href="cancer.html#cb161-25" tabindex="-1"></a><span class="co">#&gt; 13                Liver     97   2077</span></span>
+<span id="cb161-26"><a href="cancer.html#cb161-26" tabindex="-1"></a><span class="co">#&gt; 14                 Lung     22    773</span></span>
+<span id="cb161-27"><a href="cancer.html#cb161-27" tabindex="-1"></a><span class="co">#&gt; 15             Melanoma      0     99</span></span>
+<span id="cb161-28"><a href="cancer.html#cb161-28" tabindex="-1"></a><span class="co">#&gt; 16         Mesothelioma      6     58</span></span>
+<span id="cb161-29"><a href="cancer.html#cb161-29" tabindex="-1"></a><span class="co">#&gt; 17     Multiple myeloma      0    104</span></span>
+<span id="cb161-30"><a href="cancer.html#cb161-30" tabindex="-1"></a><span class="co">#&gt; 18                Nasal      0     14</span></span>
+<span id="cb161-31"><a href="cancer.html#cb161-31" tabindex="-1"></a><span class="co">#&gt; 19          Nasopharynx     24   1113</span></span>
+<span id="cb161-32"><a href="cancer.html#cb161-32" tabindex="-1"></a><span class="co">#&gt; 20 Non-Hodgkin lymphoma      0     55</span></span>
+<span id="cb161-33"><a href="cancer.html#cb161-33" tabindex="-1"></a><span class="co">#&gt; 21                 Skin      0     32</span></span>
+<span id="cb161-34"><a href="cancer.html#cb161-34" tabindex="-1"></a><span class="co">#&gt; 22           Oesophagus      7    404</span></span>
+<span id="cb161-35"><a href="cancer.html#cb161-35" tabindex="-1"></a><span class="co">#&gt; 23                 Oral      5    229</span></span>
+<span id="cb161-36"><a href="cancer.html#cb161-36" tabindex="-1"></a><span class="co">#&gt; 24                Ovary     14    354</span></span>
+<span id="cb161-37"><a href="cancer.html#cb161-37" tabindex="-1"></a><span class="co">#&gt; 25             Pancreas      2    141</span></span>
+<span id="cb161-38"><a href="cancer.html#cb161-38" tabindex="-1"></a><span class="co">#&gt; 26                Penis      0      7</span></span>
+<span id="cb161-39"><a href="cancer.html#cb161-39" tabindex="-1"></a><span class="co">#&gt; 27             Placenta      0      9</span></span>
+<span id="cb161-40"><a href="cancer.html#cb161-40" tabindex="-1"></a><span class="co">#&gt; 28             Prostate      6    322</span></span>
+<span id="cb161-41"><a href="cancer.html#cb161-41" tabindex="-1"></a><span class="co">#&gt; 29              Sarcoma      2    216</span></span>
+<span id="cb161-42"><a href="cancer.html#cb161-42" tabindex="-1"></a><span class="co">#&gt; 30      Small intestine      0     11</span></span>
+<span id="cb161-43"><a href="cancer.html#cb161-43" tabindex="-1"></a><span class="co">#&gt; 31              Stomach      5    455</span></span>
+<span id="cb161-44"><a href="cancer.html#cb161-44" tabindex="-1"></a><span class="co">#&gt; 32               Testis      0     18</span></span>
+<span id="cb161-45"><a href="cancer.html#cb161-45" tabindex="-1"></a><span class="co">#&gt; 33               Thymus      0      3</span></span>
+<span id="cb161-46"><a href="cancer.html#cb161-46" tabindex="-1"></a><span class="co">#&gt; 34              Thyroid      2    231</span></span>
+<span id="cb161-47"><a href="cancer.html#cb161-47" tabindex="-1"></a><span class="co">#&gt; 35               Uterus      0     72</span></span>
+<span id="cb161-48"><a href="cancer.html#cb161-48" tabindex="-1"></a><span class="co">#&gt; 36                Vulva      0      8</span></span>
+<span id="cb161-49"><a href="cancer.html#cb161-49" tabindex="-1"></a></span>
+<span id="cb161-50"><a href="cancer.html#cb161-50" tabindex="-1"></a>HKCancer_inc <span class="ot">&lt;-</span> HKCancer[HKCancer<span class="sc">$</span>Type<span class="sc">==</span><span class="st">&#39;incidence&#39;</span>,]</span>
+<span id="cb161-51"><a href="cancer.html#cb161-51" tabindex="-1"></a>HKCancer_inc_sum <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">incidence=</span><span class="fu">colSums</span>(HKCancer_inc[,<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)]))</span>
+<span id="cb161-52"><a href="cancer.html#cb161-52" tabindex="-1"></a></span>
+<span id="cb161-53"><a href="cancer.html#cb161-53" tabindex="-1"></a>HKCancer_mort <span class="ot">&lt;-</span> HKCancer[HKCancer<span class="sc">$</span>Type<span class="sc">==</span><span class="st">&#39;mortality&#39;</span>,]</span>
+<span id="cb161-54"><a href="cancer.html#cb161-54" tabindex="-1"></a>HKCancer_mort_sum <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mortality=</span><span class="fu">colSums</span>(HKCancer_inc[,<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)]))</span>
+<span id="cb161-55"><a href="cancer.html#cb161-55" tabindex="-1"></a></span>
+<span id="cb161-56"><a href="cancer.html#cb161-56" tabindex="-1"></a>HKCancer_compare <span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">cancer=</span>grantpmsum<span class="sc">$</span>Cancer, <span class="at">grants=</span>grantpmsum<span class="sc">$</span>Grants, <span class="at">pubmed=</span>grantpmsum<span class="sc">$</span>Pubmed, <span class="at">incidence=</span><span class="fu">colSums</span>(HKCancer_inc[,<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)]), <span class="at">mortality=</span><span class="fu">colSums</span>(HKCancer_mort[,<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)]))</span>
+<span id="cb161-57"><a href="cancer.html#cb161-57" tabindex="-1"></a></span>
+<span id="cb161-58"><a href="cancer.html#cb161-58" tabindex="-1"></a>gp<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_compare, <span class="fu">aes</span>(<span class="at">y=</span>grants, <span class="at">x=</span>pubmed)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span>  <span class="fu">geom_label_repel</span>(<span class="at">data=</span>HKCancer_compare, <span class="fu">aes</span>(<span class="at">label=</span>cancer),  <span class="at">nudge_x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">3.5</span>,<span class="at">label.size =</span> <span class="cn">NA</span> ,<span class="at">min.segment.length =</span><span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">&#39;lines&#39;</span>), <span class="at">max.overlaps =</span> <span class="dv">45</span>, <span class="at">box.padding =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">3</span>, <span class="at">label.y =</span> <span class="dv">90</span>)</span>
+<span id="cb161-59"><a href="cancer.html#cb161-59" tabindex="-1"></a></span>
+<span id="cb161-60"><a href="cancer.html#cb161-60" tabindex="-1"></a>pinc<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_compare, <span class="fu">aes</span>(<span class="at">y=</span>pubmed, <span class="at">x=</span>incidence)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span>  <span class="fu">geom_label_repel</span>(<span class="at">data=</span>HKCancer_compare, <span class="fu">aes</span>(<span class="at">label=</span>cancer),  <span class="at">nudge_x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">3.5</span>,<span class="at">label.size =</span> <span class="cn">NA</span> ,<span class="at">min.segment.length =</span><span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">&#39;lines&#39;</span>), <span class="at">max.overlaps =</span> <span class="dv">15</span>, <span class="at">box.padding =</span> <span class="fl">0.5</span>)<span class="sc">+</span> <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">40000</span>, <span class="at">label.y =</span> <span class="dv">0</span>)</span>
+<span id="cb161-61"><a href="cancer.html#cb161-61" tabindex="-1"></a></span>
+<span id="cb161-62"><a href="cancer.html#cb161-62" tabindex="-1"></a>pmor<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_compare, <span class="fu">aes</span>(<span class="at">y=</span>pubmed, <span class="at">x=</span>mortality)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span>  <span class="fu">geom_label_repel</span>(<span class="at">data=</span>HKCancer_compare, <span class="fu">aes</span>(<span class="at">label=</span>cancer),  <span class="at">nudge_x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">3.5</span>,<span class="at">label.size =</span> <span class="cn">NA</span> ,<span class="at">min.segment.length =</span><span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">&#39;lines&#39;</span>), <span class="at">max.overlaps =</span> <span class="dv">15</span>, <span class="at">box.padding =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">40000</span>, <span class="at">label.y =</span> <span class="dv">0</span>)</span>
+<span id="cb161-63"><a href="cancer.html#cb161-63" tabindex="-1"></a></span>
+<span id="cb161-64"><a href="cancer.html#cb161-64" tabindex="-1"></a></span>
+<span id="cb161-65"><a href="cancer.html#cb161-65" tabindex="-1"></a>ginc<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_compare, <span class="fu">aes</span>(<span class="at">y=</span>grants, <span class="at">x=</span>incidence)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span>  <span class="fu">geom_label_repel</span>(<span class="at">data=</span>HKCancer_compare, <span class="fu">aes</span>(<span class="at">label=</span>cancer),  <span class="at">nudge_x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">3.5</span>,<span class="at">label.size =</span> <span class="cn">NA</span> ,<span class="at">min.segment.length =</span><span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">&#39;lines&#39;</span>), <span class="at">max.overlaps =</span> <span class="dv">40</span>, <span class="at">box.padding =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">40000</span>, <span class="at">label.y =</span> <span class="dv">0</span>)</span>
+<span id="cb161-66"><a href="cancer.html#cb161-66" tabindex="-1"></a></span>
+<span id="cb161-67"><a href="cancer.html#cb161-67" tabindex="-1"></a>gmor<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_compare, <span class="fu">aes</span>(<span class="at">y=</span>grants, <span class="at">x=</span>mortality)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span>  <span class="fu">geom_label_repel</span>(<span class="at">data=</span>HKCancer_compare, <span class="fu">aes</span>(<span class="at">label=</span>cancer),  <span class="at">nudge_x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">3.5</span>,<span class="at">label.size =</span> <span class="cn">NA</span> ,<span class="at">min.segment.length =</span><span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">&#39;lines&#39;</span>), <span class="at">max.overlaps =</span> <span class="dv">40</span>, <span class="at">box.padding =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">40000</span>, <span class="at">label.y =</span> <span class="dv">0</span>)</span>
+<span id="cb161-68"><a href="cancer.html#cb161-68" tabindex="-1"></a></span>
+<span id="cb161-69"><a href="cancer.html#cb161-69" tabindex="-1"></a><span class="fu">grid.arrange</span>(gp,ginc,gmor,pinc, pmor, <span class="at">ncol=</span><span class="dv">3</span>)</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/grants%20versus%20incidence%20and%20mortality-1.png" width="960" /></p>
+</div>
+</div>
+<div id="task-to-be-completed-in-tutotial-2-by-300pm-and-shared-with-other-tutorial-group" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> 5. Task (to be completed in Tutotial 2 by 3:00pm and shared with other tutorial group)<a href="cancer.html#task-to-be-completed-in-tutotial-2-by-300pm-and-shared-with-other-tutorial-group" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As a group, discuss what cancer type you think is most worthy of funding in Hong Kong. Prepare 2-3 PowerPoint/Google Slides summarising your decision. Include some points and figures supporting your final conclusion. If possible also include suggestions of what other data/analyses can be performed and/or other cancer types that are also in need of funding in Hong Kong.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="infectious-dis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pop-genetics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/statbiomed/BMDS-book/tree/main/02-data_topics.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BMDatSci.pdf", "BMDatSci.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

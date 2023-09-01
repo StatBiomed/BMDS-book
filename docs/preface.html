@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Preface | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Preface | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2022-10-02" />
+<meta name="date" content="2023-09-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -141,11 +145,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#introduction-for-readers"><i class="fa fa-check"></i>Introduction for readers</a>
 <ul>
-<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#what-we-hope-you-will-learn-from-this-course-book"><i class="fa fa-check"></i>What we hope you will learn from this course / book</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#what-you-will-learn-from-this-coursebook"><i class="fa fa-check"></i>What you will learn from this course/book</a></li>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#what-we-recommend-you-do-while-reading-this-book"><i class="fa fa-check"></i>What we recommend you do while reading this book</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#other-reference-books"><i class="fa fa-check"></i>Other reference books</a></li>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
-<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#last-notes"><i class="fa fa-check"></i>Last notes</a></li>
 </ul></li>
 <li class="part"><span><b>I Data Science Foundations</b></span></li>
 <li class="chapter" data-level="1" data-path="introR.html"><a href="introR.html"><i class="fa fa-check"></i><b>1</b> Introduction to R programming</a>
@@ -259,25 +263,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Biomedical Data Modules</b></span></li>
-<li class="chapter" data-level="5" data-path="genomics.html"><a href="genomics.html"><i class="fa fa-check"></i><b>5</b> Personalised Genomic Medicine</a>
+<li class="chapter" data-level="5" data-path="image-digital.html"><a href="image-digital.html"><i class="fa fa-check"></i><b>5</b> Medical Image and Digital Health</a></li>
+<li class="chapter" data-level="6" data-path="infectious-dis.html"><a href="infectious-dis.html"><i class="fa fa-check"></i><b>6</b> Infectious Disease Informatics</a></li>
+<li class="chapter" data-level="7" data-path="cancer.html"><a href="cancer.html"><i class="fa fa-check"></i><b>7</b> Cancer genomics and epidemiology</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="genomics.html"><a href="genomics.html#genomics-case1"><i class="fa fa-check"></i><b>5.1</b> Case study 1: splicing fedility prediction</a>
+<li class="chapter" data-level="7.1" data-path="cancer.html"><a href="cancer.html#cancer-case1"><i class="fa fa-check"></i><b>7.1</b> Case study 1: analysis of cBioportal mutation data</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="genomics.html"><a href="genomics.html#questions-for-discussion"><i class="fa fa-check"></i><b>5.1.1</b> Questions for Discussion</a></li>
-<li class="chapter" data-level="5.1.2" data-path="genomics.html"><a href="genomics.html#hands-on-with-regression-model"><i class="fa fa-check"></i><b>5.1.2</b> Hands-on with regression model</a></li>
-<li class="chapter" data-level="5.1.3" data-path="genomics.html"><a href="genomics.html#open-question"><i class="fa fa-check"></i><b>5.1.3</b> Open question</a></li>
+<li class="chapter" data-level="7.1.1" data-path="cancer.html"><a href="cancer.html#exploratory-analysis"><i class="fa fa-check"></i><b>7.1.1</b> Exploratory analysis</a></li>
+<li class="chapter" data-level="7.1.2" data-path="cancer.html"><a href="cancer.html#statistical-analysis"><i class="fa fa-check"></i><b>7.1.2</b> Statistical analysis</a></li>
+<li class="chapter" data-level="7.1.3" data-path="cancer.html"><a href="cancer.html#literature-search"><i class="fa fa-check"></i><b>7.1.3</b> Literature search</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="genomics.html"><a href="genomics.html#genomics-case2"><i class="fa fa-check"></i><b>5.2</b> Case study 2: analysis of cBioportal mutation data</a>
+<li class="chapter" data-level="7.2" data-path="cancer.html"><a href="cancer.html#cancer-case2"><i class="fa fa-check"></i><b>7.2</b> Case study 2: Cancer Epidemiology</a></li>
+<li class="chapter" data-level="7.3" data-path="cancer.html"><a href="cancer.html#scenario"><i class="fa fa-check"></i><b>7.3</b> 1. Scenario</a></li>
+<li class="chapter" data-level="7.4" data-path="cancer.html"><a href="cancer.html#hong-kong-population"><i class="fa fa-check"></i><b>7.4</b> 2. Hong Kong population</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="genomics.html"><a href="genomics.html#exploratory-analysis"><i class="fa fa-check"></i><b>5.2.1</b> Exploratory analysis</a></li>
-<li class="chapter" data-level="5.2.2" data-path="genomics.html"><a href="genomics.html#statistical-analysis"><i class="fa fa-check"></i><b>5.2.2</b> Statistical analysis</a></li>
-<li class="chapter" data-level="5.2.3" data-path="genomics.html"><a href="genomics.html#literature-search"><i class="fa fa-check"></i><b>5.2.3</b> Literature search</a></li>
+<li class="chapter" data-level="7.4.1" data-path="cancer.html"><a href="cancer.html#download-population-data"><i class="fa fa-check"></i><b>7.4.1</b> Download population data</a></li>
+<li class="chapter" data-level="7.4.2" data-path="cancer.html"><a href="cancer.html#format-data-for-plotting"><i class="fa fa-check"></i><b>7.4.2</b> Format data for plotting</a></li>
+<li class="chapter" data-level="7.4.3" data-path="cancer.html"><a href="cancer.html#plotting-population-data"><i class="fa fa-check"></i><b>7.4.3</b> Plotting population data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="cancer.html"><a href="cancer.html#cancer-registry-data"><i class="fa fa-check"></i><b>7.5</b> 3. Cancer registry data</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="cancer.html"><a href="cancer.html#download-cancer-registry-data"><i class="fa fa-check"></i><b>7.5.1</b> Download cancer registry data</a></li>
+<li class="chapter" data-level="7.5.2" data-path="cancer.html"><a href="cancer.html#a.-visualise-changes-in-incidence-and-mortality"><i class="fa fa-check"></i><b>7.5.2</b> 3a. Visualise changes in incidence and mortality</a></li>
+<li class="chapter" data-level="7.5.3" data-path="cancer.html"><a href="cancer.html#b.-calculate-cancer-risk-and-mortality-rate"><i class="fa fa-check"></i><b>7.5.3</b> 3b. Calculate cancer risk and mortality rate</a></li>
+<li class="chapter" data-level="7.5.4" data-path="cancer.html"><a href="cancer.html#c.-mortality-incidence-ratio"><i class="fa fa-check"></i><b>7.5.4</b> 3c. Mortality-incidence ratio</a></li>
+<li class="chapter" data-level="7.5.5" data-path="cancer.html"><a href="cancer.html#d.-paired-t-test-on-mortality-incidence-ratio-change"><i class="fa fa-check"></i><b>7.5.5</b> 3d. Paired t-test on mortality-incidence ratio change</a></li>
+<li class="chapter" data-level="7.5.6" data-path="cancer.html"><a href="cancer.html#e.-childhood-versus-elderly-cancers"><i class="fa fa-check"></i><b>7.5.6</b> 3e. Childhood versus elderly cancers</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="cancer.html"><a href="cancer.html#existing-cancer-funding-and-publication-data"><i class="fa fa-check"></i><b>7.6</b> 4. Existing cancer funding and publication data</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="cancer.html"><a href="cancer.html#download-hmrf-grants-and-pubmed-data"><i class="fa fa-check"></i><b>7.6.1</b> Download HMRF grants and Pubmed data</a></li>
+<li class="chapter" data-level="7.6.2" data-path="cancer.html"><a href="cancer.html#make-word-cloud-for-grants"><i class="fa fa-check"></i><b>7.6.2</b> Make word cloud for grants</a></li>
+<li class="chapter" data-level="7.6.3" data-path="cancer.html"><a href="cancer.html#make-compare-grant-funding-with-incidence-and-mortality"><i class="fa fa-check"></i><b>7.6.3</b> Make compare grant funding with incidence and mortality</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="cancer.html"><a href="cancer.html#task-to-be-completed-in-tutotial-2-by-300pm-and-shared-with-other-tutorial-group"><i class="fa fa-check"></i><b>7.7</b> 5. Task (to be completed in Tutotial 2 by 3:00pm and shared with other tutorial group)</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>8</b> Population Genetics and Diseases</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="pop-genetics.html"><a href="pop-genetics.html#case-study-1-heritability-and-human-traits"><i class="fa fa-check"></i><b>8.1</b> Case study 1: Heritability and human traits</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="pop-genetics.html"><a href="pop-genetics.html#part-1"><i class="fa fa-check"></i><b>8.1.1</b> Part 1</a></li>
+<li class="chapter" data-level="8.1.2" data-path="pop-genetics.html"><a href="pop-genetics.html#part-2"><i class="fa fa-check"></i><b>8.1.2</b> Part 2</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="image-digital.html"><a href="image-digital.html"><i class="fa fa-check"></i><b>6</b> Medical Image and Digital Health</a></li>
-<li class="chapter" data-level="7" data-path="infectious-dis.html"><a href="infectious-dis.html"><i class="fa fa-check"></i><b>7</b> Infectious Disease Informatics</a></li>
-<li class="chapter" data-level="8" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>8</b> Population Genetics and Diseases</a></li>
-<li class="chapter" data-level="9" data-path="epidemiology.html"><a href="epidemiology.html"><i class="fa fa-check"></i><b>9</b> Epidemiology of Cancer and Other Diseases</a></li>
 <li class="part"><span><b>III Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i>Appendix A: Install R &amp; RStudio</a>
 <ul>
@@ -328,8 +356,8 @@ Rmarkdown notebooks as supplementary to lecture notes so that students can
 reproduce the teaching contents more easily.</p>
 <div id="introduction-for-readers" class="section level2 unnumbered hasAnchor">
 <h2>Introduction for readers<a href="preface.html#introduction-for-readers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="what-we-hope-you-will-learn-from-this-course-book" class="section level3 unnumbered hasAnchor">
-<h3>What we hope you will learn from this course / book<a href="preface.html#what-we-hope-you-will-learn-from-this-course-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="what-you-will-learn-from-this-coursebook" class="section level3 unnumbered hasAnchor">
+<h3>What you will learn from this course/book<a href="preface.html#what-you-will-learn-from-this-coursebook" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In part I, you will find a general introduction to data science (by Dr YH Huang):</p>
 <ol style="list-style-type: decimal">
 <li>Quantitative methods: t-test, correlation analysis, clustering, linear
@@ -346,28 +374,34 @@ results to key stakeholders.</li>
 which will be illustrated with both introduction and cases that are suitable for
 problem-based learning format:</p>
 <ol style="list-style-type: decimal">
-<li>Personalised genomic medicine, by Dr David Shih and Dr Yuanhua Huang</li>
-<li>Medical imaging and digital health, by Dr Joshua Ho and Dr Lequan Yu</li>
+<li>Medical imaging and digital health, by Dr Joshua Ho and Dr Rachel Kwan</li>
 <li>Infectious disease informatics, by Dr Tommy Lam and Dr Kathy Leung</li>
+<li>Cancer genomics and epidemiology, by Dr David Shih and Dr Jason Wong</li>
 <li>Population genetics and diseases, by Dr Clara Tang and Dr Asif Javed</li>
-<li>Epidemiology of cancer and other diseases, by Dr Jason Wong and Dr Carlos Wong</li>
 </ol>
 </div>
 <div id="what-we-recommend-you-do-while-reading-this-book" class="section level3 unnumbered hasAnchor">
 <h3>What we recommend you do while reading this book<a href="preface.html#what-we-recommend-you-do-while-reading-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To enhance the knowledge and skills learned from this book, we recommend the
+<p>To enhance the knowledge and skills learned from this book, we recommend that
 readers</p>
 <ol style="list-style-type: decimal">
-<li>Read materials/slides provided in each module</li>
+<li>Read the materials/slides provided in each module</li>
 <li>Practice quantitative skills by solving problems using R</li>
 </ol>
 </div>
 </div>
+<div id="other-reference-books" class="section level2 unnumbered hasAnchor">
+<h2>Other reference books<a href="preface.html#other-reference-books" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Besides this online book as a collection of R materials for the teaching contents, we also recommend the following online books as reference:</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://rafalab.dfci.harvard.edu/dsbook-part-1/">Introduction to Data Science: Data Wrangling and Visualization with R</a> by Rafeal A. Irizarry</li>
+<li><a href="http://rafalab.dfci.harvard.edu/dsbook-part-2/">Advanced Data Science: Statistics and Prediction Algorithms Through Case Studies</a> by Rafeal A. Irizarry</li>
+</ol>
+</div>
 <div id="acknowledgements" class="section level2 unnumbered hasAnchor">
 <h2>Acknowledgements<a href="preface.html#acknowledgements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="last-notes" class="section level2 unnumbered hasAnchor">
-<h2>Last notes<a href="preface.html#last-notes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We thank all teachers contributing to this course from all years, including Dr Lequan Yu (2022-23) and Dr Carlos Wong (2022-23) and student helpers serving as demonstrators, including Mr Mingze Gao and Ms Fangxin Cai.</p>
+<!-- ## Last notes {-} -->
 <!-- # About the authors {-} -->
 <!-- The authors are the teaching team for the BIOF1001 course (ordered by teaching  -->
 <!-- time): -->

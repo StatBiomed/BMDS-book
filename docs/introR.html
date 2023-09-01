@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Introduction to R programming | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Introduction to R programming | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2022-10-02" />
+<meta name="date" content="2023-09-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -141,11 +145,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#introduction-for-readers"><i class="fa fa-check"></i>Introduction for readers</a>
 <ul>
-<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#what-we-hope-you-will-learn-from-this-course-book"><i class="fa fa-check"></i>What we hope you will learn from this course / book</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#what-you-will-learn-from-this-coursebook"><i class="fa fa-check"></i>What you will learn from this course/book</a></li>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#what-we-recommend-you-do-while-reading-this-book"><i class="fa fa-check"></i>What we recommend you do while reading this book</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#other-reference-books"><i class="fa fa-check"></i>Other reference books</a></li>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
-<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#last-notes"><i class="fa fa-check"></i>Last notes</a></li>
 </ul></li>
 <li class="part"><span><b>I Data Science Foundations</b></span></li>
 <li class="chapter" data-level="1" data-path="introR.html"><a href="introR.html"><i class="fa fa-check"></i><b>1</b> Introduction to R programming</a>
@@ -259,25 +263,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Biomedical Data Modules</b></span></li>
-<li class="chapter" data-level="5" data-path="genomics.html"><a href="genomics.html"><i class="fa fa-check"></i><b>5</b> Personalised Genomic Medicine</a>
+<li class="chapter" data-level="5" data-path="image-digital.html"><a href="image-digital.html"><i class="fa fa-check"></i><b>5</b> Medical Image and Digital Health</a></li>
+<li class="chapter" data-level="6" data-path="infectious-dis.html"><a href="infectious-dis.html"><i class="fa fa-check"></i><b>6</b> Infectious Disease Informatics</a></li>
+<li class="chapter" data-level="7" data-path="cancer.html"><a href="cancer.html"><i class="fa fa-check"></i><b>7</b> Cancer genomics and epidemiology</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="genomics.html"><a href="genomics.html#genomics-case1"><i class="fa fa-check"></i><b>5.1</b> Case study 1: splicing fedility prediction</a>
+<li class="chapter" data-level="7.1" data-path="cancer.html"><a href="cancer.html#cancer-case1"><i class="fa fa-check"></i><b>7.1</b> Case study 1: analysis of cBioportal mutation data</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="genomics.html"><a href="genomics.html#questions-for-discussion"><i class="fa fa-check"></i><b>5.1.1</b> Questions for Discussion</a></li>
-<li class="chapter" data-level="5.1.2" data-path="genomics.html"><a href="genomics.html#hands-on-with-regression-model"><i class="fa fa-check"></i><b>5.1.2</b> Hands-on with regression model</a></li>
-<li class="chapter" data-level="5.1.3" data-path="genomics.html"><a href="genomics.html#open-question"><i class="fa fa-check"></i><b>5.1.3</b> Open question</a></li>
+<li class="chapter" data-level="7.1.1" data-path="cancer.html"><a href="cancer.html#exploratory-analysis"><i class="fa fa-check"></i><b>7.1.1</b> Exploratory analysis</a></li>
+<li class="chapter" data-level="7.1.2" data-path="cancer.html"><a href="cancer.html#statistical-analysis"><i class="fa fa-check"></i><b>7.1.2</b> Statistical analysis</a></li>
+<li class="chapter" data-level="7.1.3" data-path="cancer.html"><a href="cancer.html#literature-search"><i class="fa fa-check"></i><b>7.1.3</b> Literature search</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="genomics.html"><a href="genomics.html#genomics-case2"><i class="fa fa-check"></i><b>5.2</b> Case study 2: analysis of cBioportal mutation data</a>
+<li class="chapter" data-level="7.2" data-path="cancer.html"><a href="cancer.html#cancer-case2"><i class="fa fa-check"></i><b>7.2</b> Case study 2: Cancer Epidemiology</a></li>
+<li class="chapter" data-level="7.3" data-path="cancer.html"><a href="cancer.html#scenario"><i class="fa fa-check"></i><b>7.3</b> 1. Scenario</a></li>
+<li class="chapter" data-level="7.4" data-path="cancer.html"><a href="cancer.html#hong-kong-population"><i class="fa fa-check"></i><b>7.4</b> 2. Hong Kong population</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="genomics.html"><a href="genomics.html#exploratory-analysis"><i class="fa fa-check"></i><b>5.2.1</b> Exploratory analysis</a></li>
-<li class="chapter" data-level="5.2.2" data-path="genomics.html"><a href="genomics.html#statistical-analysis"><i class="fa fa-check"></i><b>5.2.2</b> Statistical analysis</a></li>
-<li class="chapter" data-level="5.2.3" data-path="genomics.html"><a href="genomics.html#literature-search"><i class="fa fa-check"></i><b>5.2.3</b> Literature search</a></li>
+<li class="chapter" data-level="7.4.1" data-path="cancer.html"><a href="cancer.html#download-population-data"><i class="fa fa-check"></i><b>7.4.1</b> Download population data</a></li>
+<li class="chapter" data-level="7.4.2" data-path="cancer.html"><a href="cancer.html#format-data-for-plotting"><i class="fa fa-check"></i><b>7.4.2</b> Format data for plotting</a></li>
+<li class="chapter" data-level="7.4.3" data-path="cancer.html"><a href="cancer.html#plotting-population-data"><i class="fa fa-check"></i><b>7.4.3</b> Plotting population data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="cancer.html"><a href="cancer.html#cancer-registry-data"><i class="fa fa-check"></i><b>7.5</b> 3. Cancer registry data</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="cancer.html"><a href="cancer.html#download-cancer-registry-data"><i class="fa fa-check"></i><b>7.5.1</b> Download cancer registry data</a></li>
+<li class="chapter" data-level="7.5.2" data-path="cancer.html"><a href="cancer.html#a.-visualise-changes-in-incidence-and-mortality"><i class="fa fa-check"></i><b>7.5.2</b> 3a. Visualise changes in incidence and mortality</a></li>
+<li class="chapter" data-level="7.5.3" data-path="cancer.html"><a href="cancer.html#b.-calculate-cancer-risk-and-mortality-rate"><i class="fa fa-check"></i><b>7.5.3</b> 3b. Calculate cancer risk and mortality rate</a></li>
+<li class="chapter" data-level="7.5.4" data-path="cancer.html"><a href="cancer.html#c.-mortality-incidence-ratio"><i class="fa fa-check"></i><b>7.5.4</b> 3c. Mortality-incidence ratio</a></li>
+<li class="chapter" data-level="7.5.5" data-path="cancer.html"><a href="cancer.html#d.-paired-t-test-on-mortality-incidence-ratio-change"><i class="fa fa-check"></i><b>7.5.5</b> 3d. Paired t-test on mortality-incidence ratio change</a></li>
+<li class="chapter" data-level="7.5.6" data-path="cancer.html"><a href="cancer.html#e.-childhood-versus-elderly-cancers"><i class="fa fa-check"></i><b>7.5.6</b> 3e. Childhood versus elderly cancers</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="cancer.html"><a href="cancer.html#existing-cancer-funding-and-publication-data"><i class="fa fa-check"></i><b>7.6</b> 4. Existing cancer funding and publication data</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="cancer.html"><a href="cancer.html#download-hmrf-grants-and-pubmed-data"><i class="fa fa-check"></i><b>7.6.1</b> Download HMRF grants and Pubmed data</a></li>
+<li class="chapter" data-level="7.6.2" data-path="cancer.html"><a href="cancer.html#make-word-cloud-for-grants"><i class="fa fa-check"></i><b>7.6.2</b> Make word cloud for grants</a></li>
+<li class="chapter" data-level="7.6.3" data-path="cancer.html"><a href="cancer.html#make-compare-grant-funding-with-incidence-and-mortality"><i class="fa fa-check"></i><b>7.6.3</b> Make compare grant funding with incidence and mortality</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="cancer.html"><a href="cancer.html#task-to-be-completed-in-tutotial-2-by-300pm-and-shared-with-other-tutorial-group"><i class="fa fa-check"></i><b>7.7</b> 5. Task (to be completed in Tutotial 2 by 3:00pm and shared with other tutorial group)</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>8</b> Population Genetics and Diseases</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="pop-genetics.html"><a href="pop-genetics.html#case-study-1-heritability-and-human-traits"><i class="fa fa-check"></i><b>8.1</b> Case study 1: Heritability and human traits</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="pop-genetics.html"><a href="pop-genetics.html#part-1"><i class="fa fa-check"></i><b>8.1.1</b> Part 1</a></li>
+<li class="chapter" data-level="8.1.2" data-path="pop-genetics.html"><a href="pop-genetics.html#part-2"><i class="fa fa-check"></i><b>8.1.2</b> Part 2</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="image-digital.html"><a href="image-digital.html"><i class="fa fa-check"></i><b>6</b> Medical Image and Digital Health</a></li>
-<li class="chapter" data-level="7" data-path="infectious-dis.html"><a href="infectious-dis.html"><i class="fa fa-check"></i><b>7</b> Infectious Disease Informatics</a></li>
-<li class="chapter" data-level="8" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>8</b> Population Genetics and Diseases</a></li>
-<li class="chapter" data-level="9" data-path="epidemiology.html"><a href="epidemiology.html"><i class="fa fa-check"></i><b>9</b> Epidemiology of Cancer and Other Diseases</a></li>
 <li class="part"><span><b>III Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i>Appendix A: Install R &amp; RStudio</a>
 <ul>
@@ -342,42 +370,42 @@ data type of any variable. In total, R has five data types:</p>
 <p>The <code>numeric</code> is for numeric values, as the most common and the <strong>default</strong>
 data type. The <code>numeric</code> datatype saves values in double precision (double
 number of bytes in memory), so the type is also <code>double</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introR.html#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.0</span>, <span class="fl">2.0</span>, <span class="fl">5.0</span>, <span class="fl">7.0</span>)</span>
-<span id="cb1-2"><a href="introR.html#cb1-2" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb1-3"><a href="introR.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 5 7</span></span>
-<span id="cb1-4"><a href="introR.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span>
-<span id="cb1-5"><a href="introR.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;numeric&quot;</span></span>
-<span id="cb1-6"><a href="introR.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
-<span id="cb1-7"><a href="introR.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introR.html#cb1-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.0</span>, <span class="fl">2.0</span>, <span class="fl">5.0</span>, <span class="fl">7.0</span>)</span>
+<span id="cb1-2"><a href="introR.html#cb1-2" tabindex="-1"></a>x</span>
+<span id="cb1-3"><a href="introR.html#cb1-3" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 5 7</span></span>
+<span id="cb1-4"><a href="introR.html#cb1-4" tabindex="-1"></a><span class="fu">class</span>(x)</span>
+<span id="cb1-5"><a href="introR.html#cb1-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;numeric&quot;</span></span>
+<span id="cb1-6"><a href="introR.html#cb1-6" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
+<span id="cb1-7"><a href="introR.html#cb1-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span></code></pre></div>
 </div>
 <div id="integer" class="section level3 hasAnchor" number="1.1.2">
 <h3><span class="header-section-number">1.1.2</span> integer<a href="introR.html#integer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The integer is another data type used for the set of all integers. You can use
 the capital ‘L’ notation as a suffix to specify a particular value as the
 integer data type. Also, you can convert a value into an integer type using the <code>as.integer()</code> function.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introR.html#cb2-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(1L, 2L, 5L, 7L)</span>
-<span id="cb2-2"><a href="introR.html#cb2-2" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb2-3"><a href="introR.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 5 7</span></span>
-<span id="cb2-4"><a href="introR.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y)</span>
-<span id="cb2-5"><a href="introR.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;integer&quot;</span></span>
-<span id="cb2-6"><a href="introR.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(y)</span>
-<span id="cb2-7"><a href="introR.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;integer&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introR.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign a integer value to y</span></span>
-<span id="cb3-2"><a href="introR.html#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="dv">5</span></span>
-<span id="cb3-3"><a href="introR.html#cb3-3" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb3-4"><a href="introR.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># is y an integer?</span></span>
-<span id="cb3-5"><a href="introR.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">is.integer</span>(y))</span>
-<span id="cb3-6"><a href="introR.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introR.html#cb2-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="dt">L</span>, <span class="dv">2</span><span class="dt">L</span>, <span class="dv">5</span><span class="dt">L</span>, <span class="dv">7</span><span class="dt">L</span>)</span>
+<span id="cb2-2"><a href="introR.html#cb2-2" tabindex="-1"></a>y</span>
+<span id="cb2-3"><a href="introR.html#cb2-3" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 5 7</span></span>
+<span id="cb2-4"><a href="introR.html#cb2-4" tabindex="-1"></a><span class="fu">class</span>(y)</span>
+<span id="cb2-5"><a href="introR.html#cb2-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;integer&quot;</span></span>
+<span id="cb2-6"><a href="introR.html#cb2-6" tabindex="-1"></a><span class="fu">typeof</span>(y)</span>
+<span id="cb2-7"><a href="introR.html#cb2-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;integer&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introR.html#cb3-1" tabindex="-1"></a><span class="co"># Assign a integer value to y</span></span>
+<span id="cb3-2"><a href="introR.html#cb3-2" tabindex="-1"></a>y <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb3-3"><a href="introR.html#cb3-3" tabindex="-1"></a> </span>
+<span id="cb3-4"><a href="introR.html#cb3-4" tabindex="-1"></a><span class="co"># is y an integer?</span></span>
+<span id="cb3-5"><a href="introR.html#cb3-5" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">is.integer</span>(y))</span>
+<span id="cb3-6"><a href="introR.html#cb3-6" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 </div>
 <div id="logical" class="section level3 hasAnchor" number="1.1.3">
 <h3><span class="header-section-number">1.1.3</span> logical<a href="introR.html#logical" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In R, the <code>logical</code> data type takes either a value of true or false. A <code>logical</code>
 value is often generated when comparing variables.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introR.html#cb4-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb4-2"><a href="introR.html#cb4-2" aria-hidden="true" tabindex="-1"></a>z</span>
-<span id="cb4-3"><a href="introR.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  TRUE  TRUE  TRUE FALSE</span></span>
-<span id="cb4-4"><a href="introR.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(z)</span>
-<span id="cb4-5"><a href="introR.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;logical&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introR.html#cb4-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb4-2"><a href="introR.html#cb4-2" tabindex="-1"></a>z</span>
+<span id="cb4-3"><a href="introR.html#cb4-3" tabindex="-1"></a><span class="co">#&gt; [1]  TRUE  TRUE  TRUE FALSE</span></span>
+<span id="cb4-4"><a href="introR.html#cb4-4" tabindex="-1"></a><span class="fu">typeof</span>(z)</span>
+<span id="cb4-5"><a href="introR.html#cb4-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;logical&quot;</span></span></code></pre></div>
 </div>
 <div id="character" class="section level3 hasAnchor" number="1.1.4">
 <h3><span class="header-section-number">1.1.4</span> character<a href="introR.html#character" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -385,37 +413,37 @@ value is often generated when comparing variables.</p>
 special characters. It stores <code>character</code> values or <code>strings</code>. Strings in R can
 contain alphabets, numbers, and symbols. The character type is usually denoted
 by wrapping the value inside single or double inverted commas.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introR.html#cb5-1" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;aa&quot;</span>, <span class="st">&quot;bb&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;7&quot;</span>)</span>
-<span id="cb5-2"><a href="introR.html#cb5-2" aria-hidden="true" tabindex="-1"></a>w</span>
-<span id="cb5-3"><a href="introR.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;aa&quot; &quot;bb&quot; &quot;5&quot;  &quot;7&quot;</span></span>
-<span id="cb5-4"><a href="introR.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(w)</span>
-<span id="cb5-5"><a href="introR.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;character&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introR.html#cb5-1" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;aa&quot;</span>, <span class="st">&quot;bb&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;7&quot;</span>)</span>
+<span id="cb5-2"><a href="introR.html#cb5-2" tabindex="-1"></a>w</span>
+<span id="cb5-3"><a href="introR.html#cb5-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;aa&quot; &quot;bb&quot; &quot;5&quot;  &quot;7&quot;</span></span>
+<span id="cb5-4"><a href="introR.html#cb5-4" tabindex="-1"></a><span class="fu">typeof</span>(w)</span>
+<span id="cb5-5"><a href="introR.html#cb5-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;character&quot;</span></span></code></pre></div>
 </div>
 <div id="memeory-usage" class="section level3 hasAnchor" number="1.1.5">
 <h3><span class="header-section-number">1.1.5</span> Memeory usage<a href="introR.html#memeory-usage" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Each data type is explicitly defined, especially the size of the memory.</p>
 <p>When initializing a certain data type, there are a few small bytes used to store
 basic information. Let’s look at the empty values.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introR.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">numeric</span>())</span>
-<span id="cb6-2"><a href="introR.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 48 bytes</span></span>
-<span id="cb6-3"><a href="introR.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">integer</span>())</span>
-<span id="cb6-4"><a href="introR.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 48 bytes</span></span>
-<span id="cb6-5"><a href="introR.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">logical</span>())</span>
-<span id="cb6-6"><a href="introR.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 48 bytes</span></span>
-<span id="cb6-7"><a href="introR.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">character</span>())</span>
-<span id="cb6-8"><a href="introR.html#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 48 bytes</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introR.html#cb6-1" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">numeric</span>())</span>
+<span id="cb6-2"><a href="introR.html#cb6-2" tabindex="-1"></a><span class="co">#&gt; 48 bytes</span></span>
+<span id="cb6-3"><a href="introR.html#cb6-3" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">integer</span>())</span>
+<span id="cb6-4"><a href="introR.html#cb6-4" tabindex="-1"></a><span class="co">#&gt; 48 bytes</span></span>
+<span id="cb6-5"><a href="introR.html#cb6-5" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">logical</span>())</span>
+<span id="cb6-6"><a href="introR.html#cb6-6" tabindex="-1"></a><span class="co">#&gt; 48 bytes</span></span>
+<span id="cb6-7"><a href="introR.html#cb6-7" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">character</span>())</span>
+<span id="cb6-8"><a href="introR.html#cb6-8" tabindex="-1"></a><span class="co">#&gt; 48 bytes</span></span></code></pre></div>
 <p>To illustrate, let’s use 1000 elements below to show the memory size usage
 for each data type.
 As we will see, integer and logical use 4 bytes per element, which is only half
 of the memory usage by double (numeric) and character of 8 bytes.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introR.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">1000</span>))</span>
-<span id="cb7-2"><a href="introR.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8048 bytes</span></span>
-<span id="cb7-3"><a href="introR.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">rep</span>(1L, <span class="dv">1000</span>))</span>
-<span id="cb7-4"><a href="introR.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4048 bytes</span></span>
-<span id="cb7-5"><a href="introR.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="dv">1000</span>))</span>
-<span id="cb7-6"><a href="introR.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4048 bytes</span></span>
-<span id="cb7-7"><a href="introR.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">rep</span>(<span class="st">&quot;aa&quot;</span>, <span class="dv">1000</span>))</span>
-<span id="cb7-8"><a href="introR.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8104 bytes</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introR.html#cb7-1" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">1000</span>))</span>
+<span id="cb7-2"><a href="introR.html#cb7-2" tabindex="-1"></a><span class="co">#&gt; 8048 bytes</span></span>
+<span id="cb7-3"><a href="introR.html#cb7-3" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="dt">L</span>, <span class="dv">1000</span>))</span>
+<span id="cb7-4"><a href="introR.html#cb7-4" tabindex="-1"></a><span class="co">#&gt; 4048 bytes</span></span>
+<span id="cb7-5"><a href="introR.html#cb7-5" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="dv">1000</span>))</span>
+<span id="cb7-6"><a href="introR.html#cb7-6" tabindex="-1"></a><span class="co">#&gt; 4048 bytes</span></span>
+<span id="cb7-7"><a href="introR.html#cb7-7" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">rep</span>(<span class="st">&quot;aa&quot;</span>, <span class="dv">1000</span>))</span>
+<span id="cb7-8"><a href="introR.html#cb7-8" tabindex="-1"></a><span class="co">#&gt; 8104 bytes</span></span></code></pre></div>
 </div>
 </div>
 <div id="data-structures" class="section level2 hasAnchor" number="1.2">
@@ -432,23 +460,23 @@ vector by <code>length()</code> function.</p>
 <p>Since a vector has elements of the same type, this function will try and coerce elements to the same type, if they are different. Coercion is from lower
 to higher types, i.e., from logical to integer to double to a character.</p>
 <p>See more introduction <a href="https://www.datamentor.io/r-programming/vector/">here</a>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introR.html#cb8-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
-<span id="cb8-2"><a href="introR.html#cb8-2" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb8-3"><a href="introR.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 5 7</span></span>
-<span id="cb8-4"><a href="introR.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
-<span id="cb8-5"><a href="introR.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span>
-<span id="cb8-6"><a href="introR.html#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="introR.html#cb8-7" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">3</span>, <span class="dv">5</span>)</span>
-<span id="cb8-8"><a href="introR.html#cb8-8" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb8-9"><a href="introR.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3 3 3 3 3</span></span>
-<span id="cb8-10"><a href="introR.html#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
-<span id="cb8-11"><a href="introR.html#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span>
-<span id="cb8-12"><a href="introR.html#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="introR.html#cb8-13" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span> <span class="co"># integer</span></span>
-<span id="cb8-14"><a href="introR.html#cb8-14" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb8-15"><a href="introR.html#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12</span></span>
-<span id="cb8-16"><a href="introR.html#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
-<span id="cb8-17"><a href="introR.html#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;integer&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introR.html#cb8-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb8-2"><a href="introR.html#cb8-2" tabindex="-1"></a>x</span>
+<span id="cb8-3"><a href="introR.html#cb8-3" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 5 7</span></span>
+<span id="cb8-4"><a href="introR.html#cb8-4" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
+<span id="cb8-5"><a href="introR.html#cb8-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span>
+<span id="cb8-6"><a href="introR.html#cb8-6" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="introR.html#cb8-7" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb8-8"><a href="introR.html#cb8-8" tabindex="-1"></a>x</span>
+<span id="cb8-9"><a href="introR.html#cb8-9" tabindex="-1"></a><span class="co">#&gt; [1] 3 3 3 3 3</span></span>
+<span id="cb8-10"><a href="introR.html#cb8-10" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
+<span id="cb8-11"><a href="introR.html#cb8-11" tabindex="-1"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span>
+<span id="cb8-12"><a href="introR.html#cb8-12" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="introR.html#cb8-13" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span> <span class="co"># integer</span></span>
+<span id="cb8-14"><a href="introR.html#cb8-14" tabindex="-1"></a>x</span>
+<span id="cb8-15"><a href="introR.html#cb8-15" tabindex="-1"></a><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12</span></span>
+<span id="cb8-16"><a href="introR.html#cb8-16" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
+<span id="cb8-17"><a href="introR.html#cb8-17" tabindex="-1"></a><span class="co">#&gt; [1] &quot;integer&quot;</span></span></code></pre></div>
 </div>
 <div id="matrix" class="section level3 hasAnchor" number="1.2.2">
 <h3><span class="header-section-number">1.2.2</span> Matrix<a href="introR.html#matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -457,27 +485,27 @@ vector but has more convenient built-in functions for computation.
 It has rows and columns, both of which can also have names. To check the dimensions,
 you can use the <code>dim()</code> function.</p>
 <p>See more introduction <a href="https://www.datamentor.io/r-programming/matrix/">here</a>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="introR.html#cb9-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow=</span><span class="dv">3</span>)</span>
-<span id="cb9-2"><a href="introR.html#cb9-2" aria-hidden="true" tabindex="-1"></a>A</span>
-<span id="cb9-3"><a href="introR.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
-<span id="cb9-4"><a href="introR.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1    4    7   10</span></span>
-<span id="cb9-5"><a href="introR.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    2    5    8   11</span></span>
-<span id="cb9-6"><a href="introR.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    3    6    9   12</span></span>
-<span id="cb9-7"><a href="introR.html#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="introR.html#cb9-8" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
-<span id="cb9-9"><a href="introR.html#cb9-9" aria-hidden="true" tabindex="-1"></a>B</span>
-<span id="cb9-10"><a href="introR.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
-<span id="cb9-11"><a href="introR.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1    2    3    4</span></span>
-<span id="cb9-12"><a href="introR.html#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    5    6    7    8</span></span>
-<span id="cb9-13"><a href="introR.html#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    9   10   11   12</span></span>
-<span id="cb9-14"><a href="introR.html#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-15"><a href="introR.html#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;C1&quot;</span>,<span class="st">&quot;C2&quot;</span>,<span class="st">&quot;C3&quot;</span>,<span class="st">&quot;C4&quot;</span>)</span>
-<span id="cb9-16"><a href="introR.html#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;R1&quot;</span>,<span class="st">&quot;R2&quot;</span>,<span class="st">&quot;R3&quot;</span>)</span>
-<span id="cb9-17"><a href="introR.html#cb9-17" aria-hidden="true" tabindex="-1"></a>A</span>
-<span id="cb9-18"><a href="introR.html#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    C1 C2 C3 C4</span></span>
-<span id="cb9-19"><a href="introR.html#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R1  1  4  7 10</span></span>
-<span id="cb9-20"><a href="introR.html#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R2  2  5  8 11</span></span>
-<span id="cb9-21"><a href="introR.html#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R3  3  6  9 12</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="introR.html#cb9-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow=</span><span class="dv">3</span>)</span>
+<span id="cb9-2"><a href="introR.html#cb9-2" tabindex="-1"></a>A</span>
+<span id="cb9-3"><a href="introR.html#cb9-3" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb9-4"><a href="introR.html#cb9-4" tabindex="-1"></a><span class="co">#&gt; [1,]    1    4    7   10</span></span>
+<span id="cb9-5"><a href="introR.html#cb9-5" tabindex="-1"></a><span class="co">#&gt; [2,]    2    5    8   11</span></span>
+<span id="cb9-6"><a href="introR.html#cb9-6" tabindex="-1"></a><span class="co">#&gt; [3,]    3    6    9   12</span></span>
+<span id="cb9-7"><a href="introR.html#cb9-7" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="introR.html#cb9-8" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb9-9"><a href="introR.html#cb9-9" tabindex="-1"></a>B</span>
+<span id="cb9-10"><a href="introR.html#cb9-10" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb9-11"><a href="introR.html#cb9-11" tabindex="-1"></a><span class="co">#&gt; [1,]    1    2    3    4</span></span>
+<span id="cb9-12"><a href="introR.html#cb9-12" tabindex="-1"></a><span class="co">#&gt; [2,]    5    6    7    8</span></span>
+<span id="cb9-13"><a href="introR.html#cb9-13" tabindex="-1"></a><span class="co">#&gt; [3,]    9   10   11   12</span></span>
+<span id="cb9-14"><a href="introR.html#cb9-14" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="introR.html#cb9-15" tabindex="-1"></a><span class="fu">colnames</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;C1&quot;</span>,<span class="st">&quot;C2&quot;</span>,<span class="st">&quot;C3&quot;</span>,<span class="st">&quot;C4&quot;</span>)</span>
+<span id="cb9-16"><a href="introR.html#cb9-16" tabindex="-1"></a><span class="fu">rownames</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;R1&quot;</span>,<span class="st">&quot;R2&quot;</span>,<span class="st">&quot;R3&quot;</span>)</span>
+<span id="cb9-17"><a href="introR.html#cb9-17" tabindex="-1"></a>A</span>
+<span id="cb9-18"><a href="introR.html#cb9-18" tabindex="-1"></a><span class="co">#&gt;    C1 C2 C3 C4</span></span>
+<span id="cb9-19"><a href="introR.html#cb9-19" tabindex="-1"></a><span class="co">#&gt; R1  1  4  7 10</span></span>
+<span id="cb9-20"><a href="introR.html#cb9-20" tabindex="-1"></a><span class="co">#&gt; R2  2  5  8 11</span></span>
+<span id="cb9-21"><a href="introR.html#cb9-21" tabindex="-1"></a><span class="co">#&gt; R3  3  6  9 12</span></span></code></pre></div>
 <div id="index-vector-and-matrix" class="section level4 hasAnchor" number="1.2.2.1">
 <h4><span class="header-section-number">1.2.2.1</span> Index Vector and Matrix<a href="introR.html#index-vector-and-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>To index vector, you can use <code>logical</code> or <code>integer</code>, or the <code>element name</code> if it
@@ -489,64 +517,64 @@ specified. But we cannot mix positive and negative integers while indexing and
 real numbers if used are truncated to integers.</p>
 <p><strong>N.B.</strong>, when using logical as the index, be careful if the index length is
 different from the vector.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="introR.html#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span></span>
-<span id="cb10-2"><a href="introR.html#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="introR.html#cb10-3" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">3</span>]</span>
-<span id="cb10-4"><a href="introR.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span>
-<span id="cb10-5"><a href="introR.html#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="introR.html#cb10-6" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb10-7"><a href="introR.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2 3 4 5</span></span>
-<span id="cb10-8"><a href="introR.html#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="introR.html#cb10-9" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>)]                   <span class="co"># index with integer</span></span>
-<span id="cb10-10"><a href="introR.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2 5 6</span></span>
-<span id="cb10-11"><a href="introR.html#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="introR.html#cb10-12" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)]  <span class="co"># index with logical value</span></span>
-<span id="cb10-13"><a href="introR.html#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  1  4  5  8  9 12</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="introR.html#cb10-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span></span>
+<span id="cb10-2"><a href="introR.html#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="introR.html#cb10-3" tabindex="-1"></a>x[<span class="dv">3</span>]</span>
+<span id="cb10-4"><a href="introR.html#cb10-4" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span>
+<span id="cb10-5"><a href="introR.html#cb10-5" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="introR.html#cb10-6" tabindex="-1"></a>x[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb10-7"><a href="introR.html#cb10-7" tabindex="-1"></a><span class="co">#&gt; [1] 2 3 4 5</span></span>
+<span id="cb10-8"><a href="introR.html#cb10-8" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="introR.html#cb10-9" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>)]                   <span class="co"># index with integer</span></span>
+<span id="cb10-10"><a href="introR.html#cb10-10" tabindex="-1"></a><span class="co">#&gt; [1] 2 5 6</span></span>
+<span id="cb10-11"><a href="introR.html#cb10-11" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="introR.html#cb10-12" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)]  <span class="co"># index with logical value</span></span>
+<span id="cb10-13"><a href="introR.html#cb10-13" tabindex="-1"></a><span class="co">#&gt; [1]  1  4  5  8  9 12</span></span></code></pre></div>
 <p>Now, let’s index a matrix. It is very similar to vector, but it has both rows and columns.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introR.html#cb11-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow=</span><span class="dv">3</span>)</span>
-<span id="cb11-2"><a href="introR.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;C1&quot;</span>,<span class="st">&quot;C2&quot;</span>,<span class="st">&quot;C3&quot;</span>,<span class="st">&quot;C4&quot;</span>)</span>
-<span id="cb11-3"><a href="introR.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;R1&quot;</span>,<span class="st">&quot;R2&quot;</span>,<span class="st">&quot;R3&quot;</span>)</span>
-<span id="cb11-4"><a href="introR.html#cb11-4" aria-hidden="true" tabindex="-1"></a>A</span>
-<span id="cb11-5"><a href="introR.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    C1 C2 C3 C4</span></span>
-<span id="cb11-6"><a href="introR.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R1  1  4  7 10</span></span>
-<span id="cb11-7"><a href="introR.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R2  2  5  8 11</span></span>
-<span id="cb11-8"><a href="introR.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R3  3  6  9 12</span></span>
-<span id="cb11-9"><a href="introR.html#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="introR.html#cb11-10" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span>, <span class="dv">2</span>]</span>
-<span id="cb11-11"><a href="introR.html#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span>
-<span id="cb11-12"><a href="introR.html#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="introR.html#cb11-13" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span>, <span class="st">&quot;C2&quot;</span>]</span>
-<span id="cb11-14"><a href="introR.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span>
-<span id="cb11-15"><a href="introR.html#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-16"><a href="introR.html#cb11-16" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span>, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)]</span>
-<span id="cb11-17"><a href="introR.html#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; C2 C3 </span></span>
-<span id="cb11-18"><a href="introR.html#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4  7</span></span>
-<span id="cb11-19"><a href="introR.html#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-20"><a href="introR.html#cb11-20" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)]</span>
-<span id="cb11-21"><a href="introR.html#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    C2 C3</span></span>
-<span id="cb11-22"><a href="introR.html#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R1  4  7</span></span>
-<span id="cb11-23"><a href="introR.html#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R2  5  8</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introR.html#cb11-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow=</span><span class="dv">3</span>)</span>
+<span id="cb11-2"><a href="introR.html#cb11-2" tabindex="-1"></a><span class="fu">colnames</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;C1&quot;</span>,<span class="st">&quot;C2&quot;</span>,<span class="st">&quot;C3&quot;</span>,<span class="st">&quot;C4&quot;</span>)</span>
+<span id="cb11-3"><a href="introR.html#cb11-3" tabindex="-1"></a><span class="fu">rownames</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;R1&quot;</span>,<span class="st">&quot;R2&quot;</span>,<span class="st">&quot;R3&quot;</span>)</span>
+<span id="cb11-4"><a href="introR.html#cb11-4" tabindex="-1"></a>A</span>
+<span id="cb11-5"><a href="introR.html#cb11-5" tabindex="-1"></a><span class="co">#&gt;    C1 C2 C3 C4</span></span>
+<span id="cb11-6"><a href="introR.html#cb11-6" tabindex="-1"></a><span class="co">#&gt; R1  1  4  7 10</span></span>
+<span id="cb11-7"><a href="introR.html#cb11-7" tabindex="-1"></a><span class="co">#&gt; R2  2  5  8 11</span></span>
+<span id="cb11-8"><a href="introR.html#cb11-8" tabindex="-1"></a><span class="co">#&gt; R3  3  6  9 12</span></span>
+<span id="cb11-9"><a href="introR.html#cb11-9" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="introR.html#cb11-10" tabindex="-1"></a>A[<span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb11-11"><a href="introR.html#cb11-11" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span>
+<span id="cb11-12"><a href="introR.html#cb11-12" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="introR.html#cb11-13" tabindex="-1"></a>A[<span class="dv">1</span>, <span class="st">&quot;C2&quot;</span>]</span>
+<span id="cb11-14"><a href="introR.html#cb11-14" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span>
+<span id="cb11-15"><a href="introR.html#cb11-15" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="introR.html#cb11-16" tabindex="-1"></a>A[<span class="dv">1</span>, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)]</span>
+<span id="cb11-17"><a href="introR.html#cb11-17" tabindex="-1"></a><span class="co">#&gt; C2 C3 </span></span>
+<span id="cb11-18"><a href="introR.html#cb11-18" tabindex="-1"></a><span class="co">#&gt;  4  7</span></span>
+<span id="cb11-19"><a href="introR.html#cb11-19" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="introR.html#cb11-20" tabindex="-1"></a>A[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)]</span>
+<span id="cb11-21"><a href="introR.html#cb11-21" tabindex="-1"></a><span class="co">#&gt;    C2 C3</span></span>
+<span id="cb11-22"><a href="introR.html#cb11-22" tabindex="-1"></a><span class="co">#&gt; R1  4  7</span></span>
+<span id="cb11-23"><a href="introR.html#cb11-23" tabindex="-1"></a><span class="co">#&gt; R2  5  8</span></span></code></pre></div>
 <p>Single row or column matrix will become a vector, unless <strong>using <code>drop=FALSE</code></strong></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introR.html#cb12-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span>
-<span id="cb12-2"><a href="introR.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; C2 C3 C4 </span></span>
-<span id="cb12-3"><a href="introR.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4  7 10</span></span>
-<span id="cb12-4"><a href="introR.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(A[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>])</span>
-<span id="cb12-5"><a href="introR.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
-<span id="cb12-6"><a href="introR.html#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="introR.html#cb12-7" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, drop<span class="ot">=</span><span class="cn">FALSE</span>]</span>
-<span id="cb12-8"><a href="introR.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    C2 C3 C4</span></span>
-<span id="cb12-9"><a href="introR.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R1  4  7 10</span></span>
-<span id="cb12-10"><a href="introR.html#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(A[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">drop=</span><span class="cn">FALSE</span>])</span>
-<span id="cb12-11"><a href="introR.html#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 3</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introR.html#cb12-1" tabindex="-1"></a>A[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb12-2"><a href="introR.html#cb12-2" tabindex="-1"></a><span class="co">#&gt; C2 C3 C4 </span></span>
+<span id="cb12-3"><a href="introR.html#cb12-3" tabindex="-1"></a><span class="co">#&gt;  4  7 10</span></span>
+<span id="cb12-4"><a href="introR.html#cb12-4" tabindex="-1"></a><span class="fu">dim</span>(A[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>])</span>
+<span id="cb12-5"><a href="introR.html#cb12-5" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb12-6"><a href="introR.html#cb12-6" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="introR.html#cb12-7" tabindex="-1"></a>A[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, drop<span class="ot">=</span><span class="cn">FALSE</span>]</span>
+<span id="cb12-8"><a href="introR.html#cb12-8" tabindex="-1"></a><span class="co">#&gt;    C2 C3 C4</span></span>
+<span id="cb12-9"><a href="introR.html#cb12-9" tabindex="-1"></a><span class="co">#&gt; R1  4  7 10</span></span>
+<span id="cb12-10"><a href="introR.html#cb12-10" tabindex="-1"></a><span class="fu">dim</span>(A[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">drop=</span><span class="cn">FALSE</span>])</span>
+<span id="cb12-11"><a href="introR.html#cb12-11" tabindex="-1"></a><span class="co">#&gt; [1] 1 3</span></span></code></pre></div>
 </div>
 <div id="modify-values" class="section level4 hasAnchor" number="1.2.2.2">
 <h4><span class="header-section-number">1.2.2.2</span> Modify values<a href="introR.html#modify-values" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="introR.html#cb13-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">20</span>)</span>
-<span id="cb13-2"><a href="introR.html#cb13-2" aria-hidden="true" tabindex="-1"></a>A</span>
-<span id="cb13-3"><a href="introR.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    C1 C2 C3 C4</span></span>
-<span id="cb13-4"><a href="introR.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R1  1 -3 -5 20</span></span>
-<span id="cb13-5"><a href="introR.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R2  2  5  8 11</span></span>
-<span id="cb13-6"><a href="introR.html#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; R3  3  6  9 12</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="introR.html#cb13-1" tabindex="-1"></a>A[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">20</span>)</span>
+<span id="cb13-2"><a href="introR.html#cb13-2" tabindex="-1"></a>A</span>
+<span id="cb13-3"><a href="introR.html#cb13-3" tabindex="-1"></a><span class="co">#&gt;    C1 C2 C3 C4</span></span>
+<span id="cb13-4"><a href="introR.html#cb13-4" tabindex="-1"></a><span class="co">#&gt; R1  1 -3 -5 20</span></span>
+<span id="cb13-5"><a href="introR.html#cb13-5" tabindex="-1"></a><span class="co">#&gt; R2  2  5  8 11</span></span>
+<span id="cb13-6"><a href="introR.html#cb13-6" tabindex="-1"></a><span class="co">#&gt; R3  3  6  9 12</span></span></code></pre></div>
 </div>
 </div>
 <div id="list" class="section level3 hasAnchor" number="1.2.3">
@@ -556,50 +584,50 @@ data structure can have components of mixed data types.
 More broadly, a <code>list</code> can contain a list of any data structure: value, vector,
 matrix, etc.</p>
 <p>We can use <code>str()</code> function to view the structure of a list (or any object).</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introR.html#cb14-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fl">2.5</span>, <span class="cn">TRUE</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb14-2"><a href="introR.html#cb14-2" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb14-3"><a href="introR.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
-<span id="cb14-4"><a href="introR.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2.5</span></span>
-<span id="cb14-5"><a href="introR.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb14-6"><a href="introR.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
-<span id="cb14-7"><a href="introR.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb14-8"><a href="introR.html#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb14-9"><a href="introR.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
-<span id="cb14-10"><a href="introR.html#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3</span></span>
-<span id="cb14-11"><a href="introR.html#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-12"><a href="introR.html#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(x)</span>
-<span id="cb14-13"><a href="introR.html#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; List of 3</span></span>
-<span id="cb14-14"><a href="introR.html#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ : num 2.5</span></span>
-<span id="cb14-15"><a href="introR.html#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ : logi TRUE</span></span>
-<span id="cb14-16"><a href="introR.html#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ : int [1:3] 1 2 3</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introR.html#cb14-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fl">2.5</span>, <span class="cn">TRUE</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb14-2"><a href="introR.html#cb14-2" tabindex="-1"></a>x</span>
+<span id="cb14-3"><a href="introR.html#cb14-3" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb14-4"><a href="introR.html#cb14-4" tabindex="-1"></a><span class="co">#&gt; [1] 2.5</span></span>
+<span id="cb14-5"><a href="introR.html#cb14-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb14-6"><a href="introR.html#cb14-6" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb14-7"><a href="introR.html#cb14-7" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb14-8"><a href="introR.html#cb14-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb14-9"><a href="introR.html#cb14-9" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb14-10"><a href="introR.html#cb14-10" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3</span></span>
+<span id="cb14-11"><a href="introR.html#cb14-11" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="introR.html#cb14-12" tabindex="-1"></a><span class="fu">str</span>(x)</span>
+<span id="cb14-13"><a href="introR.html#cb14-13" tabindex="-1"></a><span class="co">#&gt; List of 3</span></span>
+<span id="cb14-14"><a href="introR.html#cb14-14" tabindex="-1"></a><span class="co">#&gt;  $ : num 2.5</span></span>
+<span id="cb14-15"><a href="introR.html#cb14-15" tabindex="-1"></a><span class="co">#&gt;  $ : logi TRUE</span></span>
+<span id="cb14-16"><a href="introR.html#cb14-16" tabindex="-1"></a><span class="co">#&gt;  $ : int [1:3] 1 2 3</span></span></code></pre></div>
 <p>We can also have a name for each element:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introR.html#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;a&quot;</span> <span class="ot">=</span> <span class="fl">2.5</span>, <span class="st">&quot;b&quot;</span> <span class="ot">=</span> <span class="cn">TRUE</span>, <span class="st">&quot;c&quot;</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb15-2"><a href="introR.html#cb15-2" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb15-3"><a href="introR.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $a</span></span>
-<span id="cb15-4"><a href="introR.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2.5</span></span>
-<span id="cb15-5"><a href="introR.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-6"><a href="introR.html#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $b</span></span>
-<span id="cb15-7"><a href="introR.html#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb15-8"><a href="introR.html#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-9"><a href="introR.html#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $c</span></span>
-<span id="cb15-10"><a href="introR.html#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3</span></span>
-<span id="cb15-11"><a href="introR.html#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(x)</span>
-<span id="cb15-12"><a href="introR.html#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; List of 3</span></span>
-<span id="cb15-13"><a href="introR.html#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ a: num 2.5</span></span>
-<span id="cb15-14"><a href="introR.html#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ b: logi TRUE</span></span>
-<span id="cb15-15"><a href="introR.html#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ c: int [1:3] 1 2 3</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introR.html#cb15-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;a&quot;</span> <span class="ot">=</span> <span class="fl">2.5</span>, <span class="st">&quot;b&quot;</span> <span class="ot">=</span> <span class="cn">TRUE</span>, <span class="st">&quot;c&quot;</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb15-2"><a href="introR.html#cb15-2" tabindex="-1"></a>x</span>
+<span id="cb15-3"><a href="introR.html#cb15-3" tabindex="-1"></a><span class="co">#&gt; $a</span></span>
+<span id="cb15-4"><a href="introR.html#cb15-4" tabindex="-1"></a><span class="co">#&gt; [1] 2.5</span></span>
+<span id="cb15-5"><a href="introR.html#cb15-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-6"><a href="introR.html#cb15-6" tabindex="-1"></a><span class="co">#&gt; $b</span></span>
+<span id="cb15-7"><a href="introR.html#cb15-7" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb15-8"><a href="introR.html#cb15-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-9"><a href="introR.html#cb15-9" tabindex="-1"></a><span class="co">#&gt; $c</span></span>
+<span id="cb15-10"><a href="introR.html#cb15-10" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3</span></span>
+<span id="cb15-11"><a href="introR.html#cb15-11" tabindex="-1"></a><span class="fu">str</span>(x)</span>
+<span id="cb15-12"><a href="introR.html#cb15-12" tabindex="-1"></a><span class="co">#&gt; List of 3</span></span>
+<span id="cb15-13"><a href="introR.html#cb15-13" tabindex="-1"></a><span class="co">#&gt;  $ a: num 2.5</span></span>
+<span id="cb15-14"><a href="introR.html#cb15-14" tabindex="-1"></a><span class="co">#&gt;  $ b: logi TRUE</span></span>
+<span id="cb15-15"><a href="introR.html#cb15-15" tabindex="-1"></a><span class="co">#&gt;  $ c: int [1:3] 1 2 3</span></span></code></pre></div>
 <div id="indexing-list" class="section level4 hasAnchor" number="1.2.3.1">
 <h4><span class="header-section-number">1.2.3.1</span> Indexing list<a href="introR.html#indexing-list" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Different from vector and matrix, for a <code>list</code>, you need to use <strong>double-layer square brackets</strong>,
 either by numeric index or name. Alternatively, you can also use <code>$</code> symbol with the name.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="introR.html#cb16-1" aria-hidden="true" tabindex="-1"></a>x[[<span class="dv">3</span>]]</span>
-<span id="cb16-2"><a href="introR.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3</span></span>
-<span id="cb16-3"><a href="introR.html#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="introR.html#cb16-4" aria-hidden="true" tabindex="-1"></a>x[[<span class="st">&quot;c&quot;</span>]]</span>
-<span id="cb16-5"><a href="introR.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3</span></span>
-<span id="cb16-6"><a href="introR.html#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="introR.html#cb16-7" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>c</span>
-<span id="cb16-8"><a href="introR.html#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="introR.html#cb16-1" tabindex="-1"></a>x[[<span class="dv">3</span>]]</span>
+<span id="cb16-2"><a href="introR.html#cb16-2" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3</span></span>
+<span id="cb16-3"><a href="introR.html#cb16-3" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="introR.html#cb16-4" tabindex="-1"></a>x[[<span class="st">&quot;c&quot;</span>]]</span>
+<span id="cb16-5"><a href="introR.html#cb16-5" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3</span></span>
+<span id="cb16-6"><a href="introR.html#cb16-6" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="introR.html#cb16-7" tabindex="-1"></a>x<span class="sc">$</span>c</span>
+<span id="cb16-8"><a href="introR.html#cb16-8" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3</span></span></code></pre></div>
 </div>
 </div>
 <div id="data-frame" class="section level3 hasAnchor" number="1.2.4">
@@ -607,15 +635,15 @@ either by numeric index or name. Alternatively, you can also use <code>$</code> 
 <p>Data frame is widely used for rectangular data, where each column has the same
 data type (vector) but different columns can have different data types (like Excel)</p>
 <p>As you guess, the data frame is a special type of <code>list</code>: A list of vectors with the same length.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="introR.html#cb17-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;SN&quot;</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">&quot;Age&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">21</span>,<span class="dv">15</span>), </span>
-<span id="cb17-2"><a href="introR.html#cb17-2" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;Name&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;John&quot;</span>,<span class="st">&quot;Dora&quot;</span>))</span>
-<span id="cb17-3"><a href="introR.html#cb17-3" aria-hidden="true" tabindex="-1"></a>df</span>
-<span id="cb17-4"><a href="introR.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   SN Age Name</span></span>
-<span id="cb17-5"><a href="introR.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  1  21 John</span></span>
-<span id="cb17-6"><a href="introR.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  2  15 Dora</span></span></code></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="introR.html#cb18-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Age[<span class="dv">2</span>]</span>
-<span id="cb18-2"><a href="introR.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 15</span></span></code></pre></div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introR.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View(df)</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="introR.html#cb17-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;SN&quot;</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">&quot;Age&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">21</span>,<span class="dv">15</span>), </span>
+<span id="cb17-2"><a href="introR.html#cb17-2" tabindex="-1"></a>                 <span class="st">&quot;Name&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;John&quot;</span>,<span class="st">&quot;Dora&quot;</span>))</span>
+<span id="cb17-3"><a href="introR.html#cb17-3" tabindex="-1"></a>df</span>
+<span id="cb17-4"><a href="introR.html#cb17-4" tabindex="-1"></a><span class="co">#&gt;   SN Age Name</span></span>
+<span id="cb17-5"><a href="introR.html#cb17-5" tabindex="-1"></a><span class="co">#&gt; 1  1  21 John</span></span>
+<span id="cb17-6"><a href="introR.html#cb17-6" tabindex="-1"></a><span class="co">#&gt; 2  2  15 Dora</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="introR.html#cb18-1" tabindex="-1"></a>df<span class="sc">$</span>Age[<span class="dv">2</span>]</span>
+<span id="cb18-2"><a href="introR.html#cb18-2" tabindex="-1"></a><span class="co">#&gt; [1] 15</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introR.html#cb19-1" tabindex="-1"></a><span class="co"># View(df)</span></span></code></pre></div>
 </div>
 <div id="factor-vs-vector" class="section level3 hasAnchor" number="1.2.5">
 <h3><span class="header-section-number">1.2.5</span> Factor vs vector<a href="introR.html#factor-vs-vector" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -626,39 +654,39 @@ orders), you may consider using factor.</p>
 number of values (categorical data)</li>
 <li>The order of predefined values can be specified, instead of alphabetic by default</li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introR.html#cb20-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;single&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;single&quot;</span>) <span class="co"># vector</span></span>
-<span id="cb20-2"><a href="introR.html#cb20-2" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb20-3"><a href="introR.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;single&quot;  &quot;married&quot; &quot;married&quot; &quot;single&quot;</span></span>
-<span id="cb20-4"><a href="introR.html#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="introR.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span>
-<span id="cb20-6"><a href="introR.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;character&quot;</span></span>
-<span id="cb20-7"><a href="introR.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
-<span id="cb20-8"><a href="introR.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;character&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introR.html#cb21-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;single&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;single&quot;</span>))</span>
-<span id="cb21-2"><a href="introR.html#cb21-2" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb21-3"><a href="introR.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] single  married married single </span></span>
-<span id="cb21-4"><a href="introR.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Levels: married single</span></span>
-<span id="cb21-5"><a href="introR.html#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="introR.html#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y)</span>
-<span id="cb21-7"><a href="introR.html#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;factor&quot;</span></span>
-<span id="cb21-8"><a href="introR.html#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(y)</span>
-<span id="cb21-9"><a href="introR.html#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;integer&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introR.html#cb20-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;single&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;single&quot;</span>) <span class="co"># vector</span></span>
+<span id="cb20-2"><a href="introR.html#cb20-2" tabindex="-1"></a>x</span>
+<span id="cb20-3"><a href="introR.html#cb20-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;single&quot;  &quot;married&quot; &quot;married&quot; &quot;single&quot;</span></span>
+<span id="cb20-4"><a href="introR.html#cb20-4" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="introR.html#cb20-5" tabindex="-1"></a><span class="fu">class</span>(x)</span>
+<span id="cb20-6"><a href="introR.html#cb20-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;character&quot;</span></span>
+<span id="cb20-7"><a href="introR.html#cb20-7" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
+<span id="cb20-8"><a href="introR.html#cb20-8" tabindex="-1"></a><span class="co">#&gt; [1] &quot;character&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introR.html#cb21-1" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;single&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;single&quot;</span>))</span>
+<span id="cb21-2"><a href="introR.html#cb21-2" tabindex="-1"></a>y</span>
+<span id="cb21-3"><a href="introR.html#cb21-3" tabindex="-1"></a><span class="co">#&gt; [1] single  married married single </span></span>
+<span id="cb21-4"><a href="introR.html#cb21-4" tabindex="-1"></a><span class="co">#&gt; Levels: married single</span></span>
+<span id="cb21-5"><a href="introR.html#cb21-5" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="introR.html#cb21-6" tabindex="-1"></a><span class="fu">class</span>(y)</span>
+<span id="cb21-7"><a href="introR.html#cb21-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;factor&quot;</span></span>
+<span id="cb21-8"><a href="introR.html#cb21-8" tabindex="-1"></a><span class="fu">typeof</span>(y)</span>
+<span id="cb21-9"><a href="introR.html#cb21-9" tabindex="-1"></a><span class="co">#&gt; [1] &quot;integer&quot;</span></span></code></pre></div>
 <div id="change-the-order-of-factor-levels" class="section level4 hasAnchor" number="1.2.5.1">
 <h4><span class="header-section-number">1.2.5.1</span> Change the order of factor levels<a href="introR.html#change-the-order-of-factor-levels" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introR.html#cb22-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;single&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;single&quot;</span>) , <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;single&quot;</span>, <span class="st">&quot;married&quot;</span>))</span>
-<span id="cb22-2"><a href="introR.html#cb22-2" aria-hidden="true" tabindex="-1"></a>z</span>
-<span id="cb22-3"><a href="introR.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] single  married married single </span></span>
-<span id="cb22-4"><a href="introR.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Levels: single married</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introR.html#cb22-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;single&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;single&quot;</span>) , <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;single&quot;</span>, <span class="st">&quot;married&quot;</span>))</span>
+<span id="cb22-2"><a href="introR.html#cb22-2" tabindex="-1"></a>z</span>
+<span id="cb22-3"><a href="introR.html#cb22-3" tabindex="-1"></a><span class="co">#&gt; [1] single  married married single </span></span>
+<span id="cb22-4"><a href="introR.html#cb22-4" tabindex="-1"></a><span class="co">#&gt; Levels: single married</span></span></code></pre></div>
 </div>
 <div id="smaller-memory-as-categorical-data-type" class="section level4 hasAnchor" number="1.2.5.2">
 <h4><span class="header-section-number">1.2.5.2</span> Smaller memory as categorical data type<a href="introR.html#smaller-memory-as-categorical-data-type" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introR.html#cb23-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;single&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;single&quot;</span>) <span class="co"># vector</span></span>
-<span id="cb23-2"><a href="introR.html#cb23-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;single&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;single&quot;</span>))</span>
-<span id="cb23-3"><a href="introR.html#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="introR.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">rep</span>(x, <span class="dv">1000</span>))</span>
-<span id="cb23-5"><a href="introR.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 32160 bytes</span></span>
-<span id="cb23-6"><a href="introR.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">rep</span>(y, <span class="dv">1000</span>))</span>
-<span id="cb23-7"><a href="introR.html#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16560 bytes</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introR.html#cb23-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;single&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;single&quot;</span>) <span class="co"># vector</span></span>
+<span id="cb23-2"><a href="introR.html#cb23-2" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;single&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;married&quot;</span>, <span class="st">&quot;single&quot;</span>))</span>
+<span id="cb23-3"><a href="introR.html#cb23-3" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="introR.html#cb23-4" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">rep</span>(x, <span class="dv">1000</span>))</span>
+<span id="cb23-5"><a href="introR.html#cb23-5" tabindex="-1"></a><span class="co">#&gt; 32160 bytes</span></span>
+<span id="cb23-6"><a href="introR.html#cb23-6" tabindex="-1"></a><span class="fu">object.size</span>(<span class="fu">rep</span>(y, <span class="dv">1000</span>))</span>
+<span id="cb23-7"><a href="introR.html#cb23-7" tabindex="-1"></a><span class="co">#&gt; 16560 bytes</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -673,31 +701,31 @@ write results into files.</p>
 values (csv) or tab separated values (tsv) formats.
 See full manuals: <code>help(read.table)</code> or <code>?read.table</code> or its
 <a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/read.table">online manual</a></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introR.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;read.table&quot;</span>)</span>
-<span id="cb24-2"><a href="introR.html#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="introR.html#cb24-3" aria-hidden="true" tabindex="-1"></a>?read.table</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introR.html#cb24-1" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;read.table&quot;</span>)</span>
+<span id="cb24-2"><a href="introR.html#cb24-2" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="introR.html#cb24-3" tabindex="-1"></a>?read.table</span></code></pre></div>
 <p>Here, let read an example file. Data is available on Moodle and on the
 <a href="https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R">github repository</a></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introR.html#cb25-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">read.table</span>(<span class="st">&quot;./SRP029880.colData.tsv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb25-2"><a href="introR.html#cb25-2" aria-hidden="true" tabindex="-1"></a>df</span>
-<span id="cb25-3"><a href="introR.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                source_name group</span></span>
-<span id="cb25-4"><a href="introR.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CASE_1 metastasized cancer  CASE</span></span>
-<span id="cb25-5"><a href="introR.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CASE_2 metastasized cancer  CASE</span></span>
-<span id="cb25-6"><a href="introR.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CASE_3 metastasized cancer  CASE</span></span>
-<span id="cb25-7"><a href="introR.html#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CASE_4 metastasized cancer  CASE</span></span>
-<span id="cb25-8"><a href="introR.html#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CASE_5 metastasized cancer  CASE</span></span>
-<span id="cb25-9"><a href="introR.html#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CTRL_1        normal colon  CTRL</span></span>
-<span id="cb25-10"><a href="introR.html#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CTRL_2        normal colon  CTRL</span></span>
-<span id="cb25-11"><a href="introR.html#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CTRL_3        normal colon  CTRL</span></span>
-<span id="cb25-12"><a href="introR.html#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CTRL_4        normal colon  CTRL</span></span>
-<span id="cb25-13"><a href="introR.html#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CTRL_5        normal colon  CTRL</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introR.html#cb25-1" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">read.table</span>(<span class="st">&quot;./SRP029880.colData.tsv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb25-2"><a href="introR.html#cb25-2" tabindex="-1"></a>df</span>
+<span id="cb25-3"><a href="introR.html#cb25-3" tabindex="-1"></a><span class="co">#&gt;                source_name group</span></span>
+<span id="cb25-4"><a href="introR.html#cb25-4" tabindex="-1"></a><span class="co">#&gt; CASE_1 metastasized cancer  CASE</span></span>
+<span id="cb25-5"><a href="introR.html#cb25-5" tabindex="-1"></a><span class="co">#&gt; CASE_2 metastasized cancer  CASE</span></span>
+<span id="cb25-6"><a href="introR.html#cb25-6" tabindex="-1"></a><span class="co">#&gt; CASE_3 metastasized cancer  CASE</span></span>
+<span id="cb25-7"><a href="introR.html#cb25-7" tabindex="-1"></a><span class="co">#&gt; CASE_4 metastasized cancer  CASE</span></span>
+<span id="cb25-8"><a href="introR.html#cb25-8" tabindex="-1"></a><span class="co">#&gt; CASE_5 metastasized cancer  CASE</span></span>
+<span id="cb25-9"><a href="introR.html#cb25-9" tabindex="-1"></a><span class="co">#&gt; CTRL_1        normal colon  CTRL</span></span>
+<span id="cb25-10"><a href="introR.html#cb25-10" tabindex="-1"></a><span class="co">#&gt; CTRL_2        normal colon  CTRL</span></span>
+<span id="cb25-11"><a href="introR.html#cb25-11" tabindex="-1"></a><span class="co">#&gt; CTRL_3        normal colon  CTRL</span></span>
+<span id="cb25-12"><a href="introR.html#cb25-12" tabindex="-1"></a><span class="co">#&gt; CTRL_4        normal colon  CTRL</span></span>
+<span id="cb25-13"><a href="introR.html#cb25-13" tabindex="-1"></a><span class="co">#&gt; CTRL_5        normal colon  CTRL</span></span></code></pre></div>
 </div>
 <div id="write-file" class="section level3 hasAnchor" number="1.3.2">
 <h3><span class="header-section-number">1.3.2</span> Write file<a href="introR.html#write-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The above file is loaded as a data frame. Here, let’s add an extra column to
 indicate if the sample is frozen or not, then save it into a file.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introR.html#cb26-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>frozen <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb26-2"><a href="introR.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(df, <span class="st">&quot;./SRP029880.colData.add_frozen.tsv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">quote=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introR.html#cb26-1" tabindex="-1"></a>df<span class="sc">$</span>frozen <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb26-2"><a href="introR.html#cb26-2" tabindex="-1"></a><span class="fu">write.table</span>(df, <span class="st">&quot;./SRP029880.colData.add_frozen.tsv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">quote=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="functions-and-packages" class="section level2 hasAnchor" number="1.4">
@@ -705,12 +733,12 @@ indicate if the sample is frozen or not, then save it into a file.</p>
 <p>As experienced above, we have used function multiple times, e.g.,
 <code>read.table</code> and <code>typeof</code>.</p>
 <p>As one more example <code>mean()</code> is a function here and it is from the <code>base</code> package</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introR.html#cb27-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb27-2"><a href="introR.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
-<span id="cb27-3"><a href="introR.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 7</span></span>
-<span id="cb27-4"><a href="introR.html#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="introR.html#cb27-5" aria-hidden="true" tabindex="-1"></a>base<span class="sc">::</span><span class="fu">mean</span>(x)</span>
-<span id="cb27-6"><a href="introR.html#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 7</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introR.html#cb27-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb27-2"><a href="introR.html#cb27-2" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
+<span id="cb27-3"><a href="introR.html#cb27-3" tabindex="-1"></a><span class="co">#&gt; [1] 7</span></span>
+<span id="cb27-4"><a href="introR.html#cb27-4" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="introR.html#cb27-5" tabindex="-1"></a>base<span class="sc">::</span><span class="fu">mean</span>(x)</span>
+<span id="cb27-6"><a href="introR.html#cb27-6" tabindex="-1"></a><span class="co">#&gt; [1] 7</span></span></code></pre></div>
 <p>Generally speaking, A function is a set of statements organized together to
 perform a specific task. Many lines of codes are packed into one function &amp; it’s reusable.</p>
 <p>A function can be written in the same R file and loaded, or it can be
@@ -731,7 +759,7 @@ of the specific package you want to install and use.</p>
 </ul></li>
 </ol>
 <p>As an example, we can install the powerful plotting package <code>ggplot2</code> from CRAN.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introR.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;ggplot2&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introR.html#cb28-1" tabindex="-1"></a><span class="co">#install.packages(&quot;ggplot2&quot;)</span></span></code></pre></div>
 </div>
 <div id="apply-function-repeatly" class="section level3 hasAnchor" number="1.4.2">
 <h3><span class="header-section-number">1.4.2</span> Apply function repeatly<a href="introR.html#apply-function-repeatly" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -746,17 +774,17 @@ each element of a vector, a matrix, or a list.</p>
 <div id="apply-for-matrix" class="section level5 hasAnchor" number="1.4.2.1.1">
 <h5><span class="header-section-number">1.4.2.1.1</span> apply for matrix<a href="introR.html#apply-for-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>The <code>apply(X, MARGIN, FUN)</code> function works for <code>matrix</code> (or <code>array</code>) for rows or columns. For example, calculating the median of each column:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introR.html#cb29-1" aria-hidden="true" tabindex="-1"></a>my.matrx <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb29-2"><a href="introR.html#cb29-2" aria-hidden="true" tabindex="-1"></a>my.matrx</span>
-<span id="cb29-3"><a href="introR.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
-<span id="cb29-4"><a href="introR.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1    6   11</span></span>
-<span id="cb29-5"><a href="introR.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    2    7   12</span></span>
-<span id="cb29-6"><a href="introR.html#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    3    8   13</span></span>
-<span id="cb29-7"><a href="introR.html#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    4    9   14</span></span>
-<span id="cb29-8"><a href="introR.html#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5,]    5   10   15</span></span>
-<span id="cb29-9"><a href="introR.html#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-10"><a href="introR.html#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(my.matrx, <span class="dv">2</span>, median)</span>
-<span id="cb29-11"><a href="introR.html#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  3  8 13</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introR.html#cb29-1" tabindex="-1"></a>my.matrx <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb29-2"><a href="introR.html#cb29-2" tabindex="-1"></a>my.matrx</span>
+<span id="cb29-3"><a href="introR.html#cb29-3" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb29-4"><a href="introR.html#cb29-4" tabindex="-1"></a><span class="co">#&gt; [1,]    1    6   11</span></span>
+<span id="cb29-5"><a href="introR.html#cb29-5" tabindex="-1"></a><span class="co">#&gt; [2,]    2    7   12</span></span>
+<span id="cb29-6"><a href="introR.html#cb29-6" tabindex="-1"></a><span class="co">#&gt; [3,]    3    8   13</span></span>
+<span id="cb29-7"><a href="introR.html#cb29-7" tabindex="-1"></a><span class="co">#&gt; [4,]    4    9   14</span></span>
+<span id="cb29-8"><a href="introR.html#cb29-8" tabindex="-1"></a><span class="co">#&gt; [5,]    5   10   15</span></span>
+<span id="cb29-9"><a href="introR.html#cb29-9" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="introR.html#cb29-10" tabindex="-1"></a><span class="fu">apply</span>(my.matrx, <span class="dv">2</span>, median)</span>
+<span id="cb29-11"><a href="introR.html#cb29-11" tabindex="-1"></a><span class="co">#&gt; [1]  3  8 13</span></span></code></pre></div>
 </div>
 <div id="lapply-sapply-and-vapply-for-list-or-vector" class="section level5 hasAnchor" number="1.4.2.1.2">
 <h5><span class="header-section-number">1.4.2.1.2</span> lapply, sapply, and vapply for list or vector<a href="introR.html#lapply-sapply-and-vapply-for-list-or-vector" class="anchor-section" aria-label="Anchor link to header"></a></h5>
@@ -769,34 +797,34 @@ list. There are a few variants to support lists or vectors for different purpose
 <li><code>vapply(X, FUN, FUN.VALUE, …, USE.NAMES = TRUE)</code></li>
 </ul>
 <p>Let’s look at examples. The <code>lapply</code> works for vector and list and returns a <code>list</code>:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="introR.html#cb30-1" aria-hidden="true" tabindex="-1"></a>A<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
-<span id="cb30-2"><a href="introR.html#cb30-2" aria-hidden="true" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb30-3"><a href="introR.html#cb30-3" aria-hidden="true" tabindex="-1"></a>C<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
-<span id="cb30-4"><a href="introR.html#cb30-4" aria-hidden="true" tabindex="-1"></a>my.lst<span class="ot">&lt;-</span><span class="fu">list</span>(A,B,C)</span>
-<span id="cb30-5"><a href="introR.html#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-6"><a href="introR.html#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(my.lst, median)</span>
-<span id="cb30-7"><a href="introR.html#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
-<span id="cb30-8"><a href="introR.html#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5</span></span>
-<span id="cb30-9"><a href="introR.html#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb30-10"><a href="introR.html#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
-<span id="cb30-11"><a href="introR.html#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 6.5</span></span>
-<span id="cb30-12"><a href="introR.html#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb30-13"><a href="introR.html#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
-<span id="cb30-14"><a href="introR.html#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 8</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="introR.html#cb30-1" tabindex="-1"></a>A<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb30-2"><a href="introR.html#cb30-2" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb30-3"><a href="introR.html#cb30-3" tabindex="-1"></a>C<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
+<span id="cb30-4"><a href="introR.html#cb30-4" tabindex="-1"></a>my.lst<span class="ot">&lt;-</span><span class="fu">list</span>(A,B,C)</span>
+<span id="cb30-5"><a href="introR.html#cb30-5" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="introR.html#cb30-6" tabindex="-1"></a><span class="fu">lapply</span>(my.lst, median)</span>
+<span id="cb30-7"><a href="introR.html#cb30-7" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb30-8"><a href="introR.html#cb30-8" tabindex="-1"></a><span class="co">#&gt; [1] 5</span></span>
+<span id="cb30-9"><a href="introR.html#cb30-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-10"><a href="introR.html#cb30-10" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb30-11"><a href="introR.html#cb30-11" tabindex="-1"></a><span class="co">#&gt; [1] 6.5</span></span>
+<span id="cb30-12"><a href="introR.html#cb30-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-13"><a href="introR.html#cb30-13" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb30-14"><a href="introR.html#cb30-14" tabindex="-1"></a><span class="co">#&gt; [1] 8</span></span></code></pre></div>
 <p>If you want the return as a vector, you can use <code>sapply()</code> for <code>simplified</code> output:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="introR.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my.lst, median)</span>
-<span id="cb31-2"><a href="introR.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5.0 6.5 8.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="introR.html#cb31-1" tabindex="-1"></a><span class="fu">sapply</span>(my.lst, median)</span>
+<span id="cb31-2"><a href="introR.html#cb31-2" tabindex="-1"></a><span class="co">#&gt; [1] 5.0 6.5 8.0</span></span></code></pre></div>
 <p>If you want to check the data type of the return, you can further use the <code>vapply</code> function. An error will be raised if the data type does not match.</p>
 <p><strong>Note</strong>, the <code>FUN.VALUE</code> argument takes the value as a template, so the use of
 <code>numeric(1)</code> or any numeric value, e.g., <code>3</code> is the same.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="introR.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vapply</span>(my.lst, median, <span class="fu">numeric</span>(<span class="dv">1</span>))</span>
-<span id="cb32-2"><a href="introR.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5.0 6.5 8.0</span></span>
-<span id="cb32-3"><a href="introR.html#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-4"><a href="introR.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">vapply</span>(my.lst, median, <span class="dv">3</span>)</span>
-<span id="cb32-5"><a href="introR.html#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5.0 6.5 8.0</span></span>
-<span id="cb32-6"><a href="introR.html#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-7"><a href="introR.html#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># try this</span></span>
-<span id="cb32-8"><a href="introR.html#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># vapply(my.lst, median, character(1))</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="introR.html#cb32-1" tabindex="-1"></a><span class="fu">vapply</span>(my.lst, median, <span class="fu">numeric</span>(<span class="dv">1</span>))</span>
+<span id="cb32-2"><a href="introR.html#cb32-2" tabindex="-1"></a><span class="co">#&gt; [1] 5.0 6.5 8.0</span></span>
+<span id="cb32-3"><a href="introR.html#cb32-3" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="introR.html#cb32-4" tabindex="-1"></a><span class="fu">vapply</span>(my.lst, median, <span class="dv">3</span>)</span>
+<span id="cb32-5"><a href="introR.html#cb32-5" tabindex="-1"></a><span class="co">#&gt; [1] 5.0 6.5 8.0</span></span>
+<span id="cb32-6"><a href="introR.html#cb32-6" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="introR.html#cb32-7" tabindex="-1"></a><span class="co"># try this</span></span>
+<span id="cb32-8"><a href="introR.html#cb32-8" tabindex="-1"></a><span class="co"># vapply(my.lst, median, character(1))</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -806,29 +834,29 @@ list. There are a few variants to support lists or vectors for different purpose
 <div id="datasets" class="section level3 hasAnchor" number="1.5.1">
 <h3><span class="header-section-number">1.5.1</span> datasets<a href="introR.html#datasets" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s use a built-in dataset for illustration: <code>iris</code> (4 flower features in 3 plants)</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="introR.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span>
-<span id="cb33-2"><a href="introR.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
-<span id="cb33-3"><a href="introR.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1          5.1         3.5          1.4         0.2  setosa</span></span>
-<span id="cb33-4"><a href="introR.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2          4.9         3.0          1.4         0.2  setosa</span></span>
-<span id="cb33-5"><a href="introR.html#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3          4.7         3.2          1.3         0.2  setosa</span></span>
-<span id="cb33-6"><a href="introR.html#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4          4.6         3.1          1.5         0.2  setosa</span></span>
-<span id="cb33-7"><a href="introR.html#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5          5.0         3.6          1.4         0.2  setosa</span></span>
-<span id="cb33-8"><a href="introR.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6          5.4         3.9          1.7         0.4  setosa</span></span></code></pre></div>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="introR.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris)</span>
-<span id="cb34-2"><a href="introR.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   </span></span>
-<span id="cb34-3"><a href="introR.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  </span></span>
-<span id="cb34-4"><a href="introR.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  </span></span>
-<span id="cb34-5"><a href="introR.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Median :5.800   Median :3.000   Median :4.350   Median :1.300  </span></span>
-<span id="cb34-6"><a href="introR.html#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  </span></span>
-<span id="cb34-7"><a href="introR.html#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  </span></span>
-<span id="cb34-8"><a href="introR.html#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  </span></span>
-<span id="cb34-9"><a href="introR.html#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        Species  </span></span>
-<span id="cb34-10"><a href="introR.html#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  setosa    :50  </span></span>
-<span id="cb34-11"><a href="introR.html#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  versicolor:50  </span></span>
-<span id="cb34-12"><a href="introR.html#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  virginica :50  </span></span>
-<span id="cb34-13"><a href="introR.html#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 </span></span>
-<span id="cb34-14"><a href="introR.html#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 </span></span>
-<span id="cb34-15"><a href="introR.html#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="introR.html#cb33-1" tabindex="-1"></a><span class="fu">head</span>(iris)</span>
+<span id="cb33-2"><a href="introR.html#cb33-2" tabindex="-1"></a><span class="co">#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
+<span id="cb33-3"><a href="introR.html#cb33-3" tabindex="-1"></a><span class="co">#&gt; 1          5.1         3.5          1.4         0.2  setosa</span></span>
+<span id="cb33-4"><a href="introR.html#cb33-4" tabindex="-1"></a><span class="co">#&gt; 2          4.9         3.0          1.4         0.2  setosa</span></span>
+<span id="cb33-5"><a href="introR.html#cb33-5" tabindex="-1"></a><span class="co">#&gt; 3          4.7         3.2          1.3         0.2  setosa</span></span>
+<span id="cb33-6"><a href="introR.html#cb33-6" tabindex="-1"></a><span class="co">#&gt; 4          4.6         3.1          1.5         0.2  setosa</span></span>
+<span id="cb33-7"><a href="introR.html#cb33-7" tabindex="-1"></a><span class="co">#&gt; 5          5.0         3.6          1.4         0.2  setosa</span></span>
+<span id="cb33-8"><a href="introR.html#cb33-8" tabindex="-1"></a><span class="co">#&gt; 6          5.4         3.9          1.7         0.4  setosa</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="introR.html#cb34-1" tabindex="-1"></a><span class="fu">summary</span>(iris)</span>
+<span id="cb34-2"><a href="introR.html#cb34-2" tabindex="-1"></a><span class="co">#&gt;   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   </span></span>
+<span id="cb34-3"><a href="introR.html#cb34-3" tabindex="-1"></a><span class="co">#&gt;  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  </span></span>
+<span id="cb34-4"><a href="introR.html#cb34-4" tabindex="-1"></a><span class="co">#&gt;  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  </span></span>
+<span id="cb34-5"><a href="introR.html#cb34-5" tabindex="-1"></a><span class="co">#&gt;  Median :5.800   Median :3.000   Median :4.350   Median :1.300  </span></span>
+<span id="cb34-6"><a href="introR.html#cb34-6" tabindex="-1"></a><span class="co">#&gt;  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  </span></span>
+<span id="cb34-7"><a href="introR.html#cb34-7" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  </span></span>
+<span id="cb34-8"><a href="introR.html#cb34-8" tabindex="-1"></a><span class="co">#&gt;  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  </span></span>
+<span id="cb34-9"><a href="introR.html#cb34-9" tabindex="-1"></a><span class="co">#&gt;        Species  </span></span>
+<span id="cb34-10"><a href="introR.html#cb34-10" tabindex="-1"></a><span class="co">#&gt;  setosa    :50  </span></span>
+<span id="cb34-11"><a href="introR.html#cb34-11" tabindex="-1"></a><span class="co">#&gt;  versicolor:50  </span></span>
+<span id="cb34-12"><a href="introR.html#cb34-12" tabindex="-1"></a><span class="co">#&gt;  virginica :50  </span></span>
+<span id="cb34-13"><a href="introR.html#cb34-13" tabindex="-1"></a><span class="co">#&gt;                 </span></span>
+<span id="cb34-14"><a href="introR.html#cb34-14" tabindex="-1"></a><span class="co">#&gt;                 </span></span>
+<span id="cb34-15"><a href="introR.html#cb34-15" tabindex="-1"></a><span class="co">#&gt; </span></span></code></pre></div>
 <p>There are two common ways of plotting:</p>
 <ol style="list-style-type: decimal">
 <li>the built-in plotting functions</li>
@@ -839,21 +867,21 @@ list. There are a few variants to support lists or vectors for different purpose
 <h3><span class="header-section-number">1.5.2</span> Basic plotting<a href="introR.html#basic-plotting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="histogram" class="section level4 hasAnchor" number="1.5.2.1">
 <h4><span class="header-section-number">1.5.2.1</span> Histogram<a href="introR.html#histogram" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="introR.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="introR.html#cb35-1" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig1-hist-1.png" width="672" /></p>
 </div>
 <div id="scatter-plot" class="section level4 hasAnchor" number="1.5.2.2">
 <h4><span class="header-section-number">1.5.2.2</span> Scatter plot<a href="introR.html#scatter-plot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="introR.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>iris<span class="sc">$</span>Sepal.Length, <span class="at">y=</span>iris<span class="sc">$</span>Sepal.Width)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="introR.html#cb36-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>iris<span class="sc">$</span>Sepal.Length, <span class="at">y=</span>iris<span class="sc">$</span>Sepal.Width)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig1-scatter-1.png" width="672" /></p>
 </div>
 <div id="boxplot" class="section level4 hasAnchor" number="1.5.2.3">
 <h4><span class="header-section-number">1.5.2.3</span> boxplot<a href="introR.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="introR.html#cb37-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>]</span>
-<span id="cb37-2"><a href="introR.html#cb37-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;versicolor&quot;</span>]</span>
-<span id="cb37-3"><a href="introR.html#cb37-3" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>]</span>
-<span id="cb37-4"><a href="introR.html#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-5"><a href="introR.html#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(x1, x2, x3)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="introR.html#cb37-1" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>]</span>
+<span id="cb37-2"><a href="introR.html#cb37-2" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;versicolor&quot;</span>]</span>
+<span id="cb37-3"><a href="introR.html#cb37-3" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>]</span>
+<span id="cb37-4"><a href="introR.html#cb37-4" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="introR.html#cb37-5" tabindex="-1"></a><span class="fu">boxplot</span>(x1, x2, x3)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig1-box-1.png" width="672" /></p>
 </div>
 </div>
@@ -862,27 +890,27 @@ list. There are a few variants to support lists or vectors for different purpose
 <p>See more instructions: <a href="http://www.sthda.com/english/wiki/ggplot2-essentials" class="uri">http://www.sthda.com/english/wiki/ggplot2-essentials</a></p>
 <div id="install-and-load-package" class="section level4 hasAnchor" number="1.5.3.1">
 <h4><span class="header-section-number">1.5.3.1</span> Install and load package<a href="introR.html#install-and-load-package" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="introR.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;ggplot2&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb38-2"><a href="introR.html#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
-<span id="cb38-3"><a href="introR.html#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-4"><a href="introR.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="introR.html#cb38-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;ggplot2&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb38-2"><a href="introR.html#cb38-2" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb38-3"><a href="introR.html#cb38-3" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="introR.html#cb38-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 </div>
 <div id="histogram-1" class="section level4 hasAnchor" number="1.5.3.2">
 <h4><span class="header-section-number">1.5.3.2</span> Histogram<a href="introR.html#histogram-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="introR.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length)) <span class="sc">+</span> </span>
-<span id="cb39-2"><a href="introR.html#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="introR.html#cb39-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length)) <span class="sc">+</span> </span>
+<span id="cb39-2"><a href="introR.html#cb39-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig1-gghist-1.png" width="672" /></p>
 </div>
 <div id="scatter-plot-1" class="section level4 hasAnchor" number="1.5.3.3">
 <h4><span class="header-section-number">1.5.3.3</span> Scatter plot<a href="introR.html#scatter-plot-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="introR.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length, <span class="at">y=</span>Sepal.Width)) <span class="sc">+</span> </span>
-<span id="cb40-2"><a href="introR.html#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="introR.html#cb40-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length, <span class="at">y=</span>Sepal.Width)) <span class="sc">+</span> </span>
+<span id="cb40-2"><a href="introR.html#cb40-2" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig1-ggpoint-1.png" width="672" /></p>
 </div>
 <div id="box-plot" class="section level4 hasAnchor" number="1.5.3.4">
 <h4><span class="header-section-number">1.5.3.4</span> Box plot<a href="introR.html#box-plot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="introR.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Species, <span class="at">y=</span>Sepal.Length)) <span class="sc">+</span> </span>
-<span id="cb41-2"><a href="introR.html#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="introR.html#cb41-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Species, <span class="at">y=</span>Sepal.Length)) <span class="sc">+</span> </span>
+<span id="cb41-2"><a href="introR.html#cb41-2" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig1-ggbox-1.png" width="672" /></p>
 </div>
 </div>
@@ -893,10 +921,10 @@ list. There are a few variants to support lists or vectors for different purpose
 <h3><span class="header-section-number">1.6.1</span> Orders of operators<a href="introR.html#orders-of-operators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>See lecture slides.</p>
 <p>If you are not sure about a certain ordering, use brackets!</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="introR.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">4</span></span>
-<span id="cb42-2"><a href="introR.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="introR.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">4</span>)</span>
-<span id="cb43-2"><a href="introR.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="introR.html#cb42-1" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">4</span></span>
+<span id="cb42-2"><a href="introR.html#cb42-2" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="introR.html#cb43-1" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">4</span>)</span>
+<span id="cb43-2"><a href="introR.html#cb43-2" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span></code></pre></div>
 </div>
 <div id="functions-for-statistics" class="section level3 hasAnchor" number="1.6.2">
 <h3><span class="header-section-number">1.6.2</span> Functions for statistics<a href="introR.html#functions-for-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -904,76 +932,76 @@ list. There are a few variants to support lists or vectors for different purpose
 </div>
 <div id="correlation" class="section level3 hasAnchor" number="1.6.3">
 <h3><span class="header-section-number">1.6.3</span> Correlation<a href="introR.html#correlation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="introR.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length)</span>
-<span id="cb44-2"><a href="introR.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.8717538</span></span></code></pre></div>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="introR.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length)</span>
-<span id="cb45-2"><a href="introR.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb45-3"><a href="introR.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Pearson&#39;s product-moment correlation</span></span>
-<span id="cb45-4"><a href="introR.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb45-5"><a href="introR.html#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  iris$Sepal.Length and iris$Petal.Length</span></span>
-<span id="cb45-6"><a href="introR.html#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; t = 21.646, df = 148, p-value &lt; 2.2e-16</span></span>
-<span id="cb45-7"><a href="introR.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true correlation is not equal to 0</span></span>
-<span id="cb45-8"><a href="introR.html#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb45-9"><a href="introR.html#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.8270363 0.9055080</span></span>
-<span id="cb45-10"><a href="introR.html#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb45-11"><a href="introR.html#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       cor </span></span>
-<span id="cb45-12"><a href="introR.html#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.8717538</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="introR.html#cb44-1" tabindex="-1"></a><span class="fu">cor</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length)</span>
+<span id="cb44-2"><a href="introR.html#cb44-2" tabindex="-1"></a><span class="co">#&gt; [1] 0.8717538</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="introR.html#cb45-1" tabindex="-1"></a><span class="fu">cor.test</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length)</span>
+<span id="cb45-2"><a href="introR.html#cb45-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb45-3"><a href="introR.html#cb45-3" tabindex="-1"></a><span class="co">#&gt;  Pearson&#39;s product-moment correlation</span></span>
+<span id="cb45-4"><a href="introR.html#cb45-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb45-5"><a href="introR.html#cb45-5" tabindex="-1"></a><span class="co">#&gt; data:  iris$Sepal.Length and iris$Petal.Length</span></span>
+<span id="cb45-6"><a href="introR.html#cb45-6" tabindex="-1"></a><span class="co">#&gt; t = 21.646, df = 148, p-value &lt; 2.2e-16</span></span>
+<span id="cb45-7"><a href="introR.html#cb45-7" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true correlation is not equal to 0</span></span>
+<span id="cb45-8"><a href="introR.html#cb45-8" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb45-9"><a href="introR.html#cb45-9" tabindex="-1"></a><span class="co">#&gt;  0.8270363 0.9055080</span></span>
+<span id="cb45-10"><a href="introR.html#cb45-10" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb45-11"><a href="introR.html#cb45-11" tabindex="-1"></a><span class="co">#&gt;       cor </span></span>
+<span id="cb45-12"><a href="introR.html#cb45-12" tabindex="-1"></a><span class="co">#&gt; 0.8717538</span></span></code></pre></div>
 </div>
 <div id="hypothesis-testing-t-test" class="section level3 hasAnchor" number="1.6.4">
 <h3><span class="header-section-number">1.6.4</span> Hypothesis testing (t test)<a href="introR.html#hypothesis-testing-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="introR.html#cb46-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>]</span>
-<span id="cb46-2"><a href="introR.html#cb46-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;versicolor&quot;</span>]</span>
-<span id="cb46-3"><a href="introR.html#cb46-3" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>]</span>
-<span id="cb46-4"><a href="introR.html#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-5"><a href="introR.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(x2, x3)</span>
-<span id="cb46-6"><a href="introR.html#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb46-7"><a href="introR.html#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Welch Two Sample t-test</span></span>
-<span id="cb46-8"><a href="introR.html#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb46-9"><a href="introR.html#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  x2 and x3</span></span>
-<span id="cb46-10"><a href="introR.html#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; t = -5.6292, df = 94.025, p-value = 1.866e-07</span></span>
-<span id="cb46-11"><a href="introR.html#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true difference in means is not equal to 0</span></span>
-<span id="cb46-12"><a href="introR.html#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb46-13"><a href="introR.html#cb46-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  -0.8819731 -0.4220269</span></span>
-<span id="cb46-14"><a href="introR.html#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb46-15"><a href="introR.html#cb46-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; mean of x mean of y </span></span>
-<span id="cb46-16"><a href="introR.html#cb46-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     5.936     6.588</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="introR.html#cb46-1" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>]</span>
+<span id="cb46-2"><a href="introR.html#cb46-2" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;versicolor&quot;</span>]</span>
+<span id="cb46-3"><a href="introR.html#cb46-3" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>]</span>
+<span id="cb46-4"><a href="introR.html#cb46-4" tabindex="-1"></a></span>
+<span id="cb46-5"><a href="introR.html#cb46-5" tabindex="-1"></a><span class="fu">t.test</span>(x2, x3)</span>
+<span id="cb46-6"><a href="introR.html#cb46-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb46-7"><a href="introR.html#cb46-7" tabindex="-1"></a><span class="co">#&gt;  Welch Two Sample t-test</span></span>
+<span id="cb46-8"><a href="introR.html#cb46-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb46-9"><a href="introR.html#cb46-9" tabindex="-1"></a><span class="co">#&gt; data:  x2 and x3</span></span>
+<span id="cb46-10"><a href="introR.html#cb46-10" tabindex="-1"></a><span class="co">#&gt; t = -5.6292, df = 94.025, p-value = 1.866e-07</span></span>
+<span id="cb46-11"><a href="introR.html#cb46-11" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true difference in means is not equal to 0</span></span>
+<span id="cb46-12"><a href="introR.html#cb46-12" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb46-13"><a href="introR.html#cb46-13" tabindex="-1"></a><span class="co">#&gt;  -0.8819731 -0.4220269</span></span>
+<span id="cb46-14"><a href="introR.html#cb46-14" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb46-15"><a href="introR.html#cb46-15" tabindex="-1"></a><span class="co">#&gt; mean of x mean of y </span></span>
+<span id="cb46-16"><a href="introR.html#cb46-16" tabindex="-1"></a><span class="co">#&gt;     5.936     6.588</span></span></code></pre></div>
 </div>
 <div id="regression" class="section level3 hasAnchor" number="1.6.5">
 <h3><span class="header-section-number">1.6.5</span> Regression<a href="introR.html#regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="introR.html#cb47-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sepal.Length <span class="sc">~</span> Sepal.Width <span class="sc">+</span> Petal.Length <span class="sc">+</span> Petal.Width, <span class="at">data=</span>iris)</span>
-<span id="cb47-2"><a href="introR.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit) <span class="co"># show results</span></span>
-<span id="cb47-3"><a href="introR.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb47-4"><a href="introR.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb47-5"><a href="introR.html#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; lm(formula = Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width, </span></span>
-<span id="cb47-6"><a href="introR.html#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     data = iris)</span></span>
-<span id="cb47-7"><a href="introR.html#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb47-8"><a href="introR.html#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb47-9"><a href="introR.html#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
-<span id="cb47-10"><a href="introR.html#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -0.82816 -0.21989  0.01875  0.19709  0.84570 </span></span>
-<span id="cb47-11"><a href="introR.html#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb47-12"><a href="introR.html#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb47-13"><a href="introR.html#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb47-14"><a href="introR.html#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (Intercept)   1.85600    0.25078   7.401 9.85e-12 ***</span></span>
-<span id="cb47-15"><a href="introR.html#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Sepal.Width   0.65084    0.06665   9.765  &lt; 2e-16 ***</span></span>
-<span id="cb47-16"><a href="introR.html#cb47-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Petal.Length  0.70913    0.05672  12.502  &lt; 2e-16 ***</span></span>
-<span id="cb47-17"><a href="introR.html#cb47-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Petal.Width  -0.55648    0.12755  -4.363 2.41e-05 ***</span></span>
-<span id="cb47-18"><a href="introR.html#cb47-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb47-19"><a href="introR.html#cb47-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb47-20"><a href="introR.html#cb47-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb47-21"><a href="introR.html#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 0.3145 on 146 degrees of freedom</span></span>
-<span id="cb47-22"><a href="introR.html#cb47-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.8586, Adjusted R-squared:  0.8557 </span></span>
-<span id="cb47-23"><a href="introR.html#cb47-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F-statistic: 295.5 on 3 and 146 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="introR.html#cb47-1" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sepal.Length <span class="sc">~</span> Sepal.Width <span class="sc">+</span> Petal.Length <span class="sc">+</span> Petal.Width, <span class="at">data=</span>iris)</span>
+<span id="cb47-2"><a href="introR.html#cb47-2" tabindex="-1"></a><span class="fu">summary</span>(fit) <span class="co"># show results</span></span>
+<span id="cb47-3"><a href="introR.html#cb47-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb47-4"><a href="introR.html#cb47-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb47-5"><a href="introR.html#cb47-5" tabindex="-1"></a><span class="co">#&gt; lm(formula = Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width, </span></span>
+<span id="cb47-6"><a href="introR.html#cb47-6" tabindex="-1"></a><span class="co">#&gt;     data = iris)</span></span>
+<span id="cb47-7"><a href="introR.html#cb47-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb47-8"><a href="introR.html#cb47-8" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb47-9"><a href="introR.html#cb47-9" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
+<span id="cb47-10"><a href="introR.html#cb47-10" tabindex="-1"></a><span class="co">#&gt; -0.82816 -0.21989  0.01875  0.19709  0.84570 </span></span>
+<span id="cb47-11"><a href="introR.html#cb47-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb47-12"><a href="introR.html#cb47-12" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb47-13"><a href="introR.html#cb47-13" tabindex="-1"></a><span class="co">#&gt;              Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb47-14"><a href="introR.html#cb47-14" tabindex="-1"></a><span class="co">#&gt; (Intercept)   1.85600    0.25078   7.401 9.85e-12 ***</span></span>
+<span id="cb47-15"><a href="introR.html#cb47-15" tabindex="-1"></a><span class="co">#&gt; Sepal.Width   0.65084    0.06665   9.765  &lt; 2e-16 ***</span></span>
+<span id="cb47-16"><a href="introR.html#cb47-16" tabindex="-1"></a><span class="co">#&gt; Petal.Length  0.70913    0.05672  12.502  &lt; 2e-16 ***</span></span>
+<span id="cb47-17"><a href="introR.html#cb47-17" tabindex="-1"></a><span class="co">#&gt; Petal.Width  -0.55648    0.12755  -4.363 2.41e-05 ***</span></span>
+<span id="cb47-18"><a href="introR.html#cb47-18" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb47-19"><a href="introR.html#cb47-19" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb47-20"><a href="introR.html#cb47-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb47-21"><a href="introR.html#cb47-21" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 0.3145 on 146 degrees of freedom</span></span>
+<span id="cb47-22"><a href="introR.html#cb47-22" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.8586, Adjusted R-squared:  0.8557 </span></span>
+<span id="cb47-23"><a href="introR.html#cb47-23" tabindex="-1"></a><span class="co">#&gt; F-statistic: 295.5 on 3 and 146 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
 <p>This means the fitted regression is:
 <code>Sepal.Length ~ 1.856 + 0.65*Sepal.Width + 0.709*Petal.Length - 0.556*Petal.Width</code></p>
 <p>We can check how good the regression is by plotting it out</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="introR.html#cb48-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="ot">&lt;-</span> fit<span class="sc">$</span>coefficients[<span class="dv">1</span>] <span class="sc">+</span> </span>
-<span id="cb48-2"><a href="introR.html#cb48-2" aria-hidden="true" tabindex="-1"></a>  fit<span class="sc">$</span>coefficients[<span class="dv">2</span>] <span class="sc">*</span> iris<span class="sc">$</span>Sepal.Width <span class="sc">+</span></span>
-<span id="cb48-3"><a href="introR.html#cb48-3" aria-hidden="true" tabindex="-1"></a>  fit<span class="sc">$</span>coefficients[<span class="dv">3</span>] <span class="sc">*</span> iris<span class="sc">$</span>Petal.Length <span class="sc">+</span></span>
-<span id="cb48-4"><a href="introR.html#cb48-4" aria-hidden="true" tabindex="-1"></a>  fit<span class="sc">$</span>coefficients[<span class="dv">4</span>] <span class="sc">*</span> iris<span class="sc">$</span>Petal.Width</span>
-<span id="cb48-5"><a href="introR.html#cb48-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-6"><a href="introR.html#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(iris<span class="sc">$</span>Sepal.Length, y_pred)</span>
-<span id="cb48-7"><a href="introR.html#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.926613</span></span></code></pre></div>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="introR.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, y_pred)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="introR.html#cb48-1" tabindex="-1"></a>y_pred <span class="ot">&lt;-</span> fit<span class="sc">$</span>coefficients[<span class="dv">1</span>] <span class="sc">+</span> </span>
+<span id="cb48-2"><a href="introR.html#cb48-2" tabindex="-1"></a>  fit<span class="sc">$</span>coefficients[<span class="dv">2</span>] <span class="sc">*</span> iris<span class="sc">$</span>Sepal.Width <span class="sc">+</span></span>
+<span id="cb48-3"><a href="introR.html#cb48-3" tabindex="-1"></a>  fit<span class="sc">$</span>coefficients[<span class="dv">3</span>] <span class="sc">*</span> iris<span class="sc">$</span>Petal.Length <span class="sc">+</span></span>
+<span id="cb48-4"><a href="introR.html#cb48-4" tabindex="-1"></a>  fit<span class="sc">$</span>coefficients[<span class="dv">4</span>] <span class="sc">*</span> iris<span class="sc">$</span>Petal.Width</span>
+<span id="cb48-5"><a href="introR.html#cb48-5" tabindex="-1"></a></span>
+<span id="cb48-6"><a href="introR.html#cb48-6" tabindex="-1"></a><span class="fu">cor</span>(iris<span class="sc">$</span>Sepal.Length, y_pred)</span>
+<span id="cb48-7"><a href="introR.html#cb48-7" tabindex="-1"></a><span class="co">#&gt; [1] 0.926613</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="introR.html#cb49-1" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, y_pred)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig1-reg-1.png" width="672" /></p>
 </div>
 </div>
