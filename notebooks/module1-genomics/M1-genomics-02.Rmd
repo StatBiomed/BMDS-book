@@ -1,4 +1,6 @@
-## Case study 2: analysis of cBioportal mutation data { #genomics-case2 }
+# Cancer genomics and epidemiology { #cancer }
+
+## Case study 1: analysis of cBioportal mutation data { #cancer-case1 }
 
 Non-small cell lung cancer is a deadly disease, and we would like to identify
 mutations in genes that drive its formation and progression.

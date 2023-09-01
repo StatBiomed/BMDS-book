@@ -1,10 +1,5 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
 
-# Cancer Epidemiology
+## Case study 2: Cancer Epidemiology { #cancer-case2 }
 
 *by Dr Jason Wong*
 
@@ -444,56 +439,56 @@ hist(pubmed$Publication.Year)
 
 ### Make word cloud for grants
 
-```{r wordcloud grants, fig.height=8, fig.width=10}
-if (!require("ggwordcloud")) install.packages("ggwordcloud")
-if (!require("tm")) install.packages("tm")
-if (!require("dplyr")) install.packages("dplyr")
-if (!require("RColorBrewer")) install.packages("RColorBrewer")
-library(ggwordcloud)
-library(tm)
-library(dplyr)
-library(RColorBrewer)
+<!-- ```{r wordcloud grants, fig.height=8, fig.width=10} -->
+<!-- if (!require("ggwordcloud")) install.packages("ggwordcloud") -->
+<!-- if (!require("tm")) install.packages("tm") -->
+<!-- if (!require("dplyr")) install.packages("dplyr") -->
+<!-- if (!require("RColorBrewer")) install.packages("RColorBrewer") -->
+<!-- library(ggwordcloud) -->
+<!-- library(tm) -->
+<!-- library(dplyr) -->
+<!-- library(RColorBrewer) -->
 
-#Create a vector containing only the text
-gtext <- HMRF$Project.Title
-# Create a corpus  
-gdocs <- Corpus(VectorSource(gtext))
-gdocs <- gdocs %>%
-  tm_map(removePunctuation) %>%
-  tm_map(stripWhitespace)
-gdocs <- tm_map(gdocs, content_transformer(tolower))
-gdocs <- tm_map(gdocs, removeWords, stopwords("english"))
+<!-- #Create a vector containing only the text -->
+<!-- gtext <- HMRF$Project.Title -->
+<!-- # Create a corpus   -->
+<!-- gdocs <- Corpus(VectorSource(gtext)) -->
+<!-- gdocs <- gdocs %>% -->
+<!--   tm_map(removePunctuation) %>% -->
+<!--   tm_map(stripWhitespace) -->
+<!-- gdocs <- tm_map(gdocs, content_transformer(tolower)) -->
+<!-- gdocs <- tm_map(gdocs, removeWords, stopwords("english")) -->
 
-gdtm <- TermDocumentMatrix(gdocs) 
-gmatrix <- as.matrix(gdtm) 
-gwords <- sort(rowSums(gmatrix),decreasing=TRUE) 
-gdf <- data.frame(word = names(gwords),freq=gwords)
+<!-- gdtm <- TermDocumentMatrix(gdocs)  -->
+<!-- gmatrix <- as.matrix(gdtm)  -->
+<!-- gwords <- sort(rowSums(gmatrix),decreasing=TRUE)  -->
+<!-- gdf <- data.frame(word = names(gwords),freq=gwords) -->
 
-set.seed(1235) # for reproducibility 
-gp<-ggwordcloud(words = gdf$word, freq = gdf$freq, min.freq = 1,max.words=200, random.order=FALSE, rot.per=0.35,            colors=brewer.pal(8, "Dark2"))
-#gp
+<!-- set.seed(1235) # for reproducibility  -->
+<!-- gp<-ggwordcloud(words = gdf$word, freq = gdf$freq, min.freq = 1,max.words=200, random.order=FALSE, rot.per=0.35,            colors=brewer.pal(8, "Dark2")) -->
+<!-- #gp -->
 
-#Create a vector containing only the text
-pmtext <- pubmed$Title
-# Create a corpus  
-pmdocs <- Corpus(VectorSource(pmtext))
-pmdocs <- pmdocs %>%
-  tm_map(removePunctuation) %>%
-  tm_map(stripWhitespace)
-pmdocs <- tm_map(pmdocs, content_transformer(tolower))
-pmdocs <- tm_map(pmdocs, removeWords, stopwords("english"))
+<!-- #Create a vector containing only the text -->
+<!-- pmtext <- pubmed$Title -->
+<!-- # Create a corpus   -->
+<!-- pmdocs <- Corpus(VectorSource(pmtext)) -->
+<!-- pmdocs <- pmdocs %>% -->
+<!--   tm_map(removePunctuation) %>% -->
+<!--   tm_map(stripWhitespace) -->
+<!-- pmdocs <- tm_map(pmdocs, content_transformer(tolower)) -->
+<!-- pmdocs <- tm_map(pmdocs, removeWords, stopwords("english")) -->
 
-pmdtm <- TermDocumentMatrix(pmdocs) 
-pmmatrix <- as.matrix(pmdtm) 
-pmwords <- sort(rowSums(pmmatrix),decreasing=TRUE) 
-pmdf <- data.frame(word = names(pmwords),freq=pmwords)
+<!-- pmdtm <- TermDocumentMatrix(pmdocs)  -->
+<!-- pmmatrix <- as.matrix(pmdtm)  -->
+<!-- pmwords <- sort(rowSums(pmmatrix),decreasing=TRUE)  -->
+<!-- pmdf <- data.frame(word = names(pmwords),freq=pmwords) -->
 
-set.seed(1235) # for reproducibility 
-pm<-ggwordcloud(words = pmdf$word, freq = pmdf$freq, min.freq = 1,max.words=200, random.order=FALSE, rot.per=0.35,            colors=brewer.pal(8, "Dark2"))
-grid.arrange(arrangeGrob(pm, top = 'Pubmed'),arrangeGrob(gp, top = 'Grants'),nrow=2,heights=c(6,6))
+<!-- set.seed(1235) # for reproducibility  -->
+<!-- pm<-ggwordcloud(words = pmdf$word, freq = pmdf$freq, min.freq = 1,max.words=200, random.order=FALSE, rot.per=0.35,            colors=brewer.pal(8, "Dark2")) -->
+<!-- grid.arrange(arrangeGrob(pm, top = 'Pubmed'),arrangeGrob(gp, top = 'Grants'),nrow=2,heights=c(6,6)) -->
 
 
-```
+<!-- ``` -->
 
 ### Make compare grant funding with incidence and mortality
 

@@ -9,10 +9,10 @@ that you are using on your computer.
 **Differences between R and RStudio**
 
 * R is the backbone of R programming. Once R is installed, you can use it 
-  via its build-in `R Console` (self-contained), terminal or any third-party
+  via its built-in `R Console` (self-contained), terminal or any third-party
   integrated development environment (IDE), e.g., RStudio.
   
-* RStudio is a multi-facet and user-friendly IDE that can make R programming and 
+* RStudio is a multi-faceted and user-friendly IDE that can make R programming and 
   data analysis in one place and easy to manage. We recommend using RStudio 
   and only demonstrate with it, while you are free to use any other alternative.
 
@@ -27,23 +27,26 @@ by Xiunan Fang and other team members in Dr Joshua Ho's lab.
 ### R on Windows {-}
 - Open an internet browser and go to https://cran.r-project.org/.
 - Click on the ``Download R for Windows`` link at the top of the page.
-- Choose the ``base`` and then Click on the ``Download R 4.2.1 for Windows``
+- Choose the ``base`` and then Click on the ``Download R 4.3.1 for Windows``
   link at the top of the page (or a new version if this manual is outdated).
 - Once the download is finished, you will obtain a file named 
-  ``R-4.2.1-win.exe`` or similar depending on the version that you download.
+  ``R-4.3.1-win.exe`` or similar depending on the version that you download.
 - Most of the time, you will likely want to go with the defaults, so click the 
   button ``Next`` until the process is complete.
 
 ### R on macOS {-}
+
 - Open an internet browser and go to https://cran.r-project.org/.
 - Click on the ``Download R for macOS`` link at the top of the page.
 - Click on the file containing the latest version of R under the 
   **Latest release**.
-- Save the ``.pkg`` file, double-click it to open, and follow the installation 
+- Save the ``R-4.3.1-**.pkg`` file, double-click it to open, and follow the installation 
   instructions. 
-  **Note**, there are two versions of the .pkg installation file according to 
-  the CPU model: Intel Macs (Intel-based) or M1 Macs (ARM-based). 
+  
+> **Note**, there are two versions of the .pkg installation file according to 
+  the CPU model: Intel Macs (Intel-based) or M1/M2 Macs (ARM-based). 
   **Please choose accordingly**.
+> 
 
 ### R on Linux (Ubuntu) {-}
 
@@ -67,7 +70,7 @@ sudo apt -y install r-base
 Now that R is installed, you need to download and install RStudio.
 The installation of RStudio is more straightforward and very similar across the three Operating Systems. 
 
-- Go to https://www.rstudio.com/products/rstudio/download/#download. We are 
+- Go to https://posit.co/download/rstudio-desktop/#download. We are 
   using ```RStudio Desktop`` **Free** version.
 - Click on the right file for your OS (e.g., `.exe` file for Windows or `.dmg` for MacOS)
 - The installation process is very straightforward as the figure below.
@@ -79,7 +82,7 @@ The installation of RStudio is more straightforward and very similar across the 
 ## A.3 Use R inside RStudio {-}
 ### R studio {-}
 RStudio is a very powerful IDE and provides many useful tools through a four-pane workspace.
-By default the four panels are placed as follows (you can also change the 
+By default, the four panels are placed as follows (you can also change the 
 setting for your own preference):
 
 1. Top-left panel: Your scripts of the R codes, script is good to keep a record 
@@ -161,7 +164,7 @@ install.packages('aod')
 ## A4. Cloud computing {-}
 In case you have limited computing power, you can still use cloud computing to 
 finish this course. There can be multiple options and here we mainly recommend
-RStudio cloud (https://rstudio.cloud). You can explore directly from their 
+RStudio cloud (https://posit.cloud; previously known as https://rstudio.cloud/). You can explore directly from their 
 website.
 
 

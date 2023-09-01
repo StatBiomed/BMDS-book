@@ -6,16 +6,7 @@
 cat("# (PART) Biomedical Data Modules {-} ")
 ```
 
-
-# Personalised Genomic Medicine {#genomics}
-
-
-```{r child="notebooks/module1-genomics/M1-genomics-01.Rmd", echo=TRUE}
-```
-
-```{r child="notebooks/module1-genomics/M1-genomics-02.Rmd", echo=TRUE}
-```
-
+# Medical Image and Digital Health {#image-digital}
 
 ```{r child="notebooks/module2-image/M2-image-digital.Rmd", echo=TRUE}
 ```
@@ -25,11 +16,23 @@ cat("# (PART) Biomedical Data Modules {-} ")
 ```
 
 
-```{r child="notebooks/module4-genetics/M4-pop-genetics.Rmd", echo=TRUE}
+<!-- # Personalised Genomic Medicine {#genomics} -->
+
+<!-- ```{r child="notebooks/module1-genomics/M1-genomics-01.Rmd", echo=TRUE} -->
+<!-- ``` -->
+
+```{r child="notebooks/module1-genomics/M1-genomics-02.Rmd", echo=TRUE}
 ```
 
 
 ```{r child="notebooks/module5-epidemi/M5-epidemiology.Rmd", echo=TRUE}
 ```
+
+
+```{r child="notebooks/module4-genetics/M4-pop-genetics.Rmd", echo=TRUE}
+```
+
+
+
 
 
