@@ -13,17 +13,17 @@ reproduce the teaching contents more easily.
 ### What you will learn from this course/book {-}
 In part I, you will find a general introduction to data science (by Dr YH Huang):
 
+2) Basic programming and visualisation skills: R scripts for the quantitative 
+   methods and data visualisation.
 1) Quantitative methods: t-test, correlation analysis, clustering, linear 
    regression, linear classification.
-2) Basic programming and visualisation skills: R scripts for the above methods 
-   and data visualisation.
 3) Gain familiarity with common databases in the biomedical domain. 
 4) Introduce ethical, legal, social and technological issues related to 
    biomedical data sciences.
 5) Introduce good practice in managing a data science project and communicate 
    results to key stakeholders.
 
-In part II, you will experience data types in five different biomedical topics,
+In part II, you will experience data types in four different biomedical topics,
 which will be illustrated with both introduction and cases that are suitable for
 problem-based learning format:
 
@@ -41,7 +41,8 @@ readers
 
 ## Other reference books {-}
 
-Besides this online book as a collection of R materials for the teaching contents, we also recommend the following online books as reference:
+Besides this online book as a collection of R materials for the teaching 
+contents, we also recommend the following online books as reference:
 
 1. [Introduction to Data Science: Data Wrangling and Visualization with R](http://rafalab.dfci.harvard.edu/dsbook-part-1/) by Rafeal A. Irizarry
 2. [Advanced Data Science: Statistics and Prediction Algorithms Through Case Studies](http://rafalab.dfci.harvard.edu/dsbook-part-2/) by Rafeal A. Irizarry
@@ -49,7 +50,9 @@ Besides this online book as a collection of R materials for the teaching content
 
 ## Acknowledgements {-}
 
-We thank all teachers contributing to this course from all years, including Dr Lequan Yu (2022-23) and Dr Carlos Wong (2022-23) and student helpers serving as demonstrators, including Mr Mingze Gao and Ms Fangxin Cai.
+We thank all teachers contributing to this course across all years, including 
+Dr Lequan Yu (2022-23) and Dr Carlos Wong (2022-23) and student helpers serving 
+as demonstrators, including Mr Mingze Gao and Ms Fangxin Cai.
 
 <!-- ## Last notes {-} -->
 

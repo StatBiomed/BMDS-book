@@ -6,6 +6,16 @@ Introduction to R (1 hour teaching). You can get this Rmd file on Moodle or
 [here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR.Rmd)
 (right-click and "save link as" to download).
 
+R is a programming language, particularly popular for its power in statistical
+computing, elegant graphics, and also genomic data analysis. It is a free and
+open-source software, with active support and development from the community.
+Additionally, R is relatively easy to get started for scientific computing.
+
+> __Note__ To learn and practice R programming, you need to install `R` and `RStudio` on 
+> your computer. You can follow the instructions for installation in the 
+> [Appendix A](https://statbiomed.github.io/BMDS-book/install.html) chapter.
+
+
 ## Data types
 In R language setting (similar to some other programming languages), there are 
 a few commonly used data types that are predefined in the built-in environment.
@@ -320,7 +330,7 @@ help("read.table")
 ?read.table
 ```
 
-Here, let read an example file. Data is available on Moodle and on the 
+Here, let's read an example file. Data is available on Moodle and on the 
 [github repository](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R)
 
 ```{r}
@@ -547,6 +557,7 @@ summary(fit) # show results
 ```
 
 This means the fitted regression is: 
+
 `Sepal.Length ~ 1.856 + 0.65*Sepal.Width + 0.709*Petal.Length - 0.556*Petal.Width`
 
 We can check how good the regression is by plotting it out

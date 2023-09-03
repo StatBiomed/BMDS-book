@@ -18,5 +18,6 @@ To build this book from the source files, use the following script in R:
 bookdown::render_book("index.Rmd", "bookdown::gitbook")
 ```
 
-To release the build, you can simply copy the whole contents in the `_book` 
-folder to the `docs` folder and push it to this github repository.
+To release the build, you can simply push the `docs` folder to this github 
+repository. Note, the website only shows the `docs` folder while other files are
+source codes for generating the `docs` folder.
