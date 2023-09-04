@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2023-09-01" />
+<meta name="date" content="2023-09-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -352,6 +352,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Introduction to R (1 hour teaching). You can get this Rmd file on Moodle or
 <a href="https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR.Rmd">here</a>
 (right-click and “save link as” to download).</p>
+<p>R is a programming language, particularly popular for its power in statistical
+computing, elegant graphics, and also genomic data analysis. It is a free and
+open-source software, with active support and development from the community.
+Additionally, R is relatively easy to get started for scientific computing.</p>
+<blockquote>
+<p><strong>Note</strong> To learn and practice R programming, you need to install <code>R</code> and <code>RStudio</code> on
+your computer. You can follow the instructions for installation in the
+<a href="https://statbiomed.github.io/BMDS-book/install.html">Appendix A</a> chapter.</p>
+</blockquote>
 <div id="data-types" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Data types<a href="introR.html#data-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In R language setting (similar to some other programming languages), there are
@@ -704,7 +713,7 @@ See full manuals: <code>help(read.table)</code> or <code>?read.table</code> or i
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introR.html#cb24-1" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;read.table&quot;</span>)</span>
 <span id="cb24-2"><a href="introR.html#cb24-2" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="introR.html#cb24-3" tabindex="-1"></a>?read.table</span></code></pre></div>
-<p>Here, let read an example file. Data is available on Moodle and on the
+<p>Here, let’s read an example file. Data is available on Moodle and on the
 <a href="https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R">github repository</a></p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introR.html#cb25-1" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">read.table</span>(<span class="st">&quot;./SRP029880.colData.tsv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
 <span id="cb25-2"><a href="introR.html#cb25-2" tabindex="-1"></a>df</span>
@@ -991,8 +1000,8 @@ list. There are a few variants to support lists or vectors for different purpose
 <span id="cb47-21"><a href="introR.html#cb47-21" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 0.3145 on 146 degrees of freedom</span></span>
 <span id="cb47-22"><a href="introR.html#cb47-22" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.8586, Adjusted R-squared:  0.8557 </span></span>
 <span id="cb47-23"><a href="introR.html#cb47-23" tabindex="-1"></a><span class="co">#&gt; F-statistic: 295.5 on 3 and 146 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
-<p>This means the fitted regression is:
-<code>Sepal.Length ~ 1.856 + 0.65*Sepal.Width + 0.709*Petal.Length - 0.556*Petal.Width</code></p>
+<p>This means the fitted regression is:</p>
+<p><code>Sepal.Length ~ 1.856 + 0.65*Sepal.Width + 0.709*Petal.Length - 0.556*Petal.Width</code></p>
 <p>We can check how good the regression is by plotting it out</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="introR.html#cb48-1" tabindex="-1"></a>y_pred <span class="ot">&lt;-</span> fit<span class="sc">$</span>coefficients[<span class="dv">1</span>] <span class="sc">+</span> </span>
 <span id="cb48-2"><a href="introR.html#cb48-2" tabindex="-1"></a>  fit<span class="sc">$</span>coefficients[<span class="dv">2</span>] <span class="sc">*</span> iris<span class="sc">$</span>Sepal.Width <span class="sc">+</span></span>
