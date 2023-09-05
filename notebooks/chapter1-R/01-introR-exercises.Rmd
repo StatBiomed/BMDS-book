@@ -1,0 +1,160 @@
+
+## Exercises
+
+This list of exercises will serve as a 2-hour demonstration in the BIOF1001 course. 
+For other learners, you can go through it as homework. The expected time is 
+around two hours if you have read the R materials carefully together with
+trying them with your own R environment.
+
+> __Note__, before you get started, please make sure that you are familiar with
+the panels in RStudio. You may watch this 
+[YouTube Video](https://www.youtube.com/watch?v=FIrsOBy5k58) or check this 
+[RStudio cheatsheet](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf).
+
+### Part 1. Basics (~40min) { #exercises-p1 }
+
+* Q1: We have 25 students in BIOF1001, to store the final marks (0 to 100 with 
+a precision of 0.1), what data type will we use?
+
+<!-- > Numeric (or float or double) -->
+
+* Q2: For the grades (`A+` to `F`), what data type and data structure can be 
+used to keep the memory minimal?
+
+<!-- > `character` and `factor` -->
+
+* Q3: Make a matrix with name `my_matrix`, shape of 5 rows and 2 columns and values 
+from 3 to 12. The first row is 3 and 4. 
+*Hint*: for making a vector from 3 to 12, you may use `seq()` or `:`.
+
+<!-- > my_matrix = matrix(seq(3, 12), nrow=5, byrow=TRUE) -->
+<!-- > my_matrix = matrix(3:12, nrow=5, byrow=TRUE) -->
+
+* Q4: Based on `Q3`, add the row names to `Day1` to `Day5` and column names to
+`Lunch` and `Dinner`.
+
+<!-- > rownames(my_matrix) = c("Day1", "Day2", "Day3", "Day4", "Day5") -->
+<!-- > colnames(my_matrix) = c("Lunch", "Dinner") -->
+<!-- > rownames(my_matrix) = paste0("Day", seq(1,5)) -->
+
+* Q5: Based on `Q4`, get a matrix with shape of 3x1 and values of 6, 8, 10 from 
+the matrix `my_matrix`.
+
+<!-- > Any of the following codes: -->
+<!-- > my_matrix[2:4, 2, drop=FALSE] -->
+<!-- > my_matrix[c(2, 3, 4), 2, drop=FALSE] -->
+<!-- > my_matrix[c("Day2", "Day3", "Day4"), 2, drop=FALSE] -->
+
+* Q6: What will you get for `my_matrix[c(TRUE, FALSE, FALSE, TRUE), ]`? 
+*Hint*: think of recycling if the index length is different from the query 
+dimension (Over-flexibility comes with a price of wrong use).
+
+<!-- > it will give row length of 3, for row 1, 4 and 5. -->
+
+* Q7: If you have two vectors the BIOF1001 `marks` and `grades` and one 
+`character` for teaching performance `"good"`, and you want to store them 
+into one variable, which data structure will you use? 
+
+<!-- > `list` data structure -->
+
+* Q8: Now, on your `Desktop folder`, make a subfolder with name `R_exercises`
+and download this file of differentailly expressed genes results
+[Diff_Expression_results.tsv](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/chapter1-R/Diff_Expression_results.tsv) 
+to the folder. Check your current work directory by
+`getwd()` function and change the work directory to the folder you just created.
+*Hint*: you may use `setwd()` to change the work directory or use the `Session` 
+button of RStudio.
+
+
+* Q9: Related to Q8, use the `read.table()` function to load the file into a 
+data frame with the variable name `df_DEG`.
+*Hint*: You may consider using the full path or just the file name if it's in 
+the same work directory. Please keep `header=1` for the argument. Think how to
+find help page for a certain function.
+
+<!-- > df_DEG = read.table("Diff_Expression_results.tsv", sep="\t", header=1) -->
+
+* Q10: Can you calculate the `mean` and `standard deviation` of the `log2FoldChange`?
+If the mean >0.1 and the standard deviation < 3, set the `trend` variable as 
+"increase", otherwise "not_increase". What will happen if you add this `trend` 
+variable to the data frame, and why?
+*Hint*: use `mean()` and `st()` functions for calculating mean and 
+standard deviation.
+
+<!-- > trend = "not_increase" -->
+<!-- > if (mean(df_DEG$log2FoldChange) > 0.1 && sd(df_DEG$log2FoldChange) < 3) trend = "increase" -->
+<!-- > df_DEG[["trend"]] = trend -->
+<!-- > data frame is also a list -->
+
+
+
+
+### Part 2. Making plotting (~40min) { #exercises-p2 }
+
+* Q11: Keep use the `df_DEG` from part 1 Q9. Now, make a histogram of the 
+`log2FoldChange` with both basic plotting function `hist()` and `ggplot2`.
+
+
+* Q12: Make a plot with x-axis of `log10(baseMean)` and y-axis of `log2FoldChange`.
+Please try both the basic `plot()` function and `ggplot2`.
+
+* Q13: Now, manipulate the dataframe by adding two columns:
+  - Add a column `log2FC_clip` for clipping log2FoldChange to `[-5, +5]`
+  - Add a column `is_DE` for `padj < 0.05`
+
+* Q14: Try the `summary()` function with the above `df_DEG` data frame, and also
+`table()` function for the `is_DE` column.
+
+* Q15: Based on ggplot2, add the color by the newly added column `is_DE`.
+
+<!-- ggplot(df, aes(x=log10(baseMean), 	   	     y=log2FoldChange_clip)) +  -->
+<!--   geom_point(aes(color=is_DE)) +  -->
+<!--   scale_color_manual(values = c("red", "grey")) -->
+
+* Q16: Set the colors to "red" and "grey", and make it in the order of TRUE and 
+FALSE. 
+*Hint*: use `factor` and set the `levels` parameter.
+
+* Q17: Save the generated figure into "My_DEG_results.pdf". Use the 
+[ggsave()](https://ggplot2.tidyverse.org/reference/ggsave.html) function. Please
+set `width = 5, height = 4`.
+
+You are expected a figure like this
+
+![DEG figure](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/chapter1-R/DEG_results.png)
+
+If you want to change labels on x-axis or y-axis and font size, etc., you can 
+simply Google and find examples.
+
+
+
+### Part 3. For loop and repeating processing (~40min)  { #exercises-p3 }
+
+* Q18: Load the following table from this file on GitHub and *View* it in RStudio.
+
+  It contains expressoon of 619 transcription factors from 7 Nasopharyngeal 
+  carcinoma (NPC) samples and 3 nasopharyngeal lymphatic hyperplasia (NLH) samples.
+  https://github.com/StatBiomed/NegabinGLM/blob/main/data/NPC_NLH-Tcell-donorX.tsv
+
+  `df_NPC = read.table("https://github.com/StatBiomed/NegabinGLM/raw/main/data/NPC_NLH-Tcell-donorX.tsv", sep="\t", header=1)`
+
+
+* Q19: Extract the column 5 (HES5) to 623 (LEK4) and make it into a matrix `TF_mat`
+*Hint*: how to index a data frame like index a matrix.
+
+<!-- > TF_mat = as.matrix(df_NPC[, colnames(df_NPC)[5:623]]) -->
+<!-- > TF_mat = as.matrix(df_NPC[, 5:623]) -->
+
+* Q20: perform normalization. Divide the `TF_mat` by the `df_NPC$total_counts`
+  and multiply by 1000000, and assign it to a new matrix named `TF_mat_norm`. 
+
+  You may further consider transformation by log1p(), i.e., log(TF_mat_norm + 1).
+
+* Q21: calculate the log fold change on the first gene TP73 in `TF_mat_norm` 
+between NPC (row 1 to 7) and NLH (row 8 to 10) and perform t-test return the 
+`p` value and log fold change.
+
+* Q22: perform t-test on the *all* gene in `TF_mat_norm` between 
+NPC (row 1 to 7) and NLH (row 8 to 10).
+*Hint*: think of for loop or `apply()` function.
+
