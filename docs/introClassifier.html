@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2023-09-01" />
+<meta name="date" content="2023-09-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -195,6 +195,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.6.5" data-path="introR.html"><a href="introR.html#regression"><i class="fa fa-check"></i><b>1.6.5</b> Regression</a></li>
 </ul></li>
 <li class="chapter" data-level="1.7" data-path="introR.html"><a href="introR.html#resource-links"><i class="fa fa-check"></i><b>1.7</b> Resource links</a></li>
+<li class="chapter" data-level="1.8" data-path="introR.html"><a href="introR.html#exercises"><i class="fa fa-check"></i><b>1.8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="introR.html"><a href="introR.html#exercises-p1"><i class="fa fa-check"></i><b>1.8.1</b> Part 1. Basics (~40min)</a></li>
+<li class="chapter" data-level="1.8.2" data-path="introR.html"><a href="introR.html#exercises-p2"><i class="fa fa-check"></i><b>1.8.2</b> Part 2. Making plotting (~40min)</a></li>
+<li class="chapter" data-level="1.8.3" data-path="introR.html"><a href="introR.html#exercises-p3"><i class="fa fa-check"></i><b>1.8.3</b> Part 3. For loop and repeating processing (~40min)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introLinearReg.html"><a href="introLinearReg.html"><i class="fa fa-check"></i><b>2</b> Introduction to Linear Regression</a>
 <ul>
@@ -665,35 +671,36 @@ cross-validation here.</p>
 <span id="cb91-3"><a href="introClassifier.html#cb91-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;caret&quot;</span>)</span>
 <span id="cb91-4"><a href="introClassifier.html#cb91-4" tabindex="-1"></a>}</span>
 <span id="cb91-5"><a href="introClassifier.html#cb91-5" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
-<span id="cb91-6"><a href="introClassifier.html#cb91-6" tabindex="-1"></a></span>
-<span id="cb91-7"><a href="introClassifier.html#cb91-7" tabindex="-1"></a><span class="co"># Define training control</span></span>
-<span id="cb91-8"><a href="introClassifier.html#cb91-8" tabindex="-1"></a><span class="co"># We also want to have savePredictions=TRUE &amp; classProbs=TRUE</span></span>
-<span id="cb91-9"><a href="introClassifier.html#cb91-9" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>) </span>
-<span id="cb91-10"><a href="introClassifier.html#cb91-10" tabindex="-1"></a>my_trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="at">number =</span> <span class="dv">5</span>, </span>
-<span id="cb91-11"><a href="introClassifier.html#cb91-11" tabindex="-1"></a>                             <span class="at">classProbs =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb91-12"><a href="introClassifier.html#cb91-12" tabindex="-1"></a>                             <span class="at">savePredictions =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb91-13"><a href="introClassifier.html#cb91-13" tabindex="-1"></a></span>
-<span id="cb91-14"><a href="introClassifier.html#cb91-14" tabindex="-1"></a><span class="co"># Train the model</span></span>
-<span id="cb91-15"><a href="introClassifier.html#cb91-15" tabindex="-1"></a>cv_model <span class="ot">&lt;-</span> <span class="fu">train</span>(diabetes <span class="sc">~</span> ., <span class="at">data =</span> PimaIndiansDiabetes, </span>
-<span id="cb91-16"><a href="introClassifier.html#cb91-16" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">&quot;glm&quot;</span>,</span>
-<span id="cb91-17"><a href="introClassifier.html#cb91-17" tabindex="-1"></a>                  <span class="at">family=</span><span class="fu">binomial</span>(),</span>
-<span id="cb91-18"><a href="introClassifier.html#cb91-18" tabindex="-1"></a>                  <span class="at">trControl =</span> my_trControl)</span>
-<span id="cb91-19"><a href="introClassifier.html#cb91-19" tabindex="-1"></a></span>
-<span id="cb91-20"><a href="introClassifier.html#cb91-20" tabindex="-1"></a><span class="co"># Summarize the results</span></span>
-<span id="cb91-21"><a href="introClassifier.html#cb91-21" tabindex="-1"></a><span class="fu">print</span>(cv_model)</span>
-<span id="cb91-22"><a href="introClassifier.html#cb91-22" tabindex="-1"></a><span class="co">#&gt; Generalized Linear Model </span></span>
-<span id="cb91-23"><a href="introClassifier.html#cb91-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb91-24"><a href="introClassifier.html#cb91-24" tabindex="-1"></a><span class="co">#&gt; 768 samples</span></span>
-<span id="cb91-25"><a href="introClassifier.html#cb91-25" tabindex="-1"></a><span class="co">#&gt;   8 predictor</span></span>
-<span id="cb91-26"><a href="introClassifier.html#cb91-26" tabindex="-1"></a><span class="co">#&gt;   2 classes: &#39;neg&#39;, &#39;pos&#39; </span></span>
-<span id="cb91-27"><a href="introClassifier.html#cb91-27" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb91-28"><a href="introClassifier.html#cb91-28" tabindex="-1"></a><span class="co">#&gt; No pre-processing</span></span>
-<span id="cb91-29"><a href="introClassifier.html#cb91-29" tabindex="-1"></a><span class="co">#&gt; Resampling: Cross-Validated (5 fold) </span></span>
-<span id="cb91-30"><a href="introClassifier.html#cb91-30" tabindex="-1"></a><span class="co">#&gt; Summary of sample sizes: 615, 614, 615, 614, 614 </span></span>
-<span id="cb91-31"><a href="introClassifier.html#cb91-31" tabindex="-1"></a><span class="co">#&gt; Resampling results:</span></span>
-<span id="cb91-32"><a href="introClassifier.html#cb91-32" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb91-33"><a href="introClassifier.html#cb91-33" tabindex="-1"></a><span class="co">#&gt;   Accuracy   Kappa    </span></span>
-<span id="cb91-34"><a href="introClassifier.html#cb91-34" tabindex="-1"></a><span class="co">#&gt;   0.7708344  0.4695353</span></span></code></pre></div>
+<span id="cb91-6"><a href="introClassifier.html#cb91-6" tabindex="-1"></a><span class="co">#&gt; Loading required package: lattice</span></span>
+<span id="cb91-7"><a href="introClassifier.html#cb91-7" tabindex="-1"></a></span>
+<span id="cb91-8"><a href="introClassifier.html#cb91-8" tabindex="-1"></a><span class="co"># Define training control</span></span>
+<span id="cb91-9"><a href="introClassifier.html#cb91-9" tabindex="-1"></a><span class="co"># We also want to have savePredictions=TRUE &amp; classProbs=TRUE</span></span>
+<span id="cb91-10"><a href="introClassifier.html#cb91-10" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>) </span>
+<span id="cb91-11"><a href="introClassifier.html#cb91-11" tabindex="-1"></a>my_trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="at">number =</span> <span class="dv">5</span>, </span>
+<span id="cb91-12"><a href="introClassifier.html#cb91-12" tabindex="-1"></a>                             <span class="at">classProbs =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb91-13"><a href="introClassifier.html#cb91-13" tabindex="-1"></a>                             <span class="at">savePredictions =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb91-14"><a href="introClassifier.html#cb91-14" tabindex="-1"></a></span>
+<span id="cb91-15"><a href="introClassifier.html#cb91-15" tabindex="-1"></a><span class="co"># Train the model</span></span>
+<span id="cb91-16"><a href="introClassifier.html#cb91-16" tabindex="-1"></a>cv_model <span class="ot">&lt;-</span> <span class="fu">train</span>(diabetes <span class="sc">~</span> ., <span class="at">data =</span> PimaIndiansDiabetes, </span>
+<span id="cb91-17"><a href="introClassifier.html#cb91-17" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">&quot;glm&quot;</span>,</span>
+<span id="cb91-18"><a href="introClassifier.html#cb91-18" tabindex="-1"></a>                  <span class="at">family=</span><span class="fu">binomial</span>(),</span>
+<span id="cb91-19"><a href="introClassifier.html#cb91-19" tabindex="-1"></a>                  <span class="at">trControl =</span> my_trControl)</span>
+<span id="cb91-20"><a href="introClassifier.html#cb91-20" tabindex="-1"></a></span>
+<span id="cb91-21"><a href="introClassifier.html#cb91-21" tabindex="-1"></a><span class="co"># Summarize the results</span></span>
+<span id="cb91-22"><a href="introClassifier.html#cb91-22" tabindex="-1"></a><span class="fu">print</span>(cv_model)</span>
+<span id="cb91-23"><a href="introClassifier.html#cb91-23" tabindex="-1"></a><span class="co">#&gt; Generalized Linear Model </span></span>
+<span id="cb91-24"><a href="introClassifier.html#cb91-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb91-25"><a href="introClassifier.html#cb91-25" tabindex="-1"></a><span class="co">#&gt; 768 samples</span></span>
+<span id="cb91-26"><a href="introClassifier.html#cb91-26" tabindex="-1"></a><span class="co">#&gt;   8 predictor</span></span>
+<span id="cb91-27"><a href="introClassifier.html#cb91-27" tabindex="-1"></a><span class="co">#&gt;   2 classes: &#39;neg&#39;, &#39;pos&#39; </span></span>
+<span id="cb91-28"><a href="introClassifier.html#cb91-28" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb91-29"><a href="introClassifier.html#cb91-29" tabindex="-1"></a><span class="co">#&gt; No pre-processing</span></span>
+<span id="cb91-30"><a href="introClassifier.html#cb91-30" tabindex="-1"></a><span class="co">#&gt; Resampling: Cross-Validated (5 fold) </span></span>
+<span id="cb91-31"><a href="introClassifier.html#cb91-31" tabindex="-1"></a><span class="co">#&gt; Summary of sample sizes: 615, 614, 615, 614, 614 </span></span>
+<span id="cb91-32"><a href="introClassifier.html#cb91-32" tabindex="-1"></a><span class="co">#&gt; Resampling results:</span></span>
+<span id="cb91-33"><a href="introClassifier.html#cb91-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb91-34"><a href="introClassifier.html#cb91-34" tabindex="-1"></a><span class="co">#&gt;   Accuracy   Kappa    </span></span>
+<span id="cb91-35"><a href="introClassifier.html#cb91-35" tabindex="-1"></a><span class="co">#&gt;   0.7708344  0.4695353</span></span></code></pre></div>
 <p>We can also access to detailed prediction results after concatenating the K
 folds:</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="introClassifier.html#cb92-1" tabindex="-1"></a><span class="fu">head</span>(cv_model<span class="sc">$</span>pred)</span>

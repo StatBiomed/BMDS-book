@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2023-09-04" />
+<meta name="date" content="2023-09-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -195,6 +195,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.6.5" data-path="introR.html"><a href="introR.html#regression"><i class="fa fa-check"></i><b>1.6.5</b> Regression</a></li>
 </ul></li>
 <li class="chapter" data-level="1.7" data-path="introR.html"><a href="introR.html#resource-links"><i class="fa fa-check"></i><b>1.7</b> Resource links</a></li>
+<li class="chapter" data-level="1.8" data-path="introR.html"><a href="introR.html#exercises"><i class="fa fa-check"></i><b>1.8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="introR.html"><a href="introR.html#exercises-p1"><i class="fa fa-check"></i><b>1.8.1</b> Part 1. Basics (~40min)</a></li>
+<li class="chapter" data-level="1.8.2" data-path="introR.html"><a href="introR.html#exercises-p2"><i class="fa fa-check"></i><b>1.8.2</b> Part 2. Making plotting (~40min)</a></li>
+<li class="chapter" data-level="1.8.3" data-path="introR.html"><a href="introR.html#exercises-p3"><i class="fa fa-check"></i><b>1.8.3</b> Part 3. For loop and repeating processing (~40min)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introLinearReg.html"><a href="introLinearReg.html"><i class="fa fa-check"></i><b>2</b> Introduction to Linear Regression</a>
 <ul>
@@ -1023,6 +1029,153 @@ list. There are a few variants to support lists or vectors for different purpose
 <li><a href="https://data-flair.training/blogs/r-data-types/" class="uri">https://data-flair.training/blogs/r-data-types/</a></li>
 <li><a href="http://www.sthda.com/english/wiki/ggplot2-essentials" class="uri">http://www.sthda.com/english/wiki/ggplot2-essentials</a></li>
 </ul>
+</div>
+<div id="exercises" class="section level2 hasAnchor" number="1.8">
+<h2><span class="header-section-number">1.8</span> Exercises<a href="introR.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This list of exercises will serve as a 2-hour demonstration in the BIOF1001 course.
+For other learners, you can go through it as homework. The expected time is
+around two hours if you have read the R materials carefully together with
+trying them with your own R environment.</p>
+<blockquote>
+<p><strong>Note</strong>, before you get started, please make sure that you are familiar with
+the panels in RStudio. You may watch this
+<a href="https://www.youtube.com/watch?v=FIrsOBy5k58">YouTube Video</a> or check this
+<a href="https://rstudio.github.io/cheatsheets/rstudio-ide.pdf">RStudio cheatsheet</a>.</p>
+</blockquote>
+<div id="exercises-p1" class="section level3 hasAnchor" number="1.8.1">
+<h3><span class="header-section-number">1.8.1</span> Part 1. Basics (~40min)<a href="introR.html#exercises-p1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Q1: We have 25 students in BIOF1001, to store the final marks (0 to 100 with
+a precision of 0.1), what data type will we use?</li>
+</ul>
+<!-- > Numeric (or float or double) -->
+<ul>
+<li>Q2: For the grades (<code>A+</code> to <code>F</code>), what data type and data structure can be
+used to keep the memory minimal?</li>
+</ul>
+<!-- > `character` and `factor` -->
+<ul>
+<li>Q3: Make a matrix with name <code>my_matrix</code>, shape of 5 rows and 2 columns and values
+from 3 to 12. The first row is 3 and 4.
+<em>Hint</em>: for making a vector from 3 to 12, you may use <code>seq()</code> or <code>:</code>.</li>
+</ul>
+<!-- > my_matrix = matrix(seq(3, 12), nrow=5, byrow=TRUE) -->
+<!-- > my_matrix = matrix(3:12, nrow=5, byrow=TRUE) -->
+<ul>
+<li>Q4: Based on <code>Q3</code>, add the row names to <code>Day1</code> to <code>Day5</code> and column names to
+<code>Lunch</code> and <code>Dinner</code>.</li>
+</ul>
+<!-- > rownames(my_matrix) = c("Day1", "Day2", "Day3", "Day4", "Day5") -->
+<!-- > colnames(my_matrix) = c("Lunch", "Dinner") -->
+<!-- > rownames(my_matrix) = paste0("Day", seq(1,5)) -->
+<ul>
+<li>Q5: Based on <code>Q4</code>, get a matrix with shape of 3x1 and values of 6, 8, 10 from
+the matrix <code>my_matrix</code>.</li>
+</ul>
+<!-- > Any of the following codes: -->
+<!-- > my_matrix[2:4, 2, drop=FALSE] -->
+<!-- > my_matrix[c(2, 3, 4), 2, drop=FALSE] -->
+<!-- > my_matrix[c("Day2", "Day3", "Day4"), 2, drop=FALSE] -->
+<ul>
+<li>Q6: What will you get for <code>my_matrix[c(TRUE, FALSE, FALSE, TRUE), ]</code>?
+<em>Hint</em>: think of recycling if the index length is different from the query
+dimension (Over-flexibility comes with a price of wrong use).</li>
+</ul>
+<!-- > it will give row length of 3, for row 1, 4 and 5. -->
+<ul>
+<li>Q7: If you have two vectors the BIOF1001 <code>marks</code> and <code>grades</code> and one
+<code>character</code> for teaching performance <code>"good"</code>, and you want to store them
+into one variable, which data structure will you use?</li>
+</ul>
+<!-- > `list` data structure -->
+<ul>
+<li><p>Q8: Now, on your <code>Desktop folder</code>, make a subfolder with name <code>R_exercises</code>
+and download this file of differentailly expressed genes results
+<a href="https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/chapter1-R/Diff_Expression_results.tsv">Diff_Expression_results.tsv</a>
+to the folder. Check your current work directory by
+<code>getwd()</code> function and change the work directory to the folder you just created.
+<em>Hint</em>: you may use <code>setwd()</code> to change the work directory or use the <code>Session</code>
+button of RStudio.</p></li>
+<li><p>Q9: Related to Q8, use the <code>read.table()</code> function to load the file into a
+data frame with the variable name <code>df_DEG</code>.
+<em>Hint</em>: You may consider using the full path or just the file name if it’s in
+the same work directory. Please keep <code>header=1</code> for the argument. Think how to
+find help page for a certain function.</p></li>
+</ul>
+<!-- > df_DEG = read.table("Diff_Expression_results.tsv", sep="\t", header=1) -->
+<ul>
+<li>Q10: Can you calculate the <code>mean</code> and <code>standard deviation</code> of the <code>log2FoldChange</code>?
+If the mean &gt;0.1 and the standard deviation &lt; 3, set the <code>trend</code> variable as
+“increase”, otherwise “not_increase”. What will happen if you add this <code>trend</code>
+variable to the data frame, and why?
+<em>Hint</em>: use <code>mean()</code> and <code>st()</code> functions for calculating mean and
+standard deviation.</li>
+</ul>
+<!-- > trend = "not_increase" -->
+<!-- > if (mean(df_DEG$log2FoldChange) > 0.1 && sd(df_DEG$log2FoldChange) < 3) trend = "increase" -->
+<!-- > df_DEG[["trend"]] = trend -->
+<!-- > data frame is also a list -->
+</div>
+<div id="exercises-p2" class="section level3 hasAnchor" number="1.8.2">
+<h3><span class="header-section-number">1.8.2</span> Part 2. Making plotting (~40min)<a href="introR.html#exercises-p2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Q11: Keep use the <code>df_DEG</code> from part 1 Q9. Now, make a histogram of the
+<code>log2FoldChange</code> with both basic plotting function <code>hist()</code> and <code>ggplot2</code>.</p></li>
+<li><p>Q12: Make a plot with x-axis of <code>log10(baseMean)</code> and y-axis of <code>log2FoldChange</code>.
+Please try both the basic <code>plot()</code> function and <code>ggplot2</code>.</p></li>
+<li><p>Q13: Now, manipulate the dataframe by adding two columns:</p>
+<ul>
+<li>Add a column <code>log2FC_clip</code> for clipping log2FoldChange to <code>[-5, +5]</code></li>
+<li>Add a column <code>is_DE</code> for <code>padj &lt; 0.05</code></li>
+</ul></li>
+<li><p>Q14: Try the <code>summary()</code> function with the above <code>df_DEG</code> data frame, and also
+<code>table()</code> function for the <code>is_DE</code> column.</p></li>
+<li><p>Q15: Based on ggplot2, add the color by the newly added column <code>is_DE</code>.</p></li>
+</ul>
+<!-- ggplot(df, aes(x=log10(baseMean),           y=log2FoldChange_clip)) +  -->
+<!--   geom_point(aes(color=is_DE)) +  -->
+<!--   scale_color_manual(values = c("red", "grey")) -->
+<ul>
+<li><p>Q16: Set the colors to “red” and “grey”, and make it in the order of TRUE and
+FALSE.
+<em>Hint</em>: use <code>factor</code> and set the <code>levels</code> parameter.</p></li>
+<li><p>Q17: Save the generated figure into “My_DEG_results.pdf”. Use the
+<a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave()</a> function. Please
+set <code>width = 5, height = 4</code>.</p></li>
+</ul>
+<p>You are expected a figure like this</p>
+<div class="float">
+<img src="https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/chapter1-R/DEG_results.png" alt="DEG figure" />
+<div class="figcaption">DEG figure</div>
+</div>
+<p>If you want to change labels on x-axis or y-axis and font size, etc., you can
+simply Google and find examples.</p>
+</div>
+<div id="exercises-p3" class="section level3 hasAnchor" number="1.8.3">
+<h3><span class="header-section-number">1.8.3</span> Part 3. For loop and repeating processing (~40min)<a href="introR.html#exercises-p3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Q18: Load the following table from this file on GitHub and <em>View</em> it in RStudio.</p>
+<p>It contains expressoon of 619 transcription factors from 7 Nasopharyngeal
+carcinoma (NPC) samples and 3 nasopharyngeal lymphatic hyperplasia (NLH) samples.
+<a href="https://github.com/StatBiomed/NegabinGLM/blob/main/data/NPC_NLH-Tcell-donorX.tsv" class="uri">https://github.com/StatBiomed/NegabinGLM/blob/main/data/NPC_NLH-Tcell-donorX.tsv</a></p>
+<p><code>df_NPC = read.table("https://github.com/StatBiomed/NegabinGLM/raw/main/data/NPC_NLH-Tcell-donorX.tsv", sep="\t", header=1)</code></p></li>
+<li><p>Q19: Extract the column 5 (HES5) to 623 (LEK4) and make it into a matrix <code>TF_mat</code>
+<em>Hint</em>: how to index a data frame like index a matrix.</p></li>
+</ul>
+<!-- > TF_mat = as.matrix(df_NPC[, colnames(df_NPC)[5:623]]) -->
+<!-- > TF_mat = as.matrix(df_NPC[, 5:623]) -->
+<ul>
+<li><p>Q20: perform normalization. Divide the <code>TF_mat</code> by the <code>df_NPC$total_counts</code>
+and multiply by 1000000, and assign it to a new matrix named <code>TF_mat_norm</code>.</p>
+<p>You may further consider transformation by log1p(), i.e., log(TF_mat_norm + 1).</p></li>
+<li><p>Q21: calculate the log fold change on the first gene TP73 in <code>TF_mat_norm</code>
+between NPC (row 1 to 7) and NLH (row 8 to 10) and perform t-test return the
+<code>p</code> value and log fold change.</p></li>
+<li><p>Q22: perform t-test on the <em>all</em> gene in <code>TF_mat_norm</code> between
+NPC (row 1 to 7) and NLH (row 8 to 10).
+<em>Hint</em>: think of for loop or <code>apply()</code> function.</p></li>
+</ul>
+</div>
 </div>
 </div>
             </section>

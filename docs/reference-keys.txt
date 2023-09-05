@@ -43,6 +43,10 @@ correlation
 hypothesis-testing-t-test
 regression
 resource-links
+exercises
+exercises-p1
+exercises-p2
+exercises-p3
 introLinearReg
 linear-regression-using-simulated-data
 simulating-data
