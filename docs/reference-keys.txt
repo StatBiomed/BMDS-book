@@ -25,6 +25,11 @@ apply-function-repeatly
 apply-lapply-sapply-and-vapply
 apply-for-matrix
 lapply-sapply-and-vapply-for-list-or-vector
+pattern-match
+flow-control
+logical-operator
+if-else-statements
+for-loop
 plotting
 datasets
 basic-plotting
@@ -36,13 +41,14 @@ install-and-load-package
 histogram-1
 scatter-plot-1
 box-plot
-scientific-and-statistical-computating
+scientific-computating
 orders-of-operators
 functions-for-statistics
 correlation
 hypothesis-testing-t-test
 regression
 resource-links
+coding-styling
 exercises
 exercises-p1
 exercises-p2
