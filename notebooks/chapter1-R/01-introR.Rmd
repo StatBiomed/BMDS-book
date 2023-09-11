@@ -448,6 +448,130 @@ vapply(my.lst, median, 3)
 # vapply(my.lst, median, character(1))
 ```
 
+### Pattern match
+
+Matching patterns between two vectors is a very common task, for example 
+matching the gene names of two files or matching students IDs in two courses.
+
+Two commonly used functions for pattern match are `match()` and `%in%`, see the
+[match() documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/match.html):
+
+- `match` returns a vector of the positions of (first) matches of its first argument
+in its second.
+- `%in%` is a more intuitive interface as a binary operator, which returns a
+logical vector indicating if there is a match or not for its left operand.
+- They work for any data type: numeric and character
+
+```{r}
+1:6 %in% c(1,3,5,9)
+
+match(c(3, 4, 5), c(5, 3, 1, 9))
+
+idx = match(c(3, 4, 5), c(5, 3, 1, 9))
+c(5, 3, 1, 9)[idx]
+```
+
+
+## Flow Control
+
+### Logical operator
+
+The common logical operators are shown in the following table.
+
+|     Operator    |     Description                 |     Associativity      |
+|-----------------|---------------------------------|------------------------|
+|     !           |     Logical NOT                 |     Left   to right    |
+|     &           |     Element-wise logical AND    |     Left   to right    |
+|     &&          |     Logical AND                 |     Left   to right    |
+|     \|          |     Element-wise logical OR     |     Left   to right    |
+|     \|\|        |     Logical OR                  |     Left   to right    |
+
+**A few notes:**
+
+- Zero is considered FALSE and non-zero numbers are taken as TRUE.
+
+- Operators `&` and `|` perform element-wise operation, returning length of the 
+  longer operand.
+
+- For operators `&&` and `||`, it depends on the R version. In **R<=4.2.3**, it 
+  examines only the first element of the operands, returning a single value, 
+  while in **R=4.3.1**, `&&` and `||` only compare single values and will return
+  errors if input vectors.
+  
+```{r}
+x <- c(TRUE, FALSE, 0, 6)
+y <- c(FALSE, TRUE, FALSE, TRUE)
+
+!x
+
+x & y
+
+x | y
+
+# try it yourself
+# x && y
+# x || y
+```
+
+
+### if-else statements
+
+The `if-else` statement allows us to control when and how particular parts of 
+our code are executed.
+
+```{r}
+# In Q10 in Section 1.8 we have x_mean and x_sd
+
+x_mean = 1.7
+x_sd = 2.9
+
+if ( (x_mean > 0.1) && (x_sd < 2.0) ) {
+  trend = "increase"
+} else{
+  trend = "not_increase"
+}
+print(trend)
+```
+
+
+```{r}
+x_mean = 1.7
+x_st = 2.9
+
+trend = "not_increase"
+if ( (x_mean > 0.1) && (x_sd < 2.0) ) {
+  trend = "increase"
+}
+print(trend)
+```
+
+### for-loop
+Loops, including `for loop` and `while loop` are used in programming to repeat 
+a specific block of code, commonly with `if-else` statements.
+
+For example, calculate the sum from 1 to 10:
+```{r}
+sum_val = 0
+for (val in seq(1, 10)) {
+  # print(val) 
+  sum_val = sum_val + val
+}
+print(sum_val)
+```
+
+Or detect the differential expressed genes. Note, `NA` value may exist in the 
+`padj` column:
+```{}
+is_DE = rep(FALSE, nrow(df_DEG))
+
+for (i in 1:nrow(df_DEG)) { 
+  if (df_DEG$padj[i] <= 0.05) {
+    is_DE[i] = TRUE 
+  }
+}
+
+print(sum(is_DE))
+```
 
 
 ## Plotting
@@ -515,7 +639,7 @@ ggplot(iris, aes(x=Species, y=Sepal.Length)) +
     geom_boxplot()
 ```
 
-## Scientific and statistical computating
+## Scientific computating
 ### Orders of operators
 See lecture slides.
 
@@ -576,7 +700,7 @@ plot(iris$Sepal.Length, y_pred)
 ```
 
 
-## Resource links
+### Resource links
 
 This notebook adapts contents from these resources:
 
@@ -585,4 +709,8 @@ This notebook adapts contents from these resources:
 - https://data-flair.training/blogs/r-data-types/
 - http://www.sthda.com/english/wiki/ggplot2-essentials
 
+
+### Coding styling
+Elegant styling is crucial for maintenance and collaboration. 
+Here is a highly recommended guideline: http://adv-r.had.co.nz/Style.html
 

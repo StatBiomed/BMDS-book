@@ -69,10 +69,10 @@ button of RStudio.
 * Q9: Related to Q8, use the `read.table()` function to load the file into a 
 data frame with the variable name `df_DEG`.
 *Hint*: You may consider using the full path or just the file name if it's in 
-the same work directory. Please keep `header=1` for the argument. Think how to
+the same work directory. Please keep `header=TRUE` for the argument. Think how to
 find help page for a certain function.
 
-<!-- > df_DEG = read.table("Diff_Expression_results.tsv", sep="\t", header=1) -->
+<!-- > df_DEG = read.table("Diff_Expression_results.tsv", sep="\t", header=TRUE) -->
 
 * Q10: Can you calculate the `mean` and `standard deviation` of the `log2FoldChange`?
 If the mean >0.1 and the standard deviation < 3, set the `trend` variable as 
@@ -136,7 +136,7 @@ simply Google and find examples.
   carcinoma (NPC) samples and 3 nasopharyngeal lymphatic hyperplasia (NLH) samples.
   https://github.com/StatBiomed/NegabinGLM/blob/main/data/NPC_NLH-Tcell-donorX.tsv
 
-  `df_NPC = read.table("https://github.com/StatBiomed/NegabinGLM/raw/main/data/NPC_NLH-Tcell-donorX.tsv", sep="\t", header=1)`
+  `df_NPC = read.table("https://github.com/StatBiomed/NegabinGLM/raw/main/data/NPC_NLH-Tcell-donorX.tsv", sep="\t", header=TRUE)`
 
 
 * Q19: Extract the column 5 (HES5) to 623 (LEK4) and make it into a matrix `TF_mat`
