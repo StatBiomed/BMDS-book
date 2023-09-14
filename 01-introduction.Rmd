@@ -18,6 +18,16 @@ knitr::opts_chunk$set(
 ```
 
 
+
+# Introduction to Hypothesis testing {#introHypoTest}
+
+```{r child="notebooks/chapter4-HT/04-hypothesis-test-01.Rmd", echo=TRUE}
+```
+
+```{r child="notebooks/chapter4-HT/04-hypothesis-test-02.Rmd", echo=TRUE}
+```
+
+
 # Introduction to Linear Regression {#introLinearReg}
 
 Acknowledgements: this chapter is adapted and updated from the materials originally produced by STAT1005 teaching team, especially Prof. Jeff Yao.
@@ -50,11 +60,3 @@ Acknowledgements: this chapter is adapted and updated from the materials origina
 ```{r child="notebooks/chapter3-CL/03-classifier-03.Rmd", echo=TRUE}
 ```
 
-
-# Introduction to Hypothesis testing {#introHypoTest}
-
-```{r child="notebooks/chapter4-HT/04-hypothesis-test-01.Rmd", echo=TRUE}
-```
-
-```{r child="notebooks/chapter4-HT/04-hypothesis-test-02.Rmd", echo=TRUE}
-```
