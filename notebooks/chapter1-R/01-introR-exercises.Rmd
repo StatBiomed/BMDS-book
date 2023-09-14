@@ -101,6 +101,13 @@ Please try both the basic `plot()` function and `ggplot2`.
 * Q13: Now, manipulate the dataframe by adding two columns:
   - Add a column `log2FC_clip` for clipping log2FoldChange to `[-5, +5]`
   - Add a column `is_DE` for `padj < 0.05`
+  
+<!-- df_DEG$log2FC_clip <- df_DEG$log2FoldChange -->
+<!-- df_DEG$log2FC_clip[df_DEG$log2FC_clip > 5] = 5 -->
+<!-- df_DEG$log2FC_clip[df_DEG$log2FC_clip < -5] = -5 -->
+
+<!-- df_DEG$is_DE <- !is.na(df_DEG$padj) & (df_DEG$padj<0.05) -->
+<!-- df_DEG$is_DE <- factor(df_DEG$is_DE, levels=c(TRUE, FALSE)) -->
 
 * Q14: Try the `summary()` function with the above `df_DEG` data frame, and also
 `table()` function for the `is_DE` column.
@@ -149,12 +156,30 @@ simply Google and find examples.
   and multiply by 1000000, and assign it to a new matrix named `TF_mat_norm`. 
 
   You may further consider transformation by log1p(), i.e., log(TF_mat_norm + 1).
+  
+<!-- TF_mat_norm = TF_mat / df_NPC$total_counts * 1000000 -->
 
 * Q21: calculate the log fold change on the first gene TP73 in `TF_mat_norm` 
 between NPC (row 1 to 7) and NLH (row 8 to 10) and perform t-test return the 
 `p` value and log fold change.
 
+<!-- log_FC = log(mean(TF_mat_norm[8:10, "TP73"]) / mean(TF_mat_norm[1:7, "TP73"])) -->
+<!-- print(log_FC) -->
+<!-- res = t.test(TF_mat_norm[1:7, "TP73"], TF_mat_norm[8:10, "TP73"]) -->
+<!-- print(res$p.value) -->
+
+
 * Q22: perform t-test on the *all* gene in `TF_mat_norm` between 
 NPC (row 1 to 7) and NLH (row 8 to 10).
 *Hint*: think of for loop or `apply()` function.
+
+
+<!-- my_function <- function(x) { -->
+<!--   t.test(x[1:7], x[8:10])$p.value -->
+<!-- } -->
+<!-- p_vector = apply(TF_mat_norm, MARGIN=2, my_function) -->
+
+<!-- p_vector = apply(TF_mat_norm, MARGIN=2, -->
+<!--                  function(x) { t.test(x[1:7], x[8:10])$p.value }) -->
+
 
