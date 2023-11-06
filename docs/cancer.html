@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2023-09-14" />
+<meta name="date" content="2023-11-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -307,10 +307,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.6" data-path="cancer.html"><a href="cancer.html#existing-cancer-funding-and-publication-data"><i class="fa fa-check"></i><b>7.6</b> 4. Existing cancer funding and publication data</a>
 <ul>
 <li class="chapter" data-level="7.6.1" data-path="cancer.html"><a href="cancer.html#download-hmrf-grants-and-pubmed-data"><i class="fa fa-check"></i><b>7.6.1</b> Download HMRF grants and Pubmed data</a></li>
-<li class="chapter" data-level="7.6.2" data-path="cancer.html"><a href="cancer.html#make-word-cloud-for-grants"><i class="fa fa-check"></i><b>7.6.2</b> Make word cloud for grants</a></li>
-<li class="chapter" data-level="7.6.3" data-path="cancer.html"><a href="cancer.html#make-compare-grant-funding-with-incidence-and-mortality"><i class="fa fa-check"></i><b>7.6.3</b> Make compare grant funding with incidence and mortality</a></li>
+<li class="chapter" data-level="7.6.2" data-path="cancer.html"><a href="cancer.html#make-compare-grant-funding-with-incidence-and-mortality"><i class="fa fa-check"></i><b>7.6.2</b> Make compare grant funding with incidence and mortality</a></li>
 </ul></li>
-<li class="chapter" data-level="7.7" data-path="cancer.html"><a href="cancer.html#task-to-be-completed-in-tutotial-2-by-300pm-and-shared-with-other-tutorial-group"><i class="fa fa-check"></i><b>7.7</b> 5. Task (to be completed in Tutotial 2 by 3:00pm and shared with other tutorial group)</a></li>
+<li class="chapter" data-level="7.7" data-path="cancer.html"><a href="cancer.html#open-disucssion"><i class="fa fa-check"></i><b>7.7</b> 5. Open disucssion</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>8</b> Population Genetics and Diseases</a>
 <ul>
@@ -507,7 +506,7 @@ by mutations or other genomic alterations?</p>
 <div id="cancer-case2" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> Case study 2: Cancer Epidemiology<a href="cancer.html#cancer-case2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><em>by Dr Jason Wong</em></p>
-<p><em>Date: 16-11-2022 (Updated 21-11-2022)</em></p>
+<p><em>Date: 6-11-2023</em></p>
 <p><a href="https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/M5-epidemiology.Rmd">The RMarkdown notebook to run your own code can be downloaded here</a></p>
 </div>
 <div id="scenario" class="section level2 hasAnchor" number="7.3">
@@ -1155,9 +1154,7 @@ by mutations or other genomic alterations?</p>
 <span id="cb166-7"><a href="cancer.html#cb166-7" tabindex="-1"></a></span>
 <span id="cb166-8"><a href="cancer.html#cb166-8" tabindex="-1"></a><span class="fu">hist</span>(pubmed<span class="sc">$</span>Publication.Year)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/load%20HMRF-1.png" width="672" /></p>
-</div>
-<div id="make-word-cloud-for-grants" class="section level3 hasAnchor" number="7.6.2">
-<h3><span class="header-section-number">7.6.2</span> Make word cloud for grants<a href="cancer.html#make-word-cloud-for-grants" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<!-- ### Make word cloud for grants -->
 <!-- ```{r wordcloud grants, fig.height=8, fig.width=10} -->
 <!-- if (!require("ggwordcloud")) install.packages("ggwordcloud") -->
 <!-- if (!require("tm")) install.packages("tm") -->
@@ -1169,40 +1166,40 @@ by mutations or other genomic alterations?</p>
 <!-- library(RColorBrewer) -->
 <!-- #Create a vector containing only the text -->
 <!-- gtext <- HMRF$Project.Title -->
-<!-- # Create a corpus   -->
+<!-- # Create a corpus -->
 <!-- gdocs <- Corpus(VectorSource(gtext)) -->
 <!-- gdocs <- gdocs %>% -->
 <!--   tm_map(removePunctuation) %>% -->
 <!--   tm_map(stripWhitespace) -->
 <!-- gdocs <- tm_map(gdocs, content_transformer(tolower)) -->
 <!-- gdocs <- tm_map(gdocs, removeWords, stopwords("english")) -->
-<!-- gdtm <- TermDocumentMatrix(gdocs)  -->
-<!-- gmatrix <- as.matrix(gdtm)  -->
-<!-- gwords <- sort(rowSums(gmatrix),decreasing=TRUE)  -->
+<!-- gdtm <- TermDocumentMatrix(gdocs) -->
+<!-- gmatrix <- as.matrix(gdtm) -->
+<!-- gwords <- sort(rowSums(gmatrix),decreasing=TRUE) -->
 <!-- gdf <- data.frame(word = names(gwords),freq=gwords) -->
-<!-- set.seed(1235) # for reproducibility  -->
+<!-- set.seed(1235) # for reproducibility -->
 <!-- gp<-ggwordcloud(words = gdf$word, freq = gdf$freq, min.freq = 1,max.words=200, random.order=FALSE, rot.per=0.35,            colors=brewer.pal(8, "Dark2")) -->
 <!-- #gp -->
 <!-- #Create a vector containing only the text -->
 <!-- pmtext <- pubmed$Title -->
-<!-- # Create a corpus   -->
+<!-- # Create a corpus -->
 <!-- pmdocs <- Corpus(VectorSource(pmtext)) -->
 <!-- pmdocs <- pmdocs %>% -->
 <!--   tm_map(removePunctuation) %>% -->
 <!--   tm_map(stripWhitespace) -->
 <!-- pmdocs <- tm_map(pmdocs, content_transformer(tolower)) -->
 <!-- pmdocs <- tm_map(pmdocs, removeWords, stopwords("english")) -->
-<!-- pmdtm <- TermDocumentMatrix(pmdocs)  -->
-<!-- pmmatrix <- as.matrix(pmdtm)  -->
-<!-- pmwords <- sort(rowSums(pmmatrix),decreasing=TRUE)  -->
+<!-- pmdtm <- TermDocumentMatrix(pmdocs) -->
+<!-- pmmatrix <- as.matrix(pmdtm) -->
+<!-- pmwords <- sort(rowSums(pmmatrix),decreasing=TRUE) -->
 <!-- pmdf <- data.frame(word = names(pmwords),freq=pmwords) -->
-<!-- set.seed(1235) # for reproducibility  -->
+<!-- set.seed(1235) # for reproducibility -->
 <!-- pm<-ggwordcloud(words = pmdf$word, freq = pmdf$freq, min.freq = 1,max.words=200, random.order=FALSE, rot.per=0.35,            colors=brewer.pal(8, "Dark2")) -->
 <!-- grid.arrange(arrangeGrob(pm, top = 'Pubmed'),arrangeGrob(gp, top = 'Grants'),nrow=2,heights=c(6,6)) -->
 <!-- ``` -->
 </div>
-<div id="make-compare-grant-funding-with-incidence-and-mortality" class="section level3 hasAnchor" number="7.6.3">
-<h3><span class="header-section-number">7.6.3</span> Make compare grant funding with incidence and mortality<a href="cancer.html#make-compare-grant-funding-with-incidence-and-mortality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="make-compare-grant-funding-with-incidence-and-mortality" class="section level3 hasAnchor" number="7.6.2">
+<h3><span class="header-section-number">7.6.2</span> Make compare grant funding with incidence and mortality<a href="cancer.html#make-compare-grant-funding-with-incidence-and-mortality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="cancer.html#cb167-1" tabindex="-1"></a></span>
 <span id="cb167-2"><a href="cancer.html#cb167-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;ggrepel&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;ggrepel&quot;</span>)</span>
 <span id="cb167-3"><a href="cancer.html#cb167-3" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;ggplot2&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;gglot2&quot;</span>)</span>
@@ -1275,9 +1272,9 @@ by mutations or other genomic alterations?</p>
 <p><img src="BMDatSci_files/figure-html/grants%20versus%20incidence%20and%20mortality-1.png" width="960" /></p>
 </div>
 </div>
-<div id="task-to-be-completed-in-tutotial-2-by-300pm-and-shared-with-other-tutorial-group" class="section level2 hasAnchor" number="7.7">
-<h2><span class="header-section-number">7.7</span> 5. Task (to be completed in Tutotial 2 by 3:00pm and shared with other tutorial group)<a href="cancer.html#task-to-be-completed-in-tutotial-2-by-300pm-and-shared-with-other-tutorial-group" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As a group, discuss what cancer type you think is most worthy of funding in Hong Kong. Prepare 2-3 PowerPoint/Google Slides summarising your decision. Include some points and figures supporting your final conclusion. If possible also include suggestions of what other data/analyses can be performed and/or other cancer types that are also in need of funding in Hong Kong.</p>
+<div id="open-disucssion" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> 5. Open disucssion<a href="cancer.html#open-disucssion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As a group discuss what cancer type would be most worthy of funding in Hong Kong. Statistics and figures should be used to support your decision. If possible also discuss other data/analyses that can be performed and/or other diseases that are also in need of funding in Hong Kong.</p>
 </div>
 </div>
             </section>

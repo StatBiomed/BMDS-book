@@ -120,9 +120,8 @@ d.-paired-t-test-on-mortality-incidence-ratio-change
 e.-childhood-versus-elderly-cancers
 existing-cancer-funding-and-publication-data
 download-hmrf-grants-and-pubmed-data
-make-word-cloud-for-grants
 make-compare-grant-funding-with-incidence-and-mortality
-task-to-be-completed-in-tutotial-2-by-300pm-and-shared-with-other-tutorial-group
+open-disucssion
 pop-genetics
 case-study-1-heritability-and-human-traits
 part-1

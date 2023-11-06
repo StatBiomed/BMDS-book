@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2023-09-14" />
+<meta name="date" content="2023-11-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -307,10 +307,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.6" data-path="cancer.html"><a href="cancer.html#existing-cancer-funding-and-publication-data"><i class="fa fa-check"></i><b>7.6</b> 4. Existing cancer funding and publication data</a>
 <ul>
 <li class="chapter" data-level="7.6.1" data-path="cancer.html"><a href="cancer.html#download-hmrf-grants-and-pubmed-data"><i class="fa fa-check"></i><b>7.6.1</b> Download HMRF grants and Pubmed data</a></li>
-<li class="chapter" data-level="7.6.2" data-path="cancer.html"><a href="cancer.html#make-word-cloud-for-grants"><i class="fa fa-check"></i><b>7.6.2</b> Make word cloud for grants</a></li>
-<li class="chapter" data-level="7.6.3" data-path="cancer.html"><a href="cancer.html#make-compare-grant-funding-with-incidence-and-mortality"><i class="fa fa-check"></i><b>7.6.3</b> Make compare grant funding with incidence and mortality</a></li>
+<li class="chapter" data-level="7.6.2" data-path="cancer.html"><a href="cancer.html#make-compare-grant-funding-with-incidence-and-mortality"><i class="fa fa-check"></i><b>7.6.2</b> Make compare grant funding with incidence and mortality</a></li>
 </ul></li>
-<li class="chapter" data-level="7.7" data-path="cancer.html"><a href="cancer.html#task-to-be-completed-in-tutotial-2-by-300pm-and-shared-with-other-tutorial-group"><i class="fa fa-check"></i><b>7.7</b> 5. Task (to be completed in Tutotial 2 by 3:00pm and shared with other tutorial group)</a></li>
+<li class="chapter" data-level="7.7" data-path="cancer.html"><a href="cancer.html#open-disucssion"><i class="fa fa-check"></i><b>7.7</b> 5. Open disucssion</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>8</b> Population Genetics and Diseases</a>
 <ul>
@@ -1062,7 +1061,9 @@ print(sum(is_DE))</code></pre>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="introR.html#cb44-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;ggplot2&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb44-2"><a href="introR.html#cb44-2" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
 <span id="cb44-3"><a href="introR.html#cb44-3" tabindex="-1"></a></span>
-<span id="cb44-4"><a href="introR.html#cb44-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<span id="cb44-4"><a href="introR.html#cb44-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb44-5"><a href="introR.html#cb44-5" tabindex="-1"></a><span class="co">#&gt; RStudio Community is a great place to get help:</span></span>
+<span id="cb44-6"><a href="introR.html#cb44-6" tabindex="-1"></a><span class="co">#&gt; https://community.rstudio.com/c/tidyverse</span></span></code></pre></div>
 </div>
 <div id="histogram-1" class="section level4 hasAnchor" number="1.6.3.2">
 <h4><span class="header-section-number">1.6.3.2</span> Histogram<a href="introR.html#histogram-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1287,6 +1288,13 @@ Please try both the basic <code>plot()</code> function and <code>ggplot2</code>.
 <li>Add a column <code>log2FC_clip</code> for clipping log2FoldChange to <code>[-5, +5]</code></li>
 <li>Add a column <code>is_DE</code> for <code>padj &lt; 0.05</code></li>
 </ul></li>
+</ul>
+<!-- df_DEG$log2FC_clip <- df_DEG$log2FoldChange -->
+<!-- df_DEG$log2FC_clip[df_DEG$log2FC_clip > 5] = 5 -->
+<!-- df_DEG$log2FC_clip[df_DEG$log2FC_clip < -5] = -5 -->
+<!-- df_DEG$is_DE <- !is.na(df_DEG$padj) & (df_DEG$padj<0.05) -->
+<!-- df_DEG$is_DE <- factor(df_DEG$is_DE, levels=c(TRUE, FALSE)) -->
+<ul>
 <li><p>Q14: Try the <code>summary()</code> function with the above <code>df_DEG</code> data frame, and also
 <code>table()</code> function for the <code>is_DE</code> column.</p></li>
 <li><p>Q15: Based on ggplot2, add the color by the newly added column <code>is_DE</code>.</p></li>
@@ -1327,13 +1335,28 @@ carcinoma (NPC) samples and 3 nasopharyngeal lymphatic hyperplasia (NLH) samples
 <li><p>Q20: perform normalization. Divide the <code>TF_mat</code> by the <code>df_NPC$total_counts</code>
 and multiply by 1000000, and assign it to a new matrix named <code>TF_mat_norm</code>.</p>
 <p>You may further consider transformation by log1p(), i.e., log(TF_mat_norm + 1).</p></li>
-<li><p>Q21: calculate the log fold change on the first gene TP73 in <code>TF_mat_norm</code>
-between NPC (row 1 to 7) and NLH (row 8 to 10) and perform t-test return the
-<code>p</code> value and log fold change.</p></li>
-<li><p>Q22: perform t-test on the <em>all</em> gene in <code>TF_mat_norm</code> between
-NPC (row 1 to 7) and NLH (row 8 to 10).
-<em>Hint</em>: think of for loop or <code>apply()</code> function.</p></li>
 </ul>
+<!-- TF_mat_norm = TF_mat / df_NPC$total_counts * 1000000 -->
+<ul>
+<li>Q21: calculate the log fold change on the first gene TP73 in <code>TF_mat_norm</code>
+between NPC (row 1 to 7) and NLH (row 8 to 10) and perform t-test return the
+<code>p</code> value and log fold change.</li>
+</ul>
+<!-- log_FC = log(mean(TF_mat_norm[8:10, "TP73"]) / mean(TF_mat_norm[1:7, "TP73"])) -->
+<!-- print(log_FC) -->
+<!-- res = t.test(TF_mat_norm[1:7, "TP73"], TF_mat_norm[8:10, "TP73"]) -->
+<!-- print(res$p.value) -->
+<ul>
+<li>Q22: perform t-test on the <em>all</em> gene in <code>TF_mat_norm</code> between
+NPC (row 1 to 7) and NLH (row 8 to 10).
+<em>Hint</em>: think of for loop or <code>apply()</code> function.</li>
+</ul>
+<!-- my_function <- function(x) { -->
+<!--   t.test(x[1:7], x[8:10])$p.value -->
+<!-- } -->
+<!-- p_vector = apply(TF_mat_norm, MARGIN=2, my_function) -->
+<!-- p_vector = apply(TF_mat_norm, MARGIN=2, -->
+<!--                  function(x) { t.test(x[1:7], x[8:10])$p.value }) -->
 </div>
 </div>
 </div>
