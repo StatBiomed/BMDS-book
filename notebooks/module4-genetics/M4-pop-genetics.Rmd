@@ -51,7 +51,7 @@ Now, you are given a dataset of age- and sex-matched twin cohort with two cardio
 
 **Download the data `dataTwin.dat` to your working directory.** Start the RStudio program and set the working directory.
 
-```{r readDataR, eval=F}
+```{r readDataR}
 dataTwin <- read.table("dataTwin2023.dat",h=T)
 ```
 
@@ -61,21 +61,43 @@ dataTwin <- read.table("dataTwin2023.dat",h=T)
 - D1-5: The genotypes aa, Aa, and AA are coded as 0 (aa), 1 (Aa) and 0 (AA).
 
 **Q1.** How many MZ and DZ volunteers are there?
+<details>
+  <summary>**Answers:** </summary>
+  - 1000 MZ and 1000 DZ
+</details>
 
 **Q2.** How are the genotypes represented?
+<details>
+  <summary>**Answers:** </summary>
+  - Dosage/Count of non-reference allele : 0, 1, and 2 
+</details>
 
 **Q3.** Are the QTL independent of each other?
+<details>
+  <summary>**Answers:** </summary>
+  - Yes. The pairwise correlations are low (<0.2). 
+</details>
 
 **Q4.** Are there outliers in phenotypes?
+<details>
+  <summary>**Answers:** </summary>
+  - Yes. T2 individual 1303 has phenotype score (-4.21) being 4 SD below the mean. 
+</details>
 
-```{r genotypedataExplorationR, eval=F}
+```{r genotypedataExplorationR}
 table(dataTwin$zygosity)        # Q1: shows number of MZ and DZ twin pairs
 table(dataTwin$T1QTL_A1)        # Q2: shows the distribution of QTL_A1
 table(dataTwin$T1QTL_D1)        # Q2: shows the distribution of QTL_D1
 table(dataTwin$T1QTL_A1, dataTwin$T1QTL_D1)     # Q2: shows the distribution of QTL_A1 in relation to QTL_D1
 cor(dataTwin[,2:11])                            # Q3: shows the correlation between QTL_As
 cor(dataTwin[,2:11])>0.2
-apply(dataTwin[22:25],2,function(x){ any(x < (mean(x) - 4*sd(x))) })  # Q4: any outlier >4 SD from the mean for the two quantitative phenotypes
+apply(dataTwin[22:25],2,function(x){ any(x < (mean(x) - 4*sd(x))) })  # Q4: any outlier < 4 SD from the mean for the two quantitative phenotypes
+apply(dataTwin[22:25],2,function(x){ any(x > (mean(x) + 4*sd(x))) })  # Q4: any outlier > 4 SD from the mean for the two quantitative phenotypes
+# remove the phenotype score of the outlier (T2) for the phenotype 2 (pheno2_T2)
+outlier<- which(dataTwin$pheno2_T2 < (mean(dataTwin$pheno2_T2) - 4*sd(dataTwin$pheno2_T2) )) 
+outlier
+dataTwin$pheno2_T2[outlier]
+dataTwin$pheno2_T2[outlier] <- NA
 ```
 
 **Association test**
@@ -86,17 +108,26 @@ Test for association between QTL and pheno1 for T1
 - Model: pheno1_T1 = b0 + b1* T1QTL_A1 + e
 - Calculate the conditional mean of phenotype (i.e. phenotypic mean conditional genotype)
 
-If the relationship between the QTL and the phenotype is perfectly linear, the regression line should pass through the conditional means (c_means), and the differences between the conditional means should
-be about equal.
+If the relationship between the QTL and the phenotype is perfectly linear, the regression line should pass through the conditional means (c_means), and the differences between the conditional means should be about equal.
 
 **Q5.** What are the values of b0, b1? Is QTL1 significant associated with the phenotype at alpha<0.01 (multiple testing of 5 loci)?
+<details>
+  <summary>**Answers:** </summary>
+  - b0 = 4.1464
+- b1 = 0.9180
+- QTL1 is significantly associated with the phenotype with $P = 1.02\times 10^{-13}$
+</details>
 
 **Q6.** What is the proportion of phenotypic variance explained?
+<details>
+  <summary>**Answers:** </summary>
+  - Proportion of phenotypic variance explained = 0.027
+</details>
 
-```{r lmAR, eval=F}
+```{r lmAR}
 linA1 <- lm(pheno1_T1~T1QTL_A1, data=dataTwin)
 summary(linA1)
-summary(linA1)$r.squared            # proportion of explained variance by additive component
+summary(linA1)$r.squared  # proportion of explained variance by additive component
 
 c_means <- by(dataTwin$pheno1_T1,dataTwin$T1QTL_A1,mean)
 plot(dataTwin$pheno1_T1 ~ dataTwin$T1QTL_A1, col='grey', ylim=c(3,7))
@@ -104,18 +135,25 @@ lines(c(0,1,2), c_means, type="p", col=6, lwd=8)
 lines(sort(dataTwin$T1QTL_A1),sort(linA1$fitted.values), type='b', col="dark green", lwd=3)
 ```
 
-To test this "linearity", we can use the dominance coding of the QTL and add the dominance term to the regression model. 
+To test for the non-linearity, we can use the dominance coding of the QTL and add the dominance term to the regression model. 
 
 - Model: pheno1_T1 = b0 + b1* T1QTL_A1 + b2* T1QTL_D1 + e
 - Repeat for T2. 
 
 **Q7.** Why can't we analyse T1 and T2 together?
+<details>
+  <summary>**Answers:** </summary>
+  - As T1 and T2 are biologically related as MZ or DZ twins, the genotypes of the QTLs are not independent. Treating the genotypes of T1 and T2 as independent observations will introduce bias.
+</details>
 
 **Q8.** Is there a dominance effect?
+<details>
+  <summary>**Answers:** </summary>
+  - Yes. The model with dominance provides a better goodness of fit (lower p-value)
+</details>
 
-```{r lmADR, eval=F}
+```{r lmADR}
 linAD1 <- lm(pheno1_T1 ~ T1QTL_A1 + T1QTL_D1, data=dataTwin)
-summary(linA1)  # results lm(phenoT1~T1QTL_A1)
 summary(linAD1) # results lm(phenoT1~T1QTL_A1+T1QTL_D1)
 
 plot(dataTwin$pheno1_T1 ~ dataTwin$T1QTL_A1, col='grey', ylim=c(3,7))
@@ -126,8 +164,12 @@ lines(sort(dataTwin$T1QTL_A1),sort(linAD1$fitted.values), type='b', col="blue", 
 ```
 
 **Q9.** Repeat for the other 4 QTL and determine which QTL shows strongest association with the phenotype T1
+<details>
+  <summary>**Answers:** </summary>
+  - QTL3 with $P = 7.77 \times 10^{-25}$ for model with dominance
+</details>
 
-```{r lmAllQTLR, eval=F}
+```{r lmAllQTLR}
 allQTL_A_T1 <- 2:6
 cpheno1_T1 <- which(colnames(dataTwin)=="pheno1_T1")
 ## Additive
@@ -142,9 +184,13 @@ summary(linAD3) # results lm(phenoT1~T1QTL_A1+T1QTL_D1)
 
 If the subjects with top 5% of the phenotype score are considered as cases, perform case-control association test for most significant SNP (from Q9) and interpret the result.
 
-**Q10.** What are the odds ratio, p-value, and 95% confidence interval?
+**Q10.** What are the odds ratio, p-value, and 95% confidence interval (CI)?
+<details>
+  <summary>**Answers:** </summary>
+  - Odds ratio is 3.40 and the 95% CI is (1.65, 7.03)
+</details>
 
-```{r logisticADR, eval=F}
+```{r logisticADR}
 quant05 <- quantile(c(dataTwin$pheno1_T1,dataTwin$pheno1_T2),seq(0,1,0.05))
 dataTwin$CaseT1 <- as.numeric(dataTwin$pheno1_T1>quant05[20]) 
 dataTwin$CaseT2 <- as.numeric(dataTwin$pheno1_T2>quant05[20])
@@ -220,11 +266,23 @@ By solving the unknowns, the Falconer's equations for the ACE model:
 #### Questions for discussions :
 
 **Q1.** What is missing heritability of common traits in the era of genome-wide association analysis (GWAS)?
+<details>
+  <summary>**Answers:** </summary>
+  - Missing heritability refers to the discrepancy between twin/family-estimated heritability and the amount of variance explained by disease/trait-associated loci identified in GWAS 
+</details>
 
 **Q2.** What are the potential sources of missing heritability?
+<details>
+  <summary>**Answers:** </summary>
+    - Large number of variants with small effect not reaching GWAS significance due to inadequate power of GWAS 
+  - Poor detection of rarer disease/trait-associated variants by genotyping arrays
+  - Structural variants poorly captured by genotyping arrays
+  - Low power to detect gene–gene interactions
+  - Underestimation of shared environment among relatives in twin/family-based studies
+</details>
 
 * Suggested reading:
-  * Manolio TA, Collins FS, Cox NJ, et al. Finding the missing heritability of complex diseases. Nature. 2009 ;461(7265):747-753. doi:10.1038/nature08494
+  * Manolio TA, Collins FS, Cox NJ, et al. Nature. 2009 ;461(7265):747-753. doi:10.1038/nature08494
 
 #### Hands-on exercise : variance explained using regression-based method
 
@@ -237,28 +295,37 @@ By solving the unknowns, the Falconer's equations for the ACE model:
 R2 from the regression represents the proportion of phenotypic variance explained; thus the raw explained variance component is R2 times the variance of the phenotype (var_pheno).
 
 <details>
-  <summary>**Example for T1 on QTL1** </summary>
-  * The proportion of explained variance are 0.02732 (additive) and 0.03658 (total: additive + dominance).
-* As the predictors are uncorrelated, the proportion of explained variance by dominance =  0.03658 - 0.02732 = 0.00926
+  <summary>**Answers** </summary>
+  * The proportion of explained variance are 0.0273 (additive) and 0.0541 (total: additive + dominance).
+* As the predictors are uncorrelated, the proportion of explained variance by dominance =  0.0541 - 0.0273 = 0.0267
 * Given the phenotypic variance of 15.102, then 
-  * Total genetic: 0.03658*15.102 = 0.552
-  * Additive genetic: 0.02732*15.102 = 0.412
-  * Dominance genetic: 0.00926*15.102 = 0.140
-  
-```{r varianceR, eval=F}
+  * Total genetic: 0.0541*15.102 = 0.8168
+  * Additive genetic: 0.0273*15.102 = 0.4128
+  * Dominance genetic: 0.0267*15.102 = 0.4040
+</details>
+```{r varianceR}
 var_pheno <- var(dataTwin$pheno1_T1)  # the variance of the phenotype
 var_pheno
-summary(linAD1)$r.squared           # proportion of explained variance by total genetic component
-summary(linA1)$r.squared            # proportion of explained variance by additive component
-summary(linAD1)$r.squared*var_pheno # (raw) variance component of total genetic component
-summary(linA1)$r.squared*var_pheno  # (raw) variance component of additive genetic component
-(summary(linAD1)$r.squared-summary(linA1)$r.squared)*var_pheno  # (raw) variance component of dominance genetic component
+
+linAD3 <- lm(pheno1_T1 ~ T1QTL_A3 + T1QTL_D3, data=dataTwin)
+linA3 <- lm(pheno1_T1 ~ T1QTL_A3, data=dataTwin)
+
+summary(linAD3)$r.squared           # proportion of explained variance by total genetic component
+summary(linA3)$r.squared            # proportion of explained variance by additive component
+summary(linAD3)$r.squared*var_pheno # (raw) variance component of total genetic component
+summary(linA3)$r.squared*var_pheno  # (raw) variance component of additive genetic component
+(summary(linAD3)$r.squared-summary(linA3)$r.squared)*var_pheno  # (raw) variance component of dominance genetic component
 ```
 </details>
+
 **Q4.**	Estimate the variance explained by all the QTL using linear regression.
 
+<details>
+  <summary>**Answers** </summary>
+  - Proportion of variance explained by all 5 QTLs with dominance = 0.23 and the total variance explained = 3.52.
+</details>
 
-```{r varianceAllQTLR, eval=F}
+```{r varianceAllQTLR}
 # compute for all 5 QTL
 linAD5=(lm(pheno1_T1 ~ T1QTL_A1 + T1QTL_A2 + T1QTL_A3 + T1QTL_A4 + T1QTL_A5 +
                        T1QTL_D1 + T1QTL_D2 + T1QTL_D3 + T1QTL_D4 + T1QTL_D5,
@@ -275,8 +342,19 @@ Based on our regression results, we have estimates of the total genetic variance
 Given `rMZ > 2*rDZ`, we can use Falconer's formula based on ADE model to estimate the A (additive genetic) and D (dominance) variance with the classical twin design for phenotype 1 without genotypes.
 
 **Q5.** Compute rMZ and rDZ.
+<details>
+  <summary>**Answers** </summary>
+  - rMZ = 0.5434
+- rDZ = 0.1904
+</details>
 
 **Q6.**	Estimate the proportion of additive and dominance genetic variances using the Falconer's equations for the ADE model.
+<details>
+  <summary>**Answers** </summary>
+  - $\sigma^{2}_{A} = 0.2181$
+- $\sigma^{2}_{D} = 0.3253$
+- $\sigma^{2}_{E} = 0.4566$
+</details>
 
 ```{r FalconerADE, eval=F}
 dataMZ = dataTwin[dataTwin$zygosity==1, c('pheno1_T1', 'pheno1_T2')] # MZ data frame
@@ -284,6 +362,8 @@ dataDZ = dataTwin[dataTwin$zygosity==2, c('pheno1_T1', 'pheno1_T2')] # DZ data f
 
 rMZ=cor(dataMZ)[2,1] # element 2,1 in the MZ correlation matrix
 rDZ=cor(dataDZ)[2,1] # element 2,1 in the DZ correlation matrix
+rMZ
+rDZ
 
 sA2 = 4*rDZ - rMZ
 sD2 = 2*rMZ - 4*rDZ
@@ -294,18 +374,38 @@ print(c(sA2, sD2, sE2))
 Similarly, for phenotype 2, we can estimate the proportion of additive and/or dominance genetic variances as well as shared environmental variance using the Falconer's formula.
 
 **Q7.**	Which model (ACE or ADE) should be considered for phenotype 2?
+<details>
+  <summary>**Answers** </summary>
+  - ACE as rMZ < 2*rDZ
+</details>
 
 **Q8.** Estimate the proportion of A, C/D and E variance components for phenotype 2.
-
+<details>
+  <summary>**Answers** </summary>
+  - $\sigma^{2}_{A} = 0.3526$
+- $\sigma^{2}_{C} = 0.1610$
+- $\sigma^{2}_{E} = 0.4864$
+</details>
 ```{r FalconerACE, eval=F}
 dataMZ = dataTwin[dataTwin$zygosity==1, c('pheno2_T1', 'pheno2_T2')] # MZ data frame
 dataDZ = dataTwin[dataTwin$zygosity==2, c('pheno2_T1', 'pheno2_T2')] # DZ data frame
 
-rMZ=cor(dataMZ)[2,1] # element 2,1 in the MZ correlation matrix
-rDZ=cor(dataDZ)[2,1] # element 2,1 in the DZ correlation matrix
+rMZ=cor(dataMZ, use="complete.obs")[2,1] # element 2,1 in the MZ correlation matrix
+rDZ=cor(dataDZ, use="complete.obs")[2,1] # element 2,1 in the DZ correlation matrix
+rMZ
+rDZ
 
 sA2 = 2*(rMZ - rDZ)
 sC2 = 2*rDZ - rMZ
 sE2 = 1 - rMZ
 print(c(sA2, sC2, sE2))
 ```
+
+###  References
+1. Evans DM, Gillespie NA, Martin NG. Biometrical genetics. Biol Psychol. 2002 Oct;61(1-2):33-51. doi: 10.1016/s0301-0511(02)00051-0. PMID: 12385668. [Review article]
+
+2. Falconer, D.S. and Mackay, T.F.C. (1996) Introduction to Quantitative Genetics. 4th Edition, Addison Wesley Longman, Harlow. [Most classical; a lot of online version]
+
+3. Neale, B., Ferreira, M., Medland, S., & Posthuma, D. (Eds.). (2007). Statistical Genetics: Gene Mapping Through Linkage and Association (1st ed.). Taylor & Francis. https://doi.org/10.1201/9780203967201 [chapter on biometrical genetics; can be borrowed from HKU lib]
+
+5. https://ibg.colorado.edu/cdrom2020/dolan/biometricalGenetics/biom_gen_2020.pdf [Course material of the Boulder IBG workshop co-organized by top statistical geneticists]
