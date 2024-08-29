@@ -28,9 +28,8 @@ which will be illustrated with both introduction and cases that are suitable for
 problem-based learning format:
 
 1) Medical imaging and digital health, by Dr Joshua Ho and Dr Rachel Kwan
-2) Infectious disease informatics, by Dr Tommy Lam and Dr Kathy Leung
-3) Cancer genomics and epidemiology, by Dr David Shih and Dr Jason Wong
-4) Population genetics and diseases, by Dr Clara Tang and Dr Asif Javed
+2) Cancer genomics and epidemiology, by Dr David Shih and Dr Jason Wong
+3) Population genetics and diseases, by Dr Clara Tang and Dr Yuanhua Huang
 
 ### What we recommend you do while reading this book {-}
 To enhance the knowledge and skills learned from this book, we recommend that
@@ -50,9 +49,12 @@ contents, we also recommend the following online books as reference:
 
 ## Acknowledgements {-}
 
-We thank all teachers contributing to this course across all years, including 
-Dr Lequan Yu (2022-23) and Dr Carlos Wong (2022-23) and student helpers serving 
-as demonstrators, including Mr Mingze Gao and Ms Fangxin Cai.
+We thank all teachers and student helpers contributing to this course across 
+all years, including
+
+- 2022: Dr Lequan Yu and Dr Carlos Wong
+- 2022 & 2023: Dr Asif Javed, Dr Tommy Lam, and Dr Kathy Leung
+- Student helpers: Mr Mingze Gao, Ms Fangxin Cai, and Mr Hoi Man Chung.
 
 <!-- ## Last notes {-} -->
 

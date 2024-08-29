@@ -12,8 +12,8 @@ cat("# (PART) Biomedical Data Modules {-} ")
 ```
 
 
-```{r child="notebooks/module3-infectious/M3-infectious-dis.Rmd", echo=TRUE}
-```
+<!-- # ```{r child="notebooks/module3-infectious/M3-infectious-dis.Rmd", echo=TRUE} -->
+<!-- # ``` -->
 
 
 <!-- # Personalised Genomic Medicine {#genomics} -->
