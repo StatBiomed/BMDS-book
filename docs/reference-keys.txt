@@ -99,7 +99,6 @@ two-types-of-error
 roc-curve
 homework-1
 image-digital
-infectious-dis
 cancer
 cancer-case1
 exploratory-analysis
@@ -120,6 +119,7 @@ d.-paired-t-test-on-mortality-incidence-ratio-change
 e.-childhood-versus-elderly-cancers
 existing-cancer-funding-and-publication-data
 download-hmrf-grants-and-pubmed-data
+make-word-cloud-for-grants
 make-compare-grant-funding-with-incidence-and-mortality
 open-disucssion
 pop-genetics
@@ -129,4 +129,6 @@ questions-for-discussion
 hands-on-exercise-association-test
 part-2
 questions-for-discussions
-hands-on-exercise-variance-explained
+hands-on-exercise-variance-explained-using-regression-based-method
+hands-on-exercise-variance-explained-using-a-classical-twin-design.
+references
