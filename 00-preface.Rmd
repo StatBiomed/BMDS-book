@@ -1,6 +1,6 @@
 # Preface {-}
 
-This book is designed as the lecture notes and textbook for 
+This book is designed as the supporting textbook for 
 [BIOF1001: Introduction to Biomedical Data Science](),
 an undergraduate course (Year 1) at the University of Hong Kong.
 

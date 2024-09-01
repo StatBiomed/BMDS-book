@@ -11,7 +11,7 @@
 knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
 ```
 
-## 1. Scenario
+### Scenario
 
 You are a grants officer working for the Hong Kong Health Bureau. The HK government has recently announced new special funding in cancer research to be administered by the Bureau. You are tasked with coming up with a proposal for distribution of funding to specific cancer types that are in most need of research.
 
@@ -21,7 +21,7 @@ You are a grants officer working for the Hong Kong Health Bureau. The HK governm
 
 -   What type of data is required?
 
-## 2. Hong Kong population
+### Hong Kong population
 
 You are aware that generally cancer is disease that affects the elderly more than the young. You decide to first take a closer look at the structure of the population of Hong Kong.
 
@@ -35,7 +35,7 @@ An abridged version of the full historic population of Hong Kong is provided her
 
 -   What is the best way to visualise this data?
 
-### Download population data
+#### Download population data
 
 ```{r loadpopulation}
 HKPop<- read.table("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/HK_population_1965-2022.txt", 
@@ -43,7 +43,7 @@ HKPop<- read.table("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/m
 HKPop
 ```
 
-### Format data for plotting
+#### Format data for plotting
 
 Here we convert the original dataframe into simplified format for ggplot2.
 
@@ -72,7 +72,7 @@ male
 female
 ```
 
-### Plotting population data
+#### Plotting population data
 
 Uses ggplot2 and gridExtra to make line plot of male and female population data side-by-side.
 
@@ -104,7 +104,7 @@ pfemale<-ggplot(female,aes(x=year,y=`population ('000s)`,group=age))+
 grid.arrange(pmale,pfemale,ncol=2,widths=c(3,3.75))
 ```
 
-## 3. Cancer registry data
+### Cancer registry data
 
 It is clear that Hong Kong has an aging population, thus cancer incidence would also likely increase. To examine cancer incidence and mortality in Hong Kong you obtain data from the [Hong Kong Cancer Registry](https://www3.ha.org.hk/cancereg/), which is maintained by the Hospital Authority.
 
@@ -120,7 +120,7 @@ Cancer incidence data was summarised for the last three decades (1990-1999, 2000
 
 -   Which cancer type has the highest incidence in children (0-19) when compared with the elderly (65+). Is this statistically significantly different to incidence of children versus elderly cancers in general?
 
-### Download cancer registry data
+#### Download cancer registry data
 
 ```{r load cancer data}
 HKCancer<- read.table("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/HK_cancer_incidence_mortality_1990-2020.txt",
@@ -128,7 +128,7 @@ HKCancer<- read.table("https://github.com/StatBiomed/BMDS-book/raw/main/notebook
 HKCancer
 ```
 
-### 3a. Visualise changes in incidence and mortality
+#### a. Visualise changes in incidence and mortality
 
 ```{r incidence, fig.height=20, fig.width=14}
 # first plot incidence for each cancer type
@@ -194,7 +194,7 @@ do.call('grid.arrange',c(p,ncol=3,nrow=12))
 
 ```
 
-### 3b. Calculate cancer risk and mortality rate
+#### b. Calculate cancer risk and mortality rate
 
 To calculate disease risk we need to calculated the number of new cases over the number of persons at risk over a specific time period. We have the incidence for each decade and can estimate the number of persons at risk based on the population in 1995, 2005 and 2015.
 
@@ -281,7 +281,7 @@ do.call('grid.arrange',c(p,ncol=3,nrow=12))
 
 ```
 
-### 3c. Mortality-incidence ratio
+#### c. Mortality-incidence ratio
 
 Cancer research can be focused on improving cancer outcomes in a number of ways. For example cancer prevention research that seeks to reduce cancer incidence which would also ultimately reduce cancer mortality. Another area is cancer therapy which would not affect incidence but seeks to reduce mortality, or at least prolong survival. We don't go into survival analysis in this tutorial, but a way to get an idea whether treatment is improving by looking at the mortality-incidence ratio.
 
@@ -322,7 +322,7 @@ do.call('grid.arrange',c(p,ncol=3,nrow=12))
 
 ```
 
-### 3d. Paired t-test on mortality-incidence ratio change
+#### d. Paired t-test on mortality-incidence ratio change
 
 In general, across the different cancer types is cancer treatment improving? We can use a paired t-test comparing the mortality-incidence ratio of cancers from the 1990-1999 period with the 2010-2019 period.
 
@@ -371,7 +371,7 @@ p
 
 ```
 
-### 3e. Childhood versus elderly cancers
+#### e. Childhood versus elderly cancers
 
 Although it is clear that the incidence of cancer is typically higher in the elderly, some cancers affect children as well. What cancer types disproportionate affect children? For each cancer type, compare the proportion of 0-19 versus 65+ incidence against the 0-19 versus 65+ incidence for all other cancer types.
 
@@ -409,7 +409,7 @@ plot_child
 HKCancer_inc_age_sum_csq
 ```
 
-## 4. Existing cancer funding and publication data
+### Existing cancer funding and publication data
 
 The Hong Kong government established in Health and Medical Research Fund (HMRF) in 2011 to specifically provide research funding for health and medical research in Hong Kong. Since 2016 over 370 projects in the category of Cancer has been funded for a total of \~\$400 M dollars. A list of all funded projects can be found on the Health Bureau [webpage](https://rfs1.healthbureau.gov.hk/search/#/fundedsearch/basicsearch?lang=en). You would like to use this data to see if there is any association between previous project funding and the epidemiology of cancers in Hong Kong.
 
@@ -423,7 +423,7 @@ The data has been predownloaded as the Pubmed API via R is a bit slow.
 -   What are the main cancer types being researched in Hong Kong?
 -   Is there any correlation between funding and cancer incidence and mortality?
 
-### Download HMRF grants and Pubmed data
+#### Download HMRF grants and Pubmed data
 
 ```{r load HMRF}
 
@@ -437,7 +437,7 @@ hist(pubmed$Publication.Year)
 
 ```
 
-### Make word cloud for grants
+#### Make word cloud for grants
 
 <!-- ```{r wordcloud grants, fig.height=8, fig.width=10} -->
 <!-- if (!require("ggwordcloud")) install.packages("ggwordcloud") -->
@@ -490,7 +490,7 @@ hist(pubmed$Publication.Year)
 
 <!-- ``` -->
 
-### Make compare grant funding with incidence and mortality
+#### Make compare grant funding with incidence and mortality
 
 ```{r grants versus incidence and mortality,  fig.height=8, fig.width=10}
 
@@ -528,6 +528,6 @@ grid.arrange(gp,ginc,gmor,pinc, pmor, ncol=3)
 
 ```
 
-## 5. Open disucssion
+### Open disucssion
 
 As a group discuss what cancer type would be most worthy of funding in Hong Kong. Statistics and figures should be used to support your decision. If possible also discuss other data/analyses that can be performed and/or other diseases that are also in need of funding in Hong Kong.
