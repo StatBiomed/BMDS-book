@@ -59,7 +59,8 @@ into one variable, which data structure will you use?
 
 * Q8: Now, on your `Desktop folder`, make a subfolder with name `R_exercises`
 and download this file of differentailly expressed genes results
-[Diff_Expression_results.tsv](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/chapter1-R/Diff_Expression_results.tsv) 
+[Diff_Expression_results.tsv](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/chapter1-R/Diff_Expression_results.tsv) 
+(or [link to view](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/chapter1-R/Diff_Expression_results.tsv)) 
 to the folder. Check your current work directory by
 `getwd()` function and change the work directory to the folder you just created.
 *Hint*: you may use `setwd()` to change the work directory or use the `Session` 
@@ -141,7 +142,8 @@ simply Google and find examples.
 
   It contains expressoon of 619 transcription factors from 7 Nasopharyngeal 
   carcinoma (NPC) samples and 3 nasopharyngeal lymphatic hyperplasia (NLH) samples.
-  https://github.com/StatBiomed/NegabinGLM/blob/main/data/NPC_NLH-Tcell-donorX.tsv
+  https://github.com/StatBiomed/NegabinGLM/raw/main/data/NPC_NLH-Tcell-donorX.tsv
+  (or [link to view](https://github.com/StatBiomed/NegabinGLM/blob/main/data/NPC_NLH-Tcell-donorX.tsv))
 
   `df_NPC = read.table("https://github.com/StatBiomed/NegabinGLM/raw/main/data/NPC_NLH-Tcell-donorX.tsv", sep="\t", header=TRUE)`
 
