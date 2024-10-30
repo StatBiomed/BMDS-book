@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2024-09-11" />
+<meta name="date" content="2024-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -226,14 +226,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.1" data-path="introHypoTest.html"><a href="introHypoTest.html#derivation-of-t-distribution"><i class="fa fa-check"></i><b>2.3.1</b> Derivation of t distribution</a></li>
 <li class="chapter" data-level="2.3.2" data-path="introHypoTest.html"><a href="introHypoTest.html#direct-use-of-t.test"><i class="fa fa-check"></i><b>2.3.2</b> Direct use of <code>t.test()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="introHypoTest.html"><a href="introHypoTest.html#glm-test"><i class="fa fa-check"></i><b>2.4</b> GLM test</a></li>
+<li class="chapter" data-level="2.4" data-path="introHypoTest.html"><a href="introHypoTest.html#regression-based-test"><i class="fa fa-check"></i><b>2.4</b> regression-based test</a></li>
 <li class="chapter" data-level="2.5" data-path="introHypoTest.html"><a href="introHypoTest.html#multiple-testing"><i class="fa fa-check"></i><b>2.5</b> Multiple testing</a>
 <ul>
 <li class="chapter" data-level="2.5.1" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-test-statistic"><i class="fa fa-check"></i><b>2.5.1</b> Null distribution (of test statistic)</a></li>
 <li class="chapter" data-level="2.5.2" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-p-value"><i class="fa fa-check"></i><b>2.5.2</b> Null distribution of p value</a></li>
 <li class="chapter" data-level="2.5.3" data-path="introHypoTest.html"><a href="introHypoTest.html#minimal-p-values-in-10-tests"><i class="fa fa-check"></i><b>2.5.3</b> Minimal p values in 10 tests</a></li>
-<li class="chapter" data-level="2.5.4" data-path="introHypoTest.html"><a href="introHypoTest.html#homework"><i class="fa fa-check"></i><b>2.5.4</b> Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="2.6" data-path="introHypoTest.html"><a href="introHypoTest.html#explore-power-and-sample-size-optional-power"><i class="fa fa-check"></i><b>2.6</b> Explore power and sample size (optional) { power }</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="introLinearReg.html"><a href="introLinearReg.html"><i class="fa fa-check"></i><b>3</b> Introduction to Linear Regression</a>
 <ul>
@@ -273,7 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.4.1" data-path="introClassifier.html"><a href="introClassifier.html#two-types-of-error"><i class="fa fa-check"></i><b>4.4.1</b> Two types of error</a></li>
 <li class="chapter" data-level="4.4.2" data-path="introClassifier.html"><a href="introClassifier.html#roc-curve"><i class="fa fa-check"></i><b>4.4.2</b> ROC curve</a></li>
-<li class="chapter" data-level="4.4.3" data-path="introClassifier.html"><a href="introClassifier.html#homework-1"><i class="fa fa-check"></i><b>4.4.3</b> Homework</a></li>
+<li class="chapter" data-level="4.4.3" data-path="introClassifier.html"><a href="introClassifier.html#homework"><i class="fa fa-check"></i><b>4.4.3</b> Homework</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Biomedical Data Modules</b></span></li>
@@ -292,7 +292,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.2" data-path="cancer.html"><a href="cancer.html#hong-kong-population"><i class="fa fa-check"></i><b>6.2.2</b> Hong Kong population</a></li>
 <li class="chapter" data-level="6.2.3" data-path="cancer.html"><a href="cancer.html#cancer-registry-data"><i class="fa fa-check"></i><b>6.2.3</b> Cancer registry data</a></li>
 <li class="chapter" data-level="6.2.4" data-path="cancer.html"><a href="cancer.html#existing-cancer-funding-and-publication-data"><i class="fa fa-check"></i><b>6.2.4</b> Existing cancer funding and publication data</a></li>
-<li class="chapter" data-level="6.2.5" data-path="cancer.html"><a href="cancer.html#open-disucssion"><i class="fa fa-check"></i><b>6.2.5</b> Open disucssion</a></li>
+<li class="chapter" data-level="6.2.5" data-path="cancer.html"><a href="cancer.html#open-discussion"><i class="fa fa-check"></i><b>6.2.5</b> Open discussion</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>7</b> Population Genetics and Diseases</a>
@@ -471,12 +471,12 @@ something below:</li>
    actual function codes
 }</code></pre>
 <p>For example:</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="install.html#cb183-1" tabindex="-1"></a>my_average <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb183-2"><a href="install.html#cb183-2" tabindex="-1"></a>  <span class="fu">sum</span>(x)<span class="sc">/</span><span class="fu">length</span>(x)</span>
-<span id="cb183-3"><a href="install.html#cb183-3" tabindex="-1"></a>}</span>
-<span id="cb183-4"><a href="install.html#cb183-4" tabindex="-1"></a></span>
-<span id="cb183-5"><a href="install.html#cb183-5" tabindex="-1"></a><span class="fu">my_average</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>))</span>
-<span id="cb183-6"><a href="install.html#cb183-6" tabindex="-1"></a><span class="co">#&gt; [1] 4.25</span></span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="install.html#cb185-1" tabindex="-1"></a>my_average <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb185-2"><a href="install.html#cb185-2" tabindex="-1"></a>  <span class="fu">sum</span>(x)<span class="sc">/</span><span class="fu">length</span>(x)</span>
+<span id="cb185-3"><a href="install.html#cb185-3" tabindex="-1"></a>}</span>
+<span id="cb185-4"><a href="install.html#cb185-4" tabindex="-1"></a></span>
+<span id="cb185-5"><a href="install.html#cb185-5" tabindex="-1"></a><span class="fu">my_average</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>))</span>
+<span id="cb185-6"><a href="install.html#cb185-6" tabindex="-1"></a><span class="co">#&gt; [1] 4.25</span></span></code></pre></div>
 <p>R contains a lot of built-in functions, you can use <code>?</code> or <code>help()</code> to see the
 documentation of a function, there are also a lot of external libraries with
 specific functions. To use a library, we do:</p>

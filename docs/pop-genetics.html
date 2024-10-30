@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2024-09-11" />
+<meta name="date" content="2024-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -226,14 +226,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.1" data-path="introHypoTest.html"><a href="introHypoTest.html#derivation-of-t-distribution"><i class="fa fa-check"></i><b>2.3.1</b> Derivation of t distribution</a></li>
 <li class="chapter" data-level="2.3.2" data-path="introHypoTest.html"><a href="introHypoTest.html#direct-use-of-t.test"><i class="fa fa-check"></i><b>2.3.2</b> Direct use of <code>t.test()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="introHypoTest.html"><a href="introHypoTest.html#glm-test"><i class="fa fa-check"></i><b>2.4</b> GLM test</a></li>
+<li class="chapter" data-level="2.4" data-path="introHypoTest.html"><a href="introHypoTest.html#regression-based-test"><i class="fa fa-check"></i><b>2.4</b> regression-based test</a></li>
 <li class="chapter" data-level="2.5" data-path="introHypoTest.html"><a href="introHypoTest.html#multiple-testing"><i class="fa fa-check"></i><b>2.5</b> Multiple testing</a>
 <ul>
 <li class="chapter" data-level="2.5.1" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-test-statistic"><i class="fa fa-check"></i><b>2.5.1</b> Null distribution (of test statistic)</a></li>
 <li class="chapter" data-level="2.5.2" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-p-value"><i class="fa fa-check"></i><b>2.5.2</b> Null distribution of p value</a></li>
 <li class="chapter" data-level="2.5.3" data-path="introHypoTest.html"><a href="introHypoTest.html#minimal-p-values-in-10-tests"><i class="fa fa-check"></i><b>2.5.3</b> Minimal p values in 10 tests</a></li>
-<li class="chapter" data-level="2.5.4" data-path="introHypoTest.html"><a href="introHypoTest.html#homework"><i class="fa fa-check"></i><b>2.5.4</b> Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="2.6" data-path="introHypoTest.html"><a href="introHypoTest.html#explore-power-and-sample-size-optional-power"><i class="fa fa-check"></i><b>2.6</b> Explore power and sample size (optional) { power }</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="introLinearReg.html"><a href="introLinearReg.html"><i class="fa fa-check"></i><b>3</b> Introduction to Linear Regression</a>
 <ul>
@@ -273,7 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.4.1" data-path="introClassifier.html"><a href="introClassifier.html#two-types-of-error"><i class="fa fa-check"></i><b>4.4.1</b> Two types of error</a></li>
 <li class="chapter" data-level="4.4.2" data-path="introClassifier.html"><a href="introClassifier.html#roc-curve"><i class="fa fa-check"></i><b>4.4.2</b> ROC curve</a></li>
-<li class="chapter" data-level="4.4.3" data-path="introClassifier.html"><a href="introClassifier.html#homework-1"><i class="fa fa-check"></i><b>4.4.3</b> Homework</a></li>
+<li class="chapter" data-level="4.4.3" data-path="introClassifier.html"><a href="introClassifier.html#homework"><i class="fa fa-check"></i><b>4.4.3</b> Homework</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Biomedical Data Modules</b></span></li>
@@ -292,7 +292,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.2" data-path="cancer.html"><a href="cancer.html#hong-kong-population"><i class="fa fa-check"></i><b>6.2.2</b> Hong Kong population</a></li>
 <li class="chapter" data-level="6.2.3" data-path="cancer.html"><a href="cancer.html#cancer-registry-data"><i class="fa fa-check"></i><b>6.2.3</b> Cancer registry data</a></li>
 <li class="chapter" data-level="6.2.4" data-path="cancer.html"><a href="cancer.html#existing-cancer-funding-and-publication-data"><i class="fa fa-check"></i><b>6.2.4</b> Existing cancer funding and publication data</a></li>
-<li class="chapter" data-level="6.2.5" data-path="cancer.html"><a href="cancer.html#open-disucssion"><i class="fa fa-check"></i><b>6.2.5</b> Open disucssion</a></li>
+<li class="chapter" data-level="6.2.5" data-path="cancer.html"><a href="cancer.html#open-discussion"><i class="fa fa-check"></i><b>6.2.5</b> Open discussion</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>7</b> Population Genetics and Diseases</a>
@@ -402,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Phenotype scores of T1 and T2 for the two quantitative cardiovascular traits</li>
 </ul>
 <p><strong>Download the data <code>dataTwin.dat</code> to your working directory.</strong> Start the RStudio program and set the working directory.</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="pop-genetics.html#cb168-1" tabindex="-1"></a>dataTwin <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;dataTwin2023.dat&quot;</span>,<span class="at">h=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="pop-genetics.html#cb170-1" tabindex="-1"></a>dataTwin <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;dataTwin2023.dat&quot;</span>,<span class="at">h=</span>T)</span></code></pre></div>
 <p><strong>Exploratory analysis</strong></p>
 <ul>
 <li>A1-5: The QTLs are biallelic with two alleles A and a. The genotypes aa, Aa, and AA are coded additively as 0 (aa), 1 (Aa) and 2 (AA).</li>
@@ -444,83 +444,83 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Yes. T2 individual 1303 has phenotype score (-4.21) being 4 SD below the mean.</li>
 </ul>
 </details>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="pop-genetics.html#cb169-1" tabindex="-1"></a><span class="fu">table</span>(dataTwin<span class="sc">$</span>zygosity)        <span class="co"># Q1: shows number of MZ and DZ twin pairs</span></span>
-<span id="cb169-2"><a href="pop-genetics.html#cb169-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb169-3"><a href="pop-genetics.html#cb169-3" tabindex="-1"></a><span class="co">#&gt;    1    2 </span></span>
-<span id="cb169-4"><a href="pop-genetics.html#cb169-4" tabindex="-1"></a><span class="co">#&gt; 1000 1000</span></span>
-<span id="cb169-5"><a href="pop-genetics.html#cb169-5" tabindex="-1"></a><span class="fu">table</span>(dataTwin<span class="sc">$</span>T1QTL_A1)        <span class="co"># Q2: shows the distribution of QTL_A1</span></span>
-<span id="cb169-6"><a href="pop-genetics.html#cb169-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb169-7"><a href="pop-genetics.html#cb169-7" tabindex="-1"></a><span class="co">#&gt;    0    1    2 </span></span>
-<span id="cb169-8"><a href="pop-genetics.html#cb169-8" tabindex="-1"></a><span class="co">#&gt;  474 1021  505</span></span>
-<span id="cb169-9"><a href="pop-genetics.html#cb169-9" tabindex="-1"></a><span class="fu">table</span>(dataTwin<span class="sc">$</span>T1QTL_D1)        <span class="co"># Q2: shows the distribution of QTL_D1</span></span>
-<span id="cb169-10"><a href="pop-genetics.html#cb169-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb169-11"><a href="pop-genetics.html#cb169-11" tabindex="-1"></a><span class="co">#&gt;    0    1 </span></span>
-<span id="cb169-12"><a href="pop-genetics.html#cb169-12" tabindex="-1"></a><span class="co">#&gt;  979 1021</span></span>
-<span id="cb169-13"><a href="pop-genetics.html#cb169-13" tabindex="-1"></a><span class="fu">table</span>(dataTwin<span class="sc">$</span>T1QTL_A1, dataTwin<span class="sc">$</span>T1QTL_D1)     <span class="co"># Q2: shows the distribution of QTL_A1 in relation to QTL_D1</span></span>
-<span id="cb169-14"><a href="pop-genetics.html#cb169-14" tabindex="-1"></a><span class="co">#&gt;    </span></span>
-<span id="cb169-15"><a href="pop-genetics.html#cb169-15" tabindex="-1"></a><span class="co">#&gt;        0    1</span></span>
-<span id="cb169-16"><a href="pop-genetics.html#cb169-16" tabindex="-1"></a><span class="co">#&gt;   0  474    0</span></span>
-<span id="cb169-17"><a href="pop-genetics.html#cb169-17" tabindex="-1"></a><span class="co">#&gt;   1    0 1021</span></span>
-<span id="cb169-18"><a href="pop-genetics.html#cb169-18" tabindex="-1"></a><span class="co">#&gt;   2  505    0</span></span>
-<span id="cb169-19"><a href="pop-genetics.html#cb169-19" tabindex="-1"></a><span class="fu">cor</span>(dataTwin[,<span class="dv">2</span><span class="sc">:</span><span class="dv">11</span>])                            <span class="co"># Q3: shows the correlation between QTL_As</span></span>
-<span id="cb169-20"><a href="pop-genetics.html#cb169-20" tabindex="-1"></a><span class="co">#&gt;             T1QTL_A1     T1QTL_A2     T1QTL_A3    T1QTL_A4     T1QTL_A5</span></span>
-<span id="cb169-21"><a href="pop-genetics.html#cb169-21" tabindex="-1"></a><span class="co">#&gt; T1QTL_A1  1.00000000 -0.005470340  0.021705688  0.01940408  0.016278190</span></span>
-<span id="cb169-22"><a href="pop-genetics.html#cb169-22" tabindex="-1"></a><span class="co">#&gt; T1QTL_A2 -0.00547034  1.000000000  0.017344822 -0.01421677 -0.008678746</span></span>
-<span id="cb169-23"><a href="pop-genetics.html#cb169-23" tabindex="-1"></a><span class="co">#&gt; T1QTL_A3  0.02170569  0.017344822  1.000000000  0.01335711 -0.036751338</span></span>
-<span id="cb169-24"><a href="pop-genetics.html#cb169-24" tabindex="-1"></a><span class="co">#&gt; T1QTL_A4  0.01940408 -0.014216767  0.013357109  1.00000000  0.074899996</span></span>
-<span id="cb169-25"><a href="pop-genetics.html#cb169-25" tabindex="-1"></a><span class="co">#&gt; T1QTL_A5  0.01627819 -0.008678746 -0.036751338  0.07490000  1.000000000</span></span>
-<span id="cb169-26"><a href="pop-genetics.html#cb169-26" tabindex="-1"></a><span class="co">#&gt; T2QTL_A1  0.53243815  0.004201635 -0.013909013  0.03252724  0.020081970</span></span>
-<span id="cb169-27"><a href="pop-genetics.html#cb169-27" tabindex="-1"></a><span class="co">#&gt; T2QTL_A2 -0.04561174  0.464131160 -0.005044127  0.01324172 -0.003012277</span></span>
-<span id="cb169-28"><a href="pop-genetics.html#cb169-28" tabindex="-1"></a><span class="co">#&gt; T2QTL_A3  0.03316574 -0.003552831  0.521253656  0.02045423  0.009081830</span></span>
-<span id="cb169-29"><a href="pop-genetics.html#cb169-29" tabindex="-1"></a><span class="co">#&gt; T2QTL_A4  0.03271254 -0.033419904  0.020422583  0.48641289  0.019247531</span></span>
-<span id="cb169-30"><a href="pop-genetics.html#cb169-30" tabindex="-1"></a><span class="co">#&gt; T2QTL_A5 -0.01285323  0.030413269 -0.045121964  0.08288145  0.457962222</span></span>
-<span id="cb169-31"><a href="pop-genetics.html#cb169-31" tabindex="-1"></a><span class="co">#&gt;              T2QTL_A1     T2QTL_A2     T2QTL_A3     T2QTL_A4    T2QTL_A5</span></span>
-<span id="cb169-32"><a href="pop-genetics.html#cb169-32" tabindex="-1"></a><span class="co">#&gt; T1QTL_A1  0.532438150 -0.045611740  0.033165736  0.032712539 -0.01285323</span></span>
-<span id="cb169-33"><a href="pop-genetics.html#cb169-33" tabindex="-1"></a><span class="co">#&gt; T1QTL_A2  0.004201635  0.464131160 -0.003552831 -0.033419904  0.03041327</span></span>
-<span id="cb169-34"><a href="pop-genetics.html#cb169-34" tabindex="-1"></a><span class="co">#&gt; T1QTL_A3 -0.013909013 -0.005044127  0.521253656  0.020422583 -0.04512196</span></span>
-<span id="cb169-35"><a href="pop-genetics.html#cb169-35" tabindex="-1"></a><span class="co">#&gt; T1QTL_A4  0.032527239  0.013241725  0.020454234  0.486412895  0.08288145</span></span>
-<span id="cb169-36"><a href="pop-genetics.html#cb169-36" tabindex="-1"></a><span class="co">#&gt; T1QTL_A5  0.020081970 -0.003012277  0.009081830  0.019247531  0.45796222</span></span>
-<span id="cb169-37"><a href="pop-genetics.html#cb169-37" tabindex="-1"></a><span class="co">#&gt; T2QTL_A1  1.000000000  0.006179257 -0.013129314  0.048294183 -0.01325839</span></span>
-<span id="cb169-38"><a href="pop-genetics.html#cb169-38" tabindex="-1"></a><span class="co">#&gt; T2QTL_A2  0.006179257  1.000000000 -0.020860987  0.002164782 -0.01131418</span></span>
-<span id="cb169-39"><a href="pop-genetics.html#cb169-39" tabindex="-1"></a><span class="co">#&gt; T2QTL_A3 -0.013129314 -0.020860987  1.000000000 -0.010583797 -0.02101270</span></span>
-<span id="cb169-40"><a href="pop-genetics.html#cb169-40" tabindex="-1"></a><span class="co">#&gt; T2QTL_A4  0.048294183  0.002164782 -0.010583797  1.000000000  0.04350925</span></span>
-<span id="cb169-41"><a href="pop-genetics.html#cb169-41" tabindex="-1"></a><span class="co">#&gt; T2QTL_A5 -0.013258394 -0.011314179 -0.021012699  0.043509251  1.00000000</span></span>
-<span id="cb169-42"><a href="pop-genetics.html#cb169-42" tabindex="-1"></a><span class="fu">cor</span>(dataTwin[,<span class="dv">2</span><span class="sc">:</span><span class="dv">11</span>])<span class="sc">&gt;</span><span class="fl">0.2</span></span>
-<span id="cb169-43"><a href="pop-genetics.html#cb169-43" tabindex="-1"></a><span class="co">#&gt;          T1QTL_A1 T1QTL_A2 T1QTL_A3 T1QTL_A4 T1QTL_A5 T2QTL_A1 T2QTL_A2</span></span>
-<span id="cb169-44"><a href="pop-genetics.html#cb169-44" tabindex="-1"></a><span class="co">#&gt; T1QTL_A1     TRUE    FALSE    FALSE    FALSE    FALSE     TRUE    FALSE</span></span>
-<span id="cb169-45"><a href="pop-genetics.html#cb169-45" tabindex="-1"></a><span class="co">#&gt; T1QTL_A2    FALSE     TRUE    FALSE    FALSE    FALSE    FALSE     TRUE</span></span>
-<span id="cb169-46"><a href="pop-genetics.html#cb169-46" tabindex="-1"></a><span class="co">#&gt; T1QTL_A3    FALSE    FALSE     TRUE    FALSE    FALSE    FALSE    FALSE</span></span>
-<span id="cb169-47"><a href="pop-genetics.html#cb169-47" tabindex="-1"></a><span class="co">#&gt; T1QTL_A4    FALSE    FALSE    FALSE     TRUE    FALSE    FALSE    FALSE</span></span>
-<span id="cb169-48"><a href="pop-genetics.html#cb169-48" tabindex="-1"></a><span class="co">#&gt; T1QTL_A5    FALSE    FALSE    FALSE    FALSE     TRUE    FALSE    FALSE</span></span>
-<span id="cb169-49"><a href="pop-genetics.html#cb169-49" tabindex="-1"></a><span class="co">#&gt; T2QTL_A1     TRUE    FALSE    FALSE    FALSE    FALSE     TRUE    FALSE</span></span>
-<span id="cb169-50"><a href="pop-genetics.html#cb169-50" tabindex="-1"></a><span class="co">#&gt; T2QTL_A2    FALSE     TRUE    FALSE    FALSE    FALSE    FALSE     TRUE</span></span>
-<span id="cb169-51"><a href="pop-genetics.html#cb169-51" tabindex="-1"></a><span class="co">#&gt; T2QTL_A3    FALSE    FALSE     TRUE    FALSE    FALSE    FALSE    FALSE</span></span>
-<span id="cb169-52"><a href="pop-genetics.html#cb169-52" tabindex="-1"></a><span class="co">#&gt; T2QTL_A4    FALSE    FALSE    FALSE     TRUE    FALSE    FALSE    FALSE</span></span>
-<span id="cb169-53"><a href="pop-genetics.html#cb169-53" tabindex="-1"></a><span class="co">#&gt; T2QTL_A5    FALSE    FALSE    FALSE    FALSE     TRUE    FALSE    FALSE</span></span>
-<span id="cb169-54"><a href="pop-genetics.html#cb169-54" tabindex="-1"></a><span class="co">#&gt;          T2QTL_A3 T2QTL_A4 T2QTL_A5</span></span>
-<span id="cb169-55"><a href="pop-genetics.html#cb169-55" tabindex="-1"></a><span class="co">#&gt; T1QTL_A1    FALSE    FALSE    FALSE</span></span>
-<span id="cb169-56"><a href="pop-genetics.html#cb169-56" tabindex="-1"></a><span class="co">#&gt; T1QTL_A2    FALSE    FALSE    FALSE</span></span>
-<span id="cb169-57"><a href="pop-genetics.html#cb169-57" tabindex="-1"></a><span class="co">#&gt; T1QTL_A3     TRUE    FALSE    FALSE</span></span>
-<span id="cb169-58"><a href="pop-genetics.html#cb169-58" tabindex="-1"></a><span class="co">#&gt; T1QTL_A4    FALSE     TRUE    FALSE</span></span>
-<span id="cb169-59"><a href="pop-genetics.html#cb169-59" tabindex="-1"></a><span class="co">#&gt; T1QTL_A5    FALSE    FALSE     TRUE</span></span>
-<span id="cb169-60"><a href="pop-genetics.html#cb169-60" tabindex="-1"></a><span class="co">#&gt; T2QTL_A1    FALSE    FALSE    FALSE</span></span>
-<span id="cb169-61"><a href="pop-genetics.html#cb169-61" tabindex="-1"></a><span class="co">#&gt; T2QTL_A2    FALSE    FALSE    FALSE</span></span>
-<span id="cb169-62"><a href="pop-genetics.html#cb169-62" tabindex="-1"></a><span class="co">#&gt; T2QTL_A3     TRUE    FALSE    FALSE</span></span>
-<span id="cb169-63"><a href="pop-genetics.html#cb169-63" tabindex="-1"></a><span class="co">#&gt; T2QTL_A4    FALSE     TRUE    FALSE</span></span>
-<span id="cb169-64"><a href="pop-genetics.html#cb169-64" tabindex="-1"></a><span class="co">#&gt; T2QTL_A5    FALSE    FALSE     TRUE</span></span>
-<span id="cb169-65"><a href="pop-genetics.html#cb169-65" tabindex="-1"></a><span class="fu">apply</span>(dataTwin[<span class="dv">22</span><span class="sc">:</span><span class="dv">25</span>],<span class="dv">2</span>,<span class="cf">function</span>(x){ <span class="fu">any</span>(x <span class="sc">&lt;</span> (<span class="fu">mean</span>(x) <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span><span class="fu">sd</span>(x))) })  <span class="co"># Q4: any outlier &lt; 4 SD from the mean for the two quantitative phenotypes</span></span>
-<span id="cb169-66"><a href="pop-genetics.html#cb169-66" tabindex="-1"></a><span class="co">#&gt; pheno1_T1 pheno1_T2 pheno2_T1 pheno2_T2 </span></span>
-<span id="cb169-67"><a href="pop-genetics.html#cb169-67" tabindex="-1"></a><span class="co">#&gt;     FALSE     FALSE     FALSE      TRUE</span></span>
-<span id="cb169-68"><a href="pop-genetics.html#cb169-68" tabindex="-1"></a><span class="fu">apply</span>(dataTwin[<span class="dv">22</span><span class="sc">:</span><span class="dv">25</span>],<span class="dv">2</span>,<span class="cf">function</span>(x){ <span class="fu">any</span>(x <span class="sc">&gt;</span> (<span class="fu">mean</span>(x) <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span><span class="fu">sd</span>(x))) })  <span class="co"># Q4: any outlier &gt; 4 SD from the mean for the two quantitative phenotypes</span></span>
-<span id="cb169-69"><a href="pop-genetics.html#cb169-69" tabindex="-1"></a><span class="co">#&gt; pheno1_T1 pheno1_T2 pheno2_T1 pheno2_T2 </span></span>
-<span id="cb169-70"><a href="pop-genetics.html#cb169-70" tabindex="-1"></a><span class="co">#&gt;     FALSE     FALSE     FALSE     FALSE</span></span>
-<span id="cb169-71"><a href="pop-genetics.html#cb169-71" tabindex="-1"></a><span class="co"># remove the phenotype score of the outlier (T2) for the phenotype 2 (pheno2_T2)</span></span>
-<span id="cb169-72"><a href="pop-genetics.html#cb169-72" tabindex="-1"></a>outlier<span class="ot">&lt;-</span> <span class="fu">which</span>(dataTwin<span class="sc">$</span>pheno2_T2 <span class="sc">&lt;</span> (<span class="fu">mean</span>(dataTwin<span class="sc">$</span>pheno2_T2) <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span><span class="fu">sd</span>(dataTwin<span class="sc">$</span>pheno2_T2) )) </span>
-<span id="cb169-73"><a href="pop-genetics.html#cb169-73" tabindex="-1"></a>outlier</span>
-<span id="cb169-74"><a href="pop-genetics.html#cb169-74" tabindex="-1"></a><span class="co">#&gt; [1] 1303</span></span>
-<span id="cb169-75"><a href="pop-genetics.html#cb169-75" tabindex="-1"></a>dataTwin<span class="sc">$</span>pheno2_T2[outlier]</span>
-<span id="cb169-76"><a href="pop-genetics.html#cb169-76" tabindex="-1"></a><span class="co">#&gt; [1] -4.21</span></span>
-<span id="cb169-77"><a href="pop-genetics.html#cb169-77" tabindex="-1"></a>dataTwin<span class="sc">$</span>pheno2_T2[outlier] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="pop-genetics.html#cb171-1" tabindex="-1"></a><span class="fu">table</span>(dataTwin<span class="sc">$</span>zygosity)        <span class="co"># Q1: shows number of MZ and DZ twin pairs</span></span>
+<span id="cb171-2"><a href="pop-genetics.html#cb171-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb171-3"><a href="pop-genetics.html#cb171-3" tabindex="-1"></a><span class="co">#&gt;    1    2 </span></span>
+<span id="cb171-4"><a href="pop-genetics.html#cb171-4" tabindex="-1"></a><span class="co">#&gt; 1000 1000</span></span>
+<span id="cb171-5"><a href="pop-genetics.html#cb171-5" tabindex="-1"></a><span class="fu">table</span>(dataTwin<span class="sc">$</span>T1QTL_A1)        <span class="co"># Q2: shows the distribution of QTL_A1</span></span>
+<span id="cb171-6"><a href="pop-genetics.html#cb171-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb171-7"><a href="pop-genetics.html#cb171-7" tabindex="-1"></a><span class="co">#&gt;    0    1    2 </span></span>
+<span id="cb171-8"><a href="pop-genetics.html#cb171-8" tabindex="-1"></a><span class="co">#&gt;  474 1021  505</span></span>
+<span id="cb171-9"><a href="pop-genetics.html#cb171-9" tabindex="-1"></a><span class="fu">table</span>(dataTwin<span class="sc">$</span>T1QTL_D1)        <span class="co"># Q2: shows the distribution of QTL_D1</span></span>
+<span id="cb171-10"><a href="pop-genetics.html#cb171-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb171-11"><a href="pop-genetics.html#cb171-11" tabindex="-1"></a><span class="co">#&gt;    0    1 </span></span>
+<span id="cb171-12"><a href="pop-genetics.html#cb171-12" tabindex="-1"></a><span class="co">#&gt;  979 1021</span></span>
+<span id="cb171-13"><a href="pop-genetics.html#cb171-13" tabindex="-1"></a><span class="fu">table</span>(dataTwin<span class="sc">$</span>T1QTL_A1, dataTwin<span class="sc">$</span>T1QTL_D1)     <span class="co"># Q2: shows the distribution of QTL_A1 in relation to QTL_D1</span></span>
+<span id="cb171-14"><a href="pop-genetics.html#cb171-14" tabindex="-1"></a><span class="co">#&gt;    </span></span>
+<span id="cb171-15"><a href="pop-genetics.html#cb171-15" tabindex="-1"></a><span class="co">#&gt;        0    1</span></span>
+<span id="cb171-16"><a href="pop-genetics.html#cb171-16" tabindex="-1"></a><span class="co">#&gt;   0  474    0</span></span>
+<span id="cb171-17"><a href="pop-genetics.html#cb171-17" tabindex="-1"></a><span class="co">#&gt;   1    0 1021</span></span>
+<span id="cb171-18"><a href="pop-genetics.html#cb171-18" tabindex="-1"></a><span class="co">#&gt;   2  505    0</span></span>
+<span id="cb171-19"><a href="pop-genetics.html#cb171-19" tabindex="-1"></a><span class="fu">cor</span>(dataTwin[,<span class="dv">2</span><span class="sc">:</span><span class="dv">11</span>])                            <span class="co"># Q3: shows the correlation between QTL_As</span></span>
+<span id="cb171-20"><a href="pop-genetics.html#cb171-20" tabindex="-1"></a><span class="co">#&gt;             T1QTL_A1     T1QTL_A2     T1QTL_A3    T1QTL_A4     T1QTL_A5</span></span>
+<span id="cb171-21"><a href="pop-genetics.html#cb171-21" tabindex="-1"></a><span class="co">#&gt; T1QTL_A1  1.00000000 -0.005470340  0.021705688  0.01940408  0.016278190</span></span>
+<span id="cb171-22"><a href="pop-genetics.html#cb171-22" tabindex="-1"></a><span class="co">#&gt; T1QTL_A2 -0.00547034  1.000000000  0.017344822 -0.01421677 -0.008678746</span></span>
+<span id="cb171-23"><a href="pop-genetics.html#cb171-23" tabindex="-1"></a><span class="co">#&gt; T1QTL_A3  0.02170569  0.017344822  1.000000000  0.01335711 -0.036751338</span></span>
+<span id="cb171-24"><a href="pop-genetics.html#cb171-24" tabindex="-1"></a><span class="co">#&gt; T1QTL_A4  0.01940408 -0.014216767  0.013357109  1.00000000  0.074899996</span></span>
+<span id="cb171-25"><a href="pop-genetics.html#cb171-25" tabindex="-1"></a><span class="co">#&gt; T1QTL_A5  0.01627819 -0.008678746 -0.036751338  0.07490000  1.000000000</span></span>
+<span id="cb171-26"><a href="pop-genetics.html#cb171-26" tabindex="-1"></a><span class="co">#&gt; T2QTL_A1  0.53243815  0.004201635 -0.013909013  0.03252724  0.020081970</span></span>
+<span id="cb171-27"><a href="pop-genetics.html#cb171-27" tabindex="-1"></a><span class="co">#&gt; T2QTL_A2 -0.04561174  0.464131160 -0.005044127  0.01324172 -0.003012277</span></span>
+<span id="cb171-28"><a href="pop-genetics.html#cb171-28" tabindex="-1"></a><span class="co">#&gt; T2QTL_A3  0.03316574 -0.003552831  0.521253656  0.02045423  0.009081830</span></span>
+<span id="cb171-29"><a href="pop-genetics.html#cb171-29" tabindex="-1"></a><span class="co">#&gt; T2QTL_A4  0.03271254 -0.033419904  0.020422583  0.48641289  0.019247531</span></span>
+<span id="cb171-30"><a href="pop-genetics.html#cb171-30" tabindex="-1"></a><span class="co">#&gt; T2QTL_A5 -0.01285323  0.030413269 -0.045121964  0.08288145  0.457962222</span></span>
+<span id="cb171-31"><a href="pop-genetics.html#cb171-31" tabindex="-1"></a><span class="co">#&gt;              T2QTL_A1     T2QTL_A2     T2QTL_A3     T2QTL_A4    T2QTL_A5</span></span>
+<span id="cb171-32"><a href="pop-genetics.html#cb171-32" tabindex="-1"></a><span class="co">#&gt; T1QTL_A1  0.532438150 -0.045611740  0.033165736  0.032712539 -0.01285323</span></span>
+<span id="cb171-33"><a href="pop-genetics.html#cb171-33" tabindex="-1"></a><span class="co">#&gt; T1QTL_A2  0.004201635  0.464131160 -0.003552831 -0.033419904  0.03041327</span></span>
+<span id="cb171-34"><a href="pop-genetics.html#cb171-34" tabindex="-1"></a><span class="co">#&gt; T1QTL_A3 -0.013909013 -0.005044127  0.521253656  0.020422583 -0.04512196</span></span>
+<span id="cb171-35"><a href="pop-genetics.html#cb171-35" tabindex="-1"></a><span class="co">#&gt; T1QTL_A4  0.032527239  0.013241725  0.020454234  0.486412895  0.08288145</span></span>
+<span id="cb171-36"><a href="pop-genetics.html#cb171-36" tabindex="-1"></a><span class="co">#&gt; T1QTL_A5  0.020081970 -0.003012277  0.009081830  0.019247531  0.45796222</span></span>
+<span id="cb171-37"><a href="pop-genetics.html#cb171-37" tabindex="-1"></a><span class="co">#&gt; T2QTL_A1  1.000000000  0.006179257 -0.013129314  0.048294183 -0.01325839</span></span>
+<span id="cb171-38"><a href="pop-genetics.html#cb171-38" tabindex="-1"></a><span class="co">#&gt; T2QTL_A2  0.006179257  1.000000000 -0.020860987  0.002164782 -0.01131418</span></span>
+<span id="cb171-39"><a href="pop-genetics.html#cb171-39" tabindex="-1"></a><span class="co">#&gt; T2QTL_A3 -0.013129314 -0.020860987  1.000000000 -0.010583797 -0.02101270</span></span>
+<span id="cb171-40"><a href="pop-genetics.html#cb171-40" tabindex="-1"></a><span class="co">#&gt; T2QTL_A4  0.048294183  0.002164782 -0.010583797  1.000000000  0.04350925</span></span>
+<span id="cb171-41"><a href="pop-genetics.html#cb171-41" tabindex="-1"></a><span class="co">#&gt; T2QTL_A5 -0.013258394 -0.011314179 -0.021012699  0.043509251  1.00000000</span></span>
+<span id="cb171-42"><a href="pop-genetics.html#cb171-42" tabindex="-1"></a><span class="fu">cor</span>(dataTwin[,<span class="dv">2</span><span class="sc">:</span><span class="dv">11</span>])<span class="sc">&gt;</span><span class="fl">0.2</span></span>
+<span id="cb171-43"><a href="pop-genetics.html#cb171-43" tabindex="-1"></a><span class="co">#&gt;          T1QTL_A1 T1QTL_A2 T1QTL_A3 T1QTL_A4 T1QTL_A5 T2QTL_A1 T2QTL_A2</span></span>
+<span id="cb171-44"><a href="pop-genetics.html#cb171-44" tabindex="-1"></a><span class="co">#&gt; T1QTL_A1     TRUE    FALSE    FALSE    FALSE    FALSE     TRUE    FALSE</span></span>
+<span id="cb171-45"><a href="pop-genetics.html#cb171-45" tabindex="-1"></a><span class="co">#&gt; T1QTL_A2    FALSE     TRUE    FALSE    FALSE    FALSE    FALSE     TRUE</span></span>
+<span id="cb171-46"><a href="pop-genetics.html#cb171-46" tabindex="-1"></a><span class="co">#&gt; T1QTL_A3    FALSE    FALSE     TRUE    FALSE    FALSE    FALSE    FALSE</span></span>
+<span id="cb171-47"><a href="pop-genetics.html#cb171-47" tabindex="-1"></a><span class="co">#&gt; T1QTL_A4    FALSE    FALSE    FALSE     TRUE    FALSE    FALSE    FALSE</span></span>
+<span id="cb171-48"><a href="pop-genetics.html#cb171-48" tabindex="-1"></a><span class="co">#&gt; T1QTL_A5    FALSE    FALSE    FALSE    FALSE     TRUE    FALSE    FALSE</span></span>
+<span id="cb171-49"><a href="pop-genetics.html#cb171-49" tabindex="-1"></a><span class="co">#&gt; T2QTL_A1     TRUE    FALSE    FALSE    FALSE    FALSE     TRUE    FALSE</span></span>
+<span id="cb171-50"><a href="pop-genetics.html#cb171-50" tabindex="-1"></a><span class="co">#&gt; T2QTL_A2    FALSE     TRUE    FALSE    FALSE    FALSE    FALSE     TRUE</span></span>
+<span id="cb171-51"><a href="pop-genetics.html#cb171-51" tabindex="-1"></a><span class="co">#&gt; T2QTL_A3    FALSE    FALSE     TRUE    FALSE    FALSE    FALSE    FALSE</span></span>
+<span id="cb171-52"><a href="pop-genetics.html#cb171-52" tabindex="-1"></a><span class="co">#&gt; T2QTL_A4    FALSE    FALSE    FALSE     TRUE    FALSE    FALSE    FALSE</span></span>
+<span id="cb171-53"><a href="pop-genetics.html#cb171-53" tabindex="-1"></a><span class="co">#&gt; T2QTL_A5    FALSE    FALSE    FALSE    FALSE     TRUE    FALSE    FALSE</span></span>
+<span id="cb171-54"><a href="pop-genetics.html#cb171-54" tabindex="-1"></a><span class="co">#&gt;          T2QTL_A3 T2QTL_A4 T2QTL_A5</span></span>
+<span id="cb171-55"><a href="pop-genetics.html#cb171-55" tabindex="-1"></a><span class="co">#&gt; T1QTL_A1    FALSE    FALSE    FALSE</span></span>
+<span id="cb171-56"><a href="pop-genetics.html#cb171-56" tabindex="-1"></a><span class="co">#&gt; T1QTL_A2    FALSE    FALSE    FALSE</span></span>
+<span id="cb171-57"><a href="pop-genetics.html#cb171-57" tabindex="-1"></a><span class="co">#&gt; T1QTL_A3     TRUE    FALSE    FALSE</span></span>
+<span id="cb171-58"><a href="pop-genetics.html#cb171-58" tabindex="-1"></a><span class="co">#&gt; T1QTL_A4    FALSE     TRUE    FALSE</span></span>
+<span id="cb171-59"><a href="pop-genetics.html#cb171-59" tabindex="-1"></a><span class="co">#&gt; T1QTL_A5    FALSE    FALSE     TRUE</span></span>
+<span id="cb171-60"><a href="pop-genetics.html#cb171-60" tabindex="-1"></a><span class="co">#&gt; T2QTL_A1    FALSE    FALSE    FALSE</span></span>
+<span id="cb171-61"><a href="pop-genetics.html#cb171-61" tabindex="-1"></a><span class="co">#&gt; T2QTL_A2    FALSE    FALSE    FALSE</span></span>
+<span id="cb171-62"><a href="pop-genetics.html#cb171-62" tabindex="-1"></a><span class="co">#&gt; T2QTL_A3     TRUE    FALSE    FALSE</span></span>
+<span id="cb171-63"><a href="pop-genetics.html#cb171-63" tabindex="-1"></a><span class="co">#&gt; T2QTL_A4    FALSE     TRUE    FALSE</span></span>
+<span id="cb171-64"><a href="pop-genetics.html#cb171-64" tabindex="-1"></a><span class="co">#&gt; T2QTL_A5    FALSE    FALSE     TRUE</span></span>
+<span id="cb171-65"><a href="pop-genetics.html#cb171-65" tabindex="-1"></a><span class="fu">apply</span>(dataTwin[<span class="dv">22</span><span class="sc">:</span><span class="dv">25</span>],<span class="dv">2</span>,<span class="cf">function</span>(x){ <span class="fu">any</span>(x <span class="sc">&lt;</span> (<span class="fu">mean</span>(x) <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span><span class="fu">sd</span>(x))) })  <span class="co"># Q4: any outlier &lt; 4 SD from the mean for the two quantitative phenotypes</span></span>
+<span id="cb171-66"><a href="pop-genetics.html#cb171-66" tabindex="-1"></a><span class="co">#&gt; pheno1_T1 pheno1_T2 pheno2_T1 pheno2_T2 </span></span>
+<span id="cb171-67"><a href="pop-genetics.html#cb171-67" tabindex="-1"></a><span class="co">#&gt;     FALSE     FALSE     FALSE      TRUE</span></span>
+<span id="cb171-68"><a href="pop-genetics.html#cb171-68" tabindex="-1"></a><span class="fu">apply</span>(dataTwin[<span class="dv">22</span><span class="sc">:</span><span class="dv">25</span>],<span class="dv">2</span>,<span class="cf">function</span>(x){ <span class="fu">any</span>(x <span class="sc">&gt;</span> (<span class="fu">mean</span>(x) <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span><span class="fu">sd</span>(x))) })  <span class="co"># Q4: any outlier &gt; 4 SD from the mean for the two quantitative phenotypes</span></span>
+<span id="cb171-69"><a href="pop-genetics.html#cb171-69" tabindex="-1"></a><span class="co">#&gt; pheno1_T1 pheno1_T2 pheno2_T1 pheno2_T2 </span></span>
+<span id="cb171-70"><a href="pop-genetics.html#cb171-70" tabindex="-1"></a><span class="co">#&gt;     FALSE     FALSE     FALSE     FALSE</span></span>
+<span id="cb171-71"><a href="pop-genetics.html#cb171-71" tabindex="-1"></a><span class="co"># remove the phenotype score of the outlier (T2) for the phenotype 2 (pheno2_T2)</span></span>
+<span id="cb171-72"><a href="pop-genetics.html#cb171-72" tabindex="-1"></a>outlier<span class="ot">&lt;-</span> <span class="fu">which</span>(dataTwin<span class="sc">$</span>pheno2_T2 <span class="sc">&lt;</span> (<span class="fu">mean</span>(dataTwin<span class="sc">$</span>pheno2_T2) <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span><span class="fu">sd</span>(dataTwin<span class="sc">$</span>pheno2_T2) )) </span>
+<span id="cb171-73"><a href="pop-genetics.html#cb171-73" tabindex="-1"></a>outlier</span>
+<span id="cb171-74"><a href="pop-genetics.html#cb171-74" tabindex="-1"></a><span class="co">#&gt; [1] 1303</span></span>
+<span id="cb171-75"><a href="pop-genetics.html#cb171-75" tabindex="-1"></a>dataTwin<span class="sc">$</span>pheno2_T2[outlier]</span>
+<span id="cb171-76"><a href="pop-genetics.html#cb171-76" tabindex="-1"></a><span class="co">#&gt; [1] -4.21</span></span>
+<span id="cb171-77"><a href="pop-genetics.html#cb171-77" tabindex="-1"></a>dataTwin<span class="sc">$</span>pheno2_T2[outlier] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
 <p><strong>Association test</strong></p>
 <p>Test for association between QTL and pheno1 for T1</p>
 <ul>
@@ -549,33 +549,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Proportion of phenotypic variance explained = 0.027</li>
 </ul>
 </details>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="pop-genetics.html#cb170-1" tabindex="-1"></a>linA1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pheno1_T1<span class="sc">~</span>T1QTL_A1, <span class="at">data=</span>dataTwin)</span>
-<span id="cb170-2"><a href="pop-genetics.html#cb170-2" tabindex="-1"></a><span class="fu">summary</span>(linA1)</span>
-<span id="cb170-3"><a href="pop-genetics.html#cb170-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb170-4"><a href="pop-genetics.html#cb170-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb170-5"><a href="pop-genetics.html#cb170-5" tabindex="-1"></a><span class="co">#&gt; lm(formula = pheno1_T1 ~ T1QTL_A1, data = dataTwin)</span></span>
-<span id="cb170-6"><a href="pop-genetics.html#cb170-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb170-7"><a href="pop-genetics.html#cb170-7" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb170-8"><a href="pop-genetics.html#cb170-8" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
-<span id="cb170-9"><a href="pop-genetics.html#cb170-9" tabindex="-1"></a><span class="co">#&gt; -15.1225  -2.4435   0.1105   2.7775  12.2555 </span></span>
-<span id="cb170-10"><a href="pop-genetics.html#cb170-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb170-11"><a href="pop-genetics.html#cb170-11" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb170-12"><a href="pop-genetics.html#cb170-12" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb170-13"><a href="pop-genetics.html#cb170-13" tabindex="-1"></a><span class="co">#&gt; (Intercept)   4.1464     0.1511  27.438  &lt; 2e-16 ***</span></span>
-<span id="cb170-14"><a href="pop-genetics.html#cb170-14" tabindex="-1"></a><span class="co">#&gt; T1QTL_A1      0.9180     0.1226   7.491 1.02e-13 ***</span></span>
-<span id="cb170-15"><a href="pop-genetics.html#cb170-15" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb170-16"><a href="pop-genetics.html#cb170-16" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb170-17"><a href="pop-genetics.html#cb170-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb170-18"><a href="pop-genetics.html#cb170-18" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 3.834 on 1998 degrees of freedom</span></span>
-<span id="cb170-19"><a href="pop-genetics.html#cb170-19" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.02732,    Adjusted R-squared:  0.02683 </span></span>
-<span id="cb170-20"><a href="pop-genetics.html#cb170-20" tabindex="-1"></a><span class="co">#&gt; F-statistic: 56.11 on 1 and 1998 DF,  p-value: 1.022e-13</span></span>
-<span id="cb170-21"><a href="pop-genetics.html#cb170-21" tabindex="-1"></a><span class="fu">summary</span>(linA1)<span class="sc">$</span>r.squared  <span class="co"># proportion of explained variance by additive component</span></span>
-<span id="cb170-22"><a href="pop-genetics.html#cb170-22" tabindex="-1"></a><span class="co">#&gt; [1] 0.02731675</span></span>
-<span id="cb170-23"><a href="pop-genetics.html#cb170-23" tabindex="-1"></a></span>
-<span id="cb170-24"><a href="pop-genetics.html#cb170-24" tabindex="-1"></a>c_means <span class="ot">&lt;-</span> <span class="fu">by</span>(dataTwin<span class="sc">$</span>pheno1_T1,dataTwin<span class="sc">$</span>T1QTL_A1,mean)</span>
-<span id="cb170-25"><a href="pop-genetics.html#cb170-25" tabindex="-1"></a><span class="fu">plot</span>(dataTwin<span class="sc">$</span>pheno1_T1 <span class="sc">~</span> dataTwin<span class="sc">$</span>T1QTL_A1, <span class="at">col=</span><span class="st">&#39;grey&#39;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">7</span>))</span>
-<span id="cb170-26"><a href="pop-genetics.html#cb170-26" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), c_means, <span class="at">type=</span><span class="st">&quot;p&quot;</span>, <span class="at">col=</span><span class="dv">6</span>, <span class="at">lwd=</span><span class="dv">8</span>)</span>
-<span id="cb170-27"><a href="pop-genetics.html#cb170-27" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">sort</span>(dataTwin<span class="sc">$</span>T1QTL_A1),<span class="fu">sort</span>(linA1<span class="sc">$</span>fitted.values), <span class="at">type=</span><span class="st">&#39;b&#39;</span>, <span class="at">col=</span><span class="st">&quot;dark green&quot;</span>, <span class="at">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="pop-genetics.html#cb172-1" tabindex="-1"></a>linA1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pheno1_T1<span class="sc">~</span>T1QTL_A1, <span class="at">data=</span>dataTwin)</span>
+<span id="cb172-2"><a href="pop-genetics.html#cb172-2" tabindex="-1"></a><span class="fu">summary</span>(linA1)</span>
+<span id="cb172-3"><a href="pop-genetics.html#cb172-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb172-4"><a href="pop-genetics.html#cb172-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb172-5"><a href="pop-genetics.html#cb172-5" tabindex="-1"></a><span class="co">#&gt; lm(formula = pheno1_T1 ~ T1QTL_A1, data = dataTwin)</span></span>
+<span id="cb172-6"><a href="pop-genetics.html#cb172-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb172-7"><a href="pop-genetics.html#cb172-7" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb172-8"><a href="pop-genetics.html#cb172-8" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
+<span id="cb172-9"><a href="pop-genetics.html#cb172-9" tabindex="-1"></a><span class="co">#&gt; -15.1225  -2.4435   0.1105   2.7775  12.2555 </span></span>
+<span id="cb172-10"><a href="pop-genetics.html#cb172-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb172-11"><a href="pop-genetics.html#cb172-11" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb172-12"><a href="pop-genetics.html#cb172-12" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb172-13"><a href="pop-genetics.html#cb172-13" tabindex="-1"></a><span class="co">#&gt; (Intercept)   4.1464     0.1511  27.438  &lt; 2e-16 ***</span></span>
+<span id="cb172-14"><a href="pop-genetics.html#cb172-14" tabindex="-1"></a><span class="co">#&gt; T1QTL_A1      0.9180     0.1226   7.491 1.02e-13 ***</span></span>
+<span id="cb172-15"><a href="pop-genetics.html#cb172-15" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb172-16"><a href="pop-genetics.html#cb172-16" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb172-17"><a href="pop-genetics.html#cb172-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb172-18"><a href="pop-genetics.html#cb172-18" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 3.834 on 1998 degrees of freedom</span></span>
+<span id="cb172-19"><a href="pop-genetics.html#cb172-19" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.02732,    Adjusted R-squared:  0.02683 </span></span>
+<span id="cb172-20"><a href="pop-genetics.html#cb172-20" tabindex="-1"></a><span class="co">#&gt; F-statistic: 56.11 on 1 and 1998 DF,  p-value: 1.022e-13</span></span>
+<span id="cb172-21"><a href="pop-genetics.html#cb172-21" tabindex="-1"></a><span class="fu">summary</span>(linA1)<span class="sc">$</span>r.squared  <span class="co"># proportion of explained variance by additive component</span></span>
+<span id="cb172-22"><a href="pop-genetics.html#cb172-22" tabindex="-1"></a><span class="co">#&gt; [1] 0.02731675</span></span>
+<span id="cb172-23"><a href="pop-genetics.html#cb172-23" tabindex="-1"></a></span>
+<span id="cb172-24"><a href="pop-genetics.html#cb172-24" tabindex="-1"></a>c_means <span class="ot">&lt;-</span> <span class="fu">by</span>(dataTwin<span class="sc">$</span>pheno1_T1,dataTwin<span class="sc">$</span>T1QTL_A1,mean)</span>
+<span id="cb172-25"><a href="pop-genetics.html#cb172-25" tabindex="-1"></a><span class="fu">plot</span>(dataTwin<span class="sc">$</span>pheno1_T1 <span class="sc">~</span> dataTwin<span class="sc">$</span>T1QTL_A1, <span class="at">col=</span><span class="st">&#39;grey&#39;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">7</span>))</span>
+<span id="cb172-26"><a href="pop-genetics.html#cb172-26" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), c_means, <span class="at">type=</span><span class="st">&quot;p&quot;</span>, <span class="at">col=</span><span class="dv">6</span>, <span class="at">lwd=</span><span class="dv">8</span>)</span>
+<span id="cb172-27"><a href="pop-genetics.html#cb172-27" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">sort</span>(dataTwin<span class="sc">$</span>T1QTL_A1),<span class="fu">sort</span>(linA1<span class="sc">$</span>fitted.values), <span class="at">type=</span><span class="st">&#39;b&#39;</span>, <span class="at">col=</span><span class="st">&quot;dark green&quot;</span>, <span class="at">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/lmAR-1.png" width="672" /></p>
 <p>To test for the non-linearity, we can use the dominance coding of the QTL and add the dominance term to the regression model.</p>
 <ul>
@@ -600,33 +600,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Yes. The model with dominance provides a better goodness of fit (lower p-value)</li>
 </ul>
 </details>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="pop-genetics.html#cb171-1" tabindex="-1"></a>linAD1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pheno1_T1 <span class="sc">~</span> T1QTL_A1 <span class="sc">+</span> T1QTL_D1, <span class="at">data=</span>dataTwin)</span>
-<span id="cb171-2"><a href="pop-genetics.html#cb171-2" tabindex="-1"></a><span class="fu">summary</span>(linAD1) <span class="co"># results lm(phenoT1~T1QTL_A1+T1QTL_D1)</span></span>
-<span id="cb171-3"><a href="pop-genetics.html#cb171-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb171-4"><a href="pop-genetics.html#cb171-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb171-5"><a href="pop-genetics.html#cb171-5" tabindex="-1"></a><span class="co">#&gt; lm(formula = pheno1_T1 ~ T1QTL_A1 + T1QTL_D1, data = dataTwin)</span></span>
-<span id="cb171-6"><a href="pop-genetics.html#cb171-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb171-7"><a href="pop-genetics.html#cb171-7" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb171-8"><a href="pop-genetics.html#cb171-8" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
-<span id="cb171-9"><a href="pop-genetics.html#cb171-9" tabindex="-1"></a><span class="co">#&gt; -14.7524  -2.5131   0.0586   2.8215  11.8894 </span></span>
-<span id="cb171-10"><a href="pop-genetics.html#cb171-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb171-11"><a href="pop-genetics.html#cb171-11" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb171-12"><a href="pop-genetics.html#cb171-12" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb171-13"><a href="pop-genetics.html#cb171-13" tabindex="-1"></a><span class="co">#&gt; (Intercept)   3.7522     0.1753  21.405  &lt; 2e-16 ***</span></span>
-<span id="cb171-14"><a href="pop-genetics.html#cb171-14" tabindex="-1"></a><span class="co">#&gt; T1QTL_A1      0.9301     0.1220   7.622 3.83e-14 ***</span></span>
-<span id="cb171-15"><a href="pop-genetics.html#cb171-15" tabindex="-1"></a><span class="co">#&gt; T1QTL_D1      0.7483     0.1708   4.382 1.24e-05 ***</span></span>
-<span id="cb171-16"><a href="pop-genetics.html#cb171-16" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb171-17"><a href="pop-genetics.html#cb171-17" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb171-18"><a href="pop-genetics.html#cb171-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb171-19"><a href="pop-genetics.html#cb171-19" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 3.816 on 1997 degrees of freedom</span></span>
-<span id="cb171-20"><a href="pop-genetics.html#cb171-20" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.03658,    Adjusted R-squared:  0.03562 </span></span>
-<span id="cb171-21"><a href="pop-genetics.html#cb171-21" tabindex="-1"></a><span class="co">#&gt; F-statistic: 37.91 on 2 and 1997 DF,  p-value: &lt; 2.2e-16</span></span>
-<span id="cb171-22"><a href="pop-genetics.html#cb171-22" tabindex="-1"></a></span>
-<span id="cb171-23"><a href="pop-genetics.html#cb171-23" tabindex="-1"></a><span class="fu">plot</span>(dataTwin<span class="sc">$</span>pheno1_T1 <span class="sc">~</span> dataTwin<span class="sc">$</span>T1QTL_A1, <span class="at">col=</span><span class="st">&#39;grey&#39;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">7</span>))</span>
-<span id="cb171-24"><a href="pop-genetics.html#cb171-24" tabindex="-1"></a><span class="fu">abline</span>(linA1, <span class="at">lwd=</span><span class="dv">3</span>)</span>
-<span id="cb171-25"><a href="pop-genetics.html#cb171-25" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), c_means, <span class="at">type=</span><span class="st">&#39;p&#39;</span>, <span class="at">col=</span><span class="dv">6</span>, <span class="at">lwd=</span><span class="dv">8</span>)</span>
-<span id="cb171-26"><a href="pop-genetics.html#cb171-26" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">sort</span>(dataTwin<span class="sc">$</span>T1QTL_A1),<span class="fu">sort</span>(linA1<span class="sc">$</span>fitted.values), <span class="at">type=</span><span class="st">&#39;b&#39;</span>, <span class="at">col=</span><span class="st">&quot;dark green&quot;</span>, <span class="at">lwd=</span><span class="dv">3</span>)</span>
-<span id="cb171-27"><a href="pop-genetics.html#cb171-27" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">sort</span>(dataTwin<span class="sc">$</span>T1QTL_A1),<span class="fu">sort</span>(linAD1<span class="sc">$</span>fitted.values), <span class="at">type=</span><span class="st">&#39;b&#39;</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="pop-genetics.html#cb173-1" tabindex="-1"></a>linAD1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pheno1_T1 <span class="sc">~</span> T1QTL_A1 <span class="sc">+</span> T1QTL_D1, <span class="at">data=</span>dataTwin)</span>
+<span id="cb173-2"><a href="pop-genetics.html#cb173-2" tabindex="-1"></a><span class="fu">summary</span>(linAD1) <span class="co"># results lm(phenoT1~T1QTL_A1+T1QTL_D1)</span></span>
+<span id="cb173-3"><a href="pop-genetics.html#cb173-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb173-4"><a href="pop-genetics.html#cb173-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb173-5"><a href="pop-genetics.html#cb173-5" tabindex="-1"></a><span class="co">#&gt; lm(formula = pheno1_T1 ~ T1QTL_A1 + T1QTL_D1, data = dataTwin)</span></span>
+<span id="cb173-6"><a href="pop-genetics.html#cb173-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb173-7"><a href="pop-genetics.html#cb173-7" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb173-8"><a href="pop-genetics.html#cb173-8" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
+<span id="cb173-9"><a href="pop-genetics.html#cb173-9" tabindex="-1"></a><span class="co">#&gt; -14.7524  -2.5131   0.0586   2.8215  11.8894 </span></span>
+<span id="cb173-10"><a href="pop-genetics.html#cb173-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb173-11"><a href="pop-genetics.html#cb173-11" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb173-12"><a href="pop-genetics.html#cb173-12" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb173-13"><a href="pop-genetics.html#cb173-13" tabindex="-1"></a><span class="co">#&gt; (Intercept)   3.7522     0.1753  21.405  &lt; 2e-16 ***</span></span>
+<span id="cb173-14"><a href="pop-genetics.html#cb173-14" tabindex="-1"></a><span class="co">#&gt; T1QTL_A1      0.9301     0.1220   7.622 3.83e-14 ***</span></span>
+<span id="cb173-15"><a href="pop-genetics.html#cb173-15" tabindex="-1"></a><span class="co">#&gt; T1QTL_D1      0.7483     0.1708   4.382 1.24e-05 ***</span></span>
+<span id="cb173-16"><a href="pop-genetics.html#cb173-16" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb173-17"><a href="pop-genetics.html#cb173-17" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb173-18"><a href="pop-genetics.html#cb173-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb173-19"><a href="pop-genetics.html#cb173-19" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 3.816 on 1997 degrees of freedom</span></span>
+<span id="cb173-20"><a href="pop-genetics.html#cb173-20" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.03658,    Adjusted R-squared:  0.03562 </span></span>
+<span id="cb173-21"><a href="pop-genetics.html#cb173-21" tabindex="-1"></a><span class="co">#&gt; F-statistic: 37.91 on 2 and 1997 DF,  p-value: &lt; 2.2e-16</span></span>
+<span id="cb173-22"><a href="pop-genetics.html#cb173-22" tabindex="-1"></a></span>
+<span id="cb173-23"><a href="pop-genetics.html#cb173-23" tabindex="-1"></a><span class="fu">plot</span>(dataTwin<span class="sc">$</span>pheno1_T1 <span class="sc">~</span> dataTwin<span class="sc">$</span>T1QTL_A1, <span class="at">col=</span><span class="st">&#39;grey&#39;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">7</span>))</span>
+<span id="cb173-24"><a href="pop-genetics.html#cb173-24" tabindex="-1"></a><span class="fu">abline</span>(linA1, <span class="at">lwd=</span><span class="dv">3</span>)</span>
+<span id="cb173-25"><a href="pop-genetics.html#cb173-25" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), c_means, <span class="at">type=</span><span class="st">&#39;p&#39;</span>, <span class="at">col=</span><span class="dv">6</span>, <span class="at">lwd=</span><span class="dv">8</span>)</span>
+<span id="cb173-26"><a href="pop-genetics.html#cb173-26" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">sort</span>(dataTwin<span class="sc">$</span>T1QTL_A1),<span class="fu">sort</span>(linA1<span class="sc">$</span>fitted.values), <span class="at">type=</span><span class="st">&#39;b&#39;</span>, <span class="at">col=</span><span class="st">&quot;dark green&quot;</span>, <span class="at">lwd=</span><span class="dv">3</span>)</span>
+<span id="cb173-27"><a href="pop-genetics.html#cb173-27" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">sort</span>(dataTwin<span class="sc">$</span>T1QTL_A1),<span class="fu">sort</span>(linAD1<span class="sc">$</span>fitted.values), <span class="at">type=</span><span class="st">&#39;b&#39;</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/lmADR-1.png" width="672" /></p>
 <strong>Q9.</strong> Repeat for the other 4 QTL and determine which QTL shows strongest association with the phenotype T1
 <details>
@@ -637,47 +637,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>QTL3 with <span class="math inline">\(P = 7.77 \times 10^{-25}\)</span> for model with dominance</li>
 </ul>
 </details>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="pop-genetics.html#cb172-1" tabindex="-1"></a>allQTL_A_T1 <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span></span>
-<span id="cb172-2"><a href="pop-genetics.html#cb172-2" tabindex="-1"></a>cpheno1_T1 <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">colnames</span>(dataTwin)<span class="sc">==</span><span class="st">&quot;pheno1_T1&quot;</span>)</span>
-<span id="cb172-3"><a href="pop-genetics.html#cb172-3" tabindex="-1"></a><span class="do">## Additive</span></span>
-<span id="cb172-4"><a href="pop-genetics.html#cb172-4" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">lapply</span>(allQTL_A_T1,<span class="cf">function</span>(x){ fstat<span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(pheno1_T1 <span class="sc">~</span> ., <span class="at">data=</span>dataTwin[,<span class="fu">c</span>(x,cpheno1_T1)]))<span class="sc">$</span>fstatistic;  <span class="fu">pf</span>(fstat[<span class="dv">1</span>],fstat[<span class="dv">2</span>],fstat[<span class="dv">3</span>],<span class="at">lower.tail =</span> F) }))</span>
-<span id="cb172-5"><a href="pop-genetics.html#cb172-5" tabindex="-1"></a><span class="co">#&gt;      [,1]        </span></span>
-<span id="cb172-6"><a href="pop-genetics.html#cb172-6" tabindex="-1"></a><span class="co">#&gt; [1,] 1.021942e-13</span></span>
-<span id="cb172-7"><a href="pop-genetics.html#cb172-7" tabindex="-1"></a><span class="co">#&gt; [2,] 8.329416e-15</span></span>
-<span id="cb172-8"><a href="pop-genetics.html#cb172-8" tabindex="-1"></a><span class="co">#&gt; [3,] 1.007527e-13</span></span>
-<span id="cb172-9"><a href="pop-genetics.html#cb172-9" tabindex="-1"></a><span class="co">#&gt; [4,] 4.523758e-18</span></span>
-<span id="cb172-10"><a href="pop-genetics.html#cb172-10" tabindex="-1"></a><span class="co">#&gt; [5,] 8.207842e-13</span></span>
-<span id="cb172-11"><a href="pop-genetics.html#cb172-11" tabindex="-1"></a><span class="do">## Dominance</span></span>
-<span id="cb172-12"><a href="pop-genetics.html#cb172-12" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">lapply</span>(allQTL_A_T1,<span class="cf">function</span>(x){ fstat<span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(pheno1_T1 <span class="sc">~</span> ., <span class="at">data=</span>dataTwin[,<span class="fu">c</span>(x,x<span class="sc">+</span><span class="dv">10</span>,cpheno1_T1)]))<span class="sc">$</span>fstatistic;  <span class="fu">pf</span>(fstat[<span class="dv">1</span>],fstat[<span class="dv">2</span>],fstat[<span class="dv">3</span>],<span class="at">lower.tail =</span> F) }))</span>
-<span id="cb172-13"><a href="pop-genetics.html#cb172-13" tabindex="-1"></a><span class="co">#&gt;      [,1]        </span></span>
-<span id="cb172-14"><a href="pop-genetics.html#cb172-14" tabindex="-1"></a><span class="co">#&gt; [1,] 6.907834e-17</span></span>
-<span id="cb172-15"><a href="pop-genetics.html#cb172-15" tabindex="-1"></a><span class="co">#&gt; [2,] 2.166957e-22</span></span>
-<span id="cb172-16"><a href="pop-genetics.html#cb172-16" tabindex="-1"></a><span class="co">#&gt; [3,] 7.771588e-25</span></span>
-<span id="cb172-17"><a href="pop-genetics.html#cb172-17" tabindex="-1"></a><span class="co">#&gt; [4,] 8.124437e-25</span></span>
-<span id="cb172-18"><a href="pop-genetics.html#cb172-18" tabindex="-1"></a><span class="co">#&gt; [5,] 4.312127e-21</span></span>
-<span id="cb172-19"><a href="pop-genetics.html#cb172-19" tabindex="-1"></a></span>
-<span id="cb172-20"><a href="pop-genetics.html#cb172-20" tabindex="-1"></a><span class="co">#Q9: QTL3 shows the strongest association with P=7.771588e-25</span></span>
-<span id="cb172-21"><a href="pop-genetics.html#cb172-21" tabindex="-1"></a>linAD3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pheno1_T1 <span class="sc">~</span> T1QTL_A3 <span class="sc">+</span> T1QTL_D3, <span class="at">data=</span>dataTwin)</span>
-<span id="cb172-22"><a href="pop-genetics.html#cb172-22" tabindex="-1"></a><span class="fu">summary</span>(linAD3) <span class="co"># results lm(phenoT1~T1QTL_A1+T1QTL_D1)</span></span>
-<span id="cb172-23"><a href="pop-genetics.html#cb172-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb172-24"><a href="pop-genetics.html#cb172-24" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb172-25"><a href="pop-genetics.html#cb172-25" tabindex="-1"></a><span class="co">#&gt; lm(formula = pheno1_T1 ~ T1QTL_A3 + T1QTL_D3, data = dataTwin)</span></span>
-<span id="cb172-26"><a href="pop-genetics.html#cb172-26" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb172-27"><a href="pop-genetics.html#cb172-27" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb172-28"><a href="pop-genetics.html#cb172-28" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
-<span id="cb172-29"><a href="pop-genetics.html#cb172-29" tabindex="-1"></a><span class="co">#&gt; -14.4988  -2.5701   0.1843   2.6991  11.5974 </span></span>
-<span id="cb172-30"><a href="pop-genetics.html#cb172-30" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb172-31"><a href="pop-genetics.html#cb172-31" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb172-32"><a href="pop-genetics.html#cb172-32" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb172-33"><a href="pop-genetics.html#cb172-33" tabindex="-1"></a><span class="co">#&gt; (Intercept)   3.5437     0.1684  21.038  &lt; 2e-16 ***</span></span>
-<span id="cb172-34"><a href="pop-genetics.html#cb172-34" tabindex="-1"></a><span class="co">#&gt; T1QTL_A3      0.9076     0.1181   7.683 2.43e-14 ***</span></span>
-<span id="cb172-35"><a href="pop-genetics.html#cb172-35" tabindex="-1"></a><span class="co">#&gt; T1QTL_D3      1.2714     0.1692   7.515 8.55e-14 ***</span></span>
-<span id="cb172-36"><a href="pop-genetics.html#cb172-36" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb172-37"><a href="pop-genetics.html#cb172-37" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb172-38"><a href="pop-genetics.html#cb172-38" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb172-39"><a href="pop-genetics.html#cb172-39" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 3.782 on 1997 degrees of freedom</span></span>
-<span id="cb172-40"><a href="pop-genetics.html#cb172-40" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.05408,    Adjusted R-squared:  0.05313 </span></span>
-<span id="cb172-41"><a href="pop-genetics.html#cb172-41" tabindex="-1"></a><span class="co">#&gt; F-statistic: 57.09 on 2 and 1997 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="pop-genetics.html#cb174-1" tabindex="-1"></a>allQTL_A_T1 <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb174-2"><a href="pop-genetics.html#cb174-2" tabindex="-1"></a>cpheno1_T1 <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">colnames</span>(dataTwin)<span class="sc">==</span><span class="st">&quot;pheno1_T1&quot;</span>)</span>
+<span id="cb174-3"><a href="pop-genetics.html#cb174-3" tabindex="-1"></a><span class="do">## Additive</span></span>
+<span id="cb174-4"><a href="pop-genetics.html#cb174-4" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">lapply</span>(allQTL_A_T1,<span class="cf">function</span>(x){ fstat<span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(pheno1_T1 <span class="sc">~</span> ., <span class="at">data=</span>dataTwin[,<span class="fu">c</span>(x,cpheno1_T1)]))<span class="sc">$</span>fstatistic;  <span class="fu">pf</span>(fstat[<span class="dv">1</span>],fstat[<span class="dv">2</span>],fstat[<span class="dv">3</span>],<span class="at">lower.tail =</span> F) }))</span>
+<span id="cb174-5"><a href="pop-genetics.html#cb174-5" tabindex="-1"></a><span class="co">#&gt;      [,1]        </span></span>
+<span id="cb174-6"><a href="pop-genetics.html#cb174-6" tabindex="-1"></a><span class="co">#&gt; [1,] 1.021942e-13</span></span>
+<span id="cb174-7"><a href="pop-genetics.html#cb174-7" tabindex="-1"></a><span class="co">#&gt; [2,] 8.329416e-15</span></span>
+<span id="cb174-8"><a href="pop-genetics.html#cb174-8" tabindex="-1"></a><span class="co">#&gt; [3,] 1.007527e-13</span></span>
+<span id="cb174-9"><a href="pop-genetics.html#cb174-9" tabindex="-1"></a><span class="co">#&gt; [4,] 4.523758e-18</span></span>
+<span id="cb174-10"><a href="pop-genetics.html#cb174-10" tabindex="-1"></a><span class="co">#&gt; [5,] 8.207842e-13</span></span>
+<span id="cb174-11"><a href="pop-genetics.html#cb174-11" tabindex="-1"></a><span class="do">## Dominance</span></span>
+<span id="cb174-12"><a href="pop-genetics.html#cb174-12" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">lapply</span>(allQTL_A_T1,<span class="cf">function</span>(x){ fstat<span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(pheno1_T1 <span class="sc">~</span> ., <span class="at">data=</span>dataTwin[,<span class="fu">c</span>(x,x<span class="sc">+</span><span class="dv">10</span>,cpheno1_T1)]))<span class="sc">$</span>fstatistic;  <span class="fu">pf</span>(fstat[<span class="dv">1</span>],fstat[<span class="dv">2</span>],fstat[<span class="dv">3</span>],<span class="at">lower.tail =</span> F) }))</span>
+<span id="cb174-13"><a href="pop-genetics.html#cb174-13" tabindex="-1"></a><span class="co">#&gt;      [,1]        </span></span>
+<span id="cb174-14"><a href="pop-genetics.html#cb174-14" tabindex="-1"></a><span class="co">#&gt; [1,] 6.907834e-17</span></span>
+<span id="cb174-15"><a href="pop-genetics.html#cb174-15" tabindex="-1"></a><span class="co">#&gt; [2,] 2.166957e-22</span></span>
+<span id="cb174-16"><a href="pop-genetics.html#cb174-16" tabindex="-1"></a><span class="co">#&gt; [3,] 7.771588e-25</span></span>
+<span id="cb174-17"><a href="pop-genetics.html#cb174-17" tabindex="-1"></a><span class="co">#&gt; [4,] 8.124437e-25</span></span>
+<span id="cb174-18"><a href="pop-genetics.html#cb174-18" tabindex="-1"></a><span class="co">#&gt; [5,] 4.312127e-21</span></span>
+<span id="cb174-19"><a href="pop-genetics.html#cb174-19" tabindex="-1"></a></span>
+<span id="cb174-20"><a href="pop-genetics.html#cb174-20" tabindex="-1"></a><span class="co">#Q9: QTL3 shows the strongest association with P=7.771588e-25</span></span>
+<span id="cb174-21"><a href="pop-genetics.html#cb174-21" tabindex="-1"></a>linAD3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pheno1_T1 <span class="sc">~</span> T1QTL_A3 <span class="sc">+</span> T1QTL_D3, <span class="at">data=</span>dataTwin)</span>
+<span id="cb174-22"><a href="pop-genetics.html#cb174-22" tabindex="-1"></a><span class="fu">summary</span>(linAD3) <span class="co"># results lm(phenoT1~T1QTL_A1+T1QTL_D1)</span></span>
+<span id="cb174-23"><a href="pop-genetics.html#cb174-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb174-24"><a href="pop-genetics.html#cb174-24" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb174-25"><a href="pop-genetics.html#cb174-25" tabindex="-1"></a><span class="co">#&gt; lm(formula = pheno1_T1 ~ T1QTL_A3 + T1QTL_D3, data = dataTwin)</span></span>
+<span id="cb174-26"><a href="pop-genetics.html#cb174-26" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb174-27"><a href="pop-genetics.html#cb174-27" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb174-28"><a href="pop-genetics.html#cb174-28" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
+<span id="cb174-29"><a href="pop-genetics.html#cb174-29" tabindex="-1"></a><span class="co">#&gt; -14.4988  -2.5701   0.1843   2.6991  11.5974 </span></span>
+<span id="cb174-30"><a href="pop-genetics.html#cb174-30" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb174-31"><a href="pop-genetics.html#cb174-31" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb174-32"><a href="pop-genetics.html#cb174-32" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb174-33"><a href="pop-genetics.html#cb174-33" tabindex="-1"></a><span class="co">#&gt; (Intercept)   3.5437     0.1684  21.038  &lt; 2e-16 ***</span></span>
+<span id="cb174-34"><a href="pop-genetics.html#cb174-34" tabindex="-1"></a><span class="co">#&gt; T1QTL_A3      0.9076     0.1181   7.683 2.43e-14 ***</span></span>
+<span id="cb174-35"><a href="pop-genetics.html#cb174-35" tabindex="-1"></a><span class="co">#&gt; T1QTL_D3      1.2714     0.1692   7.515 8.55e-14 ***</span></span>
+<span id="cb174-36"><a href="pop-genetics.html#cb174-36" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb174-37"><a href="pop-genetics.html#cb174-37" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb174-38"><a href="pop-genetics.html#cb174-38" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb174-39"><a href="pop-genetics.html#cb174-39" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 3.782 on 1997 degrees of freedom</span></span>
+<span id="cb174-40"><a href="pop-genetics.html#cb174-40" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.05408,    Adjusted R-squared:  0.05313 </span></span>
+<span id="cb174-41"><a href="pop-genetics.html#cb174-41" tabindex="-1"></a><span class="co">#&gt; F-statistic: 57.09 on 2 and 1997 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
 <p>If the subjects with top 5% of the phenotype score are considered as cases, perform case-control association test for most significant SNP (from Q9) and interpret the result.</p>
 <strong>Q10.</strong> What are the odds ratio, p-value, and 95% confidence interval (CI)?
 <details>
@@ -688,16 +688,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Odds ratio is 3.40 and the 95% CI is (1.65, 7.03)</li>
 </ul>
 </details>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="pop-genetics.html#cb173-1" tabindex="-1"></a>quant05 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(<span class="fu">c</span>(dataTwin<span class="sc">$</span>pheno1_T1,dataTwin<span class="sc">$</span>pheno1_T2),<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.05</span>))</span>
-<span id="cb173-2"><a href="pop-genetics.html#cb173-2" tabindex="-1"></a>dataTwin<span class="sc">$</span>CaseT1 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dataTwin<span class="sc">$</span>pheno1_T1<span class="sc">&gt;</span>quant05[<span class="dv">20</span>]) </span>
-<span id="cb173-3"><a href="pop-genetics.html#cb173-3" tabindex="-1"></a>dataTwin<span class="sc">$</span>CaseT2 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dataTwin<span class="sc">$</span>pheno1_T2<span class="sc">&gt;</span>quant05[<span class="dv">20</span>])</span>
-<span id="cb173-4"><a href="pop-genetics.html#cb173-4" tabindex="-1"></a>logisticAD1 <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">glm</span>(CaseT1 <span class="sc">~</span> T1QTL_A3 <span class="sc">+</span> T1QTL_D3, <span class="at">data=</span>dataTwin, <span class="at">family=</span><span class="st">&quot;binomial&quot;</span>))</span>
-<span id="cb173-5"><a href="pop-genetics.html#cb173-5" tabindex="-1"></a><span class="fu">exp</span>(logisticAD1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>])                                     <span class="co"># odds ratio</span></span>
-<span id="cb173-6"><a href="pop-genetics.html#cb173-6" tabindex="-1"></a><span class="co">#&gt; [1] 3.404757</span></span>
-<span id="cb173-7"><a href="pop-genetics.html#cb173-7" tabindex="-1"></a><span class="fu">exp</span>(logisticAD1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">-</span><span class="fl">1.96</span><span class="sc">*</span>logisticAD1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">2</span>])  <span class="co"># lower 95% confidence interval</span></span>
-<span id="cb173-8"><a href="pop-genetics.html#cb173-8" tabindex="-1"></a><span class="co">#&gt; [1] 1.648816</span></span>
-<span id="cb173-9"><a href="pop-genetics.html#cb173-9" tabindex="-1"></a><span class="fu">exp</span>(logisticAD1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">+</span><span class="fl">1.96</span><span class="sc">*</span>logisticAD1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">2</span>])  <span class="co"># upper 95% confidence interval</span></span>
-<span id="cb173-10"><a href="pop-genetics.html#cb173-10" tabindex="-1"></a><span class="co">#&gt; [1] 7.030723</span></span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="pop-genetics.html#cb175-1" tabindex="-1"></a>quant05 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(<span class="fu">c</span>(dataTwin<span class="sc">$</span>pheno1_T1,dataTwin<span class="sc">$</span>pheno1_T2),<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.05</span>))</span>
+<span id="cb175-2"><a href="pop-genetics.html#cb175-2" tabindex="-1"></a>dataTwin<span class="sc">$</span>CaseT1 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dataTwin<span class="sc">$</span>pheno1_T1<span class="sc">&gt;</span>quant05[<span class="dv">20</span>]) </span>
+<span id="cb175-3"><a href="pop-genetics.html#cb175-3" tabindex="-1"></a>dataTwin<span class="sc">$</span>CaseT2 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dataTwin<span class="sc">$</span>pheno1_T2<span class="sc">&gt;</span>quant05[<span class="dv">20</span>])</span>
+<span id="cb175-4"><a href="pop-genetics.html#cb175-4" tabindex="-1"></a>logisticAD1 <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">glm</span>(CaseT1 <span class="sc">~</span> T1QTL_A3 <span class="sc">+</span> T1QTL_D3, <span class="at">data=</span>dataTwin, <span class="at">family=</span><span class="st">&quot;binomial&quot;</span>))</span>
+<span id="cb175-5"><a href="pop-genetics.html#cb175-5" tabindex="-1"></a><span class="fu">exp</span>(logisticAD1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>])                                     <span class="co"># odds ratio</span></span>
+<span id="cb175-6"><a href="pop-genetics.html#cb175-6" tabindex="-1"></a><span class="co">#&gt; [1] 3.404757</span></span>
+<span id="cb175-7"><a href="pop-genetics.html#cb175-7" tabindex="-1"></a><span class="fu">exp</span>(logisticAD1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">-</span><span class="fl">1.96</span><span class="sc">*</span>logisticAD1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">2</span>])  <span class="co"># lower 95% confidence interval</span></span>
+<span id="cb175-8"><a href="pop-genetics.html#cb175-8" tabindex="-1"></a><span class="co">#&gt; [1] 1.648816</span></span>
+<span id="cb175-9"><a href="pop-genetics.html#cb175-9" tabindex="-1"></a><span class="fu">exp</span>(logisticAD1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">+</span><span class="fl">1.96</span><span class="sc">*</span>logisticAD1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">2</span>])  <span class="co"># upper 95% confidence interval</span></span>
+<span id="cb175-10"><a href="pop-genetics.html#cb175-10" tabindex="-1"></a><span class="co">#&gt; [1] 7.030723</span></span></code></pre></div>
 </div>
 </div>
 <div id="part-2" class="section level3 hasAnchor" number="7.1.2">
@@ -803,23 +803,23 @@ the coefficients 1/2 and 1/4 are based on quantitative genetic theory (Mather &a
 </ul></li>
 </ul>
 </details>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="pop-genetics.html#cb174-1" tabindex="-1"></a>var_pheno <span class="ot">&lt;-</span> <span class="fu">var</span>(dataTwin<span class="sc">$</span>pheno1_T1)  <span class="co"># the variance of the phenotype</span></span>
-<span id="cb174-2"><a href="pop-genetics.html#cb174-2" tabindex="-1"></a>var_pheno</span>
-<span id="cb174-3"><a href="pop-genetics.html#cb174-3" tabindex="-1"></a><span class="co">#&gt; [1] 15.10257</span></span>
-<span id="cb174-4"><a href="pop-genetics.html#cb174-4" tabindex="-1"></a></span>
-<span id="cb174-5"><a href="pop-genetics.html#cb174-5" tabindex="-1"></a>linAD3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pheno1_T1 <span class="sc">~</span> T1QTL_A3 <span class="sc">+</span> T1QTL_D3, <span class="at">data=</span>dataTwin)</span>
-<span id="cb174-6"><a href="pop-genetics.html#cb174-6" tabindex="-1"></a>linA3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pheno1_T1 <span class="sc">~</span> T1QTL_A3, <span class="at">data=</span>dataTwin)</span>
-<span id="cb174-7"><a href="pop-genetics.html#cb174-7" tabindex="-1"></a></span>
-<span id="cb174-8"><a href="pop-genetics.html#cb174-8" tabindex="-1"></a><span class="fu">summary</span>(linAD3)<span class="sc">$</span>r.squared           <span class="co"># proportion of explained variance by total genetic component</span></span>
-<span id="cb174-9"><a href="pop-genetics.html#cb174-9" tabindex="-1"></a><span class="co">#&gt; [1] 0.05408025</span></span>
-<span id="cb174-10"><a href="pop-genetics.html#cb174-10" tabindex="-1"></a><span class="fu">summary</span>(linA3)<span class="sc">$</span>r.squared            <span class="co"># proportion of explained variance by additive component</span></span>
-<span id="cb174-11"><a href="pop-genetics.html#cb174-11" tabindex="-1"></a><span class="co">#&gt; [1] 0.02733034</span></span>
-<span id="cb174-12"><a href="pop-genetics.html#cb174-12" tabindex="-1"></a><span class="fu">summary</span>(linAD3)<span class="sc">$</span>r.squared<span class="sc">*</span>var_pheno <span class="co"># (raw) variance component of total genetic component</span></span>
-<span id="cb174-13"><a href="pop-genetics.html#cb174-13" tabindex="-1"></a><span class="co">#&gt; [1] 0.8167509</span></span>
-<span id="cb174-14"><a href="pop-genetics.html#cb174-14" tabindex="-1"></a><span class="fu">summary</span>(linA3)<span class="sc">$</span>r.squared<span class="sc">*</span>var_pheno  <span class="co"># (raw) variance component of additive genetic component</span></span>
-<span id="cb174-15"><a href="pop-genetics.html#cb174-15" tabindex="-1"></a><span class="co">#&gt; [1] 0.4127585</span></span>
-<span id="cb174-16"><a href="pop-genetics.html#cb174-16" tabindex="-1"></a>(<span class="fu">summary</span>(linAD3)<span class="sc">$</span>r.squared<span class="sc">-</span><span class="fu">summary</span>(linA3)<span class="sc">$</span>r.squared)<span class="sc">*</span>var_pheno  <span class="co"># (raw) variance component of dominance genetic component</span></span>
-<span id="cb174-17"><a href="pop-genetics.html#cb174-17" tabindex="-1"></a><span class="co">#&gt; [1] 0.4039924</span></span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="pop-genetics.html#cb176-1" tabindex="-1"></a>var_pheno <span class="ot">&lt;-</span> <span class="fu">var</span>(dataTwin<span class="sc">$</span>pheno1_T1)  <span class="co"># the variance of the phenotype</span></span>
+<span id="cb176-2"><a href="pop-genetics.html#cb176-2" tabindex="-1"></a>var_pheno</span>
+<span id="cb176-3"><a href="pop-genetics.html#cb176-3" tabindex="-1"></a><span class="co">#&gt; [1] 15.10257</span></span>
+<span id="cb176-4"><a href="pop-genetics.html#cb176-4" tabindex="-1"></a></span>
+<span id="cb176-5"><a href="pop-genetics.html#cb176-5" tabindex="-1"></a>linAD3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pheno1_T1 <span class="sc">~</span> T1QTL_A3 <span class="sc">+</span> T1QTL_D3, <span class="at">data=</span>dataTwin)</span>
+<span id="cb176-6"><a href="pop-genetics.html#cb176-6" tabindex="-1"></a>linA3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pheno1_T1 <span class="sc">~</span> T1QTL_A3, <span class="at">data=</span>dataTwin)</span>
+<span id="cb176-7"><a href="pop-genetics.html#cb176-7" tabindex="-1"></a></span>
+<span id="cb176-8"><a href="pop-genetics.html#cb176-8" tabindex="-1"></a><span class="fu">summary</span>(linAD3)<span class="sc">$</span>r.squared           <span class="co"># proportion of explained variance by total genetic component</span></span>
+<span id="cb176-9"><a href="pop-genetics.html#cb176-9" tabindex="-1"></a><span class="co">#&gt; [1] 0.05408025</span></span>
+<span id="cb176-10"><a href="pop-genetics.html#cb176-10" tabindex="-1"></a><span class="fu">summary</span>(linA3)<span class="sc">$</span>r.squared            <span class="co"># proportion of explained variance by additive component</span></span>
+<span id="cb176-11"><a href="pop-genetics.html#cb176-11" tabindex="-1"></a><span class="co">#&gt; [1] 0.02733034</span></span>
+<span id="cb176-12"><a href="pop-genetics.html#cb176-12" tabindex="-1"></a><span class="fu">summary</span>(linAD3)<span class="sc">$</span>r.squared<span class="sc">*</span>var_pheno <span class="co"># (raw) variance component of total genetic component</span></span>
+<span id="cb176-13"><a href="pop-genetics.html#cb176-13" tabindex="-1"></a><span class="co">#&gt; [1] 0.8167509</span></span>
+<span id="cb176-14"><a href="pop-genetics.html#cb176-14" tabindex="-1"></a><span class="fu">summary</span>(linA3)<span class="sc">$</span>r.squared<span class="sc">*</span>var_pheno  <span class="co"># (raw) variance component of additive genetic component</span></span>
+<span id="cb176-15"><a href="pop-genetics.html#cb176-15" tabindex="-1"></a><span class="co">#&gt; [1] 0.4127585</span></span>
+<span id="cb176-16"><a href="pop-genetics.html#cb176-16" tabindex="-1"></a>(<span class="fu">summary</span>(linAD3)<span class="sc">$</span>r.squared<span class="sc">-</span><span class="fu">summary</span>(linA3)<span class="sc">$</span>r.squared)<span class="sc">*</span>var_pheno  <span class="co"># (raw) variance component of dominance genetic component</span></span>
+<span id="cb176-17"><a href="pop-genetics.html#cb176-17" tabindex="-1"></a><span class="co">#&gt; [1] 0.4039924</span></span></code></pre></div>
 </details>
 <p><strong>Q4.</strong> Estimate the variance explained by all the QTL using linear regression.</p>
 <details>
@@ -830,15 +830,15 @@ the coefficients 1/2 and 1/4 are based on quantitative genetic theory (Mather &a
 <li>Proportion of variance explained by all 5 QTLs with dominance = 0.23 and the total variance explained = 3.52.</li>
 </ul>
 </details>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="pop-genetics.html#cb175-1" tabindex="-1"></a><span class="co"># compute for all 5 QTL</span></span>
-<span id="cb175-2"><a href="pop-genetics.html#cb175-2" tabindex="-1"></a>linAD5<span class="ot">=</span>(<span class="fu">lm</span>(pheno1_T1 <span class="sc">~</span> T1QTL_A1 <span class="sc">+</span> T1QTL_A2 <span class="sc">+</span> T1QTL_A3 <span class="sc">+</span> T1QTL_A4 <span class="sc">+</span> T1QTL_A5 <span class="sc">+</span></span>
-<span id="cb175-3"><a href="pop-genetics.html#cb175-3" tabindex="-1"></a>                       T1QTL_D1 <span class="sc">+</span> T1QTL_D2 <span class="sc">+</span> T1QTL_D3 <span class="sc">+</span> T1QTL_D4 <span class="sc">+</span> T1QTL_D5,</span>
-<span id="cb175-4"><a href="pop-genetics.html#cb175-4" tabindex="-1"></a>            <span class="at">data=</span>dataTwin))</span>
-<span id="cb175-5"><a href="pop-genetics.html#cb175-5" tabindex="-1"></a></span>
-<span id="cb175-6"><a href="pop-genetics.html#cb175-6" tabindex="-1"></a><span class="fu">summary</span>(linAD5)<span class="sc">$</span>r.squared              <span class="co"># proportion of explained variance by total genetic component</span></span>
-<span id="cb175-7"><a href="pop-genetics.html#cb175-7" tabindex="-1"></a><span class="co">#&gt; [1] 0.2330307</span></span>
-<span id="cb175-8"><a href="pop-genetics.html#cb175-8" tabindex="-1"></a><span class="fu">summary</span>(linAD5)<span class="sc">$</span>r.squared<span class="sc">*</span>var_pheno    <span class="co"># (raw) variance component of total genetic component</span></span>
-<span id="cb175-9"><a href="pop-genetics.html#cb175-9" tabindex="-1"></a><span class="co">#&gt; [1] 3.519363</span></span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="pop-genetics.html#cb177-1" tabindex="-1"></a><span class="co"># compute for all 5 QTL</span></span>
+<span id="cb177-2"><a href="pop-genetics.html#cb177-2" tabindex="-1"></a>linAD5<span class="ot">=</span>(<span class="fu">lm</span>(pheno1_T1 <span class="sc">~</span> T1QTL_A1 <span class="sc">+</span> T1QTL_A2 <span class="sc">+</span> T1QTL_A3 <span class="sc">+</span> T1QTL_A4 <span class="sc">+</span> T1QTL_A5 <span class="sc">+</span></span>
+<span id="cb177-3"><a href="pop-genetics.html#cb177-3" tabindex="-1"></a>                       T1QTL_D1 <span class="sc">+</span> T1QTL_D2 <span class="sc">+</span> T1QTL_D3 <span class="sc">+</span> T1QTL_D4 <span class="sc">+</span> T1QTL_D5,</span>
+<span id="cb177-4"><a href="pop-genetics.html#cb177-4" tabindex="-1"></a>            <span class="at">data=</span>dataTwin))</span>
+<span id="cb177-5"><a href="pop-genetics.html#cb177-5" tabindex="-1"></a></span>
+<span id="cb177-6"><a href="pop-genetics.html#cb177-6" tabindex="-1"></a><span class="fu">summary</span>(linAD5)<span class="sc">$</span>r.squared              <span class="co"># proportion of explained variance by total genetic component</span></span>
+<span id="cb177-7"><a href="pop-genetics.html#cb177-7" tabindex="-1"></a><span class="co">#&gt; [1] 0.2330307</span></span>
+<span id="cb177-8"><a href="pop-genetics.html#cb177-8" tabindex="-1"></a><span class="fu">summary</span>(linAD5)<span class="sc">$</span>r.squared<span class="sc">*</span>var_pheno    <span class="co"># (raw) variance component of total genetic component</span></span>
+<span id="cb177-9"><a href="pop-genetics.html#cb177-9" tabindex="-1"></a><span class="co">#&gt; [1] 3.519363</span></span></code></pre></div>
 </div>
 <div id="hands-on-exercise-variance-explained-using-a-classical-twin-design." class="section level4 hasAnchor" number="7.1.2.3">
 <h4><span class="header-section-number">7.1.2.3</span> Hands-on exercise : variance explained using a classical twin design.<a href="pop-genetics.html#hands-on-exercise-variance-explained-using-a-classical-twin-design." class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -865,18 +865,18 @@ the coefficients 1/2 and 1/4 are based on quantitative genetic theory (Mather &a
 <li><span class="math inline">\(\sigma^{2}_{E} = 0.4566\)</span></li>
 </ul>
 </details>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="pop-genetics.html#cb176-1" tabindex="-1"></a>dataMZ <span class="ot">=</span> dataTwin[dataTwin<span class="sc">$</span>zygosity<span class="sc">==</span><span class="dv">1</span>, <span class="fu">c</span>(<span class="st">&#39;pheno1_T1&#39;</span>, <span class="st">&#39;pheno1_T2&#39;</span>)] <span class="co"># MZ data frame</span></span>
-<span id="cb176-2"><a href="pop-genetics.html#cb176-2" tabindex="-1"></a>dataDZ <span class="ot">=</span> dataTwin[dataTwin<span class="sc">$</span>zygosity<span class="sc">==</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="st">&#39;pheno1_T1&#39;</span>, <span class="st">&#39;pheno1_T2&#39;</span>)] <span class="co"># DZ data frame</span></span>
-<span id="cb176-3"><a href="pop-genetics.html#cb176-3" tabindex="-1"></a></span>
-<span id="cb176-4"><a href="pop-genetics.html#cb176-4" tabindex="-1"></a>rMZ<span class="ot">=</span><span class="fu">cor</span>(dataMZ)[<span class="dv">2</span>,<span class="dv">1</span>] <span class="co"># element 2,1 in the MZ correlation matrix</span></span>
-<span id="cb176-5"><a href="pop-genetics.html#cb176-5" tabindex="-1"></a>rDZ<span class="ot">=</span><span class="fu">cor</span>(dataDZ)[<span class="dv">2</span>,<span class="dv">1</span>] <span class="co"># element 2,1 in the DZ correlation matrix</span></span>
-<span id="cb176-6"><a href="pop-genetics.html#cb176-6" tabindex="-1"></a>rMZ</span>
-<span id="cb176-7"><a href="pop-genetics.html#cb176-7" tabindex="-1"></a>rDZ</span>
-<span id="cb176-8"><a href="pop-genetics.html#cb176-8" tabindex="-1"></a></span>
-<span id="cb176-9"><a href="pop-genetics.html#cb176-9" tabindex="-1"></a>sA2 <span class="ot">=</span> <span class="dv">4</span><span class="sc">*</span>rDZ <span class="sc">-</span> rMZ</span>
-<span id="cb176-10"><a href="pop-genetics.html#cb176-10" tabindex="-1"></a>sD2 <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>rMZ <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>rDZ</span>
-<span id="cb176-11"><a href="pop-genetics.html#cb176-11" tabindex="-1"></a>sE2 <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> sA2 <span class="sc">-</span> sD2</span>
-<span id="cb176-12"><a href="pop-genetics.html#cb176-12" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">c</span>(sA2, sD2, sE2))</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="pop-genetics.html#cb178-1" tabindex="-1"></a>dataMZ <span class="ot">=</span> dataTwin[dataTwin<span class="sc">$</span>zygosity<span class="sc">==</span><span class="dv">1</span>, <span class="fu">c</span>(<span class="st">&#39;pheno1_T1&#39;</span>, <span class="st">&#39;pheno1_T2&#39;</span>)] <span class="co"># MZ data frame</span></span>
+<span id="cb178-2"><a href="pop-genetics.html#cb178-2" tabindex="-1"></a>dataDZ <span class="ot">=</span> dataTwin[dataTwin<span class="sc">$</span>zygosity<span class="sc">==</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="st">&#39;pheno1_T1&#39;</span>, <span class="st">&#39;pheno1_T2&#39;</span>)] <span class="co"># DZ data frame</span></span>
+<span id="cb178-3"><a href="pop-genetics.html#cb178-3" tabindex="-1"></a></span>
+<span id="cb178-4"><a href="pop-genetics.html#cb178-4" tabindex="-1"></a>rMZ<span class="ot">=</span><span class="fu">cor</span>(dataMZ)[<span class="dv">2</span>,<span class="dv">1</span>] <span class="co"># element 2,1 in the MZ correlation matrix</span></span>
+<span id="cb178-5"><a href="pop-genetics.html#cb178-5" tabindex="-1"></a>rDZ<span class="ot">=</span><span class="fu">cor</span>(dataDZ)[<span class="dv">2</span>,<span class="dv">1</span>] <span class="co"># element 2,1 in the DZ correlation matrix</span></span>
+<span id="cb178-6"><a href="pop-genetics.html#cb178-6" tabindex="-1"></a>rMZ</span>
+<span id="cb178-7"><a href="pop-genetics.html#cb178-7" tabindex="-1"></a>rDZ</span>
+<span id="cb178-8"><a href="pop-genetics.html#cb178-8" tabindex="-1"></a></span>
+<span id="cb178-9"><a href="pop-genetics.html#cb178-9" tabindex="-1"></a>sA2 <span class="ot">=</span> <span class="dv">4</span><span class="sc">*</span>rDZ <span class="sc">-</span> rMZ</span>
+<span id="cb178-10"><a href="pop-genetics.html#cb178-10" tabindex="-1"></a>sD2 <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>rMZ <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>rDZ</span>
+<span id="cb178-11"><a href="pop-genetics.html#cb178-11" tabindex="-1"></a>sE2 <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> sA2 <span class="sc">-</span> sD2</span>
+<span id="cb178-12"><a href="pop-genetics.html#cb178-12" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">c</span>(sA2, sD2, sE2))</span></code></pre></div>
 <p>Similarly, for phenotype 2, we can estimate the proportion of additive and/or dominance genetic variances as well as shared environmental variance using the Falconer’s formula.</p>
 <strong>Q7.</strong> Which model (ACE or ADE) should be considered for phenotype 2?
 <details>
@@ -898,18 +898,18 @@ the coefficients 1/2 and 1/4 are based on quantitative genetic theory (Mather &a
 <li><span class="math inline">\(\sigma^{2}_{E} = 0.4864\)</span></li>
 </ul>
 </details>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="pop-genetics.html#cb177-1" tabindex="-1"></a>dataMZ <span class="ot">=</span> dataTwin[dataTwin<span class="sc">$</span>zygosity<span class="sc">==</span><span class="dv">1</span>, <span class="fu">c</span>(<span class="st">&#39;pheno2_T1&#39;</span>, <span class="st">&#39;pheno2_T2&#39;</span>)] <span class="co"># MZ data frame</span></span>
-<span id="cb177-2"><a href="pop-genetics.html#cb177-2" tabindex="-1"></a>dataDZ <span class="ot">=</span> dataTwin[dataTwin<span class="sc">$</span>zygosity<span class="sc">==</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="st">&#39;pheno2_T1&#39;</span>, <span class="st">&#39;pheno2_T2&#39;</span>)] <span class="co"># DZ data frame</span></span>
-<span id="cb177-3"><a href="pop-genetics.html#cb177-3" tabindex="-1"></a></span>
-<span id="cb177-4"><a href="pop-genetics.html#cb177-4" tabindex="-1"></a>rMZ<span class="ot">=</span><span class="fu">cor</span>(dataMZ, <span class="at">use=</span><span class="st">&quot;complete.obs&quot;</span>)[<span class="dv">2</span>,<span class="dv">1</span>] <span class="co"># element 2,1 in the MZ correlation matrix</span></span>
-<span id="cb177-5"><a href="pop-genetics.html#cb177-5" tabindex="-1"></a>rDZ<span class="ot">=</span><span class="fu">cor</span>(dataDZ, <span class="at">use=</span><span class="st">&quot;complete.obs&quot;</span>)[<span class="dv">2</span>,<span class="dv">1</span>] <span class="co"># element 2,1 in the DZ correlation matrix</span></span>
-<span id="cb177-6"><a href="pop-genetics.html#cb177-6" tabindex="-1"></a>rMZ</span>
-<span id="cb177-7"><a href="pop-genetics.html#cb177-7" tabindex="-1"></a>rDZ</span>
-<span id="cb177-8"><a href="pop-genetics.html#cb177-8" tabindex="-1"></a></span>
-<span id="cb177-9"><a href="pop-genetics.html#cb177-9" tabindex="-1"></a>sA2 <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>(rMZ <span class="sc">-</span> rDZ)</span>
-<span id="cb177-10"><a href="pop-genetics.html#cb177-10" tabindex="-1"></a>sC2 <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>rDZ <span class="sc">-</span> rMZ</span>
-<span id="cb177-11"><a href="pop-genetics.html#cb177-11" tabindex="-1"></a>sE2 <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> rMZ</span>
-<span id="cb177-12"><a href="pop-genetics.html#cb177-12" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">c</span>(sA2, sC2, sE2))</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="pop-genetics.html#cb179-1" tabindex="-1"></a>dataMZ <span class="ot">=</span> dataTwin[dataTwin<span class="sc">$</span>zygosity<span class="sc">==</span><span class="dv">1</span>, <span class="fu">c</span>(<span class="st">&#39;pheno2_T1&#39;</span>, <span class="st">&#39;pheno2_T2&#39;</span>)] <span class="co"># MZ data frame</span></span>
+<span id="cb179-2"><a href="pop-genetics.html#cb179-2" tabindex="-1"></a>dataDZ <span class="ot">=</span> dataTwin[dataTwin<span class="sc">$</span>zygosity<span class="sc">==</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="st">&#39;pheno2_T1&#39;</span>, <span class="st">&#39;pheno2_T2&#39;</span>)] <span class="co"># DZ data frame</span></span>
+<span id="cb179-3"><a href="pop-genetics.html#cb179-3" tabindex="-1"></a></span>
+<span id="cb179-4"><a href="pop-genetics.html#cb179-4" tabindex="-1"></a>rMZ<span class="ot">=</span><span class="fu">cor</span>(dataMZ, <span class="at">use=</span><span class="st">&quot;complete.obs&quot;</span>)[<span class="dv">2</span>,<span class="dv">1</span>] <span class="co"># element 2,1 in the MZ correlation matrix</span></span>
+<span id="cb179-5"><a href="pop-genetics.html#cb179-5" tabindex="-1"></a>rDZ<span class="ot">=</span><span class="fu">cor</span>(dataDZ, <span class="at">use=</span><span class="st">&quot;complete.obs&quot;</span>)[<span class="dv">2</span>,<span class="dv">1</span>] <span class="co"># element 2,1 in the DZ correlation matrix</span></span>
+<span id="cb179-6"><a href="pop-genetics.html#cb179-6" tabindex="-1"></a>rMZ</span>
+<span id="cb179-7"><a href="pop-genetics.html#cb179-7" tabindex="-1"></a>rDZ</span>
+<span id="cb179-8"><a href="pop-genetics.html#cb179-8" tabindex="-1"></a></span>
+<span id="cb179-9"><a href="pop-genetics.html#cb179-9" tabindex="-1"></a>sA2 <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>(rMZ <span class="sc">-</span> rDZ)</span>
+<span id="cb179-10"><a href="pop-genetics.html#cb179-10" tabindex="-1"></a>sC2 <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>rDZ <span class="sc">-</span> rMZ</span>
+<span id="cb179-11"><a href="pop-genetics.html#cb179-11" tabindex="-1"></a>sE2 <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> rMZ</span>
+<span id="cb179-12"><a href="pop-genetics.html#cb179-12" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">c</span>(sA2, sC2, sE2))</span></code></pre></div>
 </div>
 </div>
 <div id="references" class="section level3 hasAnchor" number="7.1.3">

@@ -1,11 +1,11 @@
 
 ## Case study 2: Cancer Epidemiology { #cancer-case2 }
 
-*by Dr Jason Wong*
+*by Prof. Jason Wong*
 
-*Date: 6-11-2023*
+*Date: 31-10-2024*
 
-[The RMarkdown notebook to run your own code can be downloaded here](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/M5-epidemiology.Rmd)
+[The RMarkdown notebook to run your own code can be downloaded here](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/M5-epidemiology.Rmd) [right click -> save link as]
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
@@ -23,11 +23,11 @@ You are a grants officer working for the Hong Kong Health Bureau. The HK governm
 
 ### Hong Kong population
 
-You are aware that generally cancer is disease that affects the elderly more than the young. You decide to first take a closer look at the structure of the population of Hong Kong.
+You are aware that, generally, cancer is a disease that affects the elderly more than the young. You decide first to take a closer look at the structure of the population of Hong Kong.
 
-[Historic population of Hong Kong](https://www.censtatd.gov.hk/en/web_table.html?id=1A) can be obtained from the Census and Statistics Department.
+[Historical population of Hong Kong](https://www.censtatd.gov.hk/en/web_table.html?id=1A) can be obtained from the Census and Statistics Department.
 
-An abridged version of the full historic population of Hong Kong is provided here containing the population of Hong Kong from 1965, 1975, 1985, 1995, 2005, 2015 and 2022 categorised by sex and age (0-19, 20-44, 45-64, 65+).
+An abridged version of the full historical population of Hong Kong is provided here, containing the population of Hong Kong from 1965, 1975, 1985, 1995, 2005, 2015 and 2022 categorised by sex and age (0-19, 20-44, 45-64, 65+).
 
 [Discussion points:]{.underline}
 
@@ -419,7 +419,7 @@ The data has been predownloaded as the Pubmed API via R is a bit slow.
 
 [Discussion points:]{.underline}
 
--   Why has research publications increased dramatically in recent years? Is there something unsual with the dataset?
+-   Why has research publications increased dramatically in recent years? Is there something unusual with the dataset?
 -   What are the main cancer types being researched in Hong Kong?
 -   Is there any correlation between funding and cancer incidence and mortality?
 
@@ -490,7 +490,7 @@ hist(pubmed$Publication.Year)
 
 <!-- ``` -->
 
-#### Make compare grant funding with incidence and mortality
+#### Compare grant funding with incidence and mortality
 
 ```{r grants versus incidence and mortality,  fig.height=8, fig.width=10}
 
@@ -528,6 +528,6 @@ grid.arrange(gp,ginc,gmor,pinc, pmor, ncol=3)
 
 ```
 
-### Open disucssion
+### Open discussion
 
-As a group discuss what cancer type would be most worthy of funding in Hong Kong. Statistics and figures should be used to support your decision. If possible also discuss other data/analyses that can be performed and/or other diseases that are also in need of funding in Hong Kong.
+As a group discuss what cancer type would be most worthy of funding in Hong Kong. Discuss what statistics and figures could be used to support your decision. If possible also discuss other data/analyses that can be performed and/or other diseases that are also in need of funding in Hong Kong.

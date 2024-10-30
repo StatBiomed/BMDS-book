@@ -63,12 +63,12 @@ null-distribution-approximated-by-resampling
 t-test
 derivation-of-t-distribution
 direct-use-of-t.test
-glm-test
+regression-based-test
 multiple-testing
 null-distribution-of-test-statistic
 null-distribution-of-p-value
 minimal-p-values-in-10-tests
-homework
+explore-power-and-sample-size-optional-power
 introLinearReg
 linear-regression-using-simulated-data
 simulating-data
@@ -97,7 +97,7 @@ cross-validation
 more-assessment-metrics
 two-types-of-error
 roc-curve
-homework-1
+homework
 image-digital
 cancer
 cancer-case1
@@ -120,8 +120,8 @@ e.-childhood-versus-elderly-cancers
 existing-cancer-funding-and-publication-data
 download-hmrf-grants-and-pubmed-data
 make-word-cloud-for-grants
-make-compare-grant-funding-with-incidence-and-mortality
-open-disucssion
+compare-grant-funding-with-incidence-and-mortality
+open-discussion
 pop-genetics
 case-study-1-heritability-and-human-traits
 part-1

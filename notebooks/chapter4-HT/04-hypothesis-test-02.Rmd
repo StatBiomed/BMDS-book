@@ -49,7 +49,7 @@ hist(p_min_in10)
 print(paste('Proportion of tests with min(p) < 0.05:', mean(p_min_in10 < 0.05)))
 ```
 
-### Homework
+## Explore power and sample size (optional) { power }
 
 1. Make a simulation of score: group A and B
 2. B follows normal(mean=0, std=1); A follows normal(mean=0.1, std=1)

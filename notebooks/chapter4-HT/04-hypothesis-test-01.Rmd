@@ -2,6 +2,36 @@
 
 ## Hypothesis testing and *p* value
 
+If you haven't heard much about hypothesis testing or `p value`, you will hear
+them again and again throughout of your whole journey of scientific study and 
+research. This might be your first time study it, but very likely will not be
+the last time study it (via other courses or self-study). Its importance will 
+not be over rated, as misuse or misunderstanding can easily lead to errors in
+scientific conclusions.
+
+Before we started with examples, I will concisely summarize the key elements 
+here, so you can come back after read through this chapter (or anytime you need
+to review).
+
+> When to perform hypothesis test
+  - unsure if the observed results are caused by randomness (randomness are 
+    everywhere but understanding or even admitting them are not always easy)
+
+> What are the key elements in the hypothesis test
+  - choose a proper testing statistics
+  - approximate the null distribution of the test statistic
+
+> What is the major challenge?
+  - understand the randomness of certain variables in the system / process
+  - estimate the testing statistic under the null hypothesis
+  - find a more effective test statistic (or the null distribution estimateion)
+  
+That's why you need to study more statistical course e.g., STAT2601 for the 
+mathematical of common variable distribution (or its more application-focused 
+alternative BIOF2013) and STAT2602 for advanced skills in deriving analytic or 
+asymptotic null distribution.
+
+
 How surprising is my result? Calculating a p-value
 
 There are many circumstances where we simply want to check whether an observation looks like it is compatible with the null hypothesis, $H_{0}$.
@@ -265,7 +295,7 @@ t.test(data_nonsmoking, data_heavysmoking, var.equal = TRUE)
 ```
 
 
-## GLM test
+## regression-based test
 We can also perform t-test in a Generalised linear model (GLM) setting to test
 if a coefficient is zero or not.
 

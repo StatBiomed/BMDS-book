@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2024-09-11" />
+<meta name="date" content="2024-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -226,14 +226,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.1" data-path="introHypoTest.html"><a href="introHypoTest.html#derivation-of-t-distribution"><i class="fa fa-check"></i><b>2.3.1</b> Derivation of t distribution</a></li>
 <li class="chapter" data-level="2.3.2" data-path="introHypoTest.html"><a href="introHypoTest.html#direct-use-of-t.test"><i class="fa fa-check"></i><b>2.3.2</b> Direct use of <code>t.test()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="introHypoTest.html"><a href="introHypoTest.html#glm-test"><i class="fa fa-check"></i><b>2.4</b> GLM test</a></li>
+<li class="chapter" data-level="2.4" data-path="introHypoTest.html"><a href="introHypoTest.html#regression-based-test"><i class="fa fa-check"></i><b>2.4</b> regression-based test</a></li>
 <li class="chapter" data-level="2.5" data-path="introHypoTest.html"><a href="introHypoTest.html#multiple-testing"><i class="fa fa-check"></i><b>2.5</b> Multiple testing</a>
 <ul>
 <li class="chapter" data-level="2.5.1" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-test-statistic"><i class="fa fa-check"></i><b>2.5.1</b> Null distribution (of test statistic)</a></li>
 <li class="chapter" data-level="2.5.2" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-p-value"><i class="fa fa-check"></i><b>2.5.2</b> Null distribution of p value</a></li>
 <li class="chapter" data-level="2.5.3" data-path="introHypoTest.html"><a href="introHypoTest.html#minimal-p-values-in-10-tests"><i class="fa fa-check"></i><b>2.5.3</b> Minimal p values in 10 tests</a></li>
-<li class="chapter" data-level="2.5.4" data-path="introHypoTest.html"><a href="introHypoTest.html#homework"><i class="fa fa-check"></i><b>2.5.4</b> Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="2.6" data-path="introHypoTest.html"><a href="introHypoTest.html#explore-power-and-sample-size-optional-power"><i class="fa fa-check"></i><b>2.6</b> Explore power and sample size (optional) { power }</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="introLinearReg.html"><a href="introLinearReg.html"><i class="fa fa-check"></i><b>3</b> Introduction to Linear Regression</a>
 <ul>
@@ -273,7 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.4.1" data-path="introClassifier.html"><a href="introClassifier.html#two-types-of-error"><i class="fa fa-check"></i><b>4.4.1</b> Two types of error</a></li>
 <li class="chapter" data-level="4.4.2" data-path="introClassifier.html"><a href="introClassifier.html#roc-curve"><i class="fa fa-check"></i><b>4.4.2</b> ROC curve</a></li>
-<li class="chapter" data-level="4.4.3" data-path="introClassifier.html"><a href="introClassifier.html#homework-1"><i class="fa fa-check"></i><b>4.4.3</b> Homework</a></li>
+<li class="chapter" data-level="4.4.3" data-path="introClassifier.html"><a href="introClassifier.html#homework"><i class="fa fa-check"></i><b>4.4.3</b> Homework</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Biomedical Data Modules</b></span></li>
@@ -292,7 +292,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.2" data-path="cancer.html"><a href="cancer.html#hong-kong-population"><i class="fa fa-check"></i><b>6.2.2</b> Hong Kong population</a></li>
 <li class="chapter" data-level="6.2.3" data-path="cancer.html"><a href="cancer.html#cancer-registry-data"><i class="fa fa-check"></i><b>6.2.3</b> Cancer registry data</a></li>
 <li class="chapter" data-level="6.2.4" data-path="cancer.html"><a href="cancer.html#existing-cancer-funding-and-publication-data"><i class="fa fa-check"></i><b>6.2.4</b> Existing cancer funding and publication data</a></li>
-<li class="chapter" data-level="6.2.5" data-path="cancer.html"><a href="cancer.html#open-disucssion"><i class="fa fa-check"></i><b>6.2.5</b> Open disucssion</a></li>
+<li class="chapter" data-level="6.2.5" data-path="cancer.html"><a href="cancer.html#open-discussion"><i class="fa fa-check"></i><b>6.2.5</b> Open discussion</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>7</b> Population Genetics and Diseases</a>
@@ -348,6 +348,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 2</span> Introduction to Hypothesis testing<a href="introHypoTest.html#introHypoTest" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="hypothesis-testing-and-p-value" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Hypothesis testing and <em>p</em> value<a href="introHypoTest.html#hypothesis-testing-and-p-value" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you haven’t heard much about hypothesis testing or <code>p value</code>, you will hear
+them again and again throughout of your whole journey of scientific study and
+research. This might be your first time study it, but very likely will not be
+the last time study it (via other courses or self-study). Its importance will
+not be over rated, as misuse or misunderstanding can easily lead to errors in
+scientific conclusions.</p>
+<p>Before we started with examples, I will concisely summarize the key elements
+here, so you can come back after read through this chapter (or anytime you need
+to review).</p>
+<blockquote>
+<p>When to perform hypothesis test
+- unsure if the observed results are caused by randomness (randomness are
+everywhere but understanding or even admitting them are not always easy)</p>
+</blockquote>
+<blockquote>
+<p>What are the key elements in the hypothesis test
+- choose a proper testing statistics
+- approximate the null distribution of the test statistic</p>
+</blockquote>
+<blockquote>
+<p>What is the major challenge?
+- understand the randomness of certain variables in the system / process
+- estimate the testing statistic under the null hypothesis
+- find a more effective test statistic (or the null distribution estimateion)</p>
+</blockquote>
+<p>That’s why you need to study more statistical course e.g., STAT2601 for the
+mathematical of common variable distribution (or its more application-focused
+alternative BIOF2013) and STAT2602 for advanced skills in deriving analytic or
+asymptotic null distribution.</p>
 <p>How surprising is my result? Calculating a p-value</p>
 <p>There are many circumstances where we simply want to check whether an observation looks like it is compatible with the null hypothesis, <span class="math inline">\(H_{0}\)</span>.</p>
 <p>Having decided on a significance level <span class="math inline">\(\alpha\)</span> and whether the situation warrants a one-tailed or a two-tailed test, we can use the cdf of the null distribution to calculate a p-value for the observation.</p>
@@ -571,8 +600,8 @@ let’s re-scale the test statistic by dividing the standard error <code>my_std<
 <span id="cb72-15"><a href="introHypoTest.html#cb72-15" tabindex="-1"></a><span class="co">#&gt;  3.667692  3.152000</span></span></code></pre></div>
 </div>
 </div>
-<div id="glm-test" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> GLM test<a href="introHypoTest.html#glm-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="regression-based-test" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> regression-based test<a href="introHypoTest.html#regression-based-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can also perform t-test in a Generalised linear model (GLM) setting to test
 if a coefficient is zero or not.</p>
 <p>Here, we simply use the <code>marketing</code> dataset as an example.</p>
@@ -668,8 +697,9 @@ Feel feel to try any null distribution, examples below</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="introHypoTest.html#cb82-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;Proportion of tests with min(p) &lt; 0.05:&#39;</span>, <span class="fu">mean</span>(p_min_in10 <span class="sc">&lt;</span> <span class="fl">0.05</span>)))</span>
 <span id="cb82-2"><a href="introHypoTest.html#cb82-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Proportion of tests with min(p) &lt; 0.05: 0.43&quot;</span></span></code></pre></div>
 </div>
-<div id="homework" class="section level3 hasAnchor" number="2.5.4">
-<h3><span class="header-section-number">2.5.4</span> Homework<a href="introHypoTest.html#homework" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="explore-power-and-sample-size-optional-power" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Explore power and sample size (optional) { power }<a href="introHypoTest.html#explore-power-and-sample-size-optional-power" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Make a simulation of score: group A and B</li>
 <li>B follows normal(mean=0, std=1); A follows normal(mean=0.1, std=1)</li>
@@ -694,7 +724,6 @@ do you find? Think the relation between power and sample size.</li>
 <span id="cb83-15"><a href="introHypoTest.html#cb83-15" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
 <span id="cb83-16"><a href="introHypoTest.html#cb83-16" tabindex="-1"></a><span class="co">#&gt;  mean of x  mean of y </span></span>
 <span id="cb83-17"><a href="introHypoTest.html#cb83-17" tabindex="-1"></a><span class="co">#&gt; 0.05444844 0.02266845</span></span></code></pre></div>
-</div>
 </div>
 </div>
             </section>
