@@ -1,0 +1,354 @@
+
+## Case study 2: Genetic sequence analysis
+
+### Sequence motif and k-mer
+
+**Scenario:** You are a biomedical data science trainee, and you want to use 
+some real case studies to understand how to perform sequence analysis. From these
+practices, you hope to understand how the sickle cell disease happens and how 
+the choice of gene editing site makes a potential therapy.
+
+From the lecture, you already understood that:
+
+1. the sickle cell disease happens due to a single nucleotide mutation on HBB (
+coding the hemoglobin bata chain for adult use), causing a missense mutation on 
+amino acid 7 from E to V. 
+You can view more from ClinVar 
+[RCV000016574](https://www.ncbi.nlm.nih.gov/clinvar/RCV000016574/) and 
+OMIM [603903](https://www.omim.org/entry/603903).
+2. the therapy was to re-activate another gene HBG (gamma chain) that was used 
+in the fetus. The HBG gene was repressed by a transcription factor BCL11A (as a 
+protein) that serves as a repressor to HBG.
+
+**Q1.** How can we understand where the protein of the BCL11A gene prefers to 
+bind on DNA?
+
+<details>
+<summary>**Answers:** </summary>
+- Using the binding motif database JASPAR: BCL11A's motif is
+  [MA2324.1](https://jaspar.elixir.no/matrix/MA2324.1/)
+- It collected the sequences of many binding sites already, check the 
+  `FASTA file` or the 
+  [HTML file](https://jaspar.elixir.no/sites/MA2324.1).
+- It's Motif can be viewed as this file
+  ![MA2324.1 Motif logo](https://jaspar.elixir.no/static/logos/all/svg/MA2324.1.svg)
+</details>
+<br />
+
+
+**Q2.** What is the meaning of position frequency matrix (PFM) and how to 
+convert it into a position probability matrix (PPM, often used as position 
+weight matrix PWM)?
+
+```{r}
+MA2324_PFM <- matrix(c(
+  343,    180,    125,   5724,    155,    143,   4495,
+  5024,   120,    281,     92,   5855,   5964,    641,
+  591,    165,   5747,    100,    141,     55,    385,
+  307,   5800,    112,    349,    114,    103,    744),
+  nrow = 4, byrow = TRUE
+)
+rownames(MA2324_PFM) = c("A", "C", "G", "T")
+MA2324_PFM
+
+# TODO: define position probability matrix
+
+```
+
+<details>
+<summary>**HowTo:** </summary>
+```{r}
+MA2324_PWM = MA2324_PFM / sum(MA2324_PFM[, 1])
+MA2324_PWM
+```
+</details>
+<br />
+
+**Q3.** Let's make the Motif logo ourselves by using 
+[weblogo.threeplusone.com](https://weblogo.threeplusone.com/create.cgi)
+
+You may use the first 500 lines of the sequences that we compiled: 
+  [MA2324.1.sites-h500.txt](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/module4-genetics/MA2324.1.sites-h500.txt)
+
+<details>
+<summary>**HowTo:** </summary>
+- Copy and paste to [weblogo.threeplusone.com](https://weblogo.threeplusone.com/create.cgi)
+- Check which position has the highest information content in _bit_.
+</details>
+<br />
+
+**Q4.** Given the motif, how good is a certain sequence in terms of consistency?
+Take these two sequences as examples:
+
+- sequence 1: `CGGACCA` (>hg38_chr1:1000830-1000836(+))
+- sequence 2: `CTGACCG` (hg38_chr1:940785-940791(-))
+
+
+```{r}
+# Use this One hot encoding function
+Onehot_Encode <- function(sequence) {
+  idx = match(strsplit(sequence, '')[[1]], c("A", "C", "G", "T"))
+  seq_mat = matrix(0, 4, length(idx))
+  for (i in 1:length(idx)) seq_mat[idx[i], i] = 1
+  seq_mat
+}
+
+seq_vec1 = Onehot_Encode("CGGACCA")
+seq_vec2 = Onehot_Encode("CTGACCG")
+seq_vec2
+```
+
+To calculate the consistency score of a certain sequence $S$ to a given motif 
+($M$ for the motif position weight matrix), you may recall what we 
+introduced in the lecture (same as the reference papers [1, 2]):
+
+$P(S|M) = \prod_{i=1}^k{M[s_i, i]}$
+
+Alternatively, you can also transform the sequence via our one hot encoding.
+Now, please try and see if you can calculate the motif score for the above two
+sequences (possibly in log10-scale).
+
+<details>
+<summary>**Example solution scripts:** </summary>
+- Meaning of motif score function: the log-likelihood of seeing a binding site 
+  sequence given the binding motif.
+- Manual calculation step by step:
+  ```{r}
+  colSums(seq_vec1 * MA2324_PWM)
+  
+  colSums(seq_vec2 * MA2324_PWM)
+  
+  seq_score1 = sum(log10(colSums(seq_vec1 * MA2324_PWM)))
+  seq_score2 = sum(log10(colSums(seq_vec2 * MA2324_PWM)))
+  
+  c(seq_score1, seq_score2)
+  ```
+</details>
+<br />
+
+**Q5.** Given a segment of a long sequence, how to find the potential motif 
+sites?
+
+- Scan the whole sequence
+- Find the best matched position
+
+Here, we will take the gene [HBG2](https://www.ncbi.nlm.nih.gov/gene/3048)
+as an example, with the initial sequence segment as follows:
+
+```{}
+ref|NC_000011.10|:c5255019-5254782 Homo sapiens chromosome 11, GRCh38.p14 Primary Assembly
+ATAAAAAAAATTAAGCAGCAGTATCCTCTTGGGGGCCCCTTCCCCACACTATCTCAATGCAAATATCTGT
+CTGAAACGGTCCCTGGCTAAACTCCACCCATGGGTTGGCCAGCCTTGCCTTGACCAATAGCCTTGACAAG
+GCAAACTTGACCAATAGTCTTAGAGTATCCAGTGAGGCCAGGGGCCGGCGGCTGGCTAGGGATGAAGAAT
+AAAAGGAAGCACCCTTCAGCAGTTCCAC
+```
+
+We may load the sequence into R by our `Onehot_Encode` function:
+```{r}
+HBG2_segment <- paste0(
+  "ATAAAAAAAATTAAGCAGCAGTATCCTCTTGGGGGCCCCTTCCCCACACTATCTCAATGCAAATATCTGT",
+  "CTGAAACGGTCCCTGGCTAAACTCCACCCATGGGTTGGCCAGCCTTGCCTTGACCAATAGCCTTGACAAG",
+  "GCAAACTTGACCAATAGTCTTAGAGTATCCAGTGAGGCCAGGGGCCGGCGGCTGGCTAGGGATGAAGAAT",
+  "AAAAGGAAGCACCCTTCAGCAGTTCCAC"
+)
+HBG2_segment
+
+HBG2_seg_vec = Onehot_Encode(HBG2_segment)
+# HBG2_seg_vec
+```
+
+<details>
+<summary>**Example solution scripts:** </summary>
+```{r}
+# TODO: try it yourself
+
+```
+</details>
+<br />
+
+**Q6.** With the same sequence above, count the frequency of each 3-mer:
+
+- List the all 3-mer 
+- Count each of the 3-mer in the sequence
+
+<details>
+<summary>**Example solution scripts:** </summary>
+```{r}
+# TODO: try it yourself
+
+# Option 1: keep using one hot encoding matrix
+
+# Option 2: substr(x, start, stop) 
+# you may make a vector with k-mer as name and use the above substr as index
+# this is related to dictionary data structure
+
+k = 3
+bases = c("A", "C", "G", "T")
+kmer_mat = unique(t(combn(rep(bases, k), m = k)))
+kmer = apply(kmer_mat, 1, paste, collapse='')
+
+kmer_count = rep(0, length(kmer))
+names(kmer_count) = kmer
+
+# Keep trying
+```
+</details>
+<br />
+
+
+### Functional mapping
+In this part, we will see how the sequence features may help predict molecular
+phenotype, namely splicing efficiency. You may read more in the original paper
+[Hou & Huang 2021](https://doi.org/10.1093/bioinformatics/btac321) [4], if you 
+are interested.
+
+Let's look at the data
+[plicing_efficiency_pred.csv](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/module4-genetics/plicing_efficiency_pred.csv)
+
+- columns 1 & 2: gene ID and gene name (1850 genes)
+- column 3: splicing efficiency (log scale)
+- columns 4 to 99: 96 octamer features (the normalized frequency in intron 
+  sequence)
+
+**Q7.** Now, we can try using the multiple linear regression model to check how 
+predictive the octamer frequencies are for splicing efficiency.
+
+- Load the data (scripts below)
+- Linear regression model
+- Using 10-fold cross-validation to evaluate the model
+- You may propose other alternative methods for assessing the 
+  association between octamer and splicing efficiency.
+
+  ```
+  library(caret)
+  
+  df_splicing <- read.csv("plicing_efficiency_pred.csv")
+  
+  # Define training control
+  # We also want to have savePredictions=TRUE & classProbs=TRUE
+  set.seed(0) 
+  my_trControl <- trainControl(method = "cv", number = 10, 
+                               savePredictions = TRUE)
+  
+  # TODO: try it yourself to fill the rest
+  ```
+<br />
+
+
+### References
+1. Crooks, G. E., Hon, G., Chandonia, J. M., & Brenner, S. E. (2004). 
+   [WebLogo: a sequence logo generator](https://doi.org/10.1101/gr.849004).
+   Genome research, 14(6), 1188-1190.
+2. Schneider, T. D., & Stephens, R. M. (1990). 
+   [Sequence logos: a new way to display consensus sequences](https://doi.org/10.1093/nar/18.20.6097). 
+   Nucleic acids research, 18(20), 6097-6100.
+3. Canver, M. C., Smith, E. C., Sher, F., Pinello, L., Sanjana, N. E., Shalem,
+   O., ... & Bauer, D. E. (2015). 
+   [BCL11A enhancer dissection by Cas9-mediated in situ saturating mutagenesis](https://www.nature.com/articles/nature15521). 
+   Nature, 527(7577), 192-197.
+4. Hou, R., & Huang, Y. (2022). 
+   [Genomic sequences and RNA-binding proteins predict RNA splicing efficiency 
+   in various single-cell contexts](https://doi.org/10.1093/bioinformatics/btac321).
+   Bioinformatics, 38(12), 3231-3237.
+5. Splicing efficiency prediction dataset at
+   https://github.com/StatBiomed/scRNA-efficiency-prediction. 
+    <details>
+    <summary>**scripts to subset the data :** </summary>
+   ```{}
+    df_Y = read.csv(paste0(
+      "https://github.com/StatBiomed/scRNA-efficiency-prediction/", 
+      "raw/refs/heads/main/data/estimated/sck562_all_stochastical_gamma.csv"
+    ), row.names = 1)
+    
+    df_X0 = read.csv(paste0(
+      "https://github.com/StatBiomed/scRNA-efficiency-prediction/", 
+      "raw/refs/heads/main/data/features/humanproteincode_octamer_gene_level.csv"
+    ))
+    
+    df_use = merge(df_Y, df_X0, by="gene_id", incomparables = NA)
+    df_use$velocity_gamma = -log(df_use$velocity_gamma + 0.01)
+    colnames(df_use)[3] = "splicing_efficiency"
+    # df_use = df_use[-1600, ]
+    
+    df_use[, 4:ncol(df_use)] = df_use[, 4:ncol(df_use)] + 0.00001
+    df_use[, 3:ncol(df_use)] = round(df_use[, 3:ncol(df_use)], digits=6)
+    
+    options(digits = 3)
+    write.csv(df_use, "plicing_efficiency_pred.csv", 
+              quote = FALSE, row.names = FALSE)
+    ```
+    </details>
+    <br />
+
+#### Potential resources
+
+<details>
+<summary>**Scan motif** </summary>
+```
+# For Q5
+motif_score_all = rep(NA, ncol(HBG2_seg_vec)-ncol(MA2324_PWM))
+for (i in 1:(ncol(HBG2_seg_vec) - ncol(MA2324_PWM))) {
+  motif_score_all[i] = sum(log10(colSums(
+    HBG2_seg_vec[, i:(i + ncol(MA2324_PWM) - 1)] * MA2324_PWM
+    )))
+}
+motif_score_all[1:5]
+
+sort(motif_score_all, decreasing = TRUE)[1:7]
+
+# For Q4
+# Potential motif score function
+# motif_score <- function(sequence, motif_PWM) {
+#   seq_vec = Onehot_Encode(sequence)
+#   sum(log(colSums(seq_vec * motif_PWM)))
+# }
+```
+</details>
+<br />
+
+
+<details>
+<summary>**K-mer counting** </summary>
+```
+# For Q6
+kmer_count = rep(0, length(kmer))
+names(kmer_count) = kmer
+for (i in 1:(nchar(HBG2_segment) - k + 1)) {
+  a_kmer = substr(HBG2_segment, i, i+2)
+  kmer_count[a_kmer] = kmer_count[a_kmer] + 1
+}
+kmer_count
+```
+</details>
+<br />
+
+
+<details>
+<summary>**Cross-validation for linear regression** </summary>
+```
+# For Q7
+# Train the model
+cv_model <- train(splicing_efficiency ~ ., 
+                  data = df_splicing[, 3:ncol(df_splicing)], 
+                  method = "lm", trControl = my_trControl)
+
+# Check model performance
+print(cv_model)
+cor(cv_model$pred$obs, cv_model$pred$pred)
+
+ggplot(cv_model$pred, aes(x=obs, y=pred)) + 
+  geom_point()
+```
+</details>
+<br />
+
+
+
+
+
+<!-- Since it is only one amino acid change, you are curious how the protein  -->
+<!-- structure changes. You copy the protein sequence from UniProt [P68871](https://www.uniprot.org/uniprotkb/P68871/entry#sequences)  -->
+<!-- and put it into [AlphaFold server](https://alphafoldserver.com). Similarly, you -->
+<!-- can introduce the disease mutation and predict the structure again. -->
+<!-- Note, the predicted structure is also available: -->
+<!-- [AF-P68871-F1-v4](https://alphafold.ebi.ac.uk/entry/P68871) -->

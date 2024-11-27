@@ -32,6 +32,9 @@ cat("# (PART) Biomedical Data Modules {-} ")
 ```{r child="notebooks/module4-genetics/M4-pop-genetics.Rmd", echo=TRUE}
 ```
 
+```{r child="notebooks/module4-genetics/M4-genetic-sequence.Rmd", echo=TRUE}
+```
+
 
 
 
