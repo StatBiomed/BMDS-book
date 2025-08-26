@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Cancer genomics | Biomedical Data Science - introduction with case studies</title>
+  <title>Chapter 11 Genomics and prediction | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Cancer genomics | Biomedical Data Science - introduction with case studies" />
+  <meta property="og:title" content="Chapter 11 Genomics and prediction | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Cancer genomics | Biomedical Data Science - introduction with case studies" />
+  <meta name="twitter:title" content="Chapter 11 Genomics and prediction | Biomedical Data Science - introduction with case studies" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="image-digital.html"/>
-<link rel="next" href="epidemiology.html"/>
+<link rel="prev" href="genetic-seq.html"/>
+<link rel="next" href="install.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -364,158 +364,198 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="cancer" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Cancer genomics<a href="cancer.html#cancer" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="cancer-case1" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Case study 1: analysis of cBioportal mutation data<a href="cancer.html#cancer-case1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Non-small cell lung cancer is a deadly disease, and we would like to identify
-mutations in genes that drive its formation and progression.
-George et al. (2015) has sequenced 120 small cell lung cancer samples and this
-data is available from <a href="cbioportal">cBioportal</a>.
-The original data is in the <a href="https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/">MAF</a>, and we have selected a subset of the
-columns, normalized the column names, and made the data available as an RDS
-file.</p>
-<p>In this exercise, we will explore the mutation data and examine genes that are
-frequently mutated in non-small cell lung cancer samples.
-We will implement a simple method for identifying candidate tumour suppressors
-based on loss-of-function mutations.</p>
-<div id="exploratory-analysis" class="section level3 hasAnchor" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Exploratory analysis<a href="cancer.html#exploratory-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Q1</strong>. Load the data named <code>mutations_sclc_ucologne_2015.rds</code> into R.
-Examine it using <code>head</code>.
-In this <code>data.frame</code>, each row is a mutation detected in a particular gene
-from a particular sample in the study.
-For more information on the columns, see the <a href="https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/">MAF specification</a>.</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="cancer.html#cb136-1" tabindex="-1"></a>?readRDS</span>
-<span id="cb136-2"><a href="cancer.html#cb136-2" tabindex="-1"></a></span>
-<span id="cb136-3"><a href="cancer.html#cb136-3" tabindex="-1"></a>?head</span></code></pre></div>
-<p><strong>Q2</strong>. Identify the top 10 most frequently mutated genes.</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="cancer.html#cb137-1" tabindex="-1"></a><span class="co"># calculate count frequencies using table</span></span>
-<span id="cb137-2"><a href="cancer.html#cb137-2" tabindex="-1"></a>?table</span>
-<span id="cb137-3"><a href="cancer.html#cb137-3" tabindex="-1"></a><span class="co"># freqs &lt;- ???</span></span>
-<span id="cb137-4"><a href="cancer.html#cb137-4" tabindex="-1"></a></span>
-<span id="cb137-5"><a href="cancer.html#cb137-5" tabindex="-1"></a><span class="co"># sort the frequency vector in decreasing order</span></span>
-<span id="cb137-6"><a href="cancer.html#cb137-6" tabindex="-1"></a>?sort</span>
-<span id="cb137-7"><a href="cancer.html#cb137-7" tabindex="-1"></a><span class="co"># freqs &lt;- ???</span></span>
-<span id="cb137-8"><a href="cancer.html#cb137-8" tabindex="-1"></a></span>
-<span id="cb137-9"><a href="cancer.html#cb137-9" tabindex="-1"></a><span class="co"># select the first 10 genes in the freqs</span></span>
-<span id="cb137-10"><a href="cancer.html#cb137-10" tabindex="-1"></a><span class="co"># freqs.top &lt;- ???</span></span>
-<span id="cb137-11"><a href="cancer.html#cb137-11" tabindex="-1"></a></span>
-<span id="cb137-12"><a href="cancer.html#cb137-12" tabindex="-1"></a><span class="co"># obtain the gene names</span></span>
-<span id="cb137-13"><a href="cancer.html#cb137-13" tabindex="-1"></a><span class="co"># genes &lt;- names(freqs.top);</span></span>
-<span id="cb137-14"><a href="cancer.html#cb137-14" tabindex="-1"></a></span>
-<span id="cb137-15"><a href="cancer.html#cb137-15" tabindex="-1"></a><span class="co"># print(freqs.top)</span></span></code></pre></div>
-<p><strong>Q3</strong>. Tabulate the count frequencies of <code>variant_class</code>.
-What proportion of variants are <code>Silent</code> or inside an <code>Intron</code>?</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="cancer.html#cb138-1" tabindex="-1"></a>?table</span></code></pre></div>
-<p><strong>Q4</strong>. A variant class value <code>frame_shift_del</code> appears to be misspelt due to
-case sensitivity. Correct this error.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="cancer.html#cb139-1" tabindex="-1"></a><span class="co"># x$variant_class[x$variant_class == &quot;frame_shift_del&quot;] &lt;- ???;</span></span></code></pre></div>
-<p><strong>Q5</strong>. To help us simplify the variant classes into loss-of-function or neutral,
-let us import the <code>mutation_effects.tsv</code> data.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="cancer.html#cb140-1" tabindex="-1"></a>?read.table</span>
-<span id="cb140-2"><a href="cancer.html#cb140-2" tabindex="-1"></a><span class="co"># Hint: You need to set the `header` and `sep` arguments</span></span></code></pre></div>
-<p><strong>Q6</strong>. Define a new column in <code>x</code> that converts the variant classes to effects.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="cancer.html#cb141-1" tabindex="-1"></a>?match</span></code></pre></div>
-<p><strong>Q7</strong>. Create a subset of the data for the most frequently mutated genes,
-and tabulate the mutation count frequencies of variant classes for each gene.</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="cancer.html#cb142-1" tabindex="-1"></a><span class="co"># x.sub &lt;- x[???, ]</span></span>
-<span id="cb142-2"><a href="cancer.html#cb142-2" tabindex="-1"></a></span>
-<span id="cb142-3"><a href="cancer.html#cb142-3" tabindex="-1"></a></span>
-<span id="cb142-4"><a href="cancer.html#cb142-4" tabindex="-1"></a><span class="co"># order the factor levels based on `genes`,</span></span>
-<span id="cb142-5"><a href="cancer.html#cb142-5" tabindex="-1"></a><span class="co"># which was previously sorted in decreasing order of frequency</span></span>
-<span id="cb142-6"><a href="cancer.html#cb142-6" tabindex="-1"></a><span class="co"># x.sub$gene &lt;- factor(x.sub$gene, levels=genes);</span></span>
-<span id="cb142-7"><a href="cancer.html#cb142-7" tabindex="-1"></a></span>
-<span id="cb142-8"><a href="cancer.html#cb142-8" tabindex="-1"></a>?table</span></code></pre></div>
-<p><strong>Q8</strong>. Determine the number of mutations in each effect category, across all genes.
-Save the result in a variable named <code>overall.counts</code>.</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="cancer.html#cb143-1" tabindex="-1"></a><span class="co"># overall.counts &lt;- table(???);</span></span>
-<span id="cb143-2"><a href="cancer.html#cb143-2" tabindex="-1"></a></span>
-<span id="cb143-3"><a href="cancer.html#cb143-3" tabindex="-1"></a><span class="co"># overall.counts</span></span></code></pre></div>
-<p><strong>Q9</strong>. Tabulate the mutation count frequencies for each gene and effect.
-Save the results in a variable named <code>gene.counts</code>.
-Look up the frequently mutated genes in this matrix.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="cancer.html#cb144-1" tabindex="-1"></a><span class="co"># gene.counts &lt;- table(???, ???);</span></span>
-<span id="cb144-2"><a href="cancer.html#cb144-2" tabindex="-1"></a><span class="co"># gene.counts[???, ]</span></span></code></pre></div>
+<div id="genomics-regression" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Genomics and prediction<a href="genomics-regression.html#genomics-regression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="genomics-case1" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Case study 1: splicing fedility prediction<a href="genomics-regression.html#genomics-case1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Scenario: As a computational biology researcher, you want to find out what sequence-related features function as a regulator for <strong>splicing fidelity</strong>. You conducted a deep RNA-seq experience and quantified the <strong>splicing error frequency (SEF)</strong> for 141 splicing error events in yeast. Based on your prior knowledge and curiosity, you plan to further define a set of sequence-related features and test how predictive they are.</p>
+<div id="questions-for-discussion-1" class="section level3 hasAnchor" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> Questions for Discussion<a href="genomics-regression.html#questions-for-discussion-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Q1.</strong> What sequence-related features you would think of?</p>
+<p><strong>Q2.</strong> Given a set of candidate features, what statistical methods can you use to determine if a feature genuinely contributes to splicing fidelity?</p>
+<p><strong>Q3.</strong> Given a candidate feature set, what could be the best subset of features for predicting the splicing fidelity and in what sense?</p>
 </div>
-<div id="statistical-analysis" class="section level3 hasAnchor" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> Statistical analysis<a href="cancer.html#statistical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Here, we implemented a simple statistical test for assessing whether a
-gene is significantly frequently targeted by loss-of-function mutations,
-based on the Fisher’s exact test.</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="cancer.html#cb145-1" tabindex="-1"></a><span class="co"># Test whether a query gene has significantly more loss-of-function</span></span>
-<span id="cb145-2"><a href="cancer.html#cb145-2" tabindex="-1"></a><span class="co"># mutations compared with other genes.</span></span>
-<span id="cb145-3"><a href="cancer.html#cb145-3" tabindex="-1"></a><span class="co"># Requires global variables `gene.counts` and `overall.counts`</span></span>
-<span id="cb145-4"><a href="cancer.html#cb145-4" tabindex="-1"></a>lof_test <span class="ot">&lt;-</span> <span class="cf">function</span>(gene) {</span>
-<span id="cb145-5"><a href="cancer.html#cb145-5" tabindex="-1"></a>  </span>
-<span id="cb145-6"><a href="cancer.html#cb145-6" tabindex="-1"></a>    <span class="co"># Construct the following contingency table:</span></span>
-<span id="cb145-7"><a href="cancer.html#cb145-7" tabindex="-1"></a>    <span class="co">#              neutral    lof</span></span>
-<span id="cb145-8"><a href="cancer.html#cb145-8" tabindex="-1"></a>    <span class="co"># other genes  a          b</span></span>
-<span id="cb145-9"><a href="cancer.html#cb145-9" tabindex="-1"></a>    <span class="co"># query gene   c          d</span></span>
-<span id="cb145-10"><a href="cancer.html#cb145-10" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;neutral&quot;</span>, <span class="st">&quot;loss_of_function&quot;</span>);</span>
-<span id="cb145-11"><a href="cancer.html#cb145-11" tabindex="-1"></a>    gene.counts.sel <span class="ot">&lt;-</span> gene.counts[gene, cols];</span>
-<span id="cb145-12"><a href="cancer.html#cb145-12" tabindex="-1"></a>    ct <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
-<span id="cb145-13"><a href="cancer.html#cb145-13" tabindex="-1"></a>        <span class="fu">c</span>(</span>
-<span id="cb145-14"><a href="cancer.html#cb145-14" tabindex="-1"></a>            overall.counts[cols] <span class="sc">-</span> gene.counts.sel,</span>
-<span id="cb145-15"><a href="cancer.html#cb145-15" tabindex="-1"></a>            gene.counts.sel</span>
-<span id="cb145-16"><a href="cancer.html#cb145-16" tabindex="-1"></a>        ),</span>
-<span id="cb145-17"><a href="cancer.html#cb145-17" tabindex="-1"></a>        <span class="at">byrow=</span><span class="cn">TRUE</span>,</span>
-<span id="cb145-18"><a href="cancer.html#cb145-18" tabindex="-1"></a>        <span class="at">ncol=</span><span class="dv">2</span></span>
-<span id="cb145-19"><a href="cancer.html#cb145-19" tabindex="-1"></a>    );</span>
-<span id="cb145-20"><a href="cancer.html#cb145-20" tabindex="-1"></a></span>
-<span id="cb145-21"><a href="cancer.html#cb145-21" tabindex="-1"></a>    <span class="co"># Test whether the lof mutations are greater in frequency compared </span></span>
-<span id="cb145-22"><a href="cancer.html#cb145-22" tabindex="-1"></a>    <span class="co"># to neutral mutations in the query gene, in comparison to all other genes</span></span>
-<span id="cb145-23"><a href="cancer.html#cb145-23" tabindex="-1"></a>    <span class="fu">fisher.test</span>(ct, <span class="at">alternative=</span><span class="st">&quot;greater&quot;</span>)</span>
-<span id="cb145-24"><a href="cancer.html#cb145-24" tabindex="-1"></a>}</span></code></pre></div>
-<p><strong>Q10</strong>. Subset the <code>gene.counts</code> table for the <em>TP53</em> gene.
-Run <code>lof_test</code> on this gene.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="cancer.html#cb146-1" tabindex="-1"></a><span class="co"># gene.counts[???, ]</span></span>
-<span id="cb146-2"><a href="cancer.html#cb146-2" tabindex="-1"></a><span class="co"># lof_test(???)</span></span></code></pre></div>
-<p><strong>Q11</strong>. Now, test to see if <em>TTN</em> and <em>MUC16</em> are significantly frequently
-targeted by loss-of-function mutations.</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="cancer.html#cb147-1" tabindex="-1"></a><span class="co"># similar to above</span></span></code></pre></div>
-<p><strong>Q12</strong>. Apply the loss-of-function test to all frequently mutated genes.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="cancer.html#cb148-1" tabindex="-1"></a>?lapply</span></code></pre></div>
-<p><strong>Q13</strong>. Extract odds ratio and p-values from the test results.</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="cancer.html#cb149-1" tabindex="-1"></a><span class="co"># odds.ratios &lt;- vapply(hs, function(h) h$estimate, 0);</span></span>
-<span id="cb149-2"><a href="cancer.html#cb149-2" tabindex="-1"></a><span class="co"># ps &lt;- vapply(hs, function(h) ???, 0);</span></span></code></pre></div>
-<p><strong>Q14</strong>. Since we tested many genes, we need to adjust for multiple hypothesis
-testing so that we can control the false discovery rate.
-So, adjust the p-values to obtain q-values.</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="cancer.html#cb150-1" tabindex="-1"></a>?p.adjust</span></code></pre></div>
-<p><strong>Q15</strong>. Construct a results <code>data.frame</code> with gene names, odds ratio, p-values,
-and q-values that summarize the loss-of-function test results.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="cancer.html#cb151-1" tabindex="-1"></a><span class="co"># res &lt;- data.frame(</span></span>
-<span id="cb151-2"><a href="cancer.html#cb151-2" tabindex="-1"></a><span class="co">#     gene = ???,</span></span>
-<span id="cb151-3"><a href="cancer.html#cb151-3" tabindex="-1"></a><span class="co">#     odds_ratio = ???,</span></span>
-<span id="cb151-4"><a href="cancer.html#cb151-4" tabindex="-1"></a><span class="co">#     p = ???,</span></span>
-<span id="cb151-5"><a href="cancer.html#cb151-5" tabindex="-1"></a><span class="co">#     q = ???</span></span>
-<span id="cb151-6"><a href="cancer.html#cb151-6" tabindex="-1"></a><span class="co"># );</span></span>
-<span id="cb151-7"><a href="cancer.html#cb151-7" tabindex="-1"></a></span>
-<span id="cb151-8"><a href="cancer.html#cb151-8" tabindex="-1"></a>?order</span>
-<span id="cb151-9"><a href="cancer.html#cb151-9" tabindex="-1"></a><span class="co">#res &lt;- res[order(???), ];</span></span></code></pre></div>
-<p><strong>Q16</strong>. Identify the significant genes from the results <code>data.frame</code> at a
-false discovery rate of 5% (i.e. q-value threshold of 0.05).</p>
-<p><strong>Q17</strong>. Look up the significant genes in the <code>gene.counts</code> matrix.</p>
+<div id="hands-on-with-regression-model" class="section level3 hasAnchor" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> Hands-on with regression model<a href="genomics-regression.html#hands-on-with-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now, you are given a dataset with 141 splicing error events containing Y for splicing error frequency (SEF) and 14 predictors X. Data set and template notebook are available on Moodle (recommended) and also on this
+<a href="https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/module1-genomics/df_SEF_prediction.tsv">GitHub Repo</a>.</p>
+<p><strong>The information for columns:</strong></p>
+<ul>
+<li>RPG: Ribosomal Protein Gene</li>
+<li>event: splicing error event type</li>
+<li>shift: nucleotide shift between canonical (ref, reference) and erroneous (alt, alternative) splice sites</li>
+<li>SEF: splicing error frequency</li>
+<li>intronL_ref: intron length for canonical (ref) intron</li>
+<li>5ss_bpL_ref: length between 5 splice site to branch point</li>
+<li>DeltaG_intron_ref: the energy score in the secondary RNA structure, calculated by <a href="http://rna.tbi.univie.ac.at/cgi-bin/RNAWebSuite/RNAfold.cgi">RNAFold</a>. The lower the more stable.</li>
+<li>5ss_motif_ref: the motif score of a sequence. The motif position weight matrix (PWM) is obtained by observed genes. The motif score is calculated as the log likelihood of each sequence given the PWM, followed by resealing to 100 for the maximum value. You can refer to <em>slide 7</em> in lecture topic 1.</li>
+<li>intronL_alt: intron length for erroneous (alt) intron</li>
+</ul>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="genomics-regression.html#cb194-1" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">read.table</span>(<span class="st">&quot;df_SEF_prediction.tsv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header=</span><span class="dv">1</span>)</span>
+<span id="cb194-2"><a href="genomics-regression.html#cb194-2" tabindex="-1"></a></span>
+<span id="cb194-3"><a href="genomics-regression.html#cb194-3" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb194-4"><a href="genomics-regression.html#cb194-4" tabindex="-1"></a><span class="co">#&gt;    gene     RPG   event shift         SEF intronL_ref X5ss_bpL_ref</span></span>
+<span id="cb194-5"><a href="genomics-regression.html#cb194-5" tabindex="-1"></a><span class="co">#&gt; 1  TFC3 non_RPG down3ss    17 0.479869423          90           77</span></span>
+<span id="cb194-6"><a href="genomics-regression.html#cb194-6" tabindex="-1"></a><span class="co">#&gt; 2 SEC17 non_RPG down3ss    47 0.021937843         116           77</span></span>
+<span id="cb194-7"><a href="genomics-regression.html#cb194-7" tabindex="-1"></a><span class="co">#&gt; 3  ERD2 non_RPG   up3ss     4 0.059303591          97           63</span></span>
+<span id="cb194-8"><a href="genomics-regression.html#cb194-8" tabindex="-1"></a><span class="co">#&gt; 4  LSM2 non_RPG   up5ss    56 0.019908116         128           92</span></span>
+<span id="cb194-9"><a href="genomics-regression.html#cb194-9" tabindex="-1"></a><span class="co">#&gt; 5  LSM2 non_RPG   up3ss    47 0.077444760         128           92</span></span>
+<span id="cb194-10"><a href="genomics-regression.html#cb194-10" tabindex="-1"></a><span class="co">#&gt; 6  LSM2 non_RPG down3ss    40 0.002844017         128           92</span></span>
+<span id="cb194-11"><a href="genomics-regression.html#cb194-11" tabindex="-1"></a><span class="co">#&gt;   DeltaG_intron_ref DeltaG_5ss_bp_ref DeltaG_bp_3ss_ref DeltaG_3ss_ref</span></span>
+<span id="cb194-12"><a href="genomics-regression.html#cb194-12" tabindex="-1"></a><span class="co">#&gt; 1          -0.11444          -0.13377               0.0           -6.2</span></span>
+<span id="cb194-13"><a href="genomics-regression.html#cb194-13" tabindex="-1"></a><span class="co">#&gt; 2          -0.17155          -0.10779             -10.5          -20.3</span></span>
+<span id="cb194-14"><a href="genomics-regression.html#cb194-14" tabindex="-1"></a><span class="co">#&gt; 3          -0.16804          -0.16190              -3.9           -8.7</span></span>
+<span id="cb194-15"><a href="genomics-regression.html#cb194-15" tabindex="-1"></a><span class="co">#&gt; 4          -0.13906          -0.12065              -0.9           -7.0</span></span>
+<span id="cb194-16"><a href="genomics-regression.html#cb194-16" tabindex="-1"></a><span class="co">#&gt; 5          -0.13906          -0.12065              -0.9           -7.0</span></span>
+<span id="cb194-17"><a href="genomics-regression.html#cb194-17" tabindex="-1"></a><span class="co">#&gt; 6          -0.13906          -0.12065              -0.9           -7.0</span></span>
+<span id="cb194-18"><a href="genomics-regression.html#cb194-18" tabindex="-1"></a><span class="co">#&gt;   X5ss_motif_ref bp_motif_ref X3ss_motif_ref intronL_alt DeltaG_intron_alt</span></span>
+<span id="cb194-19"><a href="genomics-regression.html#cb194-19" tabindex="-1"></a><span class="co">#&gt; 1         0.7213       0.7703         0.0769         107          -0.10841</span></span>
+<span id="cb194-20"><a href="genomics-regression.html#cb194-20" tabindex="-1"></a><span class="co">#&gt; 2         0.7695       0.9942         0.1461         163          -0.19202</span></span>
+<span id="cb194-21"><a href="genomics-regression.html#cb194-21" tabindex="-1"></a><span class="co">#&gt; 3         0.8495       0.8835         0.1496          93          -0.17527</span></span>
+<span id="cb194-22"><a href="genomics-regression.html#cb194-22" tabindex="-1"></a><span class="co">#&gt; 4         0.8305       0.6667         0.3677         184          -0.15217</span></span>
+<span id="cb194-23"><a href="genomics-regression.html#cb194-23" tabindex="-1"></a><span class="co">#&gt; 5         0.8305       0.6667         0.3677          81          -0.10864</span></span>
+<span id="cb194-24"><a href="genomics-regression.html#cb194-24" tabindex="-1"></a><span class="co">#&gt; 6         0.8305       0.6667         0.3677         168          -0.11667</span></span>
+<span id="cb194-25"><a href="genomics-regression.html#cb194-25" tabindex="-1"></a><span class="co">#&gt;   DeltaG_3ss_alt X5ss_motif_alt X3ss_motif_alt</span></span>
+<span id="cb194-26"><a href="genomics-regression.html#cb194-26" tabindex="-1"></a><span class="co">#&gt; 1           -6.8          77.00         0.5223</span></span>
+<span id="cb194-27"><a href="genomics-regression.html#cb194-27" tabindex="-1"></a><span class="co">#&gt; 2          -13.0          70.99         0.2926</span></span>
+<span id="cb194-28"><a href="genomics-regression.html#cb194-28" tabindex="-1"></a><span class="co">#&gt; 3           -8.3          86.10         0.3329</span></span>
+<span id="cb194-29"><a href="genomics-regression.html#cb194-29" tabindex="-1"></a><span class="co">#&gt; 4           -7.0          64.20         0.3955</span></span>
+<span id="cb194-30"><a href="genomics-regression.html#cb194-30" tabindex="-1"></a><span class="co">#&gt; 5           -8.9          80.76         0.6179</span></span>
+<span id="cb194-31"><a href="genomics-regression.html#cb194-31" tabindex="-1"></a><span class="co">#&gt; 6           -4.3          80.76         0.3341</span></span></code></pre></div>
+<div id="a-single-feature" class="section level4 hasAnchor" number="11.1.2.1">
+<h4><span class="header-section-number">11.1.2.1</span> A single feature<a href="genomics-regression.html#a-single-feature" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Q4.</strong> Let’s start with a single feature, <code>bp_motif_ref</code>, is there a linear relationship with the output variable <code>SEF</code> Y? How do you determine it?</p>
+<p><strong>Hint</strong>: try scatter plot to visualise the data. See example we mentioned before
+<a href="https://statbiomed.github.io/BMDS-book/introR.html#scatter-plot-1" class="uri">https://statbiomed.github.io/BMDS-book/introR.html#scatter-plot-1</a></p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="genomics-regression.html#cb195-1" tabindex="-1"></a><span class="co"># consider visualise it</span></span>
+<span id="cb195-2"><a href="genomics-regression.html#cb195-2" tabindex="-1"></a><span class="co"># df$SEF and df$bp_motif_ref</span></span>
+<span id="cb195-3"><a href="genomics-regression.html#cb195-3" tabindex="-1"></a></span>
+<span id="cb195-4"><a href="genomics-regression.html#cb195-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb195-5"><a href="genomics-regression.html#cb195-5" tabindex="-1"></a></span>
+<span id="cb195-6"><a href="genomics-regression.html#cb195-6" tabindex="-1"></a><span class="co"># Write your codes here</span></span></code></pre></div>
+<p>How about doing a log transform for SEF score? Consider adding a pseudo count, e.g., 0.0001.</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="genomics-regression.html#cb196-1" tabindex="-1"></a>df[<span class="st">&quot;SEF_log&quot;</span>] <span class="ot">=</span> <span class="fu">log10</span>(df<span class="sc">$</span>SEF <span class="sc">+</span> <span class="fl">0.0001</span>)</span>
+<span id="cb196-2"><a href="genomics-regression.html#cb196-2" tabindex="-1"></a></span>
+<span id="cb196-3"><a href="genomics-regression.html#cb196-3" tabindex="-1"></a><span class="co"># visualize it again</span></span></code></pre></div>
 </div>
-<div id="literature-search" class="section level3 hasAnchor" number="6.1.3">
-<h3><span class="header-section-number">6.1.3</span> Literature search<a href="cancer.html#literature-search" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Q18</strong>. Do the significant genes appear to be involved in cancer?
-What general roles do they play?</p>
-<p><strong>Q19</strong>. How do these genes contribute specifically to the formation
-or progression of small cell lung cancer?</p>
-<p><strong>Q20</strong>. What are some possible ways of identifying oncogenes that are activated
-by mutations or other genomic alterations?</p>
+<div id="all-features-with-lm" class="section level4 hasAnchor" number="11.1.2.2">
+<h4><span class="header-section-number">11.1.2.2</span> All features with lm<a href="genomics-regression.html#all-features-with-lm" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Q5.</strong> Can you build a linear model to perform the prediction by using all features? How to obtain the assessment statistics?</p>
+<p><strong>Hint</strong>: consider using the <code>lm</code> function. See examples we mentioned before
+<a href="https://statbiomed.github.io/BMDS-book/introLinearReg.html#simple-linear-regression-with-lm-function" class="uri">https://statbiomed.github.io/BMDS-book/introLinearReg.html#simple-linear-regression-with-lm-function</a></p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="genomics-regression.html#cb197-1" tabindex="-1"></a><span class="co"># For the formula, you can use this one, but you can also write your own:</span></span>
+<span id="cb197-2"><a href="genomics-regression.html#cb197-2" tabindex="-1"></a>lr_fm1 <span class="ot">=</span> <span class="fu">as.formula</span>(<span class="fu">paste</span>(<span class="st">&quot;SEF_log ~ 1 + &quot;</span>, <span class="fu">paste</span>(<span class="fu">colnames</span>(df)[<span class="dv">6</span><span class="sc">:</span><span class="dv">19</span>], <span class="at">collapse=</span><span class="st">&quot; + &quot;</span>)))</span>
+<span id="cb197-3"><a href="genomics-regression.html#cb197-3" tabindex="-1"></a></span>
+<span id="cb197-4"><a href="genomics-regression.html#cb197-4" tabindex="-1"></a><span class="co"># Write your codes for fitting the model here</span></span></code></pre></div>
+</div>
+<div id="assessment-on-test-data" class="section level4 hasAnchor" number="11.1.2.3">
+<h4><span class="header-section-number">11.1.2.3</span> Assessment on test data<a href="genomics-regression.html#assessment-on-test-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Q6.</strong> Can you perform the assessment on test data by splitting the data into training and test sets?</p>
+<p>We didn’t introduce how perform training &amp; test splitting in linear regression, but you can adapt the scripts that we introduced for logistic regression.</p>
+<p><strong>Hint</strong>: you can recall the logistic regress chapter for the training &amp; test spiting: <a href="https://statbiomed.github.io/BMDS-book/introClassifier.html#logistic-regression-on-diabetes" class="uri">https://statbiomed.github.io/BMDS-book/introClassifier.html#logistic-regression-on-diabetes</a></p>
+<p>You can also just use the codes below, but think what is the ratio between training and test sets here:</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="genomics-regression.html#cb198-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb198-2"><a href="genomics-regression.html#cb198-2" tabindex="-1"></a></span>
+<span id="cb198-3"><a href="genomics-regression.html#cb198-3" tabindex="-1"></a>idx_train <span class="ot">=</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(df),  <span class="at">size=</span><span class="fl">0.5</span><span class="sc">*</span><span class="fu">nrow</span>(df), <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb198-4"><a href="genomics-regression.html#cb198-4" tabindex="-1"></a>df_train <span class="ot">=</span> df[idx_train, ]</span>
+<span id="cb198-5"><a href="genomics-regression.html#cb198-5" tabindex="-1"></a>df_test  <span class="ot">=</span> df[<span class="sc">-</span>idx_train, ] <span class="co"># recall the meaning of negative symbol</span></span></code></pre></div>
+<p>Now, start training the model on the training set and predict on the test set.</p>
+<p><strong>Hint</strong>: follow the codes here: <a href="https://statbiomed.github.io/BMDS-book/introClassifier.html#logistic-regression-on-diabetes" class="uri">https://statbiomed.github.io/BMDS-book/introClassifier.html#logistic-regression-on-diabetes</a></p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="genomics-regression.html#cb199-1" tabindex="-1"></a><span class="co"># recall the predict function</span></span>
+<span id="cb199-2"><a href="genomics-regression.html#cb199-2" tabindex="-1"></a></span>
+<span id="cb199-3"><a href="genomics-regression.html#cb199-3" tabindex="-1"></a><span class="co"># lr_train = lm()</span></span>
+<span id="cb199-4"><a href="genomics-regression.html#cb199-4" tabindex="-1"></a><span class="co"># res_test = predict()</span></span></code></pre></div>
+<p>For calculating R^2, another quick way is using the Pearson’s correlation coefficient R, as it gives equivalent values. We can do it with the following codes with the <code>cor()</code> function.</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="genomics-regression.html#cb200-1" tabindex="-1"></a><span class="co"># Please uncomment the codes below:</span></span>
+<span id="cb200-2"><a href="genomics-regression.html#cb200-2" tabindex="-1"></a></span>
+<span id="cb200-3"><a href="genomics-regression.html#cb200-3" tabindex="-1"></a><span class="co"># R_sqr = cor(res_test, df_test$SEF_log)**2</span></span>
+<span id="cb200-4"><a href="genomics-regression.html#cb200-4" tabindex="-1"></a><span class="co"># R_sqr</span></span>
+<span id="cb200-5"><a href="genomics-regression.html#cb200-5" tabindex="-1"></a></span>
+<span id="cb200-6"><a href="genomics-regression.html#cb200-6" tabindex="-1"></a><span class="co"># Alternative function</span></span>
+<span id="cb200-7"><a href="genomics-regression.html#cb200-7" tabindex="-1"></a><span class="co"># cor.test(res_test, df_test$SEF_log)</span></span></code></pre></div>
+</div>
+<div id="cross-validation-for-regression" class="section level4 hasAnchor" number="11.1.2.4">
+<h4><span class="header-section-number">11.1.2.4</span> Cross-validation for regression<a href="genomics-regression.html#cross-validation-for-regression" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Q7.</strong> Can you perform a 10-fold cross validation, calculate the R^2 between predicted and observed log(SEF), and plot it with ggplot?</p>
+<p><strong>Hint</strong>: We didn’t mention cross-validation for linear regression but again we can adapt the codes from the logistic regression chapter:
+<a href="https://statbiomed.github.io/BMDS-book/introClassifier.html#cross-validation" class="uri">https://statbiomed.github.io/BMDS-book/introClassifier.html#cross-validation</a></p>
+<p>You can also use the codes below, but try to fill the missing part (with question marks <code>???</code>) yourself.</p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="genomics-regression.html#cb201-1" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb201-2"><a href="genomics-regression.html#cb201-2" tabindex="-1"></a></span>
+<span id="cb201-3"><a href="genomics-regression.html#cb201-3" tabindex="-1"></a><span class="co"># Define training control</span></span>
+<span id="cb201-4"><a href="genomics-regression.html#cb201-4" tabindex="-1"></a><span class="co"># We also want to have savePredictions=TRUE &amp; classProbs=TRUE</span></span>
+<span id="cb201-5"><a href="genomics-regression.html#cb201-5" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>) </span>
+<span id="cb201-6"><a href="genomics-regression.html#cb201-6" tabindex="-1"></a>my_trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="at">number =</span> <span class="dv">10</span>, </span>
+<span id="cb201-7"><a href="genomics-regression.html#cb201-7" tabindex="-1"></a>                             <span class="at">savePredictions =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb201-8"><a href="genomics-regression.html#cb201-8" tabindex="-1"></a></span>
+<span id="cb201-9"><a href="genomics-regression.html#cb201-9" tabindex="-1"></a><span class="co"># Train the model (uncomment the codes below)</span></span>
+<span id="cb201-10"><a href="genomics-regression.html#cb201-10" tabindex="-1"></a><span class="co"># cv_model &lt;- train(???, data = ???, </span></span>
+<span id="cb201-11"><a href="genomics-regression.html#cb201-11" tabindex="-1"></a><span class="co">#                   method = &quot;lm&quot;,</span></span>
+<span id="cb201-12"><a href="genomics-regression.html#cb201-12" tabindex="-1"></a><span class="co">#                   trControl = my_trControl)</span></span>
+<span id="cb201-13"><a href="genomics-regression.html#cb201-13" tabindex="-1"></a></span>
+<span id="cb201-14"><a href="genomics-regression.html#cb201-14" tabindex="-1"></a><span class="co"># Summarize the results</span></span>
+<span id="cb201-15"><a href="genomics-regression.html#cb201-15" tabindex="-1"></a><span class="co"># mean(cv_model$resample$Rsquared)</span></span>
+<span id="cb201-16"><a href="genomics-regression.html#cb201-16" tabindex="-1"></a><span class="co"># print(cv_model)</span></span></code></pre></div>
+<p>By using <code>print(cv_model)</code>, we can see the <em>Rsquared</em> value, which is an average of all R^2 acoss K folds (each fold has its own R^2 on the test set).</p>
+<p>Now, let’s manually calculate the R^2 between observed and predicted Y for all samples in an aggregated manner, despite that the Ys are predicted from different models in different folds.</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="genomics-regression.html#cb202-1" tabindex="-1"></a><span class="co"># Uncomment the codes below to view the first a few lines of the data frame</span></span>
+<span id="cb202-2"><a href="genomics-regression.html#cb202-2" tabindex="-1"></a></span>
+<span id="cb202-3"><a href="genomics-regression.html#cb202-3" tabindex="-1"></a><span class="co"># head(cv_model$pred)</span></span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="genomics-regression.html#cb203-1" tabindex="-1"></a><span class="co"># Uncomment the codes below to calculate the R^2</span></span>
+<span id="cb203-2"><a href="genomics-regression.html#cb203-2" tabindex="-1"></a></span>
+<span id="cb203-3"><a href="genomics-regression.html#cb203-3" tabindex="-1"></a><span class="co"># cor(cv_model$pred$pred, cv_model$pred$obs)**2</span></span></code></pre></div>
+</div>
+<div id="a-subset-of-features" class="section level4 hasAnchor" number="11.1.2.5">
+<h4><span class="header-section-number">11.1.2.5</span> A subset of features<a href="genomics-regression.html#a-subset-of-features" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Q8.</strong> Can you try a subset of features and see if you can improve the performance?</p>
+<p><strong>Hint</strong>: You can consider forward method as mentioned here by checking the <span class="math inline">\(p\)</span> value and only keep the significant ones (think which significance level <span class="math inline">\(\alpha\)</span> you would like to allow:
+<a href="https://statbiomed.github.io/BMDS-book/introLinearReg.html#multiple-regression-with-lm-function" class="uri">https://statbiomed.github.io/BMDS-book/introLinearReg.html#multiple-regression-with-lm-function</a></p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="genomics-regression.html#cb204-1" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb204-2"><a href="genomics-regression.html#cb204-2" tabindex="-1"></a></span>
+<span id="cb204-3"><a href="genomics-regression.html#cb204-3" tabindex="-1"></a><span class="co"># Define your new formular:</span></span>
+<span id="cb204-4"><a href="genomics-regression.html#cb204-4" tabindex="-1"></a><span class="co"># lr_fm2 = as.formula()</span></span>
+<span id="cb204-5"><a href="genomics-regression.html#cb204-5" tabindex="-1"></a></span>
+<span id="cb204-6"><a href="genomics-regression.html#cb204-6" tabindex="-1"></a></span>
+<span id="cb204-7"><a href="genomics-regression.html#cb204-7" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb204-8"><a href="genomics-regression.html#cb204-8" tabindex="-1"></a><span class="co"># Try the 10-fold cross-validation with the new feature set yourself</span></span>
+<span id="cb204-9"><a href="genomics-regression.html#cb204-9" tabindex="-1"></a><span class="co"># cv_model2 = ???</span></span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="genomics-regression.html#cb205-1" tabindex="-1"></a><span class="co"># Uncomment the codes below to calculate the R^2</span></span>
+<span id="cb205-2"><a href="genomics-regression.html#cb205-2" tabindex="-1"></a></span>
+<span id="cb205-3"><a href="genomics-regression.html#cb205-3" tabindex="-1"></a><span class="co"># cor(cv_model2$pred$pred, cv_model2$pred$obs)**2</span></span></code></pre></div>
+</div>
+</div>
+<div id="open-question" class="section level3 hasAnchor" number="11.1.3">
+<h3><span class="header-section-number">11.1.3</span> Open question<a href="genomics-regression.html#open-question" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Q9.</strong> Can you plot a scatter plot between log(SEF) vs X3ss_motif_ref, and colored by Ribosomal Protein Genes (RPG)? What did you see?</p>
+<p><strong>Hint</strong>: follow the example on the diabetes data:
+<a href="https://statbiomed.github.io/BMDS-book/introClassifier.html#load-pima-indians-diabetes-database" class="uri">https://statbiomed.github.io/BMDS-book/introClassifier.html#load-pima-indians-diabetes-database</a></p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="genomics-regression.html#cb206-1" tabindex="-1"></a><span class="co"># Write you codes here with ggplot</span></span></code></pre></div>
+<p><strong>Q10.</strong> Is the SEF score mainly driven by the RPG label or is it genuinely related to the 3’ss motif? How to test it?</p>
+<p><strong>Hint</strong>: consider adding <code>RPG</code> as a covariate. Is 3’ss motif still significant?</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="genomics-regression.html#cb207-1" tabindex="-1"></a><span class="co"># Define your new model</span></span>
+<span id="cb207-2"><a href="genomics-regression.html#cb207-2" tabindex="-1"></a>lr_fm3 <span class="ot">=</span> <span class="fu">as.formula</span>(<span class="fu">paste</span>(<span class="st">&quot;SEF_log ~&quot;</span>, <span class="fu">paste</span>(<span class="fu">colnames</span>(df)[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">6</span><span class="sc">:</span><span class="dv">19</span>)], <span class="at">collapse=</span><span class="st">&quot; + &quot;</span>)))</span>
+<span id="cb207-3"><a href="genomics-regression.html#cb207-3" tabindex="-1"></a></span>
+<span id="cb207-4"><a href="genomics-regression.html#cb207-4" tabindex="-1"></a><span class="co"># Write you codes below to fit the model</span></span></code></pre></div>
+<p><strong>Acknowledgement:</strong> this case study is adapted from the
+<a href="https://genome.cshlp.org/content/28/2/203/F4.expansion.html">Figure 4</a> for the following research article:</p>
+<ul>
+<li>Aslanzadeh et al. <em>Transcription rate strongly affects splicing fidelity and cotranscriptionality in budding yeast</em>. Genome Research, 2018, 28 (2), 203-213</li>
+</ul>
+
+
 </div>
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="image-digital.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="epidemiology.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="genetic-seq.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="install.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

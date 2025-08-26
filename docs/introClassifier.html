@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Introduction to Classification | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Introduction to Classification | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2024-09-11" />
+<meta name="date" content="2025-08-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -226,14 +226,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.1" data-path="introHypoTest.html"><a href="introHypoTest.html#derivation-of-t-distribution"><i class="fa fa-check"></i><b>2.3.1</b> Derivation of t distribution</a></li>
 <li class="chapter" data-level="2.3.2" data-path="introHypoTest.html"><a href="introHypoTest.html#direct-use-of-t.test"><i class="fa fa-check"></i><b>2.3.2</b> Direct use of <code>t.test()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="introHypoTest.html"><a href="introHypoTest.html#glm-test"><i class="fa fa-check"></i><b>2.4</b> GLM test</a></li>
+<li class="chapter" data-level="2.4" data-path="introHypoTest.html"><a href="introHypoTest.html#regression-based-test"><i class="fa fa-check"></i><b>2.4</b> regression-based test</a></li>
 <li class="chapter" data-level="2.5" data-path="introHypoTest.html"><a href="introHypoTest.html#multiple-testing"><i class="fa fa-check"></i><b>2.5</b> Multiple testing</a>
 <ul>
 <li class="chapter" data-level="2.5.1" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-test-statistic"><i class="fa fa-check"></i><b>2.5.1</b> Null distribution (of test statistic)</a></li>
 <li class="chapter" data-level="2.5.2" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-p-value"><i class="fa fa-check"></i><b>2.5.2</b> Null distribution of p value</a></li>
 <li class="chapter" data-level="2.5.3" data-path="introHypoTest.html"><a href="introHypoTest.html#minimal-p-values-in-10-tests"><i class="fa fa-check"></i><b>2.5.3</b> Minimal p values in 10 tests</a></li>
-<li class="chapter" data-level="2.5.4" data-path="introHypoTest.html"><a href="introHypoTest.html#homework"><i class="fa fa-check"></i><b>2.5.4</b> Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="2.6" data-path="introHypoTest.html"><a href="introHypoTest.html#explore-power-and-sample-size-optional-power"><i class="fa fa-check"></i><b>2.6</b> Explore power and sample size (optional) { power }</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="introLinearReg.html"><a href="introLinearReg.html"><i class="fa fa-check"></i><b>3</b> Introduction to Linear Regression</a>
 <ul>
@@ -273,12 +273,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.4.1" data-path="introClassifier.html"><a href="introClassifier.html#two-types-of-error"><i class="fa fa-check"></i><b>4.4.1</b> Two types of error</a></li>
 <li class="chapter" data-level="4.4.2" data-path="introClassifier.html"><a href="introClassifier.html#roc-curve"><i class="fa fa-check"></i><b>4.4.2</b> ROC curve</a></li>
-<li class="chapter" data-level="4.4.3" data-path="introClassifier.html"><a href="introClassifier.html#homework-1"><i class="fa fa-check"></i><b>4.4.3</b> Homework</a></li>
+<li class="chapter" data-level="4.4.3" data-path="introClassifier.html"><a href="introClassifier.html#homework"><i class="fa fa-check"></i><b>4.4.3</b> Homework</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Biomedical Data Modules</b></span></li>
 <li class="chapter" data-level="5" data-path="image-digital.html"><a href="image-digital.html"><i class="fa fa-check"></i><b>5</b> Medical Image and Digital Health</a></li>
-<li class="chapter" data-level="6" data-path="cancer.html"><a href="cancer.html"><i class="fa fa-check"></i><b>6</b> Cancer genomics and epidemiology</a>
+<li class="chapter" data-level="6" data-path="cancer.html"><a href="cancer.html"><i class="fa fa-check"></i><b>6</b> Cancer genomics</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="cancer.html"><a href="cancer.html#cancer-case1"><i class="fa fa-check"></i><b>6.1</b> Case study 1: analysis of cBioportal mutation data</a>
 <ul>
@@ -286,25 +286,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1.2" data-path="cancer.html"><a href="cancer.html#statistical-analysis"><i class="fa fa-check"></i><b>6.1.2</b> Statistical analysis</a></li>
 <li class="chapter" data-level="6.1.3" data-path="cancer.html"><a href="cancer.html#literature-search"><i class="fa fa-check"></i><b>6.1.3</b> Literature search</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="cancer.html"><a href="cancer.html#cancer-case2"><i class="fa fa-check"></i><b>6.2</b> Case study 2: Cancer Epidemiology</a>
+</ul></li>
+<li class="chapter" data-level="7" data-path="epidemiology.html"><a href="epidemiology.html"><i class="fa fa-check"></i><b>7</b> Epidemiology</a></li>
+<li class="chapter" data-level="8" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>8</b> Population Genetics</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="cancer.html"><a href="cancer.html#scenario"><i class="fa fa-check"></i><b>6.2.1</b> Scenario</a></li>
-<li class="chapter" data-level="6.2.2" data-path="cancer.html"><a href="cancer.html#hong-kong-population"><i class="fa fa-check"></i><b>6.2.2</b> Hong Kong population</a></li>
-<li class="chapter" data-level="6.2.3" data-path="cancer.html"><a href="cancer.html#cancer-registry-data"><i class="fa fa-check"></i><b>6.2.3</b> Cancer registry data</a></li>
-<li class="chapter" data-level="6.2.4" data-path="cancer.html"><a href="cancer.html#existing-cancer-funding-and-publication-data"><i class="fa fa-check"></i><b>6.2.4</b> Existing cancer funding and publication data</a></li>
-<li class="chapter" data-level="6.2.5" data-path="cancer.html"><a href="cancer.html#open-disucssion"><i class="fa fa-check"></i><b>6.2.5</b> Open disucssion</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>7</b> Population Genetics and Diseases</a>
+<li class="chapter" data-level="8.1" data-path="pop-genetics.html"><a href="pop-genetics.html#case-study-1-heritability-and-human-traits"><i class="fa fa-check"></i><b>8.1</b> Case study 1: Heritability and human traits</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="pop-genetics.html"><a href="pop-genetics.html#case-study-1-heritability-and-human-traits"><i class="fa fa-check"></i><b>7.1</b> Case study 1: Heritability and human traits</a>
+<li class="chapter" data-level="8.1.1" data-path="pop-genetics.html"><a href="pop-genetics.html#part-1"><i class="fa fa-check"></i><b>8.1.1</b> Part 1</a></li>
+<li class="chapter" data-level="8.1.2" data-path="pop-genetics.html"><a href="pop-genetics.html#part-2"><i class="fa fa-check"></i><b>8.1.2</b> Part 2</a></li>
+<li class="chapter" data-level="8.1.3" data-path="pop-genetics.html"><a href="pop-genetics.html#references"><i class="fa fa-check"></i><b>8.1.3</b> References</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Modules in previous years</b></span></li>
+<li class="chapter" data-level="9" data-path="cancer-case2.html"><a href="cancer-case2.html"><i class="fa fa-check"></i><b>9</b> Cancer Epidemiology</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="pop-genetics.html"><a href="pop-genetics.html#part-1"><i class="fa fa-check"></i><b>7.1.1</b> Part 1</a></li>
-<li class="chapter" data-level="7.1.2" data-path="pop-genetics.html"><a href="pop-genetics.html#part-2"><i class="fa fa-check"></i><b>7.1.2</b> Part 2</a></li>
-<li class="chapter" data-level="7.1.3" data-path="pop-genetics.html"><a href="pop-genetics.html#references"><i class="fa fa-check"></i><b>7.1.3</b> References</a></li>
+<li class="chapter" data-level="9.0.1" data-path="cancer-case2.html"><a href="cancer-case2.html#scenario"><i class="fa fa-check"></i><b>9.0.1</b> Scenario</a></li>
+<li class="chapter" data-level="9.0.2" data-path="cancer-case2.html"><a href="cancer-case2.html#hong-kong-population"><i class="fa fa-check"></i><b>9.0.2</b> Hong Kong population</a></li>
+<li class="chapter" data-level="9.0.3" data-path="cancer-case2.html"><a href="cancer-case2.html#cancer-registry-data"><i class="fa fa-check"></i><b>9.0.3</b> Cancer registry data</a></li>
+<li class="chapter" data-level="9.0.4" data-path="cancer-case2.html"><a href="cancer-case2.html#existing-cancer-funding-and-publication-data"><i class="fa fa-check"></i><b>9.0.4</b> Existing cancer funding and publication data</a></li>
+<li class="chapter" data-level="9.0.5" data-path="cancer-case2.html"><a href="cancer-case2.html#open-discussion"><i class="fa fa-check"></i><b>9.0.5</b> Open discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="genetic-seq.html"><a href="genetic-seq.html"><i class="fa fa-check"></i><b>10</b> Genetic sequence</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="genetic-seq.html"><a href="genetic-seq.html#case-study-1-genetic-sequence-analysis"><i class="fa fa-check"></i><b>10.1</b> Case study 1: Genetic sequence analysis</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="genetic-seq.html"><a href="genetic-seq.html#sequence-motif-and-k-mer"><i class="fa fa-check"></i><b>10.1.1</b> Sequence motif and k-mer</a></li>
+<li class="chapter" data-level="10.1.2" data-path="genetic-seq.html"><a href="genetic-seq.html#functional-mapping"><i class="fa fa-check"></i><b>10.1.2</b> Functional mapping</a></li>
+<li class="chapter" data-level="10.1.3" data-path="genetic-seq.html"><a href="genetic-seq.html#references-1"><i class="fa fa-check"></i><b>10.1.3</b> References</a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>III Appendix</b></span></li>
+<li class="chapter" data-level="11" data-path="genomics-regression.html"><a href="genomics-regression.html"><i class="fa fa-check"></i><b>11</b> Genomics and prediction</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="genomics-regression.html"><a href="genomics-regression.html#genomics-case1"><i class="fa fa-check"></i><b>11.1</b> Case study 1: splicing fedility prediction</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="genomics-regression.html"><a href="genomics-regression.html#questions-for-discussion-1"><i class="fa fa-check"></i><b>11.1.1</b> Questions for Discussion</a></li>
+<li class="chapter" data-level="11.1.2" data-path="genomics-regression.html"><a href="genomics-regression.html#hands-on-with-regression-model"><i class="fa fa-check"></i><b>11.1.2</b> Hands-on with regression model</a></li>
+<li class="chapter" data-level="11.1.3" data-path="genomics-regression.html"><a href="genomics-regression.html#open-question"><i class="fa fa-check"></i><b>11.1.3</b> Open question</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i>Appendix A: Install R &amp; RStudio</a>
 <ul>
 <li class="chapter" data-level="" data-path="install.html"><a href="install.html#a.1-install-r-4.3.1"><i class="fa fa-check"></i>A.1 Install R (&gt;=4.3.1)</a>
@@ -323,7 +343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="install.html"><a href="install.html#a4.-cloud-computing"><i class="fa fa-check"></i>A4. Cloud computing</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -658,6 +678,10 @@ leave-one-out cross-validation (LOOCV).</p>
 <p>Besides implement the cross-validation from scratch, there are packages
 supporting it well, including <code>caret</code> package. We will install it and use it for
 cross-validation here.</p>
+<blockquote>
+<p>Note, in order to calculate ROC curve later, we need to keep the predicted
+probability by using <code>classProbs = TRUE</code></p>
+</blockquote>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="introClassifier.html#cb125-1" tabindex="-1"></a><span class="co"># Install the caret library for cross-validation</span></span>
 <span id="cb125-2"><a href="introClassifier.html#cb125-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;caret&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
 <span id="cb125-3"><a href="introClassifier.html#cb125-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;caret&quot;</span>)</span>
@@ -818,30 +842,67 @@ cutoff through a <code>for loop</code>. Read more about
 <a href="https://www.datamentor.io/r-programming/for-loop/">for loop</a> and you may try
 write your own and here is an example from the
 <a href="https://github.com/single-cell-genetics/cardelino/blob/main/R/assessment.R#L211">cardelino package</a>.</p>
-<p>For simplicity, let use an existing tool implemented in the <code>plotROC</code> package:
-<code>plotROC::geom_roc()</code> that is compatible with ggplot2.</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="introClassifier.html#cb133-1" tabindex="-1"></a><span class="co"># Install the plotROC library for plotting ROC curve</span></span>
-<span id="cb133-2"><a href="introClassifier.html#cb133-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;plotROC&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb133-3"><a href="introClassifier.html#cb133-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;plotROC&quot;</span>)</span>
+<p>For simplicity, let use an existing tool implemented in the <code>pROC</code> package to
+obtain the key information for making ROC curves: <code>sensitivities</code> (TPR) and
+<code>specificities</code> (1-FPR) for a list of <code>thesholds</code>:</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="introClassifier.html#cb133-1" tabindex="-1"></a><span class="co"># Install the pROC library for plotting ROC curve</span></span>
+<span id="cb133-2"><a href="introClassifier.html#cb133-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;pROC&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb133-3"><a href="introClassifier.html#cb133-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;pROC&quot;</span>)</span>
 <span id="cb133-4"><a href="introClassifier.html#cb133-4" tabindex="-1"></a>}</span>
 <span id="cb133-5"><a href="introClassifier.html#cb133-5" tabindex="-1"></a></span>
-<span id="cb133-6"><a href="introClassifier.html#cb133-6" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb133-7"><a href="introClassifier.html#cb133-7" tabindex="-1"></a><span class="fu">library</span>(plotROC)</span>
-<span id="cb133-8"><a href="introClassifier.html#cb133-8" tabindex="-1"></a></span>
-<span id="cb133-9"><a href="introClassifier.html#cb133-9" tabindex="-1"></a><span class="co"># You can set the n.cuts to show the cutoffs on the curve</span></span>
-<span id="cb133-10"><a href="introClassifier.html#cb133-10" tabindex="-1"></a>g <span class="ot">=</span> <span class="fu">ggplot</span>(cv_model<span class="sc">$</span>pred, <span class="fu">aes</span>(<span class="at">m =</span> pos, <span class="at">d =</span> <span class="fu">as.integer</span>(obs<span class="sc">==</span><span class="st">&#39;pos&#39;</span>))) <span class="sc">+</span>   </span>
-<span id="cb133-11"><a href="introClassifier.html#cb133-11" tabindex="-1"></a>  <span class="fu">geom_roc</span>(<span class="at">n.cuts=</span><span class="dv">7</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.4</span>, <span class="at">vjust =</span> <span class="fl">1.5</span>) <span class="sc">+</span> </span>
-<span id="cb133-12"><a href="introClassifier.html#cb133-12" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;ROC curve&quot;</span>)</span>
-<span id="cb133-13"><a href="introClassifier.html#cb133-13" tabindex="-1"></a></span>
-<span id="cb133-14"><a href="introClassifier.html#cb133-14" tabindex="-1"></a><span class="co"># Calculate AUC from the graph</span></span>
-<span id="cb133-15"><a href="introClassifier.html#cb133-15" tabindex="-1"></a>AUC_val <span class="ot">=</span> <span class="fu">calc_auc</span>(g)<span class="sc">$</span>AUC</span>
-<span id="cb133-16"><a href="introClassifier.html#cb133-16" tabindex="-1"></a></span>
-<span id="cb133-17"><a href="introClassifier.html#cb133-17" tabindex="-1"></a><span class="co"># Display the plot</span></span>
-<span id="cb133-18"><a href="introClassifier.html#cb133-18" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x=</span><span class="fl">0.8</span>, <span class="at">y=</span><span class="fl">0.1</span>, <span class="at">label=</span><span class="fu">paste</span>(<span class="st">&quot;AUC =&quot;</span>, <span class="fu">round</span>(AUC_val, <span class="dv">4</span>)))</span></code></pre></div>
+<span id="cb133-6"><a href="introClassifier.html#cb133-6" tabindex="-1"></a><span class="co"># library(pROC)</span></span>
+<span id="cb133-7"><a href="introClassifier.html#cb133-7" tabindex="-1"></a>roc_res <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>, cv_model<span class="sc">$</span>pred<span class="sc">$</span>pos)</span>
+<span id="cb133-8"><a href="introClassifier.html#cb133-8" tabindex="-1"></a><span class="co">#&gt; Setting levels: control = FALSE, case = TRUE</span></span>
+<span id="cb133-9"><a href="introClassifier.html#cb133-9" tabindex="-1"></a><span class="co">#&gt; Setting direction: controls &lt; cases</span></span>
+<span id="cb133-10"><a href="introClassifier.html#cb133-10" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;The AUC score of this ROC curve is&quot;</span>, roc_res<span class="sc">$</span>auc))</span>
+<span id="cb133-11"><a href="introClassifier.html#cb133-11" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The AUC score of this ROC curve is 0.829082089552239&quot;</span></span>
+<span id="cb133-12"><a href="introClassifier.html#cb133-12" tabindex="-1"></a></span>
+<span id="cb133-13"><a href="introClassifier.html#cb133-13" tabindex="-1"></a>roc_table <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(</span>
+<span id="cb133-14"><a href="introClassifier.html#cb133-14" tabindex="-1"></a>  roc_res[<span class="fu">c</span>(<span class="st">&quot;sensitivities&quot;</span>, <span class="st">&quot;specificities&quot;</span>, <span class="st">&quot;thresholds&quot;</span>)]</span>
+<span id="cb133-15"><a href="introClassifier.html#cb133-15" tabindex="-1"></a>)</span>
+<span id="cb133-16"><a href="introClassifier.html#cb133-16" tabindex="-1"></a><span class="fu">head</span>(roc_table)</span>
+<span id="cb133-17"><a href="introClassifier.html#cb133-17" tabindex="-1"></a><span class="co">#&gt;   sensitivities specificities  thresholds</span></span>
+<span id="cb133-18"><a href="introClassifier.html#cb133-18" tabindex="-1"></a><span class="co">#&gt; 1     1.0000000         0.000        -Inf</span></span>
+<span id="cb133-19"><a href="introClassifier.html#cb133-19" tabindex="-1"></a><span class="co">#&gt; 2     1.0000000         0.002 0.001848584</span></span>
+<span id="cb133-20"><a href="introClassifier.html#cb133-20" tabindex="-1"></a><span class="co">#&gt; 3     1.0000000         0.004 0.003167924</span></span>
+<span id="cb133-21"><a href="introClassifier.html#cb133-21" tabindex="-1"></a><span class="co">#&gt; 4     1.0000000         0.006 0.004588208</span></span>
+<span id="cb133-22"><a href="introClassifier.html#cb133-22" tabindex="-1"></a><span class="co">#&gt; 5     1.0000000         0.008 0.005750560</span></span>
+<span id="cb133-23"><a href="introClassifier.html#cb133-23" tabindex="-1"></a><span class="co">#&gt; 6     0.9962687         0.008 0.007297416</span></span></code></pre></div>
+<p>With this <code>roc_table</code> at hand, we can find which threshold we should use for a
+certain desired FPR or TPR, for example to have <code>FPR = 0.25</code>:</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="introClassifier.html#cb134-1" tabindex="-1"></a>FPR <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> roc_table<span class="sc">$</span>specificities</span>
+<span id="cb134-2"><a href="introClassifier.html#cb134-2" tabindex="-1"></a></span>
+<span id="cb134-3"><a href="introClassifier.html#cb134-3" tabindex="-1"></a>idx <span class="ot">=</span> <span class="fu">which.min</span>(<span class="fu">abs</span>(FPR <span class="sc">-</span> <span class="fl">0.25</span>))</span>
+<span id="cb134-4"><a href="introClassifier.html#cb134-4" tabindex="-1"></a>roc_table[idx, ]</span>
+<span id="cb134-5"><a href="introClassifier.html#cb134-5" tabindex="-1"></a><span class="co">#&gt;     sensitivities specificities thresholds</span></span>
+<span id="cb134-6"><a href="introClassifier.html#cb134-6" tabindex="-1"></a><span class="co">#&gt; 444     0.7462687          0.75  0.3278307</span></span>
+<span id="cb134-7"><a href="introClassifier.html#cb134-7" tabindex="-1"></a></span>
+<span id="cb134-8"><a href="introClassifier.html#cb134-8" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;When FPR is closest to 0.25, the threshold is&quot;</span>, roc_table[idx, <span class="dv">3</span>]))</span>
+<span id="cb134-9"><a href="introClassifier.html#cb134-9" tabindex="-1"></a><span class="co">#&gt; [1] &quot;When FPR is closest to 0.25, the threshold is 0.327830708502212&quot;</span></span>
+<span id="cb134-10"><a href="introClassifier.html#cb134-10" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;When FPR is closest to 0.25, the TPR is&quot;</span>, roc_table[idx, <span class="dv">1</span>]))</span>
+<span id="cb134-11"><a href="introClassifier.html#cb134-11" tabindex="-1"></a><span class="co">#&gt; [1] &quot;When FPR is closest to 0.25, the TPR is 0.746268656716418&quot;</span></span></code></pre></div>
+<p>By showing all thresholds, we can also directly use ggplot2 to make an ROC
+curve:</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="introClassifier.html#cb135-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb135-2"><a href="introClassifier.html#cb135-2" tabindex="-1"></a><span class="co"># You can set the n.cuts to show the cutoffs on the curve</span></span>
+<span id="cb135-3"><a href="introClassifier.html#cb135-3" tabindex="-1"></a>g <span class="ot">=</span> <span class="fu">ggplot</span>(roc_table, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> specificities, <span class="at">y =</span> sensitivities)) <span class="sc">+</span>   </span>
+<span id="cb135-4"><a href="introClassifier.html#cb135-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb135-5"><a href="introClassifier.html#cb135-5" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb135-6"><a href="introClassifier.html#cb135-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;ROC Curve&quot;</span>,</span>
+<span id="cb135-7"><a href="introClassifier.html#cb135-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;FPR (1 - Specificity)&quot;</span>,</span>
+<span id="cb135-8"><a href="introClassifier.html#cb135-8" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;TPR (Sensitivity)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb135-9"><a href="introClassifier.html#cb135-9" tabindex="-1"></a>  <span class="fu">coord_equal</span>()</span>
+<span id="cb135-10"><a href="introClassifier.html#cb135-10" tabindex="-1"></a></span>
+<span id="cb135-11"><a href="introClassifier.html#cb135-11" tabindex="-1"></a><span class="co"># Display the plot with more annotations</span></span>
+<span id="cb135-12"><a href="introClassifier.html#cb135-12" tabindex="-1"></a>g <span class="sc">+</span> </span>
+<span id="cb135-13"><a href="introClassifier.html#cb135-13" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x=</span><span class="fl">0.8</span>, <span class="at">y=</span><span class="fl">0.1</span>, <span class="at">label=</span><span class="fu">paste</span>(<span class="st">&quot;AUC =&quot;</span>, <span class="fu">round</span>(roc_res<span class="sc">$</span>auc, <span class="dv">4</span>))) <span class="sc">+</span></span>
+<span id="cb135-14"><a href="introClassifier.html#cb135-14" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> roc_table[idx, <span class="dv">2</span>], <span class="at">y =</span> roc_table[idx, <span class="dv">1</span>]) <span class="sc">+</span> </span>
+<span id="cb135-15"><a href="introClassifier.html#cb135-15" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> roc_table[idx, <span class="dv">2</span>], <span class="at">y =</span> roc_table[idx, <span class="dv">1</span>],</span>
+<span id="cb135-16"><a href="introClassifier.html#cb135-16" tabindex="-1"></a>            <span class="at">label =</span> <span class="fu">round</span>(roc_table[idx, <span class="dv">3</span>], <span class="dv">3</span>), <span class="at">color =</span> <span class="st">&#39;black&#39;</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.3</span>)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig3-ROC-1.png" width="75%" /></p>
 </div>
-<div id="homework-1" class="section level3 hasAnchor" number="4.4.3">
-<h3><span class="header-section-number">4.4.3</span> Homework<a href="introClassifier.html#homework-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="homework" class="section level3 hasAnchor" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Homework<a href="introClassifier.html#homework" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now, try another model with removing <code>triceps</code> and plot the ROC curve and
 calculate the AUC score.</p>
 <p>Is it higher or lower than using the full features?</p>
@@ -873,43 +934,43 @@ calculate the AUC score.</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/statbiomed/BMDS-book/tree/main/01-introduction.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["BMDatSci.pdf", "BMDatSci.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/statbiomed/BMDS-book/tree/main/01-introduction.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["BMDatSci.pdf", "BMDatSci.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

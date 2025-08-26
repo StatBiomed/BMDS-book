@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Cancer genomics | Biomedical Data Science - introduction with case studies</title>
+  <title>Chapter 10 Genetic sequence | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Cancer genomics | Biomedical Data Science - introduction with case studies" />
+  <meta property="og:title" content="Chapter 10 Genetic sequence | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Cancer genomics | Biomedical Data Science - introduction with case studies" />
+  <meta name="twitter:title" content="Chapter 10 Genetic sequence | Biomedical Data Science - introduction with case studies" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="image-digital.html"/>
-<link rel="next" href="epidemiology.html"/>
+<link rel="prev" href="cancer-case2.html"/>
+<link rel="next" href="genomics-regression.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -364,148 +364,350 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="cancer" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Cancer genomics<a href="cancer.html#cancer" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="cancer-case1" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Case study 1: analysis of cBioportal mutation data<a href="cancer.html#cancer-case1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Non-small cell lung cancer is a deadly disease, and we would like to identify
-mutations in genes that drive its formation and progression.
-George et al. (2015) has sequenced 120 small cell lung cancer samples and this
-data is available from <a href="cbioportal">cBioportal</a>.
-The original data is in the <a href="https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/">MAF</a>, and we have selected a subset of the
-columns, normalized the column names, and made the data available as an RDS
-file.</p>
-<p>In this exercise, we will explore the mutation data and examine genes that are
-frequently mutated in non-small cell lung cancer samples.
-We will implement a simple method for identifying candidate tumour suppressors
-based on loss-of-function mutations.</p>
-<div id="exploratory-analysis" class="section level3 hasAnchor" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Exploratory analysis<a href="cancer.html#exploratory-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Q1</strong>. Load the data named <code>mutations_sclc_ucologne_2015.rds</code> into R.
-Examine it using <code>head</code>.
-In this <code>data.frame</code>, each row is a mutation detected in a particular gene
-from a particular sample in the study.
-For more information on the columns, see the <a href="https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/">MAF specification</a>.</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="cancer.html#cb136-1" tabindex="-1"></a>?readRDS</span>
-<span id="cb136-2"><a href="cancer.html#cb136-2" tabindex="-1"></a></span>
-<span id="cb136-3"><a href="cancer.html#cb136-3" tabindex="-1"></a>?head</span></code></pre></div>
-<p><strong>Q2</strong>. Identify the top 10 most frequently mutated genes.</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="cancer.html#cb137-1" tabindex="-1"></a><span class="co"># calculate count frequencies using table</span></span>
-<span id="cb137-2"><a href="cancer.html#cb137-2" tabindex="-1"></a>?table</span>
-<span id="cb137-3"><a href="cancer.html#cb137-3" tabindex="-1"></a><span class="co"># freqs &lt;- ???</span></span>
-<span id="cb137-4"><a href="cancer.html#cb137-4" tabindex="-1"></a></span>
-<span id="cb137-5"><a href="cancer.html#cb137-5" tabindex="-1"></a><span class="co"># sort the frequency vector in decreasing order</span></span>
-<span id="cb137-6"><a href="cancer.html#cb137-6" tabindex="-1"></a>?sort</span>
-<span id="cb137-7"><a href="cancer.html#cb137-7" tabindex="-1"></a><span class="co"># freqs &lt;- ???</span></span>
-<span id="cb137-8"><a href="cancer.html#cb137-8" tabindex="-1"></a></span>
-<span id="cb137-9"><a href="cancer.html#cb137-9" tabindex="-1"></a><span class="co"># select the first 10 genes in the freqs</span></span>
-<span id="cb137-10"><a href="cancer.html#cb137-10" tabindex="-1"></a><span class="co"># freqs.top &lt;- ???</span></span>
-<span id="cb137-11"><a href="cancer.html#cb137-11" tabindex="-1"></a></span>
-<span id="cb137-12"><a href="cancer.html#cb137-12" tabindex="-1"></a><span class="co"># obtain the gene names</span></span>
-<span id="cb137-13"><a href="cancer.html#cb137-13" tabindex="-1"></a><span class="co"># genes &lt;- names(freqs.top);</span></span>
-<span id="cb137-14"><a href="cancer.html#cb137-14" tabindex="-1"></a></span>
-<span id="cb137-15"><a href="cancer.html#cb137-15" tabindex="-1"></a><span class="co"># print(freqs.top)</span></span></code></pre></div>
-<p><strong>Q3</strong>. Tabulate the count frequencies of <code>variant_class</code>.
-What proportion of variants are <code>Silent</code> or inside an <code>Intron</code>?</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="cancer.html#cb138-1" tabindex="-1"></a>?table</span></code></pre></div>
-<p><strong>Q4</strong>. A variant class value <code>frame_shift_del</code> appears to be misspelt due to
-case sensitivity. Correct this error.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="cancer.html#cb139-1" tabindex="-1"></a><span class="co"># x$variant_class[x$variant_class == &quot;frame_shift_del&quot;] &lt;- ???;</span></span></code></pre></div>
-<p><strong>Q5</strong>. To help us simplify the variant classes into loss-of-function or neutral,
-let us import the <code>mutation_effects.tsv</code> data.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="cancer.html#cb140-1" tabindex="-1"></a>?read.table</span>
-<span id="cb140-2"><a href="cancer.html#cb140-2" tabindex="-1"></a><span class="co"># Hint: You need to set the `header` and `sep` arguments</span></span></code></pre></div>
-<p><strong>Q6</strong>. Define a new column in <code>x</code> that converts the variant classes to effects.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="cancer.html#cb141-1" tabindex="-1"></a>?match</span></code></pre></div>
-<p><strong>Q7</strong>. Create a subset of the data for the most frequently mutated genes,
-and tabulate the mutation count frequencies of variant classes for each gene.</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="cancer.html#cb142-1" tabindex="-1"></a><span class="co"># x.sub &lt;- x[???, ]</span></span>
-<span id="cb142-2"><a href="cancer.html#cb142-2" tabindex="-1"></a></span>
-<span id="cb142-3"><a href="cancer.html#cb142-3" tabindex="-1"></a></span>
-<span id="cb142-4"><a href="cancer.html#cb142-4" tabindex="-1"></a><span class="co"># order the factor levels based on `genes`,</span></span>
-<span id="cb142-5"><a href="cancer.html#cb142-5" tabindex="-1"></a><span class="co"># which was previously sorted in decreasing order of frequency</span></span>
-<span id="cb142-6"><a href="cancer.html#cb142-6" tabindex="-1"></a><span class="co"># x.sub$gene &lt;- factor(x.sub$gene, levels=genes);</span></span>
-<span id="cb142-7"><a href="cancer.html#cb142-7" tabindex="-1"></a></span>
-<span id="cb142-8"><a href="cancer.html#cb142-8" tabindex="-1"></a>?table</span></code></pre></div>
-<p><strong>Q8</strong>. Determine the number of mutations in each effect category, across all genes.
-Save the result in a variable named <code>overall.counts</code>.</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="cancer.html#cb143-1" tabindex="-1"></a><span class="co"># overall.counts &lt;- table(???);</span></span>
-<span id="cb143-2"><a href="cancer.html#cb143-2" tabindex="-1"></a></span>
-<span id="cb143-3"><a href="cancer.html#cb143-3" tabindex="-1"></a><span class="co"># overall.counts</span></span></code></pre></div>
-<p><strong>Q9</strong>. Tabulate the mutation count frequencies for each gene and effect.
-Save the results in a variable named <code>gene.counts</code>.
-Look up the frequently mutated genes in this matrix.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="cancer.html#cb144-1" tabindex="-1"></a><span class="co"># gene.counts &lt;- table(???, ???);</span></span>
-<span id="cb144-2"><a href="cancer.html#cb144-2" tabindex="-1"></a><span class="co"># gene.counts[???, ]</span></span></code></pre></div>
+<div id="genetic-seq" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Genetic sequence<a href="genetic-seq.html#genetic-seq" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="case-study-1-genetic-sequence-analysis" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Case study 1: Genetic sequence analysis<a href="genetic-seq.html#case-study-1-genetic-sequence-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="sequence-motif-and-k-mer" class="section level3 hasAnchor" number="10.1.1">
+<h3><span class="header-section-number">10.1.1</span> Sequence motif and k-mer<a href="genetic-seq.html#sequence-motif-and-k-mer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Scenario:</strong> You are a biomedical data science trainee, and you want to use
+some real case studies to understand how to perform sequence analysis. From these
+practices, you hope to understand how the sickle cell disease happens and how
+the choice of gene editing site makes a potential therapy.</p>
+<p>From the lecture, you already understood that:</p>
+<ol style="list-style-type: decimal">
+<li>the sickle cell disease happens due to a single nucleotide mutation on HBB (
+coding the hemoglobin bata chain for adult use), causing a missense mutation on
+amino acid 7 from E to V.
+You can view more from ClinVar
+<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000016574/">RCV000016574</a> and
+OMIM <a href="https://www.omim.org/entry/603903">603903</a>.</li>
+<li>the therapy was to re-activate another gene HBG (gamma chain) that was used
+in the fetus. The HBG gene was repressed by a transcription factor BCL11A (as a
+protein) that serves as a repressor to HBG.</li>
+</ol>
+<p><strong>Q1.</strong> How can we understand where the protein of the BCL11A gene prefers to
+bind on DNA?</p>
+<details>
+<summary>
+<strong>Answers:</strong>
+</summary>
+<ul>
+<li>Using the binding motif database JASPAR: BCL11A’s motif is
+<a href="https://jaspar.elixir.no/matrix/MA2324.1/">MA2324.1</a></li>
+<li>It collected the sequences of many binding sites already, check the
+<code>FASTA file</code> or the
+<a href="https://jaspar.elixir.no/sites/MA2324.1">HTML file</a>.</li>
+<li>It’s Motif can be viewed as this file
+<img src="https://jaspar.elixir.no/static/logos/all/svg/MA2324.1.svg" alt="MA2324.1 Motif logo" /></li>
+</ul>
+</details>
+<p><br /></p>
+<p><strong>Q2.</strong> What is the meaning of position frequency matrix (PFM) and how to
+convert it into a position probability matrix (PPM, often used as position
+weight matrix PWM)?</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="genetic-seq.html#cb181-1" tabindex="-1"></a>MA2324_PFM <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(</span>
+<span id="cb181-2"><a href="genetic-seq.html#cb181-2" tabindex="-1"></a>  <span class="dv">343</span>,    <span class="dv">180</span>,    <span class="dv">125</span>,   <span class="dv">5724</span>,    <span class="dv">155</span>,    <span class="dv">143</span>,   <span class="dv">4495</span>,</span>
+<span id="cb181-3"><a href="genetic-seq.html#cb181-3" tabindex="-1"></a>  <span class="dv">5024</span>,   <span class="dv">120</span>,    <span class="dv">281</span>,     <span class="dv">92</span>,   <span class="dv">5855</span>,   <span class="dv">5964</span>,    <span class="dv">641</span>,</span>
+<span id="cb181-4"><a href="genetic-seq.html#cb181-4" tabindex="-1"></a>  <span class="dv">591</span>,    <span class="dv">165</span>,   <span class="dv">5747</span>,    <span class="dv">100</span>,    <span class="dv">141</span>,     <span class="dv">55</span>,    <span class="dv">385</span>,</span>
+<span id="cb181-5"><a href="genetic-seq.html#cb181-5" tabindex="-1"></a>  <span class="dv">307</span>,   <span class="dv">5800</span>,    <span class="dv">112</span>,    <span class="dv">349</span>,    <span class="dv">114</span>,    <span class="dv">103</span>,    <span class="dv">744</span>),</span>
+<span id="cb181-6"><a href="genetic-seq.html#cb181-6" tabindex="-1"></a>  <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span></span>
+<span id="cb181-7"><a href="genetic-seq.html#cb181-7" tabindex="-1"></a>)</span>
+<span id="cb181-8"><a href="genetic-seq.html#cb181-8" tabindex="-1"></a><span class="fu">rownames</span>(MA2324_PFM) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;T&quot;</span>)</span>
+<span id="cb181-9"><a href="genetic-seq.html#cb181-9" tabindex="-1"></a>MA2324_PFM</span>
+<span id="cb181-10"><a href="genetic-seq.html#cb181-10" tabindex="-1"></a><span class="co">#&gt;   [,1] [,2] [,3] [,4] [,5] [,6] [,7]</span></span>
+<span id="cb181-11"><a href="genetic-seq.html#cb181-11" tabindex="-1"></a><span class="co">#&gt; A  343  180  125 5724  155  143 4495</span></span>
+<span id="cb181-12"><a href="genetic-seq.html#cb181-12" tabindex="-1"></a><span class="co">#&gt; C 5024  120  281   92 5855 5964  641</span></span>
+<span id="cb181-13"><a href="genetic-seq.html#cb181-13" tabindex="-1"></a><span class="co">#&gt; G  591  165 5747  100  141   55  385</span></span>
+<span id="cb181-14"><a href="genetic-seq.html#cb181-14" tabindex="-1"></a><span class="co">#&gt; T  307 5800  112  349  114  103  744</span></span>
+<span id="cb181-15"><a href="genetic-seq.html#cb181-15" tabindex="-1"></a></span>
+<span id="cb181-16"><a href="genetic-seq.html#cb181-16" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: define position probability matrix</span></span></code></pre></div>
+<details>
+<summary>
+<strong>HowTo:</strong>
+</summary>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="genetic-seq.html#cb182-1" tabindex="-1"></a>MA2324_PWM <span class="ot">=</span> MA2324_PFM <span class="sc">/</span> <span class="fu">sum</span>(MA2324_PFM[, <span class="dv">1</span>])</span>
+<span id="cb182-2"><a href="genetic-seq.html#cb182-2" tabindex="-1"></a>MA2324_PWM</span>
+<span id="cb182-3"><a href="genetic-seq.html#cb182-3" tabindex="-1"></a><span class="co">#&gt;         [,1]       [,2]       [,3]       [,4]       [,5]        [,6]       [,7]</span></span>
+<span id="cb182-4"><a href="genetic-seq.html#cb182-4" tabindex="-1"></a><span class="co">#&gt; A 0.05474860 0.02873105 0.01995211 0.91364725 0.02474062 0.022825219 0.71747805</span></span>
+<span id="cb182-5"><a href="genetic-seq.html#cb182-5" tabindex="-1"></a><span class="co">#&gt; C 0.80191540 0.01915403 0.04485235 0.01468476 0.93455706 0.951955307 0.10231445</span></span>
+<span id="cb182-6"><a href="genetic-seq.html#cb182-6" tabindex="-1"></a><span class="co">#&gt; G 0.09433360 0.02633679 0.91731844 0.01596169 0.02250599 0.008778931 0.06145251</span></span>
+<span id="cb182-7"><a href="genetic-seq.html#cb182-7" tabindex="-1"></a><span class="co">#&gt; T 0.04900239 0.92577813 0.01787709 0.05570630 0.01819633 0.016440543 0.11875499</span></span></code></pre></div>
+</details>
+<p><br /></p>
+<p><strong>Q3.</strong> Let’s make the Motif logo ourselves by using
+<a href="https://weblogo.threeplusone.com/create.cgi">weblogo.threeplusone.com</a></p>
+<p>You may use the first 500 lines of the sequences that we compiled:
+<a href="https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/module4-genetics/MA2324.1.sites-h500.txt">MA2324.1.sites-h500.txt</a></p>
+<details>
+<summary>
+<strong>HowTo:</strong>
+</summary>
+<ul>
+<li>Copy and paste to <a href="https://weblogo.threeplusone.com/create.cgi">weblogo.threeplusone.com</a></li>
+<li>Check which position has the highest information content in <em>bit</em>.</li>
+</ul>
+</details>
+<p><br /></p>
+<p><strong>Q4.</strong> Given the motif, how good is a certain sequence in terms of consistency?
+Take these two sequences as examples:</p>
+<ul>
+<li>sequence 1: <code>CGGACCA</code> (&gt;hg38_chr1:1000830-1000836(+))</li>
+<li>sequence 2: <code>CTGACCG</code> (hg38_chr1:940785-940791(-))</li>
+</ul>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="genetic-seq.html#cb183-1" tabindex="-1"></a><span class="co"># Use this One hot encoding function</span></span>
+<span id="cb183-2"><a href="genetic-seq.html#cb183-2" tabindex="-1"></a>Onehot_Encode <span class="ot">&lt;-</span> <span class="cf">function</span>(sequence) {</span>
+<span id="cb183-3"><a href="genetic-seq.html#cb183-3" tabindex="-1"></a>  idx <span class="ot">=</span> <span class="fu">match</span>(<span class="fu">strsplit</span>(sequence, <span class="st">&#39;&#39;</span>)[[<span class="dv">1</span>]], <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;T&quot;</span>))</span>
+<span id="cb183-4"><a href="genetic-seq.html#cb183-4" tabindex="-1"></a>  seq_mat <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="dv">4</span>, <span class="fu">length</span>(idx))</span>
+<span id="cb183-5"><a href="genetic-seq.html#cb183-5" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(idx)) seq_mat[idx[i], i] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb183-6"><a href="genetic-seq.html#cb183-6" tabindex="-1"></a>  seq_mat</span>
+<span id="cb183-7"><a href="genetic-seq.html#cb183-7" tabindex="-1"></a>}</span>
+<span id="cb183-8"><a href="genetic-seq.html#cb183-8" tabindex="-1"></a></span>
+<span id="cb183-9"><a href="genetic-seq.html#cb183-9" tabindex="-1"></a>seq_vec1 <span class="ot">=</span> <span class="fu">Onehot_Encode</span>(<span class="st">&quot;CGGACCA&quot;</span>)</span>
+<span id="cb183-10"><a href="genetic-seq.html#cb183-10" tabindex="-1"></a>seq_vec2 <span class="ot">=</span> <span class="fu">Onehot_Encode</span>(<span class="st">&quot;CTGACCG&quot;</span>)</span>
+<span id="cb183-11"><a href="genetic-seq.html#cb183-11" tabindex="-1"></a>seq_vec2</span>
+<span id="cb183-12"><a href="genetic-seq.html#cb183-12" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5] [,6] [,7]</span></span>
+<span id="cb183-13"><a href="genetic-seq.html#cb183-13" tabindex="-1"></a><span class="co">#&gt; [1,]    0    0    0    1    0    0    0</span></span>
+<span id="cb183-14"><a href="genetic-seq.html#cb183-14" tabindex="-1"></a><span class="co">#&gt; [2,]    1    0    0    0    1    1    0</span></span>
+<span id="cb183-15"><a href="genetic-seq.html#cb183-15" tabindex="-1"></a><span class="co">#&gt; [3,]    0    0    1    0    0    0    1</span></span>
+<span id="cb183-16"><a href="genetic-seq.html#cb183-16" tabindex="-1"></a><span class="co">#&gt; [4,]    0    1    0    0    0    0    0</span></span></code></pre></div>
+<p>To calculate the consistency score of a certain sequence <span class="math inline">\(S\)</span> to a given motif
+(<span class="math inline">\(M\)</span> for the motif position weight matrix), you may recall what we
+introduced in the lecture (same as the reference papers [1, 2]):</p>
+<p><span class="math inline">\(P(S|M) = \prod_{i=1}^k{M[s_i, i]}\)</span></p>
+<p>Alternatively, you can also transform the sequence via our one hot encoding.
+Now, please try and see if you can calculate the motif score for the above two
+sequences (possibly in log10-scale).</p>
+<details>
+<summary>
+<strong>Example solution scripts:</strong>
+</summary>
+<ul>
+<li><p>Meaning of motif score function: the log-likelihood of seeing a binding site
+sequence given the binding motif.</p></li>
+<li><p>Manual calculation step by step:</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="genetic-seq.html#cb184-1" tabindex="-1"></a><span class="fu">colSums</span>(seq_vec1 <span class="sc">*</span> MA2324_PWM)</span>
+<span id="cb184-2"><a href="genetic-seq.html#cb184-2" tabindex="-1"></a><span class="co">#&gt; [1] 0.80191540 0.02633679 0.91731844 0.91364725 0.93455706 0.95195531 0.71747805</span></span>
+<span id="cb184-3"><a href="genetic-seq.html#cb184-3" tabindex="-1"></a></span>
+<span id="cb184-4"><a href="genetic-seq.html#cb184-4" tabindex="-1"></a><span class="fu">colSums</span>(seq_vec2 <span class="sc">*</span> MA2324_PWM)</span>
+<span id="cb184-5"><a href="genetic-seq.html#cb184-5" tabindex="-1"></a><span class="co">#&gt; [1] 0.80191540 0.92577813 0.91731844 0.91364725 0.93455706 0.95195531 0.06145251</span></span>
+<span id="cb184-6"><a href="genetic-seq.html#cb184-6" tabindex="-1"></a></span>
+<span id="cb184-7"><a href="genetic-seq.html#cb184-7" tabindex="-1"></a>seq_score1 <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">log10</span>(<span class="fu">colSums</span>(seq_vec1 <span class="sc">*</span> MA2324_PWM)))</span>
+<span id="cb184-8"><a href="genetic-seq.html#cb184-8" tabindex="-1"></a>seq_score2 <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">log10</span>(<span class="fu">colSums</span>(seq_vec2 <span class="sc">*</span> MA2324_PWM)))</span>
+<span id="cb184-9"><a href="genetic-seq.html#cb184-9" tabindex="-1"></a></span>
+<span id="cb184-10"><a href="genetic-seq.html#cb184-10" tabindex="-1"></a><span class="fu">c</span>(seq_score1, seq_score2)</span>
+<span id="cb184-11"><a href="genetic-seq.html#cb184-11" tabindex="-1"></a><span class="co">#&gt; [1] -1.946979 -1.468304</span></span></code></pre></div></li>
+</ul>
+</details>
+<p><br /></p>
+<p><strong>Q5.</strong> Given a segment of a long sequence, how to find the potential motif
+sites?</p>
+<ul>
+<li>Scan the whole sequence</li>
+<li>Find the best matched position</li>
+</ul>
+<p>Here, we will take the gene <a href="https://www.ncbi.nlm.nih.gov/gene/3048">HBG2</a>
+as an example, with the initial sequence segment as follows:</p>
+<pre><code>ref|NC_000011.10|:c5255019-5254782 Homo sapiens chromosome 11, GRCh38.p14 Primary Assembly
+ATAAAAAAAATTAAGCAGCAGTATCCTCTTGGGGGCCCCTTCCCCACACTATCTCAATGCAAATATCTGT
+CTGAAACGGTCCCTGGCTAAACTCCACCCATGGGTTGGCCAGCCTTGCCTTGACCAATAGCCTTGACAAG
+GCAAACTTGACCAATAGTCTTAGAGTATCCAGTGAGGCCAGGGGCCGGCGGCTGGCTAGGGATGAAGAAT
+AAAAGGAAGCACCCTTCAGCAGTTCCAC</code></pre>
+<p>We may load the sequence into R by our <code>Onehot_Encode</code> function:</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="genetic-seq.html#cb186-1" tabindex="-1"></a>HBG2_segment <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb186-2"><a href="genetic-seq.html#cb186-2" tabindex="-1"></a>  <span class="st">&quot;ATAAAAAAAATTAAGCAGCAGTATCCTCTTGGGGGCCCCTTCCCCACACTATCTCAATGCAAATATCTGT&quot;</span>,</span>
+<span id="cb186-3"><a href="genetic-seq.html#cb186-3" tabindex="-1"></a>  <span class="st">&quot;CTGAAACGGTCCCTGGCTAAACTCCACCCATGGGTTGGCCAGCCTTGCCTTGACCAATAGCCTTGACAAG&quot;</span>,</span>
+<span id="cb186-4"><a href="genetic-seq.html#cb186-4" tabindex="-1"></a>  <span class="st">&quot;GCAAACTTGACCAATAGTCTTAGAGTATCCAGTGAGGCCAGGGGCCGGCGGCTGGCTAGGGATGAAGAAT&quot;</span>,</span>
+<span id="cb186-5"><a href="genetic-seq.html#cb186-5" tabindex="-1"></a>  <span class="st">&quot;AAAAGGAAGCACCCTTCAGCAGTTCCAC&quot;</span></span>
+<span id="cb186-6"><a href="genetic-seq.html#cb186-6" tabindex="-1"></a>)</span>
+<span id="cb186-7"><a href="genetic-seq.html#cb186-7" tabindex="-1"></a>HBG2_segment</span>
+<span id="cb186-8"><a href="genetic-seq.html#cb186-8" tabindex="-1"></a><span class="co">#&gt; [1] &quot;ATAAAAAAAATTAAGCAGCAGTATCCTCTTGGGGGCCCCTTCCCCACACTATCTCAATGCAAATATCTGTCTGAAACGGTCCCTGGCTAAACTCCACCCATGGGTTGGCCAGCCTTGCCTTGACCAATAGCCTTGACAAGGCAAACTTGACCAATAGTCTTAGAGTATCCAGTGAGGCCAGGGGCCGGCGGCTGGCTAGGGATGAAGAATAAAAGGAAGCACCCTTCAGCAGTTCCAC&quot;</span></span>
+<span id="cb186-9"><a href="genetic-seq.html#cb186-9" tabindex="-1"></a></span>
+<span id="cb186-10"><a href="genetic-seq.html#cb186-10" tabindex="-1"></a>HBG2_seg_vec <span class="ot">=</span> <span class="fu">Onehot_Encode</span>(HBG2_segment)</span>
+<span id="cb186-11"><a href="genetic-seq.html#cb186-11" tabindex="-1"></a><span class="co"># HBG2_seg_vec</span></span></code></pre></div>
+<details>
+<summary>
+<strong>Example solution scripts:</strong>
+</summary>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="genetic-seq.html#cb187-1" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: try it yourself</span></span></code></pre></div>
+</details>
+<p><br /></p>
+<p><strong>Q6.</strong> With the same sequence above, count the frequency of each 3-mer:</p>
+<ul>
+<li>List the all 3-mer</li>
+<li>Count each of the 3-mer in the sequence</li>
+</ul>
+<details>
+<summary>
+<strong>Example solution scripts:</strong>
+</summary>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="genetic-seq.html#cb188-1" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: try it yourself</span></span>
+<span id="cb188-2"><a href="genetic-seq.html#cb188-2" tabindex="-1"></a></span>
+<span id="cb188-3"><a href="genetic-seq.html#cb188-3" tabindex="-1"></a><span class="co"># Option 1: keep using one hot encoding matrix</span></span>
+<span id="cb188-4"><a href="genetic-seq.html#cb188-4" tabindex="-1"></a></span>
+<span id="cb188-5"><a href="genetic-seq.html#cb188-5" tabindex="-1"></a><span class="co"># Option 2: substr(x, start, stop) </span></span>
+<span id="cb188-6"><a href="genetic-seq.html#cb188-6" tabindex="-1"></a><span class="co"># you may make a vector with k-mer as name and use the above substr as index</span></span>
+<span id="cb188-7"><a href="genetic-seq.html#cb188-7" tabindex="-1"></a><span class="co"># this is related to dictionary data structure</span></span>
+<span id="cb188-8"><a href="genetic-seq.html#cb188-8" tabindex="-1"></a></span>
+<span id="cb188-9"><a href="genetic-seq.html#cb188-9" tabindex="-1"></a>k <span class="ot">=</span> <span class="dv">3</span></span>
+<span id="cb188-10"><a href="genetic-seq.html#cb188-10" tabindex="-1"></a>bases <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;T&quot;</span>)</span>
+<span id="cb188-11"><a href="genetic-seq.html#cb188-11" tabindex="-1"></a>kmer_mat <span class="ot">=</span> <span class="fu">unique</span>(<span class="fu">t</span>(<span class="fu">combn</span>(<span class="fu">rep</span>(bases, k), <span class="at">m =</span> k)))</span>
+<span id="cb188-12"><a href="genetic-seq.html#cb188-12" tabindex="-1"></a>kmer <span class="ot">=</span> <span class="fu">apply</span>(kmer_mat, <span class="dv">1</span>, paste, <span class="at">collapse=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb188-13"><a href="genetic-seq.html#cb188-13" tabindex="-1"></a></span>
+<span id="cb188-14"><a href="genetic-seq.html#cb188-14" tabindex="-1"></a>kmer_count <span class="ot">=</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">length</span>(kmer))</span>
+<span id="cb188-15"><a href="genetic-seq.html#cb188-15" tabindex="-1"></a><span class="fu">names</span>(kmer_count) <span class="ot">=</span> kmer</span>
+<span id="cb188-16"><a href="genetic-seq.html#cb188-16" tabindex="-1"></a></span>
+<span id="cb188-17"><a href="genetic-seq.html#cb188-17" tabindex="-1"></a><span class="co"># Keep trying</span></span></code></pre></div>
+</details>
+<p><br /></p>
 </div>
-<div id="statistical-analysis" class="section level3 hasAnchor" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> Statistical analysis<a href="cancer.html#statistical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Here, we implemented a simple statistical test for assessing whether a
-gene is significantly frequently targeted by loss-of-function mutations,
-based on the Fisher’s exact test.</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="cancer.html#cb145-1" tabindex="-1"></a><span class="co"># Test whether a query gene has significantly more loss-of-function</span></span>
-<span id="cb145-2"><a href="cancer.html#cb145-2" tabindex="-1"></a><span class="co"># mutations compared with other genes.</span></span>
-<span id="cb145-3"><a href="cancer.html#cb145-3" tabindex="-1"></a><span class="co"># Requires global variables `gene.counts` and `overall.counts`</span></span>
-<span id="cb145-4"><a href="cancer.html#cb145-4" tabindex="-1"></a>lof_test <span class="ot">&lt;-</span> <span class="cf">function</span>(gene) {</span>
-<span id="cb145-5"><a href="cancer.html#cb145-5" tabindex="-1"></a>  </span>
-<span id="cb145-6"><a href="cancer.html#cb145-6" tabindex="-1"></a>    <span class="co"># Construct the following contingency table:</span></span>
-<span id="cb145-7"><a href="cancer.html#cb145-7" tabindex="-1"></a>    <span class="co">#              neutral    lof</span></span>
-<span id="cb145-8"><a href="cancer.html#cb145-8" tabindex="-1"></a>    <span class="co"># other genes  a          b</span></span>
-<span id="cb145-9"><a href="cancer.html#cb145-9" tabindex="-1"></a>    <span class="co"># query gene   c          d</span></span>
-<span id="cb145-10"><a href="cancer.html#cb145-10" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;neutral&quot;</span>, <span class="st">&quot;loss_of_function&quot;</span>);</span>
-<span id="cb145-11"><a href="cancer.html#cb145-11" tabindex="-1"></a>    gene.counts.sel <span class="ot">&lt;-</span> gene.counts[gene, cols];</span>
-<span id="cb145-12"><a href="cancer.html#cb145-12" tabindex="-1"></a>    ct <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
-<span id="cb145-13"><a href="cancer.html#cb145-13" tabindex="-1"></a>        <span class="fu">c</span>(</span>
-<span id="cb145-14"><a href="cancer.html#cb145-14" tabindex="-1"></a>            overall.counts[cols] <span class="sc">-</span> gene.counts.sel,</span>
-<span id="cb145-15"><a href="cancer.html#cb145-15" tabindex="-1"></a>            gene.counts.sel</span>
-<span id="cb145-16"><a href="cancer.html#cb145-16" tabindex="-1"></a>        ),</span>
-<span id="cb145-17"><a href="cancer.html#cb145-17" tabindex="-1"></a>        <span class="at">byrow=</span><span class="cn">TRUE</span>,</span>
-<span id="cb145-18"><a href="cancer.html#cb145-18" tabindex="-1"></a>        <span class="at">ncol=</span><span class="dv">2</span></span>
-<span id="cb145-19"><a href="cancer.html#cb145-19" tabindex="-1"></a>    );</span>
-<span id="cb145-20"><a href="cancer.html#cb145-20" tabindex="-1"></a></span>
-<span id="cb145-21"><a href="cancer.html#cb145-21" tabindex="-1"></a>    <span class="co"># Test whether the lof mutations are greater in frequency compared </span></span>
-<span id="cb145-22"><a href="cancer.html#cb145-22" tabindex="-1"></a>    <span class="co"># to neutral mutations in the query gene, in comparison to all other genes</span></span>
-<span id="cb145-23"><a href="cancer.html#cb145-23" tabindex="-1"></a>    <span class="fu">fisher.test</span>(ct, <span class="at">alternative=</span><span class="st">&quot;greater&quot;</span>)</span>
-<span id="cb145-24"><a href="cancer.html#cb145-24" tabindex="-1"></a>}</span></code></pre></div>
-<p><strong>Q10</strong>. Subset the <code>gene.counts</code> table for the <em>TP53</em> gene.
-Run <code>lof_test</code> on this gene.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="cancer.html#cb146-1" tabindex="-1"></a><span class="co"># gene.counts[???, ]</span></span>
-<span id="cb146-2"><a href="cancer.html#cb146-2" tabindex="-1"></a><span class="co"># lof_test(???)</span></span></code></pre></div>
-<p><strong>Q11</strong>. Now, test to see if <em>TTN</em> and <em>MUC16</em> are significantly frequently
-targeted by loss-of-function mutations.</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="cancer.html#cb147-1" tabindex="-1"></a><span class="co"># similar to above</span></span></code></pre></div>
-<p><strong>Q12</strong>. Apply the loss-of-function test to all frequently mutated genes.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="cancer.html#cb148-1" tabindex="-1"></a>?lapply</span></code></pre></div>
-<p><strong>Q13</strong>. Extract odds ratio and p-values from the test results.</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="cancer.html#cb149-1" tabindex="-1"></a><span class="co"># odds.ratios &lt;- vapply(hs, function(h) h$estimate, 0);</span></span>
-<span id="cb149-2"><a href="cancer.html#cb149-2" tabindex="-1"></a><span class="co"># ps &lt;- vapply(hs, function(h) ???, 0);</span></span></code></pre></div>
-<p><strong>Q14</strong>. Since we tested many genes, we need to adjust for multiple hypothesis
-testing so that we can control the false discovery rate.
-So, adjust the p-values to obtain q-values.</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="cancer.html#cb150-1" tabindex="-1"></a>?p.adjust</span></code></pre></div>
-<p><strong>Q15</strong>. Construct a results <code>data.frame</code> with gene names, odds ratio, p-values,
-and q-values that summarize the loss-of-function test results.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="cancer.html#cb151-1" tabindex="-1"></a><span class="co"># res &lt;- data.frame(</span></span>
-<span id="cb151-2"><a href="cancer.html#cb151-2" tabindex="-1"></a><span class="co">#     gene = ???,</span></span>
-<span id="cb151-3"><a href="cancer.html#cb151-3" tabindex="-1"></a><span class="co">#     odds_ratio = ???,</span></span>
-<span id="cb151-4"><a href="cancer.html#cb151-4" tabindex="-1"></a><span class="co">#     p = ???,</span></span>
-<span id="cb151-5"><a href="cancer.html#cb151-5" tabindex="-1"></a><span class="co">#     q = ???</span></span>
-<span id="cb151-6"><a href="cancer.html#cb151-6" tabindex="-1"></a><span class="co"># );</span></span>
-<span id="cb151-7"><a href="cancer.html#cb151-7" tabindex="-1"></a></span>
-<span id="cb151-8"><a href="cancer.html#cb151-8" tabindex="-1"></a>?order</span>
-<span id="cb151-9"><a href="cancer.html#cb151-9" tabindex="-1"></a><span class="co">#res &lt;- res[order(???), ];</span></span></code></pre></div>
-<p><strong>Q16</strong>. Identify the significant genes from the results <code>data.frame</code> at a
-false discovery rate of 5% (i.e. q-value threshold of 0.05).</p>
-<p><strong>Q17</strong>. Look up the significant genes in the <code>gene.counts</code> matrix.</p>
+<div id="functional-mapping" class="section level3 hasAnchor" number="10.1.2">
+<h3><span class="header-section-number">10.1.2</span> Functional mapping<a href="genetic-seq.html#functional-mapping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this part, we will see how the sequence features may help predict molecular
+phenotype, namely splicing efficiency. You may read more in the original paper
+<a href="https://doi.org/10.1093/bioinformatics/btac321">Hou &amp; Huang 2021</a> [4], if you
+are interested.</p>
+<p>Let’s look at the data
+<a href="https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/module4-genetics/plicing_efficiency_pred.csv">plicing_efficiency_pred.csv</a></p>
+<ul>
+<li>columns 1 &amp; 2: gene ID and gene name (1850 genes)</li>
+<li>column 3: splicing efficiency (log scale)</li>
+<li>columns 4 to 99: 96 octamer features (the normalized frequency in intron
+sequence)</li>
+</ul>
+<p><strong>Q7.</strong> Now, we can try using the multiple linear regression model to check how
+predictive the octamer frequencies are for splicing efficiency.</p>
+<ul>
+<li><p>Load the data (scripts below)</p></li>
+<li><p>Linear regression model</p></li>
+<li><p>Using 10-fold cross-validation to evaluate the model</p></li>
+<li><p>You may propose other alternative methods for assessing the
+association between octamer and splicing efficiency.</p>
+<pre><code>library(caret)
+
+df_splicing &lt;- read.csv(&quot;plicing_efficiency_pred.csv&quot;)
+
+# Define training control
+# We also want to have savePredictions=TRUE &amp; classProbs=TRUE
+set.seed(0) 
+my_trControl &lt;- trainControl(method = &quot;cv&quot;, number = 10, 
+                             savePredictions = TRUE)
+
+# TODO: try it yourself to fill the rest</code></pre>
+<p><br /></p></li>
+</ul>
 </div>
-<div id="literature-search" class="section level3 hasAnchor" number="6.1.3">
-<h3><span class="header-section-number">6.1.3</span> Literature search<a href="cancer.html#literature-search" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Q18</strong>. Do the significant genes appear to be involved in cancer?
-What general roles do they play?</p>
-<p><strong>Q19</strong>. How do these genes contribute specifically to the formation
-or progression of small cell lung cancer?</p>
-<p><strong>Q20</strong>. What are some possible ways of identifying oncogenes that are activated
-by mutations or other genomic alterations?</p>
+<div id="references-1" class="section level3 hasAnchor" number="10.1.3">
+<h3><span class="header-section-number">10.1.3</span> References<a href="genetic-seq.html#references-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Crooks, G. E., Hon, G., Chandonia, J. M., &amp; Brenner, S. E. (2004).
+<a href="https://doi.org/10.1101/gr.849004">WebLogo: a sequence logo generator</a>.
+Genome research, 14(6), 1188-1190.</li>
+<li>Schneider, T. D., &amp; Stephens, R. M. (1990).
+<a href="https://doi.org/10.1093/nar/18.20.6097">Sequence logos: a new way to display consensus sequences</a>.
+Nucleic acids research, 18(20), 6097-6100.</li>
+<li>Canver, M. C., Smith, E. C., Sher, F., Pinello, L., Sanjana, N. E., Shalem,
+O., … &amp; Bauer, D. E. (2015).
+<a href="https://www.nature.com/articles/nature15521">BCL11A enhancer dissection by Cas9-mediated in situ saturating mutagenesis</a>.
+Nature, 527(7577), 192-197.</li>
+<li>Hou, R., &amp; Huang, Y. (2022).
+<a href="https://doi.org/10.1093/bioinformatics/btac321">Genomic sequences and RNA-binding proteins predict RNA splicing efficiency
+in various single-cell contexts</a>.
+Bioinformatics, 38(12), 3231-3237.</li>
+<li>Splicing efficiency prediction dataset at
+<a href="https://github.com/StatBiomed/scRNA-efficiency-prediction" class="uri">https://github.com/StatBiomed/scRNA-efficiency-prediction</a>.
+<details>
+<summary>
+<strong>scripts to subset the data :</strong>
+</summary>
+<pre><code> df_Y = read.csv(paste0(
+   &quot;https://github.com/StatBiomed/scRNA-efficiency-prediction/&quot;, 
+   &quot;raw/refs/heads/main/data/estimated/sck562_all_stochastical_gamma.csv&quot;
+ ), row.names = 1)
+
+ df_X0 = read.csv(paste0(
+   &quot;https://github.com/StatBiomed/scRNA-efficiency-prediction/&quot;, 
+   &quot;raw/refs/heads/main/data/features/humanproteincode_octamer_gene_level.csv&quot;
+ ))
+
+ df_use = merge(df_Y, df_X0, by=&quot;gene_id&quot;, incomparables = NA)
+ df_use$velocity_gamma = -log(df_use$velocity_gamma + 0.01)
+ colnames(df_use)[3] = &quot;splicing_efficiency&quot;
+ # df_use = df_use[-1600, ]
+
+ df_use[, 4:ncol(df_use)] = df_use[, 4:ncol(df_use)] + 0.00001
+ df_use[, 3:ncol(df_use)] = round(df_use[, 3:ncol(df_use)], digits=6)
+
+ options(digits = 3)
+ write.csv(df_use, &quot;plicing_efficiency_pred.csv&quot;, 
+           quote = FALSE, row.names = FALSE)</code></pre>
+</details>
+<br /></li>
+</ol>
+<div id="potential-resources" class="section level4 hasAnchor" number="10.1.3.1">
+<h4><span class="header-section-number">10.1.3.1</span> Potential resources<a href="genetic-seq.html#potential-resources" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<details>
+<summary>
+<strong>Scan motif</strong>
+</summary>
+<pre><code># For Q5
+motif_score_all = rep(NA, ncol(HBG2_seg_vec)-ncol(MA2324_PWM))
+for (i in 1:(ncol(HBG2_seg_vec) - ncol(MA2324_PWM))) {
+  motif_score_all[i] = sum(log10(colSums(
+    HBG2_seg_vec[, i:(i + ncol(MA2324_PWM) - 1)] * MA2324_PWM
+    )))
+}
+motif_score_all[1:5]
+
+sort(motif_score_all, decreasing = TRUE)[1:7]
+
+# For Q4
+# Potential motif score function
+# motif_score &lt;- function(sequence, motif_PWM) {
+#   seq_vec = Onehot_Encode(sequence)
+#   sum(log(colSums(seq_vec * motif_PWM)))
+# }</code></pre>
+</details>
+<p><br /></p>
+<details>
+<summary>
+<strong>K-mer counting</strong>
+</summary>
+<pre><code># For Q6
+kmer_count = rep(0, length(kmer))
+names(kmer_count) = kmer
+for (i in 1:(nchar(HBG2_segment) - k + 1)) {
+  a_kmer = substr(HBG2_segment, i, i+2)
+  kmer_count[a_kmer] = kmer_count[a_kmer] + 1
+}
+kmer_count</code></pre>
+</details>
+<p><br /></p>
+<details>
+<summary>
+<strong>Cross-validation for linear regression</strong>
+</summary>
+<pre><code># For Q7
+# Train the model
+cv_model &lt;- train(splicing_efficiency ~ ., 
+                  data = df_splicing[, 3:ncol(df_splicing)], 
+                  method = &quot;lm&quot;, trControl = my_trControl)
+
+# Check model performance
+print(cv_model)
+cor(cv_model$pred$obs, cv_model$pred$pred)
+
+ggplot(cv_model$pred, aes(x=obs, y=pred)) + 
+  geom_point()</code></pre>
+</details>
+<p><br /></p>
+<!-- Since it is only one amino acid change, you are curious how the protein  -->
+<!-- structure changes. You copy the protein sequence from UniProt [P68871](https://www.uniprot.org/uniprotkb/P68871/entry#sequences)  -->
+<!-- and put it into [AlphaFold server](https://alphafoldserver.com). Similarly, you -->
+<!-- can introduce the disease mutation and predict the structure again. -->
+<!-- Note, the predicted structure is also available: -->
+<!-- [AF-P68871-F1-v4](https://alphafold.ebi.ac.uk/entry/P68871) -->
+</div>
 </div>
 </div>
 </div>
@@ -514,8 +716,8 @@ by mutations or other genomic alterations?</p>
           </div>
         </div>
       </div>
-<a href="image-digital.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="epidemiology.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="cancer-case2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="genomics-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

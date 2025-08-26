@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Introduction to Linear Regression | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Introduction to Linear Regression | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2024-10-30" />
+<meta name="date" content="2025-08-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -278,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>II Biomedical Data Modules</b></span></li>
 <li class="chapter" data-level="5" data-path="image-digital.html"><a href="image-digital.html"><i class="fa fa-check"></i><b>5</b> Medical Image and Digital Health</a></li>
-<li class="chapter" data-level="6" data-path="cancer.html"><a href="cancer.html"><i class="fa fa-check"></i><b>6</b> Cancer genomics and epidemiology</a>
+<li class="chapter" data-level="6" data-path="cancer.html"><a href="cancer.html"><i class="fa fa-check"></i><b>6</b> Cancer genomics</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="cancer.html"><a href="cancer.html#cancer-case1"><i class="fa fa-check"></i><b>6.1</b> Case study 1: analysis of cBioportal mutation data</a>
 <ul>
@@ -286,25 +286,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1.2" data-path="cancer.html"><a href="cancer.html#statistical-analysis"><i class="fa fa-check"></i><b>6.1.2</b> Statistical analysis</a></li>
 <li class="chapter" data-level="6.1.3" data-path="cancer.html"><a href="cancer.html#literature-search"><i class="fa fa-check"></i><b>6.1.3</b> Literature search</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="cancer.html"><a href="cancer.html#cancer-case2"><i class="fa fa-check"></i><b>6.2</b> Case study 2: Cancer Epidemiology</a>
+</ul></li>
+<li class="chapter" data-level="7" data-path="epidemiology.html"><a href="epidemiology.html"><i class="fa fa-check"></i><b>7</b> Epidemiology</a></li>
+<li class="chapter" data-level="8" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>8</b> Population Genetics</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="cancer.html"><a href="cancer.html#scenario"><i class="fa fa-check"></i><b>6.2.1</b> Scenario</a></li>
-<li class="chapter" data-level="6.2.2" data-path="cancer.html"><a href="cancer.html#hong-kong-population"><i class="fa fa-check"></i><b>6.2.2</b> Hong Kong population</a></li>
-<li class="chapter" data-level="6.2.3" data-path="cancer.html"><a href="cancer.html#cancer-registry-data"><i class="fa fa-check"></i><b>6.2.3</b> Cancer registry data</a></li>
-<li class="chapter" data-level="6.2.4" data-path="cancer.html"><a href="cancer.html#existing-cancer-funding-and-publication-data"><i class="fa fa-check"></i><b>6.2.4</b> Existing cancer funding and publication data</a></li>
-<li class="chapter" data-level="6.2.5" data-path="cancer.html"><a href="cancer.html#open-discussion"><i class="fa fa-check"></i><b>6.2.5</b> Open discussion</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="pop-genetics.html"><a href="pop-genetics.html"><i class="fa fa-check"></i><b>7</b> Population Genetics and Diseases</a>
+<li class="chapter" data-level="8.1" data-path="pop-genetics.html"><a href="pop-genetics.html#case-study-1-heritability-and-human-traits"><i class="fa fa-check"></i><b>8.1</b> Case study 1: Heritability and human traits</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="pop-genetics.html"><a href="pop-genetics.html#case-study-1-heritability-and-human-traits"><i class="fa fa-check"></i><b>7.1</b> Case study 1: Heritability and human traits</a>
+<li class="chapter" data-level="8.1.1" data-path="pop-genetics.html"><a href="pop-genetics.html#part-1"><i class="fa fa-check"></i><b>8.1.1</b> Part 1</a></li>
+<li class="chapter" data-level="8.1.2" data-path="pop-genetics.html"><a href="pop-genetics.html#part-2"><i class="fa fa-check"></i><b>8.1.2</b> Part 2</a></li>
+<li class="chapter" data-level="8.1.3" data-path="pop-genetics.html"><a href="pop-genetics.html#references"><i class="fa fa-check"></i><b>8.1.3</b> References</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Modules in previous years</b></span></li>
+<li class="chapter" data-level="9" data-path="cancer-case2.html"><a href="cancer-case2.html"><i class="fa fa-check"></i><b>9</b> Cancer Epidemiology</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="pop-genetics.html"><a href="pop-genetics.html#part-1"><i class="fa fa-check"></i><b>7.1.1</b> Part 1</a></li>
-<li class="chapter" data-level="7.1.2" data-path="pop-genetics.html"><a href="pop-genetics.html#part-2"><i class="fa fa-check"></i><b>7.1.2</b> Part 2</a></li>
-<li class="chapter" data-level="7.1.3" data-path="pop-genetics.html"><a href="pop-genetics.html#references"><i class="fa fa-check"></i><b>7.1.3</b> References</a></li>
+<li class="chapter" data-level="9.0.1" data-path="cancer-case2.html"><a href="cancer-case2.html#scenario"><i class="fa fa-check"></i><b>9.0.1</b> Scenario</a></li>
+<li class="chapter" data-level="9.0.2" data-path="cancer-case2.html"><a href="cancer-case2.html#hong-kong-population"><i class="fa fa-check"></i><b>9.0.2</b> Hong Kong population</a></li>
+<li class="chapter" data-level="9.0.3" data-path="cancer-case2.html"><a href="cancer-case2.html#cancer-registry-data"><i class="fa fa-check"></i><b>9.0.3</b> Cancer registry data</a></li>
+<li class="chapter" data-level="9.0.4" data-path="cancer-case2.html"><a href="cancer-case2.html#existing-cancer-funding-and-publication-data"><i class="fa fa-check"></i><b>9.0.4</b> Existing cancer funding and publication data</a></li>
+<li class="chapter" data-level="9.0.5" data-path="cancer-case2.html"><a href="cancer-case2.html#open-discussion"><i class="fa fa-check"></i><b>9.0.5</b> Open discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="genetic-seq.html"><a href="genetic-seq.html"><i class="fa fa-check"></i><b>10</b> Genetic sequence</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="genetic-seq.html"><a href="genetic-seq.html#case-study-1-genetic-sequence-analysis"><i class="fa fa-check"></i><b>10.1</b> Case study 1: Genetic sequence analysis</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="genetic-seq.html"><a href="genetic-seq.html#sequence-motif-and-k-mer"><i class="fa fa-check"></i><b>10.1.1</b> Sequence motif and k-mer</a></li>
+<li class="chapter" data-level="10.1.2" data-path="genetic-seq.html"><a href="genetic-seq.html#functional-mapping"><i class="fa fa-check"></i><b>10.1.2</b> Functional mapping</a></li>
+<li class="chapter" data-level="10.1.3" data-path="genetic-seq.html"><a href="genetic-seq.html#references-1"><i class="fa fa-check"></i><b>10.1.3</b> References</a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>III Appendix</b></span></li>
+<li class="chapter" data-level="11" data-path="genomics-regression.html"><a href="genomics-regression.html"><i class="fa fa-check"></i><b>11</b> Genomics and prediction</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="genomics-regression.html"><a href="genomics-regression.html#genomics-case1"><i class="fa fa-check"></i><b>11.1</b> Case study 1: splicing fedility prediction</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="genomics-regression.html"><a href="genomics-regression.html#questions-for-discussion-1"><i class="fa fa-check"></i><b>11.1.1</b> Questions for Discussion</a></li>
+<li class="chapter" data-level="11.1.2" data-path="genomics-regression.html"><a href="genomics-regression.html#hands-on-with-regression-model"><i class="fa fa-check"></i><b>11.1.2</b> Hands-on with regression model</a></li>
+<li class="chapter" data-level="11.1.3" data-path="genomics-regression.html"><a href="genomics-regression.html#open-question"><i class="fa fa-check"></i><b>11.1.3</b> Open question</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i>Appendix A: Install R &amp; RStudio</a>
 <ul>
 <li class="chapter" data-level="" data-path="install.html"><a href="install.html#a.1-install-r-4.3.1"><i class="fa fa-check"></i>A.1 Install R (&gt;=4.3.1)</a>
@@ -323,7 +343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="install.html"><a href="install.html#a4.-cloud-computing"><i class="fa fa-check"></i>A4. Cloud computing</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -1015,43 +1035,43 @@ Model 3 does not lead to any improvement.</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/statbiomed/BMDS-book/tree/main/01-introduction.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["BMDatSci.pdf", "BMDatSci.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/statbiomed/BMDS-book/tree/main/01-introduction.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["BMDatSci.pdf", "BMDatSci.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
 });
 });
 </script>
