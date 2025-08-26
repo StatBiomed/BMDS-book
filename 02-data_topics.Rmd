@@ -18,23 +18,28 @@ cat("# (PART) Biomedical Data Modules {-} ")
 
 <!-- # Personalised Genomic Medicine {#genomics} -->
 
-<!-- ```{r child="notebooks/module1-genomics/M1-genomics-01.Rmd", echo=TRUE} -->
-<!-- ``` -->
-
 ```{r child="notebooks/module1-genomics/M1-genomics-02.Rmd", echo=TRUE}
 ```
 
+```{r child="notebooks/module5-epidemi/M3-pub-epidemiology.Rmd", echo=TRUE}
+```
 
-```{r child="notebooks/module5-epidemi/M5-epidemiology.Rmd", echo=TRUE}
+```{r child="notebooks/module4-genetics/M4-pop-genetics.Rmd", echo=TRUE}
 ```
 
 
-```{r child="notebooks/module4-genetics/M4-pop-genetics.Rmd", echo=TRUE}
+```{r echo=FALSE, results="asis", purl=FALSE}
+cat("# (PART) Modules in previous years {-} ")
+```
+
+```{r child="notebooks/module5-epidemi/M5-epidemiology.Rmd", echo=TRUE}
 ```
 
 ```{r child="notebooks/module4-genetics/M4-genetic-sequence.Rmd", echo=TRUE}
 ```
 
+```{r child="notebooks/module1-genomics/M1-genomics-01.Rmd", echo=TRUE}
+```
 
 
 

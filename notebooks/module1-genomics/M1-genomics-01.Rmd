@@ -1,4 +1,6 @@
 
+# Genomics and prediction { #genomics-regression }
+
 ## Case study 1: splicing fedility prediction { #genomics-case1 }
 
 Scenario: As a computational biology researcher, you want to find out what sequence-related features function as a regulator for **splicing fidelity**. You conducted a deep RNA-seq experience and quantified the **splicing error frequency (SEF)** for 141 splicing error events in yeast. Based on your prior knowledge and curiosity, you plan to further define a set of sequence-related features and test how predictive they are.

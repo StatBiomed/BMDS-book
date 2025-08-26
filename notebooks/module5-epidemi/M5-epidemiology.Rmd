@@ -1,5 +1,5 @@
 
-## Case study 2: Cancer Epidemiology { #cancer-case2 }
+# Cancer Epidemiology { #cancer-case2 }
 
 *by Prof. Jason Wong*
 

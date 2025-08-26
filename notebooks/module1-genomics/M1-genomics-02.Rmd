@@ -1,4 +1,4 @@
-# Cancer genomics and epidemiology { #cancer }
+# Cancer genomics { #cancer }
 
 ## Case study 1: analysis of cBioportal mutation data { #cancer-case1 }
 

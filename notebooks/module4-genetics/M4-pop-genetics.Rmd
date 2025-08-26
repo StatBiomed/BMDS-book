@@ -1,5 +1,5 @@
 
-# Population Genetics and Diseases {#pop-genetics}
+# Population Genetics {#pop-genetics}
 
 ## Case study 1: Heritability and human traits
 

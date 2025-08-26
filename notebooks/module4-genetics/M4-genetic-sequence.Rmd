@@ -1,5 +1,7 @@
 
-## Case study 2: Genetic sequence analysis
+# Genetic sequence {#genetic-seq}
+
+## Case study 1: Genetic sequence analysis
 
 ### Sequence motif and k-mer
 
