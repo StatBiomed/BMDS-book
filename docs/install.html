@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Appendix A: Install R &amp; RStudio | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Appendix A: Install R &amp; RStudio | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2024-11-18" />
+<meta name="date" content="2025-08-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="pop-genetics.html"/>
-<link rel="next" href="references-1.html"/>
+<link rel="next" href="references-2.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -303,6 +303,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1.2" data-path="pop-genetics.html"><a href="pop-genetics.html#part-2"><i class="fa fa-check"></i><b>7.1.2</b> Part 2</a></li>
 <li class="chapter" data-level="7.1.3" data-path="pop-genetics.html"><a href="pop-genetics.html#references"><i class="fa fa-check"></i><b>7.1.3</b> References</a></li>
 </ul></li>
+<li class="chapter" data-level="7.2" data-path="pop-genetics.html"><a href="pop-genetics.html#case-study-2-genetic-sequence-analysis"><i class="fa fa-check"></i><b>7.2</b> Case study 2: Genetic sequence analysis</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="pop-genetics.html"><a href="pop-genetics.html#sequence-motif-and-k-mer"><i class="fa fa-check"></i><b>7.2.1</b> Sequence motif and k-mer</a></li>
+<li class="chapter" data-level="7.2.2" data-path="pop-genetics.html"><a href="pop-genetics.html#functional-mapping"><i class="fa fa-check"></i><b>7.2.2</b> Functional mapping</a></li>
+<li class="chapter" data-level="7.2.3" data-path="pop-genetics.html"><a href="pop-genetics.html#references-1"><i class="fa fa-check"></i><b>7.2.3</b> References</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>III Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i>Appendix A: Install R &amp; RStudio</a>
@@ -323,7 +329,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="install.html"><a href="install.html#a4.-cloud-computing"><i class="fa fa-check"></i>A4. Cloud computing</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -369,10 +375,10 @@ by Xiunan Fang and other team members in Dr Joshua Ho’s lab.</p>
 <ul>
 <li>Open an internet browser and go to <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>.</li>
 <li>Click on the <code>Download R for Windows</code> link at the top of the page.</li>
-<li>Choose the <code>base</code> and then Click on the <code>Download R 4.4.1 for Windows</code>
+<li>Choose the <code>base</code> and then Click on the <code>Download R 4.5.1 for Windows</code>
 link at the top of the page (or a new version if this manual is outdated).</li>
 <li>Once the download is finished, you will obtain a file named
-<code>R-4.4.1-win.exe</code> or similar depending on the version that you download.</li>
+<code>R-4.5.1-win.exe</code> or similar depending on the version that you download.</li>
 <li>Most of the time, you will likely want to go with the defaults, so click the
 button <code>Next</code> until the process is complete.</li>
 </ul>
@@ -384,13 +390,14 @@ button <code>Next</code> until the process is complete.</li>
 <li>Click on the <code>Download R for macOS</code> link at the top of the page.</li>
 <li>Click on the file containing the latest version of R under the
 <strong>Latest release</strong>.</li>
-<li>Save the <code>R-4.4.1-**.pkg</code> file, double-click it to open, and follow the installation
+<li>Save the <code>R-4.5.1-**.pkg</code> file, double-click it to open, and follow the installation
 instructions.</li>
 </ul>
 <blockquote>
-<p><strong>Note</strong>, there are two versions of the .pkg installation file according to
-the CPU model: Intel Macs (Intel-based) or M1/M2 Macs (ARM-based).
-<strong>Please choose accordingly</strong>.</p>
+<p><span style="color: red;"> <strong>Note</strong>,
+there are two versions of the .pkg installation file according to
+the CPU model: Intel Macs (Intel-based) or M1/M2/.. Macs (ARM-based).
+<strong>Please choose accordingly</strong>. </span></p>
 </blockquote>
 </div>
 <div id="r-on-linux-ubuntu" class="section level3 unnumbered hasAnchor">
@@ -471,12 +478,12 @@ something below:</li>
    actual function codes
 }</code></pre>
 <p>For example:</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="install.html#cb186-1" tabindex="-1"></a>my_average <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb186-2"><a href="install.html#cb186-2" tabindex="-1"></a>  <span class="fu">sum</span>(x)<span class="sc">/</span><span class="fu">length</span>(x)</span>
-<span id="cb186-3"><a href="install.html#cb186-3" tabindex="-1"></a>}</span>
-<span id="cb186-4"><a href="install.html#cb186-4" tabindex="-1"></a></span>
-<span id="cb186-5"><a href="install.html#cb186-5" tabindex="-1"></a><span class="fu">my_average</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>))</span>
-<span id="cb186-6"><a href="install.html#cb186-6" tabindex="-1"></a><span class="co">#&gt; [1] 4.25</span></span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="install.html#cb199-1" tabindex="-1"></a>my_average <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb199-2"><a href="install.html#cb199-2" tabindex="-1"></a>  <span class="fu">sum</span>(x)<span class="sc">/</span><span class="fu">length</span>(x)</span>
+<span id="cb199-3"><a href="install.html#cb199-3" tabindex="-1"></a>}</span>
+<span id="cb199-4"><a href="install.html#cb199-4" tabindex="-1"></a></span>
+<span id="cb199-5"><a href="install.html#cb199-5" tabindex="-1"></a><span class="fu">my_average</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>))</span>
+<span id="cb199-6"><a href="install.html#cb199-6" tabindex="-1"></a><span class="co">#&gt; [1] 4.25</span></span></code></pre></div>
 <p>R contains a lot of built-in functions, you can use <code>?</code> or <code>help()</code> to see the
 documentation of a function, there are also a lot of external libraries with
 specific functions. To use a library, we do:</p>
@@ -506,7 +513,7 @@ website.</p>
         </div>
       </div>
 <a href="pop-genetics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -520,43 +527,43 @@ website.</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/statbiomed/BMDS-book/tree/main/03-appendix.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["BMDatSci.pdf", "BMDatSci.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/statbiomed/BMDS-book/tree/main/03-appendix.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["BMDatSci.pdf", "BMDatSci.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

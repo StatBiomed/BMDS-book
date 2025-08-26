@@ -27,10 +27,10 @@ by Xiunan Fang and other team members in Dr Joshua Ho's lab.
 ### R on Windows {-}
 - Open an internet browser and go to https://cran.r-project.org/.
 - Click on the ``Download R for Windows`` link at the top of the page.
-- Choose the ``base`` and then Click on the ``Download R 4.4.1 for Windows``
+- Choose the ``base`` and then Click on the ``Download R 4.5.1 for Windows``
   link at the top of the page (or a new version if this manual is outdated).
 - Once the download is finished, you will obtain a file named 
-  ``R-4.4.1-win.exe`` or similar depending on the version that you download.
+  ``R-4.5.1-win.exe`` or similar depending on the version that you download.
 - Most of the time, you will likely want to go with the defaults, so click the 
   button ``Next`` until the process is complete.
 
@@ -40,13 +40,15 @@ by Xiunan Fang and other team members in Dr Joshua Ho's lab.
 - Click on the ``Download R for macOS`` link at the top of the page.
 - Click on the file containing the latest version of R under the 
   **Latest release**.
-- Save the ``R-4.4.1-**.pkg`` file, double-click it to open, and follow the installation 
+- Save the ``R-4.5.1-**.pkg`` file, double-click it to open, and follow the installation 
   instructions. 
   
-> **Note**, there are two versions of the .pkg installation file according to 
-  the CPU model: Intel Macs (Intel-based) or M1/M2 Macs (ARM-based). 
-  **Please choose accordingly**.
-> 
+
+> <span style="color: red;"> **Note**,
+  there are two versions of the .pkg installation file according to 
+  the CPU model: Intel Macs (Intel-based) or M1/M2/.. Macs (ARM-based). 
+  **Please choose accordingly**. </span>
+
 
 ### R on Linux (Ubuntu) {-}
 
