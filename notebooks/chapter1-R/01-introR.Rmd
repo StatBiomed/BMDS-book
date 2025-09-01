@@ -1,716 +1,320 @@
+---
+title: "Introductory R Programming"
+author: "Jason Wong, Ray Hsu and Yuanhua Huang"
+date: "`r Sys.Date()`"
+output: bookdown::gitbook
+documentclass: book
+---
 
 # Introduction to R programming {#introR}
 
-This notebook collects the scripts used for teaching in BIOF1001 for 
-Introduction to R (1 hour teaching). You can get this Rmd file on Moodle or
-[here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR.Rmd)
-(right-click and "save link as" to download).
+This notebook collects the scripts used for teaching in BIOF1001 for Introduction to R (1 hour teaching). You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR.Rmd) (right-click and "save link as" to download).
 
-R is a programming language, particularly popular for its power in statistical
-computing, elegant graphics, and also genomic data analysis. It is a free and
-open-source software, with active support and development from the community.
-Additionally, R is relatively easy to get started for scientific computing.
+R is a programming language, particularly popular for its power in statistical computing, elegant graphics, and also genomic data analysis. It is a free and open-source software, with active support and development from the community. Additionally, R is relatively easy to get started for scientific computing.
 
-> __Note__ To learn and practice R programming, you need to install `R` and `RStudio` on 
-> your computer. You can follow the instructions for installation in the 
-> [Appendix A](https://statbiomed.github.io/BMDS-book/install.html) chapter.
+> **Note** To learn and practice R programming, you need to install `R` and `RStudio` on your computer. You can follow the instructions for installation in the [Appendix A](https://statbiomed.github.io/BMDS-book/install.html) chapter.
 
+## R as a basic calculator
 
-## Data types
-In R language setting (similar to some other programming languages), there are 
-a few commonly used data types that are predefined in the built-in environment.
-You can use the `class()` and `typeof()` functions to check the class and 
-data type of any variable. In total, R has five data types:
-
-1. Numeric
-2. Integers
-3. Complex
-4. Logical
-5. Characters
-
-
-
-### nemeric (or double)
-The `numeric` is for numeric values, as the most common and the **default** 
-data type. The `numeric` datatype saves values in double precision (double 
-number of bytes in memory), so the type is also `double`.
+R can be used like a calculator for arithmetic operations:
 
 ```{r}
-x <- c(1.0, 2.0, 5.0, 7.0)
-x
-class(x)
-typeof(x)
+2 + 2
+```
+
+```{r}
+5 * 3
+```
+
+```{r}
+10 / 2
+```
+
+```{r}
+2 ^ 3
+```
+
+Can you write the command to calculate your BMI (i.e. $mass_{kg} \div {height_m}^2$)?
+
+```{r}
+# type your command below
+
+
+```
+
+What is the area of a circle with a radius of 3?
+
+```{r}
+# type your command below
+
+
+```
+
+Like any good scientific calculator, R also has bulit-in mathematical functions such as `log()`, `exp()`, `sqrt()`, `abs()`, `sin()`, `cos()`, `tan()` , etc.
+
+```{r}
+# take the Sine of 90 degrees (i.e. 1.571 in radians)
+
+sin(1.571)
+```
+
+## Variables
+
+In computer programming, variables are used to store information. It is called a variable because you can also change the information that is stored.
+
+```{r}
+# example of assigning variable called age
+
+age <- 18
+age
+
+name <- "John"
+name
+```
+
+Variables can be called just about anything, but there are some rules in R:
+
+-   They can contain **letters (a-z, A-Z), digits (0-9), dots (.), and underscores (\_)**. Special characters like **`$`**, **`#`**, **`%`**, or spaces are **not allowed**.
+
+-   A variable name must **start with a letter or a dot (.)**, but if it starts with a dot, the next character cannot be a digit.
+
+-   Variable names are **case-sensitive** (e.g., **`age`**, **`Age`**, and **`AGE`** are different variables).
+
+-   You cannot use particular words such as **`TRUE`**, **`FALSE`**, **`if`**, **`else`**, or **`function`** as variable names as they are reserved for other purposes in R.
+
+Have a go at create a few variables using different variable names.
+
+```{r}
+# create a few variables below
+
+
+
+
+```
+
+As mentioned, variables can reassigned with new values. It can also be assigned the value of another variable. Let's try this:
+
+```{r}
+# create a variable called height and set to 170
+
+height <- 170
+height
+
+# now the assign a new value to height 
+
+height <- 175
+height
+
+# now create another variable called new_height and set to 165
+
+new_height <- 165
+height <- new_height
+height
+```
+
+Using R's calculator capabilities.
+
+```{r}
+# add 2cm to the height of 1.70m
+
+height <- 1.70
+height <- height + 0.02
+height
+
+
+```
+
+Now using variables, can you calculated your BMI?
+
+```{r}
+# type your code here
+
+
+
+```
+
+In R, it is also possible to assign variables using the **equals** **sign** `=` . However, it is generally recommend to use the **left arrow** `<-` for variable assignment in R.
+
+## Data types
+
+All variables in R need to belong to a **data type**. In R (similar to most other programming languages), there are a few commonly used data types that are predefined in the built-in environment. You can use the `class()` and `typeof()` functions to check the class and data type of any variable. In total, R has five data types:
+
+1.  Numeric (e.g. 3.1416, 20)
+2.  Integers (e.g. 5L, -10L)
+3.  Complex (e.g. 3 +2i)
+4.  Logical (e.g. TRUE or FALSE)
+5.  Characters
+
+### numeric (or double)
+
+The `numeric` data type is for numbers, with or without decimals. It the most commonly used and the **default** data type in R. The `numeric` datatype saves values in double precision (double number of bytes in memory), so the type is also `double`.
+
+```{r}
+# example of numeric type
+
+height <- 1.70
+height
+class(height)
+typeof(height)
 ```
 
 ### integer
-The integer is another data type used for the set of all integers. You can use 
-the capital ‘L’ notation as a suffix to specify a particular value as the 
-integer data type. Also, you can convert a value into an integer type using the `as.integer()` function.
+
+The `integer` is another data type used for whole numbers. You can use the capital ‘L’ notation as a suffix to specify a particular value as the integer data type. Also, you can convert a numeric into an integer type using the `as.integer()` function.
 
 ```{r}
-y <- c(1L, 2L, 5L, 7L)
-y
-class(y)
-typeof(y)
-```
+# example of integer type
 
-```{r}
-# Assign a integer value to y
-y = 5
- 
-# is y an integer?
-print(is.integer(y))
+siblings <- 2L
+siblings 
+class(siblings)
+typeof(siblings)
 ```
-
 
 ### logical
-In R, the `logical` data type takes either a value of true or false. A `logical` 
-value is often generated when comparing variables.
+
+In R, the `logical` data type takes either a value of `TRUE` or `FALSE` . A `logical` value is often generated when comparing variables.
 
 ```{r}
-z <- c(TRUE, TRUE, TRUE, FALSE)
-z
-typeof(z)
-```
+# example of logic type
 
+male<-TRUE
+male
+typeof(male)
+```
 
 ### character
-In R, the `character` is a data type where you have all the alphabets and 
-special characters. It stores `character` values or `strings`. Strings in R can 
-contain alphabets, numbers, and symbols. The character type is usually denoted 
-by wrapping the value inside single or double inverted commas.
+
+In R, the `character` is a data type where you have all the alphabets and special characters. It stores `character` values or `strings`. Strings in R can contain alphabets, numbers, and symbols. The character type is usually denoted by wrapping the value inside single or double inverted commas.
 
 ```{r}
-w <- c("aa", "bb", "5", "7")
-w
-typeof(w)
+# example of character type
+
+name <- "Jason"
+name
+typeof(name)
 ```
 
-### Memeory usage
-Each data type is explicitly defined, especially the size of the memory.
-
-When initializing a certain data type, there are a few small bytes used to store
-basic information. Let's look at the empty values.
+It is possible to inter-convert between data types. This can be useful as certain operations or functions (we will formally define functions later) only works on certain data types.
 
 ```{r}
-object.size(numeric())
-object.size(integer())
-object.size(logical())
-object.size(character())
+# example of converting data types
+
+weight <- 65
+typeof(weight)
+weight <- as.integer(weight)
+typeof(weight)
+
+score <- "9.5"
+typeof(score)
+score <- as.numeric(score)
+typeof(score)
+score
+
 ```
 
-To illustrate, let's use 1000 elements below to show the memory size usage 
-for each data type. 
-As we will see, integer and logical use 4 bytes per element, which is only half 
-of the memory usage by double (numeric) and character of 8 bytes.
+While R is quite flexible in converting data types, not all conversions are possible. You can experiment with different conversions and we can see what conversions are not permissible.
 
 ```{r}
-object.size(rep(1, 1000))
-object.size(rep(1L, 1000))
-object.size(rep(TRUE, 1000))
-object.size(rep("aa", 1000))
+# type your code here
+
+
+
+
 ```
 
+## Functions
 
-## Data structures
-Data structure is one of the most important features in programming. It involves 
-how the data is organised and can be accessed and modified. Using an appropriate
-data structure may largely improve computing efficiency.
+As the name suggests, functions are used to perform certain operations on some input. Perhaps without realising, you have already used functions multiple times above. For example, `sin()` and `typeof()`, etc.
 
-### Vector
-Vector is a basic data structure in R. It contains elements in the **same** data
-type (no matter double, integer, character or others). 
-You can check the data type by using `typeof()` function and the length of the 
-vector by `length()` function.
-
-Since a vector has elements of the same type, this function will try and coerce elements to the same type, if they are different. Coercion is from lower 
-to higher types, i.e., from logical to integer to double to a character.
-
-See more introduction [here](https://www.datamentor.io/r-programming/vector/).
+As one more example `floor()` is a function here to round a number down to the closest whole number
 
 ```{r}
-x <- c(1, 2, 5, 7)
-x
-typeof(x)
-
-x <- rep(3, 5)
-x
-typeof(x)
-
-x <- 1:12 # integer
-x
-typeof(x)
+weight <- 65.6
+floor(weight)
 ```
 
-### Matrix
-Matrix is a two-dimensional data structure. It is in principle built based on 
-vector but has more convenient built-in functions for computation.
-It has rows and columns, both of which can also have names. To check the dimensions,
-you can use the `dim()` function.
-
-See more introduction [here](https://www.datamentor.io/r-programming/matrix/).
+The functions that we have used above are already predefined by R. But generally, one of the major concepts in computer programming is to write your own functions. Once a function is defined, it can be used over and over again without needing to rewrite the code in the function every time. Consider the following example for make a function to calculate BMI:
 
 ```{r}
-A <- matrix(1:12, nrow=3)
-A
-
-B <- matrix(1:12, nrow=3, byrow=TRUE)
-B
-
-colnames(A) <- c("C1","C2","C3","C4")
-rownames(A) <- c("R1","R2","R3")
-A
-```
-
-#### Index Vector and Matrix
-To index vector, you can use `logical` or `integer`, or the `element name` if it
-has.
-
-Note, when using an `integer` for indexing, the index *starts from 1* in R, unlike 
-most programming languages where the index starts from 0.
-
-We can also use negative integers to return all elements except those 
-specified. But we cannot mix positive and negative integers while indexing and 
-real numbers if used are truncated to integers.
-
-**N.B.**, when using logical as the index, be careful if the index length is 
-different from the vector.
-
-
-```{r}
-x <- 1:12
-
-x[3]
-
-x[2:5]
-
-x[c(2, 5, 6)]                   # index with integer
-
-x[c(TRUE, FALSE, FALSE, TRUE)]  # index with logical value
-```
-
-Now, let's index a matrix. It is very similar to vector, but it has both rows and columns.
-```{r}
-A <- matrix(1:12, nrow=3)
-colnames(A) <- c("C1","C2","C3","C4")
-rownames(A) <- c("R1","R2","R3")
-A
-
-A[1, 2]
-
-A[1, "C2"]
-
-A[1, c(2, 3)]
-
-A[1:2, c(2, 3)]
-```
-
-Single row or column matrix will become a vector, unless **using `drop=FALSE`**
-```{r}
-A[1, 2:4]
-dim(A[1, 2:4])
-
-A[1, 2:4, drop=FALSE]
-dim(A[1, 2:4, drop=FALSE])
-```
-
-#### Modify values
-```{r}
-A[1, 2:4] <- c(-3, -5, 20)
-A
-```
-
-### List
-Different from `vector` that has all elements in the same data type, the `list`
-data structure can have components of mixed data types.
-More broadly, a `list` can contain a list of any data structure: value, vector, 
-matrix, etc.
-
-We can use `str()` function to view the structure of a list (or any object).
-```{r}
-x <- list(2.5, TRUE, 1:3)
-x
-
-str(x)
-```
-
-We can also have a name for each element:
-```{r}
-x <- list("a" = 2.5, "b" = TRUE, "c" = 1:3)
-x
-str(x)
-```
-
-#### Indexing list
-Different from vector and matrix, for a `list`, you need to use **double-layer square brackets**, 
-either by numeric index or name. Alternatively, you can also use `$` symbol with the name.
-```{r}
-x[[3]]
-
-x[["c"]]
-
-x$c
-```
-
-### Data Frame
-Data frame is widely used for rectangular data, where each column has the same 
-data type (vector) but different columns can have different data types (like Excel)
-
-As you guess, the data frame is a special type of `list`: A list of vectors with the same length.
-
-```{r}
-df <- data.frame("SN" = 1:2, "Age" = c(21,15), 
-                 "Name" = c("John","Dora"))
-df
-```
-
-```{r}
-df$Age[2]
-```
-
-```{r}
-# View(df)
-```
-
-### Factor vs vector
-For vector, if it only contains pre-defined values (which can have specified 
-orders), you may consider using factor.
-
-* Factor is a data structure used for fields that takes only predefined, finite 
-number of values (categorical data)
-* The order of predefined values can be specified, instead of alphabetic by default
-
-```{r}
-x = c("single", "married", "married", "single") # vector
-x
-
-class(x)
-typeof(x)
-```
-
-```{r}
-y = factor(c("single", "married", "married", "single"))
-y
-
-class(y)
-typeof(y)
-```
-
-
-#### Change the order of factor levels
-```{r}
-z <- factor(c("single", "married", "married", "single") , levels=c("single", "married"))
-z
-```
-
-#### Smaller memory as categorical data type
-```{r}
-x = c("single", "married", "married", "single") # vector
-y = factor(c("single", "married", "married", "single"))
-
-object.size(rep(x, 1000))
-object.size(rep(y, 1000))
-```
-
-
-## Read and write files (tables)
-Besides operating in the R environment, we also want to read data from files or
-write results into files.
-
-For tables, R has convenient built-in function `read.table()` and `write.table()`.
-
-### Read file
-We can use `read.table()` function to read tables, e.g., in comma separated 
-values (csv) or tab separated values (tsv) formats. 
-See full manuals: `help(read.table)` or `?read.table` or its 
-[online manual](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/read.table)
-```{r}
-help("read.table")
-
-?read.table
-```
-
-Here, let's read an example file. Data is available on Moodle and on the 
-[github repository](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R)
-
-```{r}
-df = read.table("./SRP029880.colData.tsv", sep="\t")
-df
-```
-
-
-### Write file
-The above file is loaded as a data frame. Here, let's add an extra column to 
-indicate if the sample is frozen or not, then save it into a file.
-```{r}
-df$frozen <- c(1, 1, 0, 0, 0, 1, 1, 0, 0, 0)
-write.table(df, "./SRP029880.colData.add_frozen.tsv", sep="\t", quote=FALSE)
-```
-
-
-
-## Functions and Packages
-As experienced above, we have used function multiple times, e.g., 
-`read.table` and `typeof`. 
-
-As one more example `mean()` is a function here and it is from the `base` package
-```{r}
-x <- 4:10
-mean(x)
-
-base::mean(x)
-```
-
-Generally speaking, A function is a set of statements organized together to 
-perform a specific task. Many lines of codes are packed into one function & it’s reusable. 
-
-A function can be written in the same R file and loaded, or it can be 
-distributed as part of a package. For using such functions, we need to install
-the corresponding package and load it.
-
-
-### Install packages
-It depends on where the package is stored. Please refers to the documentation 
-of the specific package you want to install and use.
-
-1. CRAN  (the Comprehensive R Archive Network): main platform
-    - For example: `install.packages("ggplot2")`
-
-2. Bioconductor: primarily for biology related packages
-    - For example: `BiocManager::install("DESeq2")`
-
-As an example, we can install the powerful plotting package `ggplot2` from CRAN.
-```{r}
-#install.packages("ggplot2")
-```
-
-
-### Apply function repeatly
-We may often want to use a certain function for multiple times, e.g., calculate
-the sample mean for many genes. There are multiple ways to achieve it, e.g., via a
-`for loop`. Here, we will introduce `apply` and its variants for this purpose.
-
-See more introductions [here](https://ademos.people.uic.edu/Chapter4.html).
-
-#### apply, lapply, sapply and vapply
-
-In short, the `apply()` function and its variants apply a certain function to
-each element of a vector, a matrix, or a list.
-
-##### apply for matrix
-
-The `apply(X, MARGIN, FUN)` function works for `matrix` (or `array`) for rows or columns. For example, calculating the median of each column:
-
-```{r}
-my.matrx <- matrix(1:15, nrow = 5, ncol = 3)
-my.matrx
-
-apply(my.matrx, 2, median)
-```
-
-##### lapply, sapply, and vapply for list or vector
-
-The above `apply` function requires `MARGIN`, hence won't work for vector or 
-list. There are a few variants to support lists or vectors for different purposes.
-
-From the [manual](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/lapply), we can find out the arguments for these three functions:
-
-* `lapply(X, FUN, …)`
-* `sapply(X, FUN, …, simplify = TRUE, USE.NAMES = TRUE)`
-* `vapply(X, FUN, FUN.VALUE, …, USE.NAMES = TRUE)`
-
-Let's look at examples. The `lapply` works for vector and list and returns a `list`:
-```{r}
-A<-c(1:9)
-B<-c(1:12)
-C<-c(1:15)
-my.lst<-list(A,B,C)
-
-lapply(my.lst, median)
-```
-
-If you want the return as a vector, you can use `sapply()` for `simplified` output:
-```{r}
-sapply(my.lst, median)
-```
-
-If you want to check the data type of the return, you can further use the `vapply` function. An error will be raised if the data type does not match.
-
-**Note**, the `FUN.VALUE` argument takes the value as a template, so the use of 
-`numeric(1)` or any numeric value, e.g., `3` is the same.
-
-```{r}
-vapply(my.lst, median, numeric(1))
-
-vapply(my.lst, median, 3)
-
-# try this
-# vapply(my.lst, median, character(1))
-```
-
-### Pattern match
-
-Matching patterns between two vectors is a very common task, for example 
-matching the gene names of two files or matching students IDs in two courses.
-
-Two commonly used functions for pattern match are `match()` and `%in%`, see the
-[match() documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/match.html):
-
-- `match` returns a vector of the positions of (first) matches of its first argument
-in its second.
-- `%in%` is a more intuitive interface as a binary operator, which returns a
-logical vector indicating if there is a match or not for its left operand.
-- They work for any data type: numeric and character
-
-```{r}
-1:6 %in% c(1,3,5,9)
-
-match(c(3, 4, 5), c(5, 3, 1, 9))
-
-idx = match(c(3, 4, 5), c(5, 3, 1, 9))
-c(5, 3, 1, 9)[idx]
-```
-
-
-## Flow Control
-
-### Logical operator
-
-The common logical operators are shown in the following table.
-
-|     Operator    |     Description                 |     Associativity      |
-|-----------------|---------------------------------|------------------------|
-|     !           |     Logical NOT                 |     Left   to right    |
-|     &           |     Element-wise logical AND    |     Left   to right    |
-|     &&          |     Logical AND                 |     Left   to right    |
-|     \|          |     Element-wise logical OR     |     Left   to right    |
-|     \|\|        |     Logical OR                  |     Left   to right    |
-
-**A few notes:**
-
-- Zero is considered FALSE and non-zero numbers are taken as TRUE.
-
-- Operators `&` and `|` perform element-wise operation, returning length of the 
-  longer operand.
-
-- For operators `&&` and `||`, it depends on the R version. In **R<=4.2.3**, it 
-  examines only the first element of the operands, returning a single value, 
-  while in **R=4.3.1**, `&&` and `||` only compare single values and will return
-  errors if input vectors.
-  
-```{r}
-x <- c(TRUE, FALSE, 0, 6)
-y <- c(FALSE, TRUE, FALSE, TRUE)
-
-!x
-
-x & y
-
-x | y
-
-# try it yourself
-# x && y
-# x || y
-```
-
-
-### if-else statements
-
-The `if-else` statement allows us to control when and how particular parts of 
-our code are executed.
-
-```{r}
-# In Q10 in Section 1.8 we have x_mean and x_sd
-
-x_mean = 1.7
-x_sd = 2.9
-
-if ( (x_mean > 0.1) && (x_sd < 2.0) ) {
-  trend = "increase"
-} else{
-  trend = "not_increase"
-}
-print(trend)
-```
-
-
-```{r}
-x_mean = 1.7
-x_st = 2.9
-
-trend = "not_increase"
-if ( (x_mean > 0.1) && (x_sd < 2.0) ) {
-  trend = "increase"
-}
-print(trend)
-```
-
-### for-loop
-Loops, including `for loop` and `while loop` are used in programming to repeat 
-a specific block of code, commonly with `if-else` statements.
-
-For example, calculate the sum from 1 to 10:
-```{r}
-sum_val = 0
-for (val in seq(1, 10)) {
-  # print(val) 
-  sum_val = sum_val + val
-}
-print(sum_val)
-```
-
-Or detect the differential expressed genes. Note, `NA` value may exist in the 
-`padj` column:
-```{}
-is_DE = rep(FALSE, nrow(df_DEG))
-
-for (i in 1:nrow(df_DEG)) { 
-  if (df_DEG$padj[i] <= 0.05) {
-    is_DE[i] = TRUE 
-  }
+# First define a function to calculate BMI
+
+# weight in kg, height in metres
+calculate_bmi <- function(weight, height){
+  bmi <- weight/(height^2)
+  return(bmi)
 }
 
-print(sum(is_DE))
+#Example usage:
+jason_weight <- 66.2
+jason_height <-1.71
+ray_weight <- 68.1
+ray_height <- 1.85
+calculate_bmi(jason_weight,jason_height)
+calculate_bmi(ray_weight,ray_height)
+
+
+
 ```
 
-
-## Plotting
-### datasets
-Let's use a built-in dataset for illustration: `iris` (4 flower features in 3 plants)
-```{r}
-head(iris)
-```
-
-```{r}
-summary(iris)
-```
-
-There are two common ways of plotting:
-
-1. the built-in plotting functions
-2. the ggplot format
-
-### Basic plotting
-#### Histogram
-```{r fig1-hist}
-hist(iris$Sepal.Length)
-```
-
-#### Scatter plot
-```{r fig1-scatter}
-plot(x=iris$Sepal.Length, y=iris$Sepal.Width)
-```
-
-#### boxplot
-```{r fig1-box}
-x1 <- iris$Sepal.Length[iris$Species == "setosa"]
-x2 <- iris$Sepal.Length[iris$Species == "versicolor"]
-x3 <- iris$Sepal.Length[iris$Species == "virginica"]
-
-boxplot(x1, x2, x3)
-```
-
-### ggplot2
-See more instructions: http://www.sthda.com/english/wiki/ggplot2-essentials
-
-#### Install and load package
-```{r}
-if (!requireNamespace("ggplot2", quietly = TRUE))
-    install.packages("ggplot2")
-
-library(ggplot2)
-```
-
-#### Histogram
-```{r fig1-gghist}
-ggplot(iris, aes(x=Sepal.Length)) + 
-  geom_histogram(bins = 8)
-```
-
-#### Scatter plot
-```{r fig1-ggpoint}
-ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width)) + 
-    geom_point()
-```
-
-#### Box plot
-```{r fig1-ggbox}
-ggplot(iris, aes(x=Species, y=Sepal.Length)) + 
-    geom_boxplot()
-```
-
-## Scientific computating
-### Orders of operators
-See lecture slides.
-
-If you are not sure about a certain ordering, use brackets!
+Now try to write a function to calculate the area of a circle:
 
 ```{r}
-5 * 2 > 4
+# type your code here
+
+
+
+
 ```
+
+The reason why R is such a useful programming language is because many functions to do all kinds of things have already been written for us. We will learn how to access these through R Packages in the next lesson.
+
+## R scripts
+
+An **R script** is a plain text file that contains a series of R commands saved in order. Instead of typing commands one by one directly into the R console, you write them all in this text file. Then, you can run the whole script at once to execute all commands automatically.
+
+R scripts are essential for organsing your work, for automation and for sharing with others.
+
+Actually any of the code blocks above can be saved as a R script, but for clarity (since they are already embedded in this R markdown, I will save the following calculate bmi function separately in a R script file.
 
 ```{r}
-5 * (2 > 4)
+
+# weight in kg, height in metres
+calculate_bmi <- function(weight, height){
+  bmi <- weight/(height^2)
+  return(bmi)
+}
+
+# Example usage
+bmi<-calculate_bmi(weight = 66.5,height = 1.72)
+print(bmi)
 ```
 
-### Functions for statistics
-More theory and practice to come in next session
+Save this as `calculate_bmi.R` .
 
-### Correlation
+To run the script in the console, we can type:
+
 ```{r}
-cor(iris$Sepal.Length, iris$Petal.Length)
+source("calculate_bmi.R",echo=TRUE)
 ```
+
+If you get an error it is most likely the R script was saved in a directory different from the current directory. You can use `getwd()` to see whether the current directory the one where you saved the script. If not, you can either use `setwd()` to move to the directory where the script is, or alternatively, just resave the R script in the current directory.
 
 ```{r}
-cor.test(iris$Sepal.Length, iris$Petal.Length)
+getwd()
 ```
 
-### Hypothesis testing (t test)
-```{r}
-x1 <- iris$Sepal.Length[iris$Species == "setosa"]
-x2 <- iris$Sepal.Length[iris$Species == "versicolor"]
-x3 <- iris$Sepal.Length[iris$Species == "virginica"]
+Now have a go at writing and saving your own R script that will contain a function to convert your heart rate from beats per minute (bpm) to beats per second (bps), and also print your name and your heart rate in both bpm and bps.
 
-t.test(x2, x3)
-```
-
-### Regression
-```{r}
-fit <- lm(Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width, data=iris)
-summary(fit) # show results
-```
-
-This means the fitted regression is: 
-
-`Sepal.Length ~ 1.856 + 0.65*Sepal.Width + 0.709*Petal.Length - 0.556*Petal.Width`
-
-We can check how good the regression is by plotting it out
-```{r}
-y_pred <- fit$coefficients[1] + 
-  fit$coefficients[2] * iris$Sepal.Width +
-  fit$coefficients[3] * iris$Petal.Length +
-  fit$coefficients[4] * iris$Petal.Width
-
-cor(iris$Sepal.Length, y_pred)
-```
-
-
-```{r fig1-reg}
-plot(iris$Sepal.Length, y_pred)
-```
-
-
-### Resource links
+## Resource links
 
 This notebook adapts contents from these resources:
 
-- https://www.datamentor.io/r-programming/
-- https://www.geeksforgeeks.org/r-data-types/
-- https://data-flair.training/blogs/r-data-types/
-- http://www.sthda.com/english/wiki/ggplot2-essentials
-
+-   <https://www.datamentor.io/r-programming/>
+-   <https://www.geeksforgeeks.org/r-data-types/>
+-   <https://data-flair.training/blogs/r-data-types/>
+-   <http://www.sthda.com/english/wiki/ggplot2-essentials>
 
 ### Coding styling
-Elegant styling is crucial for maintenance and collaboration. 
-Here is a highly recommended guideline: http://adv-r.had.co.nz/Style.html
 
+Elegant styling is crucial for maintenance and collaboration. Here is a highly recommended guideline: <http://adv-r.had.co.nz/Style.html>
