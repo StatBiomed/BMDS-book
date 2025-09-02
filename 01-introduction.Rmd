@@ -11,13 +11,10 @@ knitr::opts_chunk$set(
 )
 ```
 
+# Introduction to R {#introR}
+
 ```{r child="notebooks/chapter1-R/01-introR_week1.Rmd", echo=TRUE}
 ```
-
-```{r child="notebooks/chapter1-R/01-introR-exercises.Rmd", echo=TRUE}
-```
-
-
 
 # Introduction to Hypothesis testing {#introHypoTest}
 

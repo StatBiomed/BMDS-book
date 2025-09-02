@@ -1,11 +1,3 @@
----
-title: "Introductory R Programming"
-author: "Jason Wong, Ray Hsu and Yuanhua Huang"
-date: "2025-09-02"
-output: bookdown::gitbook
-documentclass: book
----
-
 ## Introduction to R programming (Session 1) {#introR}
 
 This notebook collects the scripts used for teaching in BBMS1021/BIOF1001 for Introduction to R (1 hour teaching). You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR_week1.Rmd) (right-click and "save link as" to download).
@@ -295,13 +287,13 @@ Save this as `calculate_bmi.R` .
 
 To run the script in the console, we can type:
 
-```{r}
+``` R
 source("calculate_bmi.R",echo=TRUE)
 ```
 
 If you get an error it is most likely the R script was saved in a directory different from the current directory. You can use `getwd()` to see whether the current directory the one where you saved the script. If not, you can either use `setwd()` to move to the directory where the script is, or alternatively, just resave the R script in the current directory.
 
-```{r}
+``` R
 getwd()
 ```
 
