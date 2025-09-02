@@ -1,0 +1,321 @@
+---
+title: "Introductory R Programming"
+author: "Jason Wong, Ray Hsu and Yuanhua Huang"
+date: "2025-09-02"
+output: bookdown::gitbook
+documentclass: book
+---
+
+# Introduction to R programming (Session 1) {#introR}
+
+This notebook collects the scripts used for teaching in BBMS1021/BIOF1001 for Introduction to R (1 hour teaching). You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR_week1.Rmd) (right-click and "save link as" to download).
+
+R is a programming language, particularly popular for its power in statistical computing, elegant graphics, and also genomic data analysis. It is a free and open-source software, with active support and development from the community. Additionally, R is relatively easy to get started for scientific computing.
+
+> **Note** To learn and practice R programming, you need to install `R` and `RStudio` on your computer. You can follow the instructions for installation in the [Appendix A](https://statbiomed.github.io/BMDS-book/install.html) chapter.
+
+## R as a basic calculator
+
+R can be used like a calculator for arithmetic operations:
+
+```{r}
+2 + 2
+```
+
+```{r}
+5 * 3
+```
+
+```{r}
+10 / 2
+```
+
+```{r}
+2 ^ 3
+```
+
+Can you write the command to calculate your BMI (i.e. $mass_{kg} \div {height_m}^2$)?
+
+```{r}
+# Anything after # means they are comments, and R won't execute it
+# type your command below
+
+
+```
+
+What is the area of a circle with a radius of 3?
+
+```{r}
+# type your command below
+
+
+```
+
+Like any good scientific calculator, R also has bulit-in mathematical functions such as `log()`, `exp()`, `sqrt()`, `abs()`, `sin()`, `cos()`, `tan()` , etc.
+
+```{r}
+# take the Sine of 90 degrees (i.e. 1.571 in radians)
+
+sin(1.571)
+```
+
+## Variables
+
+In computer programming, variables are used to store information. It is called a variable because you can also change the information that is stored.
+
+```{r}
+# example of assigning variable called age
+
+age <- 18
+age
+
+name <- "John"
+name
+```
+
+Variables can be called just about anything, but there are some rules in R:
+
+-   They can contain **letters (a-z, A-Z), digits (0-9), dots (.), and underscores (\_)**. Special characters like **`$`**, **`#`**, **`%`**, or spaces are **not allowed**.
+
+-   A variable name must **start with a letter or a dot (.)**, but if it starts with a dot, the next character cannot be a digit.
+
+-   Variable names are **case-sensitive** (e.g., **`age`**, **`Age`**, and **`AGE`** are different variables).
+
+-   You cannot use particular words such as **`TRUE`**, **`FALSE`**, **`if`**, **`else`**, or **`function`** as variable names as they are reserved for other purposes in R.
+
+Have a go at create a few variables using different variable names.
+
+```{r}
+# create a few variables below
+
+
+
+
+```
+
+As mentioned, variables can reassigned with new values. It can also be assigned the value of another variable. Let's try this:
+
+```{r}
+# create a variable called height and set to 170
+
+height <- 170
+height
+
+# now the assign a new value to height 
+
+height <- 175
+height
+
+# now create another variable called new_height and set to 165
+
+new_height <- 165
+height <- new_height
+height
+```
+
+Using R's calculator capabilities.
+
+```{r}
+# add 2cm to the height of 1.70m
+
+height <- 1.70
+height <- height + 0.02
+height
+
+
+```
+
+Now using variables, can you calculated your BMI?
+
+```{r}
+# type your code here
+
+
+
+```
+
+In R, it is also possible to assign variables using the **equals** **sign** `=` . However, it is generally recommend to use the **left arrow** `<-` for variable assignment in R.
+
+## Data types
+
+All variables in R need to belong to a **data type**. In R (similar to most other programming languages), there are a few commonly used data types that are predefined in the built-in environment. You can use the `class()` and `typeof()` functions to check the class and data type of any variable. In total, R has five data types:
+
+1.  Numeric (e.g. 3.1416, 20)
+2.  Integers (e.g. 5L, -10L)
+3.  Complex (e.g. 3 +2i)
+4.  Logical (e.g. TRUE or FALSE)
+5.  Characters (e.g. "Yuanhua", 'Jason')
+
+### numeric (or double)
+
+The `numeric` data type is for numbers, with or without decimals. It the most commonly used and the **default** data type in R. The `numeric` datatype saves values in double precision (double number of bytes in memory), so the type is also `double`.
+
+```{r}
+# example of numeric type
+
+height <- 1.70
+height
+class(height)
+typeof(height)
+```
+
+### integer
+
+The `integer` is another data type used for whole numbers. You can use the capital ‘L’ notation as a suffix to specify a particular value as the integer data type. Also, you can convert a numeric into an integer type using the `as.integer()` function.
+
+```{r}
+# example of integer type
+
+siblings <- 2L
+siblings 
+class(siblings)
+typeof(siblings)
+```
+
+### logical
+
+In R, the `logical` data type takes either a value of `TRUE` or `FALSE` . A `logical` value is often generated when comparing variables.
+
+```{r}
+# example of logic type
+
+male<-TRUE
+male
+typeof(male)
+```
+
+### character
+
+In R, the `character` is a data type where you have all the alphabets and special characters. It stores `character` values or `strings`. Strings in R can contain alphabets, numbers, and symbols. The character type is usually denoted by wrapping the value inside single or double inverted commas.
+
+```{r}
+# example of character type
+
+name <- "Jason"
+name
+typeof(name)
+```
+
+It is possible to inter-convert between data types. This can be useful as certain operations or functions (we will formally define functions later) only works on certain data types.
+
+```{r}
+# example of converting data types
+
+weight <- 65
+typeof(weight)
+weight <- as.integer(weight)
+typeof(weight)
+
+score <- "9.5"
+typeof(score)
+score <- as.numeric(score)
+typeof(score)
+score
+
+```
+
+While R is quite flexible in converting data types, not all conversions are possible. You can experiment with different conversions and we can see what conversions are not permissible.
+
+```{r}
+# type your code here
+
+name <- "Jason"
+typeof(name)
+name <- as.integer(name)
+
+
+```
+
+## Functions
+
+As the name suggests, functions are used to perform certain operations on some input. Perhaps without realising, you have already used functions multiple times above. For example, `sin()` and `typeof()`, etc.
+
+As one more example `floor()` is a function here to round a number down to the closest whole number
+
+```{r}
+weight <- 65.6
+floor(weight)
+```
+
+The functions that we have used above are already predefined by R. But generally, one of the major concepts in computer programming is to write your own functions. Once a function is defined, it can be used over and over again without needing to rewrite the code in the function every time. Consider the following example for make a function to calculate BMI:
+
+```{r}
+# First define a function to calculate BMI
+
+# weight in kg, height in metres
+calculate_bmi <- function(weight, height){
+  bmi <- weight/(height^2)
+  return(bmi)
+}
+
+#Example usage:
+jason_weight <- 66.2
+jason_height <-1.71
+ray_weight <- 68.1
+ray_height <- 1.85
+calculate_bmi(jason_weight,jason_height)
+calculate_bmi(ray_weight,ray_height)
+
+```
+
+Now try to write a function to calculate the area of a circle:
+
+```{r}
+# type your code here
+
+
+
+
+```
+
+The reason why R is such a useful programming language is because many functions to do all kinds of things have already been written for us. We will learn how to access these through R Packages in the next lesson.
+
+## R scripts
+
+An **R script** is a plain text file that contains a series of R commands saved in order. Instead of typing commands one by one directly into the R console, you write them all in this text file. Then, you can run the whole script at once to execute all commands automatically.
+
+R scripts are essential for organsing your work, for automation and for sharing with others.
+
+Actually any of the code blocks above can be saved as a R script, but for clarity (since they are already embedded in this R markdown, I will save the following calculate bmi function separately in a R script file.
+
+```{r}
+
+# weight in kg, height in metres
+calculate_bmi <- function(weight, height){
+  bmi <- weight/(height^2)
+  return(bmi)
+}
+
+# Example usage
+bmi<-calculate_bmi(weight = 66.5,height = 1.72)
+print(bmi)
+```
+
+Save this as `calculate_bmi.R` .
+
+To run the script in the console, we can type:
+
+```{r}
+source("calculate_bmi.R",echo=TRUE)
+```
+
+If you get an error it is most likely the R script was saved in a directory different from the current directory. You can use `getwd()` to see whether the current directory the one where you saved the script. If not, you can either use `setwd()` to move to the directory where the script is, or alternatively, just resave the R script in the current directory.
+
+```{r}
+getwd()
+```
+
+Now have a go at writing and saving your own R script that will contain a function to convert your heart rate from beats per minute (bpm) to beats per second (bps), and also print your name and your heart rate in both bpm and bps.
+
+## Resource links
+
+This notebook adapts contents from these resources:
+
+-   <https://www.datamentor.io/r-programming/>
+-   <https://www.geeksforgeeks.org/r-data-types/>
+-   <https://data-flair.training/blogs/r-data-types/>
+-   <http://www.sthda.com/english/wiki/ggplot2-essentials>
+
+### Coding styling
+
+Elegant styling is crucial for maintenance and collaboration. Here is a highly recommended guideline: <http://adv-r.had.co.nz/Style.html>
