@@ -6,7 +6,7 @@ output: bookdown::gitbook
 documentclass: book
 ---
 
-# Introduction to R programming (Session 1) {#introR}
+## Introduction to R programming (Session 1) {#introR}
 
 This notebook collects the scripts used for teaching in BBMS1021/BIOF1001 for Introduction to R (1 hour teaching). You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR_week1.Rmd) (right-click and "save link as" to download).
 
@@ -14,7 +14,7 @@ R is a programming language, particularly popular for its power in statistical c
 
 > **Note** To learn and practice R programming, you need to install `R` and `RStudio` on your computer. You can follow the instructions for installation in the [Appendix A](https://statbiomed.github.io/BMDS-book/install.html) chapter.
 
-## R as a basic calculator
+### R as a basic calculator
 
 R can be used like a calculator for arithmetic operations:
 
@@ -59,7 +59,7 @@ Like any good scientific calculator, R also has bulit-in mathematical functions 
 sin(1.571)
 ```
 
-## Variables
+### Variables
 
 In computer programming, variables are used to store information. It is called a variable because you can also change the information that is stored.
 
@@ -136,7 +136,7 @@ Now using variables, can you calculated your BMI?
 
 In R, it is also possible to assign variables using the **equals** **sign** `=` . However, it is generally recommend to use the **left arrow** `<-` for variable assignment in R.
 
-## Data types
+### Data types
 
 All variables in R need to belong to a **data type**. In R (similar to most other programming languages), there are a few commonly used data types that are predefined in the built-in environment. You can use the `class()` and `typeof()` functions to check the class and data type of any variable. In total, R has five data types:
 
@@ -146,7 +146,7 @@ All variables in R need to belong to a **data type**. In R (similar to most othe
 4.  Logical (e.g. TRUE or FALSE)
 5.  Characters (e.g. "Yuanhua", 'Jason')
 
-### numeric (or double)
+#### numeric (or double)
 
 The `numeric` data type is for numbers, with or without decimals. It the most commonly used and the **default** data type in R. The `numeric` datatype saves values in double precision (double number of bytes in memory), so the type is also `double`.
 
@@ -159,7 +159,7 @@ class(height)
 typeof(height)
 ```
 
-### integer
+#### integer
 
 The `integer` is another data type used for whole numbers. You can use the capital ‘L’ notation as a suffix to specify a particular value as the integer data type. Also, you can convert a numeric into an integer type using the `as.integer()` function.
 
@@ -172,7 +172,7 @@ class(siblings)
 typeof(siblings)
 ```
 
-### logical
+#### logical
 
 In R, the `logical` data type takes either a value of `TRUE` or `FALSE` . A `logical` value is often generated when comparing variables.
 
@@ -184,7 +184,7 @@ male
 typeof(male)
 ```
 
-### character
+#### character
 
 In R, the `character` is a data type where you have all the alphabets and special characters. It stores `character` values or `strings`. Strings in R can contain alphabets, numbers, and symbols. The character type is usually denoted by wrapping the value inside single or double inverted commas.
 
@@ -226,7 +226,7 @@ name <- as.integer(name)
 
 ```
 
-## Functions
+### Functions
 
 As the name suggests, functions are used to perform certain operations on some input. Perhaps without realising, you have already used functions multiple times above. For example, `sin()` and `typeof()`, etc.
 
@@ -270,7 +270,7 @@ Now try to write a function to calculate the area of a circle:
 
 The reason why R is such a useful programming language is because many functions to do all kinds of things have already been written for us. We will learn how to access these through R Packages in the next lesson.
 
-## R scripts
+### R scripts
 
 An **R script** is a plain text file that contains a series of R commands saved in order. Instead of typing commands one by one directly into the R console, you write them all in this text file. Then, you can run the whole script at once to execute all commands automatically.
 
@@ -307,7 +307,7 @@ getwd()
 
 Now have a go at writing and saving your own R script that will contain a function to convert your heart rate from beats per minute (bpm) to beats per second (bps), and also print your name and your heart rate in both bpm and bps.
 
-## Resource links
+### Resource links
 
 This notebook adapts contents from these resources:
 
@@ -316,6 +316,6 @@ This notebook adapts contents from these resources:
 -   <https://data-flair.training/blogs/r-data-types/>
 -   <http://www.sthda.com/english/wiki/ggplot2-essentials>
 
-### Coding styling
+#### Coding styling
 
 Elegant styling is crucial for maintenance and collaboration. Here is a highly recommended guideline: <http://adv-r.had.co.nz/Style.html>
