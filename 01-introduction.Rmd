@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r child="notebooks/chapter1-R/01-introR.Rmd", echo=TRUE}
+```{r child="notebooks/chapter1-R/01-introR-Week1.Rmd", echo=TRUE}
 ```
 
 ```{r child="notebooks/chapter1-R/01-introR-exercises.Rmd", echo=TRUE}
