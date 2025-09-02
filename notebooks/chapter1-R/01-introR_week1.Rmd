@@ -287,13 +287,13 @@ Save this as `calculate_bmi.R` .
 
 To run the script in the console, we can type:
 
-``` R
+``` r
 source("calculate_bmi.R",echo=TRUE)
 ```
 
 If you get an error it is most likely the R script was saved in a directory different from the current directory. You can use `getwd()` to see whether the current directory the one where you saved the script. If not, you can either use `setwd()` to move to the directory where the script is, or alternatively, just resave the R script in the current directory.
 
-``` R
+``` r
 getwd()
 ```
 
