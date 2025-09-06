@@ -1,0 +1,317 @@
+## Introduction to R programming (Session 2) {#introR}
+
+This notebook collects the scripts used for teaching in BBMS1021/BIOF1001 for Introduction to R (1 hour teaching). You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR_week2-1.Rmd) (right-click and "save link as" to download).
+
+In the last session, we started learning to use R through the Rstudio interface.
+
+We also learn about some fundamental programming concepts including Variables, Data types and Functions in R. We also learnt to save our code into Rscripts.
+
+In this lecture, we will delve into data structures in R. We will also learn to read and write files into R.
+
+### Data structures
+
+Data structures are one of the most important features in programming. They are used to organise and store data so that we can perform analysis on them quickly and efficiently. Each data structure have pros and cons depending on the type of data it is used to store and the analysis required.
+
+Main data structures used in R:
+
+-   **Vector:** A list of items of the same data type, like a series of numbers (numeric) or words (characters).
+
+-   **Matrix:** Tables of numbers with rows and columns, where all elements are the same type.
+
+-   **List:** Collections that can hold different types of data all together, such as numbers, words, or even other lists.
+
+-   **Data Frame:** Like a spreadsheet where each column can have different types of data, useful for tabular data
+
+### Vector
+
+Vector is a basic data structure in R. It contains elements in the **same** data type (no matter double, integer, character or others). You can check the data type by using `typeof()` function and the length of the vector by `length()` function.
+
+Since a vector has elements of the same type, this function will try and coerce elements to the same type, if they are different. Coercion is from lower to higher types, i.e., from logical to integer to double to a character.
+
+See more introduction [here](https://www.datamentor.io/r-programming/vector/).
+
+```{r}
+# vector of numerics
+# c combines numbers in the brackets to a vector
+age <- c(16, 20, 15, 17, 18)  
+age
+typeof (age)
+```
+
+There are also different ways to automatically generate vectors
+
+```{r}
+# vectors can be created using existing variables
+jason <- 1.69
+ray <- 1.78
+yuanhua <- 1.72
+
+heights <- c(jason, ray, yuanhua)
+names(heights) <- c("Jason","Ray","Yuanhua")      # you can optionally give names to items in a vector
+heights
+typeof(heights)
+
+# rep repeats the first number, n times based on the second value
+repeats <- rep(3, 5)  
+repeats
+typeof(repeats)
+
+# generates a vector of integers from 1 to 12 (inclusive)
+series <- 1:12 
+series
+typeof(series)
+
+# generate a vector of random integers by sampling 6 values between 1 and 49 (六合彩)
+mark6 <- sample(1:49,6)
+mark6
+typeof(mark6)
+```
+
+Vectors can also be combined from other vectors.
+
+```{r}
+# vectors can be combined
+new_vector <- c(series,mark6,rep(50,3))
+new_vector
+typeof(new_vector)
+```
+
+Did you notice that `new_vector` is now a of type `double` ?
+
+You can spend a few minutes to create vectors and explore what happens to the data type of the vector when you combine them with others.
+
+```{r}
+# write your code here
+
+
+```
+
+#### Coercion
+
+Last week we explored converting the data type of variables using `as.numeric` , `as.integer`, `as.character` etc. These are done explicitly. When combining vectors with different data types they are automatically converted to the most general type in what is known as **coercion**. It occurs based on the following order:
+
+`logical < integer < numeric < character`
+
+```{r}
+# coercion of different data types into one type
+coerced <- c(TRUE, 2L, 3.4, "4")
+coerced
+typeof(coerced)
+
+coerced <- c(FALSE, 1L, 2.4)
+coerced
+typeof(coerced)
+```
+
+#### Mathematical operations
+
+Common mathematical operations can be directly performed on numeric or integer vectors:
+
+```{r}
+# example calculations on vectors
+steps_D1 <- c(9783, 11233, 7844, 9331)
+steps_D2 <- c(12432, 19931, 6833, 8322)
+total_steps <- steps_D1 + steps_D2
+total_steps
+diff_steps <- steps_D1 - steps_D2
+diff_steps
+```
+
+Can you write the code to calculate BMI from the vectors below?
+
+```{r}
+# complete the code to calculate BMI from the weights and heights vectors
+weights <- c(54, 66, 78, 45)
+heights <- c(1.55, 1.77, 1.75, 1.61)
+                                        # <--- write you code here
+bmis
+
+```
+
+#### Index
+
+Items in a vector can be directly retrieved by their index
+
+```{r}
+# Example of using index to retrieve items in a vector
+scores <- c(44,56,63,75,77,78,81,90,93,99)
+scores
+typeof(scores)
+
+scores[5]              # retrieve score at index 5 (i.e. 5th position) 
+scores[2:5]            # retrieve score from index 2 to 5
+scores[c(2,5,7)]       # retrieve scores from index 2, 5 and 7
+scores[-5]             # retrieve all scores except index 5
+scores[c(TRUE,FALSE)]  # retrieve scores in even positions
+```
+
+Can you write the code to retrieve the scores from:
+
+1.  the first position
+2.  odd positions
+3.  every 3rd position
+
+```{r}
+scores <- c(44,56,63,75,77,78,81,90,93,99)
+# write the code to retieve the 1st position
+
+# write the code to retrieve odd positions
+
+# write the code to retrieve every 3rd position
+
+```
+
+#### Modifying a vector
+
+Using the index it is possible to modify specific items in a vector
+
+```{r}
+# example modifying items in a vector
+scores <- c(44,56,63,75,77,78,81,90,93,99)
+scores
+scores[5] <- 50                 # modify position 5
+scores
+scores[1:4] <- c(30,40,50,60)   # modify positions 1 to 4
+scores
+scores[1] <- "Twenty"           # modify position 1 and changes vector to character
+scores
+```
+
+### Matrix
+
+Matrix is a two-dimensional data structure. It is in principle built based on vector but has more functions for matrix computation. It has rows and columns, both of which can also have names. To check the dimensions, you can use the `dim()` function.
+
+See more introduction [here](https://www.datamentor.io/r-programming/matrix/).
+
+```{r}
+
+myMatrix <- matrix(1:12, nrow=3)
+colnames(myMatrix) <- c("C1","C2","C3","C4")    # assign column names
+rownames(myMatrix) <- c("R1","R2","R3")         # assign row names
+myMatrix
+dim(myMatrix)                                   # prints dimension of the matrix 
+```
+
+#### Indexing a matrix
+
+Accessing items in a matrix is similar to vector but in 2 dimensions
+
+```{r}
+myMatrix <- matrix(1:12, nrow=3) 
+colnames(myMatrix) <- c("C1","C2","C3","C4") 
+rownames(myMatrix) <- c("R1","R2","R3") 
+myMatrix[1, 2]                          # retrieve item in row 1 column 2
+myMatrix["R2", "C2"]                    # retrieve item by row and col name in R2, C2
+myMatrix[1, 1:2]                        # retrieve items in row 1 and col 1 and 2. 
+myMatrix[1:2, c(2, 3)]                  # retrieve items in row 1-2 and col 2-3
+```
+
+#### Modify values
+
+Modifying items in a matrix is similar to vector but in 2 dimensions. Can you write the code to:
+
+1.  replace row 3, column 3 with the value 7?
+
+2.  replace row 1, column 4 using the row and col name with the value -5?
+
+3.  delete row 2
+
+```{r}
+myMatrix <- matrix(1:12, nrow=3) 
+colnames(myMatrix) <- c("C1","C2","C3","C4") 
+rownames(myMatrix) <- c("R1","R2","R3") 
+# write code to replace row 3, column 3 with the value 7
+
+# write code to replace row 1, column 4 using the row and col name with the value -5
+
+# write code to delete row 2
+
+```
+
+### List
+
+Unlike a `vector` , a `list` data structure can have components of mixed data types. More broadly, a `list` can contain a list of any data structure: value, vector, matrix, etc.
+
+We can use `str()` function to view the structure of a list (or any object).
+
+```{r}
+myList <- list(1.70, TRUE, 1:3, "Jason") 
+str(myList)
+names(myList) <- c("Height","Male","Workdays","Name")    # give names to elements in list
+str(myList)
+```
+
+#### Indexing list
+
+Different from vector and matrix, for a `list`, you need to use **double-layer square brackets**, either by numeric index or name. Alternatively, you can also use `$` symbol with the name.
+
+```{r}
+# example of retrieving items from a list
+myList[[4]]              # using index
+myList[["Name"]]         # using index of Name
+myList$Name              # using the Name key directly
+```
+
+Can you retrieve the Height and Name from myList?
+
+```{r}
+# write code to retrieve Height and Name from myList
+
+
+```
+
+#### Converting to/from vector
+
+It is possible to inter-convert list to and from vectors.
+
+```{r}
+# example of interconverting list to vector and back
+myList <- list(1.70, TRUE, 1:3, "Jason")
+str(myList)
+myVector <- unlist(myList)
+myVector
+myList_cov <- as.list(myVector)
+str(myList_cov)
+```
+
+### Data Frame
+
+Data frame is widely used for rectangular data, where each column has the same data type (vector) but different columns can have different data types (like Excel)
+
+The data frame is in fact a special type of `list`: A list of vectors with the same length.
+
+```{r}
+myDF <- data.frame("Height" = c(1.70, 1.80, 1.68, 1.72), 
+                  "Weight" = c(67, 60, 55, 58), 
+                  "Name" = c("Jason", "Ray", "Dora", "Yuanhua"), 
+                  "Gender" = factor(c("male","male","female","male")))
+myDF
+myDF$Name[3]          # print name at index 3
+levels(myDF$Gender)   # print levels of gender (which is coded as a factor)
+```
+
+### Reading/writing data from/to R
+
+Now that you know how data can be represented in R in different ways you can read in external data to take advantage of its powerful functions.
+
+```{r}
+#install tidyverse (package with lots of functions to handle data in R)
+if (!requireNamespace("tidyverse", quietly = TRUE)) {    # checks if already installed
+  install.packages("tidyverse")
+}
+library(tidyverse)                                       # load the package
+```
+
+You can download `myData.csv` from Moodle or [here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/myData.csv).
+
+```{r}
+# example of reading in data
+myData <- read_csv("C:/Users/Jason/Downloads/myData.csv")   # use the path where you saved the file on your own computer
+myData
+```
+
+```{r}
+# example of writing data back to csv
+myData[1,] <- list(1.5,42,"Sarah","female")
+write_csv(myData, "C:/Users/Jason/Downloads/myData2.csv")
+```

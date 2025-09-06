@@ -4,7 +4,6 @@
 cat("# (PART) Data Science Foundations {-} ")
 ```
 
-
 ```{r, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE, comment = "#>"
@@ -16,6 +15,9 @@ knitr::opts_chunk$set(
 ```{r child="notebooks/chapter1-R/01-introR_week1.Rmd", echo=TRUE}
 ```
 
+```{r child="notebooks/chapter1-R/01-introR_week2-1.Rmd", echo=TRUE}
+```
+
 # Introduction to Hypothesis testing {#introHypoTest}
 
 ```{r child="notebooks/chapter4-HT/04-hypothesis-test-01.Rmd", echo=TRUE}
@@ -23,7 +25,6 @@ knitr::opts_chunk$set(
 
 ```{r child="notebooks/chapter4-HT/04-hypothesis-test-02.Rmd", echo=TRUE}
 ```
-
 
 # Introduction to Linear Regression {#introLinearReg}
 
@@ -44,8 +45,6 @@ Acknowledgements: this chapter is adapted and updated from the materials origina
 ```{r child="notebooks/chapter2-LR/02-linearReg-05.Rmd", echo=TRUE}
 ```
 
-
-
 # Introduction to Classification {#introClassifier}
 
 ```{r child="notebooks/chapter3-CL/03-classifier-01.Rmd", echo=TRUE}
@@ -56,4 +55,3 @@ Acknowledgements: this chapter is adapted and updated from the materials origina
 
 ```{r child="notebooks/chapter3-CL/03-classifier-03.Rmd", echo=TRUE}
 ```
-
