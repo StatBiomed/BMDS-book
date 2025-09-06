@@ -1,6 +1,6 @@
-## Introduction to R programming (Session 2) {#introR}
+## Intro to R programming (Session 2) {#introR}
 
-This notebook collects the scripts used for teaching in BBMS1021/BIOF1001 for Introduction to R (1 hour teaching). You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter1-R/01-introR_week2-1.Rmd) (right-click and "save link as" to download).
+You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter1-R/01-introR_week2-1.Rmd) (right-click and "save link as" to download).
 
 In the last session, we started learning to use R through the Rstudio interface.
 
@@ -310,8 +310,10 @@ myData <- read_csv("C:/Users/Jason/Downloads/myData.csv")   # use the path where
 myData
 ```
 
+We will modify the first row of data and then write it back to file.
+
 ```{r}
 # example of writing data back to csv
 myData[1,] <- list(1.5,42,"Sarah","female")
-write_csv(myData, "C:/Users/Jason/Downloads/myData2.csv")
+#write_csv(myData, "C:/Users/Jason/Downloads/myData2.csv")  uncomment after setting the path to output
 ```

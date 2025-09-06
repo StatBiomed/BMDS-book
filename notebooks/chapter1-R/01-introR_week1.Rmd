@@ -1,6 +1,6 @@
-## Introduction to R programming (Session 1) {#introR}
+## Intro to R programming (Session 1) {#introR}
 
-This notebook collects the scripts used for teaching in BBMS1021/BIOF1001 for Introduction to R (1 hour teaching). You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR_week1.Rmd) (right-click and "save link as" to download).
+This notebook collects the scripts used for teaching in BBMS1021/BIOF1001 for Introduction to R. You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR_week1.Rmd) (right-click and "save link as" to download).
 
 R is a programming language, particularly popular for its power in statistical computing, elegant graphics, and also genomic data analysis. It is a free and open-source software, with active support and development from the community. Additionally, R is relatively easy to get started for scientific computing.
 

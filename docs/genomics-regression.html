@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2025-09-02" />
+<meta name="date" content="2025-09-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -154,7 +154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>I Data Science Foundations</b></span></li>
 <li class="chapter" data-level="1" data-path="introR.html"><a href="introR.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="introR.html"><a href="introR.html#introR"><i class="fa fa-check"></i><b>1.1</b> Introduction to R programming (Session 1)</a>
+<li class="chapter" data-level="1.1" data-path="introR.html"><a href="introR.html#introR"><i class="fa fa-check"></i><b>1.1</b> Intro to R programming (Session 1)</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="introR.html"><a href="introR.html#r-as-a-basic-calculator"><i class="fa fa-check"></i><b>1.1.1</b> R as a basic calculator</a></li>
 <li class="chapter" data-level="1.1.2" data-path="introR.html"><a href="introR.html#variables"><i class="fa fa-check"></i><b>1.1.2</b> Variables</a></li>
@@ -162,6 +162,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.4" data-path="introR.html"><a href="introR.html#functions"><i class="fa fa-check"></i><b>1.1.4</b> Functions</a></li>
 <li class="chapter" data-level="1.1.5" data-path="introR.html"><a href="introR.html#r-scripts"><i class="fa fa-check"></i><b>1.1.5</b> R scripts</a></li>
 <li class="chapter" data-level="1.1.6" data-path="introR.html"><a href="introR.html#resource-links"><i class="fa fa-check"></i><b>1.1.6</b> Resource links</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introR.html"><a href="introR.html#introR"><i class="fa fa-check"></i><b>1.2</b> Intro to R programming (Session 2)</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introR.html"><a href="introR.html#data-structures"><i class="fa fa-check"></i><b>1.2.1</b> Data structures</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introR.html"><a href="introR.html#vector"><i class="fa fa-check"></i><b>1.2.2</b> Vector</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introR.html"><a href="introR.html#matrix"><i class="fa fa-check"></i><b>1.2.3</b> Matrix</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introR.html"><a href="introR.html#list"><i class="fa fa-check"></i><b>1.2.4</b> List</a></li>
+<li class="chapter" data-level="1.2.5" data-path="introR.html"><a href="introR.html#data-frame"><i class="fa fa-check"></i><b>1.2.5</b> Data Frame</a></li>
+<li class="chapter" data-level="1.2.6" data-path="introR.html"><a href="introR.html#readingwriting-data-fromto-r"><i class="fa fa-check"></i><b>1.2.6</b> Reading/writing data from/to R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introHypoTest.html"><a href="introHypoTest.html"><i class="fa fa-check"></i><b>2</b> Introduction to Hypothesis testing</a>
@@ -345,62 +354,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>5ss_motif_ref: the motif score of a sequence. The motif position weight matrix (PWM) is obtained by observed genes. The motif score is calculated as the log likelihood of each sequence given the PWM, followed by resealing to 100 for the maximum value. You can refer to <em>slide 7</em> in lecture topic 1.</li>
 <li>intronL_alt: intron length for erroneous (alt) intron</li>
 </ul>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="genomics-regression.html#cb163-1" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">read.table</span>(<span class="st">&quot;df_SEF_prediction.tsv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header=</span><span class="dv">1</span>)</span>
-<span id="cb163-2"><a href="genomics-regression.html#cb163-2" tabindex="-1"></a></span>
-<span id="cb163-3"><a href="genomics-regression.html#cb163-3" tabindex="-1"></a><span class="fu">head</span>(df)</span>
-<span id="cb163-4"><a href="genomics-regression.html#cb163-4" tabindex="-1"></a><span class="co">#&gt;    gene     RPG   event shift         SEF intronL_ref X5ss_bpL_ref</span></span>
-<span id="cb163-5"><a href="genomics-regression.html#cb163-5" tabindex="-1"></a><span class="co">#&gt; 1  TFC3 non_RPG down3ss    17 0.479869423          90           77</span></span>
-<span id="cb163-6"><a href="genomics-regression.html#cb163-6" tabindex="-1"></a><span class="co">#&gt; 2 SEC17 non_RPG down3ss    47 0.021937843         116           77</span></span>
-<span id="cb163-7"><a href="genomics-regression.html#cb163-7" tabindex="-1"></a><span class="co">#&gt; 3  ERD2 non_RPG   up3ss     4 0.059303591          97           63</span></span>
-<span id="cb163-8"><a href="genomics-regression.html#cb163-8" tabindex="-1"></a><span class="co">#&gt; 4  LSM2 non_RPG   up5ss    56 0.019908116         128           92</span></span>
-<span id="cb163-9"><a href="genomics-regression.html#cb163-9" tabindex="-1"></a><span class="co">#&gt; 5  LSM2 non_RPG   up3ss    47 0.077444760         128           92</span></span>
-<span id="cb163-10"><a href="genomics-regression.html#cb163-10" tabindex="-1"></a><span class="co">#&gt; 6  LSM2 non_RPG down3ss    40 0.002844017         128           92</span></span>
-<span id="cb163-11"><a href="genomics-regression.html#cb163-11" tabindex="-1"></a><span class="co">#&gt;   DeltaG_intron_ref DeltaG_5ss_bp_ref DeltaG_bp_3ss_ref DeltaG_3ss_ref</span></span>
-<span id="cb163-12"><a href="genomics-regression.html#cb163-12" tabindex="-1"></a><span class="co">#&gt; 1          -0.11444          -0.13377               0.0           -6.2</span></span>
-<span id="cb163-13"><a href="genomics-regression.html#cb163-13" tabindex="-1"></a><span class="co">#&gt; 2          -0.17155          -0.10779             -10.5          -20.3</span></span>
-<span id="cb163-14"><a href="genomics-regression.html#cb163-14" tabindex="-1"></a><span class="co">#&gt; 3          -0.16804          -0.16190              -3.9           -8.7</span></span>
-<span id="cb163-15"><a href="genomics-regression.html#cb163-15" tabindex="-1"></a><span class="co">#&gt; 4          -0.13906          -0.12065              -0.9           -7.0</span></span>
-<span id="cb163-16"><a href="genomics-regression.html#cb163-16" tabindex="-1"></a><span class="co">#&gt; 5          -0.13906          -0.12065              -0.9           -7.0</span></span>
-<span id="cb163-17"><a href="genomics-regression.html#cb163-17" tabindex="-1"></a><span class="co">#&gt; 6          -0.13906          -0.12065              -0.9           -7.0</span></span>
-<span id="cb163-18"><a href="genomics-regression.html#cb163-18" tabindex="-1"></a><span class="co">#&gt;   X5ss_motif_ref bp_motif_ref X3ss_motif_ref intronL_alt DeltaG_intron_alt</span></span>
-<span id="cb163-19"><a href="genomics-regression.html#cb163-19" tabindex="-1"></a><span class="co">#&gt; 1         0.7213       0.7703         0.0769         107          -0.10841</span></span>
-<span id="cb163-20"><a href="genomics-regression.html#cb163-20" tabindex="-1"></a><span class="co">#&gt; 2         0.7695       0.9942         0.1461         163          -0.19202</span></span>
-<span id="cb163-21"><a href="genomics-regression.html#cb163-21" tabindex="-1"></a><span class="co">#&gt; 3         0.8495       0.8835         0.1496          93          -0.17527</span></span>
-<span id="cb163-22"><a href="genomics-regression.html#cb163-22" tabindex="-1"></a><span class="co">#&gt; 4         0.8305       0.6667         0.3677         184          -0.15217</span></span>
-<span id="cb163-23"><a href="genomics-regression.html#cb163-23" tabindex="-1"></a><span class="co">#&gt; 5         0.8305       0.6667         0.3677          81          -0.10864</span></span>
-<span id="cb163-24"><a href="genomics-regression.html#cb163-24" tabindex="-1"></a><span class="co">#&gt; 6         0.8305       0.6667         0.3677         168          -0.11667</span></span>
-<span id="cb163-25"><a href="genomics-regression.html#cb163-25" tabindex="-1"></a><span class="co">#&gt;   DeltaG_3ss_alt X5ss_motif_alt X3ss_motif_alt</span></span>
-<span id="cb163-26"><a href="genomics-regression.html#cb163-26" tabindex="-1"></a><span class="co">#&gt; 1           -6.8          77.00         0.5223</span></span>
-<span id="cb163-27"><a href="genomics-regression.html#cb163-27" tabindex="-1"></a><span class="co">#&gt; 2          -13.0          70.99         0.2926</span></span>
-<span id="cb163-28"><a href="genomics-regression.html#cb163-28" tabindex="-1"></a><span class="co">#&gt; 3           -8.3          86.10         0.3329</span></span>
-<span id="cb163-29"><a href="genomics-regression.html#cb163-29" tabindex="-1"></a><span class="co">#&gt; 4           -7.0          64.20         0.3955</span></span>
-<span id="cb163-30"><a href="genomics-regression.html#cb163-30" tabindex="-1"></a><span class="co">#&gt; 5           -8.9          80.76         0.6179</span></span>
-<span id="cb163-31"><a href="genomics-regression.html#cb163-31" tabindex="-1"></a><span class="co">#&gt; 6           -4.3          80.76         0.3341</span></span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="genomics-regression.html#cb184-1" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">read.table</span>(<span class="st">&quot;df_SEF_prediction.tsv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header=</span><span class="dv">1</span>)</span>
+<span id="cb184-2"><a href="genomics-regression.html#cb184-2" tabindex="-1"></a></span>
+<span id="cb184-3"><a href="genomics-regression.html#cb184-3" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb184-4"><a href="genomics-regression.html#cb184-4" tabindex="-1"></a><span class="co">#&gt;    gene     RPG   event shift         SEF intronL_ref X5ss_bpL_ref</span></span>
+<span id="cb184-5"><a href="genomics-regression.html#cb184-5" tabindex="-1"></a><span class="co">#&gt; 1  TFC3 non_RPG down3ss    17 0.479869423          90           77</span></span>
+<span id="cb184-6"><a href="genomics-regression.html#cb184-6" tabindex="-1"></a><span class="co">#&gt; 2 SEC17 non_RPG down3ss    47 0.021937843         116           77</span></span>
+<span id="cb184-7"><a href="genomics-regression.html#cb184-7" tabindex="-1"></a><span class="co">#&gt; 3  ERD2 non_RPG   up3ss     4 0.059303591          97           63</span></span>
+<span id="cb184-8"><a href="genomics-regression.html#cb184-8" tabindex="-1"></a><span class="co">#&gt; 4  LSM2 non_RPG   up5ss    56 0.019908116         128           92</span></span>
+<span id="cb184-9"><a href="genomics-regression.html#cb184-9" tabindex="-1"></a><span class="co">#&gt; 5  LSM2 non_RPG   up3ss    47 0.077444760         128           92</span></span>
+<span id="cb184-10"><a href="genomics-regression.html#cb184-10" tabindex="-1"></a><span class="co">#&gt; 6  LSM2 non_RPG down3ss    40 0.002844017         128           92</span></span>
+<span id="cb184-11"><a href="genomics-regression.html#cb184-11" tabindex="-1"></a><span class="co">#&gt;   DeltaG_intron_ref DeltaG_5ss_bp_ref DeltaG_bp_3ss_ref DeltaG_3ss_ref</span></span>
+<span id="cb184-12"><a href="genomics-regression.html#cb184-12" tabindex="-1"></a><span class="co">#&gt; 1          -0.11444          -0.13377               0.0           -6.2</span></span>
+<span id="cb184-13"><a href="genomics-regression.html#cb184-13" tabindex="-1"></a><span class="co">#&gt; 2          -0.17155          -0.10779             -10.5          -20.3</span></span>
+<span id="cb184-14"><a href="genomics-regression.html#cb184-14" tabindex="-1"></a><span class="co">#&gt; 3          -0.16804          -0.16190              -3.9           -8.7</span></span>
+<span id="cb184-15"><a href="genomics-regression.html#cb184-15" tabindex="-1"></a><span class="co">#&gt; 4          -0.13906          -0.12065              -0.9           -7.0</span></span>
+<span id="cb184-16"><a href="genomics-regression.html#cb184-16" tabindex="-1"></a><span class="co">#&gt; 5          -0.13906          -0.12065              -0.9           -7.0</span></span>
+<span id="cb184-17"><a href="genomics-regression.html#cb184-17" tabindex="-1"></a><span class="co">#&gt; 6          -0.13906          -0.12065              -0.9           -7.0</span></span>
+<span id="cb184-18"><a href="genomics-regression.html#cb184-18" tabindex="-1"></a><span class="co">#&gt;   X5ss_motif_ref bp_motif_ref X3ss_motif_ref intronL_alt DeltaG_intron_alt</span></span>
+<span id="cb184-19"><a href="genomics-regression.html#cb184-19" tabindex="-1"></a><span class="co">#&gt; 1         0.7213       0.7703         0.0769         107          -0.10841</span></span>
+<span id="cb184-20"><a href="genomics-regression.html#cb184-20" tabindex="-1"></a><span class="co">#&gt; 2         0.7695       0.9942         0.1461         163          -0.19202</span></span>
+<span id="cb184-21"><a href="genomics-regression.html#cb184-21" tabindex="-1"></a><span class="co">#&gt; 3         0.8495       0.8835         0.1496          93          -0.17527</span></span>
+<span id="cb184-22"><a href="genomics-regression.html#cb184-22" tabindex="-1"></a><span class="co">#&gt; 4         0.8305       0.6667         0.3677         184          -0.15217</span></span>
+<span id="cb184-23"><a href="genomics-regression.html#cb184-23" tabindex="-1"></a><span class="co">#&gt; 5         0.8305       0.6667         0.3677          81          -0.10864</span></span>
+<span id="cb184-24"><a href="genomics-regression.html#cb184-24" tabindex="-1"></a><span class="co">#&gt; 6         0.8305       0.6667         0.3677         168          -0.11667</span></span>
+<span id="cb184-25"><a href="genomics-regression.html#cb184-25" tabindex="-1"></a><span class="co">#&gt;   DeltaG_3ss_alt X5ss_motif_alt X3ss_motif_alt</span></span>
+<span id="cb184-26"><a href="genomics-regression.html#cb184-26" tabindex="-1"></a><span class="co">#&gt; 1           -6.8          77.00         0.5223</span></span>
+<span id="cb184-27"><a href="genomics-regression.html#cb184-27" tabindex="-1"></a><span class="co">#&gt; 2          -13.0          70.99         0.2926</span></span>
+<span id="cb184-28"><a href="genomics-regression.html#cb184-28" tabindex="-1"></a><span class="co">#&gt; 3           -8.3          86.10         0.3329</span></span>
+<span id="cb184-29"><a href="genomics-regression.html#cb184-29" tabindex="-1"></a><span class="co">#&gt; 4           -7.0          64.20         0.3955</span></span>
+<span id="cb184-30"><a href="genomics-regression.html#cb184-30" tabindex="-1"></a><span class="co">#&gt; 5           -8.9          80.76         0.6179</span></span>
+<span id="cb184-31"><a href="genomics-regression.html#cb184-31" tabindex="-1"></a><span class="co">#&gt; 6           -4.3          80.76         0.3341</span></span></code></pre></div>
 <div id="a-single-feature" class="section level4 hasAnchor" number="11.1.2.1">
 <h4><span class="header-section-number">11.1.2.1</span> A single feature<a href="genomics-regression.html#a-single-feature" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>Q4.</strong> Let’s start with a single feature, <code>bp_motif_ref</code>, is there a linear relationship with the output variable <code>SEF</code> Y? How do you determine it?</p>
 <p><strong>Hint</strong>: try scatter plot to visualise the data. See example we mentioned before
 <a href="https://statbiomed.github.io/BMDS-book/introR.html#scatter-plot-1" class="uri">https://statbiomed.github.io/BMDS-book/introR.html#scatter-plot-1</a></p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="genomics-regression.html#cb164-1" tabindex="-1"></a><span class="co"># consider visualise it</span></span>
-<span id="cb164-2"><a href="genomics-regression.html#cb164-2" tabindex="-1"></a><span class="co"># df$SEF and df$bp_motif_ref</span></span>
-<span id="cb164-3"><a href="genomics-regression.html#cb164-3" tabindex="-1"></a></span>
-<span id="cb164-4"><a href="genomics-regression.html#cb164-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb164-5"><a href="genomics-regression.html#cb164-5" tabindex="-1"></a></span>
-<span id="cb164-6"><a href="genomics-regression.html#cb164-6" tabindex="-1"></a><span class="co"># Write your codes here</span></span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="genomics-regression.html#cb185-1" tabindex="-1"></a><span class="co"># consider visualise it</span></span>
+<span id="cb185-2"><a href="genomics-regression.html#cb185-2" tabindex="-1"></a><span class="co"># df$SEF and df$bp_motif_ref</span></span>
+<span id="cb185-3"><a href="genomics-regression.html#cb185-3" tabindex="-1"></a></span>
+<span id="cb185-4"><a href="genomics-regression.html#cb185-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb185-5"><a href="genomics-regression.html#cb185-5" tabindex="-1"></a></span>
+<span id="cb185-6"><a href="genomics-regression.html#cb185-6" tabindex="-1"></a><span class="co"># Write your codes here</span></span></code></pre></div>
 <p>How about doing a log transform for SEF score? Consider adding a pseudo count, e.g., 0.0001.</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="genomics-regression.html#cb165-1" tabindex="-1"></a>df[<span class="st">&quot;SEF_log&quot;</span>] <span class="ot">=</span> <span class="fu">log10</span>(df<span class="sc">$</span>SEF <span class="sc">+</span> <span class="fl">0.0001</span>)</span>
-<span id="cb165-2"><a href="genomics-regression.html#cb165-2" tabindex="-1"></a></span>
-<span id="cb165-3"><a href="genomics-regression.html#cb165-3" tabindex="-1"></a><span class="co"># visualize it again</span></span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="genomics-regression.html#cb186-1" tabindex="-1"></a>df[<span class="st">&quot;SEF_log&quot;</span>] <span class="ot">=</span> <span class="fu">log10</span>(df<span class="sc">$</span>SEF <span class="sc">+</span> <span class="fl">0.0001</span>)</span>
+<span id="cb186-2"><a href="genomics-regression.html#cb186-2" tabindex="-1"></a></span>
+<span id="cb186-3"><a href="genomics-regression.html#cb186-3" tabindex="-1"></a><span class="co"># visualize it again</span></span></code></pre></div>
 </div>
 <div id="all-features-with-lm" class="section level4 hasAnchor" number="11.1.2.2">
 <h4><span class="header-section-number">11.1.2.2</span> All features with lm<a href="genomics-regression.html#all-features-with-lm" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>Q5.</strong> Can you build a linear model to perform the prediction by using all features? How to obtain the assessment statistics?</p>
 <p><strong>Hint</strong>: consider using the <code>lm</code> function. See examples we mentioned before
 <a href="https://statbiomed.github.io/BMDS-book/introLinearReg.html#simple-linear-regression-with-lm-function" class="uri">https://statbiomed.github.io/BMDS-book/introLinearReg.html#simple-linear-regression-with-lm-function</a></p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="genomics-regression.html#cb166-1" tabindex="-1"></a><span class="co"># For the formula, you can use this one, but you can also write your own:</span></span>
-<span id="cb166-2"><a href="genomics-regression.html#cb166-2" tabindex="-1"></a>lr_fm1 <span class="ot">=</span> <span class="fu">as.formula</span>(<span class="fu">paste</span>(<span class="st">&quot;SEF_log ~ 1 + &quot;</span>, <span class="fu">paste</span>(<span class="fu">colnames</span>(df)[<span class="dv">6</span><span class="sc">:</span><span class="dv">19</span>], <span class="at">collapse=</span><span class="st">&quot; + &quot;</span>)))</span>
-<span id="cb166-3"><a href="genomics-regression.html#cb166-3" tabindex="-1"></a></span>
-<span id="cb166-4"><a href="genomics-regression.html#cb166-4" tabindex="-1"></a><span class="co"># Write your codes for fitting the model here</span></span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="genomics-regression.html#cb187-1" tabindex="-1"></a><span class="co"># For the formula, you can use this one, but you can also write your own:</span></span>
+<span id="cb187-2"><a href="genomics-regression.html#cb187-2" tabindex="-1"></a>lr_fm1 <span class="ot">=</span> <span class="fu">as.formula</span>(<span class="fu">paste</span>(<span class="st">&quot;SEF_log ~ 1 + &quot;</span>, <span class="fu">paste</span>(<span class="fu">colnames</span>(df)[<span class="dv">6</span><span class="sc">:</span><span class="dv">19</span>], <span class="at">collapse=</span><span class="st">&quot; + &quot;</span>)))</span>
+<span id="cb187-3"><a href="genomics-regression.html#cb187-3" tabindex="-1"></a></span>
+<span id="cb187-4"><a href="genomics-regression.html#cb187-4" tabindex="-1"></a><span class="co"># Write your codes for fitting the model here</span></span></code></pre></div>
 </div>
 <div id="assessment-on-test-data" class="section level4 hasAnchor" number="11.1.2.3">
 <h4><span class="header-section-number">11.1.2.3</span> Assessment on test data<a href="genomics-regression.html#assessment-on-test-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -408,25 +417,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We didn’t introduce how perform training &amp; test splitting in linear regression, but you can adapt the scripts that we introduced for logistic regression.</p>
 <p><strong>Hint</strong>: you can recall the logistic regress chapter for the training &amp; test spiting: <a href="https://statbiomed.github.io/BMDS-book/introClassifier.html#logistic-regression-on-diabetes" class="uri">https://statbiomed.github.io/BMDS-book/introClassifier.html#logistic-regression-on-diabetes</a></p>
 <p>You can also just use the codes below, but think what is the ratio between training and test sets here:</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="genomics-regression.html#cb167-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
-<span id="cb167-2"><a href="genomics-regression.html#cb167-2" tabindex="-1"></a></span>
-<span id="cb167-3"><a href="genomics-regression.html#cb167-3" tabindex="-1"></a>idx_train <span class="ot">=</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(df),  <span class="at">size=</span><span class="fl">0.5</span><span class="sc">*</span><span class="fu">nrow</span>(df), <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb167-4"><a href="genomics-regression.html#cb167-4" tabindex="-1"></a>df_train <span class="ot">=</span> df[idx_train, ]</span>
-<span id="cb167-5"><a href="genomics-regression.html#cb167-5" tabindex="-1"></a>df_test  <span class="ot">=</span> df[<span class="sc">-</span>idx_train, ] <span class="co"># recall the meaning of negative symbol</span></span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="genomics-regression.html#cb188-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb188-2"><a href="genomics-regression.html#cb188-2" tabindex="-1"></a></span>
+<span id="cb188-3"><a href="genomics-regression.html#cb188-3" tabindex="-1"></a>idx_train <span class="ot">=</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(df),  <span class="at">size=</span><span class="fl">0.5</span><span class="sc">*</span><span class="fu">nrow</span>(df), <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb188-4"><a href="genomics-regression.html#cb188-4" tabindex="-1"></a>df_train <span class="ot">=</span> df[idx_train, ]</span>
+<span id="cb188-5"><a href="genomics-regression.html#cb188-5" tabindex="-1"></a>df_test  <span class="ot">=</span> df[<span class="sc">-</span>idx_train, ] <span class="co"># recall the meaning of negative symbol</span></span></code></pre></div>
 <p>Now, start training the model on the training set and predict on the test set.</p>
 <p><strong>Hint</strong>: follow the codes here: <a href="https://statbiomed.github.io/BMDS-book/introClassifier.html#logistic-regression-on-diabetes" class="uri">https://statbiomed.github.io/BMDS-book/introClassifier.html#logistic-regression-on-diabetes</a></p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="genomics-regression.html#cb168-1" tabindex="-1"></a><span class="co"># recall the predict function</span></span>
-<span id="cb168-2"><a href="genomics-regression.html#cb168-2" tabindex="-1"></a></span>
-<span id="cb168-3"><a href="genomics-regression.html#cb168-3" tabindex="-1"></a><span class="co"># lr_train = lm()</span></span>
-<span id="cb168-4"><a href="genomics-regression.html#cb168-4" tabindex="-1"></a><span class="co"># res_test = predict()</span></span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="genomics-regression.html#cb189-1" tabindex="-1"></a><span class="co"># recall the predict function</span></span>
+<span id="cb189-2"><a href="genomics-regression.html#cb189-2" tabindex="-1"></a></span>
+<span id="cb189-3"><a href="genomics-regression.html#cb189-3" tabindex="-1"></a><span class="co"># lr_train = lm()</span></span>
+<span id="cb189-4"><a href="genomics-regression.html#cb189-4" tabindex="-1"></a><span class="co"># res_test = predict()</span></span></code></pre></div>
 <p>For calculating R^2, another quick way is using the Pearson’s correlation coefficient R, as it gives equivalent values. We can do it with the following codes with the <code>cor()</code> function.</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="genomics-regression.html#cb169-1" tabindex="-1"></a><span class="co"># Please uncomment the codes below:</span></span>
-<span id="cb169-2"><a href="genomics-regression.html#cb169-2" tabindex="-1"></a></span>
-<span id="cb169-3"><a href="genomics-regression.html#cb169-3" tabindex="-1"></a><span class="co"># R_sqr = cor(res_test, df_test$SEF_log)**2</span></span>
-<span id="cb169-4"><a href="genomics-regression.html#cb169-4" tabindex="-1"></a><span class="co"># R_sqr</span></span>
-<span id="cb169-5"><a href="genomics-regression.html#cb169-5" tabindex="-1"></a></span>
-<span id="cb169-6"><a href="genomics-regression.html#cb169-6" tabindex="-1"></a><span class="co"># Alternative function</span></span>
-<span id="cb169-7"><a href="genomics-regression.html#cb169-7" tabindex="-1"></a><span class="co"># cor.test(res_test, df_test$SEF_log)</span></span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="genomics-regression.html#cb190-1" tabindex="-1"></a><span class="co"># Please uncomment the codes below:</span></span>
+<span id="cb190-2"><a href="genomics-regression.html#cb190-2" tabindex="-1"></a></span>
+<span id="cb190-3"><a href="genomics-regression.html#cb190-3" tabindex="-1"></a><span class="co"># R_sqr = cor(res_test, df_test$SEF_log)**2</span></span>
+<span id="cb190-4"><a href="genomics-regression.html#cb190-4" tabindex="-1"></a><span class="co"># R_sqr</span></span>
+<span id="cb190-5"><a href="genomics-regression.html#cb190-5" tabindex="-1"></a></span>
+<span id="cb190-6"><a href="genomics-regression.html#cb190-6" tabindex="-1"></a><span class="co"># Alternative function</span></span>
+<span id="cb190-7"><a href="genomics-regression.html#cb190-7" tabindex="-1"></a><span class="co"># cor.test(res_test, df_test$SEF_log)</span></span></code></pre></div>
 </div>
 <div id="cross-validation-for-regression" class="section level4 hasAnchor" number="11.1.2.4">
 <h4><span class="header-section-number">11.1.2.4</span> Cross-validation for regression<a href="genomics-regression.html#cross-validation-for-regression" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -434,48 +443,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Hint</strong>: We didn’t mention cross-validation for linear regression but again we can adapt the codes from the logistic regression chapter:
 <a href="https://statbiomed.github.io/BMDS-book/introClassifier.html#cross-validation" class="uri">https://statbiomed.github.io/BMDS-book/introClassifier.html#cross-validation</a></p>
 <p>You can also use the codes below, but try to fill the missing part (with question marks <code>???</code>) yourself.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="genomics-regression.html#cb170-1" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
-<span id="cb170-2"><a href="genomics-regression.html#cb170-2" tabindex="-1"></a></span>
-<span id="cb170-3"><a href="genomics-regression.html#cb170-3" tabindex="-1"></a><span class="co"># Define training control</span></span>
-<span id="cb170-4"><a href="genomics-regression.html#cb170-4" tabindex="-1"></a><span class="co"># We also want to have savePredictions=TRUE &amp; classProbs=TRUE</span></span>
-<span id="cb170-5"><a href="genomics-regression.html#cb170-5" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>) </span>
-<span id="cb170-6"><a href="genomics-regression.html#cb170-6" tabindex="-1"></a>my_trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="at">number =</span> <span class="dv">10</span>, </span>
-<span id="cb170-7"><a href="genomics-regression.html#cb170-7" tabindex="-1"></a>                             <span class="at">savePredictions =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb170-8"><a href="genomics-regression.html#cb170-8" tabindex="-1"></a></span>
-<span id="cb170-9"><a href="genomics-regression.html#cb170-9" tabindex="-1"></a><span class="co"># Train the model (uncomment the codes below)</span></span>
-<span id="cb170-10"><a href="genomics-regression.html#cb170-10" tabindex="-1"></a><span class="co"># cv_model &lt;- train(???, data = ???, </span></span>
-<span id="cb170-11"><a href="genomics-regression.html#cb170-11" tabindex="-1"></a><span class="co">#                   method = &quot;lm&quot;,</span></span>
-<span id="cb170-12"><a href="genomics-regression.html#cb170-12" tabindex="-1"></a><span class="co">#                   trControl = my_trControl)</span></span>
-<span id="cb170-13"><a href="genomics-regression.html#cb170-13" tabindex="-1"></a></span>
-<span id="cb170-14"><a href="genomics-regression.html#cb170-14" tabindex="-1"></a><span class="co"># Summarize the results</span></span>
-<span id="cb170-15"><a href="genomics-regression.html#cb170-15" tabindex="-1"></a><span class="co"># mean(cv_model$resample$Rsquared)</span></span>
-<span id="cb170-16"><a href="genomics-regression.html#cb170-16" tabindex="-1"></a><span class="co"># print(cv_model)</span></span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="genomics-regression.html#cb191-1" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb191-2"><a href="genomics-regression.html#cb191-2" tabindex="-1"></a></span>
+<span id="cb191-3"><a href="genomics-regression.html#cb191-3" tabindex="-1"></a><span class="co"># Define training control</span></span>
+<span id="cb191-4"><a href="genomics-regression.html#cb191-4" tabindex="-1"></a><span class="co"># We also want to have savePredictions=TRUE &amp; classProbs=TRUE</span></span>
+<span id="cb191-5"><a href="genomics-regression.html#cb191-5" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>) </span>
+<span id="cb191-6"><a href="genomics-regression.html#cb191-6" tabindex="-1"></a>my_trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="at">number =</span> <span class="dv">10</span>, </span>
+<span id="cb191-7"><a href="genomics-regression.html#cb191-7" tabindex="-1"></a>                             <span class="at">savePredictions =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb191-8"><a href="genomics-regression.html#cb191-8" tabindex="-1"></a></span>
+<span id="cb191-9"><a href="genomics-regression.html#cb191-9" tabindex="-1"></a><span class="co"># Train the model (uncomment the codes below)</span></span>
+<span id="cb191-10"><a href="genomics-regression.html#cb191-10" tabindex="-1"></a><span class="co"># cv_model &lt;- train(???, data = ???, </span></span>
+<span id="cb191-11"><a href="genomics-regression.html#cb191-11" tabindex="-1"></a><span class="co">#                   method = &quot;lm&quot;,</span></span>
+<span id="cb191-12"><a href="genomics-regression.html#cb191-12" tabindex="-1"></a><span class="co">#                   trControl = my_trControl)</span></span>
+<span id="cb191-13"><a href="genomics-regression.html#cb191-13" tabindex="-1"></a></span>
+<span id="cb191-14"><a href="genomics-regression.html#cb191-14" tabindex="-1"></a><span class="co"># Summarize the results</span></span>
+<span id="cb191-15"><a href="genomics-regression.html#cb191-15" tabindex="-1"></a><span class="co"># mean(cv_model$resample$Rsquared)</span></span>
+<span id="cb191-16"><a href="genomics-regression.html#cb191-16" tabindex="-1"></a><span class="co"># print(cv_model)</span></span></code></pre></div>
 <p>By using <code>print(cv_model)</code>, we can see the <em>Rsquared</em> value, which is an average of all R^2 acoss K folds (each fold has its own R^2 on the test set).</p>
 <p>Now, let’s manually calculate the R^2 between observed and predicted Y for all samples in an aggregated manner, despite that the Ys are predicted from different models in different folds.</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="genomics-regression.html#cb171-1" tabindex="-1"></a><span class="co"># Uncomment the codes below to view the first a few lines of the data frame</span></span>
-<span id="cb171-2"><a href="genomics-regression.html#cb171-2" tabindex="-1"></a></span>
-<span id="cb171-3"><a href="genomics-regression.html#cb171-3" tabindex="-1"></a><span class="co"># head(cv_model$pred)</span></span></code></pre></div>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="genomics-regression.html#cb172-1" tabindex="-1"></a><span class="co"># Uncomment the codes below to calculate the R^2</span></span>
-<span id="cb172-2"><a href="genomics-regression.html#cb172-2" tabindex="-1"></a></span>
-<span id="cb172-3"><a href="genomics-regression.html#cb172-3" tabindex="-1"></a><span class="co"># cor(cv_model$pred$pred, cv_model$pred$obs)**2</span></span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="genomics-regression.html#cb192-1" tabindex="-1"></a><span class="co"># Uncomment the codes below to view the first a few lines of the data frame</span></span>
+<span id="cb192-2"><a href="genomics-regression.html#cb192-2" tabindex="-1"></a></span>
+<span id="cb192-3"><a href="genomics-regression.html#cb192-3" tabindex="-1"></a><span class="co"># head(cv_model$pred)</span></span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="genomics-regression.html#cb193-1" tabindex="-1"></a><span class="co"># Uncomment the codes below to calculate the R^2</span></span>
+<span id="cb193-2"><a href="genomics-regression.html#cb193-2" tabindex="-1"></a></span>
+<span id="cb193-3"><a href="genomics-regression.html#cb193-3" tabindex="-1"></a><span class="co"># cor(cv_model$pred$pred, cv_model$pred$obs)**2</span></span></code></pre></div>
 </div>
 <div id="a-subset-of-features" class="section level4 hasAnchor" number="11.1.2.5">
 <h4><span class="header-section-number">11.1.2.5</span> A subset of features<a href="genomics-regression.html#a-subset-of-features" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>Q8.</strong> Can you try a subset of features and see if you can improve the performance?</p>
 <p><strong>Hint</strong>: You can consider forward method as mentioned here by checking the <span class="math inline">\(p\)</span> value and only keep the significant ones (think which significance level <span class="math inline">\(\alpha\)</span> you would like to allow:
 <a href="https://statbiomed.github.io/BMDS-book/introLinearReg.html#multiple-regression-with-lm-function" class="uri">https://statbiomed.github.io/BMDS-book/introLinearReg.html#multiple-regression-with-lm-function</a></p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="genomics-regression.html#cb173-1" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
-<span id="cb173-2"><a href="genomics-regression.html#cb173-2" tabindex="-1"></a></span>
-<span id="cb173-3"><a href="genomics-regression.html#cb173-3" tabindex="-1"></a><span class="co"># Define your new formular:</span></span>
-<span id="cb173-4"><a href="genomics-regression.html#cb173-4" tabindex="-1"></a><span class="co"># lr_fm2 = as.formula()</span></span>
-<span id="cb173-5"><a href="genomics-regression.html#cb173-5" tabindex="-1"></a></span>
-<span id="cb173-6"><a href="genomics-regression.html#cb173-6" tabindex="-1"></a></span>
-<span id="cb173-7"><a href="genomics-regression.html#cb173-7" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
-<span id="cb173-8"><a href="genomics-regression.html#cb173-8" tabindex="-1"></a><span class="co"># Try the 10-fold cross-validation with the new feature set yourself</span></span>
-<span id="cb173-9"><a href="genomics-regression.html#cb173-9" tabindex="-1"></a><span class="co"># cv_model2 = ???</span></span></code></pre></div>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="genomics-regression.html#cb174-1" tabindex="-1"></a><span class="co"># Uncomment the codes below to calculate the R^2</span></span>
-<span id="cb174-2"><a href="genomics-regression.html#cb174-2" tabindex="-1"></a></span>
-<span id="cb174-3"><a href="genomics-regression.html#cb174-3" tabindex="-1"></a><span class="co"># cor(cv_model2$pred$pred, cv_model2$pred$obs)**2</span></span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="genomics-regression.html#cb194-1" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb194-2"><a href="genomics-regression.html#cb194-2" tabindex="-1"></a></span>
+<span id="cb194-3"><a href="genomics-regression.html#cb194-3" tabindex="-1"></a><span class="co"># Define your new formular:</span></span>
+<span id="cb194-4"><a href="genomics-regression.html#cb194-4" tabindex="-1"></a><span class="co"># lr_fm2 = as.formula()</span></span>
+<span id="cb194-5"><a href="genomics-regression.html#cb194-5" tabindex="-1"></a></span>
+<span id="cb194-6"><a href="genomics-regression.html#cb194-6" tabindex="-1"></a></span>
+<span id="cb194-7"><a href="genomics-regression.html#cb194-7" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb194-8"><a href="genomics-regression.html#cb194-8" tabindex="-1"></a><span class="co"># Try the 10-fold cross-validation with the new feature set yourself</span></span>
+<span id="cb194-9"><a href="genomics-regression.html#cb194-9" tabindex="-1"></a><span class="co"># cv_model2 = ???</span></span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="genomics-regression.html#cb195-1" tabindex="-1"></a><span class="co"># Uncomment the codes below to calculate the R^2</span></span>
+<span id="cb195-2"><a href="genomics-regression.html#cb195-2" tabindex="-1"></a></span>
+<span id="cb195-3"><a href="genomics-regression.html#cb195-3" tabindex="-1"></a><span class="co"># cor(cv_model2$pred$pred, cv_model2$pred$obs)**2</span></span></code></pre></div>
 </div>
 </div>
 <div id="open-question" class="section level3 hasAnchor" number="11.1.3">
@@ -483,13 +492,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Q9.</strong> Can you plot a scatter plot between log(SEF) vs X3ss_motif_ref, and colored by Ribosomal Protein Genes (RPG)? What did you see?</p>
 <p><strong>Hint</strong>: follow the example on the diabetes data:
 <a href="https://statbiomed.github.io/BMDS-book/introClassifier.html#load-pima-indians-diabetes-database" class="uri">https://statbiomed.github.io/BMDS-book/introClassifier.html#load-pima-indians-diabetes-database</a></p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="genomics-regression.html#cb175-1" tabindex="-1"></a><span class="co"># Write you codes here with ggplot</span></span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="genomics-regression.html#cb196-1" tabindex="-1"></a><span class="co"># Write you codes here with ggplot</span></span></code></pre></div>
 <p><strong>Q10.</strong> Is the SEF score mainly driven by the RPG label or is it genuinely related to the 3’ss motif? How to test it?</p>
 <p><strong>Hint</strong>: consider adding <code>RPG</code> as a covariate. Is 3’ss motif still significant?</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="genomics-regression.html#cb176-1" tabindex="-1"></a><span class="co"># Define your new model</span></span>
-<span id="cb176-2"><a href="genomics-regression.html#cb176-2" tabindex="-1"></a>lr_fm3 <span class="ot">=</span> <span class="fu">as.formula</span>(<span class="fu">paste</span>(<span class="st">&quot;SEF_log ~&quot;</span>, <span class="fu">paste</span>(<span class="fu">colnames</span>(df)[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">6</span><span class="sc">:</span><span class="dv">19</span>)], <span class="at">collapse=</span><span class="st">&quot; + &quot;</span>)))</span>
-<span id="cb176-3"><a href="genomics-regression.html#cb176-3" tabindex="-1"></a></span>
-<span id="cb176-4"><a href="genomics-regression.html#cb176-4" tabindex="-1"></a><span class="co"># Write you codes below to fit the model</span></span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="genomics-regression.html#cb197-1" tabindex="-1"></a><span class="co"># Define your new model</span></span>
+<span id="cb197-2"><a href="genomics-regression.html#cb197-2" tabindex="-1"></a>lr_fm3 <span class="ot">=</span> <span class="fu">as.formula</span>(<span class="fu">paste</span>(<span class="st">&quot;SEF_log ~&quot;</span>, <span class="fu">paste</span>(<span class="fu">colnames</span>(df)[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">6</span><span class="sc">:</span><span class="dv">19</span>)], <span class="at">collapse=</span><span class="st">&quot; + &quot;</span>)))</span>
+<span id="cb197-3"><a href="genomics-regression.html#cb197-3" tabindex="-1"></a></span>
+<span id="cb197-4"><a href="genomics-regression.html#cb197-4" tabindex="-1"></a><span class="co"># Write you codes below to fit the model</span></span></code></pre></div>
 <p><strong>Acknowledgement:</strong> this case study is adapted from the
 <a href="https://genome.cshlp.org/content/28/2/203/F4.expansion.html">Figure 4</a> for the following research article:</p>
 <ul>

@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2025-09-02" />
+<meta name="date" content="2025-09-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -154,7 +154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>I Data Science Foundations</b></span></li>
 <li class="chapter" data-level="1" data-path="introR.html"><a href="introR.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="introR.html"><a href="introR.html#introR"><i class="fa fa-check"></i><b>1.1</b> Introduction to R programming (Session 1)</a>
+<li class="chapter" data-level="1.1" data-path="introR.html"><a href="introR.html#introR"><i class="fa fa-check"></i><b>1.1</b> Intro to R programming (Session 1)</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="introR.html"><a href="introR.html#r-as-a-basic-calculator"><i class="fa fa-check"></i><b>1.1.1</b> R as a basic calculator</a></li>
 <li class="chapter" data-level="1.1.2" data-path="introR.html"><a href="introR.html#variables"><i class="fa fa-check"></i><b>1.1.2</b> Variables</a></li>
@@ -162,6 +162,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.4" data-path="introR.html"><a href="introR.html#functions"><i class="fa fa-check"></i><b>1.1.4</b> Functions</a></li>
 <li class="chapter" data-level="1.1.5" data-path="introR.html"><a href="introR.html#r-scripts"><i class="fa fa-check"></i><b>1.1.5</b> R scripts</a></li>
 <li class="chapter" data-level="1.1.6" data-path="introR.html"><a href="introR.html#resource-links"><i class="fa fa-check"></i><b>1.1.6</b> Resource links</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introR.html"><a href="introR.html#introR"><i class="fa fa-check"></i><b>1.2</b> Intro to R programming (Session 2)</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introR.html"><a href="introR.html#data-structures"><i class="fa fa-check"></i><b>1.2.1</b> Data structures</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introR.html"><a href="introR.html#vector"><i class="fa fa-check"></i><b>1.2.2</b> Vector</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introR.html"><a href="introR.html#matrix"><i class="fa fa-check"></i><b>1.2.3</b> Matrix</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introR.html"><a href="introR.html#list"><i class="fa fa-check"></i><b>1.2.4</b> List</a></li>
+<li class="chapter" data-level="1.2.5" data-path="introR.html"><a href="introR.html#data-frame"><i class="fa fa-check"></i><b>1.2.5</b> Data Frame</a></li>
+<li class="chapter" data-level="1.2.6" data-path="introR.html"><a href="introR.html#readingwriting-data-fromto-r"><i class="fa fa-check"></i><b>1.2.6</b> Reading/writing data from/to R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introHypoTest.html"><a href="introHypoTest.html"><i class="fa fa-check"></i><b>2</b> Introduction to Hypothesis testing</a>
@@ -327,73 +336,73 @@ Let’s first look at what logistic and logit function look like.</p>
 <div id="logistic-function" class="section level3 hasAnchor" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> Logistic function<a href="introClassifier.html#logistic-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s write our first function <code>logestic()</code> as follows.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="introClassifier.html#cb77-1" tabindex="-1"></a><span class="co"># Write your first function</span></span>
-<span id="cb77-2"><a href="introClassifier.html#cb77-2" tabindex="-1"></a>logistic <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
-<span id="cb77-3"><a href="introClassifier.html#cb77-3" tabindex="-1"></a>  <span class="fu">exp</span>(y) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(y))</span>
-<span id="cb77-4"><a href="introClassifier.html#cb77-4" tabindex="-1"></a>}</span>
-<span id="cb77-5"><a href="introClassifier.html#cb77-5" tabindex="-1"></a></span>
-<span id="cb77-6"><a href="introClassifier.html#cb77-6" tabindex="-1"></a><span class="co"># Try it with different values:</span></span>
-<span id="cb77-7"><a href="introClassifier.html#cb77-7" tabindex="-1"></a><span class="fu">logistic</span>(<span class="fl">0.1</span>)</span>
-<span id="cb77-8"><a href="introClassifier.html#cb77-8" tabindex="-1"></a><span class="co">#&gt; [1] 0.5249792</span></span>
-<span id="cb77-9"><a href="introClassifier.html#cb77-9" tabindex="-1"></a><span class="fu">logistic</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="fl">0.5</span>, <span class="dv">3</span>, <span class="dv">5</span>))</span>
-<span id="cb77-10"><a href="introClassifier.html#cb77-10" tabindex="-1"></a><span class="co">#&gt; [1] 0.04742587 0.11920292 0.62245933 0.95257413 0.99330715</span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="introClassifier.html#cb98-1" tabindex="-1"></a><span class="co"># Write your first function</span></span>
+<span id="cb98-2"><a href="introClassifier.html#cb98-2" tabindex="-1"></a>logistic <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
+<span id="cb98-3"><a href="introClassifier.html#cb98-3" tabindex="-1"></a>  <span class="fu">exp</span>(y) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(y))</span>
+<span id="cb98-4"><a href="introClassifier.html#cb98-4" tabindex="-1"></a>}</span>
+<span id="cb98-5"><a href="introClassifier.html#cb98-5" tabindex="-1"></a></span>
+<span id="cb98-6"><a href="introClassifier.html#cb98-6" tabindex="-1"></a><span class="co"># Try it with different values:</span></span>
+<span id="cb98-7"><a href="introClassifier.html#cb98-7" tabindex="-1"></a><span class="fu">logistic</span>(<span class="fl">0.1</span>)</span>
+<span id="cb98-8"><a href="introClassifier.html#cb98-8" tabindex="-1"></a><span class="co">#&gt; [1] 0.5249792</span></span>
+<span id="cb98-9"><a href="introClassifier.html#cb98-9" tabindex="-1"></a><span class="fu">logistic</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="fl">0.5</span>, <span class="dv">3</span>, <span class="dv">5</span>))</span>
+<span id="cb98-10"><a href="introClassifier.html#cb98-10" tabindex="-1"></a><span class="co">#&gt; [1] 0.04742587 0.11920292 0.62245933 0.95257413 0.99330715</span></span></code></pre></div>
 <p>This is the equivalent to the built-in <code>plogis()</code> function in the <code>stat</code>
 package for the
 <a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/Logistic">logistic distribution</a>:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="introClassifier.html#cb78-1" tabindex="-1"></a><span class="fu">plogis</span>(<span class="fl">0.1</span>)</span>
-<span id="cb78-2"><a href="introClassifier.html#cb78-2" tabindex="-1"></a><span class="co">#&gt; [1] 0.5249792</span></span>
-<span id="cb78-3"><a href="introClassifier.html#cb78-3" tabindex="-1"></a><span class="fu">plogis</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="fl">0.5</span>, <span class="dv">3</span>, <span class="dv">5</span>))</span>
-<span id="cb78-4"><a href="introClassifier.html#cb78-4" tabindex="-1"></a><span class="co">#&gt; [1] 0.04742587 0.11920292 0.62245933 0.95257413 0.99330715</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="introClassifier.html#cb99-1" tabindex="-1"></a><span class="fu">plogis</span>(<span class="fl">0.1</span>)</span>
+<span id="cb99-2"><a href="introClassifier.html#cb99-2" tabindex="-1"></a><span class="co">#&gt; [1] 0.5249792</span></span>
+<span id="cb99-3"><a href="introClassifier.html#cb99-3" tabindex="-1"></a><span class="fu">plogis</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="fl">0.5</span>, <span class="dv">3</span>, <span class="dv">5</span>))</span>
+<span id="cb99-4"><a href="introClassifier.html#cb99-4" tabindex="-1"></a><span class="co">#&gt; [1] 0.04742587 0.11920292 0.62245933 0.95257413 0.99330715</span></span></code></pre></div>
 </div>
 <div id="logit-function" class="section level3 hasAnchor" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Logit function<a href="introClassifier.html#logit-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now, let look at the logistic’s inverse function <code>logit()</code>, and let’s define it
 manually. <strong>Note</strong>, this function only support input between 0 and 1.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="introClassifier.html#cb79-1" tabindex="-1"></a><span class="co"># Write your first function</span></span>
-<span id="cb79-2"><a href="introClassifier.html#cb79-2" tabindex="-1"></a>logit <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb79-3"><a href="introClassifier.html#cb79-3" tabindex="-1"></a>  <span class="fu">log</span>(x <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> x))</span>
-<span id="cb79-4"><a href="introClassifier.html#cb79-4" tabindex="-1"></a>}</span>
-<span id="cb79-5"><a href="introClassifier.html#cb79-5" tabindex="-1"></a></span>
-<span id="cb79-6"><a href="introClassifier.html#cb79-6" tabindex="-1"></a><span class="co"># Try it with different values:</span></span>
-<span id="cb79-7"><a href="introClassifier.html#cb79-7" tabindex="-1"></a><span class="fu">logit</span>(<span class="fl">0.4</span>)</span>
-<span id="cb79-8"><a href="introClassifier.html#cb79-8" tabindex="-1"></a><span class="co">#&gt; [1] -0.4054651</span></span>
-<span id="cb79-9"><a href="introClassifier.html#cb79-9" tabindex="-1"></a><span class="fu">logit</span>(<span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.5</span>, <span class="fl">0.7</span>, <span class="fl">0.9</span>))</span>
-<span id="cb79-10"><a href="introClassifier.html#cb79-10" tabindex="-1"></a><span class="co">#&gt; [1] -1.3862944 -0.8472979  0.0000000  0.8472979  2.1972246</span></span>
-<span id="cb79-11"><a href="introClassifier.html#cb79-11" tabindex="-1"></a><span class="fu">logit</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">0.4</span>))</span>
-<span id="cb79-12"><a href="introClassifier.html#cb79-12" tabindex="-1"></a><span class="co">#&gt; Warning in log(x/(1 - x)): NaNs produced</span></span>
-<span id="cb79-13"><a href="introClassifier.html#cb79-13" tabindex="-1"></a><span class="co">#&gt; [1]        NaN        NaN -0.4054651</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="introClassifier.html#cb100-1" tabindex="-1"></a><span class="co"># Write your first function</span></span>
+<span id="cb100-2"><a href="introClassifier.html#cb100-2" tabindex="-1"></a>logit <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb100-3"><a href="introClassifier.html#cb100-3" tabindex="-1"></a>  <span class="fu">log</span>(x <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> x))</span>
+<span id="cb100-4"><a href="introClassifier.html#cb100-4" tabindex="-1"></a>}</span>
+<span id="cb100-5"><a href="introClassifier.html#cb100-5" tabindex="-1"></a></span>
+<span id="cb100-6"><a href="introClassifier.html#cb100-6" tabindex="-1"></a><span class="co"># Try it with different values:</span></span>
+<span id="cb100-7"><a href="introClassifier.html#cb100-7" tabindex="-1"></a><span class="fu">logit</span>(<span class="fl">0.4</span>)</span>
+<span id="cb100-8"><a href="introClassifier.html#cb100-8" tabindex="-1"></a><span class="co">#&gt; [1] -0.4054651</span></span>
+<span id="cb100-9"><a href="introClassifier.html#cb100-9" tabindex="-1"></a><span class="fu">logit</span>(<span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.5</span>, <span class="fl">0.7</span>, <span class="fl">0.9</span>))</span>
+<span id="cb100-10"><a href="introClassifier.html#cb100-10" tabindex="-1"></a><span class="co">#&gt; [1] -1.3862944 -0.8472979  0.0000000  0.8472979  2.1972246</span></span>
+<span id="cb100-11"><a href="introClassifier.html#cb100-11" tabindex="-1"></a><span class="fu">logit</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">0.4</span>))</span>
+<span id="cb100-12"><a href="introClassifier.html#cb100-12" tabindex="-1"></a><span class="co">#&gt; Warning in log(x/(1 - x)): NaNs produced</span></span>
+<span id="cb100-13"><a href="introClassifier.html#cb100-13" tabindex="-1"></a><span class="co">#&gt; [1]        NaN        NaN -0.4054651</span></span></code></pre></div>
 <p>Again, the built-in <code>stat</code> package’s logistic distribution has an equivalent
 function <code>qlogis()</code>, though with a different name.</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="introClassifier.html#cb80-1" tabindex="-1"></a><span class="fu">qlogis</span>(<span class="fl">0.4</span>)</span>
-<span id="cb80-2"><a href="introClassifier.html#cb80-2" tabindex="-1"></a><span class="co">#&gt; [1] -0.4054651</span></span>
-<span id="cb80-3"><a href="introClassifier.html#cb80-3" tabindex="-1"></a><span class="fu">qlogis</span>(<span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.5</span>, <span class="fl">0.7</span>, <span class="fl">0.9</span>))</span>
-<span id="cb80-4"><a href="introClassifier.html#cb80-4" tabindex="-1"></a><span class="co">#&gt; [1] -1.3862944 -0.8472979  0.0000000  0.8472979  2.1972246</span></span>
-<span id="cb80-5"><a href="introClassifier.html#cb80-5" tabindex="-1"></a><span class="fu">qlogis</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">0.4</span>))</span>
-<span id="cb80-6"><a href="introClassifier.html#cb80-6" tabindex="-1"></a><span class="co">#&gt; Warning in qlogis(c(-1, 2, 0.4)): NaNs produced</span></span>
-<span id="cb80-7"><a href="introClassifier.html#cb80-7" tabindex="-1"></a><span class="co">#&gt; [1]        NaN        NaN -0.4054651</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="introClassifier.html#cb101-1" tabindex="-1"></a><span class="fu">qlogis</span>(<span class="fl">0.4</span>)</span>
+<span id="cb101-2"><a href="introClassifier.html#cb101-2" tabindex="-1"></a><span class="co">#&gt; [1] -0.4054651</span></span>
+<span id="cb101-3"><a href="introClassifier.html#cb101-3" tabindex="-1"></a><span class="fu">qlogis</span>(<span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.5</span>, <span class="fl">0.7</span>, <span class="fl">0.9</span>))</span>
+<span id="cb101-4"><a href="introClassifier.html#cb101-4" tabindex="-1"></a><span class="co">#&gt; [1] -1.3862944 -0.8472979  0.0000000  0.8472979  2.1972246</span></span>
+<span id="cb101-5"><a href="introClassifier.html#cb101-5" tabindex="-1"></a><span class="fu">qlogis</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">0.4</span>))</span>
+<span id="cb101-6"><a href="introClassifier.html#cb101-6" tabindex="-1"></a><span class="co">#&gt; Warning in qlogis(c(-1, 2, 0.4)): NaNs produced</span></span>
+<span id="cb101-7"><a href="introClassifier.html#cb101-7" tabindex="-1"></a><span class="co">#&gt; [1]        NaN        NaN -0.4054651</span></span></code></pre></div>
 </div>
 <div id="visualise-the-distribution" class="section level3 hasAnchor" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> Visualise the distribution<a href="introClassifier.html#visualise-the-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Logisitc function</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="introClassifier.html#cb81-1" tabindex="-1"></a><span class="co"># You can use seq() function to generate a vector</span></span>
-<span id="cb81-2"><a href="introClassifier.html#cb81-2" tabindex="-1"></a><span class="co"># Check how to use it by help(seq) or ?seq</span></span>
-<span id="cb81-3"><a href="introClassifier.html#cb81-3" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">7</span>, <span class="dv">7</span>, <span class="fl">0.3</span>)</span>
-<span id="cb81-4"><a href="introClassifier.html#cb81-4" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&#39;x&#39;</span><span class="ot">=</span>x, <span class="st">&#39;logistic&#39;</span><span class="ot">=</span><span class="fu">plogis</span>(x))</span>
-<span id="cb81-5"><a href="introClassifier.html#cb81-5" tabindex="-1"></a></span>
-<span id="cb81-6"><a href="introClassifier.html#cb81-6" tabindex="-1"></a><span class="co"># You can plot by plot function</span></span>
-<span id="cb81-7"><a href="introClassifier.html#cb81-7" tabindex="-1"></a><span class="co"># plot(x=df$x, y=df$logistic, type=&#39;o&#39;)</span></span>
-<span id="cb81-8"><a href="introClassifier.html#cb81-8" tabindex="-1"></a></span>
-<span id="cb81-9"><a href="introClassifier.html#cb81-9" tabindex="-1"></a><span class="co"># Or ggplot2</span></span>
-<span id="cb81-10"><a href="introClassifier.html#cb81-10" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb81-11"><a href="introClassifier.html#cb81-11" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>logistic)) <span class="sc">+</span></span>
-<span id="cb81-12"><a href="introClassifier.html#cb81-12" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="introClassifier.html#cb102-1" tabindex="-1"></a><span class="co"># You can use seq() function to generate a vector</span></span>
+<span id="cb102-2"><a href="introClassifier.html#cb102-2" tabindex="-1"></a><span class="co"># Check how to use it by help(seq) or ?seq</span></span>
+<span id="cb102-3"><a href="introClassifier.html#cb102-3" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">7</span>, <span class="dv">7</span>, <span class="fl">0.3</span>)</span>
+<span id="cb102-4"><a href="introClassifier.html#cb102-4" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&#39;x&#39;</span><span class="ot">=</span>x, <span class="st">&#39;logistic&#39;</span><span class="ot">=</span><span class="fu">plogis</span>(x))</span>
+<span id="cb102-5"><a href="introClassifier.html#cb102-5" tabindex="-1"></a></span>
+<span id="cb102-6"><a href="introClassifier.html#cb102-6" tabindex="-1"></a><span class="co"># You can plot by plot function</span></span>
+<span id="cb102-7"><a href="introClassifier.html#cb102-7" tabindex="-1"></a><span class="co"># plot(x=df$x, y=df$logistic, type=&#39;o&#39;)</span></span>
+<span id="cb102-8"><a href="introClassifier.html#cb102-8" tabindex="-1"></a></span>
+<span id="cb102-9"><a href="introClassifier.html#cb102-9" tabindex="-1"></a><span class="co"># Or ggplot2</span></span>
+<span id="cb102-10"><a href="introClassifier.html#cb102-10" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb102-11"><a href="introClassifier.html#cb102-11" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>logistic)) <span class="sc">+</span></span>
+<span id="cb102-12"><a href="introClassifier.html#cb102-12" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig3-logistic-1.png" width="60%" /></p>
 <p>Logit function</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="introClassifier.html#cb82-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="fl">0.01</span>)</span>
-<span id="cb82-2"><a href="introClassifier.html#cb82-2" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&#39;x&#39;</span><span class="ot">=</span>x, <span class="st">&#39;logit&#39;</span><span class="ot">=</span><span class="fu">qlogis</span>(x))</span>
-<span id="cb82-3"><a href="introClassifier.html#cb82-3" tabindex="-1"></a></span>
-<span id="cb82-4"><a href="introClassifier.html#cb82-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>logit)) <span class="sc">+</span></span>
-<span id="cb82-5"><a href="introClassifier.html#cb82-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="introClassifier.html#cb103-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="fl">0.01</span>)</span>
+<span id="cb103-2"><a href="introClassifier.html#cb103-2" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&#39;x&#39;</span><span class="ot">=</span>x, <span class="st">&#39;logit&#39;</span><span class="ot">=</span><span class="fu">qlogis</span>(x))</span>
+<span id="cb103-3"><a href="introClassifier.html#cb103-3" tabindex="-1"></a></span>
+<span id="cb103-4"><a href="introClassifier.html#cb103-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>logit)) <span class="sc">+</span></span>
+<span id="cb103-5"><a href="introClassifier.html#cb103-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig3-logit-1.png" width="60%" /></p>
 </div>
 </div>
@@ -413,42 +422,42 @@ one target (dependent) variable, Outcome. Independent variables include the
 number of pregnancies the patient has had, their BMI, insulin level, age, and
 so on.</p>
 <p><strong>Acknowledgement</strong>: This notebook is adapted and updated from STAT1005.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="introClassifier.html#cb83-1" tabindex="-1"></a><span class="co"># Install the mlbench library for loading the datasets</span></span>
-<span id="cb83-2"><a href="introClassifier.html#cb83-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;mlbench&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb83-3"><a href="introClassifier.html#cb83-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;mlbench&quot;</span>)</span>
-<span id="cb83-4"><a href="introClassifier.html#cb83-4" tabindex="-1"></a>}</span>
-<span id="cb83-5"><a href="introClassifier.html#cb83-5" tabindex="-1"></a></span>
-<span id="cb83-6"><a href="introClassifier.html#cb83-6" tabindex="-1"></a><span class="co"># Load data</span></span>
-<span id="cb83-7"><a href="introClassifier.html#cb83-7" tabindex="-1"></a><span class="fu">library</span>(mlbench)</span>
-<span id="cb83-8"><a href="introClassifier.html#cb83-8" tabindex="-1"></a><span class="fu">data</span>(PimaIndiansDiabetes)</span>
-<span id="cb83-9"><a href="introClassifier.html#cb83-9" tabindex="-1"></a></span>
-<span id="cb83-10"><a href="introClassifier.html#cb83-10" tabindex="-1"></a><span class="co"># Check the first few lines</span></span>
-<span id="cb83-11"><a href="introClassifier.html#cb83-11" tabindex="-1"></a><span class="fu">dim</span>(PimaIndiansDiabetes)</span>
-<span id="cb83-12"><a href="introClassifier.html#cb83-12" tabindex="-1"></a><span class="co">#&gt; [1] 768   9</span></span>
-<span id="cb83-13"><a href="introClassifier.html#cb83-13" tabindex="-1"></a><span class="fu">head</span>(PimaIndiansDiabetes)</span>
-<span id="cb83-14"><a href="introClassifier.html#cb83-14" tabindex="-1"></a><span class="co">#&gt;   pregnant glucose pressure triceps insulin mass pedigree age diabetes</span></span>
-<span id="cb83-15"><a href="introClassifier.html#cb83-15" tabindex="-1"></a><span class="co">#&gt; 1        6     148       72      35       0 33.6    0.627  50      pos</span></span>
-<span id="cb83-16"><a href="introClassifier.html#cb83-16" tabindex="-1"></a><span class="co">#&gt; 2        1      85       66      29       0 26.6    0.351  31      neg</span></span>
-<span id="cb83-17"><a href="introClassifier.html#cb83-17" tabindex="-1"></a><span class="co">#&gt; 3        8     183       64       0       0 23.3    0.672  32      pos</span></span>
-<span id="cb83-18"><a href="introClassifier.html#cb83-18" tabindex="-1"></a><span class="co">#&gt; 4        1      89       66      23      94 28.1    0.167  21      neg</span></span>
-<span id="cb83-19"><a href="introClassifier.html#cb83-19" tabindex="-1"></a><span class="co">#&gt; 5        0     137       40      35     168 43.1    2.288  33      pos</span></span>
-<span id="cb83-20"><a href="introClassifier.html#cb83-20" tabindex="-1"></a><span class="co">#&gt; 6        5     116       74       0       0 25.6    0.201  30      neg</span></span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="introClassifier.html#cb104-1" tabindex="-1"></a><span class="co"># Install the mlbench library for loading the datasets</span></span>
+<span id="cb104-2"><a href="introClassifier.html#cb104-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;mlbench&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb104-3"><a href="introClassifier.html#cb104-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;mlbench&quot;</span>)</span>
+<span id="cb104-4"><a href="introClassifier.html#cb104-4" tabindex="-1"></a>}</span>
+<span id="cb104-5"><a href="introClassifier.html#cb104-5" tabindex="-1"></a></span>
+<span id="cb104-6"><a href="introClassifier.html#cb104-6" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb104-7"><a href="introClassifier.html#cb104-7" tabindex="-1"></a><span class="fu">library</span>(mlbench)</span>
+<span id="cb104-8"><a href="introClassifier.html#cb104-8" tabindex="-1"></a><span class="fu">data</span>(PimaIndiansDiabetes)</span>
+<span id="cb104-9"><a href="introClassifier.html#cb104-9" tabindex="-1"></a></span>
+<span id="cb104-10"><a href="introClassifier.html#cb104-10" tabindex="-1"></a><span class="co"># Check the first few lines</span></span>
+<span id="cb104-11"><a href="introClassifier.html#cb104-11" tabindex="-1"></a><span class="fu">dim</span>(PimaIndiansDiabetes)</span>
+<span id="cb104-12"><a href="introClassifier.html#cb104-12" tabindex="-1"></a><span class="co">#&gt; [1] 768   9</span></span>
+<span id="cb104-13"><a href="introClassifier.html#cb104-13" tabindex="-1"></a><span class="fu">head</span>(PimaIndiansDiabetes)</span>
+<span id="cb104-14"><a href="introClassifier.html#cb104-14" tabindex="-1"></a><span class="co">#&gt;   pregnant glucose pressure triceps insulin mass pedigree age diabetes</span></span>
+<span id="cb104-15"><a href="introClassifier.html#cb104-15" tabindex="-1"></a><span class="co">#&gt; 1        6     148       72      35       0 33.6    0.627  50      pos</span></span>
+<span id="cb104-16"><a href="introClassifier.html#cb104-16" tabindex="-1"></a><span class="co">#&gt; 2        1      85       66      29       0 26.6    0.351  31      neg</span></span>
+<span id="cb104-17"><a href="introClassifier.html#cb104-17" tabindex="-1"></a><span class="co">#&gt; 3        8     183       64       0       0 23.3    0.672  32      pos</span></span>
+<span id="cb104-18"><a href="introClassifier.html#cb104-18" tabindex="-1"></a><span class="co">#&gt; 4        1      89       66      23      94 28.1    0.167  21      neg</span></span>
+<span id="cb104-19"><a href="introClassifier.html#cb104-19" tabindex="-1"></a><span class="co">#&gt; 5        0     137       40      35     168 43.1    2.288  33      pos</span></span>
+<span id="cb104-20"><a href="introClassifier.html#cb104-20" tabindex="-1"></a><span class="co">#&gt; 6        5     116       74       0       0 25.6    0.201  30      neg</span></span></code></pre></div>
 <p>Now, let’s check two potential features: <code>glucose</code> and <code>age</code>, colored by the diabetes labels.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="introClassifier.html#cb84-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb84-2"><a href="introClassifier.html#cb84-2" tabindex="-1"></a></span>
-<span id="cb84-3"><a href="introClassifier.html#cb84-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>PimaIndiansDiabetes, <span class="fu">aes</span>(<span class="at">x=</span>glucose, <span class="at">y=</span>age)) <span class="sc">+</span></span>
-<span id="cb84-4"><a href="introClassifier.html#cb84-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>diabetes))</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="introClassifier.html#cb105-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb105-2"><a href="introClassifier.html#cb105-2" tabindex="-1"></a></span>
+<span id="cb105-3"><a href="introClassifier.html#cb105-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>PimaIndiansDiabetes, <span class="fu">aes</span>(<span class="at">x=</span>glucose, <span class="at">y=</span>age)) <span class="sc">+</span></span>
+<span id="cb105-4"><a href="introClassifier.html#cb105-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>diabetes))</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig3-diab-scatter-1.png" width="75%" /></p>
 <p>Before we start fit models, let’s split the data into training and test sets in
 a 4:1 ratio. Let define it manually, though there are functions to do it
 automatically.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="introClassifier.html#cb85-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
-<span id="cb85-2"><a href="introClassifier.html#cb85-2" tabindex="-1"></a></span>
-<span id="cb85-3"><a href="introClassifier.html#cb85-3" tabindex="-1"></a>idx_train <span class="ot">=</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(PimaIndiansDiabetes), </span>
-<span id="cb85-4"><a href="introClassifier.html#cb85-4" tabindex="-1"></a>                   <span class="at">size=</span><span class="fl">0.75</span><span class="sc">*</span><span class="fu">nrow</span>(PimaIndiansDiabetes),</span>
-<span id="cb85-5"><a href="introClassifier.html#cb85-5" tabindex="-1"></a>                   <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb85-6"><a href="introClassifier.html#cb85-6" tabindex="-1"></a>df_train <span class="ot">=</span> PimaIndiansDiabetes[idx_train, ]</span>
-<span id="cb85-7"><a href="introClassifier.html#cb85-7" tabindex="-1"></a>df_test  <span class="ot">=</span> PimaIndiansDiabetes[<span class="sc">-</span>idx_train, ] <span class="co"># recall the meaning of negative symbol</span></span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="introClassifier.html#cb106-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb106-2"><a href="introClassifier.html#cb106-2" tabindex="-1"></a></span>
+<span id="cb106-3"><a href="introClassifier.html#cb106-3" tabindex="-1"></a>idx_train <span class="ot">=</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(PimaIndiansDiabetes), </span>
+<span id="cb106-4"><a href="introClassifier.html#cb106-4" tabindex="-1"></a>                   <span class="at">size=</span><span class="fl">0.75</span><span class="sc">*</span><span class="fu">nrow</span>(PimaIndiansDiabetes),</span>
+<span id="cb106-5"><a href="introClassifier.html#cb106-5" tabindex="-1"></a>                   <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb106-6"><a href="introClassifier.html#cb106-6" tabindex="-1"></a>df_train <span class="ot">=</span> PimaIndiansDiabetes[idx_train, ]</span>
+<span id="cb106-7"><a href="introClassifier.html#cb106-7" tabindex="-1"></a>df_test  <span class="ot">=</span> PimaIndiansDiabetes[<span class="sc">-</span>idx_train, ] <span class="co"># recall the meaning of negative symbol</span></span></code></pre></div>
 </div>
 <div id="fit-logistic-regression" class="section level3 hasAnchor" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Fit logistic regression<a href="introClassifier.html#fit-logistic-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -462,155 +471,155 @@ including logistic regression, a type of GML.</p>
 <p><strong>Note</strong>, we will specify the model family as <code>binomial</code>, as the likelihood we
 are using in logistic regression is a Bernoulli likelihood, a special case of
 binomial likelihood when the total trial <code>n=1</code>.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="introClassifier.html#cb86-1" tabindex="-1"></a><span class="co"># Define formula in different ways</span></span>
-<span id="cb86-2"><a href="introClassifier.html#cb86-2" tabindex="-1"></a><span class="co"># my_formula = as.formula(diabetes ~ glucose + age)</span></span>
-<span id="cb86-3"><a href="introClassifier.html#cb86-3" tabindex="-1"></a><span class="co"># my_formula = as.formula(paste(colnames(PimaIndiansDiabetes)[1:8], collapse= &quot; + &quot;))</span></span>
-<span id="cb86-4"><a href="introClassifier.html#cb86-4" tabindex="-1"></a><span class="co"># my_formula = as.formula(diabetes ~ .)</span></span>
-<span id="cb86-5"><a href="introClassifier.html#cb86-5" tabindex="-1"></a></span>
-<span id="cb86-6"><a href="introClassifier.html#cb86-6" tabindex="-1"></a><span class="co"># Fit logistic regression</span></span>
-<span id="cb86-7"><a href="introClassifier.html#cb86-7" tabindex="-1"></a>glm_res <span class="ot">&lt;-</span> <span class="fu">glm</span>(diabetes <span class="sc">~</span> ., <span class="at">data=</span>df_train, <span class="at">family =</span> binomial)</span>
-<span id="cb86-8"><a href="introClassifier.html#cb86-8" tabindex="-1"></a></span>
-<span id="cb86-9"><a href="introClassifier.html#cb86-9" tabindex="-1"></a><span class="co"># We can use the logLik() function to obtain the log likelihood</span></span>
-<span id="cb86-10"><a href="introClassifier.html#cb86-10" tabindex="-1"></a><span class="fu">logLik</span>(glm_res)</span>
-<span id="cb86-11"><a href="introClassifier.html#cb86-11" tabindex="-1"></a><span class="co">#&gt; &#39;log Lik.&#39; -281.9041 (df=9)</span></span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="introClassifier.html#cb107-1" tabindex="-1"></a><span class="co"># Define formula in different ways</span></span>
+<span id="cb107-2"><a href="introClassifier.html#cb107-2" tabindex="-1"></a><span class="co"># my_formula = as.formula(diabetes ~ glucose + age)</span></span>
+<span id="cb107-3"><a href="introClassifier.html#cb107-3" tabindex="-1"></a><span class="co"># my_formula = as.formula(paste(colnames(PimaIndiansDiabetes)[1:8], collapse= &quot; + &quot;))</span></span>
+<span id="cb107-4"><a href="introClassifier.html#cb107-4" tabindex="-1"></a><span class="co"># my_formula = as.formula(diabetes ~ .)</span></span>
+<span id="cb107-5"><a href="introClassifier.html#cb107-5" tabindex="-1"></a></span>
+<span id="cb107-6"><a href="introClassifier.html#cb107-6" tabindex="-1"></a><span class="co"># Fit logistic regression</span></span>
+<span id="cb107-7"><a href="introClassifier.html#cb107-7" tabindex="-1"></a>glm_res <span class="ot">&lt;-</span> <span class="fu">glm</span>(diabetes <span class="sc">~</span> ., <span class="at">data=</span>df_train, <span class="at">family =</span> binomial)</span>
+<span id="cb107-8"><a href="introClassifier.html#cb107-8" tabindex="-1"></a></span>
+<span id="cb107-9"><a href="introClassifier.html#cb107-9" tabindex="-1"></a><span class="co"># We can use the logLik() function to obtain the log likelihood</span></span>
+<span id="cb107-10"><a href="introClassifier.html#cb107-10" tabindex="-1"></a><span class="fu">logLik</span>(glm_res)</span>
+<span id="cb107-11"><a href="introClassifier.html#cb107-11" tabindex="-1"></a><span class="co">#&gt; &#39;log Lik.&#39; -281.9041 (df=9)</span></span></code></pre></div>
 <p>We can use <code>summary()</code> function to see more details about the model fitting.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="introClassifier.html#cb87-1" tabindex="-1"></a><span class="fu">summary</span>(glm_res)</span>
-<span id="cb87-2"><a href="introClassifier.html#cb87-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb87-3"><a href="introClassifier.html#cb87-3" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb87-4"><a href="introClassifier.html#cb87-4" tabindex="-1"></a><span class="co">#&gt; glm(formula = diabetes ~ ., family = binomial, data = df_train)</span></span>
-<span id="cb87-5"><a href="introClassifier.html#cb87-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb87-6"><a href="introClassifier.html#cb87-6" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb87-7"><a href="introClassifier.html#cb87-7" tabindex="-1"></a><span class="co">#&gt;              Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
-<span id="cb87-8"><a href="introClassifier.html#cb87-8" tabindex="-1"></a><span class="co">#&gt; (Intercept) -8.044602   0.826981  -9.728  &lt; 2e-16 ***</span></span>
-<span id="cb87-9"><a href="introClassifier.html#cb87-9" tabindex="-1"></a><span class="co">#&gt; pregnant     0.130418   0.036080   3.615 0.000301 ***</span></span>
-<span id="cb87-10"><a href="introClassifier.html#cb87-10" tabindex="-1"></a><span class="co">#&gt; glucose      0.032196   0.004021   8.007 1.18e-15 ***</span></span>
-<span id="cb87-11"><a href="introClassifier.html#cb87-11" tabindex="-1"></a><span class="co">#&gt; pressure    -0.017158   0.006103  -2.811 0.004934 ** </span></span>
-<span id="cb87-12"><a href="introClassifier.html#cb87-12" tabindex="-1"></a><span class="co">#&gt; triceps     -0.003425   0.007659  -0.447 0.654752    </span></span>
-<span id="cb87-13"><a href="introClassifier.html#cb87-13" tabindex="-1"></a><span class="co">#&gt; insulin     -0.001238   0.001060  -1.169 0.242599    </span></span>
-<span id="cb87-14"><a href="introClassifier.html#cb87-14" tabindex="-1"></a><span class="co">#&gt; mass         0.104029   0.018119   5.741 9.39e-09 ***</span></span>
-<span id="cb87-15"><a href="introClassifier.html#cb87-15" tabindex="-1"></a><span class="co">#&gt; pedigree     0.911030   0.344362   2.646 0.008156 ** </span></span>
-<span id="cb87-16"><a href="introClassifier.html#cb87-16" tabindex="-1"></a><span class="co">#&gt; age          0.012980   0.010497   1.237 0.216267    </span></span>
-<span id="cb87-17"><a href="introClassifier.html#cb87-17" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb87-18"><a href="introClassifier.html#cb87-18" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb87-19"><a href="introClassifier.html#cb87-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb87-20"><a href="introClassifier.html#cb87-20" tabindex="-1"></a><span class="co">#&gt; (Dispersion parameter for binomial family taken to be 1)</span></span>
-<span id="cb87-21"><a href="introClassifier.html#cb87-21" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb87-22"><a href="introClassifier.html#cb87-22" tabindex="-1"></a><span class="co">#&gt;     Null deviance: 756.83  on 575  degrees of freedom</span></span>
-<span id="cb87-23"><a href="introClassifier.html#cb87-23" tabindex="-1"></a><span class="co">#&gt; Residual deviance: 563.81  on 567  degrees of freedom</span></span>
-<span id="cb87-24"><a href="introClassifier.html#cb87-24" tabindex="-1"></a><span class="co">#&gt; AIC: 581.81</span></span>
-<span id="cb87-25"><a href="introClassifier.html#cb87-25" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb87-26"><a href="introClassifier.html#cb87-26" tabindex="-1"></a><span class="co">#&gt; Number of Fisher Scoring iterations: 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="introClassifier.html#cb108-1" tabindex="-1"></a><span class="fu">summary</span>(glm_res)</span>
+<span id="cb108-2"><a href="introClassifier.html#cb108-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb108-3"><a href="introClassifier.html#cb108-3" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb108-4"><a href="introClassifier.html#cb108-4" tabindex="-1"></a><span class="co">#&gt; glm(formula = diabetes ~ ., family = binomial, data = df_train)</span></span>
+<span id="cb108-5"><a href="introClassifier.html#cb108-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb108-6"><a href="introClassifier.html#cb108-6" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb108-7"><a href="introClassifier.html#cb108-7" tabindex="-1"></a><span class="co">#&gt;              Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
+<span id="cb108-8"><a href="introClassifier.html#cb108-8" tabindex="-1"></a><span class="co">#&gt; (Intercept) -8.044602   0.826981  -9.728  &lt; 2e-16 ***</span></span>
+<span id="cb108-9"><a href="introClassifier.html#cb108-9" tabindex="-1"></a><span class="co">#&gt; pregnant     0.130418   0.036080   3.615 0.000301 ***</span></span>
+<span id="cb108-10"><a href="introClassifier.html#cb108-10" tabindex="-1"></a><span class="co">#&gt; glucose      0.032196   0.004021   8.007 1.18e-15 ***</span></span>
+<span id="cb108-11"><a href="introClassifier.html#cb108-11" tabindex="-1"></a><span class="co">#&gt; pressure    -0.017158   0.006103  -2.811 0.004934 ** </span></span>
+<span id="cb108-12"><a href="introClassifier.html#cb108-12" tabindex="-1"></a><span class="co">#&gt; triceps     -0.003425   0.007659  -0.447 0.654752    </span></span>
+<span id="cb108-13"><a href="introClassifier.html#cb108-13" tabindex="-1"></a><span class="co">#&gt; insulin     -0.001238   0.001060  -1.169 0.242599    </span></span>
+<span id="cb108-14"><a href="introClassifier.html#cb108-14" tabindex="-1"></a><span class="co">#&gt; mass         0.104029   0.018119   5.741 9.39e-09 ***</span></span>
+<span id="cb108-15"><a href="introClassifier.html#cb108-15" tabindex="-1"></a><span class="co">#&gt; pedigree     0.911030   0.344362   2.646 0.008156 ** </span></span>
+<span id="cb108-16"><a href="introClassifier.html#cb108-16" tabindex="-1"></a><span class="co">#&gt; age          0.012980   0.010497   1.237 0.216267    </span></span>
+<span id="cb108-17"><a href="introClassifier.html#cb108-17" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb108-18"><a href="introClassifier.html#cb108-18" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb108-19"><a href="introClassifier.html#cb108-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb108-20"><a href="introClassifier.html#cb108-20" tabindex="-1"></a><span class="co">#&gt; (Dispersion parameter for binomial family taken to be 1)</span></span>
+<span id="cb108-21"><a href="introClassifier.html#cb108-21" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb108-22"><a href="introClassifier.html#cb108-22" tabindex="-1"></a><span class="co">#&gt;     Null deviance: 756.83  on 575  degrees of freedom</span></span>
+<span id="cb108-23"><a href="introClassifier.html#cb108-23" tabindex="-1"></a><span class="co">#&gt; Residual deviance: 563.81  on 567  degrees of freedom</span></span>
+<span id="cb108-24"><a href="introClassifier.html#cb108-24" tabindex="-1"></a><span class="co">#&gt; AIC: 581.81</span></span>
+<span id="cb108-25"><a href="introClassifier.html#cb108-25" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb108-26"><a href="introClassifier.html#cb108-26" tabindex="-1"></a><span class="co">#&gt; Number of Fisher Scoring iterations: 5</span></span></code></pre></div>
 </div>
 <div id="assess-on-test-data" class="section level3 hasAnchor" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> Assess on test data<a href="introClassifier.html#assess-on-test-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now, we can evaluate the accuracy of the model on the 25% test data.</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="introClassifier.html#cb88-1" tabindex="-1"></a><span class="co"># Train the full model on the training data</span></span>
-<span id="cb88-2"><a href="introClassifier.html#cb88-2" tabindex="-1"></a>glm_train <span class="ot">&lt;-</span> <span class="fu">glm</span>(diabetes <span class="sc">~</span> ., <span class="at">data=</span>df_train, <span class="at">family =</span> binomial)</span>
-<span id="cb88-3"><a href="introClassifier.html#cb88-3" tabindex="-1"></a></span>
-<span id="cb88-4"><a href="introClassifier.html#cb88-4" tabindex="-1"></a><span class="co"># Predict the probability of being diabeties on test data</span></span>
-<span id="cb88-5"><a href="introClassifier.html#cb88-5" tabindex="-1"></a><span class="co"># We can also set a threshold, e.g., 0.5 for the predicted label</span></span>
-<span id="cb88-6"><a href="introClassifier.html#cb88-6" tabindex="-1"></a>pred_prob <span class="ot">=</span> <span class="fu">predict</span>(glm_train, df_test, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb88-7"><a href="introClassifier.html#cb88-7" tabindex="-1"></a>pred_label <span class="ot">=</span> pred_prob <span class="sc">&gt;=</span> <span class="fl">0.5</span></span>
-<span id="cb88-8"><a href="introClassifier.html#cb88-8" tabindex="-1"></a></span>
-<span id="cb88-9"><a href="introClassifier.html#cb88-9" tabindex="-1"></a><span class="co"># Observed label</span></span>
-<span id="cb88-10"><a href="introClassifier.html#cb88-10" tabindex="-1"></a>obse_label <span class="ot">=</span> df_test<span class="sc">$</span>diabetes <span class="sc">==</span> <span class="st">&#39;pos&#39;</span></span>
-<span id="cb88-11"><a href="introClassifier.html#cb88-11" tabindex="-1"></a></span>
-<span id="cb88-12"><a href="introClassifier.html#cb88-12" tabindex="-1"></a><span class="co"># Calculate the accuracy on test data</span></span>
-<span id="cb88-13"><a href="introClassifier.html#cb88-13" tabindex="-1"></a><span class="co"># think how accuracy is defined</span></span>
-<span id="cb88-14"><a href="introClassifier.html#cb88-14" tabindex="-1"></a><span class="co"># we can use (TN + TP) / (TN + TP + FN + FP)</span></span>
-<span id="cb88-15"><a href="introClassifier.html#cb88-15" tabindex="-1"></a><span class="co"># we can also directly compare the proportion of correctness</span></span>
-<span id="cb88-16"><a href="introClassifier.html#cb88-16" tabindex="-1"></a>accuracy <span class="ot">=</span> <span class="fu">mean</span>(pred_label <span class="sc">==</span> obse_label)</span>
-<span id="cb88-17"><a href="introClassifier.html#cb88-17" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Accuracy on test set:&quot;</span>, accuracy))</span>
-<span id="cb88-18"><a href="introClassifier.html#cb88-18" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Accuracy on test set: 0.796875&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="introClassifier.html#cb109-1" tabindex="-1"></a><span class="co"># Train the full model on the training data</span></span>
+<span id="cb109-2"><a href="introClassifier.html#cb109-2" tabindex="-1"></a>glm_train <span class="ot">&lt;-</span> <span class="fu">glm</span>(diabetes <span class="sc">~</span> ., <span class="at">data=</span>df_train, <span class="at">family =</span> binomial)</span>
+<span id="cb109-3"><a href="introClassifier.html#cb109-3" tabindex="-1"></a></span>
+<span id="cb109-4"><a href="introClassifier.html#cb109-4" tabindex="-1"></a><span class="co"># Predict the probability of being diabeties on test data</span></span>
+<span id="cb109-5"><a href="introClassifier.html#cb109-5" tabindex="-1"></a><span class="co"># We can also set a threshold, e.g., 0.5 for the predicted label</span></span>
+<span id="cb109-6"><a href="introClassifier.html#cb109-6" tabindex="-1"></a>pred_prob <span class="ot">=</span> <span class="fu">predict</span>(glm_train, df_test, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb109-7"><a href="introClassifier.html#cb109-7" tabindex="-1"></a>pred_label <span class="ot">=</span> pred_prob <span class="sc">&gt;=</span> <span class="fl">0.5</span></span>
+<span id="cb109-8"><a href="introClassifier.html#cb109-8" tabindex="-1"></a></span>
+<span id="cb109-9"><a href="introClassifier.html#cb109-9" tabindex="-1"></a><span class="co"># Observed label</span></span>
+<span id="cb109-10"><a href="introClassifier.html#cb109-10" tabindex="-1"></a>obse_label <span class="ot">=</span> df_test<span class="sc">$</span>diabetes <span class="sc">==</span> <span class="st">&#39;pos&#39;</span></span>
+<span id="cb109-11"><a href="introClassifier.html#cb109-11" tabindex="-1"></a></span>
+<span id="cb109-12"><a href="introClassifier.html#cb109-12" tabindex="-1"></a><span class="co"># Calculate the accuracy on test data</span></span>
+<span id="cb109-13"><a href="introClassifier.html#cb109-13" tabindex="-1"></a><span class="co"># think how accuracy is defined</span></span>
+<span id="cb109-14"><a href="introClassifier.html#cb109-14" tabindex="-1"></a><span class="co"># we can use (TN + TP) / (TN + TP + FN + FP)</span></span>
+<span id="cb109-15"><a href="introClassifier.html#cb109-15" tabindex="-1"></a><span class="co"># we can also directly compare the proportion of correctness</span></span>
+<span id="cb109-16"><a href="introClassifier.html#cb109-16" tabindex="-1"></a>accuracy <span class="ot">=</span> <span class="fu">mean</span>(pred_label <span class="sc">==</span> obse_label)</span>
+<span id="cb109-17"><a href="introClassifier.html#cb109-17" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Accuracy on test set:&quot;</span>, accuracy))</span>
+<span id="cb109-18"><a href="introClassifier.html#cb109-18" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Accuracy on test set: 0.796875&quot;</span></span></code></pre></div>
 </div>
 <div id="model-selection-and-diagnosis" class="section level3 hasAnchor" number="4.2.4">
 <h3><span class="header-section-number">4.2.4</span> Model selection and diagnosis<a href="introClassifier.html#model-selection-and-diagnosis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="model2-new-feature-set-by-removing-triceps" class="section level4 hasAnchor" number="4.2.4.1">
 <h4><span class="header-section-number">4.2.4.1</span> Model2: New feature set by removing <code>triceps</code><a href="introClassifier.html#model2-new-feature-set-by-removing-triceps" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="introClassifier.html#cb89-1" tabindex="-1"></a><span class="co"># Train the full model on the training data</span></span>
-<span id="cb89-2"><a href="introClassifier.html#cb89-2" tabindex="-1"></a>glm_mod2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(diabetes <span class="sc">~</span> pregnant <span class="sc">+</span> glucose <span class="sc">+</span> pressure <span class="sc">+</span> </span>
-<span id="cb89-3"><a href="introClassifier.html#cb89-3" tabindex="-1"></a>                   insulin <span class="sc">+</span> mass <span class="sc">+</span> pedigree <span class="sc">+</span> age, </span>
-<span id="cb89-4"><a href="introClassifier.html#cb89-4" tabindex="-1"></a>                <span class="at">data=</span>df_train, <span class="at">family =</span> binomial)</span>
-<span id="cb89-5"><a href="introClassifier.html#cb89-5" tabindex="-1"></a></span>
-<span id="cb89-6"><a href="introClassifier.html#cb89-6" tabindex="-1"></a><span class="fu">logLik</span>(glm_mod2)</span>
-<span id="cb89-7"><a href="introClassifier.html#cb89-7" tabindex="-1"></a><span class="co">#&gt; &#39;log Lik.&#39; -282.0038 (df=8)</span></span>
-<span id="cb89-8"><a href="introClassifier.html#cb89-8" tabindex="-1"></a><span class="fu">summary</span>(glm_mod2)</span>
-<span id="cb89-9"><a href="introClassifier.html#cb89-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb89-10"><a href="introClassifier.html#cb89-10" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb89-11"><a href="introClassifier.html#cb89-11" tabindex="-1"></a><span class="co">#&gt; glm(formula = diabetes ~ pregnant + glucose + pressure + insulin + </span></span>
-<span id="cb89-12"><a href="introClassifier.html#cb89-12" tabindex="-1"></a><span class="co">#&gt;     mass + pedigree + age, family = binomial, data = df_train)</span></span>
-<span id="cb89-13"><a href="introClassifier.html#cb89-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb89-14"><a href="introClassifier.html#cb89-14" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb89-15"><a href="introClassifier.html#cb89-15" tabindex="-1"></a><span class="co">#&gt;               Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
-<span id="cb89-16"><a href="introClassifier.html#cb89-16" tabindex="-1"></a><span class="co">#&gt; (Intercept) -8.0317567  0.8251403  -9.734  &lt; 2e-16 ***</span></span>
-<span id="cb89-17"><a href="introClassifier.html#cb89-17" tabindex="-1"></a><span class="co">#&gt; pregnant     0.1308094  0.0361230   3.621 0.000293 ***</span></span>
-<span id="cb89-18"><a href="introClassifier.html#cb89-18" tabindex="-1"></a><span class="co">#&gt; glucose      0.0324606  0.0039854   8.145 3.80e-16 ***</span></span>
-<span id="cb89-19"><a href="introClassifier.html#cb89-19" tabindex="-1"></a><span class="co">#&gt; pressure    -0.0175651  0.0060269  -2.914 0.003563 ** </span></span>
-<span id="cb89-20"><a href="introClassifier.html#cb89-20" tabindex="-1"></a><span class="co">#&gt; insulin     -0.0014402  0.0009593  -1.501 0.133291    </span></span>
-<span id="cb89-21"><a href="introClassifier.html#cb89-21" tabindex="-1"></a><span class="co">#&gt; mass         0.1018155  0.0173811   5.858 4.69e-09 ***</span></span>
-<span id="cb89-22"><a href="introClassifier.html#cb89-22" tabindex="-1"></a><span class="co">#&gt; pedigree     0.9000134  0.3428652   2.625 0.008665 ** </span></span>
-<span id="cb89-23"><a href="introClassifier.html#cb89-23" tabindex="-1"></a><span class="co">#&gt; age          0.0131238  0.0105147   1.248 0.211982    </span></span>
-<span id="cb89-24"><a href="introClassifier.html#cb89-24" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb89-25"><a href="introClassifier.html#cb89-25" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb89-26"><a href="introClassifier.html#cb89-26" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb89-27"><a href="introClassifier.html#cb89-27" tabindex="-1"></a><span class="co">#&gt; (Dispersion parameter for binomial family taken to be 1)</span></span>
-<span id="cb89-28"><a href="introClassifier.html#cb89-28" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb89-29"><a href="introClassifier.html#cb89-29" tabindex="-1"></a><span class="co">#&gt;     Null deviance: 756.83  on 575  degrees of freedom</span></span>
-<span id="cb89-30"><a href="introClassifier.html#cb89-30" tabindex="-1"></a><span class="co">#&gt; Residual deviance: 564.01  on 568  degrees of freedom</span></span>
-<span id="cb89-31"><a href="introClassifier.html#cb89-31" tabindex="-1"></a><span class="co">#&gt; AIC: 580.01</span></span>
-<span id="cb89-32"><a href="introClassifier.html#cb89-32" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb89-33"><a href="introClassifier.html#cb89-33" tabindex="-1"></a><span class="co">#&gt; Number of Fisher Scoring iterations: 5</span></span></code></pre></div>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="introClassifier.html#cb90-1" tabindex="-1"></a><span class="co"># Predict the probability of being diabeties on test data</span></span>
-<span id="cb90-2"><a href="introClassifier.html#cb90-2" tabindex="-1"></a><span class="co"># We can also set a threshold, e.g., 0.5 for the predicted label</span></span>
-<span id="cb90-3"><a href="introClassifier.html#cb90-3" tabindex="-1"></a>pred_prob2 <span class="ot">=</span> <span class="fu">predict</span>(glm_mod2, df_test, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb90-4"><a href="introClassifier.html#cb90-4" tabindex="-1"></a>pred_label2 <span class="ot">=</span> pred_prob2 <span class="sc">&gt;=</span> <span class="fl">0.5</span></span>
-<span id="cb90-5"><a href="introClassifier.html#cb90-5" tabindex="-1"></a></span>
-<span id="cb90-6"><a href="introClassifier.html#cb90-6" tabindex="-1"></a>accuracy2 <span class="ot">=</span> <span class="fu">mean</span>(pred_label2 <span class="sc">==</span> obse_label)</span>
-<span id="cb90-7"><a href="introClassifier.html#cb90-7" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Accuracy on test set with model2:&quot;</span>, accuracy2))</span>
-<span id="cb90-8"><a href="introClassifier.html#cb90-8" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Accuracy on test set with model2: 0.807291666666667&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="introClassifier.html#cb110-1" tabindex="-1"></a><span class="co"># Train the full model on the training data</span></span>
+<span id="cb110-2"><a href="introClassifier.html#cb110-2" tabindex="-1"></a>glm_mod2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(diabetes <span class="sc">~</span> pregnant <span class="sc">+</span> glucose <span class="sc">+</span> pressure <span class="sc">+</span> </span>
+<span id="cb110-3"><a href="introClassifier.html#cb110-3" tabindex="-1"></a>                   insulin <span class="sc">+</span> mass <span class="sc">+</span> pedigree <span class="sc">+</span> age, </span>
+<span id="cb110-4"><a href="introClassifier.html#cb110-4" tabindex="-1"></a>                <span class="at">data=</span>df_train, <span class="at">family =</span> binomial)</span>
+<span id="cb110-5"><a href="introClassifier.html#cb110-5" tabindex="-1"></a></span>
+<span id="cb110-6"><a href="introClassifier.html#cb110-6" tabindex="-1"></a><span class="fu">logLik</span>(glm_mod2)</span>
+<span id="cb110-7"><a href="introClassifier.html#cb110-7" tabindex="-1"></a><span class="co">#&gt; &#39;log Lik.&#39; -282.0038 (df=8)</span></span>
+<span id="cb110-8"><a href="introClassifier.html#cb110-8" tabindex="-1"></a><span class="fu">summary</span>(glm_mod2)</span>
+<span id="cb110-9"><a href="introClassifier.html#cb110-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb110-10"><a href="introClassifier.html#cb110-10" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb110-11"><a href="introClassifier.html#cb110-11" tabindex="-1"></a><span class="co">#&gt; glm(formula = diabetes ~ pregnant + glucose + pressure + insulin + </span></span>
+<span id="cb110-12"><a href="introClassifier.html#cb110-12" tabindex="-1"></a><span class="co">#&gt;     mass + pedigree + age, family = binomial, data = df_train)</span></span>
+<span id="cb110-13"><a href="introClassifier.html#cb110-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb110-14"><a href="introClassifier.html#cb110-14" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb110-15"><a href="introClassifier.html#cb110-15" tabindex="-1"></a><span class="co">#&gt;               Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
+<span id="cb110-16"><a href="introClassifier.html#cb110-16" tabindex="-1"></a><span class="co">#&gt; (Intercept) -8.0317567  0.8251403  -9.734  &lt; 2e-16 ***</span></span>
+<span id="cb110-17"><a href="introClassifier.html#cb110-17" tabindex="-1"></a><span class="co">#&gt; pregnant     0.1308094  0.0361230   3.621 0.000293 ***</span></span>
+<span id="cb110-18"><a href="introClassifier.html#cb110-18" tabindex="-1"></a><span class="co">#&gt; glucose      0.0324606  0.0039854   8.145 3.80e-16 ***</span></span>
+<span id="cb110-19"><a href="introClassifier.html#cb110-19" tabindex="-1"></a><span class="co">#&gt; pressure    -0.0175651  0.0060269  -2.914 0.003563 ** </span></span>
+<span id="cb110-20"><a href="introClassifier.html#cb110-20" tabindex="-1"></a><span class="co">#&gt; insulin     -0.0014402  0.0009593  -1.501 0.133291    </span></span>
+<span id="cb110-21"><a href="introClassifier.html#cb110-21" tabindex="-1"></a><span class="co">#&gt; mass         0.1018155  0.0173811   5.858 4.69e-09 ***</span></span>
+<span id="cb110-22"><a href="introClassifier.html#cb110-22" tabindex="-1"></a><span class="co">#&gt; pedigree     0.9000134  0.3428652   2.625 0.008665 ** </span></span>
+<span id="cb110-23"><a href="introClassifier.html#cb110-23" tabindex="-1"></a><span class="co">#&gt; age          0.0131238  0.0105147   1.248 0.211982    </span></span>
+<span id="cb110-24"><a href="introClassifier.html#cb110-24" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb110-25"><a href="introClassifier.html#cb110-25" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb110-26"><a href="introClassifier.html#cb110-26" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb110-27"><a href="introClassifier.html#cb110-27" tabindex="-1"></a><span class="co">#&gt; (Dispersion parameter for binomial family taken to be 1)</span></span>
+<span id="cb110-28"><a href="introClassifier.html#cb110-28" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb110-29"><a href="introClassifier.html#cb110-29" tabindex="-1"></a><span class="co">#&gt;     Null deviance: 756.83  on 575  degrees of freedom</span></span>
+<span id="cb110-30"><a href="introClassifier.html#cb110-30" tabindex="-1"></a><span class="co">#&gt; Residual deviance: 564.01  on 568  degrees of freedom</span></span>
+<span id="cb110-31"><a href="introClassifier.html#cb110-31" tabindex="-1"></a><span class="co">#&gt; AIC: 580.01</span></span>
+<span id="cb110-32"><a href="introClassifier.html#cb110-32" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb110-33"><a href="introClassifier.html#cb110-33" tabindex="-1"></a><span class="co">#&gt; Number of Fisher Scoring iterations: 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="introClassifier.html#cb111-1" tabindex="-1"></a><span class="co"># Predict the probability of being diabeties on test data</span></span>
+<span id="cb111-2"><a href="introClassifier.html#cb111-2" tabindex="-1"></a><span class="co"># We can also set a threshold, e.g., 0.5 for the predicted label</span></span>
+<span id="cb111-3"><a href="introClassifier.html#cb111-3" tabindex="-1"></a>pred_prob2 <span class="ot">=</span> <span class="fu">predict</span>(glm_mod2, df_test, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb111-4"><a href="introClassifier.html#cb111-4" tabindex="-1"></a>pred_label2 <span class="ot">=</span> pred_prob2 <span class="sc">&gt;=</span> <span class="fl">0.5</span></span>
+<span id="cb111-5"><a href="introClassifier.html#cb111-5" tabindex="-1"></a></span>
+<span id="cb111-6"><a href="introClassifier.html#cb111-6" tabindex="-1"></a>accuracy2 <span class="ot">=</span> <span class="fu">mean</span>(pred_label2 <span class="sc">==</span> obse_label)</span>
+<span id="cb111-7"><a href="introClassifier.html#cb111-7" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Accuracy on test set with model2:&quot;</span>, accuracy2))</span>
+<span id="cb111-8"><a href="introClassifier.html#cb111-8" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Accuracy on test set with model2: 0.807291666666667&quot;</span></span></code></pre></div>
 </div>
 <div id="model3-new-feature-set-by-removing-triceps-and-insulin" class="section level4 hasAnchor" number="4.2.4.2">
 <h4><span class="header-section-number">4.2.4.2</span> Model3: New feature set by removing <code>triceps</code> and <code>insulin</code><a href="introClassifier.html#model3-new-feature-set-by-removing-triceps-and-insulin" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="introClassifier.html#cb91-1" tabindex="-1"></a><span class="co"># Train the full model on the training data</span></span>
-<span id="cb91-2"><a href="introClassifier.html#cb91-2" tabindex="-1"></a>glm_mod3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(diabetes <span class="sc">~</span> pregnant <span class="sc">+</span> glucose <span class="sc">+</span> pressure <span class="sc">+</span> </span>
-<span id="cb91-3"><a href="introClassifier.html#cb91-3" tabindex="-1"></a>                   mass <span class="sc">+</span> pedigree <span class="sc">+</span> age, </span>
-<span id="cb91-4"><a href="introClassifier.html#cb91-4" tabindex="-1"></a>                <span class="at">data=</span>df_train, <span class="at">family =</span> binomial)</span>
-<span id="cb91-5"><a href="introClassifier.html#cb91-5" tabindex="-1"></a></span>
-<span id="cb91-6"><a href="introClassifier.html#cb91-6" tabindex="-1"></a><span class="fu">logLik</span>(glm_mod3)</span>
-<span id="cb91-7"><a href="introClassifier.html#cb91-7" tabindex="-1"></a><span class="co">#&gt; &#39;log Lik.&#39; -283.1342 (df=7)</span></span>
-<span id="cb91-8"><a href="introClassifier.html#cb91-8" tabindex="-1"></a><span class="fu">summary</span>(glm_mod3)</span>
-<span id="cb91-9"><a href="introClassifier.html#cb91-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb91-10"><a href="introClassifier.html#cb91-10" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb91-11"><a href="introClassifier.html#cb91-11" tabindex="-1"></a><span class="co">#&gt; glm(formula = diabetes ~ pregnant + glucose + pressure + mass + </span></span>
-<span id="cb91-12"><a href="introClassifier.html#cb91-12" tabindex="-1"></a><span class="co">#&gt;     pedigree + age, family = binomial, data = df_train)</span></span>
-<span id="cb91-13"><a href="introClassifier.html#cb91-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb91-14"><a href="introClassifier.html#cb91-14" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb91-15"><a href="introClassifier.html#cb91-15" tabindex="-1"></a><span class="co">#&gt;              Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
-<span id="cb91-16"><a href="introClassifier.html#cb91-16" tabindex="-1"></a><span class="co">#&gt; (Intercept) -7.797803   0.802287  -9.719  &lt; 2e-16 ***</span></span>
-<span id="cb91-17"><a href="introClassifier.html#cb91-17" tabindex="-1"></a><span class="co">#&gt; pregnant     0.130990   0.035957   3.643  0.00027 ***</span></span>
-<span id="cb91-18"><a href="introClassifier.html#cb91-18" tabindex="-1"></a><span class="co">#&gt; glucose      0.030661   0.003755   8.164 3.23e-16 ***</span></span>
-<span id="cb91-19"><a href="introClassifier.html#cb91-19" tabindex="-1"></a><span class="co">#&gt; pressure    -0.017847   0.005953  -2.998  0.00272 ** </span></span>
-<span id="cb91-20"><a href="introClassifier.html#cb91-20" tabindex="-1"></a><span class="co">#&gt; mass         0.097356   0.016969   5.737 9.61e-09 ***</span></span>
-<span id="cb91-21"><a href="introClassifier.html#cb91-21" tabindex="-1"></a><span class="co">#&gt; pedigree     0.824150   0.338299   2.436  0.01484 *  </span></span>
-<span id="cb91-22"><a href="introClassifier.html#cb91-22" tabindex="-1"></a><span class="co">#&gt; age          0.015134   0.010426   1.452  0.14663    </span></span>
-<span id="cb91-23"><a href="introClassifier.html#cb91-23" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb91-24"><a href="introClassifier.html#cb91-24" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb91-25"><a href="introClassifier.html#cb91-25" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb91-26"><a href="introClassifier.html#cb91-26" tabindex="-1"></a><span class="co">#&gt; (Dispersion parameter for binomial family taken to be 1)</span></span>
-<span id="cb91-27"><a href="introClassifier.html#cb91-27" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb91-28"><a href="introClassifier.html#cb91-28" tabindex="-1"></a><span class="co">#&gt;     Null deviance: 756.83  on 575  degrees of freedom</span></span>
-<span id="cb91-29"><a href="introClassifier.html#cb91-29" tabindex="-1"></a><span class="co">#&gt; Residual deviance: 566.27  on 569  degrees of freedom</span></span>
-<span id="cb91-30"><a href="introClassifier.html#cb91-30" tabindex="-1"></a><span class="co">#&gt; AIC: 580.27</span></span>
-<span id="cb91-31"><a href="introClassifier.html#cb91-31" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb91-32"><a href="introClassifier.html#cb91-32" tabindex="-1"></a><span class="co">#&gt; Number of Fisher Scoring iterations: 5</span></span></code></pre></div>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="introClassifier.html#cb92-1" tabindex="-1"></a><span class="co"># Predict the probability of being diabeties on test data</span></span>
-<span id="cb92-2"><a href="introClassifier.html#cb92-2" tabindex="-1"></a><span class="co"># We can also set a threshold, e.g., 0.5 for the predicted label</span></span>
-<span id="cb92-3"><a href="introClassifier.html#cb92-3" tabindex="-1"></a>pred_prob3 <span class="ot">=</span> <span class="fu">predict</span>(glm_mod3, df_test, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb92-4"><a href="introClassifier.html#cb92-4" tabindex="-1"></a>pred_label3 <span class="ot">=</span> pred_prob3 <span class="sc">&gt;=</span> <span class="fl">0.5</span></span>
-<span id="cb92-5"><a href="introClassifier.html#cb92-5" tabindex="-1"></a></span>
-<span id="cb92-6"><a href="introClassifier.html#cb92-6" tabindex="-1"></a>accuracy3 <span class="ot">=</span> <span class="fu">mean</span>(pred_label3 <span class="sc">==</span> obse_label)</span>
-<span id="cb92-7"><a href="introClassifier.html#cb92-7" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Accuracy on test set with model3:&quot;</span>, accuracy3))</span>
-<span id="cb92-8"><a href="introClassifier.html#cb92-8" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Accuracy on test set with model3: 0.786458333333333&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="introClassifier.html#cb112-1" tabindex="-1"></a><span class="co"># Train the full model on the training data</span></span>
+<span id="cb112-2"><a href="introClassifier.html#cb112-2" tabindex="-1"></a>glm_mod3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(diabetes <span class="sc">~</span> pregnant <span class="sc">+</span> glucose <span class="sc">+</span> pressure <span class="sc">+</span> </span>
+<span id="cb112-3"><a href="introClassifier.html#cb112-3" tabindex="-1"></a>                   mass <span class="sc">+</span> pedigree <span class="sc">+</span> age, </span>
+<span id="cb112-4"><a href="introClassifier.html#cb112-4" tabindex="-1"></a>                <span class="at">data=</span>df_train, <span class="at">family =</span> binomial)</span>
+<span id="cb112-5"><a href="introClassifier.html#cb112-5" tabindex="-1"></a></span>
+<span id="cb112-6"><a href="introClassifier.html#cb112-6" tabindex="-1"></a><span class="fu">logLik</span>(glm_mod3)</span>
+<span id="cb112-7"><a href="introClassifier.html#cb112-7" tabindex="-1"></a><span class="co">#&gt; &#39;log Lik.&#39; -283.1342 (df=7)</span></span>
+<span id="cb112-8"><a href="introClassifier.html#cb112-8" tabindex="-1"></a><span class="fu">summary</span>(glm_mod3)</span>
+<span id="cb112-9"><a href="introClassifier.html#cb112-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb112-10"><a href="introClassifier.html#cb112-10" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb112-11"><a href="introClassifier.html#cb112-11" tabindex="-1"></a><span class="co">#&gt; glm(formula = diabetes ~ pregnant + glucose + pressure + mass + </span></span>
+<span id="cb112-12"><a href="introClassifier.html#cb112-12" tabindex="-1"></a><span class="co">#&gt;     pedigree + age, family = binomial, data = df_train)</span></span>
+<span id="cb112-13"><a href="introClassifier.html#cb112-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb112-14"><a href="introClassifier.html#cb112-14" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb112-15"><a href="introClassifier.html#cb112-15" tabindex="-1"></a><span class="co">#&gt;              Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
+<span id="cb112-16"><a href="introClassifier.html#cb112-16" tabindex="-1"></a><span class="co">#&gt; (Intercept) -7.797803   0.802287  -9.719  &lt; 2e-16 ***</span></span>
+<span id="cb112-17"><a href="introClassifier.html#cb112-17" tabindex="-1"></a><span class="co">#&gt; pregnant     0.130990   0.035957   3.643  0.00027 ***</span></span>
+<span id="cb112-18"><a href="introClassifier.html#cb112-18" tabindex="-1"></a><span class="co">#&gt; glucose      0.030661   0.003755   8.164 3.23e-16 ***</span></span>
+<span id="cb112-19"><a href="introClassifier.html#cb112-19" tabindex="-1"></a><span class="co">#&gt; pressure    -0.017847   0.005953  -2.998  0.00272 ** </span></span>
+<span id="cb112-20"><a href="introClassifier.html#cb112-20" tabindex="-1"></a><span class="co">#&gt; mass         0.097356   0.016969   5.737 9.61e-09 ***</span></span>
+<span id="cb112-21"><a href="introClassifier.html#cb112-21" tabindex="-1"></a><span class="co">#&gt; pedigree     0.824150   0.338299   2.436  0.01484 *  </span></span>
+<span id="cb112-22"><a href="introClassifier.html#cb112-22" tabindex="-1"></a><span class="co">#&gt; age          0.015134   0.010426   1.452  0.14663    </span></span>
+<span id="cb112-23"><a href="introClassifier.html#cb112-23" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb112-24"><a href="introClassifier.html#cb112-24" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb112-25"><a href="introClassifier.html#cb112-25" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb112-26"><a href="introClassifier.html#cb112-26" tabindex="-1"></a><span class="co">#&gt; (Dispersion parameter for binomial family taken to be 1)</span></span>
+<span id="cb112-27"><a href="introClassifier.html#cb112-27" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb112-28"><a href="introClassifier.html#cb112-28" tabindex="-1"></a><span class="co">#&gt;     Null deviance: 756.83  on 575  degrees of freedom</span></span>
+<span id="cb112-29"><a href="introClassifier.html#cb112-29" tabindex="-1"></a><span class="co">#&gt; Residual deviance: 566.27  on 569  degrees of freedom</span></span>
+<span id="cb112-30"><a href="introClassifier.html#cb112-30" tabindex="-1"></a><span class="co">#&gt; AIC: 580.27</span></span>
+<span id="cb112-31"><a href="introClassifier.html#cb112-31" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb112-32"><a href="introClassifier.html#cb112-32" tabindex="-1"></a><span class="co">#&gt; Number of Fisher Scoring iterations: 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="introClassifier.html#cb113-1" tabindex="-1"></a><span class="co"># Predict the probability of being diabeties on test data</span></span>
+<span id="cb113-2"><a href="introClassifier.html#cb113-2" tabindex="-1"></a><span class="co"># We can also set a threshold, e.g., 0.5 for the predicted label</span></span>
+<span id="cb113-3"><a href="introClassifier.html#cb113-3" tabindex="-1"></a>pred_prob3 <span class="ot">=</span> <span class="fu">predict</span>(glm_mod3, df_test, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb113-4"><a href="introClassifier.html#cb113-4" tabindex="-1"></a>pred_label3 <span class="ot">=</span> pred_prob3 <span class="sc">&gt;=</span> <span class="fl">0.5</span></span>
+<span id="cb113-5"><a href="introClassifier.html#cb113-5" tabindex="-1"></a></span>
+<span id="cb113-6"><a href="introClassifier.html#cb113-6" tabindex="-1"></a>accuracy3 <span class="ot">=</span> <span class="fu">mean</span>(pred_label3 <span class="sc">==</span> obse_label)</span>
+<span id="cb113-7"><a href="introClassifier.html#cb113-7" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Accuracy on test set with model3:&quot;</span>, accuracy3))</span>
+<span id="cb113-8"><a href="introClassifier.html#cb113-8" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Accuracy on test set with model3: 0.786458333333333&quot;</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -626,9 +635,9 @@ K as testing fold and all folds will be aggregated for joint assessment.</p>
 <p>K is usually taken 3, 5 or 10. In extreme case that K=n_sample, we call it
 leave-one-out cross-validation (LOOCV).</p>
 <p>Let’s load the dataset (again) first.</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="introClassifier.html#cb93-1" tabindex="-1"></a><span class="co"># Load data</span></span>
-<span id="cb93-2"><a href="introClassifier.html#cb93-2" tabindex="-1"></a><span class="fu">library</span>(mlbench)</span>
-<span id="cb93-3"><a href="introClassifier.html#cb93-3" tabindex="-1"></a><span class="fu">data</span>(PimaIndiansDiabetes)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="introClassifier.html#cb114-1" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb114-2"><a href="introClassifier.html#cb114-2" tabindex="-1"></a><span class="fu">library</span>(mlbench)</span>
+<span id="cb114-3"><a href="introClassifier.html#cb114-3" tabindex="-1"></a><span class="fu">data</span>(PimaIndiansDiabetes)</span></code></pre></div>
 <p>Besides implement the cross-validation from scratch, there are packages
 supporting it well, including <code>caret</code> package. We will install it and use it for
 cross-validation here.</p>
@@ -636,54 +645,54 @@ cross-validation here.</p>
 <p>Note, in order to calculate ROC curve later, we need to keep the predicted
 probability by using <code>classProbs = TRUE</code></p>
 </blockquote>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="introClassifier.html#cb94-1" tabindex="-1"></a><span class="co"># Install the caret library for cross-validation</span></span>
-<span id="cb94-2"><a href="introClassifier.html#cb94-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;caret&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb94-3"><a href="introClassifier.html#cb94-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;caret&quot;</span>)</span>
-<span id="cb94-4"><a href="introClassifier.html#cb94-4" tabindex="-1"></a>}</span>
-<span id="cb94-5"><a href="introClassifier.html#cb94-5" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
-<span id="cb94-6"><a href="introClassifier.html#cb94-6" tabindex="-1"></a></span>
-<span id="cb94-7"><a href="introClassifier.html#cb94-7" tabindex="-1"></a><span class="co"># Define training control</span></span>
-<span id="cb94-8"><a href="introClassifier.html#cb94-8" tabindex="-1"></a><span class="co"># We also want to have savePredictions=TRUE &amp; classProbs=TRUE</span></span>
-<span id="cb94-9"><a href="introClassifier.html#cb94-9" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>) </span>
-<span id="cb94-10"><a href="introClassifier.html#cb94-10" tabindex="-1"></a>my_trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="at">number =</span> <span class="dv">5</span>, </span>
-<span id="cb94-11"><a href="introClassifier.html#cb94-11" tabindex="-1"></a>                             <span class="at">classProbs =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb94-12"><a href="introClassifier.html#cb94-12" tabindex="-1"></a>                             <span class="at">savePredictions =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb94-13"><a href="introClassifier.html#cb94-13" tabindex="-1"></a></span>
-<span id="cb94-14"><a href="introClassifier.html#cb94-14" tabindex="-1"></a><span class="co"># Train the model</span></span>
-<span id="cb94-15"><a href="introClassifier.html#cb94-15" tabindex="-1"></a>cv_model <span class="ot">&lt;-</span> <span class="fu">train</span>(diabetes <span class="sc">~</span> ., <span class="at">data =</span> PimaIndiansDiabetes, </span>
-<span id="cb94-16"><a href="introClassifier.html#cb94-16" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">&quot;glm&quot;</span>,</span>
-<span id="cb94-17"><a href="introClassifier.html#cb94-17" tabindex="-1"></a>                  <span class="at">family=</span><span class="fu">binomial</span>(),</span>
-<span id="cb94-18"><a href="introClassifier.html#cb94-18" tabindex="-1"></a>                  <span class="at">trControl =</span> my_trControl)</span>
-<span id="cb94-19"><a href="introClassifier.html#cb94-19" tabindex="-1"></a></span>
-<span id="cb94-20"><a href="introClassifier.html#cb94-20" tabindex="-1"></a><span class="co"># Summarize the results</span></span>
-<span id="cb94-21"><a href="introClassifier.html#cb94-21" tabindex="-1"></a><span class="fu">print</span>(cv_model)</span>
-<span id="cb94-22"><a href="introClassifier.html#cb94-22" tabindex="-1"></a><span class="co">#&gt; Generalized Linear Model </span></span>
-<span id="cb94-23"><a href="introClassifier.html#cb94-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb94-24"><a href="introClassifier.html#cb94-24" tabindex="-1"></a><span class="co">#&gt; 768 samples</span></span>
-<span id="cb94-25"><a href="introClassifier.html#cb94-25" tabindex="-1"></a><span class="co">#&gt;   8 predictor</span></span>
-<span id="cb94-26"><a href="introClassifier.html#cb94-26" tabindex="-1"></a><span class="co">#&gt;   2 classes: &#39;neg&#39;, &#39;pos&#39; </span></span>
-<span id="cb94-27"><a href="introClassifier.html#cb94-27" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb94-28"><a href="introClassifier.html#cb94-28" tabindex="-1"></a><span class="co">#&gt; No pre-processing</span></span>
-<span id="cb94-29"><a href="introClassifier.html#cb94-29" tabindex="-1"></a><span class="co">#&gt; Resampling: Cross-Validated (5 fold) </span></span>
-<span id="cb94-30"><a href="introClassifier.html#cb94-30" tabindex="-1"></a><span class="co">#&gt; Summary of sample sizes: 615, 614, 615, 614, 614 </span></span>
-<span id="cb94-31"><a href="introClassifier.html#cb94-31" tabindex="-1"></a><span class="co">#&gt; Resampling results:</span></span>
-<span id="cb94-32"><a href="introClassifier.html#cb94-32" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb94-33"><a href="introClassifier.html#cb94-33" tabindex="-1"></a><span class="co">#&gt;   Accuracy   Kappa    </span></span>
-<span id="cb94-34"><a href="introClassifier.html#cb94-34" tabindex="-1"></a><span class="co">#&gt;   0.7708344  0.4695353</span></span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="introClassifier.html#cb115-1" tabindex="-1"></a><span class="co"># Install the caret library for cross-validation</span></span>
+<span id="cb115-2"><a href="introClassifier.html#cb115-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;caret&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb115-3"><a href="introClassifier.html#cb115-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;caret&quot;</span>)</span>
+<span id="cb115-4"><a href="introClassifier.html#cb115-4" tabindex="-1"></a>}</span>
+<span id="cb115-5"><a href="introClassifier.html#cb115-5" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb115-6"><a href="introClassifier.html#cb115-6" tabindex="-1"></a></span>
+<span id="cb115-7"><a href="introClassifier.html#cb115-7" tabindex="-1"></a><span class="co"># Define training control</span></span>
+<span id="cb115-8"><a href="introClassifier.html#cb115-8" tabindex="-1"></a><span class="co"># We also want to have savePredictions=TRUE &amp; classProbs=TRUE</span></span>
+<span id="cb115-9"><a href="introClassifier.html#cb115-9" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>) </span>
+<span id="cb115-10"><a href="introClassifier.html#cb115-10" tabindex="-1"></a>my_trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="at">number =</span> <span class="dv">5</span>, </span>
+<span id="cb115-11"><a href="introClassifier.html#cb115-11" tabindex="-1"></a>                             <span class="at">classProbs =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb115-12"><a href="introClassifier.html#cb115-12" tabindex="-1"></a>                             <span class="at">savePredictions =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb115-13"><a href="introClassifier.html#cb115-13" tabindex="-1"></a></span>
+<span id="cb115-14"><a href="introClassifier.html#cb115-14" tabindex="-1"></a><span class="co"># Train the model</span></span>
+<span id="cb115-15"><a href="introClassifier.html#cb115-15" tabindex="-1"></a>cv_model <span class="ot">&lt;-</span> <span class="fu">train</span>(diabetes <span class="sc">~</span> ., <span class="at">data =</span> PimaIndiansDiabetes, </span>
+<span id="cb115-16"><a href="introClassifier.html#cb115-16" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">&quot;glm&quot;</span>,</span>
+<span id="cb115-17"><a href="introClassifier.html#cb115-17" tabindex="-1"></a>                  <span class="at">family=</span><span class="fu">binomial</span>(),</span>
+<span id="cb115-18"><a href="introClassifier.html#cb115-18" tabindex="-1"></a>                  <span class="at">trControl =</span> my_trControl)</span>
+<span id="cb115-19"><a href="introClassifier.html#cb115-19" tabindex="-1"></a></span>
+<span id="cb115-20"><a href="introClassifier.html#cb115-20" tabindex="-1"></a><span class="co"># Summarize the results</span></span>
+<span id="cb115-21"><a href="introClassifier.html#cb115-21" tabindex="-1"></a><span class="fu">print</span>(cv_model)</span>
+<span id="cb115-22"><a href="introClassifier.html#cb115-22" tabindex="-1"></a><span class="co">#&gt; Generalized Linear Model </span></span>
+<span id="cb115-23"><a href="introClassifier.html#cb115-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb115-24"><a href="introClassifier.html#cb115-24" tabindex="-1"></a><span class="co">#&gt; 768 samples</span></span>
+<span id="cb115-25"><a href="introClassifier.html#cb115-25" tabindex="-1"></a><span class="co">#&gt;   8 predictor</span></span>
+<span id="cb115-26"><a href="introClassifier.html#cb115-26" tabindex="-1"></a><span class="co">#&gt;   2 classes: &#39;neg&#39;, &#39;pos&#39; </span></span>
+<span id="cb115-27"><a href="introClassifier.html#cb115-27" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb115-28"><a href="introClassifier.html#cb115-28" tabindex="-1"></a><span class="co">#&gt; No pre-processing</span></span>
+<span id="cb115-29"><a href="introClassifier.html#cb115-29" tabindex="-1"></a><span class="co">#&gt; Resampling: Cross-Validated (5 fold) </span></span>
+<span id="cb115-30"><a href="introClassifier.html#cb115-30" tabindex="-1"></a><span class="co">#&gt; Summary of sample sizes: 615, 614, 615, 614, 614 </span></span>
+<span id="cb115-31"><a href="introClassifier.html#cb115-31" tabindex="-1"></a><span class="co">#&gt; Resampling results:</span></span>
+<span id="cb115-32"><a href="introClassifier.html#cb115-32" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb115-33"><a href="introClassifier.html#cb115-33" tabindex="-1"></a><span class="co">#&gt;   Accuracy   Kappa    </span></span>
+<span id="cb115-34"><a href="introClassifier.html#cb115-34" tabindex="-1"></a><span class="co">#&gt;   0.7708344  0.4695353</span></span></code></pre></div>
 <p>We can also access to detailed prediction results after concatenating the K
 folds:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="introClassifier.html#cb95-1" tabindex="-1"></a><span class="fu">head</span>(cv_model<span class="sc">$</span>pred)</span>
-<span id="cb95-2"><a href="introClassifier.html#cb95-2" tabindex="-1"></a><span class="co">#&gt;   pred obs       neg        pos rowIndex parameter Resample</span></span>
-<span id="cb95-3"><a href="introClassifier.html#cb95-3" tabindex="-1"></a><span class="co">#&gt; 1  neg neg 0.9656694 0.03433058        4      none    Fold1</span></span>
-<span id="cb95-4"><a href="introClassifier.html#cb95-4" tabindex="-1"></a><span class="co">#&gt; 2  neg neg 0.8581071 0.14189290        6      none    Fold1</span></span>
-<span id="cb95-5"><a href="introClassifier.html#cb95-5" tabindex="-1"></a><span class="co">#&gt; 3  neg pos 0.9508306 0.04916940        7      none    Fold1</span></span>
-<span id="cb95-6"><a href="introClassifier.html#cb95-6" tabindex="-1"></a><span class="co">#&gt; 4  neg pos 0.6541361 0.34586388       17      none    Fold1</span></span>
-<span id="cb95-7"><a href="introClassifier.html#cb95-7" tabindex="-1"></a><span class="co">#&gt; 5  neg pos 0.7675666 0.23243342       20      none    Fold1</span></span>
-<span id="cb95-8"><a href="introClassifier.html#cb95-8" tabindex="-1"></a><span class="co">#&gt; 6  neg pos 0.6132685 0.38673152       26      none    Fold1</span></span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="introClassifier.html#cb116-1" tabindex="-1"></a><span class="fu">head</span>(cv_model<span class="sc">$</span>pred)</span>
+<span id="cb116-2"><a href="introClassifier.html#cb116-2" tabindex="-1"></a><span class="co">#&gt;   pred obs       neg        pos rowIndex parameter Resample</span></span>
+<span id="cb116-3"><a href="introClassifier.html#cb116-3" tabindex="-1"></a><span class="co">#&gt; 1  neg neg 0.9656694 0.03433058        4      none    Fold1</span></span>
+<span id="cb116-4"><a href="introClassifier.html#cb116-4" tabindex="-1"></a><span class="co">#&gt; 2  neg neg 0.8581071 0.14189290        6      none    Fold1</span></span>
+<span id="cb116-5"><a href="introClassifier.html#cb116-5" tabindex="-1"></a><span class="co">#&gt; 3  neg pos 0.9508306 0.04916940        7      none    Fold1</span></span>
+<span id="cb116-6"><a href="introClassifier.html#cb116-6" tabindex="-1"></a><span class="co">#&gt; 4  neg pos 0.6541361 0.34586388       17      none    Fold1</span></span>
+<span id="cb116-7"><a href="introClassifier.html#cb116-7" tabindex="-1"></a><span class="co">#&gt; 5  neg pos 0.7675666 0.23243342       20      none    Fold1</span></span>
+<span id="cb116-8"><a href="introClassifier.html#cb116-8" tabindex="-1"></a><span class="co">#&gt; 6  neg pos 0.6132685 0.38673152       26      none    Fold1</span></span></code></pre></div>
 <p>We can double check the accuracy:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="introClassifier.html#cb96-1" tabindex="-1"></a>CV_acc <span class="ot">=</span> <span class="fu">mean</span>(cv_model<span class="sc">$</span>pred<span class="sc">$</span>pred <span class="sc">==</span> cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs)</span>
-<span id="cb96-2"><a href="introClassifier.html#cb96-2" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Accuracy via 5-fold cross-validation&quot;</span>, CV_acc))</span>
-<span id="cb96-3"><a href="introClassifier.html#cb96-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Accuracy via 5-fold cross-validation 0.770833333333333&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="introClassifier.html#cb117-1" tabindex="-1"></a>CV_acc <span class="ot">=</span> <span class="fu">mean</span>(cv_model<span class="sc">$</span>pred<span class="sc">$</span>pred <span class="sc">==</span> cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs)</span>
+<span id="cb117-2"><a href="introClassifier.html#cb117-2" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Accuracy via 5-fold cross-validation&quot;</span>, CV_acc))</span>
+<span id="cb117-3"><a href="introClassifier.html#cb117-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Accuracy via 5-fold cross-validation 0.770833333333333&quot;</span></span></code></pre></div>
 </div>
 <div id="more-assessment-metrics" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> More assessment metrics<a href="introClassifier.html#more-assessment-metrics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -712,18 +721,18 @@ mean <strong>N</strong>egative has two stripes.</li>
 </ul>
 <p>Here, we use the diabetes dataset and their cross-validation results above to illustrate the two types of errors and the corresponding model performance
 evaluation.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="introClassifier.html#cb97-1" tabindex="-1"></a><span class="co"># Let&#39;s start to define the values for the confusion matrix first</span></span>
-<span id="cb97-2"><a href="introClassifier.html#cb97-2" tabindex="-1"></a><span class="co"># Recall what the difference between &amp; vs &amp;&amp;</span></span>
-<span id="cb97-3"><a href="introClassifier.html#cb97-3" tabindex="-1"></a><span class="co"># Read more: https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html</span></span>
-<span id="cb97-4"><a href="introClassifier.html#cb97-4" tabindex="-1"></a></span>
-<span id="cb97-5"><a href="introClassifier.html#cb97-5" tabindex="-1"></a>TP <span class="ot">=</span> <span class="fu">sum</span>((cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>) <span class="sc">&amp;</span> (cv_model<span class="sc">$</span>pred<span class="sc">$</span>pred <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>))</span>
-<span id="cb97-6"><a href="introClassifier.html#cb97-6" tabindex="-1"></a>FN <span class="ot">=</span> <span class="fu">sum</span>((cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>) <span class="sc">&amp;</span> (cv_model<span class="sc">$</span>pred<span class="sc">$</span>pred <span class="sc">==</span> <span class="st">&#39;neg&#39;</span>))</span>
-<span id="cb97-7"><a href="introClassifier.html#cb97-7" tabindex="-1"></a></span>
-<span id="cb97-8"><a href="introClassifier.html#cb97-8" tabindex="-1"></a>FP <span class="ot">=</span> <span class="fu">sum</span>((cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;neg&#39;</span>) <span class="sc">&amp;</span> (cv_model<span class="sc">$</span>pred<span class="sc">$</span>pred <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>))</span>
-<span id="cb97-9"><a href="introClassifier.html#cb97-9" tabindex="-1"></a>TN <span class="ot">=</span> <span class="fu">sum</span>((cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;neg&#39;</span>) <span class="sc">&amp;</span> (cv_model<span class="sc">$</span>pred<span class="sc">$</span>pred <span class="sc">==</span> <span class="st">&#39;neg&#39;</span>))</span>
-<span id="cb97-10"><a href="introClassifier.html#cb97-10" tabindex="-1"></a></span>
-<span id="cb97-11"><a href="introClassifier.html#cb97-11" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;TP, FN, FP, TN:&#39;</span>, TP, FN, FP, TN))</span>
-<span id="cb97-12"><a href="introClassifier.html#cb97-12" tabindex="-1"></a><span class="co">#&gt; [1] &quot;TP, FN, FP, TN: 151 117 59 441&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="introClassifier.html#cb118-1" tabindex="-1"></a><span class="co"># Let&#39;s start to define the values for the confusion matrix first</span></span>
+<span id="cb118-2"><a href="introClassifier.html#cb118-2" tabindex="-1"></a><span class="co"># Recall what the difference between &amp; vs &amp;&amp;</span></span>
+<span id="cb118-3"><a href="introClassifier.html#cb118-3" tabindex="-1"></a><span class="co"># Read more: https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html</span></span>
+<span id="cb118-4"><a href="introClassifier.html#cb118-4" tabindex="-1"></a></span>
+<span id="cb118-5"><a href="introClassifier.html#cb118-5" tabindex="-1"></a>TP <span class="ot">=</span> <span class="fu">sum</span>((cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>) <span class="sc">&amp;</span> (cv_model<span class="sc">$</span>pred<span class="sc">$</span>pred <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>))</span>
+<span id="cb118-6"><a href="introClassifier.html#cb118-6" tabindex="-1"></a>FN <span class="ot">=</span> <span class="fu">sum</span>((cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>) <span class="sc">&amp;</span> (cv_model<span class="sc">$</span>pred<span class="sc">$</span>pred <span class="sc">==</span> <span class="st">&#39;neg&#39;</span>))</span>
+<span id="cb118-7"><a href="introClassifier.html#cb118-7" tabindex="-1"></a></span>
+<span id="cb118-8"><a href="introClassifier.html#cb118-8" tabindex="-1"></a>FP <span class="ot">=</span> <span class="fu">sum</span>((cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;neg&#39;</span>) <span class="sc">&amp;</span> (cv_model<span class="sc">$</span>pred<span class="sc">$</span>pred <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>))</span>
+<span id="cb118-9"><a href="introClassifier.html#cb118-9" tabindex="-1"></a>TN <span class="ot">=</span> <span class="fu">sum</span>((cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;neg&#39;</span>) <span class="sc">&amp;</span> (cv_model<span class="sc">$</span>pred<span class="sc">$</span>pred <span class="sc">==</span> <span class="st">&#39;neg&#39;</span>))</span>
+<span id="cb118-10"><a href="introClassifier.html#cb118-10" tabindex="-1"></a></span>
+<span id="cb118-11"><a href="introClassifier.html#cb118-11" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;TP, FN, FP, TN:&#39;</span>, TP, FN, FP, TN))</span>
+<span id="cb118-12"><a href="introClassifier.html#cb118-12" tabindex="-1"></a><span class="co">#&gt; [1] &quot;TP, FN, FP, TN: 151 117 59 441&quot;</span></span></code></pre></div>
 <p>We can also use the <code>table()</code> function to get the whole confusion matrix.
 Read more about the
 <a href="https://www.geeksforgeeks.org/create-a-tabular-representation-of-data-in-r-programming-table-function/">table function</a>
@@ -731,38 +740,38 @@ for counting the frequency of each element.
 A similar way is the
 <a href="https://www.rdocumentation.org/packages/caret/versions/3.45/topics/confusionMatrix">confusionMatrix()</a>
 in <code>caret</code> package.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="introClassifier.html#cb98-1" tabindex="-1"></a><span class="co"># Calculate confusion matrix</span></span>
-<span id="cb98-2"><a href="introClassifier.html#cb98-2" tabindex="-1"></a>confusion_mtx <span class="ot">=</span> <span class="fu">table</span>(cv_model<span class="sc">$</span>pred[, <span class="fu">c</span>(<span class="st">&quot;obs&quot;</span>, <span class="st">&quot;pred&quot;</span>)])</span>
-<span id="cb98-3"><a href="introClassifier.html#cb98-3" tabindex="-1"></a>confusion_mtx</span>
-<span id="cb98-4"><a href="introClassifier.html#cb98-4" tabindex="-1"></a><span class="co">#&gt;      pred</span></span>
-<span id="cb98-5"><a href="introClassifier.html#cb98-5" tabindex="-1"></a><span class="co">#&gt; obs   neg pos</span></span>
-<span id="cb98-6"><a href="introClassifier.html#cb98-6" tabindex="-1"></a><span class="co">#&gt;   neg 441  59</span></span>
-<span id="cb98-7"><a href="introClassifier.html#cb98-7" tabindex="-1"></a><span class="co">#&gt;   pos 117 151</span></span>
-<span id="cb98-8"><a href="introClassifier.html#cb98-8" tabindex="-1"></a></span>
-<span id="cb98-9"><a href="introClassifier.html#cb98-9" tabindex="-1"></a><span class="co"># similar function confusionMatrix</span></span>
-<span id="cb98-10"><a href="introClassifier.html#cb98-10" tabindex="-1"></a><span class="co"># conf_mat = confusionMatrix(cv_model$pred$pred, cv_model$pred$obs)</span></span>
-<span id="cb98-11"><a href="introClassifier.html#cb98-11" tabindex="-1"></a><span class="co"># conf_mat$table</span></span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="introClassifier.html#cb119-1" tabindex="-1"></a><span class="co"># Calculate confusion matrix</span></span>
+<span id="cb119-2"><a href="introClassifier.html#cb119-2" tabindex="-1"></a>confusion_mtx <span class="ot">=</span> <span class="fu">table</span>(cv_model<span class="sc">$</span>pred[, <span class="fu">c</span>(<span class="st">&quot;obs&quot;</span>, <span class="st">&quot;pred&quot;</span>)])</span>
+<span id="cb119-3"><a href="introClassifier.html#cb119-3" tabindex="-1"></a>confusion_mtx</span>
+<span id="cb119-4"><a href="introClassifier.html#cb119-4" tabindex="-1"></a><span class="co">#&gt;      pred</span></span>
+<span id="cb119-5"><a href="introClassifier.html#cb119-5" tabindex="-1"></a><span class="co">#&gt; obs   neg pos</span></span>
+<span id="cb119-6"><a href="introClassifier.html#cb119-6" tabindex="-1"></a><span class="co">#&gt;   neg 441  59</span></span>
+<span id="cb119-7"><a href="introClassifier.html#cb119-7" tabindex="-1"></a><span class="co">#&gt;   pos 117 151</span></span>
+<span id="cb119-8"><a href="introClassifier.html#cb119-8" tabindex="-1"></a></span>
+<span id="cb119-9"><a href="introClassifier.html#cb119-9" tabindex="-1"></a><span class="co"># similar function confusionMatrix</span></span>
+<span id="cb119-10"><a href="introClassifier.html#cb119-10" tabindex="-1"></a><span class="co"># conf_mat = confusionMatrix(cv_model$pred$pred, cv_model$pred$obs)</span></span>
+<span id="cb119-11"><a href="introClassifier.html#cb119-11" tabindex="-1"></a><span class="co"># conf_mat$table</span></span></code></pre></div>
 <p>We can also plot out the confusion matrix</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="introClassifier.html#cb99-1" tabindex="-1"></a><span class="co"># Change to data.frame before using ggplot</span></span>
-<span id="cb99-2"><a href="introClassifier.html#cb99-2" tabindex="-1"></a>confusion_df <span class="ot">=</span> <span class="fu">as.data.frame</span>(confusion_mtx)</span>
-<span id="cb99-3"><a href="introClassifier.html#cb99-3" tabindex="-1"></a></span>
-<span id="cb99-4"><a href="introClassifier.html#cb99-4" tabindex="-1"></a><span class="fu">ggplot</span>(confusion_df, <span class="fu">aes</span>(pred, obs, <span class="at">fill=</span> Freq)) <span class="sc">+</span></span>
-<span id="cb99-5"><a href="introClassifier.html#cb99-5" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>Freq)) <span class="sc">+</span> </span>
-<span id="cb99-6"><a href="introClassifier.html#cb99-6" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low=</span><span class="st">&quot;white&quot;</span>, <span class="at">high=</span><span class="st">&quot;darkgreen&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="introClassifier.html#cb120-1" tabindex="-1"></a><span class="co"># Change to data.frame before using ggplot</span></span>
+<span id="cb120-2"><a href="introClassifier.html#cb120-2" tabindex="-1"></a>confusion_df <span class="ot">=</span> <span class="fu">as.data.frame</span>(confusion_mtx)</span>
+<span id="cb120-3"><a href="introClassifier.html#cb120-3" tabindex="-1"></a></span>
+<span id="cb120-4"><a href="introClassifier.html#cb120-4" tabindex="-1"></a><span class="fu">ggplot</span>(confusion_df, <span class="fu">aes</span>(pred, obs, <span class="at">fill=</span> Freq)) <span class="sc">+</span></span>
+<span id="cb120-5"><a href="introClassifier.html#cb120-5" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>Freq)) <span class="sc">+</span> </span>
+<span id="cb120-6"><a href="introClassifier.html#cb120-6" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low=</span><span class="st">&quot;white&quot;</span>, <span class="at">high=</span><span class="st">&quot;darkgreen&quot;</span>)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig-3-confusion-mtx-1.png" width="60%" /></p>
 <p>Also the false positive rate, false negative rate and true negative rate.
 <strong>Note</strong>, the denominator is always the number of <strong>observed</strong> samples with the
 <code>same</code> label, namely they are a constant for a specific dataset.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="introClassifier.html#cb100-1" tabindex="-1"></a>FPR <span class="ot">=</span> FP <span class="sc">/</span> <span class="fu">sum</span>(cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;neg&#39;</span>)</span>
-<span id="cb100-2"><a href="introClassifier.html#cb100-2" tabindex="-1"></a>FNR <span class="ot">=</span> FN <span class="sc">/</span> <span class="fu">sum</span>(cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>)</span>
-<span id="cb100-3"><a href="introClassifier.html#cb100-3" tabindex="-1"></a>TPR <span class="ot">=</span> TP <span class="sc">/</span> <span class="fu">sum</span>(cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>)</span>
-<span id="cb100-4"><a href="introClassifier.html#cb100-4" tabindex="-1"></a></span>
-<span id="cb100-5"><a href="introClassifier.html#cb100-5" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;False positive rate:&quot;</span>, FPR))</span>
-<span id="cb100-6"><a href="introClassifier.html#cb100-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;False positive rate: 0.118&quot;</span></span>
-<span id="cb100-7"><a href="introClassifier.html#cb100-7" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;False negative rate:&quot;</span>, FNR))</span>
-<span id="cb100-8"><a href="introClassifier.html#cb100-8" tabindex="-1"></a><span class="co">#&gt; [1] &quot;False negative rate: 0.436567164179104&quot;</span></span>
-<span id="cb100-9"><a href="introClassifier.html#cb100-9" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;True positive rate:&quot;</span>,  TPR))</span>
-<span id="cb100-10"><a href="introClassifier.html#cb100-10" tabindex="-1"></a><span class="co">#&gt; [1] &quot;True positive rate: 0.563432835820896&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="introClassifier.html#cb121-1" tabindex="-1"></a>FPR <span class="ot">=</span> FP <span class="sc">/</span> <span class="fu">sum</span>(cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;neg&#39;</span>)</span>
+<span id="cb121-2"><a href="introClassifier.html#cb121-2" tabindex="-1"></a>FNR <span class="ot">=</span> FN <span class="sc">/</span> <span class="fu">sum</span>(cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>)</span>
+<span id="cb121-3"><a href="introClassifier.html#cb121-3" tabindex="-1"></a>TPR <span class="ot">=</span> TP <span class="sc">/</span> <span class="fu">sum</span>(cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>)</span>
+<span id="cb121-4"><a href="introClassifier.html#cb121-4" tabindex="-1"></a></span>
+<span id="cb121-5"><a href="introClassifier.html#cb121-5" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;False positive rate:&quot;</span>, FPR))</span>
+<span id="cb121-6"><a href="introClassifier.html#cb121-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;False positive rate: 0.118&quot;</span></span>
+<span id="cb121-7"><a href="introClassifier.html#cb121-7" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;False negative rate:&quot;</span>, FNR))</span>
+<span id="cb121-8"><a href="introClassifier.html#cb121-8" tabindex="-1"></a><span class="co">#&gt; [1] &quot;False negative rate: 0.436567164179104&quot;</span></span>
+<span id="cb121-9"><a href="introClassifier.html#cb121-9" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;True positive rate:&quot;</span>,  TPR))</span>
+<span id="cb121-10"><a href="introClassifier.html#cb121-10" tabindex="-1"></a><span class="co">#&gt; [1] &quot;True positive rate: 0.563432835820896&quot;</span></span></code></pre></div>
 </div>
 <div id="roc-curve" class="section level3 hasAnchor" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> ROC curve<a href="introClassifier.html#roc-curve" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -772,20 +781,20 @@ positives and fewer false negatives. Indeed, in different scenarios, people may
 choose different level of cutoff for their tolerance of different types of
 errors.</p>
 <p>Let’s try cutoff <span class="math inline">\(P&gt;0.4\)</span>. Think what will you expect.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="introClassifier.html#cb101-1" tabindex="-1"></a><span class="co"># Original confusion matrix</span></span>
-<span id="cb101-2"><a href="introClassifier.html#cb101-2" tabindex="-1"></a><span class="fu">table</span>(cv_model<span class="sc">$</span>pred[, <span class="fu">c</span>(<span class="st">&quot;obs&quot;</span>, <span class="st">&quot;pred&quot;</span>)])</span>
-<span id="cb101-3"><a href="introClassifier.html#cb101-3" tabindex="-1"></a><span class="co">#&gt;      pred</span></span>
-<span id="cb101-4"><a href="introClassifier.html#cb101-4" tabindex="-1"></a><span class="co">#&gt; obs   neg pos</span></span>
-<span id="cb101-5"><a href="introClassifier.html#cb101-5" tabindex="-1"></a><span class="co">#&gt;   neg 441  59</span></span>
-<span id="cb101-6"><a href="introClassifier.html#cb101-6" tabindex="-1"></a><span class="co">#&gt;   pos 117 151</span></span>
-<span id="cb101-7"><a href="introClassifier.html#cb101-7" tabindex="-1"></a></span>
-<span id="cb101-8"><a href="introClassifier.html#cb101-8" tabindex="-1"></a><span class="co"># New confusion matrix with cutoff 0.4</span></span>
-<span id="cb101-9"><a href="introClassifier.html#cb101-9" tabindex="-1"></a>cv_model<span class="sc">$</span>pred<span class="sc">$</span>pred_new <span class="ot">=</span> <span class="fu">as.integer</span>(cv_model<span class="sc">$</span>pred<span class="sc">$</span>pos <span class="sc">&gt;=</span> <span class="fl">0.4</span>)</span>
-<span id="cb101-10"><a href="introClassifier.html#cb101-10" tabindex="-1"></a><span class="fu">table</span>(cv_model<span class="sc">$</span>pred[, <span class="fu">c</span>(<span class="st">&quot;obs&quot;</span>, <span class="st">&quot;pred_new&quot;</span>)])</span>
-<span id="cb101-11"><a href="introClassifier.html#cb101-11" tabindex="-1"></a><span class="co">#&gt;      pred_new</span></span>
-<span id="cb101-12"><a href="introClassifier.html#cb101-12" tabindex="-1"></a><span class="co">#&gt; obs     0   1</span></span>
-<span id="cb101-13"><a href="introClassifier.html#cb101-13" tabindex="-1"></a><span class="co">#&gt;   neg 408  92</span></span>
-<span id="cb101-14"><a href="introClassifier.html#cb101-14" tabindex="-1"></a><span class="co">#&gt;   pos  89 179</span></span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="introClassifier.html#cb122-1" tabindex="-1"></a><span class="co"># Original confusion matrix</span></span>
+<span id="cb122-2"><a href="introClassifier.html#cb122-2" tabindex="-1"></a><span class="fu">table</span>(cv_model<span class="sc">$</span>pred[, <span class="fu">c</span>(<span class="st">&quot;obs&quot;</span>, <span class="st">&quot;pred&quot;</span>)])</span>
+<span id="cb122-3"><a href="introClassifier.html#cb122-3" tabindex="-1"></a><span class="co">#&gt;      pred</span></span>
+<span id="cb122-4"><a href="introClassifier.html#cb122-4" tabindex="-1"></a><span class="co">#&gt; obs   neg pos</span></span>
+<span id="cb122-5"><a href="introClassifier.html#cb122-5" tabindex="-1"></a><span class="co">#&gt;   neg 441  59</span></span>
+<span id="cb122-6"><a href="introClassifier.html#cb122-6" tabindex="-1"></a><span class="co">#&gt;   pos 117 151</span></span>
+<span id="cb122-7"><a href="introClassifier.html#cb122-7" tabindex="-1"></a></span>
+<span id="cb122-8"><a href="introClassifier.html#cb122-8" tabindex="-1"></a><span class="co"># New confusion matrix with cutoff 0.4</span></span>
+<span id="cb122-9"><a href="introClassifier.html#cb122-9" tabindex="-1"></a>cv_model<span class="sc">$</span>pred<span class="sc">$</span>pred_new <span class="ot">=</span> <span class="fu">as.integer</span>(cv_model<span class="sc">$</span>pred<span class="sc">$</span>pos <span class="sc">&gt;=</span> <span class="fl">0.4</span>)</span>
+<span id="cb122-10"><a href="introClassifier.html#cb122-10" tabindex="-1"></a><span class="fu">table</span>(cv_model<span class="sc">$</span>pred[, <span class="fu">c</span>(<span class="st">&quot;obs&quot;</span>, <span class="st">&quot;pred_new&quot;</span>)])</span>
+<span id="cb122-11"><a href="introClassifier.html#cb122-11" tabindex="-1"></a><span class="co">#&gt;      pred_new</span></span>
+<span id="cb122-12"><a href="introClassifier.html#cb122-12" tabindex="-1"></a><span class="co">#&gt; obs     0   1</span></span>
+<span id="cb122-13"><a href="introClassifier.html#cb122-13" tabindex="-1"></a><span class="co">#&gt;   neg 408  92</span></span>
+<span id="cb122-14"><a href="introClassifier.html#cb122-14" tabindex="-1"></a><span class="co">#&gt;   pos  89 179</span></span></code></pre></div>
 <p>Therefore, we may want to assess the model performance by varying the cutoffs
 and obtain a more systematic assessment.</p>
 <p>Actually, the Receiver operating characteristic (ROC) curve is what you need. It
@@ -799,60 +808,60 @@ write your own and here is an example from the
 <p>For simplicity, let use an existing tool implemented in the <code>pROC</code> package to
 obtain the key information for making ROC curves: <code>sensitivities</code> (TPR) and
 <code>specificities</code> (1-FPR) for a list of <code>thesholds</code>:</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="introClassifier.html#cb102-1" tabindex="-1"></a><span class="co"># Install the pROC library for plotting ROC curve</span></span>
-<span id="cb102-2"><a href="introClassifier.html#cb102-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;pROC&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb102-3"><a href="introClassifier.html#cb102-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;pROC&quot;</span>)</span>
-<span id="cb102-4"><a href="introClassifier.html#cb102-4" tabindex="-1"></a>}</span>
-<span id="cb102-5"><a href="introClassifier.html#cb102-5" tabindex="-1"></a></span>
-<span id="cb102-6"><a href="introClassifier.html#cb102-6" tabindex="-1"></a><span class="co"># library(pROC)</span></span>
-<span id="cb102-7"><a href="introClassifier.html#cb102-7" tabindex="-1"></a>roc_res <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>, cv_model<span class="sc">$</span>pred<span class="sc">$</span>pos)</span>
-<span id="cb102-8"><a href="introClassifier.html#cb102-8" tabindex="-1"></a><span class="co">#&gt; Setting levels: control = FALSE, case = TRUE</span></span>
-<span id="cb102-9"><a href="introClassifier.html#cb102-9" tabindex="-1"></a><span class="co">#&gt; Setting direction: controls &lt; cases</span></span>
-<span id="cb102-10"><a href="introClassifier.html#cb102-10" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;The AUC score of this ROC curve is&quot;</span>, roc_res<span class="sc">$</span>auc))</span>
-<span id="cb102-11"><a href="introClassifier.html#cb102-11" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The AUC score of this ROC curve is 0.829082089552239&quot;</span></span>
-<span id="cb102-12"><a href="introClassifier.html#cb102-12" tabindex="-1"></a></span>
-<span id="cb102-13"><a href="introClassifier.html#cb102-13" tabindex="-1"></a>roc_table <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(</span>
-<span id="cb102-14"><a href="introClassifier.html#cb102-14" tabindex="-1"></a>  roc_res[<span class="fu">c</span>(<span class="st">&quot;sensitivities&quot;</span>, <span class="st">&quot;specificities&quot;</span>, <span class="st">&quot;thresholds&quot;</span>)]</span>
-<span id="cb102-15"><a href="introClassifier.html#cb102-15" tabindex="-1"></a>)</span>
-<span id="cb102-16"><a href="introClassifier.html#cb102-16" tabindex="-1"></a><span class="fu">head</span>(roc_table)</span>
-<span id="cb102-17"><a href="introClassifier.html#cb102-17" tabindex="-1"></a><span class="co">#&gt;   sensitivities specificities  thresholds</span></span>
-<span id="cb102-18"><a href="introClassifier.html#cb102-18" tabindex="-1"></a><span class="co">#&gt; 1     1.0000000         0.000        -Inf</span></span>
-<span id="cb102-19"><a href="introClassifier.html#cb102-19" tabindex="-1"></a><span class="co">#&gt; 2     1.0000000         0.002 0.001848584</span></span>
-<span id="cb102-20"><a href="introClassifier.html#cb102-20" tabindex="-1"></a><span class="co">#&gt; 3     1.0000000         0.004 0.003167924</span></span>
-<span id="cb102-21"><a href="introClassifier.html#cb102-21" tabindex="-1"></a><span class="co">#&gt; 4     1.0000000         0.006 0.004588208</span></span>
-<span id="cb102-22"><a href="introClassifier.html#cb102-22" tabindex="-1"></a><span class="co">#&gt; 5     1.0000000         0.008 0.005750560</span></span>
-<span id="cb102-23"><a href="introClassifier.html#cb102-23" tabindex="-1"></a><span class="co">#&gt; 6     0.9962687         0.008 0.007297416</span></span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="introClassifier.html#cb123-1" tabindex="-1"></a><span class="co"># Install the pROC library for plotting ROC curve</span></span>
+<span id="cb123-2"><a href="introClassifier.html#cb123-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;pROC&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb123-3"><a href="introClassifier.html#cb123-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;pROC&quot;</span>)</span>
+<span id="cb123-4"><a href="introClassifier.html#cb123-4" tabindex="-1"></a>}</span>
+<span id="cb123-5"><a href="introClassifier.html#cb123-5" tabindex="-1"></a></span>
+<span id="cb123-6"><a href="introClassifier.html#cb123-6" tabindex="-1"></a><span class="co"># library(pROC)</span></span>
+<span id="cb123-7"><a href="introClassifier.html#cb123-7" tabindex="-1"></a>roc_res <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(cv_model<span class="sc">$</span>pred<span class="sc">$</span>obs <span class="sc">==</span> <span class="st">&#39;pos&#39;</span>, cv_model<span class="sc">$</span>pred<span class="sc">$</span>pos)</span>
+<span id="cb123-8"><a href="introClassifier.html#cb123-8" tabindex="-1"></a><span class="co">#&gt; Setting levels: control = FALSE, case = TRUE</span></span>
+<span id="cb123-9"><a href="introClassifier.html#cb123-9" tabindex="-1"></a><span class="co">#&gt; Setting direction: controls &lt; cases</span></span>
+<span id="cb123-10"><a href="introClassifier.html#cb123-10" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;The AUC score of this ROC curve is&quot;</span>, roc_res<span class="sc">$</span>auc))</span>
+<span id="cb123-11"><a href="introClassifier.html#cb123-11" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The AUC score of this ROC curve is 0.829082089552239&quot;</span></span>
+<span id="cb123-12"><a href="introClassifier.html#cb123-12" tabindex="-1"></a></span>
+<span id="cb123-13"><a href="introClassifier.html#cb123-13" tabindex="-1"></a>roc_table <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(</span>
+<span id="cb123-14"><a href="introClassifier.html#cb123-14" tabindex="-1"></a>  roc_res[<span class="fu">c</span>(<span class="st">&quot;sensitivities&quot;</span>, <span class="st">&quot;specificities&quot;</span>, <span class="st">&quot;thresholds&quot;</span>)]</span>
+<span id="cb123-15"><a href="introClassifier.html#cb123-15" tabindex="-1"></a>)</span>
+<span id="cb123-16"><a href="introClassifier.html#cb123-16" tabindex="-1"></a><span class="fu">head</span>(roc_table)</span>
+<span id="cb123-17"><a href="introClassifier.html#cb123-17" tabindex="-1"></a><span class="co">#&gt;   sensitivities specificities  thresholds</span></span>
+<span id="cb123-18"><a href="introClassifier.html#cb123-18" tabindex="-1"></a><span class="co">#&gt; 1     1.0000000         0.000        -Inf</span></span>
+<span id="cb123-19"><a href="introClassifier.html#cb123-19" tabindex="-1"></a><span class="co">#&gt; 2     1.0000000         0.002 0.001848584</span></span>
+<span id="cb123-20"><a href="introClassifier.html#cb123-20" tabindex="-1"></a><span class="co">#&gt; 3     1.0000000         0.004 0.003167924</span></span>
+<span id="cb123-21"><a href="introClassifier.html#cb123-21" tabindex="-1"></a><span class="co">#&gt; 4     1.0000000         0.006 0.004588208</span></span>
+<span id="cb123-22"><a href="introClassifier.html#cb123-22" tabindex="-1"></a><span class="co">#&gt; 5     1.0000000         0.008 0.005750560</span></span>
+<span id="cb123-23"><a href="introClassifier.html#cb123-23" tabindex="-1"></a><span class="co">#&gt; 6     0.9962687         0.008 0.007297416</span></span></code></pre></div>
 <p>With this <code>roc_table</code> at hand, we can find which threshold we should use for a
 certain desired FPR or TPR, for example to have <code>FPR = 0.25</code>:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="introClassifier.html#cb103-1" tabindex="-1"></a>FPR <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> roc_table<span class="sc">$</span>specificities</span>
-<span id="cb103-2"><a href="introClassifier.html#cb103-2" tabindex="-1"></a></span>
-<span id="cb103-3"><a href="introClassifier.html#cb103-3" tabindex="-1"></a>idx <span class="ot">=</span> <span class="fu">which.min</span>(<span class="fu">abs</span>(FPR <span class="sc">-</span> <span class="fl">0.25</span>))</span>
-<span id="cb103-4"><a href="introClassifier.html#cb103-4" tabindex="-1"></a>roc_table[idx, ]</span>
-<span id="cb103-5"><a href="introClassifier.html#cb103-5" tabindex="-1"></a><span class="co">#&gt;     sensitivities specificities thresholds</span></span>
-<span id="cb103-6"><a href="introClassifier.html#cb103-6" tabindex="-1"></a><span class="co">#&gt; 444     0.7462687          0.75  0.3278307</span></span>
-<span id="cb103-7"><a href="introClassifier.html#cb103-7" tabindex="-1"></a></span>
-<span id="cb103-8"><a href="introClassifier.html#cb103-8" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;When FPR is closest to 0.25, the threshold is&quot;</span>, roc_table[idx, <span class="dv">3</span>]))</span>
-<span id="cb103-9"><a href="introClassifier.html#cb103-9" tabindex="-1"></a><span class="co">#&gt; [1] &quot;When FPR is closest to 0.25, the threshold is 0.327830708502213&quot;</span></span>
-<span id="cb103-10"><a href="introClassifier.html#cb103-10" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;When FPR is closest to 0.25, the TPR is&quot;</span>, roc_table[idx, <span class="dv">1</span>]))</span>
-<span id="cb103-11"><a href="introClassifier.html#cb103-11" tabindex="-1"></a><span class="co">#&gt; [1] &quot;When FPR is closest to 0.25, the TPR is 0.746268656716418&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="introClassifier.html#cb124-1" tabindex="-1"></a>FPR <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> roc_table<span class="sc">$</span>specificities</span>
+<span id="cb124-2"><a href="introClassifier.html#cb124-2" tabindex="-1"></a></span>
+<span id="cb124-3"><a href="introClassifier.html#cb124-3" tabindex="-1"></a>idx <span class="ot">=</span> <span class="fu">which.min</span>(<span class="fu">abs</span>(FPR <span class="sc">-</span> <span class="fl">0.25</span>))</span>
+<span id="cb124-4"><a href="introClassifier.html#cb124-4" tabindex="-1"></a>roc_table[idx, ]</span>
+<span id="cb124-5"><a href="introClassifier.html#cb124-5" tabindex="-1"></a><span class="co">#&gt;     sensitivities specificities thresholds</span></span>
+<span id="cb124-6"><a href="introClassifier.html#cb124-6" tabindex="-1"></a><span class="co">#&gt; 444     0.7462687          0.75  0.3278307</span></span>
+<span id="cb124-7"><a href="introClassifier.html#cb124-7" tabindex="-1"></a></span>
+<span id="cb124-8"><a href="introClassifier.html#cb124-8" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;When FPR is closest to 0.25, the threshold is&quot;</span>, roc_table[idx, <span class="dv">3</span>]))</span>
+<span id="cb124-9"><a href="introClassifier.html#cb124-9" tabindex="-1"></a><span class="co">#&gt; [1] &quot;When FPR is closest to 0.25, the threshold is 0.327830708502213&quot;</span></span>
+<span id="cb124-10"><a href="introClassifier.html#cb124-10" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;When FPR is closest to 0.25, the TPR is&quot;</span>, roc_table[idx, <span class="dv">1</span>]))</span>
+<span id="cb124-11"><a href="introClassifier.html#cb124-11" tabindex="-1"></a><span class="co">#&gt; [1] &quot;When FPR is closest to 0.25, the TPR is 0.746268656716418&quot;</span></span></code></pre></div>
 <p>By showing all thresholds, we can also directly use ggplot2 to make an ROC
 curve:</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="introClassifier.html#cb104-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb104-2"><a href="introClassifier.html#cb104-2" tabindex="-1"></a><span class="co"># You can set the n.cuts to show the cutoffs on the curve</span></span>
-<span id="cb104-3"><a href="introClassifier.html#cb104-3" tabindex="-1"></a>g <span class="ot">=</span> <span class="fu">ggplot</span>(roc_table, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> specificities, <span class="at">y =</span> sensitivities)) <span class="sc">+</span>   </span>
-<span id="cb104-4"><a href="introClassifier.html#cb104-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb104-5"><a href="introClassifier.html#cb104-5" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
-<span id="cb104-6"><a href="introClassifier.html#cb104-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;ROC Curve&quot;</span>,</span>
-<span id="cb104-7"><a href="introClassifier.html#cb104-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;FPR (1 - Specificity)&quot;</span>,</span>
-<span id="cb104-8"><a href="introClassifier.html#cb104-8" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;TPR (Sensitivity)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb104-9"><a href="introClassifier.html#cb104-9" tabindex="-1"></a>  <span class="fu">coord_equal</span>()</span>
-<span id="cb104-10"><a href="introClassifier.html#cb104-10" tabindex="-1"></a></span>
-<span id="cb104-11"><a href="introClassifier.html#cb104-11" tabindex="-1"></a><span class="co"># Display the plot with more annotations</span></span>
-<span id="cb104-12"><a href="introClassifier.html#cb104-12" tabindex="-1"></a>g <span class="sc">+</span> </span>
-<span id="cb104-13"><a href="introClassifier.html#cb104-13" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x=</span><span class="fl">0.8</span>, <span class="at">y=</span><span class="fl">0.1</span>, <span class="at">label=</span><span class="fu">paste</span>(<span class="st">&quot;AUC =&quot;</span>, <span class="fu">round</span>(roc_res<span class="sc">$</span>auc, <span class="dv">4</span>))) <span class="sc">+</span></span>
-<span id="cb104-14"><a href="introClassifier.html#cb104-14" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> roc_table[idx, <span class="dv">2</span>], <span class="at">y =</span> roc_table[idx, <span class="dv">1</span>]) <span class="sc">+</span> </span>
-<span id="cb104-15"><a href="introClassifier.html#cb104-15" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> roc_table[idx, <span class="dv">2</span>], <span class="at">y =</span> roc_table[idx, <span class="dv">1</span>],</span>
-<span id="cb104-16"><a href="introClassifier.html#cb104-16" tabindex="-1"></a>            <span class="at">label =</span> <span class="fu">round</span>(roc_table[idx, <span class="dv">3</span>], <span class="dv">3</span>), <span class="at">color =</span> <span class="st">&#39;black&#39;</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="introClassifier.html#cb125-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb125-2"><a href="introClassifier.html#cb125-2" tabindex="-1"></a><span class="co"># You can set the n.cuts to show the cutoffs on the curve</span></span>
+<span id="cb125-3"><a href="introClassifier.html#cb125-3" tabindex="-1"></a>g <span class="ot">=</span> <span class="fu">ggplot</span>(roc_table, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> specificities, <span class="at">y =</span> sensitivities)) <span class="sc">+</span>   </span>
+<span id="cb125-4"><a href="introClassifier.html#cb125-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb125-5"><a href="introClassifier.html#cb125-5" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb125-6"><a href="introClassifier.html#cb125-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;ROC Curve&quot;</span>,</span>
+<span id="cb125-7"><a href="introClassifier.html#cb125-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;FPR (1 - Specificity)&quot;</span>,</span>
+<span id="cb125-8"><a href="introClassifier.html#cb125-8" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;TPR (Sensitivity)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb125-9"><a href="introClassifier.html#cb125-9" tabindex="-1"></a>  <span class="fu">coord_equal</span>()</span>
+<span id="cb125-10"><a href="introClassifier.html#cb125-10" tabindex="-1"></a></span>
+<span id="cb125-11"><a href="introClassifier.html#cb125-11" tabindex="-1"></a><span class="co"># Display the plot with more annotations</span></span>
+<span id="cb125-12"><a href="introClassifier.html#cb125-12" tabindex="-1"></a>g <span class="sc">+</span> </span>
+<span id="cb125-13"><a href="introClassifier.html#cb125-13" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x=</span><span class="fl">0.8</span>, <span class="at">y=</span><span class="fl">0.1</span>, <span class="at">label=</span><span class="fu">paste</span>(<span class="st">&quot;AUC =&quot;</span>, <span class="fu">round</span>(roc_res<span class="sc">$</span>auc, <span class="dv">4</span>))) <span class="sc">+</span></span>
+<span id="cb125-14"><a href="introClassifier.html#cb125-14" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> roc_table[idx, <span class="dv">2</span>], <span class="at">y =</span> roc_table[idx, <span class="dv">1</span>]) <span class="sc">+</span> </span>
+<span id="cb125-15"><a href="introClassifier.html#cb125-15" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> roc_table[idx, <span class="dv">2</span>], <span class="at">y =</span> roc_table[idx, <span class="dv">1</span>],</span>
+<span id="cb125-16"><a href="introClassifier.html#cb125-16" tabindex="-1"></a>            <span class="at">label =</span> <span class="fu">round</span>(roc_table[idx, <span class="dv">3</span>], <span class="dv">3</span>), <span class="at">color =</span> <span class="st">&#39;black&#39;</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.3</span>)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig3-ROC-1.png" width="75%" /></p>
 </div>
 <div id="homework" class="section level3 hasAnchor" number="4.4.3">
