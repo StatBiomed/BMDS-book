@@ -1,6 +1,6 @@
 ## Introduction to R programming (Session 2) {#introR}
 
-This notebook collects the scripts used for teaching in BBMS1021/BIOF1001 for Introduction to R (1 hour teaching). You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR_week2-1.Rmd) (right-click and "save link as" to download).
+This notebook collects the scripts used for teaching in BBMS1021/BIOF1001 for Introduction to R (1 hour teaching). You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter1-R/01-introR_week2-1.Rmd) (right-click and "save link as" to download).
 
 In the last session, we started learning to use R through the Rstudio interface.
 
@@ -302,7 +302,7 @@ if (!requireNamespace("tidyverse", quietly = TRUE)) {    # checks if already ins
 library(tidyverse)                                       # load the package
 ```
 
-You can download `myData.csv` from Moodle or [here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/myData.csv).
+You can download `myData.csv` from Moodle or [here](https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter1-R/myData.csv).
 
 ```{r}
 # example of reading in data
