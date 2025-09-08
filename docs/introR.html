@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2025-09-07" />
+<meta name="date" content="2025-09-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -589,7 +589,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb25-4"><a href="introR.html#cb25-4" tabindex="-1"></a>age</span>
 <span id="cb25-5"><a href="introR.html#cb25-5" tabindex="-1"></a><span class="co">#&gt; [1] 16 20 15 17 18</span></span>
 <span id="cb25-6"><a href="introR.html#cb25-6" tabindex="-1"></a><span class="fu">typeof</span> (age)</span>
-<span id="cb25-7"><a href="introR.html#cb25-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span></code></pre></div>
+<span id="cb25-7"><a href="introR.html#cb25-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span>
+<span id="cb25-8"><a href="introR.html#cb25-8" tabindex="-1"></a><span class="fu">length</span>(age)</span>
+<span id="cb25-9"><a href="introR.html#cb25-9" tabindex="-1"></a><span class="co">#&gt; [1] 5</span></span></code></pre></div>
 <p>There are also different ways to automatically generate vectors</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introR.html#cb26-1" tabindex="-1"></a><span class="co"># vectors can be created using existing variables</span></span>
 <span id="cb26-2"><a href="introR.html#cb26-2" tabindex="-1"></a>jason <span class="ot">&lt;-</span> <span class="fl">1.69</span></span>
@@ -621,19 +623,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb26-28"><a href="introR.html#cb26-28" tabindex="-1"></a><span class="co"># generate a vector of random integers by sampling 6 values between 1 and 49 (六合彩)</span></span>
 <span id="cb26-29"><a href="introR.html#cb26-29" tabindex="-1"></a>mark6 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">49</span>,<span class="dv">6</span>)</span>
 <span id="cb26-30"><a href="introR.html#cb26-30" tabindex="-1"></a>mark6</span>
-<span id="cb26-31"><a href="introR.html#cb26-31" tabindex="-1"></a><span class="co">#&gt; [1] 14  4 39  1 34 23</span></span>
+<span id="cb26-31"><a href="introR.html#cb26-31" tabindex="-1"></a><span class="co">#&gt; [1] 30 43  1 25 14  4</span></span>
 <span id="cb26-32"><a href="introR.html#cb26-32" tabindex="-1"></a><span class="fu">typeof</span>(mark6)</span>
 <span id="cb26-33"><a href="introR.html#cb26-33" tabindex="-1"></a><span class="co">#&gt; [1] &quot;integer&quot;</span></span></code></pre></div>
 <p>Vectors can also be combined from other vectors.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introR.html#cb27-1" tabindex="-1"></a><span class="co"># vectors can be combined</span></span>
 <span id="cb27-2"><a href="introR.html#cb27-2" tabindex="-1"></a>new_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(series,mark6,<span class="fu">rep</span>(<span class="dv">50</span>,<span class="dv">3</span>))</span>
 <span id="cb27-3"><a href="introR.html#cb27-3" tabindex="-1"></a>new_vector</span>
-<span id="cb27-4"><a href="introR.html#cb27-4" tabindex="-1"></a><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 14  4 39  1 34 23 50 50 50</span></span>
+<span id="cb27-4"><a href="introR.html#cb27-4" tabindex="-1"></a><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 30 43  1 25 14  4 50 50 50</span></span>
 <span id="cb27-5"><a href="introR.html#cb27-5" tabindex="-1"></a><span class="fu">typeof</span>(new_vector)</span>
 <span id="cb27-6"><a href="introR.html#cb27-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span></code></pre></div>
 <p>Did you notice that <code>new_vector</code> is now a of type <code>double</code> ?</p>
 <p>You can spend a few minutes to create vectors and explore what happens to the data type of the vector when you combine them with others.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introR.html#cb28-1" tabindex="-1"></a><span class="co"># write your code here</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introR.html#cb28-1" tabindex="-1"></a><span class="co"># write your code here</span></span>
+<span id="cb28-2"><a href="introR.html#cb28-2" tabindex="-1"></a>myVector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>,<span class="fl">4.0</span>)</span>
+<span id="cb28-3"><a href="introR.html#cb28-3" tabindex="-1"></a>myVector</span>
+<span id="cb28-4"><a href="introR.html#cb28-4" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3 4</span></span>
+<span id="cb28-5"><a href="introR.html#cb28-5" tabindex="-1"></a><span class="fu">typeof</span>(myVector)</span>
+<span id="cb28-6"><a href="introR.html#cb28-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span></code></pre></div>
 <div id="coercion" class="section level4 hasAnchor" number="1.2.2.1">
 <h4><span class="header-section-number">1.2.2.1</span> Coercion<a href="introR.html#coercion" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Last week we explored converting the data type of variables using <code>as.numeric</code> , <code>as.integer</code>, <code>as.character</code> etc. These are done explicitly. When combining vectors with different data types they are automatically converted to the most general type in what is known as <strong>coercion</strong>. It occurs based on the following order:</p>
@@ -667,7 +674,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="introR.html#cb31-1" tabindex="-1"></a><span class="co"># complete the code to calculate BMI from the weights and heights vectors</span></span>
 <span id="cb31-2"><a href="introR.html#cb31-2" tabindex="-1"></a>weights <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">54</span>, <span class="dv">66</span>, <span class="dv">78</span>, <span class="dv">45</span>)</span>
 <span id="cb31-3"><a href="introR.html#cb31-3" tabindex="-1"></a>heights <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.55</span>, <span class="fl">1.77</span>, <span class="fl">1.75</span>, <span class="fl">1.61</span>)</span>
-<span id="cb31-4"><a href="introR.html#cb31-4" tabindex="-1"></a>                                        <span class="co"># &lt;--- write you code here</span></span>
+<span id="cb31-4"><a href="introR.html#cb31-4" tabindex="-1"></a>bmis <span class="ot">&lt;-</span> weights<span class="sc">/</span>heights<span class="sc">^</span><span class="dv">2</span>                                        <span class="co"># &lt;--- write you code here</span></span>
 <span id="cb31-5"><a href="introR.html#cb31-5" tabindex="-1"></a>bmis</span>
 <span id="cb31-6"><a href="introR.html#cb31-6" tabindex="-1"></a><span class="co">#&gt; [1] 22.47659 21.06674 25.46939 17.36044</span></span></code></pre></div>
 </div>
@@ -689,20 +696,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb32-13"><a href="introR.html#cb32-13" tabindex="-1"></a><span class="co">#&gt; [1] 56 77 81</span></span>
 <span id="cb32-14"><a href="introR.html#cb32-14" tabindex="-1"></a>scores[<span class="sc">-</span><span class="dv">5</span>]             <span class="co"># retrieve all scores except index 5</span></span>
 <span id="cb32-15"><a href="introR.html#cb32-15" tabindex="-1"></a><span class="co">#&gt; [1] 44 56 63 75 78 81 90 93 99</span></span>
-<span id="cb32-16"><a href="introR.html#cb32-16" tabindex="-1"></a>scores[<span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>)]  <span class="co"># retrieve scores in even positions</span></span>
+<span id="cb32-16"><a href="introR.html#cb32-16" tabindex="-1"></a>scores[<span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>)]  <span class="co"># retrieve scores in odd positions</span></span>
 <span id="cb32-17"><a href="introR.html#cb32-17" tabindex="-1"></a><span class="co">#&gt; [1] 44 63 77 81 93</span></span></code></pre></div>
 <p>Can you write the code to retrieve the scores from:</p>
 <ol style="list-style-type: decimal">
 <li>the first position</li>
-<li>odd positions</li>
+<li>even positions</li>
 <li>every 3rd position</li>
 </ol>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="introR.html#cb33-1" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">44</span>,<span class="dv">56</span>,<span class="dv">63</span>,<span class="dv">75</span>,<span class="dv">77</span>,<span class="dv">78</span>,<span class="dv">81</span>,<span class="dv">90</span>,<span class="dv">93</span>,<span class="dv">99</span>)</span>
 <span id="cb33-2"><a href="introR.html#cb33-2" tabindex="-1"></a><span class="co"># write the code to retieve the 1st position</span></span>
-<span id="cb33-3"><a href="introR.html#cb33-3" tabindex="-1"></a></span>
-<span id="cb33-4"><a href="introR.html#cb33-4" tabindex="-1"></a><span class="co"># write the code to retrieve odd positions</span></span>
-<span id="cb33-5"><a href="introR.html#cb33-5" tabindex="-1"></a></span>
-<span id="cb33-6"><a href="introR.html#cb33-6" tabindex="-1"></a><span class="co"># write the code to retrieve every 3rd position</span></span></code></pre></div>
+<span id="cb33-3"><a href="introR.html#cb33-3" tabindex="-1"></a>scores[<span class="dv">1</span>]</span>
+<span id="cb33-4"><a href="introR.html#cb33-4" tabindex="-1"></a><span class="co">#&gt; [1] 44</span></span>
+<span id="cb33-5"><a href="introR.html#cb33-5" tabindex="-1"></a><span class="co"># write the code to retrieve even positions</span></span>
+<span id="cb33-6"><a href="introR.html#cb33-6" tabindex="-1"></a>scores[<span class="fu">c</span>(<span class="cn">FALSE</span>,<span class="cn">TRUE</span>)]</span>
+<span id="cb33-7"><a href="introR.html#cb33-7" tabindex="-1"></a><span class="co">#&gt; [1] 56 75 78 90 99</span></span>
+<span id="cb33-8"><a href="introR.html#cb33-8" tabindex="-1"></a><span class="co"># write the code to retrieve every 3rd position</span></span>
+<span id="cb33-9"><a href="introR.html#cb33-9" tabindex="-1"></a>scores[<span class="fu">c</span>(<span class="cn">FALSE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>)]</span>
+<span id="cb33-10"><a href="introR.html#cb33-10" tabindex="-1"></a><span class="co">#&gt; [1] 63 78 93</span></span></code></pre></div>
 </div>
 <div id="modifying-a-vector" class="section level4 hasAnchor" number="1.2.2.4">
 <h4><span class="header-section-number">1.2.2.4</span> Modifying a vector<a href="introR.html#modifying-a-vector" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -766,12 +777,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="introR.html#cb37-1" tabindex="-1"></a>myMatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow=</span><span class="dv">3</span>) </span>
 <span id="cb37-2"><a href="introR.html#cb37-2" tabindex="-1"></a><span class="fu">colnames</span>(myMatrix) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;C1&quot;</span>,<span class="st">&quot;C2&quot;</span>,<span class="st">&quot;C3&quot;</span>,<span class="st">&quot;C4&quot;</span>) </span>
-<span id="cb37-3"><a href="introR.html#cb37-3" tabindex="-1"></a><span class="fu">rownames</span>(myMatrix) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;R1&quot;</span>,<span class="st">&quot;R2&quot;</span>,<span class="st">&quot;R3&quot;</span>) </span>
-<span id="cb37-4"><a href="introR.html#cb37-4" tabindex="-1"></a><span class="co"># write code to replace row 3, column 3 with the value 7</span></span>
-<span id="cb37-5"><a href="introR.html#cb37-5" tabindex="-1"></a></span>
-<span id="cb37-6"><a href="introR.html#cb37-6" tabindex="-1"></a><span class="co"># write code to replace row 1, column 4 using the row and col name with the value -5</span></span>
-<span id="cb37-7"><a href="introR.html#cb37-7" tabindex="-1"></a></span>
-<span id="cb37-8"><a href="introR.html#cb37-8" tabindex="-1"></a><span class="co"># write code to delete row 2</span></span></code></pre></div>
+<span id="cb37-3"><a href="introR.html#cb37-3" tabindex="-1"></a><span class="fu">rownames</span>(myMatrix) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;R1&quot;</span>,<span class="st">&quot;R2&quot;</span>,<span class="st">&quot;R3&quot;</span>)</span>
+<span id="cb37-4"><a href="introR.html#cb37-4" tabindex="-1"></a>myMatrix</span>
+<span id="cb37-5"><a href="introR.html#cb37-5" tabindex="-1"></a><span class="co">#&gt;    C1 C2 C3 C4</span></span>
+<span id="cb37-6"><a href="introR.html#cb37-6" tabindex="-1"></a><span class="co">#&gt; R1  1  4  7 10</span></span>
+<span id="cb37-7"><a href="introR.html#cb37-7" tabindex="-1"></a><span class="co">#&gt; R2  2  5  8 11</span></span>
+<span id="cb37-8"><a href="introR.html#cb37-8" tabindex="-1"></a><span class="co">#&gt; R3  3  6  9 12</span></span>
+<span id="cb37-9"><a href="introR.html#cb37-9" tabindex="-1"></a><span class="co"># write code to replace row 3, column 3 with the value 7</span></span>
+<span id="cb37-10"><a href="introR.html#cb37-10" tabindex="-1"></a>myMatrix[<span class="dv">3</span>,<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb37-11"><a href="introR.html#cb37-11" tabindex="-1"></a>myMatrix</span>
+<span id="cb37-12"><a href="introR.html#cb37-12" tabindex="-1"></a><span class="co">#&gt;    C1 C2 C3 C4</span></span>
+<span id="cb37-13"><a href="introR.html#cb37-13" tabindex="-1"></a><span class="co">#&gt; R1  1  4  7 10</span></span>
+<span id="cb37-14"><a href="introR.html#cb37-14" tabindex="-1"></a><span class="co">#&gt; R2  2  5  8 11</span></span>
+<span id="cb37-15"><a href="introR.html#cb37-15" tabindex="-1"></a><span class="co">#&gt; R3  3  6  7 12</span></span>
+<span id="cb37-16"><a href="introR.html#cb37-16" tabindex="-1"></a><span class="co"># write code to replace row 1, column 4 using the row and col name with the value -5</span></span>
+<span id="cb37-17"><a href="introR.html#cb37-17" tabindex="-1"></a>myMatrix[<span class="st">&quot;R1&quot;</span>,<span class="st">&quot;C4&quot;</span>] <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">5</span></span>
+<span id="cb37-18"><a href="introR.html#cb37-18" tabindex="-1"></a>myMatrix</span>
+<span id="cb37-19"><a href="introR.html#cb37-19" tabindex="-1"></a><span class="co">#&gt;    C1 C2 C3 C4</span></span>
+<span id="cb37-20"><a href="introR.html#cb37-20" tabindex="-1"></a><span class="co">#&gt; R1  1  4  7 -5</span></span>
+<span id="cb37-21"><a href="introR.html#cb37-21" tabindex="-1"></a><span class="co">#&gt; R2  2  5  8 11</span></span>
+<span id="cb37-22"><a href="introR.html#cb37-22" tabindex="-1"></a><span class="co">#&gt; R3  3  6  7 12</span></span>
+<span id="cb37-23"><a href="introR.html#cb37-23" tabindex="-1"></a><span class="co"># write code to delete row 2</span></span>
+<span id="cb37-24"><a href="introR.html#cb37-24" tabindex="-1"></a>myMatrix <span class="ot">&lt;-</span> myMatrix[<span class="sc">-</span><span class="dv">2</span>, ]</span>
+<span id="cb37-25"><a href="introR.html#cb37-25" tabindex="-1"></a>myMatrix</span>
+<span id="cb37-26"><a href="introR.html#cb37-26" tabindex="-1"></a><span class="co">#&gt;    C1 C2 C3 C4</span></span>
+<span id="cb37-27"><a href="introR.html#cb37-27" tabindex="-1"></a><span class="co">#&gt; R1  1  4  7 -5</span></span>
+<span id="cb37-28"><a href="introR.html#cb37-28" tabindex="-1"></a><span class="co">#&gt; R3  3  6  7 12</span></span></code></pre></div>
 </div>
 </div>
 <div id="list" class="section level3 hasAnchor" number="1.2.4">
@@ -803,7 +834,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb39-6"><a href="introR.html#cb39-6" tabindex="-1"></a>myList<span class="sc">$</span>Name              <span class="co"># using the Name key directly</span></span>
 <span id="cb39-7"><a href="introR.html#cb39-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Jason&quot;</span></span></code></pre></div>
 <p>Can you retrieve the Height and Name from myList?</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="introR.html#cb40-1" tabindex="-1"></a><span class="co"># write code to retrieve Height and Name from myList</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="introR.html#cb40-1" tabindex="-1"></a><span class="co"># write code to retrieve Height and Name from myList</span></span>
+<span id="cb40-2"><a href="introR.html#cb40-2" tabindex="-1"></a>myList[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]                       </span>
+<span id="cb40-3"><a href="introR.html#cb40-3" tabindex="-1"></a><span class="co">#&gt; $Height</span></span>
+<span id="cb40-4"><a href="introR.html#cb40-4" tabindex="-1"></a><span class="co">#&gt; [1] 1.7</span></span>
+<span id="cb40-5"><a href="introR.html#cb40-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb40-6"><a href="introR.html#cb40-6" tabindex="-1"></a><span class="co">#&gt; $Name</span></span>
+<span id="cb40-7"><a href="introR.html#cb40-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Jason&quot;</span></span>
+<span id="cb40-8"><a href="introR.html#cb40-8" tabindex="-1"></a>myList[<span class="fu">c</span>(<span class="st">&quot;Height&quot;</span>,<span class="st">&quot;Name&quot;</span>)]       <span class="co"># note that unlike the above, the retrieved values are still in a list as opposed to individual values like what you get with double brackets [[]]</span></span>
+<span id="cb40-9"><a href="introR.html#cb40-9" tabindex="-1"></a><span class="co">#&gt; $Height</span></span>
+<span id="cb40-10"><a href="introR.html#cb40-10" tabindex="-1"></a><span class="co">#&gt; [1] 1.7</span></span>
+<span id="cb40-11"><a href="introR.html#cb40-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb40-12"><a href="introR.html#cb40-12" tabindex="-1"></a><span class="co">#&gt; $Name</span></span>
+<span id="cb40-13"><a href="introR.html#cb40-13" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Jason&quot;</span></span></code></pre></div>
 </div>
 <div id="converting-tofrom-vector" class="section level4 hasAnchor" number="1.2.4.2">
 <h4><span class="header-section-number">1.2.4.2</span> Converting to/from vector<a href="introR.html#converting-tofrom-vector" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -856,30 +899,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb43-2"><a href="introR.html#cb43-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {    <span class="co"># checks if already installed</span></span>
 <span id="cb43-3"><a href="introR.html#cb43-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
 <span id="cb43-4"><a href="introR.html#cb43-4" tabindex="-1"></a>}</span>
-<span id="cb43-5"><a href="introR.html#cb43-5" tabindex="-1"></a><span class="fu">library</span>(tidyverse)                                       <span class="co"># load the package</span></span></code></pre></div>
+<span id="cb43-5"><a href="introR.html#cb43-5" tabindex="-1"></a><span class="fu">library</span>(tidyverse)                                       <span class="co"># load the package</span></span>
+<span id="cb43-6"><a href="introR.html#cb43-6" tabindex="-1"></a><span class="co">#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──</span></span>
+<span id="cb43-7"><a href="introR.html#cb43-7" tabindex="-1"></a><span class="co">#&gt; ✔ dplyr     1.1.4     ✔ readr     2.1.5</span></span>
+<span id="cb43-8"><a href="introR.html#cb43-8" tabindex="-1"></a><span class="co">#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.1</span></span>
+<span id="cb43-9"><a href="introR.html#cb43-9" tabindex="-1"></a><span class="co">#&gt; ✔ ggplot2   3.5.2     ✔ tibble    3.3.0</span></span>
+<span id="cb43-10"><a href="introR.html#cb43-10" tabindex="-1"></a><span class="co">#&gt; ✔ lubridate 1.9.4     ✔ tidyr     1.3.1</span></span>
+<span id="cb43-11"><a href="introR.html#cb43-11" tabindex="-1"></a><span class="co">#&gt; ✔ purrr     1.1.0     </span></span>
+<span id="cb43-12"><a href="introR.html#cb43-12" tabindex="-1"></a><span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
+<span id="cb43-13"><a href="introR.html#cb43-13" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span></span>
+<span id="cb43-14"><a href="introR.html#cb43-14" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span></span>
+<span id="cb43-15"><a href="introR.html#cb43-15" tabindex="-1"></a><span class="co">#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</span></span></code></pre></div>
 <p>You can download <code>myData.csv</code> from Moodle or <a href="https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter1-R/myData.csv">here</a>.</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="introR.html#cb44-1" tabindex="-1"></a><span class="co"># example of reading in data</span></span>
-<span id="cb44-2"><a href="introR.html#cb44-2" tabindex="-1"></a>myData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;C:/Users/Jason/Downloads/myData.csv&quot;</span>)   <span class="co"># use the path where you saved the file on your own computer</span></span>
-<span id="cb44-3"><a href="introR.html#cb44-3" tabindex="-1"></a><span class="co">#&gt; Rows: 4 Columns: 4</span></span>
-<span id="cb44-4"><a href="introR.html#cb44-4" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span id="cb44-5"><a href="introR.html#cb44-5" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
-<span id="cb44-6"><a href="introR.html#cb44-6" tabindex="-1"></a><span class="co">#&gt; chr (2): Name, Gender</span></span>
-<span id="cb44-7"><a href="introR.html#cb44-7" tabindex="-1"></a><span class="co">#&gt; dbl (2): Height, Weigth</span></span>
-<span id="cb44-8"><a href="introR.html#cb44-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb44-9"><a href="introR.html#cb44-9" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span id="cb44-10"><a href="introR.html#cb44-10" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span id="cb44-11"><a href="introR.html#cb44-11" tabindex="-1"></a>myData</span>
-<span id="cb44-12"><a href="introR.html#cb44-12" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 4</span></span>
-<span id="cb44-13"><a href="introR.html#cb44-13" tabindex="-1"></a><span class="co">#&gt;   Height Weigth Name    Gender</span></span>
-<span id="cb44-14"><a href="introR.html#cb44-14" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; </span></span>
-<span id="cb44-15"><a href="introR.html#cb44-15" tabindex="-1"></a><span class="co">#&gt; 1   1.7      67 Jason   male  </span></span>
-<span id="cb44-16"><a href="introR.html#cb44-16" tabindex="-1"></a><span class="co">#&gt; 2   1.8      60 Ray     male  </span></span>
-<span id="cb44-17"><a href="introR.html#cb44-17" tabindex="-1"></a><span class="co">#&gt; 3   1.68     55 Dora    female</span></span>
-<span id="cb44-18"><a href="introR.html#cb44-18" tabindex="-1"></a><span class="co">#&gt; 4   1.72     58 Yuanhua male</span></span></code></pre></div>
+<span id="cb44-2"><a href="introR.html#cb44-2" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb44-3"><a href="introR.html#cb44-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Z:/jwhwong/programming/BMDS-book/notebooks/chapter1-R&quot;</span></span>
+<span id="cb44-4"><a href="introR.html#cb44-4" tabindex="-1"></a>myData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;C:/Users/Jason/Downloads/myData.csv&quot;</span>)   <span class="co"># use the path where you saved the file on your own computer</span></span>
+<span id="cb44-5"><a href="introR.html#cb44-5" tabindex="-1"></a><span class="co">#&gt; Rows: 4 Columns: 4</span></span>
+<span id="cb44-6"><a href="introR.html#cb44-6" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
+<span id="cb44-7"><a href="introR.html#cb44-7" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
+<span id="cb44-8"><a href="introR.html#cb44-8" tabindex="-1"></a><span class="co">#&gt; chr (2): Name, Gender</span></span>
+<span id="cb44-9"><a href="introR.html#cb44-9" tabindex="-1"></a><span class="co">#&gt; dbl (2): Height, Weigth</span></span>
+<span id="cb44-10"><a href="introR.html#cb44-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb44-11"><a href="introR.html#cb44-11" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span id="cb44-12"><a href="introR.html#cb44-12" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
+<span id="cb44-13"><a href="introR.html#cb44-13" tabindex="-1"></a>myData</span>
+<span id="cb44-14"><a href="introR.html#cb44-14" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 4</span></span>
+<span id="cb44-15"><a href="introR.html#cb44-15" tabindex="-1"></a><span class="co">#&gt;   Height Weigth Name    Gender</span></span>
+<span id="cb44-16"><a href="introR.html#cb44-16" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; </span></span>
+<span id="cb44-17"><a href="introR.html#cb44-17" tabindex="-1"></a><span class="co">#&gt; 1   1.7      67 Jason   male  </span></span>
+<span id="cb44-18"><a href="introR.html#cb44-18" tabindex="-1"></a><span class="co">#&gt; 2   1.8      60 Ray     male  </span></span>
+<span id="cb44-19"><a href="introR.html#cb44-19" tabindex="-1"></a><span class="co">#&gt; 3   1.68     55 Dora    female</span></span>
+<span id="cb44-20"><a href="introR.html#cb44-20" tabindex="-1"></a><span class="co">#&gt; 4   1.72     58 Yuanhua male</span></span></code></pre></div>
 <p>We will modify the first row of data and then write it back to file.</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="introR.html#cb45-1" tabindex="-1"></a><span class="co"># example of writing data back to csv</span></span>
 <span id="cb45-2"><a href="introR.html#cb45-2" tabindex="-1"></a>myData[<span class="dv">1</span>,] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fl">1.5</span>,<span class="dv">42</span>,<span class="st">&quot;Sarah&quot;</span>,<span class="st">&quot;female&quot;</span>)</span>
-<span id="cb45-3"><a href="introR.html#cb45-3" tabindex="-1"></a><span class="co">#write_csv(myData, &quot;C:/Users/Jason/Downloads/myData2.csv&quot;)  uncomment after setting the path to output</span></span></code></pre></div>
+<span id="cb45-3"><a href="introR.html#cb45-3" tabindex="-1"></a><span class="fu">write_csv</span>(myData, <span class="st">&quot;C:/Users/Jason/Downloads/myData2.csv&quot;</span>)  <span class="co"># uncomment after setting the path to output</span></span></code></pre></div>
 </div>
 </div>
 </div>

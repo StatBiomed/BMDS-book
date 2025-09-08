@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2025-09-07" />
+<meta name="date" content="2025-09-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -357,34 +357,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="genomics-regression.html#cb184-1" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">read.table</span>(<span class="st">&quot;df_SEF_prediction.tsv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header=</span><span class="dv">1</span>)</span>
 <span id="cb184-2"><a href="genomics-regression.html#cb184-2" tabindex="-1"></a></span>
 <span id="cb184-3"><a href="genomics-regression.html#cb184-3" tabindex="-1"></a><span class="fu">head</span>(df)</span>
-<span id="cb184-4"><a href="genomics-regression.html#cb184-4" tabindex="-1"></a><span class="co">#&gt;    gene     RPG   event shift         SEF intronL_ref X5ss_bpL_ref</span></span>
-<span id="cb184-5"><a href="genomics-regression.html#cb184-5" tabindex="-1"></a><span class="co">#&gt; 1  TFC3 non_RPG down3ss    17 0.479869423          90           77</span></span>
-<span id="cb184-6"><a href="genomics-regression.html#cb184-6" tabindex="-1"></a><span class="co">#&gt; 2 SEC17 non_RPG down3ss    47 0.021937843         116           77</span></span>
-<span id="cb184-7"><a href="genomics-regression.html#cb184-7" tabindex="-1"></a><span class="co">#&gt; 3  ERD2 non_RPG   up3ss     4 0.059303591          97           63</span></span>
-<span id="cb184-8"><a href="genomics-regression.html#cb184-8" tabindex="-1"></a><span class="co">#&gt; 4  LSM2 non_RPG   up5ss    56 0.019908116         128           92</span></span>
-<span id="cb184-9"><a href="genomics-regression.html#cb184-9" tabindex="-1"></a><span class="co">#&gt; 5  LSM2 non_RPG   up3ss    47 0.077444760         128           92</span></span>
-<span id="cb184-10"><a href="genomics-regression.html#cb184-10" tabindex="-1"></a><span class="co">#&gt; 6  LSM2 non_RPG down3ss    40 0.002844017         128           92</span></span>
-<span id="cb184-11"><a href="genomics-regression.html#cb184-11" tabindex="-1"></a><span class="co">#&gt;   DeltaG_intron_ref DeltaG_5ss_bp_ref DeltaG_bp_3ss_ref DeltaG_3ss_ref</span></span>
-<span id="cb184-12"><a href="genomics-regression.html#cb184-12" tabindex="-1"></a><span class="co">#&gt; 1          -0.11444          -0.13377               0.0           -6.2</span></span>
-<span id="cb184-13"><a href="genomics-regression.html#cb184-13" tabindex="-1"></a><span class="co">#&gt; 2          -0.17155          -0.10779             -10.5          -20.3</span></span>
-<span id="cb184-14"><a href="genomics-regression.html#cb184-14" tabindex="-1"></a><span class="co">#&gt; 3          -0.16804          -0.16190              -3.9           -8.7</span></span>
-<span id="cb184-15"><a href="genomics-regression.html#cb184-15" tabindex="-1"></a><span class="co">#&gt; 4          -0.13906          -0.12065              -0.9           -7.0</span></span>
-<span id="cb184-16"><a href="genomics-regression.html#cb184-16" tabindex="-1"></a><span class="co">#&gt; 5          -0.13906          -0.12065              -0.9           -7.0</span></span>
-<span id="cb184-17"><a href="genomics-regression.html#cb184-17" tabindex="-1"></a><span class="co">#&gt; 6          -0.13906          -0.12065              -0.9           -7.0</span></span>
-<span id="cb184-18"><a href="genomics-regression.html#cb184-18" tabindex="-1"></a><span class="co">#&gt;   X5ss_motif_ref bp_motif_ref X3ss_motif_ref intronL_alt DeltaG_intron_alt</span></span>
-<span id="cb184-19"><a href="genomics-regression.html#cb184-19" tabindex="-1"></a><span class="co">#&gt; 1         0.7213       0.7703         0.0769         107          -0.10841</span></span>
-<span id="cb184-20"><a href="genomics-regression.html#cb184-20" tabindex="-1"></a><span class="co">#&gt; 2         0.7695       0.9942         0.1461         163          -0.19202</span></span>
-<span id="cb184-21"><a href="genomics-regression.html#cb184-21" tabindex="-1"></a><span class="co">#&gt; 3         0.8495       0.8835         0.1496          93          -0.17527</span></span>
-<span id="cb184-22"><a href="genomics-regression.html#cb184-22" tabindex="-1"></a><span class="co">#&gt; 4         0.8305       0.6667         0.3677         184          -0.15217</span></span>
-<span id="cb184-23"><a href="genomics-regression.html#cb184-23" tabindex="-1"></a><span class="co">#&gt; 5         0.8305       0.6667         0.3677          81          -0.10864</span></span>
-<span id="cb184-24"><a href="genomics-regression.html#cb184-24" tabindex="-1"></a><span class="co">#&gt; 6         0.8305       0.6667         0.3677         168          -0.11667</span></span>
-<span id="cb184-25"><a href="genomics-regression.html#cb184-25" tabindex="-1"></a><span class="co">#&gt;   DeltaG_3ss_alt X5ss_motif_alt X3ss_motif_alt</span></span>
-<span id="cb184-26"><a href="genomics-regression.html#cb184-26" tabindex="-1"></a><span class="co">#&gt; 1           -6.8          77.00         0.5223</span></span>
-<span id="cb184-27"><a href="genomics-regression.html#cb184-27" tabindex="-1"></a><span class="co">#&gt; 2          -13.0          70.99         0.2926</span></span>
-<span id="cb184-28"><a href="genomics-regression.html#cb184-28" tabindex="-1"></a><span class="co">#&gt; 3           -8.3          86.10         0.3329</span></span>
-<span id="cb184-29"><a href="genomics-regression.html#cb184-29" tabindex="-1"></a><span class="co">#&gt; 4           -7.0          64.20         0.3955</span></span>
-<span id="cb184-30"><a href="genomics-regression.html#cb184-30" tabindex="-1"></a><span class="co">#&gt; 5           -8.9          80.76         0.6179</span></span>
-<span id="cb184-31"><a href="genomics-regression.html#cb184-31" tabindex="-1"></a><span class="co">#&gt; 6           -4.3          80.76         0.3341</span></span></code></pre></div>
+<span id="cb184-4"><a href="genomics-regression.html#cb184-4" tabindex="-1"></a><span class="co">#&gt;    gene     RPG   event shift         SEF intronL_ref X5ss_bpL_ref DeltaG_intron_ref</span></span>
+<span id="cb184-5"><a href="genomics-regression.html#cb184-5" tabindex="-1"></a><span class="co">#&gt; 1  TFC3 non_RPG down3ss    17 0.479869423          90           77          -0.11444</span></span>
+<span id="cb184-6"><a href="genomics-regression.html#cb184-6" tabindex="-1"></a><span class="co">#&gt; 2 SEC17 non_RPG down3ss    47 0.021937843         116           77          -0.17155</span></span>
+<span id="cb184-7"><a href="genomics-regression.html#cb184-7" tabindex="-1"></a><span class="co">#&gt; 3  ERD2 non_RPG   up3ss     4 0.059303591          97           63          -0.16804</span></span>
+<span id="cb184-8"><a href="genomics-regression.html#cb184-8" tabindex="-1"></a><span class="co">#&gt; 4  LSM2 non_RPG   up5ss    56 0.019908116         128           92          -0.13906</span></span>
+<span id="cb184-9"><a href="genomics-regression.html#cb184-9" tabindex="-1"></a><span class="co">#&gt; 5  LSM2 non_RPG   up3ss    47 0.077444760         128           92          -0.13906</span></span>
+<span id="cb184-10"><a href="genomics-regression.html#cb184-10" tabindex="-1"></a><span class="co">#&gt; 6  LSM2 non_RPG down3ss    40 0.002844017         128           92          -0.13906</span></span>
+<span id="cb184-11"><a href="genomics-regression.html#cb184-11" tabindex="-1"></a><span class="co">#&gt;   DeltaG_5ss_bp_ref DeltaG_bp_3ss_ref DeltaG_3ss_ref X5ss_motif_ref bp_motif_ref X3ss_motif_ref</span></span>
+<span id="cb184-12"><a href="genomics-regression.html#cb184-12" tabindex="-1"></a><span class="co">#&gt; 1          -0.13377               0.0           -6.2         0.7213       0.7703         0.0769</span></span>
+<span id="cb184-13"><a href="genomics-regression.html#cb184-13" tabindex="-1"></a><span class="co">#&gt; 2          -0.10779             -10.5          -20.3         0.7695       0.9942         0.1461</span></span>
+<span id="cb184-14"><a href="genomics-regression.html#cb184-14" tabindex="-1"></a><span class="co">#&gt; 3          -0.16190              -3.9           -8.7         0.8495       0.8835         0.1496</span></span>
+<span id="cb184-15"><a href="genomics-regression.html#cb184-15" tabindex="-1"></a><span class="co">#&gt; 4          -0.12065              -0.9           -7.0         0.8305       0.6667         0.3677</span></span>
+<span id="cb184-16"><a href="genomics-regression.html#cb184-16" tabindex="-1"></a><span class="co">#&gt; 5          -0.12065              -0.9           -7.0         0.8305       0.6667         0.3677</span></span>
+<span id="cb184-17"><a href="genomics-regression.html#cb184-17" tabindex="-1"></a><span class="co">#&gt; 6          -0.12065              -0.9           -7.0         0.8305       0.6667         0.3677</span></span>
+<span id="cb184-18"><a href="genomics-regression.html#cb184-18" tabindex="-1"></a><span class="co">#&gt;   intronL_alt DeltaG_intron_alt DeltaG_3ss_alt X5ss_motif_alt X3ss_motif_alt</span></span>
+<span id="cb184-19"><a href="genomics-regression.html#cb184-19" tabindex="-1"></a><span class="co">#&gt; 1         107          -0.10841           -6.8          77.00         0.5223</span></span>
+<span id="cb184-20"><a href="genomics-regression.html#cb184-20" tabindex="-1"></a><span class="co">#&gt; 2         163          -0.19202          -13.0          70.99         0.2926</span></span>
+<span id="cb184-21"><a href="genomics-regression.html#cb184-21" tabindex="-1"></a><span class="co">#&gt; 3          93          -0.17527           -8.3          86.10         0.3329</span></span>
+<span id="cb184-22"><a href="genomics-regression.html#cb184-22" tabindex="-1"></a><span class="co">#&gt; 4         184          -0.15217           -7.0          64.20         0.3955</span></span>
+<span id="cb184-23"><a href="genomics-regression.html#cb184-23" tabindex="-1"></a><span class="co">#&gt; 5          81          -0.10864           -8.9          80.76         0.6179</span></span>
+<span id="cb184-24"><a href="genomics-regression.html#cb184-24" tabindex="-1"></a><span class="co">#&gt; 6         168          -0.11667           -4.3          80.76         0.3341</span></span></code></pre></div>
 <div id="a-single-feature" class="section level4 hasAnchor" number="11.1.2.1">
 <h4><span class="header-section-number">11.1.2.1</span> A single feature<a href="genomics-regression.html#a-single-feature" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>Q4.</strong> Let’s start with a single feature, <code>bp_motif_ref</code>, is there a linear relationship with the output variable <code>SEF</code> Y? How do you determine it?</p>

@@ -36,6 +36,7 @@ See more introduction [here](https://www.datamentor.io/r-programming/vector/).
 age <- c(16, 20, 15, 17, 18)  
 age
 typeof (age)
+length(age)
 ```
 
 There are also different ways to automatically generate vectors
@@ -82,8 +83,9 @@ You can spend a few minutes to create vectors and explore what happens to the da
 
 ```{r}
 # write your code here
-
-
+myVector <- c(TRUE,2:3,4.0)
+myVector
+typeof(myVector)
 ```
 
 #### Coercion
@@ -123,7 +125,7 @@ Can you write the code to calculate BMI from the vectors below?
 # complete the code to calculate BMI from the weights and heights vectors
 weights <- c(54, 66, 78, 45)
 heights <- c(1.55, 1.77, 1.75, 1.61)
-                                        # <--- write you code here
+bmis <- weights/heights^2                                        # <--- write you code here
 bmis
 
 ```
@@ -142,23 +144,23 @@ scores[5]              # retrieve score at index 5 (i.e. 5th position)
 scores[2:5]            # retrieve score from index 2 to 5
 scores[c(2,5,7)]       # retrieve scores from index 2, 5 and 7
 scores[-5]             # retrieve all scores except index 5
-scores[c(TRUE,FALSE)]  # retrieve scores in even positions
+scores[c(TRUE,FALSE)]  # retrieve scores in odd positions
 ```
 
 Can you write the code to retrieve the scores from:
 
 1.  the first position
-2.  odd positions
+2.  even positions
 3.  every 3rd position
 
 ```{r}
 scores <- c(44,56,63,75,77,78,81,90,93,99)
 # write the code to retieve the 1st position
-
-# write the code to retrieve odd positions
-
+scores[1]
+# write the code to retrieve even positions
+scores[c(FALSE,TRUE)]
 # write the code to retrieve every 3rd position
-
+scores[c(FALSE,FALSE,TRUE)]
 ```
 
 #### Modifying a vector
@@ -219,13 +221,17 @@ Modifying items in a matrix is similar to vector but in 2 dimensions. Can you wr
 ```{r}
 myMatrix <- matrix(1:12, nrow=3) 
 colnames(myMatrix) <- c("C1","C2","C3","C4") 
-rownames(myMatrix) <- c("R1","R2","R3") 
+rownames(myMatrix) <- c("R1","R2","R3")
+myMatrix
 # write code to replace row 3, column 3 with the value 7
-
+myMatrix[3,3] <- 7
+myMatrix
 # write code to replace row 1, column 4 using the row and col name with the value -5
-
+myMatrix["R1","C4"] <- -5
+myMatrix
 # write code to delete row 2
-
+myMatrix <- myMatrix[-2, ]
+myMatrix
 ```
 
 ### List
@@ -256,7 +262,8 @@ Can you retrieve the Height and Name from myList?
 
 ```{r}
 # write code to retrieve Height and Name from myList
-
+myList[c(1,4)]                       
+myList[c("Height","Name")]       # note that unlike the above, the retrieved values are still in a list as opposed to individual values like what you get with double brackets [[]]
 
 ```
 
@@ -306,6 +313,7 @@ You can download `myData.csv` from Moodle or [here](https://github.com/StatBiome
 
 ```{r}
 # example of reading in data
+getwd()
 myData <- read_csv("C:/Users/Jason/Downloads/myData.csv")   # use the path where you saved the file on your own computer
 myData
 ```
@@ -315,5 +323,5 @@ We will modify the first row of data and then write it back to file.
 ```{r}
 # example of writing data back to csv
 myData[1,] <- list(1.5,42,"Sarah","female")
-#write_csv(myData, "C:/Users/Jason/Downloads/myData2.csv")  uncomment after setting the path to output
+write_csv(myData, "C:/Users/Jason/Downloads/myData2.csv")  # uncomment after setting the path to output
 ```

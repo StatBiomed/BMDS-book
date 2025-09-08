@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2025-09-07" />
+<meta name="date" content="2025-09-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -650,35 +650,41 @@ probability by using <code>classProbs = TRUE</code></p>
 <span id="cb115-3"><a href="introClassifier.html#cb115-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;caret&quot;</span>)</span>
 <span id="cb115-4"><a href="introClassifier.html#cb115-4" tabindex="-1"></a>}</span>
 <span id="cb115-5"><a href="introClassifier.html#cb115-5" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
-<span id="cb115-6"><a href="introClassifier.html#cb115-6" tabindex="-1"></a></span>
-<span id="cb115-7"><a href="introClassifier.html#cb115-7" tabindex="-1"></a><span class="co"># Define training control</span></span>
-<span id="cb115-8"><a href="introClassifier.html#cb115-8" tabindex="-1"></a><span class="co"># We also want to have savePredictions=TRUE &amp; classProbs=TRUE</span></span>
-<span id="cb115-9"><a href="introClassifier.html#cb115-9" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>) </span>
-<span id="cb115-10"><a href="introClassifier.html#cb115-10" tabindex="-1"></a>my_trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="at">number =</span> <span class="dv">5</span>, </span>
-<span id="cb115-11"><a href="introClassifier.html#cb115-11" tabindex="-1"></a>                             <span class="at">classProbs =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb115-12"><a href="introClassifier.html#cb115-12" tabindex="-1"></a>                             <span class="at">savePredictions =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb115-13"><a href="introClassifier.html#cb115-13" tabindex="-1"></a></span>
-<span id="cb115-14"><a href="introClassifier.html#cb115-14" tabindex="-1"></a><span class="co"># Train the model</span></span>
-<span id="cb115-15"><a href="introClassifier.html#cb115-15" tabindex="-1"></a>cv_model <span class="ot">&lt;-</span> <span class="fu">train</span>(diabetes <span class="sc">~</span> ., <span class="at">data =</span> PimaIndiansDiabetes, </span>
-<span id="cb115-16"><a href="introClassifier.html#cb115-16" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">&quot;glm&quot;</span>,</span>
-<span id="cb115-17"><a href="introClassifier.html#cb115-17" tabindex="-1"></a>                  <span class="at">family=</span><span class="fu">binomial</span>(),</span>
-<span id="cb115-18"><a href="introClassifier.html#cb115-18" tabindex="-1"></a>                  <span class="at">trControl =</span> my_trControl)</span>
+<span id="cb115-6"><a href="introClassifier.html#cb115-6" tabindex="-1"></a><span class="co">#&gt; Loading required package: lattice</span></span>
+<span id="cb115-7"><a href="introClassifier.html#cb115-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb115-8"><a href="introClassifier.html#cb115-8" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;caret&#39;</span></span>
+<span id="cb115-9"><a href="introClassifier.html#cb115-9" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:purrr&#39;:</span></span>
+<span id="cb115-10"><a href="introClassifier.html#cb115-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb115-11"><a href="introClassifier.html#cb115-11" tabindex="-1"></a><span class="co">#&gt;     lift</span></span>
+<span id="cb115-12"><a href="introClassifier.html#cb115-12" tabindex="-1"></a></span>
+<span id="cb115-13"><a href="introClassifier.html#cb115-13" tabindex="-1"></a><span class="co"># Define training control</span></span>
+<span id="cb115-14"><a href="introClassifier.html#cb115-14" tabindex="-1"></a><span class="co"># We also want to have savePredictions=TRUE &amp; classProbs=TRUE</span></span>
+<span id="cb115-15"><a href="introClassifier.html#cb115-15" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>) </span>
+<span id="cb115-16"><a href="introClassifier.html#cb115-16" tabindex="-1"></a>my_trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="at">number =</span> <span class="dv">5</span>, </span>
+<span id="cb115-17"><a href="introClassifier.html#cb115-17" tabindex="-1"></a>                             <span class="at">classProbs =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb115-18"><a href="introClassifier.html#cb115-18" tabindex="-1"></a>                             <span class="at">savePredictions =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb115-19"><a href="introClassifier.html#cb115-19" tabindex="-1"></a></span>
-<span id="cb115-20"><a href="introClassifier.html#cb115-20" tabindex="-1"></a><span class="co"># Summarize the results</span></span>
-<span id="cb115-21"><a href="introClassifier.html#cb115-21" tabindex="-1"></a><span class="fu">print</span>(cv_model)</span>
-<span id="cb115-22"><a href="introClassifier.html#cb115-22" tabindex="-1"></a><span class="co">#&gt; Generalized Linear Model </span></span>
-<span id="cb115-23"><a href="introClassifier.html#cb115-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb115-24"><a href="introClassifier.html#cb115-24" tabindex="-1"></a><span class="co">#&gt; 768 samples</span></span>
-<span id="cb115-25"><a href="introClassifier.html#cb115-25" tabindex="-1"></a><span class="co">#&gt;   8 predictor</span></span>
-<span id="cb115-26"><a href="introClassifier.html#cb115-26" tabindex="-1"></a><span class="co">#&gt;   2 classes: &#39;neg&#39;, &#39;pos&#39; </span></span>
-<span id="cb115-27"><a href="introClassifier.html#cb115-27" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb115-28"><a href="introClassifier.html#cb115-28" tabindex="-1"></a><span class="co">#&gt; No pre-processing</span></span>
-<span id="cb115-29"><a href="introClassifier.html#cb115-29" tabindex="-1"></a><span class="co">#&gt; Resampling: Cross-Validated (5 fold) </span></span>
-<span id="cb115-30"><a href="introClassifier.html#cb115-30" tabindex="-1"></a><span class="co">#&gt; Summary of sample sizes: 615, 614, 615, 614, 614 </span></span>
-<span id="cb115-31"><a href="introClassifier.html#cb115-31" tabindex="-1"></a><span class="co">#&gt; Resampling results:</span></span>
-<span id="cb115-32"><a href="introClassifier.html#cb115-32" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb115-33"><a href="introClassifier.html#cb115-33" tabindex="-1"></a><span class="co">#&gt;   Accuracy   Kappa    </span></span>
-<span id="cb115-34"><a href="introClassifier.html#cb115-34" tabindex="-1"></a><span class="co">#&gt;   0.7708344  0.4695353</span></span></code></pre></div>
+<span id="cb115-20"><a href="introClassifier.html#cb115-20" tabindex="-1"></a><span class="co"># Train the model</span></span>
+<span id="cb115-21"><a href="introClassifier.html#cb115-21" tabindex="-1"></a>cv_model <span class="ot">&lt;-</span> <span class="fu">train</span>(diabetes <span class="sc">~</span> ., <span class="at">data =</span> PimaIndiansDiabetes, </span>
+<span id="cb115-22"><a href="introClassifier.html#cb115-22" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">&quot;glm&quot;</span>,</span>
+<span id="cb115-23"><a href="introClassifier.html#cb115-23" tabindex="-1"></a>                  <span class="at">family=</span><span class="fu">binomial</span>(),</span>
+<span id="cb115-24"><a href="introClassifier.html#cb115-24" tabindex="-1"></a>                  <span class="at">trControl =</span> my_trControl)</span>
+<span id="cb115-25"><a href="introClassifier.html#cb115-25" tabindex="-1"></a></span>
+<span id="cb115-26"><a href="introClassifier.html#cb115-26" tabindex="-1"></a><span class="co"># Summarize the results</span></span>
+<span id="cb115-27"><a href="introClassifier.html#cb115-27" tabindex="-1"></a><span class="fu">print</span>(cv_model)</span>
+<span id="cb115-28"><a href="introClassifier.html#cb115-28" tabindex="-1"></a><span class="co">#&gt; Generalized Linear Model </span></span>
+<span id="cb115-29"><a href="introClassifier.html#cb115-29" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb115-30"><a href="introClassifier.html#cb115-30" tabindex="-1"></a><span class="co">#&gt; 768 samples</span></span>
+<span id="cb115-31"><a href="introClassifier.html#cb115-31" tabindex="-1"></a><span class="co">#&gt;   8 predictor</span></span>
+<span id="cb115-32"><a href="introClassifier.html#cb115-32" tabindex="-1"></a><span class="co">#&gt;   2 classes: &#39;neg&#39;, &#39;pos&#39; </span></span>
+<span id="cb115-33"><a href="introClassifier.html#cb115-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb115-34"><a href="introClassifier.html#cb115-34" tabindex="-1"></a><span class="co">#&gt; No pre-processing</span></span>
+<span id="cb115-35"><a href="introClassifier.html#cb115-35" tabindex="-1"></a><span class="co">#&gt; Resampling: Cross-Validated (5 fold) </span></span>
+<span id="cb115-36"><a href="introClassifier.html#cb115-36" tabindex="-1"></a><span class="co">#&gt; Summary of sample sizes: 615, 614, 615, 614, 614 </span></span>
+<span id="cb115-37"><a href="introClassifier.html#cb115-37" tabindex="-1"></a><span class="co">#&gt; Resampling results:</span></span>
+<span id="cb115-38"><a href="introClassifier.html#cb115-38" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb115-39"><a href="introClassifier.html#cb115-39" tabindex="-1"></a><span class="co">#&gt;   Accuracy   Kappa    </span></span>
+<span id="cb115-40"><a href="introClassifier.html#cb115-40" tabindex="-1"></a><span class="co">#&gt;   0.7708344  0.4695353</span></span></code></pre></div>
 <p>We can also access to detailed prediction results after concatenating the K
 folds:</p>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="introClassifier.html#cb116-1" tabindex="-1"></a><span class="fu">head</span>(cv_model<span class="sc">$</span>pred)</span>
@@ -855,13 +861,18 @@ curve:</p>
 <span id="cb125-7"><a href="introClassifier.html#cb125-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;FPR (1 - Specificity)&quot;</span>,</span>
 <span id="cb125-8"><a href="introClassifier.html#cb125-8" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;TPR (Sensitivity)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb125-9"><a href="introClassifier.html#cb125-9" tabindex="-1"></a>  <span class="fu">coord_equal</span>()</span>
-<span id="cb125-10"><a href="introClassifier.html#cb125-10" tabindex="-1"></a></span>
-<span id="cb125-11"><a href="introClassifier.html#cb125-11" tabindex="-1"></a><span class="co"># Display the plot with more annotations</span></span>
-<span id="cb125-12"><a href="introClassifier.html#cb125-12" tabindex="-1"></a>g <span class="sc">+</span> </span>
-<span id="cb125-13"><a href="introClassifier.html#cb125-13" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x=</span><span class="fl">0.8</span>, <span class="at">y=</span><span class="fl">0.1</span>, <span class="at">label=</span><span class="fu">paste</span>(<span class="st">&quot;AUC =&quot;</span>, <span class="fu">round</span>(roc_res<span class="sc">$</span>auc, <span class="dv">4</span>))) <span class="sc">+</span></span>
-<span id="cb125-14"><a href="introClassifier.html#cb125-14" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> roc_table[idx, <span class="dv">2</span>], <span class="at">y =</span> roc_table[idx, <span class="dv">1</span>]) <span class="sc">+</span> </span>
-<span id="cb125-15"><a href="introClassifier.html#cb125-15" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> roc_table[idx, <span class="dv">2</span>], <span class="at">y =</span> roc_table[idx, <span class="dv">1</span>],</span>
-<span id="cb125-16"><a href="introClassifier.html#cb125-16" tabindex="-1"></a>            <span class="at">label =</span> <span class="fu">round</span>(roc_table[idx, <span class="dv">3</span>], <span class="dv">3</span>), <span class="at">color =</span> <span class="st">&#39;black&#39;</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.3</span>)</span></code></pre></div>
+<span id="cb125-10"><a href="introClassifier.html#cb125-10" tabindex="-1"></a><span class="co">#&gt; Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.</span></span>
+<span id="cb125-11"><a href="introClassifier.html#cb125-11" tabindex="-1"></a><span class="co">#&gt; ℹ Please use `linewidth` instead.</span></span>
+<span id="cb125-12"><a href="introClassifier.html#cb125-12" tabindex="-1"></a><span class="co">#&gt; This warning is displayed once every 8 hours.</span></span>
+<span id="cb125-13"><a href="introClassifier.html#cb125-13" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span>
+<span id="cb125-14"><a href="introClassifier.html#cb125-14" tabindex="-1"></a><span class="co">#&gt; generated.</span></span>
+<span id="cb125-15"><a href="introClassifier.html#cb125-15" tabindex="-1"></a></span>
+<span id="cb125-16"><a href="introClassifier.html#cb125-16" tabindex="-1"></a><span class="co"># Display the plot with more annotations</span></span>
+<span id="cb125-17"><a href="introClassifier.html#cb125-17" tabindex="-1"></a>g <span class="sc">+</span> </span>
+<span id="cb125-18"><a href="introClassifier.html#cb125-18" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x=</span><span class="fl">0.8</span>, <span class="at">y=</span><span class="fl">0.1</span>, <span class="at">label=</span><span class="fu">paste</span>(<span class="st">&quot;AUC =&quot;</span>, <span class="fu">round</span>(roc_res<span class="sc">$</span>auc, <span class="dv">4</span>))) <span class="sc">+</span></span>
+<span id="cb125-19"><a href="introClassifier.html#cb125-19" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> roc_table[idx, <span class="dv">2</span>], <span class="at">y =</span> roc_table[idx, <span class="dv">1</span>]) <span class="sc">+</span> </span>
+<span id="cb125-20"><a href="introClassifier.html#cb125-20" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> roc_table[idx, <span class="dv">2</span>], <span class="at">y =</span> roc_table[idx, <span class="dv">1</span>],</span>
+<span id="cb125-21"><a href="introClassifier.html#cb125-21" tabindex="-1"></a>            <span class="at">label =</span> <span class="fu">round</span>(roc_table[idx, <span class="dv">3</span>], <span class="dv">3</span>), <span class="at">color =</span> <span class="st">&#39;black&#39;</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.3</span>)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig3-ROC-1.png" width="75%" /></p>
 </div>
 <div id="homework" class="section level3 hasAnchor" number="4.4.3">
