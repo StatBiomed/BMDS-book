@@ -172,6 +172,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.5" data-path="introR.html"><a href="introR.html#data-frame"><i class="fa fa-check"></i><b>1.2.5</b> Data Frame</a></li>
 <li class="chapter" data-level="1.2.6" data-path="introR.html"><a href="introR.html#readingwriting-data-fromto-r"><i class="fa fa-check"></i><b>1.2.6</b> Reading/writing data from/to R</a></li>
 </ul></li>
+<li class="chapter" data-level="1.3" data-path="introR.html"><a href="introR.html#introR"><i class="fa fa-check"></i><b>1.3</b> Intro to R programming (Session 4)</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="introR.html"><a href="introR.html#operators"><i class="fa fa-check"></i><b>1.3.1</b> Operators</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introR.html"><a href="introR.html#ifelse"><i class="fa fa-check"></i><b>1.3.2</b> If/else</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introR.html"><a href="introR.html#loop"><i class="fa fa-check"></i><b>1.3.3</b> Loop</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introHypoTest.html"><a href="introHypoTest.html"><i class="fa fa-check"></i><b>2</b> Introduction to Hypothesis testing</a>
 <ul>
@@ -935,6 +941,231 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="introR.html#cb45-1" tabindex="-1"></a><span class="co"># example of writing data back to csv</span></span>
 <span id="cb45-2"><a href="introR.html#cb45-2" tabindex="-1"></a>myData[<span class="dv">1</span>,] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fl">1.5</span>,<span class="dv">42</span>,<span class="st">&quot;Sarah&quot;</span>,<span class="st">&quot;female&quot;</span>)</span>
 <span id="cb45-3"><a href="introR.html#cb45-3" tabindex="-1"></a><span class="fu">write_csv</span>(myData, <span class="st">&quot;C:/Users/Jason/Downloads/myData2.csv&quot;</span>)  <span class="co"># uncomment after setting the path to output</span></span></code></pre></div>
+</div>
+</div>
+<div id="introR" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Intro to R programming (Session 4)<a href="introR.html#introR" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can get this Rmd file on Moodle or <a href="https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter1-R/01-introR_week3-1.Rmd">here</a> (right-click and “save link as” to download).</p>
+<p>Over the past 2 weeks, you have learnt some of the foundations of computer programming, covering variables, data types, and data structures in R.</p>
+<p>In this lecture, we will delve further into developing our knowledge of fundamental concepts in computer programming, covering logic operators, if/else, and loops.</p>
+<div id="operators" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Operators<a href="introR.html#operators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As the name suggests, operators are symbols that are used to operate on values or variables to produce a result based on the definition of the symbol.</p>
+<p>In fact, using operators was one of the first things we did in our first R lectures. When we used R as a calculator, we were applying operators to numbers. For example, when calculating <code>2 + 2</code>, the <code>+</code> sign is an operator that indicates to the programming language that we want to add two numbers together. <code>-</code> ,<code>*</code> ,<code>/</code> ,<code>^</code> are all mathematical operators</p>
+<div id="comparison-operators" class="section level4 hasAnchor" number="1.3.1.1">
+<h4><span class="header-section-number">1.3.1.1</span> Comparison operators<a href="introR.html#comparison-operators" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Besides mathematical operators, we often need to make comparisons between numbers or even characters. Common R operators include:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>Equal to</td>
+<td><code>5 == 5</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>Not equal to</td>
+<td><code>5 != 7</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>Greater than</td>
+<td><code>10 &gt; 8</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><code>&lt;</code></td>
+<td>Less than</td>
+<td><code>2 &lt; 4</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;=</code></td>
+<td>Greater than or equal to</td>
+<td><code>5 &gt;= 5</code></td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><code>&lt;=</code></td>
+<td>Less than or equal to</td>
+<td><code>3 &lt;= 5</code></td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="introR.html#cb46-1" tabindex="-1"></a><span class="co"># example of comparison operators</span></span>
+<span id="cb46-2"><a href="introR.html#cb46-2" tabindex="-1"></a>Jason_weight <span class="ot">=</span> <span class="st">&quot;65&quot;</span></span>
+<span id="cb46-3"><a href="introR.html#cb46-3" tabindex="-1"></a>Ray_weight <span class="ot">=</span> <span class="st">&quot;70&quot;</span></span>
+<span id="cb46-4"><a href="introR.html#cb46-4" tabindex="-1"></a></span>
+<span id="cb46-5"><a href="introR.html#cb46-5" tabindex="-1"></a>Jason_weight <span class="sc">==</span> Ray_weight     <span class="co"># FALSE</span></span>
+<span id="cb46-6"><a href="introR.html#cb46-6" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb46-7"><a href="introR.html#cb46-7" tabindex="-1"></a>Jason_weight <span class="sc">&gt;=</span> Ray_weight     <span class="co"># FALSE</span></span>
+<span id="cb46-8"><a href="introR.html#cb46-8" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb46-9"><a href="introR.html#cb46-9" tabindex="-1"></a>Jason_weight <span class="sc">&lt;</span> Ray_weight      <span class="co"># TRUE</span></span>
+<span id="cb46-10"><a href="introR.html#cb46-10" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+</div>
+<div id="logical-operators" class="section level4 hasAnchor" number="1.3.1.2">
+<h4><span class="header-section-number">1.3.1.2</span> Logical operators<a href="introR.html#logical-operators" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Following the a similar idea, <strong>Logic operators</strong> are used for operating on logic data type (i.e. TRUE or FALSE). The three logical operators are:</p>
+<p>AND <code>&amp;</code></p>
+<p>OR <code>|</code></p>
+<p>NOT <code>!</code></p>
+<p>Why do we need logic operators?</p>
+<p>In computer programming, we frequently need to evaluate whether some combination of conditions is satisfied before deciding what to do next. Let’s take some real-world examples:</p>
+<p>“You will pass the exam if you attend all lectures AND complete all assignments.”</p>
+<p>“Jason will do his lecture on Zoom if it is Black Rain OR Typhoon 8.</p>
+<p>“I should only drive if I have NOT drunk alcohol.”</p>
+<p>Let’s code these in R:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="introR.html#cb47-1" tabindex="-1"></a><span class="co"># A function to test if you will pass your exam</span></span>
+<span id="cb47-2"><a href="introR.html#cb47-2" tabindex="-1"></a>passExam <span class="ot">&lt;-</span> <span class="cf">function</span>(Lectures, Assignments){</span>
+<span id="cb47-3"><a href="introR.html#cb47-3" tabindex="-1"></a>  <span class="fu">return</span> (Lectures <span class="sc">&amp;</span> Assignments)</span>
+<span id="cb47-4"><a href="introR.html#cb47-4" tabindex="-1"></a>}</span>
+<span id="cb47-5"><a href="introR.html#cb47-5" tabindex="-1"></a></span>
+<span id="cb47-6"><a href="introR.html#cb47-6" tabindex="-1"></a><span class="fu">passExam</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>)       <span class="co"># attends lectures and does assignments</span></span>
+<span id="cb47-7"><a href="introR.html#cb47-7" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb47-8"><a href="introR.html#cb47-8" tabindex="-1"></a><span class="fu">passExam</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>)      <span class="co"># only does assignments</span></span>
+<span id="cb47-9"><a href="introR.html#cb47-9" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb47-10"><a href="introR.html#cb47-10" tabindex="-1"></a><span class="fu">passExam</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>)      <span class="co"># only attends lectures</span></span>
+<span id="cb47-11"><a href="introR.html#cb47-11" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb47-12"><a href="introR.html#cb47-12" tabindex="-1"></a><span class="fu">passExam</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>)     <span class="co"># does neither</span></span>
+<span id="cb47-13"><a href="introR.html#cb47-13" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="introR.html#cb48-1" tabindex="-1"></a><span class="co"># A function to test if Jason will have to lecture on Zoom</span></span>
+<span id="cb48-2"><a href="introR.html#cb48-2" tabindex="-1"></a>zoomClass <span class="ot">&lt;-</span> <span class="cf">function</span>(blackRain, Typhoon8){</span>
+<span id="cb48-3"><a href="introR.html#cb48-3" tabindex="-1"></a>  <span class="fu">return</span> (blackRain <span class="sc">|</span> Typhoon8)</span>
+<span id="cb48-4"><a href="introR.html#cb48-4" tabindex="-1"></a>}</span>
+<span id="cb48-5"><a href="introR.html#cb48-5" tabindex="-1"></a></span>
+<span id="cb48-6"><a href="introR.html#cb48-6" tabindex="-1"></a><span class="fu">zoomClass</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>)       <span class="co"># It is Black Rain and Typhoon 8</span></span>
+<span id="cb48-7"><a href="introR.html#cb48-7" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb48-8"><a href="introR.html#cb48-8" tabindex="-1"></a><span class="fu">zoomClass</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>)      <span class="co"># It is only Typhoon 8</span></span>
+<span id="cb48-9"><a href="introR.html#cb48-9" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb48-10"><a href="introR.html#cb48-10" tabindex="-1"></a><span class="fu">zoomClass</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>)      <span class="co"># It is only Black Rain</span></span>
+<span id="cb48-11"><a href="introR.html#cb48-11" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb48-12"><a href="introR.html#cb48-12" tabindex="-1"></a><span class="fu">zoomClass</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>)     <span class="co"># It is neither</span></span>
+<span id="cb48-13"><a href="introR.html#cb48-13" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="introR.html#cb49-1" tabindex="-1"></a><span class="co"># A function to test if I should drive</span></span>
+<span id="cb49-2"><a href="introR.html#cb49-2" tabindex="-1"></a>drive <span class="ot">&lt;-</span> <span class="cf">function</span>(alcohol){</span>
+<span id="cb49-3"><a href="introR.html#cb49-3" tabindex="-1"></a>  <span class="fu">return</span> (<span class="sc">!</span>alcohol)</span>
+<span id="cb49-4"><a href="introR.html#cb49-4" tabindex="-1"></a>}</span>
+<span id="cb49-5"><a href="introR.html#cb49-5" tabindex="-1"></a></span>
+<span id="cb49-6"><a href="introR.html#cb49-6" tabindex="-1"></a><span class="fu">drive</span>(<span class="cn">TRUE</span>)                 <span class="co"># I have drunk alcohol</span></span>
+<span id="cb49-7"><a href="introR.html#cb49-7" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb49-8"><a href="introR.html#cb49-8" tabindex="-1"></a><span class="fu">drive</span>(<span class="cn">FALSE</span>)                <span class="co"># I have not drunk alcohol</span></span>
+<span id="cb49-9"><a href="introR.html#cb49-9" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p>Can you now write a function to evaluate whether someone may have Chikungunya virus infection based on their symptoms of either:</p>
+<ul>
+<li><p>Being over 60 years old with a fever and joint pain.</p></li>
+<li><p>Having a fever and bitten by a mosquito in the last 5 days.</p></li>
+</ul>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="introR.html#cb50-1" tabindex="-1"></a><span class="co"># A function to check if someone might have Chikungunaya virus infection</span></span>
+<span id="cb50-2"><a href="introR.html#cb50-2" tabindex="-1"></a><span class="co"># Write your code here</span></span></code></pre></div>
+</div>
+</div>
+<div id="ifelse" class="section level3 hasAnchor" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> If/else<a href="introR.html#ifelse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>While we now know how to use logical operators to evaluate whether a particular condition is TRUE or FALSE , to make use of this in programming, we can link this with an action given the condition.</p>
+<p>This is where the <code>if</code> and <code>else</code> statement comes in.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="introR.html#cb51-1" tabindex="-1"></a><span class="co"># example of if/else based on passing exam</span></span>
+<span id="cb51-2"><a href="introR.html#cb51-2" tabindex="-1"></a>passExam <span class="ot">&lt;-</span> <span class="cf">function</span>(Lectures, Assignments){</span>
+<span id="cb51-3"><a href="introR.html#cb51-3" tabindex="-1"></a>  <span class="cf">if</span> (Lectures <span class="sc">&amp;</span> Assignments){</span>
+<span id="cb51-4"><a href="introR.html#cb51-4" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Passed Exam&quot;</span>)</span>
+<span id="cb51-5"><a href="introR.html#cb51-5" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb51-6"><a href="introR.html#cb51-6" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Failed Exam&quot;</span>)</span>
+<span id="cb51-7"><a href="introR.html#cb51-7" tabindex="-1"></a>  }</span>
+<span id="cb51-8"><a href="introR.html#cb51-8" tabindex="-1"></a>}</span>
+<span id="cb51-9"><a href="introR.html#cb51-9" tabindex="-1"></a></span>
+<span id="cb51-10"><a href="introR.html#cb51-10" tabindex="-1"></a><span class="fu">passExam</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>)       <span class="co"># attends lectures and does assignments</span></span>
+<span id="cb51-11"><a href="introR.html#cb51-11" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Passed Exam&quot;</span></span>
+<span id="cb51-12"><a href="introR.html#cb51-12" tabindex="-1"></a><span class="fu">passExam</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>)      <span class="co"># only does assignments</span></span>
+<span id="cb51-13"><a href="introR.html#cb51-13" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Failed Exam&quot;</span></span>
+<span id="cb51-14"><a href="introR.html#cb51-14" tabindex="-1"></a><span class="fu">passExam</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>)      <span class="co"># only attends lectures</span></span>
+<span id="cb51-15"><a href="introR.html#cb51-15" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Failed Exam&quot;</span></span>
+<span id="cb51-16"><a href="introR.html#cb51-16" tabindex="-1"></a><span class="fu">passExam</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>)     <span class="co"># does neither</span></span>
+<span id="cb51-17"><a href="introR.html#cb51-17" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Failed Exam&quot;</span></span></code></pre></div>
+<p>It is also possible to chain if/else statements if there are multiple conditions:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="introR.html#cb52-1" tabindex="-1"></a><span class="co"># example of multiple if else conditions</span></span>
+<span id="cb52-2"><a href="introR.html#cb52-2" tabindex="-1"></a>ageCategory <span class="ot">&lt;-</span> <span class="cf">function</span>(age){</span>
+<span id="cb52-3"><a href="introR.html#cb52-3" tabindex="-1"></a>  <span class="cf">if</span> (age <span class="sc">&lt;=</span> <span class="dv">12</span>){</span>
+<span id="cb52-4"><a href="introR.html#cb52-4" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Child&quot;</span>)</span>
+<span id="cb52-5"><a href="introR.html#cb52-5" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (age <span class="sc">&gt;</span> <span class="dv">12</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">19</span>){</span>
+<span id="cb52-6"><a href="introR.html#cb52-6" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Teenage&quot;</span>)</span>
+<span id="cb52-7"><a href="introR.html#cb52-7" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (age <span class="sc">&gt;</span> <span class="dv">20</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">60</span>) {</span>
+<span id="cb52-8"><a href="introR.html#cb52-8" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Adult&quot;</span>)</span>
+<span id="cb52-9"><a href="introR.html#cb52-9" tabindex="-1"></a>  } <span class="cf">else</span> {                                <span class="co"># &gt; 60</span></span>
+<span id="cb52-10"><a href="introR.html#cb52-10" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Elderly&quot;</span>)</span>
+<span id="cb52-11"><a href="introR.html#cb52-11" tabindex="-1"></a>  }                              </span>
+<span id="cb52-12"><a href="introR.html#cb52-12" tabindex="-1"></a>}</span>
+<span id="cb52-13"><a href="introR.html#cb52-13" tabindex="-1"></a></span>
+<span id="cb52-14"><a href="introR.html#cb52-14" tabindex="-1"></a><span class="fu">ageCategory</span>(<span class="dv">5</span>)</span>
+<span id="cb52-15"><a href="introR.html#cb52-15" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Child&quot;</span></span>
+<span id="cb52-16"><a href="introR.html#cb52-16" tabindex="-1"></a><span class="fu">ageCategory</span>(<span class="dv">45</span>)</span>
+<span id="cb52-17"><a href="introR.html#cb52-17" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Adult&quot;</span></span>
+<span id="cb52-18"><a href="introR.html#cb52-18" tabindex="-1"></a><span class="fu">ageCategory</span>(<span class="dv">70</span>)</span>
+<span id="cb52-19"><a href="introR.html#cb52-19" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Elderly&quot;</span></span></code></pre></div>
+</div>
+<div id="loop" class="section level3 hasAnchor" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> Loop<a href="introR.html#loop" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Another essential computer programming concept is loops. One reason why we need computer programming is for it to complete mundane tasks, such as repeating the same function over and over again on some data.</p>
+<p>Here are some simple examples of a for loop in R:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="introR.html#cb53-1" tabindex="-1"></a><span class="co"># examples of loop</span></span>
+<span id="cb53-2"><a href="introR.html#cb53-2" tabindex="-1"></a><span class="co"># Loop printing a series of numbers from 1 to 10</span></span>
+<span id="cb53-3"><a href="introR.html#cb53-3" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
+<span id="cb53-4"><a href="introR.html#cb53-4" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb53-5"><a href="introR.html#cb53-5" tabindex="-1"></a>}</span>
+<span id="cb53-6"><a href="introR.html#cb53-6" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb53-7"><a href="introR.html#cb53-7" tabindex="-1"></a><span class="co">#&gt; [1] 2</span></span>
+<span id="cb53-8"><a href="introR.html#cb53-8" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span>
+<span id="cb53-9"><a href="introR.html#cb53-9" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span>
+<span id="cb53-10"><a href="introR.html#cb53-10" tabindex="-1"></a><span class="co">#&gt; [1] 5</span></span>
+<span id="cb53-11"><a href="introR.html#cb53-11" tabindex="-1"></a><span class="co">#&gt; [1] 6</span></span>
+<span id="cb53-12"><a href="introR.html#cb53-12" tabindex="-1"></a><span class="co">#&gt; [1] 7</span></span>
+<span id="cb53-13"><a href="introR.html#cb53-13" tabindex="-1"></a><span class="co">#&gt; [1] 8</span></span>
+<span id="cb53-14"><a href="introR.html#cb53-14" tabindex="-1"></a><span class="co">#&gt; [1] 9</span></span>
+<span id="cb53-15"><a href="introR.html#cb53-15" tabindex="-1"></a><span class="co">#&gt; [1] 10</span></span>
+<span id="cb53-16"><a href="introR.html#cb53-16" tabindex="-1"></a></span>
+<span id="cb53-17"><a href="introR.html#cb53-17" tabindex="-1"></a><span class="co"># Loop printing a vector of names</span></span>
+<span id="cb53-18"><a href="introR.html#cb53-18" tabindex="-1"></a>names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Jason&quot;</span>,<span class="st">&quot;Ray&quot;</span>,<span class="st">&quot;Yuanhua&quot;</span>)</span>
+<span id="cb53-19"><a href="introR.html#cb53-19" tabindex="-1"></a><span class="fu">print</span>(names)</span>
+<span id="cb53-20"><a href="introR.html#cb53-20" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Jason&quot;   &quot;Ray&quot;     &quot;Yuanhua&quot;</span></span>
+<span id="cb53-21"><a href="introR.html#cb53-21" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> names){</span>
+<span id="cb53-22"><a href="introR.html#cb53-22" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb53-23"><a href="introR.html#cb53-23" tabindex="-1"></a>}</span>
+<span id="cb53-24"><a href="introR.html#cb53-24" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Jason&quot;</span></span>
+<span id="cb53-25"><a href="introR.html#cb53-25" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Ray&quot;</span></span>
+<span id="cb53-26"><a href="introR.html#cb53-26" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Yuanhua&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="introR.html#cb54-1" tabindex="-1"></a><span class="co"># Example of loop printing rows in a data frame</span></span>
+<span id="cb54-2"><a href="introR.html#cb54-2" tabindex="-1"></a>myDF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;Height&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.70</span>, <span class="fl">1.80</span>, <span class="fl">1.68</span>, <span class="fl">1.72</span>), </span>
+<span id="cb54-3"><a href="introR.html#cb54-3" tabindex="-1"></a>                  <span class="st">&quot;Weight&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">67</span>, <span class="dv">60</span>, <span class="dv">55</span>, <span class="dv">58</span>), </span>
+<span id="cb54-4"><a href="introR.html#cb54-4" tabindex="-1"></a>                  <span class="st">&quot;Name&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Jason&quot;</span>, <span class="st">&quot;Ray&quot;</span>, <span class="st">&quot;Dora&quot;</span>, <span class="st">&quot;Yuanhua&quot;</span>), </span>
+<span id="cb54-5"><a href="introR.html#cb54-5" tabindex="-1"></a>                  <span class="st">&quot;Gender&quot;</span> <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;male&quot;</span>)))</span>
+<span id="cb54-6"><a href="introR.html#cb54-6" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(myDF)){</span>
+<span id="cb54-7"><a href="introR.html#cb54-7" tabindex="-1"></a>  <span class="fu">print</span>(myDF[i,])</span>
+<span id="cb54-8"><a href="introR.html#cb54-8" tabindex="-1"></a>}</span>
+<span id="cb54-9"><a href="introR.html#cb54-9" tabindex="-1"></a><span class="co">#&gt;   Height Weight  Name Gender</span></span>
+<span id="cb54-10"><a href="introR.html#cb54-10" tabindex="-1"></a><span class="co">#&gt; 1    1.7     67 Jason   male</span></span>
+<span id="cb54-11"><a href="introR.html#cb54-11" tabindex="-1"></a><span class="co">#&gt;   Height Weight Name Gender</span></span>
+<span id="cb54-12"><a href="introR.html#cb54-12" tabindex="-1"></a><span class="co">#&gt; 2    1.8     60  Ray   male</span></span>
+<span id="cb54-13"><a href="introR.html#cb54-13" tabindex="-1"></a><span class="co">#&gt;   Height Weight Name Gender</span></span>
+<span id="cb54-14"><a href="introR.html#cb54-14" tabindex="-1"></a><span class="co">#&gt; 3   1.68     55 Dora female</span></span>
+<span id="cb54-15"><a href="introR.html#cb54-15" tabindex="-1"></a><span class="co">#&gt;   Height Weight    Name Gender</span></span>
+<span id="cb54-16"><a href="introR.html#cb54-16" tabindex="-1"></a><span class="co">#&gt; 4   1.72     58 Yuanhua   male</span></span></code></pre></div>
+<p>Now try to write a loop to add each number in vector A to each number in vector B and then only print the result if it is greater than 25.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="introR.html#cb55-1" tabindex="-1"></a><span class="co"># here are numbers in vectorA and vectorB</span></span>
+<span id="cb55-2"><a href="introR.html#cb55-2" tabindex="-1"></a>vectorA <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">12</span>,<span class="dv">21</span>)</span>
+<span id="cb55-3"><a href="introR.html#cb55-3" tabindex="-1"></a>vectorB <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">11</span>,<span class="dv">15</span>)</span>
+<span id="cb55-4"><a href="introR.html#cb55-4" tabindex="-1"></a></span>
+<span id="cb55-5"><a href="introR.html#cb55-5" tabindex="-1"></a><span class="co"># write your code below</span></span></code></pre></div>
+<p>There are other types of loops in R, including <code>while</code> and <code>repeat</code> loops. We do not have time to go through them today, but you may explore them in your own time.</p>
+<p>Later in the course, you will also learn to use <code>apply</code> which is a more efficient and elegant way to perform repeated functions to certain data structures.</p>
 </div>
 </div>
 </div>
