@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2025-09-08" />
+<meta name="date" content="2025-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -623,14 +623,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb26-28"><a href="introR.html#cb26-28" tabindex="-1"></a><span class="co"># generate a vector of random integers by sampling 6 values between 1 and 49 (六合彩)</span></span>
 <span id="cb26-29"><a href="introR.html#cb26-29" tabindex="-1"></a>mark6 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">49</span>,<span class="dv">6</span>)</span>
 <span id="cb26-30"><a href="introR.html#cb26-30" tabindex="-1"></a>mark6</span>
-<span id="cb26-31"><a href="introR.html#cb26-31" tabindex="-1"></a><span class="co">#&gt; [1] 30 43  1 25 14  4</span></span>
+<span id="cb26-31"><a href="introR.html#cb26-31" tabindex="-1"></a><span class="co">#&gt; [1] 23 32 18 47 35  6</span></span>
 <span id="cb26-32"><a href="introR.html#cb26-32" tabindex="-1"></a><span class="fu">typeof</span>(mark6)</span>
 <span id="cb26-33"><a href="introR.html#cb26-33" tabindex="-1"></a><span class="co">#&gt; [1] &quot;integer&quot;</span></span></code></pre></div>
 <p>Vectors can also be combined from other vectors.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introR.html#cb27-1" tabindex="-1"></a><span class="co"># vectors can be combined</span></span>
 <span id="cb27-2"><a href="introR.html#cb27-2" tabindex="-1"></a>new_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(series,mark6,<span class="fu">rep</span>(<span class="dv">50</span>,<span class="dv">3</span>))</span>
 <span id="cb27-3"><a href="introR.html#cb27-3" tabindex="-1"></a>new_vector</span>
-<span id="cb27-4"><a href="introR.html#cb27-4" tabindex="-1"></a><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 30 43  1 25 14  4 50 50 50</span></span>
+<span id="cb27-4"><a href="introR.html#cb27-4" tabindex="-1"></a><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 23 32 18 47 35  6 50 50 50</span></span>
 <span id="cb27-5"><a href="introR.html#cb27-5" tabindex="-1"></a><span class="fu">typeof</span>(new_vector)</span>
 <span id="cb27-6"><a href="introR.html#cb27-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span></code></pre></div>
 <p>Did you notice that <code>new_vector</code> is now a of type <code>double</code> ?</p>

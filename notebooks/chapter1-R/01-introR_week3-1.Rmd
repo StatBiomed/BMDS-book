@@ -1,0 +1,197 @@
+## Intro to R programming (Session 4) {#introR}
+
+You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter1-R/01-introR_week3-1.Rmd) (right-click and "save link as" to download).
+
+Over the past 2 weeks, you have learnt some of the foundations of computer programming, covering variables, data types, and data structures in R.
+
+In this lecture, we will delve further into developing our knowledge of fundamental concepts in computer programming, covering logic operators, if/else, and loops.
+
+### Operators
+
+As the name suggests, operators are symbols that are used to operate on values or variables to produce a result based on the definition of the symbol.
+
+In fact, using operators was one of the first things we did in our first R lectures. When we used R as a calculator, we were applying operators to numbers. For example, when calculating `2 + 2`, the `+` sign is an operator that indicates to the programming language that we want to add two numbers together. `-` ,`*` ,`/` ,`^` are all mathematical operators
+
+#### Comparison operators
+
+Besides mathematical operators, we often need to make comparisons between numbers or even characters. Common R operators include:
+
+| Operator | Description              | Example  | Returns |
+|----------|--------------------------|----------|---------|
+| `==`     | Equal to                 | `5 == 5` | TRUE    |
+| `!=`     | Not equal to             | `5 != 7` | TRUE    |
+| `>`      | Greater than             | `10 > 8` | TRUE    |
+| `<`      | Less than                | `2 < 4`  | TRUE    |
+| `>=`     | Greater than or equal to | `5 >= 5` | TRUE    |
+| `<=`     | Less than or equal to    | `3 <= 5` | TRUE    |
+
+```{r}
+# example of comparison operators
+Jason_weight = "65"
+Ray_weight = "70"
+
+Jason_weight == Ray_weight     # FALSE
+Jason_weight >= Ray_weight     # FALSE
+Jason_weight < Ray_weight      # TRUE
+```
+
+#### Logical operators
+
+Following the a similar idea, **Logic operators** are used for operating on logic data type (i.e. TRUE or FALSE). The three logical operators are:
+
+AND `&`
+
+OR `|`
+
+NOT `!`
+
+Why do we need logic operators?
+
+In computer programming, we frequently need to evaluate whether some combination of conditions is satisfied before deciding what to do next. Let's take some real-world examples:
+
+"You will pass the exam if you attend all lectures AND complete all assignments."
+
+"Jason will do his lecture on Zoom if it is Black Rain OR Typhoon 8.
+
+"I should only drive if I have NOT drunk alcohol."
+
+Let's code these in R:
+
+```{r}
+# A function to test if you will pass your exam
+passExam <- function(Lectures, Assignments){
+  return (Lectures & Assignments)
+}
+
+passExam(TRUE, TRUE)       # attends lectures and does assignments
+passExam(FALSE, TRUE)      # only does assignments
+passExam(TRUE, FALSE)      # only attends lectures
+passExam(FALSE, FALSE)     # does neither
+```
+
+```{r}
+# A function to test if Jason will have to lecture on Zoom
+zoomClass <- function(blackRain, Typhoon8){
+  return (blackRain | Typhoon8)
+}
+
+zoomClass(TRUE, TRUE)       # It is Black Rain and Typhoon 8
+zoomClass(FALSE, TRUE)      # It is only Typhoon 8
+zoomClass(TRUE, FALSE)      # It is only Black Rain
+zoomClass(FALSE, FALSE)     # It is neither
+```
+
+```{r}
+# A function to test if I should drive
+drive <- function(alcohol){
+  return (!alcohol)
+}
+
+drive(TRUE)                 # I have drunk alcohol
+drive(FALSE)                # I have not drunk alcohol
+```
+
+Can you now write a function to evaluate whether someone may have Chikungunya virus infection based on their symptoms of either:
+
+-   Being over 60 years old with a fever and joint pain.
+
+-   Having a fever and bitten by a mosquito in the last 5 days.
+
+```{r}
+# A function to check if someone might have Chikungunaya virus infection
+# Write your code here
+
+
+
+
+```
+
+### If/else
+
+While we now know how to use logical operators to evaluate whether a particular condition is TRUE or FALSE , to make use of this in programming, we can link this with an action given the condition.
+
+This is where the `if` and `else` statement comes in.
+
+```{r}
+# example of if/else based on passing exam
+passExam <- function(Lectures, Assignments){
+  if (Lectures & Assignments){
+    print("Passed Exam")
+  } else {
+    print("Failed Exam")
+  }
+}
+
+passExam(TRUE, TRUE)       # attends lectures and does assignments
+passExam(FALSE, TRUE)      # only does assignments
+passExam(TRUE, FALSE)      # only attends lectures
+passExam(FALSE, FALSE)     # does neither
+```
+
+It is also possible to chain if/else statements if there are multiple conditions:
+
+```{r}
+# example of multiple if else conditions
+ageCategory <- function(age){
+  if (age <= 12){
+    print("Child")
+  } else if (age > 12 & age <= 19){
+    print("Teenage")
+  } else if (age > 20 & age <= 60) {
+    print("Adult")
+  } else {                                # > 60
+    print("Elderly")
+  }                              
+}
+
+ageCategory(5)
+ageCategory(45)
+ageCategory(70)
+```
+
+### Loop
+
+Another essential computer programming concept is loops. One reason why we need computer programming is for it to complete mundane tasks, such as repeating the same function over and over again on some data.
+
+Here are some simple examples of a for loop in R:
+
+```{r}
+# examples of loop
+# Loop printing a series of numbers from 1 to 10
+for (i in 1:10){
+  print(i)
+}
+
+# Loop printing a vector of names
+names <- c("Jason","Ray","Yuanhua")
+print(names)
+for (i in names){
+  print(i)
+}
+```
+
+```{r}
+# Example of loop printing rows in a data frame
+myDF <- data.frame("Height" = c(1.70, 1.80, 1.68, 1.72), 
+                  "Weight" = c(67, 60, 55, 58), 
+                  "Name" = c("Jason", "Ray", "Dora", "Yuanhua"), 
+                  "Gender" = factor(c("male","male","female","male")))
+for (i in 1:nrow(myDF)){
+  print(myDF[i,])
+}
+```
+
+Now try to write a loop to add each number in vector A to each number in vector B and then only print the result if it is greater than 25.
+
+```{r}
+# here are numbers in vectorA and vectorB
+vectorA <- c(3,5,6,7,12,21)
+vectorB <- c(-2,4,5,11,15)
+
+# write your code below
+
+```
+
+There are other types of loops in R, including `while` and `repeat` loops. We do not have time to go through them today, but you may explore them in your own time.
+
+Later in the course, you will also learn to use `apply` which is a more efficient and elegant way to perform repeated functions to certain data structures.
