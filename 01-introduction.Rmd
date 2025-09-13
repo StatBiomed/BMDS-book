@@ -18,6 +18,9 @@ knitr::opts_chunk$set(
 ```{r child="notebooks/chapter1-R/01-introR_week2-1.Rmd", echo=TRUE}
 ```
 
+```{r child="notebooks/chapter1-R/01-introR_week3-1.Rmd", echo=TRUE}
+```
+
 # Introduction to Hypothesis testing {#introHypoTest}
 
 ```{r child="notebooks/chapter4-HT/04-hypothesis-test-01.Rmd", echo=TRUE}
