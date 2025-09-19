@@ -122,6 +122,11 @@ res_lm2 = lm(sales ~ youtube + newspaper, data=marketing)
 summary(res_lm2)
 ```
 
+```{r}
+res_sum = summary(res_lm2)
+F_stat = (res_sum$r.squared / (3 - 1)) / ((1 - res_sum$r.squared) / (200 - 3))
+F_stat
+```
 
 As you see, the p-values for the coefficients are very small, suggesting that 
 all the estimates are significant. The equation for this model will be:

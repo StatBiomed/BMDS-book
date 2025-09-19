@@ -139,11 +139,12 @@ $$\begin{align*} \text{Null hypothesis}~  H_0~:~ & \beta_1=\beta_2=\cdots=\beta_
 The statistic that is used to test this hypothesis is called the **F-statistic** 
 and is defined as follows:
 
-$$  F\text{-statistic} = \text{Fisher statistic}=  \frac{ (SST-SSE)/p}{ SSE/(n-p-1)}
+$$  F\text{-statistic} = \text{Fisher statistic}=  \frac{ SSR/(p-1)}{ SSE/(n-p)}
 $$
 
-where $n$ = number of rows (sample points) in the dataset and $p$ = number of 
-predictor variables in the model.
+where $n$ = number of rows (sample points) in the dataset, $p$ = number of 
+predictor variables in the model, and $SSR = SST - SSE$ is the sum of squares 
+due to regression.
 
 There is a $p$-value that is associated with this $F$-statistic. If the 
 $p$-value is smaller than the chosen significance level, the null hypothesis 
