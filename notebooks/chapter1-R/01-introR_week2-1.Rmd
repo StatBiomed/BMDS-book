@@ -1,4 +1,4 @@
-## Intro to R programming (Session 2) {#introR}
+## Intro to R programming (Session 2) {#introR-w2}
 
 You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter1-R/01-introR_week2-1.Rmd) (right-click and "save link as" to download).
 
@@ -314,7 +314,8 @@ You can download `myData.csv` from Moodle or [here](https://github.com/StatBiome
 ```{r}
 # example of reading in data
 getwd()
-myData <- read_csv("C:/Users/Jason/Downloads/myData.csv")   # use the path where you saved the file on your own computer
+# myData <- read_csv("C:/Users/Jason/Downloads/myData.csv")   # use the path where you saved the file on your own computer
+myData <- read_csv("myData.csv")
 myData
 ```
 
@@ -323,5 +324,6 @@ We will modify the first row of data and then write it back to file.
 ```{r}
 # example of writing data back to csv
 myData[1,] <- list(1.5,42,"Sarah","female")
-write_csv(myData, "C:/Users/Jason/Downloads/myData2.csv")  # uncomment after setting the path to output
+# write_csv(myData, "C:/Users/Jason/Downloads/myData2.csv")  # uncomment after setting the path to output
+write_csv(myData, "myData2.csv")
 ```
