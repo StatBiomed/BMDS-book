@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Introduction to R | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Introduction to R | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2025-09-14" />
+<meta name="date" content="2025-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -154,7 +154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>I Data Science Foundations</b></span></li>
 <li class="chapter" data-level="1" data-path="introR.html"><a href="introR.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="introR.html"><a href="introR.html#introR"><i class="fa fa-check"></i><b>1.1</b> Intro to R programming (Session 1)</a>
+<li class="chapter" data-level="1.1" data-path="introR.html"><a href="introR.html#introR-w1"><i class="fa fa-check"></i><b>1.1</b> Intro to R programming (Session 1)</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="introR.html"><a href="introR.html#r-as-a-basic-calculator"><i class="fa fa-check"></i><b>1.1.1</b> R as a basic calculator</a></li>
 <li class="chapter" data-level="1.1.2" data-path="introR.html"><a href="introR.html#variables"><i class="fa fa-check"></i><b>1.1.2</b> Variables</a></li>
@@ -163,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.5" data-path="introR.html"><a href="introR.html#r-scripts"><i class="fa fa-check"></i><b>1.1.5</b> R scripts</a></li>
 <li class="chapter" data-level="1.1.6" data-path="introR.html"><a href="introR.html#resource-links"><i class="fa fa-check"></i><b>1.1.6</b> Resource links</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="introR.html"><a href="introR.html#introR"><i class="fa fa-check"></i><b>1.2</b> Intro to R programming (Session 2)</a>
+<li class="chapter" data-level="1.2" data-path="introR.html"><a href="introR.html#introR-w2"><i class="fa fa-check"></i><b>1.2</b> Intro to R programming (Session 2)</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="introR.html"><a href="introR.html#data-structures"><i class="fa fa-check"></i><b>1.2.1</b> Data structures</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introR.html"><a href="introR.html#vector"><i class="fa fa-check"></i><b>1.2.2</b> Vector</a></li>
@@ -172,37 +172,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.5" data-path="introR.html"><a href="introR.html#data-frame"><i class="fa fa-check"></i><b>1.2.5</b> Data Frame</a></li>
 <li class="chapter" data-level="1.2.6" data-path="introR.html"><a href="introR.html#readingwriting-data-fromto-r"><i class="fa fa-check"></i><b>1.2.6</b> Reading/writing data from/to R</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="introR.html"><a href="introR.html#introR"><i class="fa fa-check"></i><b>1.3</b> Intro to R programming (Session 4)</a>
+<li class="chapter" data-level="1.3" data-path="introR.html"><a href="introR.html#introR-w3"><i class="fa fa-check"></i><b>1.3</b> Intro to R programming (Session 4)</a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="introR.html"><a href="introR.html#operators"><i class="fa fa-check"></i><b>1.3.1</b> Operators</a></li>
 <li class="chapter" data-level="1.3.2" data-path="introR.html"><a href="introR.html#ifelse"><i class="fa fa-check"></i><b>1.3.2</b> If/else</a></li>
 <li class="chapter" data-level="1.3.3" data-path="introR.html"><a href="introR.html#loop"><i class="fa fa-check"></i><b>1.3.3</b> Loop</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introHypoTest.html"><a href="introHypoTest.html"><i class="fa fa-check"></i><b>2</b> Introduction to Hypothesis testing</a>
+<li class="chapter" data-level="2" data-path="introHypoTest.html"><a href="introHypoTest.html"><i class="fa fa-check"></i><b>2</b> Introduction to Hypothesis test</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="introHypoTest.html"><a href="introHypoTest.html#hypothesis-testing-and-p-value"><i class="fa fa-check"></i><b>2.1</b> Hypothesis testing and <em>p</em> value</a>
+<li class="chapter" data-level="2.1" data-path="introHypoTest.html"><a href="introHypoTest.html#hypothesis-test-and-p-value"><i class="fa fa-check"></i><b>2.1</b> Hypothesis test and <em>p</em>-value</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="introHypoTest.html"><a href="introHypoTest.html#example-1-probability-of-rolling-a-six"><i class="fa fa-check"></i><b>2.1.1</b> Example 1: probability of rolling a six?</a></li>
+<li class="chapter" data-level="2.1.1" data-path="introHypoTest.html"><a href="introHypoTest.html#extreme-events-and-random-chance"><i class="fa fa-check"></i><b>2.1.1</b> Extreme events and random chance</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introHypoTest.html"><a href="introHypoTest.html#hypothesis-test-for-statistical-decision"><i class="fa fa-check"></i><b>2.1.2</b> Hypothesis test for statistical decision</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="introHypoTest.html"><a href="introHypoTest.html#permutation-test"><i class="fa fa-check"></i><b>2.2</b> Permutation test</a>
+<li class="chapter" data-level="2.2" data-path="introHypoTest.html"><a href="introHypoTest.html#basic-hypothesis-test-methods"><i class="fa fa-check"></i><b>2.2</b> Basic hypothesis test methods</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="introHypoTest.html"><a href="introHypoTest.html#example-2-difference-in-birth-weight"><i class="fa fa-check"></i><b>2.2.1</b> Example 2: difference in birth weight</a></li>
-<li class="chapter" data-level="2.2.2" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-approximated-by-resampling"><i class="fa fa-check"></i><b>2.2.2</b> Null distribution approximated by resampling</a></li>
+<li class="chapter" data-level="2.2.1" data-path="introHypoTest.html"><a href="introHypoTest.html#permutation-test"><i class="fa fa-check"></i><b>2.2.1</b> Permutation test</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introHypoTest.html"><a href="introHypoTest.html#t-test-and-regression-based-test"><i class="fa fa-check"></i><b>2.2.2</b> <em>t</em>-test and regression-based test</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introHypoTest.html"><a href="introHypoTest.html#fishers-exact-test"><i class="fa fa-check"></i><b>2.2.3</b> Fisher’s exact test</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="introHypoTest.html"><a href="introHypoTest.html#t-test"><i class="fa fa-check"></i><b>2.3</b> <em>t</em> test</a>
+<li class="chapter" data-level="2.3" data-path="introHypoTest.html"><a href="introHypoTest.html#multiple-testing-and-errors"><i class="fa fa-check"></i><b>2.3</b> Multiple testing and errors</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="introHypoTest.html"><a href="introHypoTest.html#derivation-of-t-distribution"><i class="fa fa-check"></i><b>2.3.1</b> Derivation of t distribution</a></li>
-<li class="chapter" data-level="2.3.2" data-path="introHypoTest.html"><a href="introHypoTest.html#direct-use-of-t.test"><i class="fa fa-check"></i><b>2.3.2</b> Direct use of <code>t.test()</code></a></li>
+<li class="chapter" data-level="2.3.1" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-test-statistic"><i class="fa fa-check"></i><b>2.3.1</b> Null distribution (of test statistic)</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-p-value"><i class="fa fa-check"></i><b>2.3.2</b> Null distribution of p value</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introHypoTest.html"><a href="introHypoTest.html#minimal-p-values-in-10-tests"><i class="fa fa-check"></i><b>2.3.3</b> Minimal p values in 10 tests</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="introHypoTest.html"><a href="introHypoTest.html#regression-based-test"><i class="fa fa-check"></i><b>2.4</b> regression-based test</a></li>
-<li class="chapter" data-level="2.5" data-path="introHypoTest.html"><a href="introHypoTest.html#multiple-testing"><i class="fa fa-check"></i><b>2.5</b> Multiple testing</a>
-<ul>
-<li class="chapter" data-level="2.5.1" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-test-statistic"><i class="fa fa-check"></i><b>2.5.1</b> Null distribution (of test statistic)</a></li>
-<li class="chapter" data-level="2.5.2" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-p-value"><i class="fa fa-check"></i><b>2.5.2</b> Null distribution of p value</a></li>
-<li class="chapter" data-level="2.5.3" data-path="introHypoTest.html"><a href="introHypoTest.html#minimal-p-values-in-10-tests"><i class="fa fa-check"></i><b>2.5.3</b> Minimal p values in 10 tests</a></li>
-</ul></li>
-<li class="chapter" data-level="2.6" data-path="introHypoTest.html"><a href="introHypoTest.html#explore-power-and-sample-size-optional-power"><i class="fa fa-check"></i><b>2.6</b> Explore power and sample size (optional) { power }</a></li>
+<li class="chapter" data-level="2.4" data-path="introHypoTest.html"><a href="introHypoTest.html#power-analysis"><i class="fa fa-check"></i><b>2.4</b> Explore power and sample size (optional)</a></li>
+<li class="chapter" data-level="2.5" data-path="introHypoTest.html"><a href="introHypoTest.html#summary"><i class="fa fa-check"></i><b>2.5</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="introLinearReg.html"><a href="introLinearReg.html"><i class="fa fa-check"></i><b>3</b> Introduction to Linear Regression</a>
 <ul>
@@ -335,8 +332,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="introR" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction to R<a href="introR.html#introR" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introR" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Intro to R programming (Session 1)<a href="introR.html#introR" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introR-w1" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Intro to R programming (Session 1)<a href="introR.html#introR-w1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This notebook collects the scripts used for teaching in BBMS1021/BIOF1001 for Introduction to R. You can get this Rmd file on Moodle or <a href="https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR_week1.Rmd">here</a> (right-click and “save link as” to download).</p>
 <p>R is a programming language, particularly popular for its power in statistical computing, elegant graphics, and also genomic data analysis. It is a free and open-source software, with active support and development from the community. Additionally, R is relatively easy to get started for scientific computing.</p>
 <blockquote>
@@ -443,7 +440,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <code>integer</code> is another data type used for whole numbers. You can use the capital ‘L’ notation as a suffix to specify a particular value as the integer data type. Also, you can convert a numeric into an integer type using the <code>as.integer()</code> function.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introR.html#cb14-1" tabindex="-1"></a><span class="co"># example of integer type</span></span>
 <span id="cb14-2"><a href="introR.html#cb14-2" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="introR.html#cb14-3" tabindex="-1"></a>siblings <span class="ot">&lt;-</span> <span class="dv">2</span><span class="dt">L</span></span>
+<span id="cb14-3"><a href="introR.html#cb14-3" tabindex="-1"></a>siblings <span class="ot">&lt;-</span> 2L</span>
 <span id="cb14-4"><a href="introR.html#cb14-4" tabindex="-1"></a>siblings </span>
 <span id="cb14-5"><a href="introR.html#cb14-5" tabindex="-1"></a><span class="co">#&gt; [1] 2</span></span>
 <span id="cb14-6"><a href="introR.html#cb14-6" tabindex="-1"></a><span class="fu">class</span>(siblings)</span>
@@ -567,8 +564,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div id="introR" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Intro to R programming (Session 2)<a href="introR.html#introR" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introR-w2" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Intro to R programming (Session 2)<a href="introR.html#introR-w2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You can get this Rmd file on Moodle or <a href="https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter1-R/01-introR_week2-1.Rmd">here</a> (right-click and “save link as” to download).</p>
 <p>In the last session, we started learning to use R through the Rstudio interface.</p>
 <p>We also learn about some fundamental programming concepts including Variables, Data types and Functions in R. We also learnt to save our code into Rscripts.</p>
@@ -629,14 +626,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb26-28"><a href="introR.html#cb26-28" tabindex="-1"></a><span class="co"># generate a vector of random integers by sampling 6 values between 1 and 49 (六合彩)</span></span>
 <span id="cb26-29"><a href="introR.html#cb26-29" tabindex="-1"></a>mark6 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">49</span>,<span class="dv">6</span>)</span>
 <span id="cb26-30"><a href="introR.html#cb26-30" tabindex="-1"></a>mark6</span>
-<span id="cb26-31"><a href="introR.html#cb26-31" tabindex="-1"></a><span class="co">#&gt; [1] 23 32 18 47 35  6</span></span>
+<span id="cb26-31"><a href="introR.html#cb26-31" tabindex="-1"></a><span class="co">#&gt; [1] 46 49 42 10 40 39</span></span>
 <span id="cb26-32"><a href="introR.html#cb26-32" tabindex="-1"></a><span class="fu">typeof</span>(mark6)</span>
 <span id="cb26-33"><a href="introR.html#cb26-33" tabindex="-1"></a><span class="co">#&gt; [1] &quot;integer&quot;</span></span></code></pre></div>
 <p>Vectors can also be combined from other vectors.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introR.html#cb27-1" tabindex="-1"></a><span class="co"># vectors can be combined</span></span>
 <span id="cb27-2"><a href="introR.html#cb27-2" tabindex="-1"></a>new_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(series,mark6,<span class="fu">rep</span>(<span class="dv">50</span>,<span class="dv">3</span>))</span>
 <span id="cb27-3"><a href="introR.html#cb27-3" tabindex="-1"></a>new_vector</span>
-<span id="cb27-4"><a href="introR.html#cb27-4" tabindex="-1"></a><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 23 32 18 47 35  6 50 50 50</span></span>
+<span id="cb27-4"><a href="introR.html#cb27-4" tabindex="-1"></a><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 46 49 42 10 40 39 50 50 50</span></span>
 <span id="cb27-5"><a href="introR.html#cb27-5" tabindex="-1"></a><span class="fu">typeof</span>(new_vector)</span>
 <span id="cb27-6"><a href="introR.html#cb27-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span></code></pre></div>
 <p>Did you notice that <code>new_vector</code> is now a of type <code>double</code> ?</p>
@@ -652,13 +649,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Last week we explored converting the data type of variables using <code>as.numeric</code> , <code>as.integer</code>, <code>as.character</code> etc. These are done explicitly. When combining vectors with different data types they are automatically converted to the most general type in what is known as <strong>coercion</strong>. It occurs based on the following order:</p>
 <p><code>logical &lt; integer &lt; numeric &lt; character</code></p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introR.html#cb29-1" tabindex="-1"></a><span class="co"># coercion of different data types into one type</span></span>
-<span id="cb29-2"><a href="introR.html#cb29-2" tabindex="-1"></a>coerced <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="dv">2</span><span class="dt">L</span>, <span class="fl">3.4</span>, <span class="st">&quot;4&quot;</span>)</span>
+<span id="cb29-2"><a href="introR.html#cb29-2" tabindex="-1"></a>coerced <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, 2L, <span class="fl">3.4</span>, <span class="st">&quot;4&quot;</span>)</span>
 <span id="cb29-3"><a href="introR.html#cb29-3" tabindex="-1"></a>coerced</span>
 <span id="cb29-4"><a href="introR.html#cb29-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;TRUE&quot; &quot;2&quot;    &quot;3.4&quot;  &quot;4&quot;</span></span>
 <span id="cb29-5"><a href="introR.html#cb29-5" tabindex="-1"></a><span class="fu">typeof</span>(coerced)</span>
 <span id="cb29-6"><a href="introR.html#cb29-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;character&quot;</span></span>
 <span id="cb29-7"><a href="introR.html#cb29-7" tabindex="-1"></a></span>
-<span id="cb29-8"><a href="introR.html#cb29-8" tabindex="-1"></a>coerced <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="dv">1</span><span class="dt">L</span>, <span class="fl">2.4</span>)</span>
+<span id="cb29-8"><a href="introR.html#cb29-8" tabindex="-1"></a>coerced <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, 1L, <span class="fl">2.4</span>)</span>
 <span id="cb29-9"><a href="introR.html#cb29-9" tabindex="-1"></a>coerced</span>
 <span id="cb29-10"><a href="introR.html#cb29-10" tabindex="-1"></a><span class="co">#&gt; [1] 0.0 1.0 2.4</span></span>
 <span id="cb29-11"><a href="introR.html#cb29-11" tabindex="-1"></a><span class="fu">typeof</span>(coerced)</span>
@@ -905,46 +902,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb43-2"><a href="introR.html#cb43-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {    <span class="co"># checks if already installed</span></span>
 <span id="cb43-3"><a href="introR.html#cb43-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
 <span id="cb43-4"><a href="introR.html#cb43-4" tabindex="-1"></a>}</span>
-<span id="cb43-5"><a href="introR.html#cb43-5" tabindex="-1"></a><span class="fu">library</span>(tidyverse)                                       <span class="co"># load the package</span></span>
-<span id="cb43-6"><a href="introR.html#cb43-6" tabindex="-1"></a><span class="co">#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──</span></span>
-<span id="cb43-7"><a href="introR.html#cb43-7" tabindex="-1"></a><span class="co">#&gt; ✔ dplyr     1.1.4     ✔ readr     2.1.5</span></span>
-<span id="cb43-8"><a href="introR.html#cb43-8" tabindex="-1"></a><span class="co">#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.1</span></span>
-<span id="cb43-9"><a href="introR.html#cb43-9" tabindex="-1"></a><span class="co">#&gt; ✔ ggplot2   3.5.2     ✔ tibble    3.3.0</span></span>
-<span id="cb43-10"><a href="introR.html#cb43-10" tabindex="-1"></a><span class="co">#&gt; ✔ lubridate 1.9.4     ✔ tidyr     1.3.1</span></span>
-<span id="cb43-11"><a href="introR.html#cb43-11" tabindex="-1"></a><span class="co">#&gt; ✔ purrr     1.1.0     </span></span>
-<span id="cb43-12"><a href="introR.html#cb43-12" tabindex="-1"></a><span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
-<span id="cb43-13"><a href="introR.html#cb43-13" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span></span>
-<span id="cb43-14"><a href="introR.html#cb43-14" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span></span>
-<span id="cb43-15"><a href="introR.html#cb43-15" tabindex="-1"></a><span class="co">#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</span></span></code></pre></div>
+<span id="cb43-5"><a href="introR.html#cb43-5" tabindex="-1"></a><span class="fu">library</span>(tidyverse)                                       <span class="co"># load the package</span></span></code></pre></div>
 <p>You can download <code>myData.csv</code> from Moodle or <a href="https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter1-R/myData.csv">here</a>.</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="introR.html#cb44-1" tabindex="-1"></a><span class="co"># example of reading in data</span></span>
 <span id="cb44-2"><a href="introR.html#cb44-2" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb44-3"><a href="introR.html#cb44-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Z:/jwhwong/programming/BMDS-book/notebooks/chapter1-R&quot;</span></span>
-<span id="cb44-4"><a href="introR.html#cb44-4" tabindex="-1"></a>myData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;C:/Users/Jason/Downloads/myData.csv&quot;</span>)   <span class="co"># use the path where you saved the file on your own computer</span></span>
-<span id="cb44-5"><a href="introR.html#cb44-5" tabindex="-1"></a><span class="co">#&gt; Rows: 4 Columns: 4</span></span>
-<span id="cb44-6"><a href="introR.html#cb44-6" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span id="cb44-7"><a href="introR.html#cb44-7" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
-<span id="cb44-8"><a href="introR.html#cb44-8" tabindex="-1"></a><span class="co">#&gt; chr (2): Name, Gender</span></span>
-<span id="cb44-9"><a href="introR.html#cb44-9" tabindex="-1"></a><span class="co">#&gt; dbl (2): Height, Weigth</span></span>
-<span id="cb44-10"><a href="introR.html#cb44-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb44-11"><a href="introR.html#cb44-11" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span id="cb44-12"><a href="introR.html#cb44-12" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span id="cb44-13"><a href="introR.html#cb44-13" tabindex="-1"></a>myData</span>
-<span id="cb44-14"><a href="introR.html#cb44-14" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 4</span></span>
-<span id="cb44-15"><a href="introR.html#cb44-15" tabindex="-1"></a><span class="co">#&gt;   Height Weigth Name    Gender</span></span>
-<span id="cb44-16"><a href="introR.html#cb44-16" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; </span></span>
-<span id="cb44-17"><a href="introR.html#cb44-17" tabindex="-1"></a><span class="co">#&gt; 1   1.7      67 Jason   male  </span></span>
-<span id="cb44-18"><a href="introR.html#cb44-18" tabindex="-1"></a><span class="co">#&gt; 2   1.8      60 Ray     male  </span></span>
-<span id="cb44-19"><a href="introR.html#cb44-19" tabindex="-1"></a><span class="co">#&gt; 3   1.68     55 Dora    female</span></span>
-<span id="cb44-20"><a href="introR.html#cb44-20" tabindex="-1"></a><span class="co">#&gt; 4   1.72     58 Yuanhua male</span></span></code></pre></div>
+<span id="cb44-3"><a href="introR.html#cb44-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;/Users/yuanhua/MyGit/BMDS-book/notebooks/chapter1-R&quot;</span></span>
+<span id="cb44-4"><a href="introR.html#cb44-4" tabindex="-1"></a><span class="co"># myData &lt;- read_csv(&quot;C:/Users/Jason/Downloads/myData.csv&quot;)   # use the path where you saved the file on your own computer</span></span>
+<span id="cb44-5"><a href="introR.html#cb44-5" tabindex="-1"></a>myData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;myData.csv&quot;</span>)</span>
+<span id="cb44-6"><a href="introR.html#cb44-6" tabindex="-1"></a><span class="co">#&gt; Rows: 4 Columns: 4</span></span>
+<span id="cb44-7"><a href="introR.html#cb44-7" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
+<span id="cb44-8"><a href="introR.html#cb44-8" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
+<span id="cb44-9"><a href="introR.html#cb44-9" tabindex="-1"></a><span class="co">#&gt; chr (2): Name, Gender</span></span>
+<span id="cb44-10"><a href="introR.html#cb44-10" tabindex="-1"></a><span class="co">#&gt; dbl (2): Height, Weigth</span></span>
+<span id="cb44-11"><a href="introR.html#cb44-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb44-12"><a href="introR.html#cb44-12" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span id="cb44-13"><a href="introR.html#cb44-13" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
+<span id="cb44-14"><a href="introR.html#cb44-14" tabindex="-1"></a>myData</span>
+<span id="cb44-15"><a href="introR.html#cb44-15" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 4</span></span>
+<span id="cb44-16"><a href="introR.html#cb44-16" tabindex="-1"></a><span class="co">#&gt;   Height Weigth Name    Gender</span></span>
+<span id="cb44-17"><a href="introR.html#cb44-17" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; </span></span>
+<span id="cb44-18"><a href="introR.html#cb44-18" tabindex="-1"></a><span class="co">#&gt; 1   1.7      67 Jason   male  </span></span>
+<span id="cb44-19"><a href="introR.html#cb44-19" tabindex="-1"></a><span class="co">#&gt; 2   1.8      60 Ray     male  </span></span>
+<span id="cb44-20"><a href="introR.html#cb44-20" tabindex="-1"></a><span class="co">#&gt; 3   1.68     55 Dora    female</span></span>
+<span id="cb44-21"><a href="introR.html#cb44-21" tabindex="-1"></a><span class="co">#&gt; 4   1.72     58 Yuanhua male</span></span></code></pre></div>
 <p>We will modify the first row of data and then write it back to file.</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="introR.html#cb45-1" tabindex="-1"></a><span class="co"># example of writing data back to csv</span></span>
 <span id="cb45-2"><a href="introR.html#cb45-2" tabindex="-1"></a>myData[<span class="dv">1</span>,] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fl">1.5</span>,<span class="dv">42</span>,<span class="st">&quot;Sarah&quot;</span>,<span class="st">&quot;female&quot;</span>)</span>
-<span id="cb45-3"><a href="introR.html#cb45-3" tabindex="-1"></a><span class="fu">write_csv</span>(myData, <span class="st">&quot;C:/Users/Jason/Downloads/myData2.csv&quot;</span>)  <span class="co"># uncomment after setting the path to output</span></span></code></pre></div>
+<span id="cb45-3"><a href="introR.html#cb45-3" tabindex="-1"></a><span class="co"># write_csv(myData, &quot;C:/Users/Jason/Downloads/myData2.csv&quot;)  # uncomment after setting the path to output</span></span>
+<span id="cb45-4"><a href="introR.html#cb45-4" tabindex="-1"></a><span class="fu">write_csv</span>(myData, <span class="st">&quot;myData2.csv&quot;</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="introR" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Intro to R programming (Session 4)<a href="introR.html#introR" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introR-w3" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Intro to R programming (Session 4)<a href="introR.html#introR-w3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You can get this Rmd file on Moodle or <a href="https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter1-R/01-introR_week3-1.Rmd">here</a> (right-click and “save link as” to download).</p>
 <p>Over the past 2 weeks, you have learnt some of the foundations of computer programming, covering variables, data types, and data structures in R.</p>
 <p>In this lecture, we will delve further into developing our knowledge of fundamental concepts in computer programming, covering logic operators, if/else, and loops.</p>
@@ -1189,43 +1178,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": "https://github.com/statbiomed/BMDS-book/tree/main/01-introduction.Rmd",
-    "text": "Edit"
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": ["BMDatSci.pdf", "BMDatSci.epub"],
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section",
-    "scroll_highlight": true
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/statbiomed/BMDS-book/tree/main/01-introduction.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BMDatSci.pdf", "BMDatSci.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
 });
 });
 </script>

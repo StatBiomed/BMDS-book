@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Cancer genomics | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Cancer genomics | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2025-09-14" />
+<meta name="date" content="2025-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -154,7 +154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>I Data Science Foundations</b></span></li>
 <li class="chapter" data-level="1" data-path="introR.html"><a href="introR.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="introR.html"><a href="introR.html#introR"><i class="fa fa-check"></i><b>1.1</b> Intro to R programming (Session 1)</a>
+<li class="chapter" data-level="1.1" data-path="introR.html"><a href="introR.html#introR-w1"><i class="fa fa-check"></i><b>1.1</b> Intro to R programming (Session 1)</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="introR.html"><a href="introR.html#r-as-a-basic-calculator"><i class="fa fa-check"></i><b>1.1.1</b> R as a basic calculator</a></li>
 <li class="chapter" data-level="1.1.2" data-path="introR.html"><a href="introR.html#variables"><i class="fa fa-check"></i><b>1.1.2</b> Variables</a></li>
@@ -163,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.5" data-path="introR.html"><a href="introR.html#r-scripts"><i class="fa fa-check"></i><b>1.1.5</b> R scripts</a></li>
 <li class="chapter" data-level="1.1.6" data-path="introR.html"><a href="introR.html#resource-links"><i class="fa fa-check"></i><b>1.1.6</b> Resource links</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="introR.html"><a href="introR.html#introR"><i class="fa fa-check"></i><b>1.2</b> Intro to R programming (Session 2)</a>
+<li class="chapter" data-level="1.2" data-path="introR.html"><a href="introR.html#introR-w2"><i class="fa fa-check"></i><b>1.2</b> Intro to R programming (Session 2)</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="introR.html"><a href="introR.html#data-structures"><i class="fa fa-check"></i><b>1.2.1</b> Data structures</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introR.html"><a href="introR.html#vector"><i class="fa fa-check"></i><b>1.2.2</b> Vector</a></li>
@@ -172,37 +172,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.5" data-path="introR.html"><a href="introR.html#data-frame"><i class="fa fa-check"></i><b>1.2.5</b> Data Frame</a></li>
 <li class="chapter" data-level="1.2.6" data-path="introR.html"><a href="introR.html#readingwriting-data-fromto-r"><i class="fa fa-check"></i><b>1.2.6</b> Reading/writing data from/to R</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="introR.html"><a href="introR.html#introR"><i class="fa fa-check"></i><b>1.3</b> Intro to R programming (Session 4)</a>
+<li class="chapter" data-level="1.3" data-path="introR.html"><a href="introR.html#introR-w3"><i class="fa fa-check"></i><b>1.3</b> Intro to R programming (Session 4)</a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="introR.html"><a href="introR.html#operators"><i class="fa fa-check"></i><b>1.3.1</b> Operators</a></li>
 <li class="chapter" data-level="1.3.2" data-path="introR.html"><a href="introR.html#ifelse"><i class="fa fa-check"></i><b>1.3.2</b> If/else</a></li>
 <li class="chapter" data-level="1.3.3" data-path="introR.html"><a href="introR.html#loop"><i class="fa fa-check"></i><b>1.3.3</b> Loop</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introHypoTest.html"><a href="introHypoTest.html"><i class="fa fa-check"></i><b>2</b> Introduction to Hypothesis testing</a>
+<li class="chapter" data-level="2" data-path="introHypoTest.html"><a href="introHypoTest.html"><i class="fa fa-check"></i><b>2</b> Introduction to Hypothesis test</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="introHypoTest.html"><a href="introHypoTest.html#hypothesis-testing-and-p-value"><i class="fa fa-check"></i><b>2.1</b> Hypothesis testing and <em>p</em> value</a>
+<li class="chapter" data-level="2.1" data-path="introHypoTest.html"><a href="introHypoTest.html#hypothesis-test-and-p-value"><i class="fa fa-check"></i><b>2.1</b> Hypothesis test and <em>p</em>-value</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="introHypoTest.html"><a href="introHypoTest.html#example-1-probability-of-rolling-a-six"><i class="fa fa-check"></i><b>2.1.1</b> Example 1: probability of rolling a six?</a></li>
+<li class="chapter" data-level="2.1.1" data-path="introHypoTest.html"><a href="introHypoTest.html#extreme-events-and-random-chance"><i class="fa fa-check"></i><b>2.1.1</b> Extreme events and random chance</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introHypoTest.html"><a href="introHypoTest.html#hypothesis-test-for-statistical-decision"><i class="fa fa-check"></i><b>2.1.2</b> Hypothesis test for statistical decision</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="introHypoTest.html"><a href="introHypoTest.html#permutation-test"><i class="fa fa-check"></i><b>2.2</b> Permutation test</a>
+<li class="chapter" data-level="2.2" data-path="introHypoTest.html"><a href="introHypoTest.html#basic-hypothesis-test-methods"><i class="fa fa-check"></i><b>2.2</b> Basic hypothesis test methods</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="introHypoTest.html"><a href="introHypoTest.html#example-2-difference-in-birth-weight"><i class="fa fa-check"></i><b>2.2.1</b> Example 2: difference in birth weight</a></li>
-<li class="chapter" data-level="2.2.2" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-approximated-by-resampling"><i class="fa fa-check"></i><b>2.2.2</b> Null distribution approximated by resampling</a></li>
+<li class="chapter" data-level="2.2.1" data-path="introHypoTest.html"><a href="introHypoTest.html#permutation-test"><i class="fa fa-check"></i><b>2.2.1</b> Permutation test</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introHypoTest.html"><a href="introHypoTest.html#t-test-and-regression-based-test"><i class="fa fa-check"></i><b>2.2.2</b> <em>t</em>-test and regression-based test</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introHypoTest.html"><a href="introHypoTest.html#fishers-exact-test"><i class="fa fa-check"></i><b>2.2.3</b> Fisher’s exact test</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="introHypoTest.html"><a href="introHypoTest.html#t-test"><i class="fa fa-check"></i><b>2.3</b> <em>t</em> test</a>
+<li class="chapter" data-level="2.3" data-path="introHypoTest.html"><a href="introHypoTest.html#multiple-testing-and-errors"><i class="fa fa-check"></i><b>2.3</b> Multiple testing and errors</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="introHypoTest.html"><a href="introHypoTest.html#derivation-of-t-distribution"><i class="fa fa-check"></i><b>2.3.1</b> Derivation of t distribution</a></li>
-<li class="chapter" data-level="2.3.2" data-path="introHypoTest.html"><a href="introHypoTest.html#direct-use-of-t.test"><i class="fa fa-check"></i><b>2.3.2</b> Direct use of <code>t.test()</code></a></li>
+<li class="chapter" data-level="2.3.1" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-test-statistic"><i class="fa fa-check"></i><b>2.3.1</b> Null distribution (of test statistic)</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-p-value"><i class="fa fa-check"></i><b>2.3.2</b> Null distribution of p value</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introHypoTest.html"><a href="introHypoTest.html#minimal-p-values-in-10-tests"><i class="fa fa-check"></i><b>2.3.3</b> Minimal p values in 10 tests</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="introHypoTest.html"><a href="introHypoTest.html#regression-based-test"><i class="fa fa-check"></i><b>2.4</b> regression-based test</a></li>
-<li class="chapter" data-level="2.5" data-path="introHypoTest.html"><a href="introHypoTest.html#multiple-testing"><i class="fa fa-check"></i><b>2.5</b> Multiple testing</a>
-<ul>
-<li class="chapter" data-level="2.5.1" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-test-statistic"><i class="fa fa-check"></i><b>2.5.1</b> Null distribution (of test statistic)</a></li>
-<li class="chapter" data-level="2.5.2" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-p-value"><i class="fa fa-check"></i><b>2.5.2</b> Null distribution of p value</a></li>
-<li class="chapter" data-level="2.5.3" data-path="introHypoTest.html"><a href="introHypoTest.html#minimal-p-values-in-10-tests"><i class="fa fa-check"></i><b>2.5.3</b> Minimal p values in 10 tests</a></li>
-</ul></li>
-<li class="chapter" data-level="2.6" data-path="introHypoTest.html"><a href="introHypoTest.html#explore-power-and-sample-size-optional-power"><i class="fa fa-check"></i><b>2.6</b> Explore power and sample size (optional) { power }</a></li>
+<li class="chapter" data-level="2.4" data-path="introHypoTest.html"><a href="introHypoTest.html#power-analysis"><i class="fa fa-check"></i><b>2.4</b> Explore power and sample size (optional)</a></li>
+<li class="chapter" data-level="2.5" data-path="introHypoTest.html"><a href="introHypoTest.html#summary"><i class="fa fa-check"></i><b>2.5</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="introLinearReg.html"><a href="introLinearReg.html"><i class="fa fa-check"></i><b>3</b> Introduction to Linear Regression</a>
 <ul>
@@ -355,114 +352,114 @@ Examine it using <code>head</code>.
 In this <code>data.frame</code>, each row is a mutation detected in a particular gene
 from a particular sample in the study.
 For more information on the columns, see the <a href="https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/">MAF specification</a>.</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="cancer.html#cb136-1" tabindex="-1"></a>?readRDS</span>
-<span id="cb136-2"><a href="cancer.html#cb136-2" tabindex="-1"></a></span>
-<span id="cb136-3"><a href="cancer.html#cb136-3" tabindex="-1"></a>?head</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="cancer.html#cb142-1" tabindex="-1"></a>?readRDS</span>
+<span id="cb142-2"><a href="cancer.html#cb142-2" tabindex="-1"></a></span>
+<span id="cb142-3"><a href="cancer.html#cb142-3" tabindex="-1"></a>?head</span></code></pre></div>
 <p><strong>Q2</strong>. Identify the top 10 most frequently mutated genes.</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="cancer.html#cb137-1" tabindex="-1"></a><span class="co"># calculate count frequencies using table</span></span>
-<span id="cb137-2"><a href="cancer.html#cb137-2" tabindex="-1"></a>?table</span>
-<span id="cb137-3"><a href="cancer.html#cb137-3" tabindex="-1"></a><span class="co"># freqs &lt;- ???</span></span>
-<span id="cb137-4"><a href="cancer.html#cb137-4" tabindex="-1"></a></span>
-<span id="cb137-5"><a href="cancer.html#cb137-5" tabindex="-1"></a><span class="co"># sort the frequency vector in decreasing order</span></span>
-<span id="cb137-6"><a href="cancer.html#cb137-6" tabindex="-1"></a>?sort</span>
-<span id="cb137-7"><a href="cancer.html#cb137-7" tabindex="-1"></a><span class="co"># freqs &lt;- ???</span></span>
-<span id="cb137-8"><a href="cancer.html#cb137-8" tabindex="-1"></a></span>
-<span id="cb137-9"><a href="cancer.html#cb137-9" tabindex="-1"></a><span class="co"># select the first 10 genes in the freqs</span></span>
-<span id="cb137-10"><a href="cancer.html#cb137-10" tabindex="-1"></a><span class="co"># freqs.top &lt;- ???</span></span>
-<span id="cb137-11"><a href="cancer.html#cb137-11" tabindex="-1"></a></span>
-<span id="cb137-12"><a href="cancer.html#cb137-12" tabindex="-1"></a><span class="co"># obtain the gene names</span></span>
-<span id="cb137-13"><a href="cancer.html#cb137-13" tabindex="-1"></a><span class="co"># genes &lt;- names(freqs.top);</span></span>
-<span id="cb137-14"><a href="cancer.html#cb137-14" tabindex="-1"></a></span>
-<span id="cb137-15"><a href="cancer.html#cb137-15" tabindex="-1"></a><span class="co"># print(freqs.top)</span></span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="cancer.html#cb143-1" tabindex="-1"></a><span class="co"># calculate count frequencies using table</span></span>
+<span id="cb143-2"><a href="cancer.html#cb143-2" tabindex="-1"></a>?table</span>
+<span id="cb143-3"><a href="cancer.html#cb143-3" tabindex="-1"></a><span class="co"># freqs &lt;- ???</span></span>
+<span id="cb143-4"><a href="cancer.html#cb143-4" tabindex="-1"></a></span>
+<span id="cb143-5"><a href="cancer.html#cb143-5" tabindex="-1"></a><span class="co"># sort the frequency vector in decreasing order</span></span>
+<span id="cb143-6"><a href="cancer.html#cb143-6" tabindex="-1"></a>?sort</span>
+<span id="cb143-7"><a href="cancer.html#cb143-7" tabindex="-1"></a><span class="co"># freqs &lt;- ???</span></span>
+<span id="cb143-8"><a href="cancer.html#cb143-8" tabindex="-1"></a></span>
+<span id="cb143-9"><a href="cancer.html#cb143-9" tabindex="-1"></a><span class="co"># select the first 10 genes in the freqs</span></span>
+<span id="cb143-10"><a href="cancer.html#cb143-10" tabindex="-1"></a><span class="co"># freqs.top &lt;- ???</span></span>
+<span id="cb143-11"><a href="cancer.html#cb143-11" tabindex="-1"></a></span>
+<span id="cb143-12"><a href="cancer.html#cb143-12" tabindex="-1"></a><span class="co"># obtain the gene names</span></span>
+<span id="cb143-13"><a href="cancer.html#cb143-13" tabindex="-1"></a><span class="co"># genes &lt;- names(freqs.top);</span></span>
+<span id="cb143-14"><a href="cancer.html#cb143-14" tabindex="-1"></a></span>
+<span id="cb143-15"><a href="cancer.html#cb143-15" tabindex="-1"></a><span class="co"># print(freqs.top)</span></span></code></pre></div>
 <p><strong>Q3</strong>. Tabulate the count frequencies of <code>variant_class</code>.
 What proportion of variants are <code>Silent</code> or inside an <code>Intron</code>?</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="cancer.html#cb138-1" tabindex="-1"></a>?table</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="cancer.html#cb144-1" tabindex="-1"></a>?table</span></code></pre></div>
 <p><strong>Q4</strong>. A variant class value <code>frame_shift_del</code> appears to be misspelt due to
 case sensitivity. Correct this error.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="cancer.html#cb139-1" tabindex="-1"></a><span class="co"># x$variant_class[x$variant_class == &quot;frame_shift_del&quot;] &lt;- ???;</span></span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="cancer.html#cb145-1" tabindex="-1"></a><span class="co"># x$variant_class[x$variant_class == &quot;frame_shift_del&quot;] &lt;- ???;</span></span></code></pre></div>
 <p><strong>Q5</strong>. To help us simplify the variant classes into loss-of-function or neutral,
 let us import the <code>mutation_effects.tsv</code> data.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="cancer.html#cb140-1" tabindex="-1"></a>?read.table</span>
-<span id="cb140-2"><a href="cancer.html#cb140-2" tabindex="-1"></a><span class="co"># Hint: You need to set the `header` and `sep` arguments</span></span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="cancer.html#cb146-1" tabindex="-1"></a>?read.table</span>
+<span id="cb146-2"><a href="cancer.html#cb146-2" tabindex="-1"></a><span class="co"># Hint: You need to set the `header` and `sep` arguments</span></span></code></pre></div>
 <p><strong>Q6</strong>. Define a new column in <code>x</code> that converts the variant classes to effects.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="cancer.html#cb141-1" tabindex="-1"></a>?match</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="cancer.html#cb147-1" tabindex="-1"></a>?match</span></code></pre></div>
 <p><strong>Q7</strong>. Create a subset of the data for the most frequently mutated genes,
 and tabulate the mutation count frequencies of variant classes for each gene.</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="cancer.html#cb142-1" tabindex="-1"></a><span class="co"># x.sub &lt;- x[???, ]</span></span>
-<span id="cb142-2"><a href="cancer.html#cb142-2" tabindex="-1"></a></span>
-<span id="cb142-3"><a href="cancer.html#cb142-3" tabindex="-1"></a></span>
-<span id="cb142-4"><a href="cancer.html#cb142-4" tabindex="-1"></a><span class="co"># order the factor levels based on `genes`,</span></span>
-<span id="cb142-5"><a href="cancer.html#cb142-5" tabindex="-1"></a><span class="co"># which was previously sorted in decreasing order of frequency</span></span>
-<span id="cb142-6"><a href="cancer.html#cb142-6" tabindex="-1"></a><span class="co"># x.sub$gene &lt;- factor(x.sub$gene, levels=genes);</span></span>
-<span id="cb142-7"><a href="cancer.html#cb142-7" tabindex="-1"></a></span>
-<span id="cb142-8"><a href="cancer.html#cb142-8" tabindex="-1"></a>?table</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="cancer.html#cb148-1" tabindex="-1"></a><span class="co"># x.sub &lt;- x[???, ]</span></span>
+<span id="cb148-2"><a href="cancer.html#cb148-2" tabindex="-1"></a></span>
+<span id="cb148-3"><a href="cancer.html#cb148-3" tabindex="-1"></a></span>
+<span id="cb148-4"><a href="cancer.html#cb148-4" tabindex="-1"></a><span class="co"># order the factor levels based on `genes`,</span></span>
+<span id="cb148-5"><a href="cancer.html#cb148-5" tabindex="-1"></a><span class="co"># which was previously sorted in decreasing order of frequency</span></span>
+<span id="cb148-6"><a href="cancer.html#cb148-6" tabindex="-1"></a><span class="co"># x.sub$gene &lt;- factor(x.sub$gene, levels=genes);</span></span>
+<span id="cb148-7"><a href="cancer.html#cb148-7" tabindex="-1"></a></span>
+<span id="cb148-8"><a href="cancer.html#cb148-8" tabindex="-1"></a>?table</span></code></pre></div>
 <p><strong>Q8</strong>. Determine the number of mutations in each effect category, across all genes.
 Save the result in a variable named <code>overall.counts</code>.</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="cancer.html#cb143-1" tabindex="-1"></a><span class="co"># overall.counts &lt;- table(???);</span></span>
-<span id="cb143-2"><a href="cancer.html#cb143-2" tabindex="-1"></a></span>
-<span id="cb143-3"><a href="cancer.html#cb143-3" tabindex="-1"></a><span class="co"># overall.counts</span></span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="cancer.html#cb149-1" tabindex="-1"></a><span class="co"># overall.counts &lt;- table(???);</span></span>
+<span id="cb149-2"><a href="cancer.html#cb149-2" tabindex="-1"></a></span>
+<span id="cb149-3"><a href="cancer.html#cb149-3" tabindex="-1"></a><span class="co"># overall.counts</span></span></code></pre></div>
 <p><strong>Q9</strong>. Tabulate the mutation count frequencies for each gene and effect.
 Save the results in a variable named <code>gene.counts</code>.
 Look up the frequently mutated genes in this matrix.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="cancer.html#cb144-1" tabindex="-1"></a><span class="co"># gene.counts &lt;- table(???, ???);</span></span>
-<span id="cb144-2"><a href="cancer.html#cb144-2" tabindex="-1"></a><span class="co"># gene.counts[???, ]</span></span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="cancer.html#cb150-1" tabindex="-1"></a><span class="co"># gene.counts &lt;- table(???, ???);</span></span>
+<span id="cb150-2"><a href="cancer.html#cb150-2" tabindex="-1"></a><span class="co"># gene.counts[???, ]</span></span></code></pre></div>
 </div>
 <div id="statistical-analysis" class="section level3 hasAnchor" number="6.1.2">
 <h3><span class="header-section-number">6.1.2</span> Statistical analysis<a href="cancer.html#statistical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here, we implemented a simple statistical test for assessing whether a
 gene is significantly frequently targeted by loss-of-function mutations,
 based on the Fisher’s exact test.</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="cancer.html#cb145-1" tabindex="-1"></a><span class="co"># Test whether a query gene has significantly more loss-of-function</span></span>
-<span id="cb145-2"><a href="cancer.html#cb145-2" tabindex="-1"></a><span class="co"># mutations compared with other genes.</span></span>
-<span id="cb145-3"><a href="cancer.html#cb145-3" tabindex="-1"></a><span class="co"># Requires global variables `gene.counts` and `overall.counts`</span></span>
-<span id="cb145-4"><a href="cancer.html#cb145-4" tabindex="-1"></a>lof_test <span class="ot">&lt;-</span> <span class="cf">function</span>(gene) {</span>
-<span id="cb145-5"><a href="cancer.html#cb145-5" tabindex="-1"></a>  </span>
-<span id="cb145-6"><a href="cancer.html#cb145-6" tabindex="-1"></a>    <span class="co"># Construct the following contingency table:</span></span>
-<span id="cb145-7"><a href="cancer.html#cb145-7" tabindex="-1"></a>    <span class="co">#              neutral    lof</span></span>
-<span id="cb145-8"><a href="cancer.html#cb145-8" tabindex="-1"></a>    <span class="co"># other genes  a          b</span></span>
-<span id="cb145-9"><a href="cancer.html#cb145-9" tabindex="-1"></a>    <span class="co"># query gene   c          d</span></span>
-<span id="cb145-10"><a href="cancer.html#cb145-10" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;neutral&quot;</span>, <span class="st">&quot;loss_of_function&quot;</span>);</span>
-<span id="cb145-11"><a href="cancer.html#cb145-11" tabindex="-1"></a>    gene.counts.sel <span class="ot">&lt;-</span> gene.counts[gene, cols];</span>
-<span id="cb145-12"><a href="cancer.html#cb145-12" tabindex="-1"></a>    ct <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
-<span id="cb145-13"><a href="cancer.html#cb145-13" tabindex="-1"></a>        <span class="fu">c</span>(</span>
-<span id="cb145-14"><a href="cancer.html#cb145-14" tabindex="-1"></a>            overall.counts[cols] <span class="sc">-</span> gene.counts.sel,</span>
-<span id="cb145-15"><a href="cancer.html#cb145-15" tabindex="-1"></a>            gene.counts.sel</span>
-<span id="cb145-16"><a href="cancer.html#cb145-16" tabindex="-1"></a>        ),</span>
-<span id="cb145-17"><a href="cancer.html#cb145-17" tabindex="-1"></a>        <span class="at">byrow=</span><span class="cn">TRUE</span>,</span>
-<span id="cb145-18"><a href="cancer.html#cb145-18" tabindex="-1"></a>        <span class="at">ncol=</span><span class="dv">2</span></span>
-<span id="cb145-19"><a href="cancer.html#cb145-19" tabindex="-1"></a>    );</span>
-<span id="cb145-20"><a href="cancer.html#cb145-20" tabindex="-1"></a></span>
-<span id="cb145-21"><a href="cancer.html#cb145-21" tabindex="-1"></a>    <span class="co"># Test whether the lof mutations are greater in frequency compared </span></span>
-<span id="cb145-22"><a href="cancer.html#cb145-22" tabindex="-1"></a>    <span class="co"># to neutral mutations in the query gene, in comparison to all other genes</span></span>
-<span id="cb145-23"><a href="cancer.html#cb145-23" tabindex="-1"></a>    <span class="fu">fisher.test</span>(ct, <span class="at">alternative=</span><span class="st">&quot;greater&quot;</span>)</span>
-<span id="cb145-24"><a href="cancer.html#cb145-24" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="cancer.html#cb151-1" tabindex="-1"></a><span class="co"># Test whether a query gene has significantly more loss-of-function</span></span>
+<span id="cb151-2"><a href="cancer.html#cb151-2" tabindex="-1"></a><span class="co"># mutations compared with other genes.</span></span>
+<span id="cb151-3"><a href="cancer.html#cb151-3" tabindex="-1"></a><span class="co"># Requires global variables `gene.counts` and `overall.counts`</span></span>
+<span id="cb151-4"><a href="cancer.html#cb151-4" tabindex="-1"></a>lof_test <span class="ot">&lt;-</span> <span class="cf">function</span>(gene) {</span>
+<span id="cb151-5"><a href="cancer.html#cb151-5" tabindex="-1"></a>  </span>
+<span id="cb151-6"><a href="cancer.html#cb151-6" tabindex="-1"></a>    <span class="co"># Construct the following contingency table:</span></span>
+<span id="cb151-7"><a href="cancer.html#cb151-7" tabindex="-1"></a>    <span class="co">#              neutral    lof</span></span>
+<span id="cb151-8"><a href="cancer.html#cb151-8" tabindex="-1"></a>    <span class="co"># other genes  a          b</span></span>
+<span id="cb151-9"><a href="cancer.html#cb151-9" tabindex="-1"></a>    <span class="co"># query gene   c          d</span></span>
+<span id="cb151-10"><a href="cancer.html#cb151-10" tabindex="-1"></a>    cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;neutral&quot;</span>, <span class="st">&quot;loss_of_function&quot;</span>);</span>
+<span id="cb151-11"><a href="cancer.html#cb151-11" tabindex="-1"></a>    gene.counts.sel <span class="ot">&lt;-</span> gene.counts[gene, cols];</span>
+<span id="cb151-12"><a href="cancer.html#cb151-12" tabindex="-1"></a>    ct <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb151-13"><a href="cancer.html#cb151-13" tabindex="-1"></a>        <span class="fu">c</span>(</span>
+<span id="cb151-14"><a href="cancer.html#cb151-14" tabindex="-1"></a>            overall.counts[cols] <span class="sc">-</span> gene.counts.sel,</span>
+<span id="cb151-15"><a href="cancer.html#cb151-15" tabindex="-1"></a>            gene.counts.sel</span>
+<span id="cb151-16"><a href="cancer.html#cb151-16" tabindex="-1"></a>        ),</span>
+<span id="cb151-17"><a href="cancer.html#cb151-17" tabindex="-1"></a>        <span class="at">byrow=</span><span class="cn">TRUE</span>,</span>
+<span id="cb151-18"><a href="cancer.html#cb151-18" tabindex="-1"></a>        <span class="at">ncol=</span><span class="dv">2</span></span>
+<span id="cb151-19"><a href="cancer.html#cb151-19" tabindex="-1"></a>    );</span>
+<span id="cb151-20"><a href="cancer.html#cb151-20" tabindex="-1"></a></span>
+<span id="cb151-21"><a href="cancer.html#cb151-21" tabindex="-1"></a>    <span class="co"># Test whether the lof mutations are greater in frequency compared </span></span>
+<span id="cb151-22"><a href="cancer.html#cb151-22" tabindex="-1"></a>    <span class="co"># to neutral mutations in the query gene, in comparison to all other genes</span></span>
+<span id="cb151-23"><a href="cancer.html#cb151-23" tabindex="-1"></a>    <span class="fu">fisher.test</span>(ct, <span class="at">alternative=</span><span class="st">&quot;greater&quot;</span>)</span>
+<span id="cb151-24"><a href="cancer.html#cb151-24" tabindex="-1"></a>}</span></code></pre></div>
 <p><strong>Q10</strong>. Subset the <code>gene.counts</code> table for the <em>TP53</em> gene.
 Run <code>lof_test</code> on this gene.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="cancer.html#cb146-1" tabindex="-1"></a><span class="co"># gene.counts[???, ]</span></span>
-<span id="cb146-2"><a href="cancer.html#cb146-2" tabindex="-1"></a><span class="co"># lof_test(???)</span></span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="cancer.html#cb152-1" tabindex="-1"></a><span class="co"># gene.counts[???, ]</span></span>
+<span id="cb152-2"><a href="cancer.html#cb152-2" tabindex="-1"></a><span class="co"># lof_test(???)</span></span></code></pre></div>
 <p><strong>Q11</strong>. Now, test to see if <em>TTN</em> and <em>MUC16</em> are significantly frequently
 targeted by loss-of-function mutations.</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="cancer.html#cb147-1" tabindex="-1"></a><span class="co"># similar to above</span></span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="cancer.html#cb153-1" tabindex="-1"></a><span class="co"># similar to above</span></span></code></pre></div>
 <p><strong>Q12</strong>. Apply the loss-of-function test to all frequently mutated genes.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="cancer.html#cb148-1" tabindex="-1"></a>?lapply</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="cancer.html#cb154-1" tabindex="-1"></a>?lapply</span></code></pre></div>
 <p><strong>Q13</strong>. Extract odds ratio and p-values from the test results.</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="cancer.html#cb149-1" tabindex="-1"></a><span class="co"># odds.ratios &lt;- vapply(hs, function(h) h$estimate, 0);</span></span>
-<span id="cb149-2"><a href="cancer.html#cb149-2" tabindex="-1"></a><span class="co"># ps &lt;- vapply(hs, function(h) ???, 0);</span></span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="cancer.html#cb155-1" tabindex="-1"></a><span class="co"># odds.ratios &lt;- vapply(hs, function(h) h$estimate, 0);</span></span>
+<span id="cb155-2"><a href="cancer.html#cb155-2" tabindex="-1"></a><span class="co"># ps &lt;- vapply(hs, function(h) ???, 0);</span></span></code></pre></div>
 <p><strong>Q14</strong>. Since we tested many genes, we need to adjust for multiple hypothesis
 testing so that we can control the false discovery rate.
 So, adjust the p-values to obtain q-values.</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="cancer.html#cb150-1" tabindex="-1"></a>?p.adjust</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="cancer.html#cb156-1" tabindex="-1"></a>?p.adjust</span></code></pre></div>
 <p><strong>Q15</strong>. Construct a results <code>data.frame</code> with gene names, odds ratio, p-values,
 and q-values that summarize the loss-of-function test results.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="cancer.html#cb151-1" tabindex="-1"></a><span class="co"># res &lt;- data.frame(</span></span>
-<span id="cb151-2"><a href="cancer.html#cb151-2" tabindex="-1"></a><span class="co">#     gene = ???,</span></span>
-<span id="cb151-3"><a href="cancer.html#cb151-3" tabindex="-1"></a><span class="co">#     odds_ratio = ???,</span></span>
-<span id="cb151-4"><a href="cancer.html#cb151-4" tabindex="-1"></a><span class="co">#     p = ???,</span></span>
-<span id="cb151-5"><a href="cancer.html#cb151-5" tabindex="-1"></a><span class="co">#     q = ???</span></span>
-<span id="cb151-6"><a href="cancer.html#cb151-6" tabindex="-1"></a><span class="co"># );</span></span>
-<span id="cb151-7"><a href="cancer.html#cb151-7" tabindex="-1"></a></span>
-<span id="cb151-8"><a href="cancer.html#cb151-8" tabindex="-1"></a>?order</span>
-<span id="cb151-9"><a href="cancer.html#cb151-9" tabindex="-1"></a><span class="co">#res &lt;- res[order(???), ];</span></span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="cancer.html#cb157-1" tabindex="-1"></a><span class="co"># res &lt;- data.frame(</span></span>
+<span id="cb157-2"><a href="cancer.html#cb157-2" tabindex="-1"></a><span class="co">#     gene = ???,</span></span>
+<span id="cb157-3"><a href="cancer.html#cb157-3" tabindex="-1"></a><span class="co">#     odds_ratio = ???,</span></span>
+<span id="cb157-4"><a href="cancer.html#cb157-4" tabindex="-1"></a><span class="co">#     p = ???,</span></span>
+<span id="cb157-5"><a href="cancer.html#cb157-5" tabindex="-1"></a><span class="co">#     q = ???</span></span>
+<span id="cb157-6"><a href="cancer.html#cb157-6" tabindex="-1"></a><span class="co"># );</span></span>
+<span id="cb157-7"><a href="cancer.html#cb157-7" tabindex="-1"></a></span>
+<span id="cb157-8"><a href="cancer.html#cb157-8" tabindex="-1"></a>?order</span>
+<span id="cb157-9"><a href="cancer.html#cb157-9" tabindex="-1"></a><span class="co">#res &lt;- res[order(???), ];</span></span></code></pre></div>
 <p><strong>Q16</strong>. Identify the significant genes from the results <code>data.frame</code> at a
 false discovery rate of 5% (i.e. q-value threshold of 0.05).</p>
 <p><strong>Q17</strong>. Look up the significant genes in the <code>gene.counts</code> matrix.</p>
@@ -498,43 +495,43 @@ by mutations or other genomic alterations?</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": "https://github.com/statbiomed/BMDS-book/tree/main/02-data_topics.Rmd",
-    "text": "Edit"
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": ["BMDatSci.pdf", "BMDatSci.epub"],
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section",
-    "scroll_highlight": true
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/statbiomed/BMDS-book/tree/main/02-data_topics.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BMDatSci.pdf", "BMDatSci.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
 });
 });
 </script>
