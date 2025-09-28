@@ -1,4 +1,4 @@
 
-<!-- # Medical Image and Digital Health {#image-digital} -->
+# Medical Image and Digital Health {#image-digital}
 
 Contents to be added.

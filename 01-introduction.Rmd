@@ -1,3 +1,4 @@
+
 (ref:introsepart) Data Science Foundations
 
 ```{r echo=FALSE, results="asis", purl=FALSE}
@@ -21,12 +22,15 @@ knitr::opts_chunk$set(
 ```{r child="notebooks/chapter1-R/01-introR_week3-1.Rmd", echo=TRUE}
 ```
 
-# Introduction to Hypothesis testing {#introHypoTest}
+# Introduction to Hypothesis test {#introHypoTest}
 
 ```{r child="notebooks/chapter4-HT/04-hypothesis-test-01.Rmd", echo=TRUE}
 ```
 
 ```{r child="notebooks/chapter4-HT/04-hypothesis-test-02.Rmd", echo=TRUE}
+```
+
+```{r child="notebooks/chapter4-HT/04-hypothesis-test-03.Rmd", echo=TRUE}
 ```
 
 # Introduction to Linear Regression {#introLinearReg}

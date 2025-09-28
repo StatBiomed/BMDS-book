@@ -1,22 +1,14 @@
 \cleardoublepage
 
-(ref:modulesepart) Biomedical Data Modules
+<!-- (ref:modulesepart) Biomedical Data Modules -->
 
 ```{r echo=FALSE, results="asis", purl=FALSE}
 cat("# (PART) Biomedical Data Modules {-} ")
 ```
 
-# Medical Image and Digital Health {#image-digital}
 
 ```{r child="notebooks/module2-image/M2-image-digital.Rmd", echo=TRUE}
 ```
-
-
-<!-- # ```{r child="notebooks/module3-infectious/M3-infectious-dis.Rmd", echo=TRUE} -->
-<!-- # ``` -->
-
-
-<!-- # Personalised Genomic Medicine {#genomics} -->
 
 ```{r child="notebooks/module1-genomics/M1-genomics-02.Rmd", echo=TRUE}
 ```

@@ -1,69 +1,404 @@
 
-## Multiple testing
+## Basic hypothesis test methods
 
-Hypothetical null distribution. 
-Feel feel to try any null distribution, examples below
+A crucial step in conducting a hypothesis test is selecting an appropriate method, which involves defining the test statistic and approximating the null distribution. Here, we will introduce several commonly used methods as an overview.
 
-```{r}
-## Example null distributions
-# t, normal or anything. we use chi-squared distribution as an example
+### Permutation test
 
-x_random = rchisq(n=1000, df=3)
-any_null_dist = dchisq(x_random, df=3)
+The permutation test is a resampling method that involves sampling with replacement to approximate the null distribution. In this context, we will use an A/B test as an example, where the goal is to determine whether the means differ between groups A and B. Let's begin with the following example.
 
-pvals_null = 1 - pchisq(x_random, df=3)
-```
-
-
-### Null distribution (of test statistic)
-
-
-```{r fig4-stat-null, out.width = '60%'}
-# Null distribution of test statistic
-hist(x_random)
-```
-
-### Null distribution of p value
-
-```{r fig4-pval-null, out.width = '60%'}
-# Null distribution of test statistic
-hist(pvals_null)
-```
-
-### Minimal p values in 10 tests
+>
+**Example 4**: The difference in birth weights between babies born to nonsmoking and heavy-smoking mothers was analyzed. Birth weights (in kilograms) were measured for a sample of mothers divided into two groups: nonsmokers (n=13) and heavy smokers (n=15).
 
 ```{r}
-# We use matrix to group 100 trials into a column
-# We then use apply() to calculate min value for each column
-
-pval_null_mtx = matrix(pvals_null, nrow=10)
-
-p_min_in10 = apply(pval_null_mtx, MARGIN=2, FUN=min)
+data_heavysmoking = c(3.18, 2.84, 2.90, 3.27, 3.85, 3.52, 3.23, 2.76, 
+                      3.60, 3.75, 3.59, 3.63, 2.38, 2.34, 2.44) 
+data_nonsmoking   = c(3.99, 3.79, 3.60, 3.73, 3.21, 3.60, 4.08, 3.61, 
+                      3.83, 3.31, 4.13, 3.26, 3.54)
+c(mean(data_nonsmoking), mean(data_heavysmoking))
 ```
 
-```{r fig4-pmin-null, out.width = '60%'}
-hist(p_min_in10)
+Now, let's apply the seven steps outlined in the previous section to perform a hypothesis test.
+
+```{r}
+## 1) Research question: 
+# We want to know whether there is a significant difference in mean birth weight
+# between the two groups.
+
+## 2) Write down the hypotheses
+# H0: there is no difference in mean birth weight between groups: d == 0
+# H1: there is a difference, d != 0
+
+## 3) Testing method
+# Method: Permutation test
+# Test statistic: difference of group means
+# Approximate null distribution: resampling method
+
+## 4) Choose a significance level
+# alpha = 0.05
+
+## 5) Calculate test statistic
+# \mu = \mu_A - \mu_B = -0.51
+
+## 6) Compute the p-value
+# To be determined below
+
+## 7) Make a decision
+# To be determined below, depending on the p-value
 ```
 
 ```{r}
-print(paste('Proportion of tests with min(p) < 0.05:', mean(p_min_in10 < 0.05)))
+## 5) Calculate test statistic: difference of group mean
+stat_mu = mean(data_heavysmoking) - mean(data_nonsmoking)
+stat_mu
 ```
 
-## Explore power and sample size (optional) { power }
 
-1. Make a simulation of score: group A and B
-2. B follows normal(mean=0, std=1); A follows normal(mean=0.1, std=1)
-3. Generate 100 samples for each group, and do a t test, is difference significant? Please use set.seed(0) beforehand.
-4. Try 3) again but general 3,00 samples this time, later 1,000 samples. What 
-   do you find? Think the relation between power and sample size.
+#### Resampling method approximates null distribution
+
+Here, we will introduce a sampling-based method to approximate the null distribution. To facilitate reuse, we will implement it as an 
+[R function](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/function).
 
 ```{r}
-set.seed(0)
+#' Simple function to generate permutation distribution
+#' @param x1 A vector with length n1, the observed values in group 1
+#' @param x2 A vector with length n2, the observed values in group 2
+#' @param n_permute A scalar, the number of permutation to perform
+#' @return a vector of n_permute mean differences between two permuted groups
+get_permutation_null <- function(x1, x2, n_permute=1000) {
+  n1 = length(x1)
+  n2 = length(x2)
+  
+  # pool data sets
+  x_pool = c(x1, x2)
+  
+  null_distr = rep(0, n_permute)
+  for (i in seq(n_permute)) {
+    # split
+    idx = sample(n1 + n2, size=n1)
+    x1_perm = x_pool[idx]
+    x2_perm = x_pool[-idx]
+    
+    # calculate test statistic
+    null_distr[i] = mean(x1_perm) - mean(x2_perm)
+  }
+  
+  return(null_distr)
+}
+```
 
-n_sample = 100 # change this value to 1000 and 10000
-xB = rnorm(n_sample)
-xA = rnorm(n_sample, mean=0.1)
-t.test(xA, xB, var.equal = TRUE)
+To visualize the null distribution and the test statistic, let's run the `get_permutation_null()` function.
+
+```{r}
+set.seed(1)
+perm_null = get_permutation_null(data_heavysmoking, data_nonsmoking)
+head(perm_null, 5)
+```
+
+We can visualize the null distribution by plotting its histogram obtained through resampling. Additionally, we can add lines indicating the observed statistic value (e.g., mu) and any other extreme values. Depending on the hypothesis test, we may consider one tail or both tails as representing extreme values.
+
+<details>
+<summary>**Click for R scripts for histogram and a vertical line - try it yourself first**
+</summary>
+```{r}
+df_perm = data.frame(perm_null = perm_null)
+
+fig4_perm_twoside = ggplot(df_perm, aes(x=perm_null)) + 
+  geom_histogram(bins=20) +
+  geom_vline(xintercept=stat_mu, linetype="dashed", color="tomato") +
+  geom_vline(xintercept=-stat_mu, linetype="dashed", color="tomato") +
+  xlab('Difference of group mean') +
+  ylab('Resampling frequency') +
+  ggtitle('Distribution of mu under the null hypothesis')
+```
+</details>
+<br />
+
+```{r fig4-perm-twoside, out.width = '60%'}
+fig4_perm_twoside
+```
+
+Now, we can finish the above steps 6 and 7 by computing the p-value=0.003 and make the decision that we reject the null hypothesis.
+```{r}
+p_value = mean(abs(perm_null) >= abs(stat_mu))
+p_value
+```
+
+#### Two-tailed or one-tailed alternative hypothesis
+
+In the above case, we consider both $\mu<-0.51$ and $\mu>0.51$ as extreme events relative to the observed value. However, in some situations, we may be interested in extreme events only in one direction— for example, $\mu<-0.51$. In such cases, the p-value is calculated based on a one-tailed test.
+
+There are more specific definitions for one-tailed and two-tailed p-values, and below is how we can compute the one-tailed p-value:
+
+**Definition of one-tailed and two-tailed p-values**
+
+* One-tailed: Corresponds to the probability of observing a test statistic as extreme as or more extreme than the observed value in a specific direction, based on the alternative hypothesis (e.g., $H_a: \mu < 0$).
+* Two-tailed: Corresponds to the probability of observing a test statistic as extreme as or more extreme than the observed value in either direction, without specifying a direction in the alternative hypothesis (e.g., $H_a: \mu \neq 0$).
+
+
+```{r}
+## Two tailed p value
+p_two_tailed = mean(abs(perm_null) >= abs(stat_mu))
+print(paste("Two tailed p value:", round(p_two_tailed, 5)))
+
+## Left-tailed p value
+p_one_tailed = mean(perm_null < stat_mu)
+print(paste("One (left) tailed p value:", round(p_one_tailed, 5)))
 ```
 
 
+### *t*-test and regression-based test
+
+In the above example, we observe how resampling methods enable us to approximate the null distribution of the difference between group means. Conversely, there are also analytical methods that can directly calculate the null distribution, often based on certain assumptions.
+
+* Resampling methods, like permutation test, are *one-size-fits-all* methods and become increasingly popular with advances in computational power;
+* Analytic methods, or formula-based approaches, are generally faster and precise when the underlying assumptions are reasonably met and not heavily violated.
+
+In this section, we will introduce the t-test, which uses the t-distribution to approximate the null distribution. The t-distribution was first described in a paper published in [*Biometrika* in 1908](https://www.jstor.org/stable/2331554) by an author under the pseudonym "Student," which is why it is also known as Student’s t-test [Student's t-distribution](https://en.wikipedia.org/wiki/Student%27s_t-distribution).
+
+We will not delve into the mathematical details of the t-distribution here. However, to summarize, it is a distribution that resembles and extends the Gaussian (normal) distribution by incorporating an additional parameter called the degrees of freedom (df). Typically, the degrees of freedom represent the number of samples minus the number of parameters estimated.
+
+When the degrees of freedom are low (e.g., df=3), the t-distribution has longer tails than the normal distribution. As the degrees of freedom increase, the t-distribution gradually approaches the Gaussian distribution, with minimal differences observed when df$\geq$30.
+
+<details>
+<summary>**Click for R scripts to plot t-distributions**
+</summary>
+```{r}
+## Comparison between standard t and normal distributions.
+# for non-standardized variable y = (x - loc) / scale, its pdf is dt(y, df) / scale
+x = seq(-4, 4, 0.01)
+p1 = dt(x, df=1)
+p3 = dt(x, df=3)
+p10 = dt(x, df=10)
+p30 = dt(x, df=30)
+p_z = dnorm(x)
+models = factor(
+  rep(c("t(df=1)", "t(df=3)", "t(df=10)", "t(df=30)", "normal"), each = length(x)),
+  levels=c("t(df=1)", "t(df=3)", "t(df=10)", "t(df=30)", "normal")
+)
+df = data.frame(x=rep(x, 5), PDF=c(p1, p3, p10, p30, p_z), models = models)
+fig_tdist = ggplot(df, aes(x = x, y = PDF, color = models)) + geom_line(size = 1) 
+```
+</details>
+<br />
+
+```{r fig4-t-vs-normal, out.width = '60%'}
+fig_tdist
+```
+
+
+#### Null distribution approximated by $t$ distribution
+
+Let us revisit Example 4, where our goal is to approximate the null distribution of the difference between group means, this time using the t-distribution.
+
+Before proceeding, it is important to acknowledge certain assumptions necessary for applying the t-distribution for this approximation:
+
+1) The two groups (non-smokers and heavy-smokers) are measured independently of each other.
+2) Both groups are drawn from normal distributions.
+3) The two groups are assumed to have the same unknown variance.
+
+**N.B.,** Assumption 2) can be relaxed if the sample sizes are sufficiently large, for example, greater than 30. This is because we are comparing the means of the two groups instead of the samples themselves, and with larger samples, the normality assumption becomes less critical, as guaranteed by the *Central limit theorem*.
+
+**Law of large number and Central limit theorem**
+
+In simple terms, the [Law of large number](https://en.wikipedia.org/wiki/Law_of_large_numbers) states that the sample mean will **converge** to the true population mean as the sample size increases. Additionally, the [Central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) 
+indicates that the sample mean will **distribute** normally be approximately normal, centered at the population mean $\mu$, with a variance of $\sigma^2 / n$, where $\sigma^2$ is the population variance and $n$ is the sample size.
+
+However, when the sample size is small—typically less than 30—Assumption 2) becomes more critical. In such cases, using the t-distribution to approximate the distribution of the sample mean is more accurate than assuming a normal distribution.
+
+> 
+**Question:** What do we mean by the distribution of the sample mean? You might ask this since, in practice, you only have a single sample set $S = \{X_1, X_2, ..., X_n\}$, which yields one sample mean. 
+When we refer to the distribution of the sample mean, we are actually considering many hypothetical sample sets of the same size—say, $S^{(1)}, S^{(2)}, ...$—all drawn from the same population. The distribution of these sample means describes the variability we would observe across many such samples.
+
+#### One-group t-test
+If we only have one group $S = \{X_1, X_2, ..., X_n\}$— for example, the nonsmoking group — and we want to test whether the population mean is equal to a specific value $k$ (for example 3.2kg), we can directly apply the Central Limit Theorem to approximate the distribution of the sample mean.
+
+In a hypothesis testing framework, we set up the null and alternative hypotheses as follows:
+
+
+(for example the nonsmoking group) and we want to test if the population mean $\mu$ is equal to a certain value $k$ (for example 3.2kg), we can directly use the *Central limit theorem* to obtain the distribution of the sample mean. In a hypothesis testing setting, we can have the null and alternative hypotheses as follows,
+
+* $H_0$: $\mu - k = 0$ (the population mean equals to $k$);
+* $H_a$: $\mu - k \neq 0$ (the population mean does not equal to $k$)
+
+Our test statistic is $\bar{X} - k$, with an observed value—for example, 0.468. If the null hypothesis is true, we can approximate the null distribution with a t-distribution:  $\mu - k \sim t(0, \hat\sigma^2, df=n-1)$, where we only need to estimate the $\hat{\sigma}$. When the sample size $n$ is large, the Central Limit Theorem justifies using this approximation.
+
+$$\hat{\sigma}^2 \approx \frac{\mathtt{Var}(X)}{n} = \frac{1/n \sum_{i=1}^n{(X_i-\bar{X})}^2}{n}$$
+
+<details>
+<summary>**Click for R scripts to plot one-group null distribution via t distribution**
+</summary>
+```{r}
+## Install extraDistr pkg for using location-scale version of the t-distribution
+if (!require("extraDistr")) {
+  install.packages("extraDistr")
+}
+
+data_nonsmoking   = c(3.99, 3.79, 3.60, 3.73, 3.21, 3.60, 4.08, 3.61, 
+                      3.83, 3.31, 4.13, 3.26, 3.54)
+sigma_hat = sqrt(var(data_nonsmoking) / length(data_nonsmoking))
+x = seq(-1.0, 1.0, 0.01)
+p = extraDistr::dlst(x, df = length(data_nonsmoking) - 1, sigma = sigma_hat)
+#p = dt(x / sigma_hat, df = length(data_nonsmoking) - 1) / sigma_hat
+events = rep("non-extreme", length(x))
+events[x <= -0.468] = "extreme-left"
+events[x >= 0.468] = "extreme-right"
+df = data.frame(x=x, PDF=p, events=events)
+fig_1group = ggplot(data.frame(x=x, PDF=p), aes(x = x, y = PDF, color=events)) + 
+  geom_line(size = 1) + scale_color_manual(values = c("red", "orange", "black"))
+```
+</details>
+<br />
+
+```{r fig4-t-onegroup, out.width = '60%'}
+cdf_left = extraDistr::plst(-0.468, df = length(data_nonsmoking) - 1, sigma = sigma_hat)
+cdf_right = 1 - extraDistr::plst(0.468, df = length(data_nonsmoking) - 1, sigma = sigma_hat)
+print(c(cdf_left, cdf_right))
+print(paste("p-value:", cdf_left + cdf_right))
+fig_1group
+```
+
+#### Two-group t-test (To be updated)
+
+
+
+**Null distribution approximated by $t$ distribution**
+
+We use the t test to assess whether two samples taken from normal distributions have significantly different means.
+
+The test statistic follows a Student's t-distribution, provided that the variances of the two groups are equal.
+
+Other variants of the t-test are applicable under different conditions.
+
+The test statistic is
+$$ t = \frac{\bar{X}_{1} - \bar{X}_{2}}{s_p \cdot \sqrt{\frac{1}{n_{1}} + \frac{1}{n_{2}}}} $$
+
+where
+$$ s_p = \sqrt{\frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}} $$
+
+is an estimator of the pooled standard deviation.
+
+Under the null hypothesis of equal means, the statistic follows a Student's t-distribution with $(n_{1} + n_{2} - 2)$ degrees of freedom.
+
+```{r}
+# Same test statistic: difference of group mean
+
+stat_t = mean(data_heavysmoking) - mean(data_nonsmoking)
+
+stat_t
+```
+
+Calculate parameters for approximate t distribution
+
+```{r}
+n_ns = length(data_nonsmoking)
+n_hs = length(data_heavysmoking)
+
+s_ns = sd(data_nonsmoking) # degree of freedom: n-1
+s_hs = sd(data_heavysmoking)
+
+# the pooled standard deviation
+sp = sqrt(((n_ns - 1)*s_ns**2 + (n_hs - 1)*s_hs**2) / (n_ns + n_hs - 2))
+print(paste0("Pooled standard deviation:", sp))
+
+my_std = sp * sqrt(1/n_ns + 1/n_hs)
+print(paste("Estimated standard error of mean difference:", my_std))
+
+stat_t_scaled = stat_t / my_std
+print(paste("Rescaled t statistic:", stat_t_scaled))
+
+print(paste("degree of freedom", n_hs+n_ns-2))
+```
+
+Here, we focusing the standardized $t$ distribution, namely the variance=1, so
+let's re-scale the test statistic by dividing the standard error `my_std`.
+
+```{r fig4-tdist, out.width = '60%'}
+xx = seq(-4.5, 4.5, 0.05)
+xx_pdf = dt(xx, df=n_hs+n_ns-2)
+
+df_t_dist = data.frame(x=xx, pdf=xx_pdf)
+
+ggplot(df_t_dist, aes(x=x)) + 
+  geom_line(aes(y=pdf)) +
+  geom_vline(xintercept=stat_t_scaled, linetype="dashed", color="tomato") +
+  geom_vline(xintercept=-stat_t_scaled, linetype="dashed", color="tomato") +
+  xlab('Difference of group mean') + 
+  ylab('PDF approximated by t distr.') +
+  ggtitle('Distribution of t under the null hypothesis')
+```
+
+```{r}
+# Note, we used multiply 2 just because the t distribution is symmetric,
+# otherwise, we need calculate both side and add them.
+
+pval_t_twoside = pt(stat_t_scaled, df=n_hs+n_ns-2) * 2
+
+print(paste('t-test p value (two-tailed):', round(pval_t_twoside, 6)))
+```
+
+#### Direct use of ``t.test()``
+
+In course and most of your future analyses, you can directly use the built-in 
+``t.test()`` function.
+
+```{r}
+# Note, we assumed the variance in both groups are the same, 
+# we so need to set var.equal = TRUE
+
+t.test(data_nonsmoking, data_heavysmoking, var.equal = TRUE)
+```
+
+
+#### regression-based test
+We can also perform t-test in a Generalised linear model (GLM) setting to test
+if a coefficient is zero or not.
+
+Here, we simply use the `marketing` dataset as an example.
+
+```{r}
+# Install datarium library if you haven't
+if (!requireNamespace("datarium", quietly = TRUE)) {
+  install.packages("datarium")
+}
+
+library(datarium)
+
+# Load data: then we will have a data.frame with name marketing
+data(marketing)
+head(marketing)
+```
+
+```{r fig4-glm-scatter, out.width = '60%'}
+ggplot(marketing, aes(x=newspaper, y=sales)) + 
+  geom_point() + geom_smooth(method=lm)
+```
+
+
+```{r}
+# Fit linear regression
+res.lm <- lm(sales ~ newspaper, data = marketing)
+
+# We can check the test via the summary() function
+summary(res.lm)
+```
+
+
+```{r fig4-glm, out.width = '60%'}
+glm_t_val = summary(res.lm)$coefficients["newspaper", "t value"]
+
+xx = seq(-5, 5, 0.01)
+yy = dt(xx, 198)
+df_ttest <- data.frame(x=xx, PDF=yy)
+
+ggplot(df_ttest, aes(x=x, y=PDF)) + 
+  geom_line() + 
+  geom_vline(xintercept = glm_t_val, linetype="dashed", color="tomato") +
+  geom_vline(xintercept = -glm_t_val, linetype="dashed", color='tomato')
+```
+
+
+### Fisher's exact test
+
+
+**Acknowledgement**: examples are from Dr John Pinney [link here](https://github.com/johnpinney/sampling_and_hypothesis_testing/blob/master/python_version/hypothesis_testing_python.ipynb)
