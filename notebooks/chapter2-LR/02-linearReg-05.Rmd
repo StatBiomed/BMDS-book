@@ -194,3 +194,20 @@ Why?
 
 This step shows clearly that adding one more input variable `Newspaper` in 
 Model 3 does not lead to any improvement. 
+
+
+## Exercise with the real estate data
+
+Q0. Load the data via this R script
+```{}
+df_estate = read.csv("https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter2-LR/real_estate.csv")
+```
+
+Q1. Use `lm` function to perform simple linear regression by using X2 (house age) to predict Y (the price). Print the $R^2$ and the p-value.
+
+Q2. Repeat Q1 for each of the 6 features. Which features have p-values <0.05?
+
+Q3. Select the significant features from Q2, and perform a multiple linear regression with `lm` function. Print the R^2 and F statistic. What are the features still having a p-value <0.05?
+
+Q4. Determine the best feature combination (model) for predicting the price and explain why.
+

@@ -177,7 +177,7 @@ models = factor(
   levels=c("t(df=1)", "t(df=3)", "t(df=10)", "t(df=30)", "normal")
 )
 df = data.frame(x=rep(x, 5), PDF=c(p1, p3, p10, p30, p_z), models = models)
-fig_tdist = ggplot(df, aes(x = x, y = PDF, color = models)) + geom_line(size = 1) 
+fig_tdist = ggplot(df, aes(x = x, y = PDF, color = models)) + geom_line(linewidth = 1) 
 ```
 </details>
 <br />

@@ -46,15 +46,21 @@ $$\frac{8 \times 7 \times 6 \times 5} {4 \times 3 \times 2 \times 1} = 70$$
 > 
 **Example 2:** Your arch-nemesis, Blofeld, always seems to win at Ludo, leading you to suspect that he might be using a loaded die. You have observed the following outcomes from 100 rolls of his die:
 <br />
+Based on these observations, you want to evaluate two hypotheses:<br />
+* $H_0$: probability of rolling a 6 is p = 1/6<br />
+* $H_A$: probability of rolling a 6 is p > 1/6
+
+```{r}
 data = c(6, 1, 5, 6, 2, 6, 4, 3, 4, 6, 1, 2, 5, 6, 6, 3, 6, 2, 6, 4, 6, 2,
        5, 4, 2, 3, 3, 6, 6, 1, 2, 5, 6, 4, 6, 2, 1, 3, 6, 5, 4, 5, 6, 3,
        6, 6, 1, 4, 6, 6, 6, 6, 6, 2, 3, 1, 6, 4, 3, 6, 2, 4, 6, 6, 6, 5,
        6, 2, 1, 6, 6, 4, 3, 6, 5, 6, 6, 2, 6, 3, 6, 6, 1, 4, 6, 4, 2, 6,
        6, 5, 2, 6, 6, 4, 3, 1, 6, 6, 5, 5)
-<br />
-Based on these observations, you want to evaluate two hypotheses:<br />
-* $H_0$: probability of rolling a 6 is p = 1/6<br />
-* $H_A$: probability of rolling a 6 is p > 1/6
+
+stat_k = sum(data == 6)
+stat_k
+```
+
 
 After counting, you found that the number 6 appears 43 times out of 100 rolls. You then ask: what is the probability of observing this many or more sixes if the die is fair? Assuming the die is unbiased, you can calculate the probability of getting 6 for $K$ times out of 100 trials, via a [binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution).
 
@@ -66,7 +72,7 @@ Now, let's visualize the probability of seeing any times of 6 via R scripts.
 <details>
 <summary>**Visualizing with R:**
 </summary>
-```{r fig4-dice, out.width = '60%'}
+```{r}
 # plot the probability mass function of null distribution
 
 x = seq(0, 101)
@@ -85,7 +91,7 @@ fig4_dice = ggplot(df, aes(x=x)) +
 </details>
 <br />
 
-```{r}
+```{r fig4-dice, out.width = '60%'}
 fig4_dice
 ```
 
