@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Introduction to Hypothesis test | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Introduction to Hypothesis test | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2025-09-29" />
+<meta name="date" content="2025-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -192,7 +192,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.2" data-path="introHypoTest.html"><a href="introHypoTest.html#t-test-and-regression-based-test"><i class="fa fa-check"></i><b>2.2.2</b> <em>t</em>-test and regression-based test</a></li>
 <li class="chapter" data-level="2.2.3" data-path="introHypoTest.html"><a href="introHypoTest.html#fishers-exact-test"><i class="fa fa-check"></i><b>2.2.3</b> Fisher’s exact test</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="introHypoTest.html"><a href="introHypoTest.html#multiple-testing-and-errors"><i class="fa fa-check"></i><b>2.3</b> Multiple testing and errors</a>
+<li class="chapter" data-level="2.3" data-path="introHypoTest.html"><a href="introHypoTest.html#multiple-testing-and-errors-to-be-updated"><i class="fa fa-check"></i><b>2.3</b> Multiple testing and errors (To be updated)</a>
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-test-statistic"><i class="fa fa-check"></i><b>2.3.1</b> Null distribution (of test statistic)</a></li>
 <li class="chapter" data-level="2.3.2" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-p-value"><i class="fa fa-check"></i><b>2.3.2</b> Null distribution of p value</a></li>
@@ -646,8 +646,13 @@ The purpose of hypothesis test is to help us learn whether random chance might b
 <li>Analytic methods, or formula-based approaches, are generally faster and precise when the underlying assumptions are reasonably met and not heavily violated.</li>
 </ul>
 <p>In this section, we will introduce the t-test, which uses the t-distribution to approximate the null distribution. The t-distribution was first described in a paper published in <a href="https://www.jstor.org/stable/2331554"><em>Biometrika</em> in 1908</a> by an author under the pseudonym “Student,” which is why it is also known as Student’s t-test <a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">Student’s t-distribution</a>.</p>
-<p>We will not delve into the mathematical details of the t-distribution here. However, to summarize, it is a distribution that resembles and extends the Gaussian (normal) distribution by incorporating an additional parameter called the degrees of freedom (df). Typically, the degrees of freedom represent the number of samples minus the number of parameters estimated.</p>
-<p>When the degrees of freedom are low (e.g., df=3), the t-distribution has longer tails than the normal distribution. As the degrees of freedom increase, the t-distribution gradually approaches the Gaussian distribution, with minimal differences observed when df$$30.</p>
+<p>We will not delve into the mathematical details of the t-distribution here. However, to summarize, it is a distribution that resembles and extends the Gaussian (normal) distribution by incorporating an additional parameter called the degree of freedom (df). Typically, the degree of freedom represents the number of samples minus the number of parameters estimated, meaning how many variables can independently change.</p>
+<p>When the degree of freedom is low (e.g., df=3), the t-distribution has longer tails than the normal distribution. As the degree of freedom increases, the t-distribution gradually approaches the Gaussian distribution, with minimal differences observed when df≥30.</p>
+<p>In R, there are multiple implementations of t distribution. The most common one is
+<a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/TDist.html">?stats::TDist</a>,
+for a standardized the t distribution (i.e., mean: 0, std: 1).
+For non-standardized one with supporting location and scale parameters, we may consider using
+<a href="https://cran.r-project.org/web/packages/extraDistr/refman/extraDistr.html#LocationScaleT">?extraDistr::LocationScaleT</a>.</p>
 <details>
 <summary>
 <strong>Click for R scripts to plot t-distributions</strong>
@@ -672,7 +677,7 @@ The purpose of hypothesis test is to help us learn whether random chance might b
 <p><img src="BMDatSci_files/figure-html/fig4-t-vs-normal-1.png" width="60%" /></p>
 <div id="null-distribution-approximated-by-t-distribution" class="section level4 hasAnchor" number="2.2.2.1">
 <h4><span class="header-section-number">2.2.2.1</span> Null distribution approximated by <span class="math inline">\(t\)</span> distribution<a href="introHypoTest.html#null-distribution-approximated-by-t-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Let us revisit Example 4, where our goal is to approximate the null distribution of the difference between group means, this time using the t-distribution.</p>
+<p>Let’s revisit Example 4, where our goal is to approximate the null distribution of the difference between group means, this time using the t-distribution.</p>
 <p>Before proceeding, it is important to acknowledge certain assumptions necessary for applying the t-distribution for this approximation:</p>
 <ol style="list-style-type: decimal">
 <li>The two groups (non-smokers and heavy-smokers) are measured independently of each other.</li>
@@ -682,24 +687,23 @@ The purpose of hypothesis test is to help us learn whether random chance might b
 <p><strong>N.B.,</strong> Assumption 2) can be relaxed if the sample sizes are sufficiently large, for example, greater than 30. This is because we are comparing the means of the two groups instead of the samples themselves, and with larger samples, the normality assumption becomes less critical, as guaranteed by the <em>Central limit theorem</em>.</p>
 <p><strong>Law of large number and Central limit theorem</strong></p>
 <p>In simple terms, the <a href="https://en.wikipedia.org/wiki/Law_of_large_numbers">Law of large number</a> states that the sample mean will <strong>converge</strong> to the true population mean as the sample size increases. Additionally, the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central limit theorem</a>
-indicates that the sample mean will <strong>distribute</strong> normally be approximately normal, centered at the population mean <span class="math inline">\(\mu\)</span>, with a variance of <span class="math inline">\(\sigma^2 / n\)</span>, where <span class="math inline">\(\sigma^2\)</span> is the population variance and <span class="math inline">\(n\)</span> is the sample size.</p>
-<p>However, when the sample size is small—typically less than 30—Assumption 2) becomes more critical. In such cases, using the t-distribution to approximate the distribution of the sample mean is more accurate than assuming a normal distribution.</p>
+indicates that the sample mean will have a <strong>distribution</strong> asymptotically to a normal distribution, centered at the population mean <span class="math inline">\(\mu\)</span>, with a variance of <span class="math inline">\(\sigma^2 / n\)</span>, where <span class="math inline">\(\sigma^2\)</span> is the population variance and <span class="math inline">\(n\)</span> is the sample size.</p>
+<p>However, when the sample size is small—typically less than 30—Assumption 2) becomes more critical. Moreover, in such low-sample-size cases, using the t-distribution to approximate the distribution of the sample mean is more accurate than using a normal distribution.</p>
 <blockquote>
-<p><strong>Question:</strong> What do we mean by the distribution of the sample mean? You might ask this since, in practice, you only have a single sample set <span class="math inline">\(S = \{X_1, X_2, ..., X_n\}\)</span>, which yields one sample mean.
+<p><strong>Thinking:</strong> Why do we talk about the distribution of the sample mean? You might ask this since, in practice, we only have a single sample set <span class="math inline">\(S^{(1)} = \{X_1, X_2, ..., X_n\}\)</span>, which yields one sample mean.
 When we refer to the distribution of the sample mean, we are actually considering many hypothetical sample sets of the same size—say, <span class="math inline">\(S^{(1)}, S^{(2)}, ...\)</span>—all drawn from the same population. The distribution of these sample means describes the variability we would observe across many such samples.</p>
 </blockquote>
 </div>
 <div id="one-group-t-test" class="section level4 hasAnchor" number="2.2.2.2">
 <h4><span class="header-section-number">2.2.2.2</span> One-group t-test<a href="introHypoTest.html#one-group-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>If we only have one group <span class="math inline">\(S = \{X_1, X_2, ..., X_n\}\)</span>— for example, the nonsmoking group — and we want to test whether the population mean is equal to a specific value <span class="math inline">\(k\)</span> (for example 3.2kg), we can directly apply the Central Limit Theorem to approximate the distribution of the sample mean.</p>
-<p>In a hypothesis testing framework, we set up the null and alternative hypotheses as follows:</p>
-<p>(for example the nonsmoking group) and we want to test if the population mean <span class="math inline">\(\mu\)</span> is equal to a certain value <span class="math inline">\(k\)</span> (for example 3.2kg), we can directly use the <em>Central limit theorem</em> to obtain the distribution of the sample mean. In a hypothesis testing setting, we can have the null and alternative hypotheses as follows,</p>
+<p>If we only have one group <span class="math inline">\(S = \{X_1, X_2, ..., X_n\}\)</span>— for example, the nonsmoking group — and we want to test whether the population mean is equal to a specific value <span class="math inline">\(\mu_0\)</span> (for example 3.2kg), we can directly apply the <em>Central Limit Theorem</em> to approximate the distribution of the sample mean.
+In a hypothesis testing framework, we set up the null and alternative hypotheses as follows:</p>
 <ul>
-<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu - k = 0\)</span> (the population mean equals to <span class="math inline">\(k\)</span>);</li>
-<li><span class="math inline">\(H_a\)</span>: <span class="math inline">\(\mu - k \neq 0\)</span> (the population mean does not equal to <span class="math inline">\(k\)</span>)</li>
+<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu - \mu_0 = 0\)</span> (the population mean equals to <span class="math inline">\(\mu_0\)</span>);</li>
+<li><span class="math inline">\(H_a\)</span>: <span class="math inline">\(\mu - \mu_0 \neq 0\)</span> (the population mean does not equal to <span class="math inline">\(\mu_0\)</span>)</li>
 </ul>
-<p>Our test statistic is <span class="math inline">\(\bar{X} - k\)</span>, with an observed value—for example, 0.468. If the null hypothesis is true, we can approximate the null distribution with a t-distribution: <span class="math inline">\(\mu - k \sim t(0, \hat\sigma^2, df=n-1)\)</span>, where we only need to estimate the <span class="math inline">\(\hat{\sigma}\)</span>. When the sample size <span class="math inline">\(n\)</span> is large, the Central Limit Theorem justifies using this approximation.</p>
-<p><span class="math display">\[\hat{\sigma}^2 \approx \frac{\mathtt{Var}(X)}{n} = \frac{1/n \sum_{i=1}^n{(X_i-\bar{X})}^2}{n}\]</span></p>
+<p>Our test statistic is <span class="math inline">\(\bar{X} - \mu_0\)</span>, with an observed value—for example, 0.468. If the null hypothesis is true, we can approximate the null distribution with a t-distribution: <span class="math inline">\(\mu - \mu_0 \sim t(0, \hat\sigma^2, \text{df}=n-1)\)</span>, where we only need to estimate the <span class="math inline">\(\hat{\sigma}\)</span>. When the sample size <span class="math inline">\(n\)</span> is large, the Central Limit Theorem justifies using this approximation.</p>
+<p><span class="math display">\[\hat{\sigma}^2 \approx \frac{\mathtt{Var}(X)}{n} = \frac{\frac{1}{n-1} \sum_{i=1}^n{(X_i-\bar{X})}^2}{n}\]</span></p>
 <details>
 <summary>
 <strong>Click for R scripts to plot one-group null distribution via t distribution</strong>
@@ -720,7 +724,7 @@ When we refer to the distribution of the sample mean, we are actually considerin
 <span id="cb72-14"><a href="introHypoTest.html#cb72-14" tabindex="-1"></a>events[x <span class="sc">&gt;=</span> <span class="fl">0.468</span>] <span class="ot">=</span> <span class="st">&quot;extreme-right&quot;</span></span>
 <span id="cb72-15"><a href="introHypoTest.html#cb72-15" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x=</span>x, <span class="at">PDF=</span>p, <span class="at">events=</span>events)</span>
 <span id="cb72-16"><a href="introHypoTest.html#cb72-16" tabindex="-1"></a>fig_1group <span class="ot">=</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x=</span>x, <span class="at">PDF=</span>p), <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> PDF, <span class="at">color=</span>events)) <span class="sc">+</span> </span>
-<span id="cb72-17"><a href="introHypoTest.html#cb72-17" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;black&quot;</span>))</span></code></pre></div>
+<span id="cb72-17"><a href="introHypoTest.html#cb72-17" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;black&quot;</span>))</span></code></pre></div>
 </details>
 <p><br /></p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="introHypoTest.html#cb73-1" tabindex="-1"></a>cdf_left <span class="ot">=</span> extraDistr<span class="sc">::</span><span class="fu">plst</span>(<span class="sc">-</span><span class="fl">0.468</span>, <span class="at">df =</span> <span class="fu">length</span>(data_nonsmoking) <span class="sc">-</span> <span class="dv">1</span>, <span class="at">sigma =</span> sigma_hat)</span>
@@ -732,94 +736,132 @@ When we refer to the distribution of the sample mean, we are actually considerin
 <span id="cb73-7"><a href="introHypoTest.html#cb73-7" tabindex="-1"></a>fig_1group</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig4-t-onegroup-1.png" width="60%" /></p>
 </div>
-<div id="two-group-t-test-to-be-updated" class="section level4 hasAnchor" number="2.2.2.3">
-<h4><span class="header-section-number">2.2.2.3</span> Two-group t-test (To be updated)<a href="introHypoTest.html#two-group-t-test-to-be-updated" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><strong>Null distribution approximated by <span class="math inline">\(t\)</span> distribution</strong></p>
-<p>We use the t test to assess whether two samples taken from normal distributions have significantly different means.</p>
-<p>The test statistic follows a Student’s t-distribution, provided that the variances of the two groups are equal.</p>
-<p>Other variants of the t-test are applicable under different conditions.</p>
-<p>The test statistic is
-<span class="math display">\[ t = \frac{\bar{X}_{1} - \bar{X}_{2}}{s_p \cdot \sqrt{\frac{1}{n_{1}} + \frac{1}{n_{2}}}} \]</span></p>
-<p>where
-<span class="math display">\[ s_p = \sqrt{\frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}} \]</span></p>
-<p>is an estimator of the pooled standard deviation.</p>
-<p>Under the null hypothesis of equal means, the statistic follows a Student’s t-distribution with <span class="math inline">\((n_{1} + n_{2} - 2)\)</span> degrees of freedom.</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="introHypoTest.html#cb74-1" tabindex="-1"></a><span class="co"># Same test statistic: difference of group mean</span></span>
-<span id="cb74-2"><a href="introHypoTest.html#cb74-2" tabindex="-1"></a></span>
-<span id="cb74-3"><a href="introHypoTest.html#cb74-3" tabindex="-1"></a>stat_t <span class="ot">=</span> <span class="fu">mean</span>(data_heavysmoking) <span class="sc">-</span> <span class="fu">mean</span>(data_nonsmoking)</span>
-<span id="cb74-4"><a href="introHypoTest.html#cb74-4" tabindex="-1"></a></span>
-<span id="cb74-5"><a href="introHypoTest.html#cb74-5" tabindex="-1"></a>stat_t</span>
-<span id="cb74-6"><a href="introHypoTest.html#cb74-6" tabindex="-1"></a><span class="co">#&gt; [1] -0.5156923</span></span></code></pre></div>
-<p>Calculate parameters for approximate t distribution</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="introHypoTest.html#cb75-1" tabindex="-1"></a>n_ns <span class="ot">=</span> <span class="fu">length</span>(data_nonsmoking)</span>
-<span id="cb75-2"><a href="introHypoTest.html#cb75-2" tabindex="-1"></a>n_hs <span class="ot">=</span> <span class="fu">length</span>(data_heavysmoking)</span>
-<span id="cb75-3"><a href="introHypoTest.html#cb75-3" tabindex="-1"></a></span>
-<span id="cb75-4"><a href="introHypoTest.html#cb75-4" tabindex="-1"></a>s_ns <span class="ot">=</span> <span class="fu">sd</span>(data_nonsmoking) <span class="co"># degree of freedom: n-1</span></span>
-<span id="cb75-5"><a href="introHypoTest.html#cb75-5" tabindex="-1"></a>s_hs <span class="ot">=</span> <span class="fu">sd</span>(data_heavysmoking)</span>
-<span id="cb75-6"><a href="introHypoTest.html#cb75-6" tabindex="-1"></a></span>
-<span id="cb75-7"><a href="introHypoTest.html#cb75-7" tabindex="-1"></a><span class="co"># the pooled standard deviation</span></span>
-<span id="cb75-8"><a href="introHypoTest.html#cb75-8" tabindex="-1"></a>sp <span class="ot">=</span> <span class="fu">sqrt</span>(((n_ns <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span>s_ns<span class="sc">**</span><span class="dv">2</span> <span class="sc">+</span> (n_hs <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span>s_hs<span class="sc">**</span><span class="dv">2</span>) <span class="sc">/</span> (n_ns <span class="sc">+</span> n_hs <span class="sc">-</span> <span class="dv">2</span>))</span>
-<span id="cb75-9"><a href="introHypoTest.html#cb75-9" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;Pooled standard deviation:&quot;</span>, sp))</span>
-<span id="cb75-10"><a href="introHypoTest.html#cb75-10" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Pooled standard deviation:0.428057812829366&quot;</span></span>
-<span id="cb75-11"><a href="introHypoTest.html#cb75-11" tabindex="-1"></a></span>
-<span id="cb75-12"><a href="introHypoTest.html#cb75-12" tabindex="-1"></a>my_std <span class="ot">=</span> sp <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">/</span>n_ns <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>n_hs)</span>
-<span id="cb75-13"><a href="introHypoTest.html#cb75-13" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Estimated standard error of mean difference:&quot;</span>, my_std))</span>
-<span id="cb75-14"><a href="introHypoTest.html#cb75-14" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Estimated standard error of mean difference: 0.162204962956089&quot;</span></span>
-<span id="cb75-15"><a href="introHypoTest.html#cb75-15" tabindex="-1"></a></span>
-<span id="cb75-16"><a href="introHypoTest.html#cb75-16" tabindex="-1"></a>stat_t_scaled <span class="ot">=</span> stat_t <span class="sc">/</span> my_std</span>
-<span id="cb75-17"><a href="introHypoTest.html#cb75-17" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Rescaled t statistic:&quot;</span>, stat_t_scaled))</span>
-<span id="cb75-18"><a href="introHypoTest.html#cb75-18" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Rescaled t statistic: -3.17926343494134&quot;</span></span>
-<span id="cb75-19"><a href="introHypoTest.html#cb75-19" tabindex="-1"></a></span>
-<span id="cb75-20"><a href="introHypoTest.html#cb75-20" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;degree of freedom&quot;</span>, n_hs<span class="sc">+</span>n_ns<span class="dv">-2</span>))</span>
-<span id="cb75-21"><a href="introHypoTest.html#cb75-21" tabindex="-1"></a><span class="co">#&gt; [1] &quot;degree of freedom 26&quot;</span></span></code></pre></div>
-<p>Here, we focusing the standardized <span class="math inline">\(t\)</span> distribution, namely the variance=1, so
-let’s re-scale the test statistic by dividing the standard error <code>my_std</code>.</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="introHypoTest.html#cb76-1" tabindex="-1"></a>xx <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">4.5</span>, <span class="fl">4.5</span>, <span class="fl">0.05</span>)</span>
-<span id="cb76-2"><a href="introHypoTest.html#cb76-2" tabindex="-1"></a>xx_pdf <span class="ot">=</span> <span class="fu">dt</span>(xx, <span class="at">df=</span>n_hs<span class="sc">+</span>n_ns<span class="dv">-2</span>)</span>
-<span id="cb76-3"><a href="introHypoTest.html#cb76-3" tabindex="-1"></a></span>
-<span id="cb76-4"><a href="introHypoTest.html#cb76-4" tabindex="-1"></a>df_t_dist <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x=</span>xx, <span class="at">pdf=</span>xx_pdf)</span>
-<span id="cb76-5"><a href="introHypoTest.html#cb76-5" tabindex="-1"></a></span>
-<span id="cb76-6"><a href="introHypoTest.html#cb76-6" tabindex="-1"></a><span class="fu">ggplot</span>(df_t_dist, <span class="fu">aes</span>(<span class="at">x=</span>x)) <span class="sc">+</span> </span>
-<span id="cb76-7"><a href="introHypoTest.html#cb76-7" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>pdf)) <span class="sc">+</span></span>
-<span id="cb76-8"><a href="introHypoTest.html#cb76-8" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span>stat_t_scaled, <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">color=</span><span class="st">&quot;tomato&quot;</span>) <span class="sc">+</span></span>
-<span id="cb76-9"><a href="introHypoTest.html#cb76-9" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="sc">-</span>stat_t_scaled, <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">color=</span><span class="st">&quot;tomato&quot;</span>) <span class="sc">+</span></span>
-<span id="cb76-10"><a href="introHypoTest.html#cb76-10" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&#39;Difference of group mean&#39;</span>) <span class="sc">+</span> </span>
-<span id="cb76-11"><a href="introHypoTest.html#cb76-11" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&#39;PDF approximated by t distr.&#39;</span>) <span class="sc">+</span></span>
-<span id="cb76-12"><a href="introHypoTest.html#cb76-12" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;Distribution of t under the null hypothesis&#39;</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig4-tdist-1.png" width="60%" /></p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="introHypoTest.html#cb77-1" tabindex="-1"></a><span class="co"># Note, we used multiply 2 just because the t distribution is symmetric,</span></span>
-<span id="cb77-2"><a href="introHypoTest.html#cb77-2" tabindex="-1"></a><span class="co"># otherwise, we need calculate both side and add them.</span></span>
-<span id="cb77-3"><a href="introHypoTest.html#cb77-3" tabindex="-1"></a></span>
-<span id="cb77-4"><a href="introHypoTest.html#cb77-4" tabindex="-1"></a>pval_t_twoside <span class="ot">=</span> <span class="fu">pt</span>(stat_t_scaled, <span class="at">df=</span>n_hs<span class="sc">+</span>n_ns<span class="dv">-2</span>) <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb77-5"><a href="introHypoTest.html#cb77-5" tabindex="-1"></a></span>
-<span id="cb77-6"><a href="introHypoTest.html#cb77-6" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;t-test p value (two-tailed):&#39;</span>, <span class="fu">round</span>(pval_t_twoside, <span class="dv">6</span>)))</span>
-<span id="cb77-7"><a href="introHypoTest.html#cb77-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;t-test p value (two-tailed): 0.003793&quot;</span></span></code></pre></div>
+<div id="two-group-t-test" class="section level4 hasAnchor" number="2.2.2.3">
+<h4><span class="header-section-number">2.2.2.3</span> Two-group t-test<a href="introHypoTest.html#two-group-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Aside from comparing a single sample mean to a specific value, a more common scenario involves comparing the means between two groups—for example, a treatment group (such as disease status or intervention) versus a control group. This approach is often referred to as an A/B test, which assesses whether the sample means of groups A and B are statistically different.</p>
+<p>Let’s revisit Example 4, where we compare birth weights between two groups: heavy smokers and non-smokers. The observed difference in mean birth weight is -0.516 kg. To analyze this, we can set up the following hypotheses, similar to the permutation test:</p>
+<ul>
+<li>H0: there is no difference in mean birth weight between groups: <span class="math inline">\(d = 0\)</span></li>
+<li>H1: there is a difference, <span class="math inline">\(d \neq 0\)</span></li>
+</ul>
+<p>This time, instead of using resampling, we will now use the t-distribution to approximate the distribution of the difference in sample means, <span class="math inline">\(d\)</span>, under the null hypothesis. Assuming the null hypothesis is true, we can model the distribution of the observed difference using a t-distribution as follows.</p>
+<p><span class="math display">\[
+d \sim t(\mu=0, \hat\sigma^2, \text{df}=n_1 + n_2 - 2)
+\]</span>
+Under the null hypothesis, the t-distribution has a mean of <span class="math inline">\(\mu=0\)</span>, with degrees of freedom df=<span class="math inline">\(n_1+n_2-2\)</span>, since the means of the two samples are considered fixed. Similar to the one-sample test, the only unknown parameter to estimate is
+<span class="math inline">\(\hat\sigma\)</span>. Assuming <strong>Assumption 3</strong>—<em>that the two groups have the same unknown variance</em>—we can approximate this parameter using the following calculation:</p>
+<p><span class="math display">\[\hat\sigma^2 \approx {s_p^2 \cdot (\frac{1}{n_{1}} + \frac{1}{n_{2}}})\]</span>,</p>
+<p>where <span class="math inline">\(s_p^2\)</span> is the pooled variance and is given by <span class="math inline">\(s_1^2\)</span> and <span class="math inline">\(s_2^2\)</span>, sample variance (i.e., the unbiased estimator of the population variance) in groups 1 and 2, as follows,</p>
+<p><span class="math display">\[
+s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}; \quad
+s_1^2 = \frac{\sum {(X_1^{(1)} - \bar{X}^{(1)})^2}}{n_1 - 1} ; \quad
+s_2^2 = \frac{\sum {(X_1^{(2)} - \bar{X}^{(2)})^2}}{n_2 - 1}
+\]</span>
+Note, if the variances between the groups differ, the calculation would need to be adjusted, using the <a href="https://en.wikipedia.org/wiki/Welch%27s_t-test">Welch’s t-test</a></p>
+<details>
+<summary>
+<strong>Click for R scripts to calculate t distribution for two-group comparison</strong>
+</summary>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="introHypoTest.html#cb74-1" tabindex="-1"></a><span class="do">## Install extraDistr pkg for using location-scale version of the t-distribution</span></span>
+<span id="cb74-2"><a href="introHypoTest.html#cb74-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;extraDistr&quot;</span>)) {</span>
+<span id="cb74-3"><a href="introHypoTest.html#cb74-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;extraDistr&quot;</span>)</span>
+<span id="cb74-4"><a href="introHypoTest.html#cb74-4" tabindex="-1"></a>}</span>
+<span id="cb74-5"><a href="introHypoTest.html#cb74-5" tabindex="-1"></a></span>
+<span id="cb74-6"><a href="introHypoTest.html#cb74-6" tabindex="-1"></a>d_obs <span class="ot">=</span> <span class="fu">mean</span>(data_heavysmoking) <span class="sc">-</span> <span class="fu">mean</span>(data_nonsmoking)</span>
+<span id="cb74-7"><a href="introHypoTest.html#cb74-7" tabindex="-1"></a></span>
+<span id="cb74-8"><a href="introHypoTest.html#cb74-8" tabindex="-1"></a>n_ns <span class="ot">=</span> <span class="fu">length</span>(data_nonsmoking)</span>
+<span id="cb74-9"><a href="introHypoTest.html#cb74-9" tabindex="-1"></a>n_hs <span class="ot">=</span> <span class="fu">length</span>(data_heavysmoking)</span>
+<span id="cb74-10"><a href="introHypoTest.html#cb74-10" tabindex="-1"></a></span>
+<span id="cb74-11"><a href="introHypoTest.html#cb74-11" tabindex="-1"></a>s_ns <span class="ot">=</span> <span class="fu">sd</span>(data_nonsmoking) <span class="co"># degree of freedom: n-1</span></span>
+<span id="cb74-12"><a href="introHypoTest.html#cb74-12" tabindex="-1"></a>s_hs <span class="ot">=</span> <span class="fu">sd</span>(data_heavysmoking)</span>
+<span id="cb74-13"><a href="introHypoTest.html#cb74-13" tabindex="-1"></a></span>
+<span id="cb74-14"><a href="introHypoTest.html#cb74-14" tabindex="-1"></a><span class="co"># the pooled standard deviation</span></span>
+<span id="cb74-15"><a href="introHypoTest.html#cb74-15" tabindex="-1"></a>sp <span class="ot">=</span> <span class="fu">sqrt</span>(((n_ns <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span>s_ns<span class="sc">**</span><span class="dv">2</span> <span class="sc">+</span> (n_hs <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span>s_hs<span class="sc">**</span><span class="dv">2</span>) <span class="sc">/</span> (n_ns <span class="sc">+</span> n_hs <span class="sc">-</span> <span class="dv">2</span>))</span>
+<span id="cb74-16"><a href="introHypoTest.html#cb74-16" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;Pooled standard deviation:&quot;</span>, sp))</span>
+<span id="cb74-17"><a href="introHypoTest.html#cb74-17" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Pooled standard deviation:0.428057812829366&quot;</span></span>
+<span id="cb74-18"><a href="introHypoTest.html#cb74-18" tabindex="-1"></a></span>
+<span id="cb74-19"><a href="introHypoTest.html#cb74-19" tabindex="-1"></a>d_sigma_hat <span class="ot">=</span> sp <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">/</span>n_ns <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>n_hs)</span>
+<span id="cb74-20"><a href="introHypoTest.html#cb74-20" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Estimated standard error of mean difference:&quot;</span>, d_sigma_hat))</span>
+<span id="cb74-21"><a href="introHypoTest.html#cb74-21" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Estimated standard error of mean difference: 0.162204962956089&quot;</span></span>
+<span id="cb74-22"><a href="introHypoTest.html#cb74-22" tabindex="-1"></a></span>
+<span id="cb74-23"><a href="introHypoTest.html#cb74-23" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">0.01</span>)</span>
+<span id="cb74-24"><a href="introHypoTest.html#cb74-24" tabindex="-1"></a>p <span class="ot">=</span> extraDistr<span class="sc">::</span><span class="fu">dlst</span>(x, <span class="at">df =</span> n_ns <span class="sc">+</span> n_hs <span class="sc">-</span> <span class="dv">2</span>, <span class="at">sigma =</span> d_sigma_hat)</span>
+<span id="cb74-25"><a href="introHypoTest.html#cb74-25" tabindex="-1"></a>events <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;non-extreme&quot;</span>, <span class="fu">length</span>(x))</span>
+<span id="cb74-26"><a href="introHypoTest.html#cb74-26" tabindex="-1"></a>events[x <span class="sc">&lt;=</span> <span class="sc">-</span><span class="fu">abs</span>(d_obs)] <span class="ot">=</span> <span class="st">&quot;extreme-left&quot;</span></span>
+<span id="cb74-27"><a href="introHypoTest.html#cb74-27" tabindex="-1"></a>events[x <span class="sc">&gt;=</span> <span class="fu">abs</span>(d_obs)] <span class="ot">=</span> <span class="st">&quot;extreme-right&quot;</span></span>
+<span id="cb74-28"><a href="introHypoTest.html#cb74-28" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x=</span>x, <span class="at">PDF=</span>p, <span class="at">events=</span>events)</span>
+<span id="cb74-29"><a href="introHypoTest.html#cb74-29" tabindex="-1"></a>fig_2group <span class="ot">=</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x=</span>x, <span class="at">PDF=</span>p), <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> PDF, <span class="at">color=</span>events)) <span class="sc">+</span> </span>
+<span id="cb74-30"><a href="introHypoTest.html#cb74-30" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;black&quot;</span>))</span></code></pre></div>
+</details>
+<p><br /></p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="introHypoTest.html#cb75-1" tabindex="-1"></a>cdf_left <span class="ot">=</span> extraDistr<span class="sc">::</span><span class="fu">plst</span>(<span class="sc">-</span><span class="fu">abs</span>(d_obs), <span class="at">df =</span> n_ns <span class="sc">+</span> n_hs <span class="sc">-</span> <span class="dv">2</span>, <span class="at">sigma =</span> d_sigma_hat)</span>
+<span id="cb75-2"><a href="introHypoTest.html#cb75-2" tabindex="-1"></a>cdf_right <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> extraDistr<span class="sc">::</span><span class="fu">plst</span>(<span class="fu">abs</span>(d_obs), <span class="at">df =</span> n_ns <span class="sc">+</span> n_hs <span class="sc">-</span> <span class="dv">2</span>, <span class="at">sigma =</span> d_sigma_hat)</span>
+<span id="cb75-3"><a href="introHypoTest.html#cb75-3" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">c</span>(cdf_left, cdf_right))</span>
+<span id="cb75-4"><a href="introHypoTest.html#cb75-4" tabindex="-1"></a><span class="co">#&gt; [1] 0.00189629 0.00189629</span></span>
+<span id="cb75-5"><a href="introHypoTest.html#cb75-5" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;p-value:&quot;</span>, cdf_left <span class="sc">+</span> cdf_right))</span>
+<span id="cb75-6"><a href="introHypoTest.html#cb75-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;p-value: 0.00379258038486997&quot;</span></span>
+<span id="cb75-7"><a href="introHypoTest.html#cb75-7" tabindex="-1"></a>fig_2group</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/fig4-t-twogroups-1.png" width="60%" /></p>
+<p><strong>Transform to a standardized <span class="math inline">\(t\)</span>-distribution</strong></p>
+<p>In addition to using the non-standardized t-distribution with its location and scale parameters, it is common to transform the t-statistic into a standardized form. Specifically, if we compute the t-statistic as <span class="math inline">\(t_{\text{statistic}} = d / \hat{\sigma}\)</span>, it follows a standardized t-distribution with the the same degree of freedom. This allows us to report both the t-statistic and the corresponding p-value for hypothesis testing.</p>
+<p><span class="math display">\[ t_{\text{statistic}} = \frac{\bar{X}_{1} - \bar{X}_{2}}{s_p \cdot \sqrt{\frac{1}{n_{1}} + \frac{1}{n_{2}}}} \]</span></p>
+<p>We can visualize the null distribution and the extreme values in a standardized form as follows:</p>
+<details>
+<summary>
+<strong>Click for R scripts to calculate t distribution for two-group comparison</strong>
+</summary>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="introHypoTest.html#cb76-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">0.01</span>) <span class="sc">/</span> d_sigma_hat</span>
+<span id="cb76-2"><a href="introHypoTest.html#cb76-2" tabindex="-1"></a>p <span class="ot">=</span> stats<span class="sc">::</span><span class="fu">dt</span>(x, <span class="at">df =</span> n_ns <span class="sc">+</span> n_hs <span class="sc">-</span> <span class="dv">2</span>)</span>
+<span id="cb76-3"><a href="introHypoTest.html#cb76-3" tabindex="-1"></a>events <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;non-extreme&quot;</span>, <span class="fu">length</span>(x))</span>
+<span id="cb76-4"><a href="introHypoTest.html#cb76-4" tabindex="-1"></a>events[x <span class="sc">&lt;=</span> <span class="sc">-</span><span class="fu">abs</span>(d_obs <span class="sc">/</span> d_sigma_hat)] <span class="ot">=</span> <span class="st">&quot;extreme-left&quot;</span></span>
+<span id="cb76-5"><a href="introHypoTest.html#cb76-5" tabindex="-1"></a>events[x <span class="sc">&gt;=</span> <span class="fu">abs</span>(d_obs <span class="sc">/</span> d_sigma_hat)] <span class="ot">=</span> <span class="st">&quot;extreme-right&quot;</span></span>
+<span id="cb76-6"><a href="introHypoTest.html#cb76-6" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x=</span>x, <span class="at">PDF=</span>p, <span class="at">events=</span>events)</span>
+<span id="cb76-7"><a href="introHypoTest.html#cb76-7" tabindex="-1"></a>fig_2group_st <span class="ot">=</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x=</span>x, <span class="at">PDF=</span>p), <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> PDF, <span class="at">color=</span>events)) <span class="sc">+</span> </span>
+<span id="cb76-8"><a href="introHypoTest.html#cb76-8" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;black&quot;</span>))</span></code></pre></div>
+</details>
+<p><br /></p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="introHypoTest.html#cb77-1" tabindex="-1"></a>cdf_left <span class="ot">=</span> stats<span class="sc">::</span><span class="fu">pt</span>(<span class="sc">-</span><span class="fu">abs</span>(d_obs <span class="sc">/</span> d_sigma_hat), <span class="at">df =</span> n_ns <span class="sc">+</span> n_hs <span class="sc">-</span> <span class="dv">2</span>)</span>
+<span id="cb77-2"><a href="introHypoTest.html#cb77-2" tabindex="-1"></a>cdf_right <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> stats<span class="sc">::</span><span class="fu">pt</span>(<span class="fu">abs</span>(d_obs <span class="sc">/</span> d_sigma_hat), <span class="at">df =</span> n_ns <span class="sc">+</span> n_hs <span class="sc">-</span> <span class="dv">2</span>)</span>
+<span id="cb77-3"><a href="introHypoTest.html#cb77-3" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">c</span>(cdf_left, cdf_right))</span>
+<span id="cb77-4"><a href="introHypoTest.html#cb77-4" tabindex="-1"></a><span class="co">#&gt; [1] 0.00189629 0.00189629</span></span>
+<span id="cb77-5"><a href="introHypoTest.html#cb77-5" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;p-value:&quot;</span>, cdf_left <span class="sc">+</span> cdf_right))</span>
+<span id="cb77-6"><a href="introHypoTest.html#cb77-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;p-value: 0.00379258038486997&quot;</span></span>
+<span id="cb77-7"><a href="introHypoTest.html#cb77-7" tabindex="-1"></a>fig_2group_st</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/fig4-t-twogroups_st-1.png" width="60%" /></p>
 </div>
 <div id="direct-use-of-t.test" class="section level4 hasAnchor" number="2.2.2.4">
 <h4><span class="header-section-number">2.2.2.4</span> Direct use of <code>t.test()</code><a href="introHypoTest.html#direct-use-of-t.test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>In course and most of your future analyses, you can directly use the built-in
-<code>t.test()</code> function.</p>
+<p>In the course and most of your future analyses, you can directly use the built-in
+<code>t.test()</code> function. If you assume that the variances in the two groups are the same, you can set the <code>var.equal = TRUE</code>; Note, the default value is <code>FALSE</code>.</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="introHypoTest.html#cb78-1" tabindex="-1"></a><span class="co"># Note, we assumed the variance in both groups are the same, </span></span>
 <span id="cb78-2"><a href="introHypoTest.html#cb78-2" tabindex="-1"></a><span class="co"># we so need to set var.equal = TRUE</span></span>
 <span id="cb78-3"><a href="introHypoTest.html#cb78-3" tabindex="-1"></a></span>
-<span id="cb78-4"><a href="introHypoTest.html#cb78-4" tabindex="-1"></a><span class="fu">t.test</span>(data_nonsmoking, data_heavysmoking, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb78-5"><a href="introHypoTest.html#cb78-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb78-6"><a href="introHypoTest.html#cb78-6" tabindex="-1"></a><span class="co">#&gt;  Two Sample t-test</span></span>
-<span id="cb78-7"><a href="introHypoTest.html#cb78-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb78-8"><a href="introHypoTest.html#cb78-8" tabindex="-1"></a><span class="co">#&gt; data:  data_nonsmoking and data_heavysmoking</span></span>
-<span id="cb78-9"><a href="introHypoTest.html#cb78-9" tabindex="-1"></a><span class="co">#&gt; t = 3.1793, df = 26, p-value = 0.003793</span></span>
-<span id="cb78-10"><a href="introHypoTest.html#cb78-10" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true difference in means is not equal to 0</span></span>
-<span id="cb78-11"><a href="introHypoTest.html#cb78-11" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb78-12"><a href="introHypoTest.html#cb78-12" tabindex="-1"></a><span class="co">#&gt;  0.1822752 0.8491094</span></span>
-<span id="cb78-13"><a href="introHypoTest.html#cb78-13" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb78-14"><a href="introHypoTest.html#cb78-14" tabindex="-1"></a><span class="co">#&gt; mean of x mean of y </span></span>
-<span id="cb78-15"><a href="introHypoTest.html#cb78-15" tabindex="-1"></a><span class="co">#&gt;  3.667692  3.152000</span></span></code></pre></div>
+<span id="cb78-4"><a href="introHypoTest.html#cb78-4" tabindex="-1"></a>t_res <span class="ot">=</span> <span class="fu">t.test</span>(data_nonsmoking, data_heavysmoking, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb78-5"><a href="introHypoTest.html#cb78-5" tabindex="-1"></a></span>
+<span id="cb78-6"><a href="introHypoTest.html#cb78-6" tabindex="-1"></a>t_res<span class="sc">$</span>p.value</span>
+<span id="cb78-7"><a href="introHypoTest.html#cb78-7" tabindex="-1"></a><span class="co">#&gt; [1] 0.00379258</span></span>
+<span id="cb78-8"><a href="introHypoTest.html#cb78-8" tabindex="-1"></a></span>
+<span id="cb78-9"><a href="introHypoTest.html#cb78-9" tabindex="-1"></a>t_res</span>
+<span id="cb78-10"><a href="introHypoTest.html#cb78-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb78-11"><a href="introHypoTest.html#cb78-11" tabindex="-1"></a><span class="co">#&gt;  Two Sample t-test</span></span>
+<span id="cb78-12"><a href="introHypoTest.html#cb78-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb78-13"><a href="introHypoTest.html#cb78-13" tabindex="-1"></a><span class="co">#&gt; data:  data_nonsmoking and data_heavysmoking</span></span>
+<span id="cb78-14"><a href="introHypoTest.html#cb78-14" tabindex="-1"></a><span class="co">#&gt; t = 3.1793, df = 26, p-value = 0.003793</span></span>
+<span id="cb78-15"><a href="introHypoTest.html#cb78-15" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true difference in means is not equal to 0</span></span>
+<span id="cb78-16"><a href="introHypoTest.html#cb78-16" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb78-17"><a href="introHypoTest.html#cb78-17" tabindex="-1"></a><span class="co">#&gt;  0.1822752 0.8491094</span></span>
+<span id="cb78-18"><a href="introHypoTest.html#cb78-18" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb78-19"><a href="introHypoTest.html#cb78-19" tabindex="-1"></a><span class="co">#&gt; mean of x mean of y </span></span>
+<span id="cb78-20"><a href="introHypoTest.html#cb78-20" tabindex="-1"></a><span class="co">#&gt;  3.667692  3.152000</span></span></code></pre></div>
 </div>
 <div id="regression-based-test" class="section level4 hasAnchor" number="2.2.2.5">
-<h4><span class="header-section-number">2.2.2.5</span> regression-based test<a href="introHypoTest.html#regression-based-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>We can also perform t-test in a Generalised linear model (GLM) setting to test
-if a coefficient is zero or not.</p>
-<p>Here, we simply use the <code>marketing</code> dataset as an example.</p>
+<h4><span class="header-section-number">2.2.2.5</span> Regression-based test<a href="introHypoTest.html#regression-based-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We can also perform a t-test (Welch’s t-test) in a Generalized Linear Model (GLM) setting to test if a coefficient is zero or not.
+Here, we use the <code>marketing</code> dataset as an example, and we can load the data and visualize it as follows using R scripts.</p>
+<details>
+<summary>
+<strong>Click for R scripts to load the data</strong>
+</summary>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="introHypoTest.html#cb79-1" tabindex="-1"></a><span class="co"># Install datarium library if you haven&#39;t</span></span>
 <span id="cb79-2"><a href="introHypoTest.html#cb79-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;datarium&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
 <span id="cb79-3"><a href="introHypoTest.html#cb79-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;datarium&quot;</span>)</span>
@@ -837,10 +879,12 @@ if a coefficient is zero or not.</p>
 <span id="cb79-15"><a href="introHypoTest.html#cb79-15" tabindex="-1"></a><span class="co">#&gt; 4  181.80    49.56     70.20 22.20</span></span>
 <span id="cb79-16"><a href="introHypoTest.html#cb79-16" tabindex="-1"></a><span class="co">#&gt; 5  216.96    12.96     70.08 15.48</span></span>
 <span id="cb79-17"><a href="introHypoTest.html#cb79-17" tabindex="-1"></a><span class="co">#&gt; 6   10.44    58.68     90.00  8.64</span></span></code></pre></div>
+</details>
+<p><br /></p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="introHypoTest.html#cb80-1" tabindex="-1"></a><span class="fu">ggplot</span>(marketing, <span class="fu">aes</span>(<span class="at">x=</span>newspaper, <span class="at">y=</span>sales)) <span class="sc">+</span> </span>
-<span id="cb80-2"><a href="introHypoTest.html#cb80-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm)</span>
-<span id="cb80-3"><a href="introHypoTest.html#cb80-3" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using formula = &#39;y ~ x&#39;</span></span></code></pre></div>
+<span id="cb80-2"><a href="introHypoTest.html#cb80-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm, <span class="at">formula =</span> <span class="st">&#39;y ~ x&#39;</span>)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig4-glm-scatter-1.png" width="60%" /></p>
+<p>We can further use the <code>lm</code> function to fit the regression model, which will estimate the coefficients for each covariate as well as the intercept. In addition to the estimates, the function provides the standard errors of each coefficient, allowing us to derive the null distribution of each coefficient in the form of a t-distribution. By transforming the observed statistic—dividing the estimated coefficient by its standard error (similar to the two-group t-test described earlier)—we obtain the t-statistic and its corresponding p-value. All of these results are accessible through the output of the <code>lm</code> function, which returns a list containing each value.</p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="introHypoTest.html#cb81-1" tabindex="-1"></a><span class="co"># Fit linear regression</span></span>
 <span id="cb81-2"><a href="introHypoTest.html#cb81-2" tabindex="-1"></a>res.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(sales <span class="sc">~</span> newspaper, <span class="at">data =</span> marketing)</span>
 <span id="cb81-3"><a href="introHypoTest.html#cb81-3" tabindex="-1"></a></span>
@@ -879,44 +923,156 @@ if a coefficient is zero or not.</p>
 </div>
 <div id="fishers-exact-test" class="section level3 hasAnchor" number="2.2.3">
 <h3><span class="header-section-number">2.2.3</span> Fisher’s exact test<a href="introHypoTest.html#fishers-exact-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Acknowledgement</strong>: examples are from Dr John Pinney <a href="https://github.com/johnpinney/sampling_and_hypothesis_testing/blob/master/python_version/hypothesis_testing_python.ipynb">link here</a></p>
+<p>Fisher’s exact test is a widely used hypothesis testing method for comparing categorical variables between groups. In genomics, an example of its application is gene set enrichment analysis within a specific annotated pathway. This involves testing whether a gene set of interest contains a significantly higher proportion of genes from the pathway compared to non-interest genes.</p>
+<div id="binomial-test" class="section level4 hasAnchor" number="2.2.3.1">
+<h4><span class="header-section-number">2.2.3.1</span> Binomial test<a href="introHypoTest.html#binomial-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A similar, often simpler, approach is the binomial test. Let’s revisit Example 2, where we suspect that a die is biased toward rolling a six. We can formulate the hypotheses as follows:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span> (Null hypothesis): The die is fair, with a probability of rolling a six of <span class="math inline">\(p=1/6\)</span>.</li>
+<li><span class="math inline">\(H_a\)</span> (Alternative hypothesis): The die is unfair, with a probability of rolling a six greater 1/6, name <span class="math inline">\(p&gt;1/6\)</span>.</li>
+</ul>
+<p>In this scenario, the exact null distribution follows a binomial distribution with success probability <span class="math inline">\(p=1/6\)</span>, meaning we do not need to approximate the null distribution. This is also why binomial test and Fisher’s test are exact tests.</p>
+<p>Therefore, in this example with observing 43 sixes in 100 rolls, the events at least as extreme the observed number are 43, 44, …, 100. By using the definition of <a href="https://en.wikipedia.org/wiki/Binomial_distribution">binomial distribution</a>, we can calculate the p-value as follows,</p>
+<p><span class="math display">\[\text{p_value} = \sum_{k=\{43...,100\}}{\binom{100}{k} p^{k} (1-p)^{100-k}}; \quad p=1/6\]</span></p>
+<p>Alternatively, in R, we can calculate the p-value manually with <code>choose()</code> for number of combinations or directly using <code>binom.test()</code> for the hypothesis test, as follows.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="introHypoTest.html#cb83-1" tabindex="-1"></a><span class="co"># manual calculation with extreme values</span></span>
+<span id="cb83-2"><a href="introHypoTest.html#cb83-2" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">43</span>, <span class="dv">100</span>)</span>
+<span id="cb83-3"><a href="introHypoTest.html#cb83-3" tabindex="-1"></a>p_val <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">choose</span>(<span class="dv">100</span>, x) <span class="sc">*</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)<span class="sc">^</span>(x) <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)<span class="sc">^</span>(<span class="dv">100</span><span class="sc">-</span>x))</span>
+<span id="cb83-4"><a href="introHypoTest.html#cb83-4" tabindex="-1"></a>p_val</span>
+<span id="cb83-5"><a href="introHypoTest.html#cb83-5" tabindex="-1"></a><span class="co">#&gt; [1] 5.439087e-10</span></span>
+<span id="cb83-6"><a href="introHypoTest.html#cb83-6" tabindex="-1"></a></span>
+<span id="cb83-7"><a href="introHypoTest.html#cb83-7" tabindex="-1"></a><span class="co"># using built-in function</span></span>
+<span id="cb83-8"><a href="introHypoTest.html#cb83-8" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="dv">43</span>, <span class="dv">100</span>, <span class="at">p=</span><span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span>
+<span id="cb83-9"><a href="introHypoTest.html#cb83-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb83-10"><a href="introHypoTest.html#cb83-10" tabindex="-1"></a><span class="co">#&gt;  Exact binomial test</span></span>
+<span id="cb83-11"><a href="introHypoTest.html#cb83-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb83-12"><a href="introHypoTest.html#cb83-12" tabindex="-1"></a><span class="co">#&gt; data:  43 and 100</span></span>
+<span id="cb83-13"><a href="introHypoTest.html#cb83-13" tabindex="-1"></a><span class="co">#&gt; number of successes = 43, number of trials = 100, p-value = 5.439e-10</span></span>
+<span id="cb83-14"><a href="introHypoTest.html#cb83-14" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true probability of success is greater than 0.1666667</span></span>
+<span id="cb83-15"><a href="introHypoTest.html#cb83-15" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb83-16"><a href="introHypoTest.html#cb83-16" tabindex="-1"></a><span class="co">#&gt;  0.3460073 1.0000000</span></span>
+<span id="cb83-17"><a href="introHypoTest.html#cb83-17" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb83-18"><a href="introHypoTest.html#cb83-18" tabindex="-1"></a><span class="co">#&gt; probability of success </span></span>
+<span id="cb83-19"><a href="introHypoTest.html#cb83-19" tabindex="-1"></a><span class="co">#&gt;                   0.43</span></span></code></pre></div>
+</div>
+<div id="hypergeometric-distribution" class="section level4 hasAnchor" number="2.2.3.2">
+<h4><span class="header-section-number">2.2.3.2</span> Hypergeometric distribution<a href="introHypoTest.html#hypergeometric-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In a certain sense, you may feel that the binomial test is somewhat similar to a one-sample t-test, as it assesses whether the success rate (or proportion) equals a <strong>specified value</strong>, using the number of successes as the test statistic. (Note, binomial test focuses on categorical variables and the t-test on continuous variables).</p>
+<p>Similarly, a more common scenario involves comparing success rates (or hit rates) between two conditions—such as treated versus untreated groups. Let’s consider Example 5:</p>
+<blockquote>
+<p><strong>Example 5</strong>
+Is handedness associated with sex? To investigate this, we set up the hypotheses:<br />
+* <span class="math inline">\(H_0\)</span> (null hypothesis): The proportion of right-handed individuals is the same for males and females, i.e., <span class="math inline">\(p_{male} = p_{female}\)</span>.<br />
+* <span class="math inline">\(H_a\)</span> (alternative hypothesis): The proportion of right-handed individuals differs between males and females, i.e., <span class="math inline">\(p_{male} \neq p_{female}\)</span>.<br /></p>
+</blockquote>
+<p><strong>Table 2.</strong> Contingency table for handedness between male and female.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Right-handed</th>
+<th>Left-handed</th>
+<th><strong>Total</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Male</td>
+<td>a = 43</td>
+<td>b = 9</td>
+<td>a + b = 52</td>
+</tr>
+<tr class="even">
+<td>Female</td>
+<td>c = 44</td>
+<td>d = 4</td>
+<td>c + d = 48</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td>a +c = 87</td>
+<td>b + d = 13</td>
+<td>n = 100</td>
+</tr>
+</tbody>
+</table>
+<p><br /></p>
+<p>Before diving into hypothesis testing, let’s briefly review the hypergeometric distribution. In this context, we can arbitrarily choose any of the variables a, b, c, or d as the test statistic; without loss of generality, we choose <span class="math inline">\(a\)</span>. To avoid confusion between variables and observed values, we’ll use <span class="math inline">\(x\)</span> to denote the test statistic—in this case, the number of right-handed individuals among males (corresponding to <span class="math inline">\(a\)</span>).</p>
+<p>The key requirement for the hypergeometric distribution is that the totals a+b (number of males), c+d (number of females), and a+c (number of right-handed individuals) are fixed. For illustration, suppose we randomly assign the 87 right-handed individuals into 52 males and 48 females. (Think about how this can be simulated.)</p>
+<p>Notice that if <span class="math inline">\(x\)</span> (the number of right-handed males) changes, the values of b, c, and d must also change accordingly, given that the totals a+b, c+d, and a+c are fixed. To ensure all counts are non-negative, <span class="math inline">\(x\)</span> is bounded within a specific range:</p>
+<p><span class="math display">\[\text{max}(0, (a+c)-(c+d)) &lt;= x &lt;= \text{min}(a+b, a+c)\]</span>
+In our example, this translates to 39&lt;=x&lt;=52. Under the null hypothesis, the most probable values of <span class="math inline">\(x\)</span> are around 45 and 46. For a two-tailed test, the extreme values are those from 39 to 43 and symmetrically from 48 to 52.</p>
+<p>If you were thinking of how to make the simulation and obtain the null distribution, you may realize that the probability mass function is the number of combinations to obtain a out of a+c, multiplying the number of combinations to obtain c out of c+d, dividing the combinations to obtain a+c out of a+b+c+d. We can write it as follows,
+<span class="math display">\[p(x, m=a+b, n=c+d, k=a+c) = \frac{\binom{a+b}{x} * \binom{c+d}{c}}{ \binom{a+c}{a+b+c+d}}
+\]</span></p>
+<p>This distribution is called the <a href="https://en.wikipedia.org/wiki/Hypergeometric_distribution">hypergeomatric distribution</a>. In the terminology used above (for <span class="math inline">\(m, n, k\)</span>), it corresponds to the R function <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Hypergeometric.html">stats::Hypergeometric</a>, which allows us to compute the probability density function (PDF) for specific values.</p>
+<p>With the <strong>extreme events</strong> and <strong>null distribution</strong> defined, we can now calculate the two-sided p-value with manual calculation, using built-in <code>dhyper()</code> function, or directly use <code>fisher.test()</code> for the test.</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="introHypoTest.html#cb84-1" tabindex="-1"></a><span class="do">## extreme events</span></span>
+<span id="cb84-2"><a href="introHypoTest.html#cb84-2" tabindex="-1"></a>x_extreme <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">39</span><span class="sc">:</span><span class="dv">43</span>, <span class="dv">48</span><span class="sc">:</span><span class="dv">52</span>)</span>
+<span id="cb84-3"><a href="introHypoTest.html#cb84-3" tabindex="-1"></a></span>
+<span id="cb84-4"><a href="introHypoTest.html#cb84-4" tabindex="-1"></a><span class="do">## manual calculation</span></span>
+<span id="cb84-5"><a href="introHypoTest.html#cb84-5" tabindex="-1"></a>p_manual <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">choose</span>(<span class="dv">52</span>, x_extreme) <span class="sc">*</span> <span class="fu">choose</span>(<span class="dv">48</span>, <span class="dv">87</span> <span class="sc">-</span> x_extreme) <span class="sc">/</span> <span class="fu">choose</span>(<span class="dv">100</span>, <span class="dv">87</span>))</span>
+<span id="cb84-6"><a href="introHypoTest.html#cb84-6" tabindex="-1"></a>p_manual</span>
+<span id="cb84-7"><a href="introHypoTest.html#cb84-7" tabindex="-1"></a><span class="co">#&gt; [1] 0.239157</span></span>
+<span id="cb84-8"><a href="introHypoTest.html#cb84-8" tabindex="-1"></a></span>
+<span id="cb84-9"><a href="introHypoTest.html#cb84-9" tabindex="-1"></a><span class="do">## hypergeometric distribution</span></span>
+<span id="cb84-10"><a href="introHypoTest.html#cb84-10" tabindex="-1"></a>p_hyper <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">dhyper</span>(x_extreme, <span class="at">m =</span> <span class="dv">52</span>, <span class="at">n =</span> <span class="dv">48</span>, <span class="at">k =</span> <span class="dv">87</span>))</span>
+<span id="cb84-11"><a href="introHypoTest.html#cb84-11" tabindex="-1"></a>p_hyper</span>
+<span id="cb84-12"><a href="introHypoTest.html#cb84-12" tabindex="-1"></a><span class="co">#&gt; [1] 0.239157</span></span>
+<span id="cb84-13"><a href="introHypoTest.html#cb84-13" tabindex="-1"></a></span>
+<span id="cb84-14"><a href="introHypoTest.html#cb84-14" tabindex="-1"></a><span class="do">## fisher&#39;s exact test</span></span>
+<span id="cb84-15"><a href="introHypoTest.html#cb84-15" tabindex="-1"></a><span class="fu">fisher.test</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">43</span>, <span class="dv">44</span>, <span class="dv">9</span>, <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">2</span>), <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
+<span id="cb84-16"><a href="introHypoTest.html#cb84-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb84-17"><a href="introHypoTest.html#cb84-17" tabindex="-1"></a><span class="co">#&gt;  Fisher&#39;s Exact Test for Count Data</span></span>
+<span id="cb84-18"><a href="introHypoTest.html#cb84-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb84-19"><a href="introHypoTest.html#cb84-19" tabindex="-1"></a><span class="co">#&gt; data:  matrix(c(43, 44, 9, 4), nrow = 2)</span></span>
+<span id="cb84-20"><a href="introHypoTest.html#cb84-20" tabindex="-1"></a><span class="co">#&gt; p-value = 0.2392</span></span>
+<span id="cb84-21"><a href="introHypoTest.html#cb84-21" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true odds ratio is not equal to 1</span></span>
+<span id="cb84-22"><a href="introHypoTest.html#cb84-22" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb84-23"><a href="introHypoTest.html#cb84-23" tabindex="-1"></a><span class="co">#&gt;  0.09150811 1.71527769</span></span>
+<span id="cb84-24"><a href="introHypoTest.html#cb84-24" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb84-25"><a href="introHypoTest.html#cb84-25" tabindex="-1"></a><span class="co">#&gt; odds ratio </span></span>
+<span id="cb84-26"><a href="introHypoTest.html#cb84-26" tabindex="-1"></a><span class="co">#&gt;  0.4378606</span></span></code></pre></div>
+<p><strong>Exercise</strong>:
+try it yourself by calculating the one-tailed p-value for the alternative hypothesis that the right-handed proportion is lower in male than female, namely p_male &lt; p_female.</p>
 </div>
 </div>
-<div id="multiple-testing-and-errors" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Multiple testing and errors<a href="introHypoTest.html#multiple-testing-and-errors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="multiple-testing-and-errors-to-be-updated" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Multiple testing and errors (To be updated)<a href="introHypoTest.html#multiple-testing-and-errors-to-be-updated" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Hypothetical null distribution.
 Feel feel to try any null distribution, examples below</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="introHypoTest.html#cb83-1" tabindex="-1"></a><span class="do">## Example null distributions</span></span>
-<span id="cb83-2"><a href="introHypoTest.html#cb83-2" tabindex="-1"></a><span class="co"># t, normal or anything. we use chi-squared distribution as an example</span></span>
-<span id="cb83-3"><a href="introHypoTest.html#cb83-3" tabindex="-1"></a></span>
-<span id="cb83-4"><a href="introHypoTest.html#cb83-4" tabindex="-1"></a>x_random <span class="ot">=</span> <span class="fu">rchisq</span>(<span class="at">n=</span><span class="dv">1000</span>, <span class="at">df=</span><span class="dv">3</span>)</span>
-<span id="cb83-5"><a href="introHypoTest.html#cb83-5" tabindex="-1"></a>any_null_dist <span class="ot">=</span> <span class="fu">dchisq</span>(x_random, <span class="at">df=</span><span class="dv">3</span>)</span>
-<span id="cb83-6"><a href="introHypoTest.html#cb83-6" tabindex="-1"></a></span>
-<span id="cb83-7"><a href="introHypoTest.html#cb83-7" tabindex="-1"></a>pvals_null <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pchisq</span>(x_random, <span class="at">df=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="introHypoTest.html#cb85-1" tabindex="-1"></a><span class="do">## Example null distributions</span></span>
+<span id="cb85-2"><a href="introHypoTest.html#cb85-2" tabindex="-1"></a><span class="co"># t, normal or anything. we use chi-squared distribution as an example</span></span>
+<span id="cb85-3"><a href="introHypoTest.html#cb85-3" tabindex="-1"></a></span>
+<span id="cb85-4"><a href="introHypoTest.html#cb85-4" tabindex="-1"></a>x_random <span class="ot">=</span> <span class="fu">rchisq</span>(<span class="at">n=</span><span class="dv">1000</span>, <span class="at">df=</span><span class="dv">3</span>)</span>
+<span id="cb85-5"><a href="introHypoTest.html#cb85-5" tabindex="-1"></a>any_null_dist <span class="ot">=</span> <span class="fu">dchisq</span>(x_random, <span class="at">df=</span><span class="dv">3</span>)</span>
+<span id="cb85-6"><a href="introHypoTest.html#cb85-6" tabindex="-1"></a></span>
+<span id="cb85-7"><a href="introHypoTest.html#cb85-7" tabindex="-1"></a>pvals_null <span class="ot">=</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pchisq</span>(x_random, <span class="at">df=</span><span class="dv">3</span>)</span></code></pre></div>
 <div id="null-distribution-of-test-statistic" class="section level3 hasAnchor" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Null distribution (of test statistic)<a href="introHypoTest.html#null-distribution-of-test-statistic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="introHypoTest.html#cb84-1" tabindex="-1"></a><span class="co"># Null distribution of test statistic</span></span>
-<span id="cb84-2"><a href="introHypoTest.html#cb84-2" tabindex="-1"></a><span class="fu">hist</span>(x_random)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="introHypoTest.html#cb86-1" tabindex="-1"></a><span class="co"># Null distribution of test statistic</span></span>
+<span id="cb86-2"><a href="introHypoTest.html#cb86-2" tabindex="-1"></a><span class="fu">hist</span>(x_random)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig4-stat-null-1.png" width="60%" /></p>
 </div>
 <div id="null-distribution-of-p-value" class="section level3 hasAnchor" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Null distribution of p value<a href="introHypoTest.html#null-distribution-of-p-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="introHypoTest.html#cb85-1" tabindex="-1"></a><span class="co"># Null distribution of test statistic</span></span>
-<span id="cb85-2"><a href="introHypoTest.html#cb85-2" tabindex="-1"></a><span class="fu">hist</span>(pvals_null)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="introHypoTest.html#cb87-1" tabindex="-1"></a><span class="co"># Null distribution of test statistic</span></span>
+<span id="cb87-2"><a href="introHypoTest.html#cb87-2" tabindex="-1"></a><span class="fu">hist</span>(pvals_null)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig4-pval-null-1.png" width="60%" /></p>
 </div>
 <div id="minimal-p-values-in-10-tests" class="section level3 hasAnchor" number="2.3.3">
 <h3><span class="header-section-number">2.3.3</span> Minimal p values in 10 tests<a href="introHypoTest.html#minimal-p-values-in-10-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="introHypoTest.html#cb86-1" tabindex="-1"></a><span class="co"># We use matrix to group 100 trials into a column</span></span>
-<span id="cb86-2"><a href="introHypoTest.html#cb86-2" tabindex="-1"></a><span class="co"># We then use apply() to calculate min value for each column</span></span>
-<span id="cb86-3"><a href="introHypoTest.html#cb86-3" tabindex="-1"></a></span>
-<span id="cb86-4"><a href="introHypoTest.html#cb86-4" tabindex="-1"></a>pval_null_mtx <span class="ot">=</span> <span class="fu">matrix</span>(pvals_null, <span class="at">nrow=</span><span class="dv">10</span>)</span>
-<span id="cb86-5"><a href="introHypoTest.html#cb86-5" tabindex="-1"></a></span>
-<span id="cb86-6"><a href="introHypoTest.html#cb86-6" tabindex="-1"></a>p_min_in10 <span class="ot">=</span> <span class="fu">apply</span>(pval_null_mtx, <span class="at">MARGIN=</span><span class="dv">2</span>, <span class="at">FUN=</span>min)</span></code></pre></div>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="introHypoTest.html#cb87-1" tabindex="-1"></a><span class="fu">hist</span>(p_min_in10)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="introHypoTest.html#cb88-1" tabindex="-1"></a><span class="co"># We use matrix to group 100 trials into a column</span></span>
+<span id="cb88-2"><a href="introHypoTest.html#cb88-2" tabindex="-1"></a><span class="co"># We then use apply() to calculate min value for each column</span></span>
+<span id="cb88-3"><a href="introHypoTest.html#cb88-3" tabindex="-1"></a></span>
+<span id="cb88-4"><a href="introHypoTest.html#cb88-4" tabindex="-1"></a>pval_null_mtx <span class="ot">=</span> <span class="fu">matrix</span>(pvals_null, <span class="at">nrow=</span><span class="dv">10</span>)</span>
+<span id="cb88-5"><a href="introHypoTest.html#cb88-5" tabindex="-1"></a></span>
+<span id="cb88-6"><a href="introHypoTest.html#cb88-6" tabindex="-1"></a>p_min_in10 <span class="ot">=</span> <span class="fu">apply</span>(pval_null_mtx, <span class="at">MARGIN=</span><span class="dv">2</span>, <span class="at">FUN=</span>min)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="introHypoTest.html#cb89-1" tabindex="-1"></a><span class="fu">hist</span>(p_min_in10)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig4-pmin-null-1.png" width="60%" /></p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="introHypoTest.html#cb88-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;Proportion of tests with min(p) &lt; 0.05:&#39;</span>, <span class="fu">mean</span>(p_min_in10 <span class="sc">&lt;</span> <span class="fl">0.05</span>)))</span>
-<span id="cb88-2"><a href="introHypoTest.html#cb88-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Proportion of tests with min(p) &lt; 0.05: 0.43&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="introHypoTest.html#cb90-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;Proportion of tests with min(p) &lt; 0.05:&#39;</span>, <span class="fu">mean</span>(p_min_in10 <span class="sc">&lt;</span> <span class="fl">0.05</span>)))</span>
+<span id="cb90-2"><a href="introHypoTest.html#cb90-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Proportion of tests with min(p) &lt; 0.05: 0.43&quot;</span></span></code></pre></div>
 </div>
 </div>
 <div id="power-analysis" class="section level2 hasAnchor" number="2.4">
@@ -928,23 +1084,23 @@ Feel feel to try any null distribution, examples below</p>
 <li>Try 3) again but general 3,00 samples this time, later 1,000 samples. What
 do you find? Think the relation between power and sample size.</li>
 </ol>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="introHypoTest.html#cb89-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
-<span id="cb89-2"><a href="introHypoTest.html#cb89-2" tabindex="-1"></a></span>
-<span id="cb89-3"><a href="introHypoTest.html#cb89-3" tabindex="-1"></a>n_sample <span class="ot">=</span> <span class="dv">100</span> <span class="co"># change this value to 1000 and 10000</span></span>
-<span id="cb89-4"><a href="introHypoTest.html#cb89-4" tabindex="-1"></a>xB <span class="ot">=</span> <span class="fu">rnorm</span>(n_sample)</span>
-<span id="cb89-5"><a href="introHypoTest.html#cb89-5" tabindex="-1"></a>xA <span class="ot">=</span> <span class="fu">rnorm</span>(n_sample, <span class="at">mean=</span><span class="fl">0.1</span>)</span>
-<span id="cb89-6"><a href="introHypoTest.html#cb89-6" tabindex="-1"></a><span class="fu">t.test</span>(xA, xB, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb89-7"><a href="introHypoTest.html#cb89-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb89-8"><a href="introHypoTest.html#cb89-8" tabindex="-1"></a><span class="co">#&gt;  Two Sample t-test</span></span>
-<span id="cb89-9"><a href="introHypoTest.html#cb89-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb89-10"><a href="introHypoTest.html#cb89-10" tabindex="-1"></a><span class="co">#&gt; data:  xA and xB</span></span>
-<span id="cb89-11"><a href="introHypoTest.html#cb89-11" tabindex="-1"></a><span class="co">#&gt; t = 0.24294, df = 198, p-value = 0.8083</span></span>
-<span id="cb89-12"><a href="introHypoTest.html#cb89-12" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true difference in means is not equal to 0</span></span>
-<span id="cb89-13"><a href="introHypoTest.html#cb89-13" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb89-14"><a href="introHypoTest.html#cb89-14" tabindex="-1"></a><span class="co">#&gt;  -0.2261882  0.2897482</span></span>
-<span id="cb89-15"><a href="introHypoTest.html#cb89-15" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb89-16"><a href="introHypoTest.html#cb89-16" tabindex="-1"></a><span class="co">#&gt;  mean of x  mean of y </span></span>
-<span id="cb89-17"><a href="introHypoTest.html#cb89-17" tabindex="-1"></a><span class="co">#&gt; 0.05444844 0.02266845</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="introHypoTest.html#cb91-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb91-2"><a href="introHypoTest.html#cb91-2" tabindex="-1"></a></span>
+<span id="cb91-3"><a href="introHypoTest.html#cb91-3" tabindex="-1"></a>n_sample <span class="ot">=</span> <span class="dv">100</span> <span class="co"># change this value to 1000 and 10000</span></span>
+<span id="cb91-4"><a href="introHypoTest.html#cb91-4" tabindex="-1"></a>xB <span class="ot">=</span> <span class="fu">rnorm</span>(n_sample)</span>
+<span id="cb91-5"><a href="introHypoTest.html#cb91-5" tabindex="-1"></a>xA <span class="ot">=</span> <span class="fu">rnorm</span>(n_sample, <span class="at">mean=</span><span class="fl">0.1</span>)</span>
+<span id="cb91-6"><a href="introHypoTest.html#cb91-6" tabindex="-1"></a><span class="fu">t.test</span>(xA, xB, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb91-7"><a href="introHypoTest.html#cb91-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb91-8"><a href="introHypoTest.html#cb91-8" tabindex="-1"></a><span class="co">#&gt;  Two Sample t-test</span></span>
+<span id="cb91-9"><a href="introHypoTest.html#cb91-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb91-10"><a href="introHypoTest.html#cb91-10" tabindex="-1"></a><span class="co">#&gt; data:  xA and xB</span></span>
+<span id="cb91-11"><a href="introHypoTest.html#cb91-11" tabindex="-1"></a><span class="co">#&gt; t = 0.24294, df = 198, p-value = 0.8083</span></span>
+<span id="cb91-12"><a href="introHypoTest.html#cb91-12" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true difference in means is not equal to 0</span></span>
+<span id="cb91-13"><a href="introHypoTest.html#cb91-13" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb91-14"><a href="introHypoTest.html#cb91-14" tabindex="-1"></a><span class="co">#&gt;  -0.2261882  0.2897482</span></span>
+<span id="cb91-15"><a href="introHypoTest.html#cb91-15" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb91-16"><a href="introHypoTest.html#cb91-16" tabindex="-1"></a><span class="co">#&gt;  mean of x  mean of y </span></span>
+<span id="cb91-17"><a href="introHypoTest.html#cb91-17" tabindex="-1"></a><span class="co">#&gt; 0.05444844 0.02266845</span></span></code></pre></div>
 </div>
 <div id="summary" class="section level2 hasAnchor" number="2.5">
 <h2><span class="header-section-number">2.5</span> Summary<a href="introHypoTest.html#summary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -981,6 +1137,7 @@ asymptotic null distribution.</p>
 <p>Namely, to determine how surprising my observation is, we can calculating a p-value!</p>
 <p>There are many circumstances where we simply want to check whether an observation looks like it is compatible with the null hypothesis, <span class="math inline">\(H_{0}\)</span>.</p>
 <p>Having decided on a significance level <span class="math inline">\(\alpha\)</span> and whether the situation warrants a one-tailed or a two-tailed test, we can use the cdf of the null distribution to calculate a p-value for the observation.</p>
+<p><strong>Acknowledgement</strong>: examples are from Dr John Pinney <a href="https://github.com/johnpinney/sampling_and_hypothesis_testing/blob/master/python_version/hypothesis_testing_python.ipynb">link here</a></p>
 </div>
 </div>
             </section>
@@ -1003,43 +1160,43 @@ asymptotic null distribution.</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": "https://github.com/statbiomed/BMDS-book/tree/main/01-introduction.Rmd",
-    "text": "Edit"
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": ["BMDatSci.pdf", "BMDatSci.epub"],
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section",
-    "scroll_highlight": true
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/statbiomed/BMDS-book/tree/main/01-introduction.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BMDatSci.pdf", "BMDatSci.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
 });
 });
 </script>

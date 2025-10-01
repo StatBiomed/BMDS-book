@@ -1,5 +1,5 @@
 
-## Multiple testing and errors
+## Multiple testing and errors (To be updated)
 
 Hypothetical null distribution. 
 Feel feel to try any null distribution, examples below
@@ -107,3 +107,5 @@ There are many circumstances where we simply want to check whether an observatio
 
 Having decided on a significance level $\alpha$ and whether the situation warrants a one-tailed or a two-tailed test, we can use the cdf of the null distribution to calculate a p-value for the observation.
 
+
+**Acknowledgement**: examples are from Dr John Pinney [link here](https://github.com/johnpinney/sampling_and_hypothesis_testing/blob/master/python_version/hypothesis_testing_python.ipynb)

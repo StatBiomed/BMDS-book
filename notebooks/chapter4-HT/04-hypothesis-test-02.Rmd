@@ -156,9 +156,15 @@ In the above example, we observe how resampling methods enable us to approximate
 
 In this section, we will introduce the t-test, which uses the t-distribution to approximate the null distribution. The t-distribution was first described in a paper published in [*Biometrika* in 1908](https://www.jstor.org/stable/2331554) by an author under the pseudonym "Student," which is why it is also known as Student’s t-test [Student's t-distribution](https://en.wikipedia.org/wiki/Student%27s_t-distribution).
 
-We will not delve into the mathematical details of the t-distribution here. However, to summarize, it is a distribution that resembles and extends the Gaussian (normal) distribution by incorporating an additional parameter called the degrees of freedom (df). Typically, the degrees of freedom represent the number of samples minus the number of parameters estimated.
+We will not delve into the mathematical details of the t-distribution here. However, to summarize, it is a distribution that resembles and extends the Gaussian (normal) distribution by incorporating an additional parameter called the degree of freedom (df). Typically, the degree of freedom represents the number of samples minus the number of parameters estimated, meaning how many variables can independently change.
 
-When the degrees of freedom are low (e.g., df=3), the t-distribution has longer tails than the normal distribution. As the degrees of freedom increase, the t-distribution gradually approaches the Gaussian distribution, with minimal differences observed when df$\geq$30.
+When the degree of freedom is low (e.g., df=3), the t-distribution has longer tails than the normal distribution. As the degree of freedom increases, the t-distribution gradually approaches the Gaussian distribution, with minimal differences observed when df≥30.
+
+In R, there are multiple implementations of t distribution. The most common one is 
+[?stats::TDist](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/TDist.html),
+for a standardized the t distribution (i.e., mean: 0, std: 1). 
+For non-standardized one with supporting location and scale parameters, we may consider using
+[?extraDistr::LocationScaleT](https://cran.r-project.org/web/packages/extraDistr/refman/extraDistr.html#LocationScaleT).
 
 <details>
 <summary>**Click for R scripts to plot t-distributions**
@@ -189,7 +195,7 @@ fig_tdist
 
 #### Null distribution approximated by $t$ distribution
 
-Let us revisit Example 4, where our goal is to approximate the null distribution of the difference between group means, this time using the t-distribution.
+Let's revisit Example 4, where our goal is to approximate the null distribution of the difference between group means, this time using the t-distribution.
 
 Before proceeding, it is important to acknowledge certain assumptions necessary for applying the t-distribution for this approximation:
 
@@ -202,28 +208,24 @@ Before proceeding, it is important to acknowledge certain assumptions necessary 
 **Law of large number and Central limit theorem**
 
 In simple terms, the [Law of large number](https://en.wikipedia.org/wiki/Law_of_large_numbers) states that the sample mean will **converge** to the true population mean as the sample size increases. Additionally, the [Central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) 
-indicates that the sample mean will **distribute** normally be approximately normal, centered at the population mean $\mu$, with a variance of $\sigma^2 / n$, where $\sigma^2$ is the population variance and $n$ is the sample size.
+indicates that the sample mean will have a **distribution** asymptotically to a normal distribution, centered at the population mean $\mu$, with a variance of $\sigma^2 / n$, where $\sigma^2$ is the population variance and $n$ is the sample size.
 
-However, when the sample size is small—typically less than 30—Assumption 2) becomes more critical. In such cases, using the t-distribution to approximate the distribution of the sample mean is more accurate than assuming a normal distribution.
+However, when the sample size is small—typically less than 30—Assumption 2) becomes more critical. Moreover, in such low-sample-size cases, using the t-distribution to approximate the distribution of the sample mean is more accurate than using a normal distribution.
 
 > 
-**Question:** What do we mean by the distribution of the sample mean? You might ask this since, in practice, you only have a single sample set $S = \{X_1, X_2, ..., X_n\}$, which yields one sample mean. 
+**Thinking:** Why do we talk about the distribution of the sample mean? You might ask this since, in practice, we only have a single sample set $S^{(1)} = \{X_1, X_2, ..., X_n\}$, which yields one sample mean. 
 When we refer to the distribution of the sample mean, we are actually considering many hypothetical sample sets of the same size—say, $S^{(1)}, S^{(2)}, ...$—all drawn from the same population. The distribution of these sample means describes the variability we would observe across many such samples.
 
 #### One-group t-test
-If we only have one group $S = \{X_1, X_2, ..., X_n\}$— for example, the nonsmoking group — and we want to test whether the population mean is equal to a specific value $k$ (for example 3.2kg), we can directly apply the Central Limit Theorem to approximate the distribution of the sample mean.
-
+If we only have one group $S = \{X_1, X_2, ..., X_n\}$— for example, the nonsmoking group — and we want to test whether the population mean is equal to a specific value $\mu_0$ (for example 3.2kg), we can directly apply the *Central Limit Theorem* to approximate the distribution of the sample mean.
 In a hypothesis testing framework, we set up the null and alternative hypotheses as follows:
 
+* $H_0$: $\mu - \mu_0 = 0$ (the population mean equals to $\mu_0$);
+* $H_a$: $\mu - \mu_0 \neq 0$ (the population mean does not equal to $\mu_0$)
 
-(for example the nonsmoking group) and we want to test if the population mean $\mu$ is equal to a certain value $k$ (for example 3.2kg), we can directly use the *Central limit theorem* to obtain the distribution of the sample mean. In a hypothesis testing setting, we can have the null and alternative hypotheses as follows,
+Our test statistic is $\bar{X} - \mu_0$, with an observed value—for example, 0.468. If the null hypothesis is true, we can approximate the null distribution with a t-distribution:  $\mu - \mu_0 \sim t(0, \hat\sigma^2, \text{df}=n-1)$, where we only need to estimate the $\hat{\sigma}$. When the sample size $n$ is large, the Central Limit Theorem justifies using this approximation.
 
-* $H_0$: $\mu - k = 0$ (the population mean equals to $k$);
-* $H_a$: $\mu - k \neq 0$ (the population mean does not equal to $k$)
-
-Our test statistic is $\bar{X} - k$, with an observed value—for example, 0.468. If the null hypothesis is true, we can approximate the null distribution with a t-distribution:  $\mu - k \sim t(0, \hat\sigma^2, df=n-1)$, where we only need to estimate the $\hat{\sigma}$. When the sample size $n$ is large, the Central Limit Theorem justifies using this approximation.
-
-$$\hat{\sigma}^2 \approx \frac{\mathtt{Var}(X)}{n} = \frac{1/n \sum_{i=1}^n{(X_i-\bar{X})}^2}{n}$$
+$$\hat{\sigma}^2 \approx \frac{\mathtt{Var}(X)}{n} = \frac{\frac{1}{n-1} \sum_{i=1}^n{(X_i-\bar{X})}^2}{n}$$
 
 <details>
 <summary>**Click for R scripts to plot one-group null distribution via t distribution**
@@ -245,7 +247,7 @@ events[x <= -0.468] = "extreme-left"
 events[x >= 0.468] = "extreme-right"
 df = data.frame(x=x, PDF=p, events=events)
 fig_1group = ggplot(data.frame(x=x, PDF=p), aes(x = x, y = PDF, color=events)) + 
-  geom_line(size = 1) + scale_color_manual(values = c("red", "orange", "black"))
+  geom_line(linewidth = 1) + scale_color_manual(values = c("red", "orange", "black"))
 ```
 </details>
 <br />
@@ -258,39 +260,46 @@ print(paste("p-value:", cdf_left + cdf_right))
 fig_1group
 ```
 
-#### Two-group t-test (To be updated)
 
+#### Two-group t-test
 
+Aside from comparing a single sample mean to a specific value, a more common scenario involves comparing the means between two groups—for example, a treatment group (such as disease status or intervention) versus a control group. This approach is often referred to as an A/B test, which assesses whether the sample means of groups A and B are statistically different.
 
-**Null distribution approximated by $t$ distribution**
+Let's revisit Example 4, where we compare birth weights between two groups: heavy smokers and non-smokers. The observed difference in mean birth weight is -0.516 kg. To analyze this, we can set up the following hypotheses, similar to the permutation test:
 
-We use the t test to assess whether two samples taken from normal distributions have significantly different means.
+* H0: there is no difference in mean birth weight between groups: $d = 0$
+* H1: there is a difference, $d \neq 0$
 
-The test statistic follows a Student's t-distribution, provided that the variances of the two groups are equal.
+This time, instead of using resampling, we will now use the t-distribution to approximate the distribution of the difference in sample means, $d$, under the null hypothesis. Assuming the null hypothesis is true, we can model the distribution of the observed difference using a t-distribution as follows.
 
-Other variants of the t-test are applicable under different conditions.
+$$
+d \sim t(\mu=0, \hat\sigma^2, \text{df}=n_1 + n_2 - 2)
+$$
+Under the null hypothesis, the t-distribution has a mean of $\mu=0$, with degrees of freedom df=$n_1+n_2-2$, since the means of the two samples are considered fixed. Similar to the one-sample test, the only unknown parameter to estimate is
+$\hat\sigma$. Assuming **Assumption 3**—*that the two groups have the same unknown variance*—we can approximate this parameter using the following calculation:
 
-The test statistic is
-$$ t = \frac{\bar{X}_{1} - \bar{X}_{2}}{s_p \cdot \sqrt{\frac{1}{n_{1}} + \frac{1}{n_{2}}}} $$
+$$\hat\sigma^2 \approx {s_p^2 \cdot (\frac{1}{n_{1}} + \frac{1}{n_{2}}})$$,
 
-where
-$$ s_p = \sqrt{\frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}} $$
+where $s_p^2$ is the pooled variance and is given by $s_1^2$ and $s_2^2$, sample variance (i.e., the unbiased estimator of the population variance) in groups 1 and 2, as follows,
 
-is an estimator of the pooled standard deviation.
+$$
+s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}; \quad
+s_1^2 = \frac{\sum {(X_1^{(1)} - \bar{X}^{(1)})^2}}{n_1 - 1} ; \quad
+s_2^2 = \frac{\sum {(X_1^{(2)} - \bar{X}^{(2)})^2}}{n_2 - 1} 
+$$
+Note, if the variances between the groups differ, the calculation would need to be adjusted, using the [Welch's t-test](https://en.wikipedia.org/wiki/Welch%27s_t-test)
 
-Under the null hypothesis of equal means, the statistic follows a Student's t-distribution with $(n_{1} + n_{2} - 2)$ degrees of freedom.
-
+<details>
+<summary>**Click for R scripts to calculate t distribution for two-group comparison**
+</summary>
 ```{r}
-# Same test statistic: difference of group mean
+## Install extraDistr pkg for using location-scale version of the t-distribution
+if (!require("extraDistr")) {
+  install.packages("extraDistr")
+}
 
-stat_t = mean(data_heavysmoking) - mean(data_nonsmoking)
+d_obs = mean(data_heavysmoking) - mean(data_nonsmoking)
 
-stat_t
-```
-
-Calculate parameters for approximate t distribution
-
-```{r}
 n_ns = length(data_nonsmoking)
 n_hs = length(data_heavysmoking)
 
@@ -301,61 +310,91 @@ s_hs = sd(data_heavysmoking)
 sp = sqrt(((n_ns - 1)*s_ns**2 + (n_hs - 1)*s_hs**2) / (n_ns + n_hs - 2))
 print(paste0("Pooled standard deviation:", sp))
 
-my_std = sp * sqrt(1/n_ns + 1/n_hs)
-print(paste("Estimated standard error of mean difference:", my_std))
+d_sigma_hat = sp * sqrt(1/n_ns + 1/n_hs)
+print(paste("Estimated standard error of mean difference:", d_sigma_hat))
 
-stat_t_scaled = stat_t / my_std
-print(paste("Rescaled t statistic:", stat_t_scaled))
+x = seq(-1.0, 1.0, 0.01)
+p = extraDistr::dlst(x, df = n_ns + n_hs - 2, sigma = d_sigma_hat)
+events = rep("non-extreme", length(x))
+events[x <= -abs(d_obs)] = "extreme-left"
+events[x >= abs(d_obs)] = "extreme-right"
+df = data.frame(x=x, PDF=p, events=events)
+fig_2group = ggplot(data.frame(x=x, PDF=p), aes(x = x, y = PDF, color=events)) + 
+  geom_line(linewidth = 1) + scale_color_manual(values = c("red", "orange", "black"))
+```
+</details>
+<br />
 
-print(paste("degree of freedom", n_hs+n_ns-2))
+```{r fig4-t-twogroups, out.width = '60%'}
+cdf_left = extraDistr::plst(-abs(d_obs), df = n_ns + n_hs - 2, sigma = d_sigma_hat)
+cdf_right = 1 - extraDistr::plst(abs(d_obs), df = n_ns + n_hs - 2, sigma = d_sigma_hat)
+print(c(cdf_left, cdf_right))
+print(paste("p-value:", cdf_left + cdf_right))
+fig_2group
 ```
 
-Here, we focusing the standardized $t$ distribution, namely the variance=1, so
-let's re-scale the test statistic by dividing the standard error `my_std`.
 
-```{r fig4-tdist, out.width = '60%'}
-xx = seq(-4.5, 4.5, 0.05)
-xx_pdf = dt(xx, df=n_hs+n_ns-2)
 
-df_t_dist = data.frame(x=xx, pdf=xx_pdf)
+**Transform to a standardized $t$-distribution**
 
-ggplot(df_t_dist, aes(x=x)) + 
-  geom_line(aes(y=pdf)) +
-  geom_vline(xintercept=stat_t_scaled, linetype="dashed", color="tomato") +
-  geom_vline(xintercept=-stat_t_scaled, linetype="dashed", color="tomato") +
-  xlab('Difference of group mean') + 
-  ylab('PDF approximated by t distr.') +
-  ggtitle('Distribution of t under the null hypothesis')
-```
 
+
+In addition to using the non-standardized t-distribution with its location and scale parameters, it is common to transform the t-statistic into a standardized form. Specifically, if we compute the t-statistic as $t_{\text{statistic}} = d / \hat{\sigma}$, it follows a standardized t-distribution with the the same degree of freedom. This allows us to report both the t-statistic and the corresponding p-value for hypothesis testing.
+
+$$ t_{\text{statistic}} = \frac{\bar{X}_{1} - \bar{X}_{2}}{s_p \cdot \sqrt{\frac{1}{n_{1}} + \frac{1}{n_{2}}}} $$
+
+We can visualize the null distribution and the extreme values in a standardized form as follows:
+
+<details>
+<summary>**Click for R scripts to calculate t distribution for two-group comparison**
+</summary>
 ```{r}
-# Note, we used multiply 2 just because the t distribution is symmetric,
-# otherwise, we need calculate both side and add them.
-
-pval_t_twoside = pt(stat_t_scaled, df=n_hs+n_ns-2) * 2
-
-print(paste('t-test p value (two-tailed):', round(pval_t_twoside, 6)))
+x = seq(-1.0, 1.0, 0.01) / d_sigma_hat
+p = stats::dt(x, df = n_ns + n_hs - 2)
+events = rep("non-extreme", length(x))
+events[x <= -abs(d_obs / d_sigma_hat)] = "extreme-left"
+events[x >= abs(d_obs / d_sigma_hat)] = "extreme-right"
+df = data.frame(x=x, PDF=p, events=events)
+fig_2group_st = ggplot(data.frame(x=x, PDF=p), aes(x = x, y = PDF, color=events)) + 
+  geom_line(linewidth = 1) + scale_color_manual(values = c("red", "orange", "black"))
 ```
+</details>
+<br />
+
+```{r fig4-t-twogroups_st, out.width = '60%'}
+cdf_left = stats::pt(-abs(d_obs / d_sigma_hat), df = n_ns + n_hs - 2)
+cdf_right = 1 - stats::pt(abs(d_obs / d_sigma_hat), df = n_ns + n_hs - 2)
+print(c(cdf_left, cdf_right))
+print(paste("p-value:", cdf_left + cdf_right))
+fig_2group_st
+```
+
 
 #### Direct use of ``t.test()``
 
-In course and most of your future analyses, you can directly use the built-in 
-``t.test()`` function.
+In the course and most of your future analyses, you can directly use the built-in 
+``t.test()`` function. If you assume that the variances in the two groups are the same, you can set the `var.equal = TRUE`; Note, the default value is `FALSE`.
 
 ```{r}
 # Note, we assumed the variance in both groups are the same, 
 # we so need to set var.equal = TRUE
 
-t.test(data_nonsmoking, data_heavysmoking, var.equal = TRUE)
+t_res = t.test(data_nonsmoking, data_heavysmoking, var.equal = TRUE)
+
+t_res$p.value
+
+t_res
 ```
 
 
-#### regression-based test
-We can also perform t-test in a Generalised linear model (GLM) setting to test
-if a coefficient is zero or not.
 
-Here, we simply use the `marketing` dataset as an example.
+#### Regression-based test
+We can also perform a t-test (Welch's t-test) in a Generalized Linear Model (GLM) setting to test if a coefficient is zero or not.
+Here, we use the `marketing` dataset as an example, and we can load the data and visualize it as follows using R scripts.
 
+<details>
+<summary>**Click for R scripts to load the data**
+</summary>
 ```{r}
 # Install datarium library if you haven't
 if (!requireNamespace("datarium", quietly = TRUE)) {
@@ -368,12 +407,15 @@ library(datarium)
 data(marketing)
 head(marketing)
 ```
+</details>
+<br />
 
 ```{r fig4-glm-scatter, out.width = '60%'}
 ggplot(marketing, aes(x=newspaper, y=sales)) + 
-  geom_point() + geom_smooth(method=lm)
+  geom_point() + geom_smooth(method=lm, formula = 'y ~ x')
 ```
 
+We can further use the `lm` function to fit the regression model, which will estimate the coefficients for each covariate as well as the intercept. In addition to the estimates, the function provides the standard errors of each coefficient, allowing us to derive the null distribution of each coefficient in the form of a t-distribution. By transforming the observed statistic—dividing the estimated coefficient by its standard error (similar to the two-group t-test described earlier)—we obtain the t-statistic and its corresponding p-value. All of these results are accessible through the output of the `lm` function, which returns a list containing each value.
 
 ```{r}
 # Fit linear regression
@@ -400,5 +442,88 @@ ggplot(df_ttest, aes(x=x, y=PDF)) +
 
 ### Fisher's exact test
 
+Fisher's exact test is a widely used hypothesis testing method for comparing categorical variables between groups. In genomics, an example of its application is gene set enrichment analysis within a specific annotated pathway. This involves testing whether a gene set of interest contains a significantly higher proportion of genes from the pathway compared to non-interest genes.
 
-**Acknowledgement**: examples are from Dr John Pinney [link here](https://github.com/johnpinney/sampling_and_hypothesis_testing/blob/master/python_version/hypothesis_testing_python.ipynb)
+#### Binomial test
+A similar, often simpler, approach is the binomial test. Let's revisit Example 2, where we suspect that a die is biased toward rolling a six. We can formulate the hypotheses as follows:
+
+* $H_0$ (Null hypothesis): The die is fair, with a probability of rolling a six of $p=1/6$.
+* $H_a$ (Alternative hypothesis): The die is unfair, with a probability of rolling a six greater 1/6, name $p>1/6$.
+
+In this scenario, the exact null distribution follows a binomial distribution with success probability $p=1/6$, meaning we do not need to approximate the null distribution. This is also why binomial test and Fisher's test are exact tests.
+
+Therefore, in this example with observing 43 sixes in 100 rolls, the events at least as extreme the observed number are 43, 44, ..., 100. By using the definition of [binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution), we can calculate the p-value as follows,
+
+$$\text{p_value} = \sum_{k=\{43...,100\}}{\binom{100}{k} p^{k} (1-p)^{100-k}}; \quad p=1/6$$
+
+Alternatively, in R, we can calculate the p-value manually with `choose()` for number of combinations or directly using `binom.test()` for the hypothesis test, as follows.
+
+```{r}
+# manual calculation with extreme values
+x = seq(43, 100)
+p_val = sum(choose(100, x) * (1/6)^(x) * (1 - 1/6)^(100-x))
+p_val
+
+# using built-in function
+binom.test(43, 100, p=1/6, alternative = "greater")
+```
+
+#### Hypergeometric distribution
+
+In a certain sense, you may feel that the binomial test is somewhat similar to a one-sample t-test, as it assesses whether the success rate (or proportion) equals a **specified value**, using the number of successes as the test statistic. (Note, binomial test focuses on categorical variables and the t-test on continuous variables).
+
+Similarly, a more common scenario involves comparing success rates (or hit rates) between two conditions—such as treated versus untreated groups. Let's consider Example 5:
+
+> **Example 5**
+ Is handedness associated with sex? To investigate this, we set up the hypotheses:<br />
+* $H_0$ (null hypothesis): The proportion of right-handed individuals is the same for males and females, i.e., $p_{male} = p_{female}$.<br />
+* $H_a$ (alternative hypothesis): The proportion of right-handed individuals differs between males and females, i.e., $p_{male} \neq p_{female}$.<br />
+
+
+**Table 2.** Contingency table for handedness between male and female.
+
+|           | Right-handed | Left-handed | **Total**  |
+|-----------|--------------|-------------|------------|
+| Male      | a = 43       | b = 9       | a + b = 52 |
+| Female    | c = 44       | d = 4       | c + d = 48 |
+| **Total** | a +c = 87    | b + d = 13  | n = 100    |
+<br />
+
+Before diving into hypothesis testing, let's briefly review the hypergeometric distribution. In this context, we can arbitrarily choose any of the variables a, b, c, or d as the test statistic; without loss of generality, we choose $a$. To avoid confusion between variables and observed values, we'll use $x$ to denote the test statistic—in this case, the number of right-handed individuals among males (corresponding to $a$).
+
+The key requirement for the hypergeometric distribution is that the totals a+b (number of males), c+d (number of females), and a+c (number of right-handed individuals) are fixed. For illustration, suppose we randomly assign the 87 right-handed individuals into 52 males and 48 females. (Think about how this can be simulated.)
+
+Notice that if $x$ (the number of right-handed males) changes, the values of b, c, and d must also change accordingly, given that the totals a+b, c+d, and a+c are fixed. To ensure all counts are non-negative, $x$ is bounded within a specific range:
+
+$$\text{max}(0, (a+c)-(c+d)) <= x <= \text{min}(a+b, a+c)$$
+In our example, this translates to 39<=x<=52. Under the null hypothesis, the most probable values of $x$ are around 45 and 46. For a two-tailed test, the extreme values are those from 39 to 43 and symmetrically from 48 to 52.
+
+If you were thinking of how to make the simulation and obtain the null distribution, you may realize that the probability mass function is the number of combinations to obtain a out of a+c, multiplying the number of combinations to obtain c out of c+d, dividing the combinations to obtain a+c out of  a+b+c+d. We can write it as follows,
+$$p(x, m=a+b, n=c+d, k=a+c) = \frac{\binom{a+b}{x} * \binom{c+d}{c}}{ \binom{a+c}{a+b+c+d}}
+$$
+
+This distribution is called the [hypergeomatric distribution](https://en.wikipedia.org/wiki/Hypergeometric_distribution). In the terminology used above (for $m, n, k$), it corresponds to the R function [stats::Hypergeometric](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Hypergeometric.html), which allows us to compute the probability density function (PDF) for specific values.
+
+
+With the **extreme events** and **null distribution** defined, we can now calculate the two-sided p-value with manual calculation, using built-in `dhyper()` function, or directly use `fisher.test()` for the test.
+
+```{r}
+## extreme events
+x_extreme = c(39:43, 48:52)
+
+## manual calculation
+p_manual = sum(choose(52, x_extreme) * choose(48, 87 - x_extreme) / choose(100, 87))
+p_manual
+
+## hypergeometric distribution
+p_hyper = sum(dhyper(x_extreme, m = 52, n = 48, k = 87))
+p_hyper
+
+## fisher's exact test
+fisher.test(matrix(c(43, 44, 9, 4), nrow = 2), alternative = "two.sided")
+```
+
+
+**Exercise**:
+try it yourself by calculating the one-tailed p-value for the alternative hypothesis that the right-handed proportion is lower in male than female, namely p_male < p_female.
+
