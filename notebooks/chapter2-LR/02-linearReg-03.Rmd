@@ -1,15 +1,16 @@
 
 
-## Diagnostic check of a fitted regression model 
+## Diagnostic metrics
 
 Apart from the $R^2$ statistic, there are other statistics and parameters that 
 you need to look at in order to determine if the model is efficient. We will 
 discuss some commonly used statistics – Residual Standard Errors, $p$-values, 
 and $F$-statistics.
 
-### Residual Standard Errors (RSE)
+### Residual Standard Errors
 
-RSE is a common statistic used to calculate the accuracy of values predicted by 
+Residual Standard Errors (RSE) is a common statistic used to calculate the 
+accuracy of values predicted by 
 a model. It is an estimate of the variance of the error term, `res`. For a 
 simple linear regression model, RSE is defined as: 
 $$  RSE^2 = \frac{SSE}{n-2} = \frac1{n-2} \sum_{i=1}^n  \Bigl(\text{yact}_i - \text{ypred}_i \Bigr)^2.
@@ -41,41 +42,41 @@ shows how the RSE for a model can be calculated:
 ```{r}
 set.seed(0)
 
-# Generate data
+## Generate data
 X = 2.5 * rnorm(100) + 1.5   # Array of 100 values with mean = 1.5, stddev = 2.5
 res = 0.5 * rnorm(100)       # Generate 100 residual terms
 yact = 2 + 0.3 * X + res     # Actual values of Y
 
-# Create dataframe to store our X, ypred, and yact values
+## Create dataframe to store our X, ypred, and yact values
 df = data.frame('X' = X, 'yact' = yact)
 
-# Calculate the mean of X and Y
+## Calculate the mean of X and Y
 xmean = mean(X)
 ymean = mean(yact)
 
-# Calculate the terms needed for the numator and denominator of beta
+## Calculate the terms needed for the numator and denominator of beta
 df['xycov'] = (df['X'] - xmean) * (df['yact'] - ymean)
 df['xvar'] = (df['X'] - xmean)**2
 
-# Calculate beta and alpha
+## Calculate beta and alpha
 beta = sum(df['xycov']) / sum(df['xvar'])
 alpha = ymean - (beta * xmean)
 print(paste('alpha =', alpha, ';', 'beta =', beta))
 
-# Store predictions as in previous step
+## Store predictions as in previous step
 df['ypred'] = alpha + beta * df['X']
 
-# Show first five rows of dataframe
+## Show first five rows of dataframe
 head(df)
 ```
 
 
 ```{r}
-# Calculate SSE
+## Calculate SSE
 df['SSE'] = (df['yact'] - df['ypred'])**2
 SSE = sum(df['SSE'])
 
-# Calculate RSE
+## Calculate RSE
 RSE = sqrt(SSE / 98)   # n = 100
 print(paste('RSE =', RSE))
 ```

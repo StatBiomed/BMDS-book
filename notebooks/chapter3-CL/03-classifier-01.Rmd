@@ -1,11 +1,70 @@
 
 
-## Visualise logistic and logit functions
+## Logistic regression
 
-In this chapter, we will focus on logistic regression for classification. 
-Let's first look at what logistic and logit function look like.
+In this chapter, we will introduce classification. There are multiple commonly 
+used classification methods, for example, random forest, support vector machine. 
+Here, we will focus on introducing logistic regression for the following reasons:
 
-### Logistic function
+1. It usually performs well with good accuracy, especially after properly 
+  transforming the features to make them linear to the output variable.
+2. It is based on a linear relationship between the explanatory variables and 
+  output variable, making it easy to interpret.
+3. It has a good connection to a neural network, making it useful for your 
+  future study.
+
+In a nutshell, logistic regression is a linear regression with a logistic 
+transformation for probabilistic prediction. Let's start with a linear decision 
+boundary.
+
+### Linear decision boundary
+
+Taking the iris dataset as an example, we will see that a linear boundary is a 
+line in a two-dimensional space, and can be specified as a function over two 
+variables, x1 (x-axis) and x2 (y-axis). Here, let's take an example decision 
+boundary: x2 = x2 - 2.3, or, namely, z = x1 - x2 - 2.3 = 0, and we can visualize
+it as follows.
+
+```{r fig3-decision-boundary, out.width = '60%'}
+## Example decision boundary as a line: x2 = x1 - 2.3; or z = x1 - x2 - 2.3 = 0
+# Note, we use x2 as the y-axis. If z = x1 - x2 - 2.3 > 0, it's versicolor
+
+ggplot(data = iris[1:100, ], 
+       aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
+  geom_point() + geom_abline(intercept = -2.3)
+```
+
+In high-dimensional space, a linear decision boundary will be a
+[hyperplane](https://en.wikipedia.org/wiki/Hyperplane). 
+We can further write this linear decision model in a general form for 
+$p$-dimensional features, as follows,
+
+$$z = w_0 + w_1 * x_1 + w_2 * x_2 + ... w_p * x_p = 0$$
+
+Then the classification will be make as positive if $z>0$, or negative if $z<0$.
+
+
+**Potential issues**: there are two potential issues with the above linear 
+classification. *First*, it cannot give a predicted probability of the label, 
+which can be often useful for determine the confidence of the prediction. 
+*Second*, it is not straightforward to define a loss with current predicted $z$ 
+and observed label $y$.
+
+To solve these issues, a logistic transformation function is introduced to 
+squash the predicted value from (-$\infty$, +$\infty$) to [0, 1], serving a the 
+predicted probability. Therefore, the **logistic regression** can be written 
+as follows,
+
+$$P(y=1|X, W) = \sigma(z) = \sigma(w_0 + x_1 * w_1 + ... + x_p * w_p)$$
+where $\sigma()$ denotes logistic function (also known as sigmoid function), 
+defined as
+$$\sigma(z) = \frac{1}{1 + e^{-z}} = \frac{e^z}{e^z + 1}$$
+
+### Logistic and logit functions
+
+Let's play around with logistic and logit functions and then visualize them.
+
+**Logistic function**
 
 Let's write our first function `logestic()` as follows.
 ```{r}
@@ -21,7 +80,7 @@ logistic(c(-3, -2, 0.5, 3, 5))
 
 This is the equivalent to the built-in `plogis()` function in the `stat` 
 package for the 
-[logistic distribution](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/Logistic):
+[logistic distribution](https://www.rdocumentation.org/packages/stats/topics/Logistic):
 
 ```{r}
 plogis(0.1)
@@ -29,7 +88,8 @@ plogis(c(-3, -2, 0.5, 3, 5))
 ```
 
 
-### Logit function
+**Logit function**
+
 Now, let look at the logistic's inverse function `logit()`, and let's define it
 manually. **Note**, this function only support input between 0 and 1.
 ```{r}
@@ -53,8 +113,9 @@ qlogis(c(0.2, 0.3, 0.5, 0.7, 0.9))
 qlogis(c(-1, 2, 0.4))
 ```
 
-### Visualise the distribution
-Logisitc function
+
+### Visualise logistic and logit functions
+Logistic function
 ```{r fig3-logistic, out.width = '60%'}
 # You can use seq() function to generate a vector
 # Check how to use it by help(seq) or ?seq

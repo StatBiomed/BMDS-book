@@ -1,5 +1,5 @@
 
-## Simple Linear Regression with `lm` function
+## Simple Linear Regression
 
 There are a few R packages, e.g., the built-in `stat` package have a `lm` 
 (linear model) function to fit linear regression very easy - much easier than 
@@ -88,8 +88,12 @@ ready-made method for doing this so we don’t need to code all the math ourselv
 ```{r}
 res_summary = summary(res.lm)
 
-# Again, res_summary is also a list
+## Again, res_summary is also a list
 res_summary$r.squared
+
+## Access to the p-value
+print("p-values can be access from the summary function:")
+res_summary$coefficients[, "Pr(>|t|)"]
 ```
 
 We can also take a look at the model summary by writing this snippet:

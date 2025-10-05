@@ -1,25 +1,19 @@
-
 ## Hypothesis test and *p*-value
 
-Hypothesis test is a method for statistical inference, specifically to 
-determine whether the collected data provide sufficient evidence to reject a 
-particular hypothesis.
+Hypothesis test is a method for statistical inference, specifically to determine whether the collected data provide sufficient evidence to reject a particular hypothesis.
 
 ### Extreme events and random chance
 
-> 
-**Example 1:** In 1930s, Sir Ronald Fisher did a famous experiment, "The Lady Tasting Tea", which aimed to determine whether Lady Bristol could reliably distinguish whether milk or tea was added first when making English milk tea. In the experiment, eight cups—four with milk added first and four with tea added first—were shuffled before being presented to the lady. She correctly identified the order in all eight cups. This raises the question: does the lady genuinely have the ability to distinguish whether milk or tea was added first? In hypothesis testing, we can consider two hypotheses:<br />
-* $H_0$: The lady has no ability to distinguish between milk-first and tea-first; her correct identifications are due to chance.<br />
-* $H_A$: The lady has some ability to distinguish; her correct identifications are better than what would be expected by chance.
-
+> **Example 1:** In 1930s, Sir Ronald Fisher did a famous experiment, "The Lady Tasting Tea", which aimed to determine whether Lady Bristol could reliably distinguish whether milk or tea was added first when making English milk tea. In the experiment, eight cups---four with milk added first and four with tea added first---were shuffled before being presented to the lady. She correctly identified the order in all eight cups. This raises the question: does the lady genuinely have the ability to distinguish whether milk or tea was added first? In hypothesis testing, we can consider two hypotheses:<br /> \* $H_0$: The lady has no ability to distinguish between milk-first and tea-first; her correct identifications are due to chance.<br /> \* $H_A$: The lady has some ability to distinguish; her correct identifications are better than what would be expected by chance.
 
 **Table 1.** Contingency table for the lady tasting tea experiment.
 
-|            | Predicted tea first | Predicted milk first | **Total**             |
-|------------|---------------------|----------------------|-----------------------|
-| Tea first  | a = 4               | b = 0                | a + b = 4             |
-| Milk first | c = 0               | d = 4                | c + d = 4             |
-| **Total**  | a +c = 4            | b + d = 4            | n = a + b + c + d = 8 |
+|            | Predicted tea first | Predicted milk first | **Total**   |
+|------------|---------------------|----------------------|-------------|
+| Tea first  | a = 4               | b = 0                | a + b = 4   |
+| Milk first | c = 0               | d = 4                | c + d = 4   |
+| **Total**  | a +c = 4            | b + d = 4            | a+b+c+d = 8 |
+
 <br />
 
 Let's consider a different perspective. How likely is it for this to happen purely by chance?
@@ -29,26 +23,24 @@ Using our mathematical skills (or `choose()` function in R), we find that there 
 **In another word, the chance we are fooled by randomness is 1/70 = 0.014.**
 
 <details>
-<summary>**How to calculate the number of combinations with R and math:**
-</summary>
+
+<summary>**How to calculate the number of combinations with R and math:**</summary>
+
 **R**
+
 ```{r}
 choose(8, 4)
 ```
-**Math**
-Consider permutations where the first choice is 8, the second is 7, and so on. However, we must also account for the permutations within the selected cups—that is, the arrangements among the chosen 4 cups. Therefore, the number of combinations can be calculated as follows.
+
+**Math** Consider permutations where the first choice is 8, the second is 7, and so on. However, we must also account for the permutations within the selected cups---that is, the arrangements among the chosen 4 cups. Therefore, the number of combinations can be calculated as follows.
 
 $$\frac{8 \times 7 \times 6 \times 5} {4 \times 3 \times 2 \times 1} = 70$$
+
 </details>
+
 <br />
 
-
-> 
-**Example 2:** Your arch-nemesis, Blofeld, always seems to win at Ludo, leading you to suspect that he might be using a loaded die. You have observed the following outcomes from 100 rolls of his die:
-<br />
-Based on these observations, you want to evaluate two hypotheses:<br />
-* $H_0$: probability of rolling a 6 is p = 1/6<br />
-* $H_A$: probability of rolling a 6 is p > 1/6
+> **Example 2:** Your arch-nemesis, Blofeld, always seems to win at Ludo, leading you to suspect that he might be using a loaded die. You have observed the following outcomes from 100 rolls of his die: <br /> Based on these observations, you want to evaluate two hypotheses:<br /> \* $H_0$: probability of rolling a 6 is p = 1/6<br /> \* $H_A$: probability of rolling a 6 is p \> 1/6
 
 ```{r}
 data = c(6, 1, 5, 6, 2, 6, 4, 3, 4, 6, 1, 2, 5, 6, 6, 3, 6, 2, 6, 4, 6, 2,
@@ -61,17 +53,16 @@ stat_k = sum(data == 6)
 stat_k
 ```
 
-
 After counting, you found that the number 6 appears 43 times out of 100 rolls. You then ask: what is the probability of observing this many or more sixes if the die is fair? Assuming the die is unbiased, you can calculate the probability of getting 6 for $K$ times out of 100 trials, via a [binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution).
 
-$$\binom{100}{k} p^k (1-p)^{(100-k)}; p=\frac{1}{6}$$
-You can also calculate in R with this function `dbinom(k, size=100, prob=1/6)`.
+$$\binom{100}{k} p^k (1-p)^{(100-k)}; p=\frac{1}{6}$$ You can also calculate in R with this function `dbinom(k, size=100, prob=1/6)`.
 
 Now, let's visualize the probability of seeing any times of 6 via R scripts.
 
 <details>
-<summary>**Visualizing with R:**
-</summary>
+
+<summary>**Visualizing with R:**</summary>
+
 ```{r}
 # plot the probability mass function of null distribution
 
@@ -88,7 +79,9 @@ fig4_dice = ggplot(df, aes(x=x)) +
   ylab('Probability Mass Function') +
   ggtitle('Distribution of n_six under the null hypothesis')
 ```
+
 </details>
+
 <br />
 
 ```{r fig4-dice, out.width = '60%'}
@@ -102,92 +95,82 @@ p(k \geq 43 | p=1/6) = \sum_{k=34}^{n=100} \binom{100}{k} p^k (1-p)^{(100-k)} = 
 $$
 
 <details>
-<summary>**Calculating with R:**
-</summary>
+
+<summary>**Calculating with R:**</summary>
+
 ```{r}
 ?pbinom
 1 - pbinom(42, 100, 1/6)
 ```
-</details>
-<br />
 
+</details>
+
+<br />
 
 Therefore, you may think the chance to see such extreme results is very low (5.4e-10)!
 
+**Random chance to blame:** The purpose of hypothesis test is to help us learn whether random chance might be responsible for observations. Think:
 
-**Random chance to blame:**
-The purpose of hypothesis test is to help us learn whether random chance might be responsible for observations. Think:
+-   In Example 1, can the lady genuinely distinguish whether the milk or tea was poured first? To what extent should we attribute her correct identification to random chance?
 
-* In Example 1, can the lady genuinely distinguish whether the milk or tea was poured first? To what extent should we attribute her correct identification to random chance?
-
-* In Example 2, how much should we consider the occurrence of 43 or more sixes as a result by random?
+-   In Example 2, how much should we consider the occurrence of 43 or more sixes as a result by random?
 
 **N.B.**, random chance is random but not always in a uniform or normal distribution. The distribution sometimes can be quite complex.
 
-
 ### Hypothesis test for statistical decision
 
-Is there a formal way for us to make such a statistical decision? 
-**Yes, hypothesis testing is a formal way for decision making**. Let us see how it is defined.
+Is there a formal way for us to make such a statistical decision? **Yes, hypothesis testing is a formal way for decision making**. Let us see how it is defined.
 
->
-**Definition of hypothesis test:** A hypothesis test is a formal procedure in statistical inference used to assess whether the observed data provide sufficient evidence to reject a specific null hypothesis. The process typically involves calculating a test statistic, which is a scalar value derived from the data. This observed test statistic is then compared to its distribution under the null hypothesis, or alternatively, a p-value is computed from the test statistic. Based on this comparison or p-value, a decision is made to either reject or fail to reject the null hypothesis.
+> **Definition of hypothesis test:** A hypothesis test is a formal procedure in statistical inference used to assess whether the observed data provide sufficient evidence to reject a specific null hypothesis. The process typically involves calculating a test statistic, which is a scalar value derived from the data. This observed test statistic is then compared to its distribution under the null hypothesis, or alternatively, a p-value is computed from the test statistic. Based on this comparison or p-value, a decision is made to either reject or fail to reject the null hypothesis.
 
 **Null and alternative hypotheses:**
 
-* Null hypothesis ($H_0$): The hypothesis that random chance is to blame.
+-   Null hypothesis ($H_0$): The hypothesis that random chance is to blame.
 
-* Alternative hypothesis ($H_1$ or $H_a$): Counterpart to the null; namely the hypothesis you want to prove.
+-   Alternative hypothesis ($H_1$ or $H_a$): Counterpart to the null; namely the hypothesis you want to prove.
 
-> 
-**Example 3**, Consider an A/B test examining COVID-19 recovery times, comparing patients who receive drug D (Group A) to those who do not (Group B). The question is: can drug D actually reduce recovery time? Or, alternatively, is the observed difference between the two groups simply due to random chance?
-<br />
-* $H_0$: The drug has no effect on Covid-19 recovery time, i.e., $\mu_A = \mu_B$<br />
-* $H_1$: The drug does have an effect on recovery time, i.e., $\mu_A \neq \mu_B$
+> **Example 3**, Consider an A/B test examining COVID-19 recovery times, comparing patients who receive drug D (Group A) to those who do not (Group B). The question is: can drug D actually reduce recovery time? Or, alternatively, is the observed difference between the two groups simply due to random chance? <br /> \* $H_0$: The drug has no effect on Covid-19 recovery time, i.e., $\mu_A = \mu_B$<br /> \* $H_1$: The drug does have an effect on recovery time, i.e., $\mu_A \neq \mu_B$
 
 **One reason why we need hypothesis test**
 
-* We have no idea of the testing statistic in the alternative hypothesis (the "right"), but we can know how it looks when the null hypothesis is correct.
+-   We have no idea of the testing statistic in the alternative hypothesis (the "right"), but we can know how it looks when the null hypothesis is correct.
 
-* If we know both, we may consider classification - think the difference.
+-   If we know both, we may consider classification - think the difference.
 
 Therefore, the main goal of hypothesis testing is: *Given our null and alternative hypotheses, we aim to determine whether the observed data provides enough evidence to reject the null hypothesis*. This involves three key steps::
 
-1) Define the test statistic. First, select an appropriate **test statistic**, such as the difference in means between groups A and B, the difference in medians, or the variance of the group means.
+1)  Define the test statistic. First, select an appropriate **test statistic**, such as the difference in means between groups A and B, the difference in medians, or the variance of the group means.
 
-2) Approximate the null distribution. Next, under the null hypothesis, determine the distribution of the test statistic—either through resampling methods or analytical calculations—referred to as the **null distribution**.
+2)  Approximate the null distribution. Next, under the null hypothesis, determine the distribution of the test statistic---either through resampling methods or analytical calculations---referred to as the **null distribution**.
 
-3) Calculte the p-value. Last, from the the null distribution we can calculate the probabilityof seeing the test statistic at least as extreme as the observed value, termed as **p-value**.
+3)  Calculte the p-value. Last, from the the null distribution we can calculate the probabilityof seeing the test statistic at least as extreme as the observed value, termed as **p-value**.
 
 **Definition of p-value:** Finally, compute the probability of observing a test statistic as extreme or more extreme than the one obtained, assuming the null hypothesis is true. This probability is known as the **p-value**.
-
 
 The p-value represents the probability of observing data as extreme or more extreme than what was actually observed, assuming the null hypothesis is true. In other words, it measures how surprising the observed data is under the null hypothesis.
 
 Therefore, the p-value can help guide our statistical decision:
 
-* If the p-value is very small, it indicates that such an extreme result would be unlikely if the null hypothesis were true, suggesting that the null hypothesis may be false.
+-   If the p-value is very small, it indicates that such an extreme result would be unlikely if the null hypothesis were true, suggesting that the null hypothesis may be false.
 
-* If the p-value is large, it implies that the observed data is consistent with the null hypothesis, providing *not enough evidence to reject it*.
-
+-   If the p-value is large, it implies that the observed data is consistent with the null hypothesis, providing *not enough evidence to reject it*.
 
 **Definition of significance level:** significance level, denoted by $\alpha$, is the probability of rejecting the null hypothesis when it is actually true. In other words, it represents the threshold for determining when a result is considered statistically significant.
 
 In practical terms, statistical significance measures whether an observed result is more extreme than what would typically be expected due to chance alone.
 
-* The significance level is $\alpha$ (Alpha) predefined cutoff for "unusualness." If the p-value falls below , the observed result is deemed statistically significant, suggesting that it is unlikely to have occurred under the null hypothesis.
+-   The significance level is $\alpha$ (Alpha) predefined cutoff for "unusualness." If the p-value falls below , the observed result is deemed statistically significant, suggesting that it is unlikely to have occurred under the null hypothesis.
 
-* We reject reject $H_0$ when $p<\alpha$. Since is the probability of making a Type I error (incorrectly rejecting a true null hypothesis), choosing a smaller $\alpha$ makes the test more conservative.
+-   We reject reject $H_0$ when $p<\alpha$. Since is the probability of making a Type I error (incorrectly rejecting a true null hypothesis), choosing a smaller $\alpha$ makes the test more conservative.
 
-* Example: if $\alpha = 0.05, p = 0.004$, then since $p < \alpha$, we reject $H_0$.
+-   Example: if $\alpha = 0.05, p = 0.004$, then since $p < \alpha$, we reject $H_0$.
 
 **Key steps in performing a hypothesis test**
 
-1) Propose a research question;
-2) Formulate the null hypothesis H0and alternative hypothesis $H_1$;
-3) Choose an appropriate statistical test, including defining the **test statistic** and its **null distribution**;
-4) Choose an appropriate significance level, $\alpha$;
-5) Calculate the test statistic based on the observed data;
-6) Compute the p-value corresponding to the test statistic;
-7) Make a decision: reject $H_0$ if $p < \alpha$, otherwise, there is not enough evidence to reject $H_0$.
-
+1)  Propose a research question;
+2)  Formulate the null hypothesis H0and alternative hypothesis $H_1$;
+3)  Choose an appropriate statistical test, including defining the **test statistic** and its **null distribution**;
+4)  Choose an appropriate significance level, $\alpha$;
+5)  Calculate the test statistic based on the observed data;
+6)  Compute the p-value corresponding to the test statistic;
+7)  Make a decision: reject $H_0$ if $p < \alpha$, otherwise, there is not enough evidence to reject $H_0$.

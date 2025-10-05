@@ -1,6 +1,6 @@
 
 
-## Multiple Regression with `lm` function
+## Multiple Regression
 
 A multiple linear regression is simply a linear regression that involves more 
 than one predictor variable. It is represented as:
@@ -124,8 +124,13 @@ summary(res_lm2)
 
 ```{r}
 res_sum = summary(res_lm2)
+
+## F statistic
 F_stat = (res_sum$r.squared / (3 - 1)) / ((1 - res_sum$r.squared) / (200 - 3))
 F_stat
+
+## Access to the p-value
+res_sum$coefficients[, "Pr(>|t|)"]
 ```
 
 As you see, the p-values for the coefficients are very small, suggesting that 
@@ -195,8 +200,12 @@ Why?
 This step shows clearly that adding one more input variable `Newspaper` in 
 Model 3 does not lead to any improvement. 
 
+**Acknowledgements**: this chapter is adapted and updated from the materials originally produced by STAT1005 teaching team, especially Prof. Jeff Yao.
 
-## Exercise with the real estate data
+
+## Exercise
+
+Using the real estate data for the following questions.
 
 Q0. Load the data via this R script
 ```{}

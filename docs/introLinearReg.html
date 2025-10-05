@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Introduction to Linear Regression | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Introduction to Linear Regression | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2025-09-29" />
+<meta name="date" content="2025-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -192,56 +192,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.2" data-path="introHypoTest.html"><a href="introHypoTest.html#t-test-and-regression-based-test"><i class="fa fa-check"></i><b>2.2.2</b> <em>t</em>-test and regression-based test</a></li>
 <li class="chapter" data-level="2.2.3" data-path="introHypoTest.html"><a href="introHypoTest.html#fishers-exact-test"><i class="fa fa-check"></i><b>2.2.3</b> Fisher’s exact test</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="introHypoTest.html"><a href="introHypoTest.html#multiple-testing-and-errors"><i class="fa fa-check"></i><b>2.3</b> Multiple testing and errors</a>
+<li class="chapter" data-level="2.3" data-path="introHypoTest.html"><a href="introHypoTest.html#evaluation-of-hypothesis-testing"><i class="fa fa-check"></i><b>2.3</b> Evaluation of hypothesis testing</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-test-statistic"><i class="fa fa-check"></i><b>2.3.1</b> Null distribution (of test statistic)</a></li>
-<li class="chapter" data-level="2.3.2" data-path="introHypoTest.html"><a href="introHypoTest.html#null-distribution-of-p-value"><i class="fa fa-check"></i><b>2.3.2</b> Null distribution of p value</a></li>
-<li class="chapter" data-level="2.3.3" data-path="introHypoTest.html"><a href="introHypoTest.html#minimal-p-values-in-10-tests"><i class="fa fa-check"></i><b>2.3.3</b> Minimal p values in 10 tests</a></li>
+<li class="chapter" data-level="2.3.1" data-path="introHypoTest.html"><a href="introHypoTest.html#testing-errors"><i class="fa fa-check"></i><b>2.3.1</b> Types of errors</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introHypoTest.html"><a href="introHypoTest.html#multiple-test"><i class="fa fa-check"></i><b>2.3.2</b> Multiple testing and correction</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introHypoTest.html"><a href="introHypoTest.html#power-analysis"><i class="fa fa-check"></i><b>2.3.3</b> Power analysis and sample size</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="introHypoTest.html"><a href="introHypoTest.html#power-analysis"><i class="fa fa-check"></i><b>2.4</b> Explore power and sample size (optional)</a></li>
-<li class="chapter" data-level="2.5" data-path="introHypoTest.html"><a href="introHypoTest.html#summary"><i class="fa fa-check"></i><b>2.5</b> Summary</a></li>
+<li class="chapter" data-level="2.4" data-path="introHypoTest.html"><a href="introHypoTest.html#summary"><i class="fa fa-check"></i><b>2.4</b> Summary</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="introHypoTest.html"><a href="introHypoTest.html#exercises"><i class="fa fa-check"></i><b>2.4.1</b> Exercises</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introHypoTest.html"><a href="introHypoTest.html#acknowledgement"><i class="fa fa-check"></i><b>2.4.2</b> Acknowledgement</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="introLinearReg.html"><a href="introLinearReg.html"><i class="fa fa-check"></i><b>3</b> Introduction to Linear Regression</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="introLinearReg.html"><a href="introLinearReg.html#linear-regression-using-simulated-data"><i class="fa fa-check"></i><b>3.1</b> Linear Regression Using Simulated Data</a>
+<li class="chapter" data-level="3.1" data-path="introLinearReg.html"><a href="introLinearReg.html#linear-regression-basics"><i class="fa fa-check"></i><b>3.1</b> Linear Regression Basics</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="introLinearReg.html"><a href="introLinearReg.html#simulating-data"><i class="fa fa-check"></i><b>3.1.1</b> Simulating data:</a></li>
-<li class="chapter" data-level="3.1.2" data-path="introLinearReg.html"><a href="introLinearReg.html#model-efficacy"><i class="fa fa-check"></i><b>3.1.2</b> Model efficacy</a></li>
-<li class="chapter" data-level="3.1.3" data-path="introLinearReg.html"><a href="introLinearReg.html#r-squared"><i class="fa fa-check"></i><b>3.1.3</b> <em>R-Squared</em></a></li>
+<li class="chapter" data-level="3.1.1" data-path="introLinearReg.html"><a href="introLinearReg.html#simulating-data"><i class="fa fa-check"></i><b>3.1.1</b> Simulating data</a></li>
+<li class="chapter" data-level="3.1.2" data-path="introLinearReg.html"><a href="introLinearReg.html#least-squares-method"><i class="fa fa-check"></i><b>3.1.2</b> Least squares method</a></li>
+<li class="chapter" data-level="3.1.3" data-path="introLinearReg.html"><a href="introLinearReg.html#model-efficacy"><i class="fa fa-check"></i><b>3.1.3</b> Model efficacy</a></li>
+<li class="chapter" data-level="3.1.4" data-path="introLinearReg.html"><a href="introLinearReg.html#r-squared"><i class="fa fa-check"></i><b>3.1.4</b> <em>R-Squared</em></a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="introLinearReg.html"><a href="introLinearReg.html#least-squares-using-simulated-data"><i class="fa fa-check"></i><b>3.2</b> Least Squares Using Simulated Data</a></li>
-<li class="chapter" data-level="3.3" data-path="introLinearReg.html"><a href="introLinearReg.html#diagnostic-check-of-a-fitted-regression-model"><i class="fa fa-check"></i><b>3.3</b> Diagnostic check of a fitted regression model</a>
+<li class="chapter" data-level="3.2" data-path="introLinearReg.html"><a href="introLinearReg.html#diagnostic-metrics"><i class="fa fa-check"></i><b>3.2</b> Diagnostic metrics</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="introLinearReg.html"><a href="introLinearReg.html#residual-standard-errors-rse"><i class="fa fa-check"></i><b>3.3.1</b> Residual Standard Errors (RSE)</a></li>
-<li class="chapter" data-level="3.3.2" data-path="introLinearReg.html"><a href="introLinearReg.html#p-values"><i class="fa fa-check"></i><b>3.3.2</b> p-values</a></li>
-<li class="chapter" data-level="3.3.3" data-path="introLinearReg.html"><a href="introLinearReg.html#f-statistics"><i class="fa fa-check"></i><b>3.3.3</b> F-statistics</a></li>
+<li class="chapter" data-level="3.2.1" data-path="introLinearReg.html"><a href="introLinearReg.html#residual-standard-errors"><i class="fa fa-check"></i><b>3.2.1</b> Residual Standard Errors</a></li>
+<li class="chapter" data-level="3.2.2" data-path="introLinearReg.html"><a href="introLinearReg.html#p-values"><i class="fa fa-check"></i><b>3.2.2</b> p-values</a></li>
+<li class="chapter" data-level="3.2.3" data-path="introLinearReg.html"><a href="introLinearReg.html#f-statistics"><i class="fa fa-check"></i><b>3.2.3</b> F-statistics</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="introLinearReg.html"><a href="introLinearReg.html#simple-linear-regression-with-lm-function"><i class="fa fa-check"></i><b>3.4</b> Simple Linear Regression with <code>lm</code> function</a></li>
-<li class="chapter" data-level="3.5" data-path="introLinearReg.html"><a href="introLinearReg.html#multiple-regression-with-lm-function"><i class="fa fa-check"></i><b>3.5</b> Multiple Regression with <code>lm</code> function</a></li>
-<li class="chapter" data-level="3.6" data-path="introLinearReg.html"><a href="introLinearReg.html#exercise-with-the-real-estate-data"><i class="fa fa-check"></i><b>3.6</b> Exercise with the real estate data</a></li>
+<li class="chapter" data-level="3.3" data-path="introLinearReg.html"><a href="introLinearReg.html#simple-linear-regression"><i class="fa fa-check"></i><b>3.3</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="3.4" data-path="introLinearReg.html"><a href="introLinearReg.html#multiple-regression"><i class="fa fa-check"></i><b>3.4</b> Multiple Regression</a></li>
+<li class="chapter" data-level="3.5" data-path="introLinearReg.html"><a href="introLinearReg.html#exercise"><i class="fa fa-check"></i><b>3.5</b> Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="introClassifier.html"><a href="introClassifier.html"><i class="fa fa-check"></i><b>4</b> Introduction to Classification</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="introClassifier.html"><a href="introClassifier.html#visualise-logistic-and-logit-functions"><i class="fa fa-check"></i><b>4.1</b> Visualise logistic and logit functions</a>
+<li class="chapter" data-level="4.1" data-path="introClassifier.html"><a href="introClassifier.html#logistic-regression"><i class="fa fa-check"></i><b>4.1</b> Logistic regression</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="introClassifier.html"><a href="introClassifier.html#logistic-function"><i class="fa fa-check"></i><b>4.1.1</b> Logistic function</a></li>
-<li class="chapter" data-level="4.1.2" data-path="introClassifier.html"><a href="introClassifier.html#logit-function"><i class="fa fa-check"></i><b>4.1.2</b> Logit function</a></li>
-<li class="chapter" data-level="4.1.3" data-path="introClassifier.html"><a href="introClassifier.html#visualise-the-distribution"><i class="fa fa-check"></i><b>4.1.3</b> Visualise the distribution</a></li>
+<li class="chapter" data-level="4.1.1" data-path="introClassifier.html"><a href="introClassifier.html#linear-decision-boundary"><i class="fa fa-check"></i><b>4.1.1</b> Linear decision boundary</a></li>
+<li class="chapter" data-level="4.1.2" data-path="introClassifier.html"><a href="introClassifier.html#logistic-and-logit-functions"><i class="fa fa-check"></i><b>4.1.2</b> Logistic and logit functions</a></li>
+<li class="chapter" data-level="4.1.3" data-path="introClassifier.html"><a href="introClassifier.html#visualise-logistic-and-logit-functions"><i class="fa fa-check"></i><b>4.1.3</b> Visualise logistic and logit functions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="introClassifier.html"><a href="introClassifier.html#logistic-regression-on-diabetes"><i class="fa fa-check"></i><b>4.2</b> Logistic regression on Diabetes</a>
+<li class="chapter" data-level="4.2" data-path="introClassifier.html"><a href="introClassifier.html#application-on-diabetes"><i class="fa fa-check"></i><b>4.2</b> Application on Diabetes</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="introClassifier.html"><a href="introClassifier.html#load-pima-indians-diabetes-database"><i class="fa fa-check"></i><b>4.2.1</b> Load Pima Indians Diabetes Database</a></li>
 <li class="chapter" data-level="4.2.2" data-path="introClassifier.html"><a href="introClassifier.html#fit-logistic-regression"><i class="fa fa-check"></i><b>4.2.2</b> Fit logistic regression</a></li>
 <li class="chapter" data-level="4.2.3" data-path="introClassifier.html"><a href="introClassifier.html#assess-on-test-data"><i class="fa fa-check"></i><b>4.2.3</b> Assess on test data</a></li>
 <li class="chapter" data-level="4.2.4" data-path="introClassifier.html"><a href="introClassifier.html#model-selection-and-diagnosis"><i class="fa fa-check"></i><b>4.2.4</b> Model selection and diagnosis</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="introClassifier.html"><a href="introClassifier.html#cross-validation"><i class="fa fa-check"></i><b>4.3</b> Cross-validation</a></li>
-<li class="chapter" data-level="4.4" data-path="introClassifier.html"><a href="introClassifier.html#more-assessment-metrics"><i class="fa fa-check"></i><b>4.4</b> More assessment metrics</a>
+<li class="chapter" data-level="4.3" data-path="introClassifier.html"><a href="introClassifier.html#cross-validation"><i class="fa fa-check"></i><b>4.3</b> Cross-validation</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="introClassifier.html"><a href="introClassifier.html#how-to-increase-test-sets"><i class="fa fa-check"></i><b>4.3.1</b> how to increase test sets</a></li>
+<li class="chapter" data-level="4.3.2" data-path="introClassifier.html"><a href="introClassifier.html#k-fold-cv-with-caret-package"><i class="fa fa-check"></i><b>4.3.2</b> K-fold CV with caret package</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="introClassifier.html"><a href="introClassifier.html#metrics-and-roc-curve"><i class="fa fa-check"></i><b>4.4</b> Metrics and ROC curve</a>
 <ul>
 <li class="chapter" data-level="4.4.1" data-path="introClassifier.html"><a href="introClassifier.html#two-types-of-error"><i class="fa fa-check"></i><b>4.4.1</b> Two types of error</a></li>
 <li class="chapter" data-level="4.4.2" data-path="introClassifier.html"><a href="introClassifier.html#roc-curve"><i class="fa fa-check"></i><b>4.4.2</b> ROC curve</a></li>
-<li class="chapter" data-level="4.4.3" data-path="introClassifier.html"><a href="introClassifier.html#homework"><i class="fa fa-check"></i><b>4.4.3</b> Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="4.5" data-path="introClassifier.html"><a href="introClassifier.html#exercise-1"><i class="fa fa-check"></i><b>4.5</b> Exercise</a></li>
 </ul></li>
 <li class="part"><span><b>II Biomedical Data Modules</b></span></li>
 <li class="chapter" data-level="5" data-path="image-digital.html"><a href="image-digital.html"><i class="fa fa-check"></i><b>5</b> Medical Image and Digital Health</a></li>
@@ -262,36 +269,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1.1" data-path="pop-genetics.html"><a href="pop-genetics.html#part-1"><i class="fa fa-check"></i><b>8.1.1</b> Part 1</a></li>
 <li class="chapter" data-level="8.1.2" data-path="pop-genetics.html"><a href="pop-genetics.html#part-2"><i class="fa fa-check"></i><b>8.1.2</b> Part 2</a></li>
 <li class="chapter" data-level="8.1.3" data-path="pop-genetics.html"><a href="pop-genetics.html#references"><i class="fa fa-check"></i><b>8.1.3</b> References</a></li>
+<li class="chapter" data-level="8.1.4" data-path="pop-genetics.html"><a href="pop-genetics.html#open-discussion"><i class="fa fa-check"></i><b>8.1.4</b> Open discussion</a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>III Modules in previous years</b></span></li>
-<li class="chapter" data-level="9" data-path="cancer-case2.html"><a href="cancer-case2.html"><i class="fa fa-check"></i><b>9</b> Cancer Epidemiology</a>
-<ul>
-<li class="chapter" data-level="9.0.1" data-path="cancer-case2.html"><a href="cancer-case2.html#scenario"><i class="fa fa-check"></i><b>9.0.1</b> Scenario</a></li>
-<li class="chapter" data-level="9.0.2" data-path="cancer-case2.html"><a href="cancer-case2.html#hong-kong-population"><i class="fa fa-check"></i><b>9.0.2</b> Hong Kong population</a></li>
-<li class="chapter" data-level="9.0.3" data-path="cancer-case2.html"><a href="cancer-case2.html#cancer-registry-data"><i class="fa fa-check"></i><b>9.0.3</b> Cancer registry data</a></li>
-<li class="chapter" data-level="9.0.4" data-path="cancer-case2.html"><a href="cancer-case2.html#existing-cancer-funding-and-publication-data"><i class="fa fa-check"></i><b>9.0.4</b> Existing cancer funding and publication data</a></li>
-<li class="chapter" data-level="9.0.5" data-path="cancer-case2.html"><a href="cancer-case2.html#open-discussion"><i class="fa fa-check"></i><b>9.0.5</b> Open discussion</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="genetic-seq.html"><a href="genetic-seq.html"><i class="fa fa-check"></i><b>10</b> Genetic sequence</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="genetic-seq.html"><a href="genetic-seq.html#case-study-1-genetic-sequence-analysis"><i class="fa fa-check"></i><b>10.1</b> Case study 1: Genetic sequence analysis</a>
-<ul>
-<li class="chapter" data-level="10.1.1" data-path="genetic-seq.html"><a href="genetic-seq.html#sequence-motif-and-k-mer"><i class="fa fa-check"></i><b>10.1.1</b> Sequence motif and k-mer</a></li>
-<li class="chapter" data-level="10.1.2" data-path="genetic-seq.html"><a href="genetic-seq.html#functional-mapping"><i class="fa fa-check"></i><b>10.1.2</b> Functional mapping</a></li>
-<li class="chapter" data-level="10.1.3" data-path="genetic-seq.html"><a href="genetic-seq.html#references-1"><i class="fa fa-check"></i><b>10.1.3</b> References</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="genomics-regression.html"><a href="genomics-regression.html"><i class="fa fa-check"></i><b>11</b> Genomics and prediction</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="genomics-regression.html"><a href="genomics-regression.html#genomics-case1"><i class="fa fa-check"></i><b>11.1</b> Case study 1: splicing fedility prediction</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="genomics-regression.html"><a href="genomics-regression.html#questions-for-discussion-1"><i class="fa fa-check"></i><b>11.1.1</b> Questions for Discussion</a></li>
-<li class="chapter" data-level="11.1.2" data-path="genomics-regression.html"><a href="genomics-regression.html#hands-on-with-regression-model"><i class="fa fa-check"></i><b>11.1.2</b> Hands-on with regression model</a></li>
-<li class="chapter" data-level="11.1.3" data-path="genomics-regression.html"><a href="genomics-regression.html#open-question"><i class="fa fa-check"></i><b>11.1.3</b> Open question</a></li>
-</ul></li>
-</ul></li>
-<li class="part"><span><b>IV Appendix</b></span></li>
+<li class="part"><span><b>III Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i>Appendix A: Install R &amp; RStudio</a>
 <ul>
 <li class="chapter" data-level="" data-path="install.html"><a href="install.html#a.1-install-r-4.3.1"><i class="fa fa-check"></i>A.1 Install R (&gt;=4.3.1)</a>
@@ -310,7 +291,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="install.html"><a href="install.html#a4.-cloud-computing"><i class="fa fa-check"></i>A4. Cloud computing</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -333,20 +314,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="introLinearReg" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">Chapter 3</span> Introduction to Linear Regression<a href="introLinearReg.html#introLinearReg" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Acknowledgements: this chapter is adapted and updated from the materials originally produced by STAT1005 teaching team, especially Prof. Jeff Yao.</p>
-<div id="linear-regression-using-simulated-data" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Linear Regression Using Simulated Data<a href="introLinearReg.html#linear-regression-using-simulated-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let’s first simulate some data and look at how the
-predicted values (<em>Y<sub>e</sub></em>) differ from the actual value (<em>Y</em>).</p>
+<div id="linear-regression-basics" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Linear Regression Basics<a href="introLinearReg.html#linear-regression-basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To understand how linear regression works and how effective the least squares
+method is, we will start with simulated data, so that we can compare the
+estimation to the ground truth for data generation.</p>
+<p>Here, we use terminology by using capital letters to denote random variables,
+e.g., <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>, and use lower letters to denote the value of individual
+samples, e.g., <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> or <span class="math inline">\(y_i\)</span> and <span class="math inline">\(x_i\)</span> for a specific sample <span class="math inline">\(i\)</span>.</p>
+<!-- Also, we will use $y$ as the actual observed output target, $\hat{y}$ as 
+the predicted (or estimated) value, and $\bar{y}$ of the average value of all 
+observed samples.
+-->
 <div id="simulating-data" class="section level3 hasAnchor" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Simulating data:<a href="introLinearReg.html#simulating-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">3.1.1</span> Simulating data<a href="introLinearReg.html#simulating-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>For <em>X</em>, we generate 100 normally distributed random numbers with mean 1.5
 and standard deviation 2.5.</p></li>
-<li><p>For predicted value <em>Y<sub>e</sub></em>, we assume an intercept (α) of 2 and a
-slope (β) of 0.3 and we write <span class="math inline">\(Y_e = 2 + 0.3 x\)</span></p>
-<p>Later, we will estimate the values of α and β using the least squares method
-and see how that changes the efficacy of the model.</p></li>
+<li><p>For predicted value <span class="math inline">\(Y_e\)</span>, we assume an intercept (<span class="math inline">\(\alpha\)</span>) of 2 and a
+slope (<span class="math inline">\(\beta\)</span>) of 0.3 and we write <span class="math inline">\(Y_e = 2 + 0.3 x\)</span></p>
+<p>Later, we will estimate the values of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> using the least
+squares method and see how that changes the efficacy of the model.</p></li>
 <li><p>Though we estimate <span class="math inline">\(Y_e = \alpha + \beta X\)</span>, in reality Y is rarely perfectly
 linear. It usually has an error component or
 <strong>residual</strong>: <span class="math inline">\(Y = \alpha + \beta X + R\)</span>, where <em>R</em> is a random variable and
@@ -357,49 +345,132 @@ variable distributed normally with mean 0 and a standard deviation of 0.5.</p></
 <p>The following cell shows the code snippet to generate these numbers and convert
 these three columns in a data frame. Read through the code carefully and run
 the cell to output a sample of our simulated data.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="introLinearReg.html#cb90-1" tabindex="-1"></a><span class="co"># Fix seed: each run gives the same random numbers so the same outputs. </span></span>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="introLinearReg.html#cb90-1" tabindex="-1"></a><span class="do">## Fix seed: each run gives the same random numbers so the same outputs. </span></span>
 <span id="cb90-2"><a href="introLinearReg.html#cb90-2" tabindex="-1"></a><span class="co"># Commenting out this line would read similar but different outputs at each run. </span></span>
 <span id="cb90-3"><a href="introLinearReg.html#cb90-3" tabindex="-1"></a><span class="co"># Try it out!</span></span>
 <span id="cb90-4"><a href="introLinearReg.html#cb90-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
 <span id="cb90-5"><a href="introLinearReg.html#cb90-5" tabindex="-1"></a></span>
-<span id="cb90-6"><a href="introLinearReg.html#cb90-6" tabindex="-1"></a><span class="co"># Generate data</span></span>
+<span id="cb90-6"><a href="introLinearReg.html#cb90-6" tabindex="-1"></a><span class="do">## Generate data</span></span>
 <span id="cb90-7"><a href="introLinearReg.html#cb90-7" tabindex="-1"></a>X <span class="ot">=</span> <span class="fl">2.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">+</span> <span class="fl">1.5</span>   <span class="co"># Array of 100 values with mean = 1.5, stddev = 2.5</span></span>
 <span id="cb90-8"><a href="introLinearReg.html#cb90-8" tabindex="-1"></a>ypred <span class="ot">=</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> X          <span class="co"># Prediction of Y, assuming a = 2, b = 0.3</span></span>
 <span id="cb90-9"><a href="introLinearReg.html#cb90-9" tabindex="-1"></a></span>
 <span id="cb90-10"><a href="introLinearReg.html#cb90-10" tabindex="-1"></a>res <span class="ot">=</span> <span class="fl">0.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)       <span class="co"># Generate 100 residual terms</span></span>
 <span id="cb90-11"><a href="introLinearReg.html#cb90-11" tabindex="-1"></a>yact <span class="ot">=</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> X <span class="sc">+</span> res     <span class="co"># Actual values of Y</span></span>
 <span id="cb90-12"><a href="introLinearReg.html#cb90-12" tabindex="-1"></a></span>
-<span id="cb90-13"><a href="introLinearReg.html#cb90-13" tabindex="-1"></a><span class="co"># Create dataframe to store our X, ypred, and yact values</span></span>
-<span id="cb90-14"><a href="introLinearReg.html#cb90-14" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&#39;X&#39;</span> <span class="ot">=</span> X, <span class="st">&#39;ypred&#39;</span> <span class="ot">=</span> ypred, <span class="st">&#39;yact&#39;</span> <span class="ot">=</span> yact)</span></code></pre></div>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="introLinearReg.html#cb91-1" tabindex="-1"></a><span class="co"># Show the first six rows of our dataframe</span></span>
-<span id="cb91-2"><a href="introLinearReg.html#cb91-2" tabindex="-1"></a><span class="fu">head</span>(df)</span>
-<span id="cb91-3"><a href="introLinearReg.html#cb91-3" tabindex="-1"></a><span class="co">#&gt;            X    ypred     yact</span></span>
-<span id="cb91-4"><a href="introLinearReg.html#cb91-4" tabindex="-1"></a><span class="co">#&gt; 1  4.6573857 3.397216 3.788145</span></span>
-<span id="cb91-5"><a href="introLinearReg.html#cb91-5" tabindex="-1"></a><span class="co">#&gt; 2  0.6844166 2.205325 1.816937</span></span>
-<span id="cb91-6"><a href="introLinearReg.html#cb91-6" tabindex="-1"></a><span class="co">#&gt; 3  4.8244982 3.447349 3.139354</span></span>
-<span id="cb91-7"><a href="introLinearReg.html#cb91-7" tabindex="-1"></a><span class="co">#&gt; 4  4.6810733 3.404322 3.427612</span></span>
-<span id="cb91-8"><a href="introLinearReg.html#cb91-8" tabindex="-1"></a><span class="co">#&gt; 5  2.5366036 2.760981 2.195788</span></span>
-<span id="cb91-9"><a href="introLinearReg.html#cb91-9" tabindex="-1"></a><span class="co">#&gt; 6 -2.3498751 1.295037 1.583397</span></span></code></pre></div>
-<p>Now let’s plot both the actual output (<code>yact</code>) and predicted output (<code>ypred</code>)
+<span id="cb90-13"><a href="introLinearReg.html#cb90-13" tabindex="-1"></a><span class="do">## Create dataframe to store our X, ypred, and yact values</span></span>
+<span id="cb90-14"><a href="introLinearReg.html#cb90-14" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&#39;X&#39;</span> <span class="ot">=</span> X, <span class="st">&#39;ypred&#39;</span> <span class="ot">=</span> ypred, <span class="st">&#39;yact&#39;</span> <span class="ot">=</span> yact)</span>
+<span id="cb90-15"><a href="introLinearReg.html#cb90-15" tabindex="-1"></a></span>
+<span id="cb90-16"><a href="introLinearReg.html#cb90-16" tabindex="-1"></a><span class="do">## Show the first six rows of our dataframe</span></span>
+<span id="cb90-17"><a href="introLinearReg.html#cb90-17" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb90-18"><a href="introLinearReg.html#cb90-18" tabindex="-1"></a><span class="co">#&gt;            X    ypred     yact</span></span>
+<span id="cb90-19"><a href="introLinearReg.html#cb90-19" tabindex="-1"></a><span class="co">#&gt; 1  4.6573857 3.397216 3.788145</span></span>
+<span id="cb90-20"><a href="introLinearReg.html#cb90-20" tabindex="-1"></a><span class="co">#&gt; 2  0.6844166 2.205325 1.816937</span></span>
+<span id="cb90-21"><a href="introLinearReg.html#cb90-21" tabindex="-1"></a><span class="co">#&gt; 3  4.8244982 3.447349 3.139354</span></span>
+<span id="cb90-22"><a href="introLinearReg.html#cb90-22" tabindex="-1"></a><span class="co">#&gt; 4  4.6810733 3.404322 3.427612</span></span>
+<span id="cb90-23"><a href="introLinearReg.html#cb90-23" tabindex="-1"></a><span class="co">#&gt; 5  2.5366036 2.760981 2.195788</span></span>
+<span id="cb90-24"><a href="introLinearReg.html#cb90-24" tabindex="-1"></a><span class="co">#&gt; 6 -2.3498751 1.295037 1.583397</span></span></code></pre></div>
+<p>Now let’s plot both the actual output (<code>y</code>) and predicted output (<code>ypred</code>)
 against the input variable (<code>X</code>) to see what the difference between <code>yact</code> and
 <code>ypred</code> is, and therefore, to see how accurately the proposed equation
 (<code>ypred = 2 + 0.3 * X</code>) has been able to predict the value of the output:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="introLinearReg.html#cb92-1" tabindex="-1"></a><span class="co"># You can use basic plotting functions</span></span>
-<span id="cb92-2"><a href="introLinearReg.html#cb92-2" tabindex="-1"></a><span class="co"># plot(x=df$X, y=df$yact, col=&quot;red&quot;)</span></span>
-<span id="cb92-3"><a href="introLinearReg.html#cb92-3" tabindex="-1"></a><span class="co"># lines(x=df$X, y=df$ypred, col=&quot;darkgreen&quot;)</span></span>
-<span id="cb92-4"><a href="introLinearReg.html#cb92-4" tabindex="-1"></a></span>
-<span id="cb92-5"><a href="introLinearReg.html#cb92-5" tabindex="-1"></a></span>
-<span id="cb92-6"><a href="introLinearReg.html#cb92-6" tabindex="-1"></a><span class="co"># But let&#39;s use ggplot2 for higher flexibility</span></span>
-<span id="cb92-7"><a href="introLinearReg.html#cb92-7" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb92-8"><a href="introLinearReg.html#cb92-8" tabindex="-1"></a></span>
-<span id="cb92-9"><a href="introLinearReg.html#cb92-9" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(X)) <span class="sc">+</span>                              <span class="co"># basic graphical object</span></span>
-<span id="cb92-10"><a href="introLinearReg.html#cb92-10" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>yact), <span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span>       <span class="co"># first layer</span></span>
-<span id="cb92-11"><a href="introLinearReg.html#cb92-11" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>ypred), <span class="at">colour=</span><span class="st">&quot;darkgreen&quot;</span>) <span class="sc">+</span>   <span class="co"># second layer</span></span>
-<span id="cb92-12"><a href="introLinearReg.html#cb92-12" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;Actual vs Predicted values from the dummy dataset&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="introLinearReg.html#cb91-1" tabindex="-1"></a><span class="co"># You can use basic plotting functions</span></span>
+<span id="cb91-2"><a href="introLinearReg.html#cb91-2" tabindex="-1"></a><span class="co"># plot(x=df$X, y=df$yact, col=&quot;red&quot;)</span></span>
+<span id="cb91-3"><a href="introLinearReg.html#cb91-3" tabindex="-1"></a><span class="co"># lines(x=df$X, y=df$ypred, col=&quot;darkgreen&quot;)</span></span>
+<span id="cb91-4"><a href="introLinearReg.html#cb91-4" tabindex="-1"></a></span>
+<span id="cb91-5"><a href="introLinearReg.html#cb91-5" tabindex="-1"></a></span>
+<span id="cb91-6"><a href="introLinearReg.html#cb91-6" tabindex="-1"></a><span class="co"># But let&#39;s use ggplot2 for higher flexibility</span></span>
+<span id="cb91-7"><a href="introLinearReg.html#cb91-7" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb91-8"><a href="introLinearReg.html#cb91-8" tabindex="-1"></a></span>
+<span id="cb91-9"><a href="introLinearReg.html#cb91-9" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(X)) <span class="sc">+</span>                              <span class="co"># basic graphical object</span></span>
+<span id="cb91-10"><a href="introLinearReg.html#cb91-10" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>yact), <span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span>       <span class="co"># first layer</span></span>
+<span id="cb91-11"><a href="introLinearReg.html#cb91-11" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>ypred), <span class="at">colour=</span><span class="st">&quot;darkgreen&quot;</span>) <span class="sc">+</span>   <span class="co"># second layer</span></span>
+<span id="cb91-12"><a href="introLinearReg.html#cb91-12" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;Actual vs Predicted values from the dummy dataset&#39;</span>)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig2-simu-scatter-1.png" width="75%" /></p>
 </div>
-<div id="model-efficacy" class="section level3 hasAnchor" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> Model efficacy<a href="introLinearReg.html#model-efficacy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="least-squares-method" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Least squares method<a href="introLinearReg.html#least-squares-method" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now, using our simulated data from the previous step, let’s estimate the
+optimum values of our variable coefficients, <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. Using the
+predictor variable, <code>X</code>, and the output variable, <code>yact</code>, we will calculate the
+values of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> using the Least Squares method described in the
+lecture.</p>
+<p><span class="math display">\[\hat{\alpha}, \hat{\beta} = \text{argmin}_{\alpha, \beta} \sum_{i=1}^n(y_i - (\alpha + \beta * x_i))^2\]</span></p>
+<p>The cell below creates the same dataframe as previously. Run the cell to get
+started!</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="introLinearReg.html#cb92-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb92-2"><a href="introLinearReg.html#cb92-2" tabindex="-1"></a></span>
+<span id="cb92-3"><a href="introLinearReg.html#cb92-3" tabindex="-1"></a><span class="co"># Generate data</span></span>
+<span id="cb92-4"><a href="introLinearReg.html#cb92-4" tabindex="-1"></a>X <span class="ot">=</span> <span class="fl">2.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">+</span> <span class="fl">1.5</span>   <span class="co"># Array of 100 values with mean = 1.5, stddev = 2.5</span></span>
+<span id="cb92-5"><a href="introLinearReg.html#cb92-5" tabindex="-1"></a>ypred <span class="ot">=</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> X          <span class="co"># Prediction of Y, assuming a = 2, b = 0.3</span></span>
+<span id="cb92-6"><a href="introLinearReg.html#cb92-6" tabindex="-1"></a></span>
+<span id="cb92-7"><a href="introLinearReg.html#cb92-7" tabindex="-1"></a>res <span class="ot">=</span> <span class="fl">0.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)       <span class="co"># Generate 100 residual terms</span></span>
+<span id="cb92-8"><a href="introLinearReg.html#cb92-8" tabindex="-1"></a>yact <span class="ot">=</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> X <span class="sc">+</span> res     <span class="co"># Actual values of Y</span></span>
+<span id="cb92-9"><a href="introLinearReg.html#cb92-9" tabindex="-1"></a></span>
+<span id="cb92-10"><a href="introLinearReg.html#cb92-10" tabindex="-1"></a><span class="co"># Create dataframe to store our X, ypred, and yact values</span></span>
+<span id="cb92-11"><a href="introLinearReg.html#cb92-11" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&#39;X&#39;</span> <span class="ot">=</span> X, <span class="st">&#39;ypred&#39;</span> <span class="ot">=</span> ypred, <span class="st">&#39;yact&#39;</span> <span class="ot">=</span> yact)</span></code></pre></div>
+<p>Just to reiterate, here are the formulas for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> again:</p>
+<p><span class="math display">\[\hat\beta=\frac{\sum_{i=1}^n(X_i-\bar X)(Y_i-\bar Y)}{\sum_{i=1}^n(X_i-\bar X)^2}=\frac{\text{cov}(X,Y)}{\text{var}(X)}\]</span></p>
+<p><span class="math display">\[\hat\alpha=\bar Y-\hat\beta * \bar X\]</span></p>
+<p>To calculate these coefficients, we will create a few more columns in our <code>df</code>
+data frame. We need to calculate <code>xmean</code> and <code>ymean</code> to calculate the covariance
+of X and Y (<code>xycov</code>) and the variance of X (<code>xvar</code>) before we can work out the
+values for <code>alpha</code> and <code>beta</code>.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="introLinearReg.html#cb93-1" tabindex="-1"></a><span class="co"># Calculate the mean of X and Y</span></span>
+<span id="cb93-2"><a href="introLinearReg.html#cb93-2" tabindex="-1"></a>xmean <span class="ot">=</span> <span class="fu">mean</span>(X)</span>
+<span id="cb93-3"><a href="introLinearReg.html#cb93-3" tabindex="-1"></a>ymean <span class="ot">=</span> <span class="fu">mean</span>(yact)</span>
+<span id="cb93-4"><a href="introLinearReg.html#cb93-4" tabindex="-1"></a></span>
+<span id="cb93-5"><a href="introLinearReg.html#cb93-5" tabindex="-1"></a><span class="co"># Calculate the terms needed for the numator and denominator of beta</span></span>
+<span id="cb93-6"><a href="introLinearReg.html#cb93-6" tabindex="-1"></a>df[<span class="st">&#39;xycov&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;X&#39;</span>] <span class="sc">-</span> xmean) <span class="sc">*</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> ymean)</span>
+<span id="cb93-7"><a href="introLinearReg.html#cb93-7" tabindex="-1"></a>df[<span class="st">&#39;xvar&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;X&#39;</span>] <span class="sc">-</span> xmean)<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb93-8"><a href="introLinearReg.html#cb93-8" tabindex="-1"></a></span>
+<span id="cb93-9"><a href="introLinearReg.html#cb93-9" tabindex="-1"></a><span class="co"># Calculate beta and alpha</span></span>
+<span id="cb93-10"><a href="introLinearReg.html#cb93-10" tabindex="-1"></a>beta <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;xycov&#39;</span>]) <span class="sc">/</span> <span class="fu">sum</span>(df[<span class="st">&#39;xvar&#39;</span>])</span>
+<span id="cb93-11"><a href="introLinearReg.html#cb93-11" tabindex="-1"></a>alpha <span class="ot">=</span> ymean <span class="sc">-</span> (beta <span class="sc">*</span> xmean)</span>
+<span id="cb93-12"><a href="introLinearReg.html#cb93-12" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;alpha =&#39;</span>, alpha, <span class="st">&#39;;&#39;</span>, <span class="st">&#39;beta =&#39;</span>, beta))</span>
+<span id="cb93-13"><a href="introLinearReg.html#cb93-13" tabindex="-1"></a><span class="co">#&gt; [1] &quot;alpha = 1.93401265576322 ; beta = 0.327758955833308&quot;</span></span></code></pre></div>
+<p>As we can see, the values are only a little different from what we had assumed
+earlier.</p>
+<p>Let’s see how the value of <span class="math inline">\(R^2\)</span> changes if we use the new values of <span class="math inline">\(\alpha\)</span>
+and <span class="math inline">\(\beta\)</span>.</p>
+<p>The equation for the new model can be written as:
+<span class="math display">\[ y=1.934 + 0.328 * x \]</span></p>
+<p>Let’s create a new column in <code>df</code> to accommodate the values generated by this
+equation and call this <code>ypred2</code>, and calculate the new <span class="math inline">\(R^2\)</span>.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="introLinearReg.html#cb94-1" tabindex="-1"></a><span class="co"># Create new column to store new predictions</span></span>
+<span id="cb94-2"><a href="introLinearReg.html#cb94-2" tabindex="-1"></a>df[<span class="st">&#39;ypred2&#39;</span>] <span class="ot">=</span> alpha <span class="sc">+</span> beta <span class="sc">*</span> df[<span class="st">&#39;X&#39;</span>]</span>
+<span id="cb94-3"><a href="introLinearReg.html#cb94-3" tabindex="-1"></a></span>
+<span id="cb94-4"><a href="introLinearReg.html#cb94-4" tabindex="-1"></a><span class="co"># Calculate new SSR with new predictions of Y.</span></span>
+<span id="cb94-5"><a href="introLinearReg.html#cb94-5" tabindex="-1"></a><span class="co"># Note that SST remains the same since yact and ymean do not change.</span></span>
+<span id="cb94-6"><a href="introLinearReg.html#cb94-6" tabindex="-1"></a>df[<span class="st">&#39;SSR2&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;ypred2&#39;</span>] <span class="sc">-</span> ymean)<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb94-7"><a href="introLinearReg.html#cb94-7" tabindex="-1"></a>df[<span class="st">&#39;SST&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> ymean)<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb94-8"><a href="introLinearReg.html#cb94-8" tabindex="-1"></a>SSR2 <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SSR2&#39;</span>])</span>
+<span id="cb94-9"><a href="introLinearReg.html#cb94-9" tabindex="-1"></a>SST <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SST&#39;</span>])</span>
+<span id="cb94-10"><a href="introLinearReg.html#cb94-10" tabindex="-1"></a></span>
+<span id="cb94-11"><a href="introLinearReg.html#cb94-11" tabindex="-1"></a><span class="co"># Calculate new R2</span></span>
+<span id="cb94-12"><a href="introLinearReg.html#cb94-12" tabindex="-1"></a>R2_2 <span class="ot">=</span> SSR2 <span class="sc">/</span> SST</span>
+<span id="cb94-13"><a href="introLinearReg.html#cb94-13" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;New R2 =&#39;</span>, R2_2))</span>
+<span id="cb94-14"><a href="introLinearReg.html#cb94-14" tabindex="-1"></a><span class="co">#&gt; [1] &quot;New R2 = 0.69524214766491&quot;</span></span></code></pre></div>
+<p>The new value of <span class="math inline">\(R^2= 0.695\)</span> shows a slight improvement from the previous
+value of <span class="math inline">\(R^2=0.583\)</span> (obtained with <span class="math inline">\(\alpha=2,~\beta=0.3\)</span>).</p>
+<p>Let’s also plot our new prediction model against the actual values and our
+earlier assumed model, just to get a better visual understanding.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="introLinearReg.html#cb95-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb95-2"><a href="introLinearReg.html#cb95-2" tabindex="-1"></a></span>
+<span id="cb95-3"><a href="introLinearReg.html#cb95-3" tabindex="-1"></a><span class="co"># Put color into aes</span></span>
+<span id="cb95-4"><a href="introLinearReg.html#cb95-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(X)) <span class="sc">+</span>                              <span class="co"># basic graphical object</span></span>
+<span id="cb95-5"><a href="introLinearReg.html#cb95-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>yact), <span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span>       <span class="co"># first layer</span></span>
+<span id="cb95-6"><a href="introLinearReg.html#cb95-6" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>ypred, <span class="at">colour=</span><span class="st">&quot;Guess&quot;</span>)) <span class="sc">+</span>       <span class="co"># second layer</span></span>
+<span id="cb95-7"><a href="introLinearReg.html#cb95-7" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>ypred2, <span class="at">colour=</span><span class="st">&quot;OLS&quot;</span>)) <span class="sc">+</span>        <span class="co"># third layer</span></span>
+<span id="cb95-8"><a href="introLinearReg.html#cb95-8" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">name=</span><span class="st">&quot;Models&quot;</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Guess&quot;</span><span class="ot">=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;OLS&quot;</span><span class="ot">=</span><span class="st">&quot;red&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb95-9"><a href="introLinearReg.html#cb95-9" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;Actual vs Predicted with guessed parameters vs Predicted with calculated parameters&#39;</span>)</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/fig2-simu-OLS-1.png" width="75%" /></p>
+<p>As we can see, the <code>ypred2</code> and <code>ypred</code> are more or less overlapping since the
+respective values of ɑ and β are not very different.</p>
+<p>Next, we will explore other methods of determining model efficacy by using the
+notebook called <code>02-linearReg-03.Rmd</code>.</p>
+</div>
+<div id="model-efficacy" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Model efficacy<a href="introLinearReg.html#model-efficacy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>How do we know the values we calculate for α and β are giving us a good model?
 We can explain the total variability in our model with the
 <strong>Total Sum of Squares</strong> or SST:</p>
@@ -408,6 +479,7 @@ We can explain the total variability in our model with the
 <p><span class="math display">\[ \sum_{i=1}^n\Bigl(\text{yact}_i - \text{yavg}\Bigr)^2
 = \sum_{i=1}^n\Bigl(\text{ypred}_i -\text{yavg} \Bigr)^2
 + \sum_{i=1}^n\Bigl(\text{yact}_i - \text{ypred}_i\Bigr)^2\]</span></p>
+<p><strong>Note,</strong> this relationship only holds if using least squares method.</p>
 <p>The identity reads as</p>
 <p><strong>Sum of Squares Total</strong> = <strong>Sum of Squares Regression</strong> + <strong>Sum of Squares Error</strong>,</p>
 <p>or simply ,</p>
@@ -421,8 +493,8 @@ total error.
 <strong>Note</strong>, we often use SSE (Sum of Squares Error) and SSD (Sum of Squares
 Difference) interchangeably.</p>
 </div>
-<div id="r-squared" class="section level3 hasAnchor" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> <em>R-Squared</em><a href="introLinearReg.html#r-squared" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="r-squared" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> <em>R-Squared</em><a href="introLinearReg.html#r-squared" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The higher the ratio of SSR to SST, the better the model is. This ratio is
 quantified by the <strong>coefficient of determination</strong> (also known as
 <strong><em>R<sup>2</sup></em></strong> or <strong><em>R</em>-squared</strong>):</p>
@@ -432,21 +504,21 @@ quantified by the <strong>coefficient of determination</strong> (also known as
 factors that we need to analyse before we can conclude a linear regression
 model is effective, but a high <span class="math inline">\(R^2\)</span> is a pretty good indicator.</p>
 <p>Let’s see what the value of <span class="math inline">\(R^2\)</span> is for our simulated dataset.</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="introLinearReg.html#cb93-1" tabindex="-1"></a><span class="co"># Calculate the mean of Y</span></span>
-<span id="cb93-2"><a href="introLinearReg.html#cb93-2" tabindex="-1"></a>ymean <span class="ot">=</span> <span class="fu">mean</span>(df<span class="sc">$</span>yact)</span>
-<span id="cb93-3"><a href="introLinearReg.html#cb93-3" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;Mean of Y =&#39;</span>, ymean)) <span class="co"># paste brings a white space by default</span></span>
-<span id="cb93-4"><a href="introLinearReg.html#cb93-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Mean of Y = 2.44422555811815&quot;</span></span>
-<span id="cb93-5"><a href="introLinearReg.html#cb93-5" tabindex="-1"></a></span>
-<span id="cb93-6"><a href="introLinearReg.html#cb93-6" tabindex="-1"></a><span class="co"># Calculate SSR and SST</span></span>
-<span id="cb93-7"><a href="introLinearReg.html#cb93-7" tabindex="-1"></a>df[<span class="st">&#39;SSR&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;ypred&#39;</span>] <span class="sc">-</span> ymean)<span class="sc">**</span><span class="dv">2</span></span>
-<span id="cb93-8"><a href="introLinearReg.html#cb93-8" tabindex="-1"></a>df[<span class="st">&#39;SST&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> ymean)<span class="sc">**</span><span class="dv">2</span></span>
-<span id="cb93-9"><a href="introLinearReg.html#cb93-9" tabindex="-1"></a>SSR <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SSR&#39;</span>])</span>
-<span id="cb93-10"><a href="introLinearReg.html#cb93-10" tabindex="-1"></a>SST <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SST&#39;</span>])</span>
-<span id="cb93-11"><a href="introLinearReg.html#cb93-11" tabindex="-1"></a></span>
-<span id="cb93-12"><a href="introLinearReg.html#cb93-12" tabindex="-1"></a><span class="co"># Calculate R-squared</span></span>
-<span id="cb93-13"><a href="introLinearReg.html#cb93-13" tabindex="-1"></a>R2 <span class="ot">=</span> SSR <span class="sc">/</span> SST</span>
-<span id="cb93-14"><a href="introLinearReg.html#cb93-14" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;R2 =&#39;</span>, R2))</span>
-<span id="cb93-15"><a href="introLinearReg.html#cb93-15" tabindex="-1"></a><span class="co">#&gt; [1] &quot;R2 = 0.583160943681119&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="introLinearReg.html#cb96-1" tabindex="-1"></a><span class="co"># Calculate the mean of Y</span></span>
+<span id="cb96-2"><a href="introLinearReg.html#cb96-2" tabindex="-1"></a>ymean <span class="ot">=</span> <span class="fu">mean</span>(df<span class="sc">$</span>yact)</span>
+<span id="cb96-3"><a href="introLinearReg.html#cb96-3" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;Mean of Y =&#39;</span>, ymean)) <span class="co"># paste brings a white space by default</span></span>
+<span id="cb96-4"><a href="introLinearReg.html#cb96-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Mean of Y = 2.44422555811815&quot;</span></span>
+<span id="cb96-5"><a href="introLinearReg.html#cb96-5" tabindex="-1"></a></span>
+<span id="cb96-6"><a href="introLinearReg.html#cb96-6" tabindex="-1"></a><span class="co"># Calculate SSR and SST</span></span>
+<span id="cb96-7"><a href="introLinearReg.html#cb96-7" tabindex="-1"></a>df[<span class="st">&#39;SSR&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;ypred&#39;</span>] <span class="sc">-</span> ymean)<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb96-8"><a href="introLinearReg.html#cb96-8" tabindex="-1"></a>df[<span class="st">&#39;SST&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> ymean)<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb96-9"><a href="introLinearReg.html#cb96-9" tabindex="-1"></a>SSR <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SSR&#39;</span>])</span>
+<span id="cb96-10"><a href="introLinearReg.html#cb96-10" tabindex="-1"></a>SST <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SST&#39;</span>])</span>
+<span id="cb96-11"><a href="introLinearReg.html#cb96-11" tabindex="-1"></a></span>
+<span id="cb96-12"><a href="introLinearReg.html#cb96-12" tabindex="-1"></a><span class="co"># Calculate R-squared</span></span>
+<span id="cb96-13"><a href="introLinearReg.html#cb96-13" tabindex="-1"></a>R2 <span class="ot">=</span> SSR <span class="sc">/</span> SST</span>
+<span id="cb96-14"><a href="introLinearReg.html#cb96-14" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;R2 =&#39;</span>, R2))</span>
+<span id="cb96-15"><a href="introLinearReg.html#cb96-15" tabindex="-1"></a><span class="co">#&gt; [1] &quot;R2 = 0.583160943681119&quot;</span></span></code></pre></div>
 <p>The value of <span class="math inline">\(R^2=0.583\)</span> suggests that <code>ypred</code> provides a decent prediction of
 the <code>yact</code>.</p>
 <p>We have randomly assumed some values for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>, but these may
@@ -456,91 +528,16 @@ there is an improvement in <span class="math inline">\(R^2\)</span>.</p>
 <p>To get started on the next step, open the notebook called <code>02-linearReg-02.Rmd</code>.</p>
 </div>
 </div>
-<div id="least-squares-using-simulated-data" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Least Squares Using Simulated Data<a href="introLinearReg.html#least-squares-using-simulated-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Now, using our simulated data from the previous step, let’s estimate the optimum values of our variable coefficients, <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. Using the predictor variable, <code>X</code>, and the output variable, <code>yact</code>, we will calculate the values of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> using the Least Squares method described in the lecture.</p>
-<p>The cell below creates the same dataframe as previously. Run the cell to get started!</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="introLinearReg.html#cb94-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
-<span id="cb94-2"><a href="introLinearReg.html#cb94-2" tabindex="-1"></a></span>
-<span id="cb94-3"><a href="introLinearReg.html#cb94-3" tabindex="-1"></a><span class="co"># Generate data</span></span>
-<span id="cb94-4"><a href="introLinearReg.html#cb94-4" tabindex="-1"></a>X <span class="ot">=</span> <span class="fl">2.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">+</span> <span class="fl">1.5</span>   <span class="co"># Array of 100 values with mean = 1.5, stddev = 2.5</span></span>
-<span id="cb94-5"><a href="introLinearReg.html#cb94-5" tabindex="-1"></a>ypred <span class="ot">=</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> X          <span class="co"># Prediction of Y, assuming a = 2, b = 0.3</span></span>
-<span id="cb94-6"><a href="introLinearReg.html#cb94-6" tabindex="-1"></a></span>
-<span id="cb94-7"><a href="introLinearReg.html#cb94-7" tabindex="-1"></a>res <span class="ot">=</span> <span class="fl">0.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)       <span class="co"># Generate 100 residual terms</span></span>
-<span id="cb94-8"><a href="introLinearReg.html#cb94-8" tabindex="-1"></a>yact <span class="ot">=</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> X <span class="sc">+</span> res     <span class="co"># Actual values of Y</span></span>
-<span id="cb94-9"><a href="introLinearReg.html#cb94-9" tabindex="-1"></a></span>
-<span id="cb94-10"><a href="introLinearReg.html#cb94-10" tabindex="-1"></a><span class="co"># Create dataframe to store our X, ypred, and yact values</span></span>
-<span id="cb94-11"><a href="introLinearReg.html#cb94-11" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&#39;X&#39;</span> <span class="ot">=</span> X, <span class="st">&#39;ypred&#39;</span> <span class="ot">=</span> ypred, <span class="st">&#39;yact&#39;</span> <span class="ot">=</span> yact)</span></code></pre></div>
-<p>Just to reiterate, here are the formulas for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> again:</p>
-<p><span class="math display">\[\hat\beta=\frac{\sum_{i=1}^n(X_i-\bar X)(Y_i-\bar Y)}{\sum_{i=1}^n(X_i-\bar X)^2}=\frac{\text{cov}(X,Y)}{\text{var}(X)}\]</span></p>
-<p><span class="math display">\[\hat\alpha=\bar Y-\hat\beta * \bar X\]</span></p>
-<p>To calculate these coefficients, we will create a few more columns in our <code>df</code>
-data frame. We need to calculate <code>xmean</code> and <code>ymean</code> to calculate the covariance
-of X and Y (<code>xycov</code>) and the variance of X (<code>xvar</code>) before we can work out the
-values for <code>alpha</code> and <code>beta</code>.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="introLinearReg.html#cb95-1" tabindex="-1"></a><span class="co"># Calculate the mean of X and Y</span></span>
-<span id="cb95-2"><a href="introLinearReg.html#cb95-2" tabindex="-1"></a>xmean <span class="ot">=</span> <span class="fu">mean</span>(X)</span>
-<span id="cb95-3"><a href="introLinearReg.html#cb95-3" tabindex="-1"></a>ymean <span class="ot">=</span> <span class="fu">mean</span>(yact)</span>
-<span id="cb95-4"><a href="introLinearReg.html#cb95-4" tabindex="-1"></a></span>
-<span id="cb95-5"><a href="introLinearReg.html#cb95-5" tabindex="-1"></a><span class="co"># Calculate the terms needed for the numator and denominator of beta</span></span>
-<span id="cb95-6"><a href="introLinearReg.html#cb95-6" tabindex="-1"></a>df[<span class="st">&#39;xycov&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;X&#39;</span>] <span class="sc">-</span> xmean) <span class="sc">*</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> ymean)</span>
-<span id="cb95-7"><a href="introLinearReg.html#cb95-7" tabindex="-1"></a>df[<span class="st">&#39;xvar&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;X&#39;</span>] <span class="sc">-</span> xmean)<span class="sc">**</span><span class="dv">2</span></span>
-<span id="cb95-8"><a href="introLinearReg.html#cb95-8" tabindex="-1"></a></span>
-<span id="cb95-9"><a href="introLinearReg.html#cb95-9" tabindex="-1"></a><span class="co"># Calculate beta and alpha</span></span>
-<span id="cb95-10"><a href="introLinearReg.html#cb95-10" tabindex="-1"></a>beta <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;xycov&#39;</span>]) <span class="sc">/</span> <span class="fu">sum</span>(df[<span class="st">&#39;xvar&#39;</span>])</span>
-<span id="cb95-11"><a href="introLinearReg.html#cb95-11" tabindex="-1"></a>alpha <span class="ot">=</span> ymean <span class="sc">-</span> (beta <span class="sc">*</span> xmean)</span>
-<span id="cb95-12"><a href="introLinearReg.html#cb95-12" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;alpha =&#39;</span>, alpha, <span class="st">&#39;;&#39;</span>, <span class="st">&#39;beta =&#39;</span>, beta))</span>
-<span id="cb95-13"><a href="introLinearReg.html#cb95-13" tabindex="-1"></a><span class="co">#&gt; [1] &quot;alpha = 1.93401265576322 ; beta = 0.327758955833308&quot;</span></span></code></pre></div>
-<p>As we can see, the values are only a little different from what we had assumed
-earlier.</p>
-<p>Let’s see how the value of <span class="math inline">\(R^2\)</span> changes if we use the new values of <span class="math inline">\(\alpha\)</span>
-and <span class="math inline">\(\beta\)</span>.</p>
-<p>The equation for the new model can be written as:
-<span class="math display">\[ y=1.934 + 0.328 * x \]</span></p>
-<p>Let’s create a new column in <code>df</code> to accommodate the values generated by this
-equation and call this <code>ypred2</code>, and calculate the new <span class="math inline">\(R^2\)</span>.</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="introLinearReg.html#cb96-1" tabindex="-1"></a><span class="co"># Create new column to store new predictions</span></span>
-<span id="cb96-2"><a href="introLinearReg.html#cb96-2" tabindex="-1"></a>df[<span class="st">&#39;ypred2&#39;</span>] <span class="ot">=</span> alpha <span class="sc">+</span> beta <span class="sc">*</span> df[<span class="st">&#39;X&#39;</span>]</span>
-<span id="cb96-3"><a href="introLinearReg.html#cb96-3" tabindex="-1"></a></span>
-<span id="cb96-4"><a href="introLinearReg.html#cb96-4" tabindex="-1"></a><span class="co"># Calculate new SSR with new predictions of Y.</span></span>
-<span id="cb96-5"><a href="introLinearReg.html#cb96-5" tabindex="-1"></a><span class="co"># Note that SST remains the same since yact and ymean do not change.</span></span>
-<span id="cb96-6"><a href="introLinearReg.html#cb96-6" tabindex="-1"></a>df[<span class="st">&#39;SSR2&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;ypred2&#39;</span>] <span class="sc">-</span> ymean)<span class="sc">**</span><span class="dv">2</span></span>
-<span id="cb96-7"><a href="introLinearReg.html#cb96-7" tabindex="-1"></a>df[<span class="st">&#39;SST&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> ymean)<span class="sc">**</span><span class="dv">2</span></span>
-<span id="cb96-8"><a href="introLinearReg.html#cb96-8" tabindex="-1"></a>SSR2 <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SSR2&#39;</span>])</span>
-<span id="cb96-9"><a href="introLinearReg.html#cb96-9" tabindex="-1"></a>SST <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SST&#39;</span>])</span>
-<span id="cb96-10"><a href="introLinearReg.html#cb96-10" tabindex="-1"></a></span>
-<span id="cb96-11"><a href="introLinearReg.html#cb96-11" tabindex="-1"></a><span class="co"># Calculate new R2</span></span>
-<span id="cb96-12"><a href="introLinearReg.html#cb96-12" tabindex="-1"></a>R2_2 <span class="ot">=</span> SSR2 <span class="sc">/</span> SST</span>
-<span id="cb96-13"><a href="introLinearReg.html#cb96-13" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;New R2 =&#39;</span>, R2_2))</span>
-<span id="cb96-14"><a href="introLinearReg.html#cb96-14" tabindex="-1"></a><span class="co">#&gt; [1] &quot;New R2 = 0.69524214766491&quot;</span></span></code></pre></div>
-<p>The new value of <span class="math inline">\(R^2= 0.695\)</span> shows a slight improvement from the previous
-value of <span class="math inline">\(R^2=0.583\)</span> (obtained with <span class="math inline">\(\alpha=2,~\beta=0.3\)</span>).</p>
-<p>Let’s also plot our new prediction model against the actual values and our
-earlier assumed model, just to get a better visual understanding.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="introLinearReg.html#cb97-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb97-2"><a href="introLinearReg.html#cb97-2" tabindex="-1"></a></span>
-<span id="cb97-3"><a href="introLinearReg.html#cb97-3" tabindex="-1"></a><span class="co"># Put color into aes</span></span>
-<span id="cb97-4"><a href="introLinearReg.html#cb97-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(X)) <span class="sc">+</span>                              <span class="co"># basic graphical object</span></span>
-<span id="cb97-5"><a href="introLinearReg.html#cb97-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>yact), <span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span>       <span class="co"># first layer</span></span>
-<span id="cb97-6"><a href="introLinearReg.html#cb97-6" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>ypred, <span class="at">colour=</span><span class="st">&quot;Guess&quot;</span>)) <span class="sc">+</span>       <span class="co"># second layer</span></span>
-<span id="cb97-7"><a href="introLinearReg.html#cb97-7" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>ypred2, <span class="at">colour=</span><span class="st">&quot;OLS&quot;</span>)) <span class="sc">+</span>        <span class="co"># third layer</span></span>
-<span id="cb97-8"><a href="introLinearReg.html#cb97-8" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">name=</span><span class="st">&quot;Models&quot;</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Guess&quot;</span><span class="ot">=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;OLS&quot;</span><span class="ot">=</span><span class="st">&quot;red&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb97-9"><a href="introLinearReg.html#cb97-9" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;Actual vs Predicted with guessed parameters vs Predicted with calculated parameters&#39;</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig2-simu-OLS-1.png" width="75%" /></p>
-<p>As we can see, the <code>ypred2</code> and <code>ypred</code> are more or less overlapping since the
-respective values of ɑ and β are not very different.</p>
-<p>Next, we will explore other methods of determining model efficacy by using the
-notebook called <code>02-linearReg-03.Rmd</code>.</p>
-</div>
-<div id="diagnostic-check-of-a-fitted-regression-model" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> Diagnostic check of a fitted regression model<a href="introLinearReg.html#diagnostic-check-of-a-fitted-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="diagnostic-metrics" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Diagnostic metrics<a href="introLinearReg.html#diagnostic-metrics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Apart from the <span class="math inline">\(R^2\)</span> statistic, there are other statistics and parameters that
 you need to look at in order to determine if the model is efficient. We will
 discuss some commonly used statistics – Residual Standard Errors, <span class="math inline">\(p\)</span>-values,
 and <span class="math inline">\(F\)</span>-statistics.</p>
-<div id="residual-standard-errors-rse" class="section level3 hasAnchor" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Residual Standard Errors (RSE)<a href="introLinearReg.html#residual-standard-errors-rse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>RSE is a common statistic used to calculate the accuracy of values predicted by
+<div id="residual-standard-errors" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Residual Standard Errors<a href="introLinearReg.html#residual-standard-errors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Residual Standard Errors (RSE) is a common statistic used to calculate the
+accuracy of values predicted by
 a model. It is an estimate of the variance of the error term, <code>res</code>. For a
 simple linear regression model, RSE is defined as:
 <span class="math display">\[  RSE^2 = \frac{SSE}{n-2} = \frac1{n-2} \sum_{i=1}^n  \Bigl(\text{yact}_i - \text{ypred}_i \Bigr)^2.
@@ -560,64 +557,64 @@ number of predictors <span class="math inline">\(p\)</span>.</p>
 variables that are more significant predictors of the output variable.</p>
 <p>Using our simulated data from the previous steps, the following code snippet
 shows how the RSE for a model can be calculated:</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="introLinearReg.html#cb98-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
-<span id="cb98-2"><a href="introLinearReg.html#cb98-2" tabindex="-1"></a></span>
-<span id="cb98-3"><a href="introLinearReg.html#cb98-3" tabindex="-1"></a><span class="co"># Generate data</span></span>
-<span id="cb98-4"><a href="introLinearReg.html#cb98-4" tabindex="-1"></a>X <span class="ot">=</span> <span class="fl">2.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">+</span> <span class="fl">1.5</span>   <span class="co"># Array of 100 values with mean = 1.5, stddev = 2.5</span></span>
-<span id="cb98-5"><a href="introLinearReg.html#cb98-5" tabindex="-1"></a>res <span class="ot">=</span> <span class="fl">0.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)       <span class="co"># Generate 100 residual terms</span></span>
-<span id="cb98-6"><a href="introLinearReg.html#cb98-6" tabindex="-1"></a>yact <span class="ot">=</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> X <span class="sc">+</span> res     <span class="co"># Actual values of Y</span></span>
-<span id="cb98-7"><a href="introLinearReg.html#cb98-7" tabindex="-1"></a></span>
-<span id="cb98-8"><a href="introLinearReg.html#cb98-8" tabindex="-1"></a><span class="co"># Create dataframe to store our X, ypred, and yact values</span></span>
-<span id="cb98-9"><a href="introLinearReg.html#cb98-9" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&#39;X&#39;</span> <span class="ot">=</span> X, <span class="st">&#39;yact&#39;</span> <span class="ot">=</span> yact)</span>
-<span id="cb98-10"><a href="introLinearReg.html#cb98-10" tabindex="-1"></a></span>
-<span id="cb98-11"><a href="introLinearReg.html#cb98-11" tabindex="-1"></a><span class="co"># Calculate the mean of X and Y</span></span>
-<span id="cb98-12"><a href="introLinearReg.html#cb98-12" tabindex="-1"></a>xmean <span class="ot">=</span> <span class="fu">mean</span>(X)</span>
-<span id="cb98-13"><a href="introLinearReg.html#cb98-13" tabindex="-1"></a>ymean <span class="ot">=</span> <span class="fu">mean</span>(yact)</span>
-<span id="cb98-14"><a href="introLinearReg.html#cb98-14" tabindex="-1"></a></span>
-<span id="cb98-15"><a href="introLinearReg.html#cb98-15" tabindex="-1"></a><span class="co"># Calculate the terms needed for the numator and denominator of beta</span></span>
-<span id="cb98-16"><a href="introLinearReg.html#cb98-16" tabindex="-1"></a>df[<span class="st">&#39;xycov&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;X&#39;</span>] <span class="sc">-</span> xmean) <span class="sc">*</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> ymean)</span>
-<span id="cb98-17"><a href="introLinearReg.html#cb98-17" tabindex="-1"></a>df[<span class="st">&#39;xvar&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;X&#39;</span>] <span class="sc">-</span> xmean)<span class="sc">**</span><span class="dv">2</span></span>
-<span id="cb98-18"><a href="introLinearReg.html#cb98-18" tabindex="-1"></a></span>
-<span id="cb98-19"><a href="introLinearReg.html#cb98-19" tabindex="-1"></a><span class="co"># Calculate beta and alpha</span></span>
-<span id="cb98-20"><a href="introLinearReg.html#cb98-20" tabindex="-1"></a>beta <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;xycov&#39;</span>]) <span class="sc">/</span> <span class="fu">sum</span>(df[<span class="st">&#39;xvar&#39;</span>])</span>
-<span id="cb98-21"><a href="introLinearReg.html#cb98-21" tabindex="-1"></a>alpha <span class="ot">=</span> ymean <span class="sc">-</span> (beta <span class="sc">*</span> xmean)</span>
-<span id="cb98-22"><a href="introLinearReg.html#cb98-22" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;alpha =&#39;</span>, alpha, <span class="st">&#39;;&#39;</span>, <span class="st">&#39;beta =&#39;</span>, beta))</span>
-<span id="cb98-23"><a href="introLinearReg.html#cb98-23" tabindex="-1"></a><span class="co">#&gt; [1] &quot;alpha = 1.93401265576322 ; beta = 0.327758955833308&quot;</span></span>
-<span id="cb98-24"><a href="introLinearReg.html#cb98-24" tabindex="-1"></a></span>
-<span id="cb98-25"><a href="introLinearReg.html#cb98-25" tabindex="-1"></a><span class="co"># Store predictions as in previous step</span></span>
-<span id="cb98-26"><a href="introLinearReg.html#cb98-26" tabindex="-1"></a>df[<span class="st">&#39;ypred&#39;</span>] <span class="ot">=</span> alpha <span class="sc">+</span> beta <span class="sc">*</span> df[<span class="st">&#39;X&#39;</span>]</span>
-<span id="cb98-27"><a href="introLinearReg.html#cb98-27" tabindex="-1"></a></span>
-<span id="cb98-28"><a href="introLinearReg.html#cb98-28" tabindex="-1"></a><span class="co"># Show first five rows of dataframe</span></span>
-<span id="cb98-29"><a href="introLinearReg.html#cb98-29" tabindex="-1"></a><span class="fu">head</span>(df)</span>
-<span id="cb98-30"><a href="introLinearReg.html#cb98-30" tabindex="-1"></a><span class="co">#&gt;            X     yact      xycov       xvar    ypred</span></span>
-<span id="cb98-31"><a href="introLinearReg.html#cb98-31" tabindex="-1"></a><span class="co">#&gt; 1  4.6573857 3.788145  4.1671116  9.6144310 3.460513</span></span>
-<span id="cb98-32"><a href="introLinearReg.html#cb98-32" tabindex="-1"></a><span class="co">#&gt; 2  0.6844166 1.816937  0.5471556  0.7608280 2.158336</span></span>
-<span id="cb98-33"><a href="introLinearReg.html#cb98-33" tabindex="-1"></a><span class="co">#&gt; 3  4.8244982 3.139354  2.2715611 10.6786935 3.515285</span></span>
-<span id="cb98-34"><a href="introLinearReg.html#cb98-34" tabindex="-1"></a><span class="co">#&gt; 4  4.6810733 3.427612  3.0724952  9.7618890 3.468276</span></span>
-<span id="cb98-35"><a href="introLinearReg.html#cb98-35" tabindex="-1"></a><span class="co">#&gt; 5  2.5366036 2.195788 -0.2434518  0.9602676 2.765407</span></span>
-<span id="cb98-36"><a href="introLinearReg.html#cb98-36" tabindex="-1"></a><span class="co">#&gt; 6 -2.3498751 1.583397  3.3628671 15.2611034 1.163820</span></span></code></pre></div>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="introLinearReg.html#cb99-1" tabindex="-1"></a><span class="co"># Calculate SSE</span></span>
-<span id="cb99-2"><a href="introLinearReg.html#cb99-2" tabindex="-1"></a>df[<span class="st">&#39;SSE&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> df[<span class="st">&#39;ypred&#39;</span>])<span class="sc">**</span><span class="dv">2</span></span>
-<span id="cb99-3"><a href="introLinearReg.html#cb99-3" tabindex="-1"></a>SSE <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SSE&#39;</span>])</span>
-<span id="cb99-4"><a href="introLinearReg.html#cb99-4" tabindex="-1"></a></span>
-<span id="cb99-5"><a href="introLinearReg.html#cb99-5" tabindex="-1"></a><span class="co"># Calculate RSE</span></span>
-<span id="cb99-6"><a href="introLinearReg.html#cb99-6" tabindex="-1"></a>RSE <span class="ot">=</span> <span class="fu">sqrt</span>(SSE <span class="sc">/</span> <span class="dv">98</span>)   <span class="co"># n = 100</span></span>
-<span id="cb99-7"><a href="introLinearReg.html#cb99-7" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;RSE =&#39;</span>, RSE))</span>
-<span id="cb99-8"><a href="introLinearReg.html#cb99-8" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RSE = 0.481279277134956&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="introLinearReg.html#cb97-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb97-2"><a href="introLinearReg.html#cb97-2" tabindex="-1"></a></span>
+<span id="cb97-3"><a href="introLinearReg.html#cb97-3" tabindex="-1"></a><span class="do">## Generate data</span></span>
+<span id="cb97-4"><a href="introLinearReg.html#cb97-4" tabindex="-1"></a>X <span class="ot">=</span> <span class="fl">2.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">+</span> <span class="fl">1.5</span>   <span class="co"># Array of 100 values with mean = 1.5, stddev = 2.5</span></span>
+<span id="cb97-5"><a href="introLinearReg.html#cb97-5" tabindex="-1"></a>res <span class="ot">=</span> <span class="fl">0.5</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)       <span class="co"># Generate 100 residual terms</span></span>
+<span id="cb97-6"><a href="introLinearReg.html#cb97-6" tabindex="-1"></a>yact <span class="ot">=</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> X <span class="sc">+</span> res     <span class="co"># Actual values of Y</span></span>
+<span id="cb97-7"><a href="introLinearReg.html#cb97-7" tabindex="-1"></a></span>
+<span id="cb97-8"><a href="introLinearReg.html#cb97-8" tabindex="-1"></a><span class="do">## Create dataframe to store our X, ypred, and yact values</span></span>
+<span id="cb97-9"><a href="introLinearReg.html#cb97-9" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&#39;X&#39;</span> <span class="ot">=</span> X, <span class="st">&#39;yact&#39;</span> <span class="ot">=</span> yact)</span>
+<span id="cb97-10"><a href="introLinearReg.html#cb97-10" tabindex="-1"></a></span>
+<span id="cb97-11"><a href="introLinearReg.html#cb97-11" tabindex="-1"></a><span class="do">## Calculate the mean of X and Y</span></span>
+<span id="cb97-12"><a href="introLinearReg.html#cb97-12" tabindex="-1"></a>xmean <span class="ot">=</span> <span class="fu">mean</span>(X)</span>
+<span id="cb97-13"><a href="introLinearReg.html#cb97-13" tabindex="-1"></a>ymean <span class="ot">=</span> <span class="fu">mean</span>(yact)</span>
+<span id="cb97-14"><a href="introLinearReg.html#cb97-14" tabindex="-1"></a></span>
+<span id="cb97-15"><a href="introLinearReg.html#cb97-15" tabindex="-1"></a><span class="do">## Calculate the terms needed for the numator and denominator of beta</span></span>
+<span id="cb97-16"><a href="introLinearReg.html#cb97-16" tabindex="-1"></a>df[<span class="st">&#39;xycov&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;X&#39;</span>] <span class="sc">-</span> xmean) <span class="sc">*</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> ymean)</span>
+<span id="cb97-17"><a href="introLinearReg.html#cb97-17" tabindex="-1"></a>df[<span class="st">&#39;xvar&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;X&#39;</span>] <span class="sc">-</span> xmean)<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb97-18"><a href="introLinearReg.html#cb97-18" tabindex="-1"></a></span>
+<span id="cb97-19"><a href="introLinearReg.html#cb97-19" tabindex="-1"></a><span class="do">## Calculate beta and alpha</span></span>
+<span id="cb97-20"><a href="introLinearReg.html#cb97-20" tabindex="-1"></a>beta <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;xycov&#39;</span>]) <span class="sc">/</span> <span class="fu">sum</span>(df[<span class="st">&#39;xvar&#39;</span>])</span>
+<span id="cb97-21"><a href="introLinearReg.html#cb97-21" tabindex="-1"></a>alpha <span class="ot">=</span> ymean <span class="sc">-</span> (beta <span class="sc">*</span> xmean)</span>
+<span id="cb97-22"><a href="introLinearReg.html#cb97-22" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;alpha =&#39;</span>, alpha, <span class="st">&#39;;&#39;</span>, <span class="st">&#39;beta =&#39;</span>, beta))</span>
+<span id="cb97-23"><a href="introLinearReg.html#cb97-23" tabindex="-1"></a><span class="co">#&gt; [1] &quot;alpha = 1.93401265576322 ; beta = 0.327758955833308&quot;</span></span>
+<span id="cb97-24"><a href="introLinearReg.html#cb97-24" tabindex="-1"></a></span>
+<span id="cb97-25"><a href="introLinearReg.html#cb97-25" tabindex="-1"></a><span class="do">## Store predictions as in previous step</span></span>
+<span id="cb97-26"><a href="introLinearReg.html#cb97-26" tabindex="-1"></a>df[<span class="st">&#39;ypred&#39;</span>] <span class="ot">=</span> alpha <span class="sc">+</span> beta <span class="sc">*</span> df[<span class="st">&#39;X&#39;</span>]</span>
+<span id="cb97-27"><a href="introLinearReg.html#cb97-27" tabindex="-1"></a></span>
+<span id="cb97-28"><a href="introLinearReg.html#cb97-28" tabindex="-1"></a><span class="do">## Show first five rows of dataframe</span></span>
+<span id="cb97-29"><a href="introLinearReg.html#cb97-29" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb97-30"><a href="introLinearReg.html#cb97-30" tabindex="-1"></a><span class="co">#&gt;            X     yact      xycov       xvar    ypred</span></span>
+<span id="cb97-31"><a href="introLinearReg.html#cb97-31" tabindex="-1"></a><span class="co">#&gt; 1  4.6573857 3.788145  4.1671116  9.6144310 3.460513</span></span>
+<span id="cb97-32"><a href="introLinearReg.html#cb97-32" tabindex="-1"></a><span class="co">#&gt; 2  0.6844166 1.816937  0.5471556  0.7608280 2.158336</span></span>
+<span id="cb97-33"><a href="introLinearReg.html#cb97-33" tabindex="-1"></a><span class="co">#&gt; 3  4.8244982 3.139354  2.2715611 10.6786935 3.515285</span></span>
+<span id="cb97-34"><a href="introLinearReg.html#cb97-34" tabindex="-1"></a><span class="co">#&gt; 4  4.6810733 3.427612  3.0724952  9.7618890 3.468276</span></span>
+<span id="cb97-35"><a href="introLinearReg.html#cb97-35" tabindex="-1"></a><span class="co">#&gt; 5  2.5366036 2.195788 -0.2434518  0.9602676 2.765407</span></span>
+<span id="cb97-36"><a href="introLinearReg.html#cb97-36" tabindex="-1"></a><span class="co">#&gt; 6 -2.3498751 1.583397  3.3628671 15.2611034 1.163820</span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="introLinearReg.html#cb98-1" tabindex="-1"></a><span class="do">## Calculate SSE</span></span>
+<span id="cb98-2"><a href="introLinearReg.html#cb98-2" tabindex="-1"></a>df[<span class="st">&#39;SSE&#39;</span>] <span class="ot">=</span> (df[<span class="st">&#39;yact&#39;</span>] <span class="sc">-</span> df[<span class="st">&#39;ypred&#39;</span>])<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb98-3"><a href="introLinearReg.html#cb98-3" tabindex="-1"></a>SSE <span class="ot">=</span> <span class="fu">sum</span>(df[<span class="st">&#39;SSE&#39;</span>])</span>
+<span id="cb98-4"><a href="introLinearReg.html#cb98-4" tabindex="-1"></a></span>
+<span id="cb98-5"><a href="introLinearReg.html#cb98-5" tabindex="-1"></a><span class="do">## Calculate RSE</span></span>
+<span id="cb98-6"><a href="introLinearReg.html#cb98-6" tabindex="-1"></a>RSE <span class="ot">=</span> <span class="fu">sqrt</span>(SSE <span class="sc">/</span> <span class="dv">98</span>)   <span class="co"># n = 100</span></span>
+<span id="cb98-7"><a href="introLinearReg.html#cb98-7" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;RSE =&#39;</span>, RSE))</span>
+<span id="cb98-8"><a href="introLinearReg.html#cb98-8" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RSE = 0.481279277134956&quot;</span></span></code></pre></div>
 <p>The value of <code>RSE</code> comes out to be 0.48.</p>
 <p>As you might have guessed, the smaller the residual standard errors, the better
 the model is.</p>
 <p>The benchmark to compare this to is the mean of the actual values, <code>yact</code>. As
 shown previously, this value is <code>ymean = 2.54</code>. In plain English, this means we
 observe an error of 0.48 over 2.44 - approximately 19.69%.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="introLinearReg.html#cb100-1" tabindex="-1"></a>error <span class="ot">=</span> RSE <span class="sc">/</span> ymean</span>
-<span id="cb100-2"><a href="introLinearReg.html#cb100-2" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;Mean Y =&#39;</span>, ymean))</span>
-<span id="cb100-3"><a href="introLinearReg.html#cb100-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Mean Y = 2.44422555811815&quot;</span></span>
-<span id="cb100-4"><a href="introLinearReg.html#cb100-4" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;Error =&#39;</span>, error))</span>
-<span id="cb100-5"><a href="introLinearReg.html#cb100-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Error = 0.196904608716023&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="introLinearReg.html#cb99-1" tabindex="-1"></a>error <span class="ot">=</span> RSE <span class="sc">/</span> ymean</span>
+<span id="cb99-2"><a href="introLinearReg.html#cb99-2" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;Mean Y =&#39;</span>, ymean))</span>
+<span id="cb99-3"><a href="introLinearReg.html#cb99-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Mean Y = 2.44422555811815&quot;</span></span>
+<span id="cb99-4"><a href="introLinearReg.html#cb99-4" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&#39;Error =&#39;</span>, error))</span>
+<span id="cb99-5"><a href="introLinearReg.html#cb99-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Error = 0.196904608716023&quot;</span></span></code></pre></div>
 </div>
-<div id="p-values" class="section level3 hasAnchor" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> p-values<a href="introLinearReg.html#p-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="p-values" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> p-values<a href="introLinearReg.html#p-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The calculation of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are estimates, not exact calculations.
 Whether their values are significant or not needs to be tested using a
 <strong>hypothesis test</strong>.</p>
@@ -639,8 +636,8 @@ the null hypothesis that <span class="math inline">\(\beta = 0\)</span> is rejec
 The higher the p-value for <span class="math inline">\(\beta_k\)</span>, the less significant <span class="math inline">\(X_k\)</span> is to the
 model.</p>
 </div>
-<div id="f-statistics" class="section level3 hasAnchor" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> F-statistics<a href="introLinearReg.html#f-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="f-statistics" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> F-statistics<a href="introLinearReg.html#f-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In a multiple regression model, apart from testing the significance of
 individual variables by checking the p-values, it is also necessary to check
 whether, as a group all the predictors are significant. This can be done using
@@ -669,70 +666,70 @@ there is a relationship between the predictors and the outcome.</li>
 </ul>
 </div>
 </div>
-<div id="simple-linear-regression-with-lm-function" class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Simple Linear Regression with <code>lm</code> function<a href="introLinearReg.html#simple-linear-regression-with-lm-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="simple-linear-regression" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Simple Linear Regression<a href="introLinearReg.html#simple-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are a few R packages, e.g., the built-in <code>stat</code> package have a <code>lm</code>
 (linear model) function to fit linear regression very easy - much easier than
 implementing from scratch like we did in the last lesson. See more details in the
 <a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm">lm manual</a>.</p>
 <p>We will start with the <code>datarium</code> library which contain the <code>advertising</code> data.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="introLinearReg.html#cb101-1" tabindex="-1"></a><span class="co"># Install datarium library if you haven&#39;t</span></span>
-<span id="cb101-2"><a href="introLinearReg.html#cb101-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;datarium&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb101-3"><a href="introLinearReg.html#cb101-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;datarium&quot;</span>)</span>
-<span id="cb101-4"><a href="introLinearReg.html#cb101-4" tabindex="-1"></a>}</span>
-<span id="cb101-5"><a href="introLinearReg.html#cb101-5" tabindex="-1"></a></span>
-<span id="cb101-6"><a href="introLinearReg.html#cb101-6" tabindex="-1"></a><span class="fu">library</span>(datarium)</span>
-<span id="cb101-7"><a href="introLinearReg.html#cb101-7" tabindex="-1"></a></span>
-<span id="cb101-8"><a href="introLinearReg.html#cb101-8" tabindex="-1"></a><span class="co"># Load data: then we will have a data.frame with name marketing</span></span>
-<span id="cb101-9"><a href="introLinearReg.html#cb101-9" tabindex="-1"></a><span class="fu">data</span>(marketing)</span>
-<span id="cb101-10"><a href="introLinearReg.html#cb101-10" tabindex="-1"></a></span>
-<span id="cb101-11"><a href="introLinearReg.html#cb101-11" tabindex="-1"></a><span class="fu">head</span>(marketing)</span>
-<span id="cb101-12"><a href="introLinearReg.html#cb101-12" tabindex="-1"></a><span class="co">#&gt;   youtube facebook newspaper sales</span></span>
-<span id="cb101-13"><a href="introLinearReg.html#cb101-13" tabindex="-1"></a><span class="co">#&gt; 1  276.12    45.36     83.04 26.52</span></span>
-<span id="cb101-14"><a href="introLinearReg.html#cb101-14" tabindex="-1"></a><span class="co">#&gt; 2   53.40    47.16     54.12 12.48</span></span>
-<span id="cb101-15"><a href="introLinearReg.html#cb101-15" tabindex="-1"></a><span class="co">#&gt; 3   20.64    55.08     83.16 11.16</span></span>
-<span id="cb101-16"><a href="introLinearReg.html#cb101-16" tabindex="-1"></a><span class="co">#&gt; 4  181.80    49.56     70.20 22.20</span></span>
-<span id="cb101-17"><a href="introLinearReg.html#cb101-17" tabindex="-1"></a><span class="co">#&gt; 5  216.96    12.96     70.08 15.48</span></span>
-<span id="cb101-18"><a href="introLinearReg.html#cb101-18" tabindex="-1"></a><span class="co">#&gt; 6   10.44    58.68     90.00  8.64</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="introLinearReg.html#cb100-1" tabindex="-1"></a><span class="co"># Install datarium library if you haven&#39;t</span></span>
+<span id="cb100-2"><a href="introLinearReg.html#cb100-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;datarium&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb100-3"><a href="introLinearReg.html#cb100-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;datarium&quot;</span>)</span>
+<span id="cb100-4"><a href="introLinearReg.html#cb100-4" tabindex="-1"></a>}</span>
+<span id="cb100-5"><a href="introLinearReg.html#cb100-5" tabindex="-1"></a></span>
+<span id="cb100-6"><a href="introLinearReg.html#cb100-6" tabindex="-1"></a><span class="fu">library</span>(datarium)</span>
+<span id="cb100-7"><a href="introLinearReg.html#cb100-7" tabindex="-1"></a></span>
+<span id="cb100-8"><a href="introLinearReg.html#cb100-8" tabindex="-1"></a><span class="co"># Load data: then we will have a data.frame with name marketing</span></span>
+<span id="cb100-9"><a href="introLinearReg.html#cb100-9" tabindex="-1"></a><span class="fu">data</span>(marketing)</span>
+<span id="cb100-10"><a href="introLinearReg.html#cb100-10" tabindex="-1"></a></span>
+<span id="cb100-11"><a href="introLinearReg.html#cb100-11" tabindex="-1"></a><span class="fu">head</span>(marketing)</span>
+<span id="cb100-12"><a href="introLinearReg.html#cb100-12" tabindex="-1"></a><span class="co">#&gt;   youtube facebook newspaper sales</span></span>
+<span id="cb100-13"><a href="introLinearReg.html#cb100-13" tabindex="-1"></a><span class="co">#&gt; 1  276.12    45.36     83.04 26.52</span></span>
+<span id="cb100-14"><a href="introLinearReg.html#cb100-14" tabindex="-1"></a><span class="co">#&gt; 2   53.40    47.16     54.12 12.48</span></span>
+<span id="cb100-15"><a href="introLinearReg.html#cb100-15" tabindex="-1"></a><span class="co">#&gt; 3   20.64    55.08     83.16 11.16</span></span>
+<span id="cb100-16"><a href="introLinearReg.html#cb100-16" tabindex="-1"></a><span class="co">#&gt; 4  181.80    49.56     70.20 22.20</span></span>
+<span id="cb100-17"><a href="introLinearReg.html#cb100-17" tabindex="-1"></a><span class="co">#&gt; 5  216.96    12.96     70.08 15.48</span></span>
+<span id="cb100-18"><a href="introLinearReg.html#cb100-18" tabindex="-1"></a><span class="co">#&gt; 6   10.44    58.68     90.00  8.64</span></span></code></pre></div>
 <p>We can also check summary statistics of each column</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="introLinearReg.html#cb102-1" tabindex="-1"></a><span class="fu">summary</span>(marketing)</span>
-<span id="cb102-2"><a href="introLinearReg.html#cb102-2" tabindex="-1"></a><span class="co">#&gt;     youtube          facebook       newspaper          sales      </span></span>
-<span id="cb102-3"><a href="introLinearReg.html#cb102-3" tabindex="-1"></a><span class="co">#&gt;  Min.   :  0.84   Min.   : 0.00   Min.   :  0.36   Min.   : 1.92  </span></span>
-<span id="cb102-4"><a href="introLinearReg.html#cb102-4" tabindex="-1"></a><span class="co">#&gt;  1st Qu.: 89.25   1st Qu.:11.97   1st Qu.: 15.30   1st Qu.:12.45  </span></span>
-<span id="cb102-5"><a href="introLinearReg.html#cb102-5" tabindex="-1"></a><span class="co">#&gt;  Median :179.70   Median :27.48   Median : 30.90   Median :15.48  </span></span>
-<span id="cb102-6"><a href="introLinearReg.html#cb102-6" tabindex="-1"></a><span class="co">#&gt;  Mean   :176.45   Mean   :27.92   Mean   : 36.66   Mean   :16.83  </span></span>
-<span id="cb102-7"><a href="introLinearReg.html#cb102-7" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:262.59   3rd Qu.:43.83   3rd Qu.: 54.12   3rd Qu.:20.88  </span></span>
-<span id="cb102-8"><a href="introLinearReg.html#cb102-8" tabindex="-1"></a><span class="co">#&gt;  Max.   :355.68   Max.   :59.52   Max.   :136.80   Max.   :32.40</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="introLinearReg.html#cb101-1" tabindex="-1"></a><span class="fu">summary</span>(marketing)</span>
+<span id="cb101-2"><a href="introLinearReg.html#cb101-2" tabindex="-1"></a><span class="co">#&gt;     youtube          facebook       newspaper          sales      </span></span>
+<span id="cb101-3"><a href="introLinearReg.html#cb101-3" tabindex="-1"></a><span class="co">#&gt;  Min.   :  0.84   Min.   : 0.00   Min.   :  0.36   Min.   : 1.92  </span></span>
+<span id="cb101-4"><a href="introLinearReg.html#cb101-4" tabindex="-1"></a><span class="co">#&gt;  1st Qu.: 89.25   1st Qu.:11.97   1st Qu.: 15.30   1st Qu.:12.45  </span></span>
+<span id="cb101-5"><a href="introLinearReg.html#cb101-5" tabindex="-1"></a><span class="co">#&gt;  Median :179.70   Median :27.48   Median : 30.90   Median :15.48  </span></span>
+<span id="cb101-6"><a href="introLinearReg.html#cb101-6" tabindex="-1"></a><span class="co">#&gt;  Mean   :176.45   Mean   :27.92   Mean   : 36.66   Mean   :16.83  </span></span>
+<span id="cb101-7"><a href="introLinearReg.html#cb101-7" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:262.59   3rd Qu.:43.83   3rd Qu.: 54.12   3rd Qu.:20.88  </span></span>
+<span id="cb101-8"><a href="introLinearReg.html#cb101-8" tabindex="-1"></a><span class="co">#&gt;  Max.   :355.68   Max.   :59.52   Max.   :136.80   Max.   :32.40</span></span></code></pre></div>
 <p>This dataset contains data about the advertising budget spent on YouTub, Radio, and
 Newspapers for a particular product and the resulting sales. We expect a
 positive correlation between such <b>advertising costs</b> and <b>sales</b>.</p>
 <p>Let’s start with <b> YouTub advertising costs</b> to create a simple linear
 regression model. First let’s plot the variables to get a better sense of
 their relationship:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="introLinearReg.html#cb103-1" tabindex="-1"></a><span class="co"># Create scatter plot</span></span>
-<span id="cb103-2"><a href="introLinearReg.html#cb103-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb103-3"><a href="introLinearReg.html#cb103-3" tabindex="-1"></a></span>
-<span id="cb103-4"><a href="introLinearReg.html#cb103-4" tabindex="-1"></a><span class="fu">ggplot</span>(marketing, <span class="fu">aes</span>(<span class="at">x=</span>youtube, <span class="at">y=</span>sales)) <span class="sc">+</span> </span>
-<span id="cb103-5"><a href="introLinearReg.html#cb103-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb103-6"><a href="introLinearReg.html#cb103-6" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;YouTube vs Sales&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="introLinearReg.html#cb102-1" tabindex="-1"></a><span class="co"># Create scatter plot</span></span>
+<span id="cb102-2"><a href="introLinearReg.html#cb102-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb102-3"><a href="introLinearReg.html#cb102-3" tabindex="-1"></a></span>
+<span id="cb102-4"><a href="introLinearReg.html#cb102-4" tabindex="-1"></a><span class="fu">ggplot</span>(marketing, <span class="fu">aes</span>(<span class="at">x=</span>youtube, <span class="at">y=</span>sales)) <span class="sc">+</span> </span>
+<span id="cb102-5"><a href="introLinearReg.html#cb102-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb102-6"><a href="introLinearReg.html#cb102-6" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;YouTube vs Sales&#39;</span>)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig2-sale-scatter-1.png" width="75%" /></p>
 <p>As YouTube advertisement cost increases, sales also increase – they are
 positively correlated!</p>
 <p>Now with the linear model <code>lm</code> function, let’s create a line of best fit using
 the least sum of square method.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="introLinearReg.html#cb104-1" tabindex="-1"></a><span class="co"># Fit linear regression</span></span>
-<span id="cb104-2"><a href="introLinearReg.html#cb104-2" tabindex="-1"></a><span class="co"># By default it include an incepter, so it is equvialent to add &quot;+ 1&quot;</span></span>
-<span id="cb104-3"><a href="introLinearReg.html#cb104-3" tabindex="-1"></a><span class="co"># res.lm &lt;- lm(sales ~ youtube + 1, data = marketing)</span></span>
-<span id="cb104-4"><a href="introLinearReg.html#cb104-4" tabindex="-1"></a></span>
-<span id="cb104-5"><a href="introLinearReg.html#cb104-5" tabindex="-1"></a>res.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(sales <span class="sc">~</span> youtube, <span class="at">data =</span> marketing)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="introLinearReg.html#cb103-1" tabindex="-1"></a><span class="co"># Fit linear regression</span></span>
+<span id="cb103-2"><a href="introLinearReg.html#cb103-2" tabindex="-1"></a><span class="co"># By default it include an incepter, so it is equvialent to add &quot;+ 1&quot;</span></span>
+<span id="cb103-3"><a href="introLinearReg.html#cb103-3" tabindex="-1"></a><span class="co"># res.lm &lt;- lm(sales ~ youtube + 1, data = marketing)</span></span>
+<span id="cb103-4"><a href="introLinearReg.html#cb103-4" tabindex="-1"></a></span>
+<span id="cb103-5"><a href="introLinearReg.html#cb103-5" tabindex="-1"></a>res.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(sales <span class="sc">~</span> youtube, <span class="at">data =</span> marketing)</span></code></pre></div>
 <p>In the above code, we used <code>lm</code> to fit our simple linear regression model. This
 takes the formula <code>y ~ X</code>, where <code>X</code> is the predictor variable (YouTube
 advertising costs) and <code>y</code> is the output variable (Sales). Then, this function
 will return fitted model via a ordinary least squares (OLS) method. The <code>res.lm</code>
 is a list, you can get the it attributes by e.g., <code>res.lm$coefficients</code></p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="introLinearReg.html#cb105-1" tabindex="-1"></a>res.lm<span class="sc">$</span>coefficients</span>
-<span id="cb105-2"><a href="introLinearReg.html#cb105-2" tabindex="-1"></a><span class="co">#&gt; (Intercept)     youtube </span></span>
-<span id="cb105-3"><a href="introLinearReg.html#cb105-3" tabindex="-1"></a><span class="co">#&gt;  8.43911226  0.04753664</span></span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="introLinearReg.html#cb104-1" tabindex="-1"></a>res.lm<span class="sc">$</span>coefficients</span>
+<span id="cb104-2"><a href="introLinearReg.html#cb104-2" tabindex="-1"></a><span class="co">#&gt; (Intercept)     youtube </span></span>
+<span id="cb104-3"><a href="introLinearReg.html#cb104-3" tabindex="-1"></a><span class="co">#&gt;  8.43911226  0.04753664</span></span></code></pre></div>
 <p>In the notation that we have been using, <span class="math inline">\(\alpha\)</span> is the intercept and <span class="math inline">\(\beta\)</span>
 is the slope i.e.:</p>
 <p><span class="math inline">\(\alpha = 8.439, \quad \beta = 0.048\)</span></p>
@@ -741,32 +738,39 @@ is the slope i.e.:</p>
 <p>Let’s also check an indicator of the model efficacy, <em>R<sup>2</sup></em>. Luckily,
 <code>summary</code> function can calculate it from the <code>lm</code> output and gives us a
 ready-made method for doing this so we don’t need to code all the math ourselves:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="introLinearReg.html#cb106-1" tabindex="-1"></a>res_summary <span class="ot">=</span> <span class="fu">summary</span>(res.lm)</span>
-<span id="cb106-2"><a href="introLinearReg.html#cb106-2" tabindex="-1"></a></span>
-<span id="cb106-3"><a href="introLinearReg.html#cb106-3" tabindex="-1"></a><span class="co"># Again, res_summary is also a list</span></span>
-<span id="cb106-4"><a href="introLinearReg.html#cb106-4" tabindex="-1"></a>res_summary<span class="sc">$</span>r.squared</span>
-<span id="cb106-5"><a href="introLinearReg.html#cb106-5" tabindex="-1"></a><span class="co">#&gt; [1] 0.6118751</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="introLinearReg.html#cb105-1" tabindex="-1"></a>res_summary <span class="ot">=</span> <span class="fu">summary</span>(res.lm)</span>
+<span id="cb105-2"><a href="introLinearReg.html#cb105-2" tabindex="-1"></a></span>
+<span id="cb105-3"><a href="introLinearReg.html#cb105-3" tabindex="-1"></a><span class="do">## Again, res_summary is also a list</span></span>
+<span id="cb105-4"><a href="introLinearReg.html#cb105-4" tabindex="-1"></a>res_summary<span class="sc">$</span>r.squared</span>
+<span id="cb105-5"><a href="introLinearReg.html#cb105-5" tabindex="-1"></a><span class="co">#&gt; [1] 0.6118751</span></span>
+<span id="cb105-6"><a href="introLinearReg.html#cb105-6" tabindex="-1"></a></span>
+<span id="cb105-7"><a href="introLinearReg.html#cb105-7" tabindex="-1"></a><span class="do">## Access to the p-value</span></span>
+<span id="cb105-8"><a href="introLinearReg.html#cb105-8" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;p-values can be access from the summary function:&quot;</span>)</span>
+<span id="cb105-9"><a href="introLinearReg.html#cb105-9" tabindex="-1"></a><span class="co">#&gt; [1] &quot;p-values can be access from the summary function:&quot;</span></span>
+<span id="cb105-10"><a href="introLinearReg.html#cb105-10" tabindex="-1"></a>res_summary<span class="sc">$</span>coefficients[, <span class="st">&quot;Pr(&gt;|t|)&quot;</span>]</span>
+<span id="cb105-11"><a href="introLinearReg.html#cb105-11" tabindex="-1"></a><span class="co">#&gt; (Intercept)     youtube </span></span>
+<span id="cb105-12"><a href="introLinearReg.html#cb105-12" tabindex="-1"></a><span class="co">#&gt; 1.40630e-35 1.46739e-42</span></span></code></pre></div>
 <p>We can also take a look at the model summary by writing this snippet:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="introLinearReg.html#cb107-1" tabindex="-1"></a><span class="co"># Print out the summary</span></span>
-<span id="cb107-2"><a href="introLinearReg.html#cb107-2" tabindex="-1"></a><span class="fu">summary</span>(res.lm)</span>
-<span id="cb107-3"><a href="introLinearReg.html#cb107-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb107-4"><a href="introLinearReg.html#cb107-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb107-5"><a href="introLinearReg.html#cb107-5" tabindex="-1"></a><span class="co">#&gt; lm(formula = sales ~ youtube, data = marketing)</span></span>
-<span id="cb107-6"><a href="introLinearReg.html#cb107-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb107-7"><a href="introLinearReg.html#cb107-7" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb107-8"><a href="introLinearReg.html#cb107-8" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
-<span id="cb107-9"><a href="introLinearReg.html#cb107-9" tabindex="-1"></a><span class="co">#&gt; -10.0632  -2.3454  -0.2295   2.4805   8.6548 </span></span>
-<span id="cb107-10"><a href="introLinearReg.html#cb107-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb107-11"><a href="introLinearReg.html#cb107-11" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb107-12"><a href="introLinearReg.html#cb107-12" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb107-13"><a href="introLinearReg.html#cb107-13" tabindex="-1"></a><span class="co">#&gt; (Intercept) 8.439112   0.549412   15.36   &lt;2e-16 ***</span></span>
-<span id="cb107-14"><a href="introLinearReg.html#cb107-14" tabindex="-1"></a><span class="co">#&gt; youtube     0.047537   0.002691   17.67   &lt;2e-16 ***</span></span>
-<span id="cb107-15"><a href="introLinearReg.html#cb107-15" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb107-16"><a href="introLinearReg.html#cb107-16" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb107-17"><a href="introLinearReg.html#cb107-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb107-18"><a href="introLinearReg.html#cb107-18" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 3.91 on 198 degrees of freedom</span></span>
-<span id="cb107-19"><a href="introLinearReg.html#cb107-19" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.6119, Adjusted R-squared:  0.6099 </span></span>
-<span id="cb107-20"><a href="introLinearReg.html#cb107-20" tabindex="-1"></a><span class="co">#&gt; F-statistic: 312.1 on 1 and 198 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="introLinearReg.html#cb106-1" tabindex="-1"></a><span class="co"># Print out the summary</span></span>
+<span id="cb106-2"><a href="introLinearReg.html#cb106-2" tabindex="-1"></a><span class="fu">summary</span>(res.lm)</span>
+<span id="cb106-3"><a href="introLinearReg.html#cb106-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb106-4"><a href="introLinearReg.html#cb106-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb106-5"><a href="introLinearReg.html#cb106-5" tabindex="-1"></a><span class="co">#&gt; lm(formula = sales ~ youtube, data = marketing)</span></span>
+<span id="cb106-6"><a href="introLinearReg.html#cb106-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb106-7"><a href="introLinearReg.html#cb106-7" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb106-8"><a href="introLinearReg.html#cb106-8" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
+<span id="cb106-9"><a href="introLinearReg.html#cb106-9" tabindex="-1"></a><span class="co">#&gt; -10.0632  -2.3454  -0.2295   2.4805   8.6548 </span></span>
+<span id="cb106-10"><a href="introLinearReg.html#cb106-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb106-11"><a href="introLinearReg.html#cb106-11" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb106-12"><a href="introLinearReg.html#cb106-12" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb106-13"><a href="introLinearReg.html#cb106-13" tabindex="-1"></a><span class="co">#&gt; (Intercept) 8.439112   0.549412   15.36   &lt;2e-16 ***</span></span>
+<span id="cb106-14"><a href="introLinearReg.html#cb106-14" tabindex="-1"></a><span class="co">#&gt; youtube     0.047537   0.002691   17.67   &lt;2e-16 ***</span></span>
+<span id="cb106-15"><a href="introLinearReg.html#cb106-15" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb106-16"><a href="introLinearReg.html#cb106-16" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb106-17"><a href="introLinearReg.html#cb106-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb106-18"><a href="introLinearReg.html#cb106-18" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 3.91 on 198 degrees of freedom</span></span>
+<span id="cb106-19"><a href="introLinearReg.html#cb106-19" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.6119, Adjusted R-squared:  0.6099 </span></span>
+<span id="cb106-20"><a href="introLinearReg.html#cb106-20" tabindex="-1"></a><span class="co">#&gt; F-statistic: 312.1 on 1 and 198 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
 <p>There is a lot here. Of these results, we have discussed:</p>
 <ul>
 <li>R-squared</li>
@@ -778,24 +782,24 @@ ready-made method for doing this so we don’t need to code all the math ourselv
 </ul>
 <p>Now that we’ve fit a simple regression model, we can try to predict the values
 of sales based on the equation we just derived!</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="introLinearReg.html#cb108-1" tabindex="-1"></a>sales_pred <span class="ot">=</span> <span class="fu">predict</span>(res.lm, <span class="at">newdata =</span> marketing[<span class="fu">c</span>(<span class="st">&#39;youtube&#39;</span>)])</span>
-<span id="cb108-2"><a href="introLinearReg.html#cb108-2" tabindex="-1"></a>marketing[<span class="st">&#39;sales_pred&#39;</span>] <span class="ot">=</span> sales_pred</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="introLinearReg.html#cb107-1" tabindex="-1"></a>sales_pred <span class="ot">=</span> <span class="fu">predict</span>(res.lm, <span class="at">newdata =</span> marketing[<span class="fu">c</span>(<span class="st">&#39;youtube&#39;</span>)])</span>
+<span id="cb107-2"><a href="introLinearReg.html#cb107-2" tabindex="-1"></a>marketing[<span class="st">&#39;sales_pred&#39;</span>] <span class="ot">=</span> sales_pred</span></code></pre></div>
 <p>The <code>predict</code> fucntion predicts sales value for each row based on the model
 equation using YouTub costs. This is the equivalent of manually typing out our
 equation: <code>sales_pred = 8.439 + 0.048*(advert['youtube'])</code>.</p>
 <p>We can visualise our regression model by plotting <code>sales_pred</code> against the
 YouTube advertising costs to find the line of best fit:</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="introLinearReg.html#cb109-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb109-2"><a href="introLinearReg.html#cb109-2" tabindex="-1"></a></span>
-<span id="cb109-3"><a href="introLinearReg.html#cb109-3" tabindex="-1"></a><span class="fu">ggplot</span>(marketing, <span class="fu">aes</span>(<span class="at">x=</span>youtube)) <span class="sc">+</span> </span>
-<span id="cb109-4"><a href="introLinearReg.html#cb109-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>sales), <span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb109-5"><a href="introLinearReg.html#cb109-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>sales_pred), <span class="at">colour=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
-<span id="cb109-6"><a href="introLinearReg.html#cb109-6" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;YouTube vs Sales&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="introLinearReg.html#cb108-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb108-2"><a href="introLinearReg.html#cb108-2" tabindex="-1"></a></span>
+<span id="cb108-3"><a href="introLinearReg.html#cb108-3" tabindex="-1"></a><span class="fu">ggplot</span>(marketing, <span class="fu">aes</span>(<span class="at">x=</span>youtube)) <span class="sc">+</span> </span>
+<span id="cb108-4"><a href="introLinearReg.html#cb108-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>sales), <span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb108-5"><a href="introLinearReg.html#cb108-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>sales_pred), <span class="at">colour=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb108-6"><a href="introLinearReg.html#cb108-6" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;YouTube vs Sales&#39;</span>)</span></code></pre></div>
 <p><img src="BMDatSci_files/figure-html/fig2-sale-pred-1.png" width="75%" /></p>
 <p>In the next step, we will add more features as predictors and see whether it improves our model. Go to the the notebook called <code>02-linearReg-05.Rmd</code>.</p>
 </div>
-<div id="multiple-regression-with-lm-function" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Multiple Regression with <code>lm</code> function<a href="introLinearReg.html#multiple-regression-with-lm-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="multiple-regression" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Multiple Regression<a href="introLinearReg.html#multiple-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A multiple linear regression is simply a linear regression that involves more
 than one predictor variable. It is represented as:
 <span class="math display">\[\qquad Y_e = \alpha + \beta_1*X_1  + \beta_2*X_2 + \dots  + \beta_p*X_p\]</span></p>
@@ -809,7 +813,7 @@ than one predictor variable. It is represented as:
     \end{array}
 \]</span>
 For each sample <span class="math inline">\(i\)</span>, the predicted value by the model is:<br />
-<span class="math inline">\(\qquad Y_{i,e} = \alpha + \beta_1*X_1^{(i)}  + \beta_2*X_2^{(i)} + \dots  + \beta_p*X_p^{(i)}\)</span></p>
+<span class="math inline">\(\qquad Y_{i,e} = \alpha + \beta_1*X_1^{(i)} + \beta_2*X_2^{(i)} + \dots + \beta_p*X_p^{(i)}\)</span></p>
 <p>Define the sum of squares
 <span class="math display">\[   S(\alpha,\beta_1,\ldots,\beta_p) = \sum_{i=1}^n
 \left\{     Y_i -Y_{i,e}\right\}^2  =\sum_{i=1}^n \left\{
@@ -832,7 +836,7 @@ value of the sum squares with the estimated values of the parameters.</p>
 <p>Consider two regression models</p>
 <ol style="list-style-type: upper-roman">
 <li><p><span class="math inline">\(\quad ~ Y_e = \alpha + \beta_1*X_1\)</span></p></li>
-<li><p><span class="math inline">\(\quad  \tilde Y_e = \alpha + \beta_1*X_1  + \beta_2*X_2\)</span></p></li>
+<li><p><span class="math inline">\(\quad \tilde Y_e = \alpha + \beta_1*X_1 + \beta_2*X_2\)</span></p></li>
 </ol>
 <p>The model (II) has one more input variable <span class="math inline">\(X_2\)</span>.</p>
 <p>The <span class="math inline">\(SSE_I\)</span> of Model (I) is the minimum of</p>
@@ -887,42 +891,49 @@ the model. Otherwise, it remains a part of the model.</li>
 while implementing multiple linear regression.</p>
 <p>For now, let’s manually add a few variables and see how it changes the model
 parameters and efficacy. First, add the <code>newspaper</code> variable to the model:</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="introLinearReg.html#cb110-1" tabindex="-1"></a><span class="fu">library</span>(datarium)</span>
-<span id="cb110-2"><a href="introLinearReg.html#cb110-2" tabindex="-1"></a><span class="fu">data</span>(marketing)</span>
-<span id="cb110-3"><a href="introLinearReg.html#cb110-3" tabindex="-1"></a></span>
-<span id="cb110-4"><a href="introLinearReg.html#cb110-4" tabindex="-1"></a><span class="fu">head</span>(marketing)</span>
-<span id="cb110-5"><a href="introLinearReg.html#cb110-5" tabindex="-1"></a><span class="co">#&gt;   youtube facebook newspaper sales</span></span>
-<span id="cb110-6"><a href="introLinearReg.html#cb110-6" tabindex="-1"></a><span class="co">#&gt; 1  276.12    45.36     83.04 26.52</span></span>
-<span id="cb110-7"><a href="introLinearReg.html#cb110-7" tabindex="-1"></a><span class="co">#&gt; 2   53.40    47.16     54.12 12.48</span></span>
-<span id="cb110-8"><a href="introLinearReg.html#cb110-8" tabindex="-1"></a><span class="co">#&gt; 3   20.64    55.08     83.16 11.16</span></span>
-<span id="cb110-9"><a href="introLinearReg.html#cb110-9" tabindex="-1"></a><span class="co">#&gt; 4  181.80    49.56     70.20 22.20</span></span>
-<span id="cb110-10"><a href="introLinearReg.html#cb110-10" tabindex="-1"></a><span class="co">#&gt; 5  216.96    12.96     70.08 15.48</span></span>
-<span id="cb110-11"><a href="introLinearReg.html#cb110-11" tabindex="-1"></a><span class="co">#&gt; 6   10.44    58.68     90.00  8.64</span></span></code></pre></div>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="introLinearReg.html#cb111-1" tabindex="-1"></a>res_lm2 <span class="ot">=</span> <span class="fu">lm</span>(sales <span class="sc">~</span> youtube <span class="sc">+</span> newspaper, <span class="at">data=</span>marketing)</span>
-<span id="cb111-2"><a href="introLinearReg.html#cb111-2" tabindex="-1"></a><span class="fu">summary</span>(res_lm2)</span>
-<span id="cb111-3"><a href="introLinearReg.html#cb111-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb111-4"><a href="introLinearReg.html#cb111-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb111-5"><a href="introLinearReg.html#cb111-5" tabindex="-1"></a><span class="co">#&gt; lm(formula = sales ~ youtube + newspaper, data = marketing)</span></span>
-<span id="cb111-6"><a href="introLinearReg.html#cb111-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb111-7"><a href="introLinearReg.html#cb111-7" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb111-8"><a href="introLinearReg.html#cb111-8" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
-<span id="cb111-9"><a href="introLinearReg.html#cb111-9" tabindex="-1"></a><span class="co">#&gt; -10.3477  -2.0815  -0.1138   2.2711  10.1415 </span></span>
-<span id="cb111-10"><a href="introLinearReg.html#cb111-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb111-11"><a href="introLinearReg.html#cb111-11" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb111-12"><a href="introLinearReg.html#cb111-12" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb111-13"><a href="introLinearReg.html#cb111-13" tabindex="-1"></a><span class="co">#&gt; (Intercept) 6.929938   0.630405  10.993  &lt; 2e-16 ***</span></span>
-<span id="cb111-14"><a href="introLinearReg.html#cb111-14" tabindex="-1"></a><span class="co">#&gt; youtube     0.046901   0.002581  18.173  &lt; 2e-16 ***</span></span>
-<span id="cb111-15"><a href="introLinearReg.html#cb111-15" tabindex="-1"></a><span class="co">#&gt; newspaper   0.044219   0.010174   4.346 2.22e-05 ***</span></span>
-<span id="cb111-16"><a href="introLinearReg.html#cb111-16" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb111-17"><a href="introLinearReg.html#cb111-17" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb111-18"><a href="introLinearReg.html#cb111-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb111-19"><a href="introLinearReg.html#cb111-19" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 3.745 on 197 degrees of freedom</span></span>
-<span id="cb111-20"><a href="introLinearReg.html#cb111-20" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.6458, Adjusted R-squared:  0.6422 </span></span>
-<span id="cb111-21"><a href="introLinearReg.html#cb111-21" tabindex="-1"></a><span class="co">#&gt; F-statistic: 179.6 on 2 and 197 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="introLinearReg.html#cb112-1" tabindex="-1"></a>res_sum <span class="ot">=</span> <span class="fu">summary</span>(res_lm2)</span>
-<span id="cb112-2"><a href="introLinearReg.html#cb112-2" tabindex="-1"></a>F_stat <span class="ot">=</span> (res_sum<span class="sc">$</span>r.squared <span class="sc">/</span> (<span class="dv">3</span> <span class="sc">-</span> <span class="dv">1</span>)) <span class="sc">/</span> ((<span class="dv">1</span> <span class="sc">-</span> res_sum<span class="sc">$</span>r.squared) <span class="sc">/</span> (<span class="dv">200</span> <span class="sc">-</span> <span class="dv">3</span>))</span>
-<span id="cb112-3"><a href="introLinearReg.html#cb112-3" tabindex="-1"></a>F_stat</span>
-<span id="cb112-4"><a href="introLinearReg.html#cb112-4" tabindex="-1"></a><span class="co">#&gt; [1] 179.6193</span></span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="introLinearReg.html#cb109-1" tabindex="-1"></a><span class="fu">library</span>(datarium)</span>
+<span id="cb109-2"><a href="introLinearReg.html#cb109-2" tabindex="-1"></a><span class="fu">data</span>(marketing)</span>
+<span id="cb109-3"><a href="introLinearReg.html#cb109-3" tabindex="-1"></a></span>
+<span id="cb109-4"><a href="introLinearReg.html#cb109-4" tabindex="-1"></a><span class="fu">head</span>(marketing)</span>
+<span id="cb109-5"><a href="introLinearReg.html#cb109-5" tabindex="-1"></a><span class="co">#&gt;   youtube facebook newspaper sales</span></span>
+<span id="cb109-6"><a href="introLinearReg.html#cb109-6" tabindex="-1"></a><span class="co">#&gt; 1  276.12    45.36     83.04 26.52</span></span>
+<span id="cb109-7"><a href="introLinearReg.html#cb109-7" tabindex="-1"></a><span class="co">#&gt; 2   53.40    47.16     54.12 12.48</span></span>
+<span id="cb109-8"><a href="introLinearReg.html#cb109-8" tabindex="-1"></a><span class="co">#&gt; 3   20.64    55.08     83.16 11.16</span></span>
+<span id="cb109-9"><a href="introLinearReg.html#cb109-9" tabindex="-1"></a><span class="co">#&gt; 4  181.80    49.56     70.20 22.20</span></span>
+<span id="cb109-10"><a href="introLinearReg.html#cb109-10" tabindex="-1"></a><span class="co">#&gt; 5  216.96    12.96     70.08 15.48</span></span>
+<span id="cb109-11"><a href="introLinearReg.html#cb109-11" tabindex="-1"></a><span class="co">#&gt; 6   10.44    58.68     90.00  8.64</span></span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="introLinearReg.html#cb110-1" tabindex="-1"></a>res_lm2 <span class="ot">=</span> <span class="fu">lm</span>(sales <span class="sc">~</span> youtube <span class="sc">+</span> newspaper, <span class="at">data=</span>marketing)</span>
+<span id="cb110-2"><a href="introLinearReg.html#cb110-2" tabindex="-1"></a><span class="fu">summary</span>(res_lm2)</span>
+<span id="cb110-3"><a href="introLinearReg.html#cb110-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb110-4"><a href="introLinearReg.html#cb110-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb110-5"><a href="introLinearReg.html#cb110-5" tabindex="-1"></a><span class="co">#&gt; lm(formula = sales ~ youtube + newspaper, data = marketing)</span></span>
+<span id="cb110-6"><a href="introLinearReg.html#cb110-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb110-7"><a href="introLinearReg.html#cb110-7" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb110-8"><a href="introLinearReg.html#cb110-8" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
+<span id="cb110-9"><a href="introLinearReg.html#cb110-9" tabindex="-1"></a><span class="co">#&gt; -10.3477  -2.0815  -0.1138   2.2711  10.1415 </span></span>
+<span id="cb110-10"><a href="introLinearReg.html#cb110-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb110-11"><a href="introLinearReg.html#cb110-11" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb110-12"><a href="introLinearReg.html#cb110-12" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb110-13"><a href="introLinearReg.html#cb110-13" tabindex="-1"></a><span class="co">#&gt; (Intercept) 6.929938   0.630405  10.993  &lt; 2e-16 ***</span></span>
+<span id="cb110-14"><a href="introLinearReg.html#cb110-14" tabindex="-1"></a><span class="co">#&gt; youtube     0.046901   0.002581  18.173  &lt; 2e-16 ***</span></span>
+<span id="cb110-15"><a href="introLinearReg.html#cb110-15" tabindex="-1"></a><span class="co">#&gt; newspaper   0.044219   0.010174   4.346 2.22e-05 ***</span></span>
+<span id="cb110-16"><a href="introLinearReg.html#cb110-16" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb110-17"><a href="introLinearReg.html#cb110-17" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb110-18"><a href="introLinearReg.html#cb110-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb110-19"><a href="introLinearReg.html#cb110-19" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 3.745 on 197 degrees of freedom</span></span>
+<span id="cb110-20"><a href="introLinearReg.html#cb110-20" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.6458, Adjusted R-squared:  0.6422 </span></span>
+<span id="cb110-21"><a href="introLinearReg.html#cb110-21" tabindex="-1"></a><span class="co">#&gt; F-statistic: 179.6 on 2 and 197 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="introLinearReg.html#cb111-1" tabindex="-1"></a>res_sum <span class="ot">=</span> <span class="fu">summary</span>(res_lm2)</span>
+<span id="cb111-2"><a href="introLinearReg.html#cb111-2" tabindex="-1"></a></span>
+<span id="cb111-3"><a href="introLinearReg.html#cb111-3" tabindex="-1"></a><span class="do">## F statistic</span></span>
+<span id="cb111-4"><a href="introLinearReg.html#cb111-4" tabindex="-1"></a>F_stat <span class="ot">=</span> (res_sum<span class="sc">$</span>r.squared <span class="sc">/</span> (<span class="dv">3</span> <span class="sc">-</span> <span class="dv">1</span>)) <span class="sc">/</span> ((<span class="dv">1</span> <span class="sc">-</span> res_sum<span class="sc">$</span>r.squared) <span class="sc">/</span> (<span class="dv">200</span> <span class="sc">-</span> <span class="dv">3</span>))</span>
+<span id="cb111-5"><a href="introLinearReg.html#cb111-5" tabindex="-1"></a>F_stat</span>
+<span id="cb111-6"><a href="introLinearReg.html#cb111-6" tabindex="-1"></a><span class="co">#&gt; [1] 179.6193</span></span>
+<span id="cb111-7"><a href="introLinearReg.html#cb111-7" tabindex="-1"></a></span>
+<span id="cb111-8"><a href="introLinearReg.html#cb111-8" tabindex="-1"></a><span class="do">## Access to the p-value</span></span>
+<span id="cb111-9"><a href="introLinearReg.html#cb111-9" tabindex="-1"></a>res_sum<span class="sc">$</span>coefficients[, <span class="st">&quot;Pr(&gt;|t|)&quot;</span>]</span>
+<span id="cb111-10"><a href="introLinearReg.html#cb111-10" tabindex="-1"></a><span class="co">#&gt;  (Intercept)      youtube    newspaper </span></span>
+<span id="cb111-11"><a href="introLinearReg.html#cb111-11" tabindex="-1"></a><span class="co">#&gt; 3.145860e-22 5.507584e-44 2.217084e-05</span></span></code></pre></div>
 <p>As you see, the p-values for the coefficients are very small, suggesting that
 all the estimates are significant. The equation for this model will be:</p>
 <p><span class="math display">\[ \text{Sales} = 6.93+0.046* \text{YouTube} + 0.044 * \text{Newspaper}\]</span></p>
@@ -934,31 +945,31 @@ slightly, but the F-statistic decreases (from 312.1 to 179.6), as does the
 associated p-value. This suggests that adding <code>newspaper</code> didn’t improve the
 model significantly.</p>
 <p>Let’s try adding <code>facebook</code> instead:</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="introLinearReg.html#cb113-1" tabindex="-1"></a><span class="co"># Initialise and fit new model with TV and Radio as predictors</span></span>
-<span id="cb113-2"><a href="introLinearReg.html#cb113-2" tabindex="-1"></a><span class="co"># model3 = smf.ols(&#39;Sales ~ TV + Radio&#39;, data=advert).fit()</span></span>
-<span id="cb113-3"><a href="introLinearReg.html#cb113-3" tabindex="-1"></a><span class="co"># print(model3.summary())</span></span>
-<span id="cb113-4"><a href="introLinearReg.html#cb113-4" tabindex="-1"></a></span>
-<span id="cb113-5"><a href="introLinearReg.html#cb113-5" tabindex="-1"></a>res_lm3 <span class="ot">=</span> <span class="fu">lm</span>(sales <span class="sc">~</span> youtube <span class="sc">+</span> facebook, <span class="at">data=</span>marketing)</span>
-<span id="cb113-6"><a href="introLinearReg.html#cb113-6" tabindex="-1"></a><span class="fu">summary</span>(res_lm3)</span>
-<span id="cb113-7"><a href="introLinearReg.html#cb113-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb113-8"><a href="introLinearReg.html#cb113-8" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb113-9"><a href="introLinearReg.html#cb113-9" tabindex="-1"></a><span class="co">#&gt; lm(formula = sales ~ youtube + facebook, data = marketing)</span></span>
-<span id="cb113-10"><a href="introLinearReg.html#cb113-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb113-11"><a href="introLinearReg.html#cb113-11" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb113-12"><a href="introLinearReg.html#cb113-12" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
-<span id="cb113-13"><a href="introLinearReg.html#cb113-13" tabindex="-1"></a><span class="co">#&gt; -10.5572  -1.0502   0.2906   1.4049   3.3994 </span></span>
-<span id="cb113-14"><a href="introLinearReg.html#cb113-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb113-15"><a href="introLinearReg.html#cb113-15" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb113-16"><a href="introLinearReg.html#cb113-16" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb113-17"><a href="introLinearReg.html#cb113-17" tabindex="-1"></a><span class="co">#&gt; (Intercept)  3.50532    0.35339   9.919   &lt;2e-16 ***</span></span>
-<span id="cb113-18"><a href="introLinearReg.html#cb113-18" tabindex="-1"></a><span class="co">#&gt; youtube      0.04575    0.00139  32.909   &lt;2e-16 ***</span></span>
-<span id="cb113-19"><a href="introLinearReg.html#cb113-19" tabindex="-1"></a><span class="co">#&gt; facebook     0.18799    0.00804  23.382   &lt;2e-16 ***</span></span>
-<span id="cb113-20"><a href="introLinearReg.html#cb113-20" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb113-21"><a href="introLinearReg.html#cb113-21" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb113-22"><a href="introLinearReg.html#cb113-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb113-23"><a href="introLinearReg.html#cb113-23" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 2.018 on 197 degrees of freedom</span></span>
-<span id="cb113-24"><a href="introLinearReg.html#cb113-24" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.8972, Adjusted R-squared:  0.8962 </span></span>
-<span id="cb113-25"><a href="introLinearReg.html#cb113-25" tabindex="-1"></a><span class="co">#&gt; F-statistic: 859.6 on 2 and 197 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="introLinearReg.html#cb112-1" tabindex="-1"></a><span class="co"># Initialise and fit new model with TV and Radio as predictors</span></span>
+<span id="cb112-2"><a href="introLinearReg.html#cb112-2" tabindex="-1"></a><span class="co"># model3 = smf.ols(&#39;Sales ~ TV + Radio&#39;, data=advert).fit()</span></span>
+<span id="cb112-3"><a href="introLinearReg.html#cb112-3" tabindex="-1"></a><span class="co"># print(model3.summary())</span></span>
+<span id="cb112-4"><a href="introLinearReg.html#cb112-4" tabindex="-1"></a></span>
+<span id="cb112-5"><a href="introLinearReg.html#cb112-5" tabindex="-1"></a>res_lm3 <span class="ot">=</span> <span class="fu">lm</span>(sales <span class="sc">~</span> youtube <span class="sc">+</span> facebook, <span class="at">data=</span>marketing)</span>
+<span id="cb112-6"><a href="introLinearReg.html#cb112-6" tabindex="-1"></a><span class="fu">summary</span>(res_lm3)</span>
+<span id="cb112-7"><a href="introLinearReg.html#cb112-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb112-8"><a href="introLinearReg.html#cb112-8" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb112-9"><a href="introLinearReg.html#cb112-9" tabindex="-1"></a><span class="co">#&gt; lm(formula = sales ~ youtube + facebook, data = marketing)</span></span>
+<span id="cb112-10"><a href="introLinearReg.html#cb112-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb112-11"><a href="introLinearReg.html#cb112-11" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb112-12"><a href="introLinearReg.html#cb112-12" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
+<span id="cb112-13"><a href="introLinearReg.html#cb112-13" tabindex="-1"></a><span class="co">#&gt; -10.5572  -1.0502   0.2906   1.4049   3.3994 </span></span>
+<span id="cb112-14"><a href="introLinearReg.html#cb112-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb112-15"><a href="introLinearReg.html#cb112-15" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb112-16"><a href="introLinearReg.html#cb112-16" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb112-17"><a href="introLinearReg.html#cb112-17" tabindex="-1"></a><span class="co">#&gt; (Intercept)  3.50532    0.35339   9.919   &lt;2e-16 ***</span></span>
+<span id="cb112-18"><a href="introLinearReg.html#cb112-18" tabindex="-1"></a><span class="co">#&gt; youtube      0.04575    0.00139  32.909   &lt;2e-16 ***</span></span>
+<span id="cb112-19"><a href="introLinearReg.html#cb112-19" tabindex="-1"></a><span class="co">#&gt; facebook     0.18799    0.00804  23.382   &lt;2e-16 ***</span></span>
+<span id="cb112-20"><a href="introLinearReg.html#cb112-20" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb112-21"><a href="introLinearReg.html#cb112-21" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb112-22"><a href="introLinearReg.html#cb112-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb112-23"><a href="introLinearReg.html#cb112-23" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 2.018 on 197 degrees of freedom</span></span>
+<span id="cb112-24"><a href="introLinearReg.html#cb112-24" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.8972, Adjusted R-squared:  0.8962 </span></span>
+<span id="cb112-25"><a href="introLinearReg.html#cb112-25" tabindex="-1"></a><span class="co">#&gt; F-statistic: 859.6 on 2 and 197 DF,  p-value: &lt; 2.2e-16</span></span></code></pre></div>
 <p>This gives us the model:</p>
 <p><span class="math display">\[ \text{Sales} = 3.51+0.046* \text{YouTube} + 0.188 * \text{Facebook}\]</span></p>
 <p>The adjusted <em>R<sup>2</sup></em> value has improved considerably, as did the
@@ -968,11 +979,11 @@ RSE and F-statistic, indicating an efficient model.</p>
 well. But, can we improve it a bit further by combining all three predictor
 variables?</p>
 <p><strong>Try it out:</strong> see if you can figure out how to do this on your own!</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="introLinearReg.html#cb114-1" tabindex="-1"></a><span class="co"># Initialise and fit new model with TV, Newspaper, and Radio as predictors</span></span>
-<span id="cb114-2"><a href="introLinearReg.html#cb114-2" tabindex="-1"></a></span>
-<span id="cb114-3"><a href="introLinearReg.html#cb114-3" tabindex="-1"></a></span>
-<span id="cb114-4"><a href="introLinearReg.html#cb114-4" tabindex="-1"></a><span class="co"># Print summary of regression results</span></span>
-<span id="cb114-5"><a href="introLinearReg.html#cb114-5" tabindex="-1"></a><span class="co"># Calculate RSE - don&#39;t forget that the number of predictors p is now 3</span></span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="introLinearReg.html#cb113-1" tabindex="-1"></a><span class="co"># Initialise and fit new model with TV, Newspaper, and Radio as predictors</span></span>
+<span id="cb113-2"><a href="introLinearReg.html#cb113-2" tabindex="-1"></a></span>
+<span id="cb113-3"><a href="introLinearReg.html#cb113-3" tabindex="-1"></a></span>
+<span id="cb113-4"><a href="introLinearReg.html#cb113-4" tabindex="-1"></a><span class="co"># Print summary of regression results</span></span>
+<span id="cb113-5"><a href="introLinearReg.html#cb113-5" tabindex="-1"></a><span class="co"># Calculate RSE - don&#39;t forget that the number of predictors p is now 3</span></span></code></pre></div>
 <p>You should get the equation:</p>
 <p><span class="math display">\[ \text{Sales} = 3.53+0.046*\text{YouTube} -0.001*\text{Newspaper} +0.188*\text{Facebook}\]</span></p>
 <p>You should also find that:</p>
@@ -985,9 +996,11 @@ variables?</p>
 <p>Why?</p>
 <p>This step shows clearly that adding one more input variable <code>Newspaper</code> in
 Model 3 does not lead to any improvement.</p>
+<p><strong>Acknowledgements</strong>: this chapter is adapted and updated from the materials originally produced by STAT1005 teaching team, especially Prof. Jeff Yao.</p>
 </div>
-<div id="exercise-with-the-real-estate-data" class="section level2 hasAnchor" number="3.6">
-<h2><span class="header-section-number">3.6</span> Exercise with the real estate data<a href="introLinearReg.html#exercise-with-the-real-estate-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercise" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Exercise<a href="introLinearReg.html#exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Using the real estate data for the following questions.</p>
 <p>Q0. Load the data via this R script</p>
 <pre><code>df_estate = read.csv(&quot;https://github.com/StatBiomed/BMDS-book/raw/refs/heads/main/notebooks/chapter2-LR/real_estate.csv&quot;)</code></pre>
 <p>Q1. Use <code>lm</code> function to perform simple linear regression by using X2 (house age) to predict Y (the price). Print the <span class="math inline">\(R^2\)</span> and the p-value.</p>
@@ -1016,43 +1029,43 @@ Model 3 does not lead to any improvement.</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": "https://github.com/statbiomed/BMDS-book/tree/main/01-introduction.Rmd",
-    "text": "Edit"
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": ["BMDatSci.pdf", "BMDatSci.epub"],
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section",
-    "scroll_highlight": true
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/statbiomed/BMDS-book/tree/main/01-introduction.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BMDatSci.pdf", "BMDatSci.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
 });
 });
 </script>

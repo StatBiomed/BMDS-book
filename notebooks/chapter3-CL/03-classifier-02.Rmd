@@ -1,10 +1,11 @@
 
 
-## Logistic regression on Diabetes
+## Application on Diabetes
 
 ### Load Pima Indians Diabetes Database
 
-This [dataset](https://www.rdocumentation.org/packages/mlbench/versions/2.1-3/topics/PimaIndiansDiabetes) 
+This 
+[dataset](https://www.rdocumentation.org/packages/mlbench/topics/PimaIndiansDiabetes) 
 is originally from the National Institute of Diabetes and Digestive 
 and Kidney Diseases. The objective of the dataset is to diagnostically predict 
 whether or not a patient has diabetes, based on certain diagnostic measurements 
@@ -12,12 +13,10 @@ included in the dataset. Several constraints were placed on the selection of
 these instances from a larger database. In particular, all patients here are 
 females at least 21 years old of Pima Indian heritage. 
 
-The datasets consist of several medical predictor (independent) variables and 
-one target (dependent) variable, Outcome. Independent variables include the 
+The datasets consist of several medical predictors (independent variables) and 
+one target outcome (dependent variable). Independent variables include the 
 number of pregnancies the patient has had, their BMI, insulin level, age, and 
 so on.
-
-**Acknowledgement**:  This notebook is adapted and updated from STAT1005.
 
 ```{r}
 # Install the mlbench library for loading the datasets
@@ -42,16 +41,16 @@ ggplot(data=PimaIndiansDiabetes, aes(x=glucose, y=age)) +
   geom_point(aes(color=diabetes))
 ```
 
-Before we start fit models, let's split the data into training and test sets in 
-a 4:1 ratio. Let define it manually, though there are functions to do it 
+Before we start fitting models, let's split the data into training and test sets in 
+a 3:1 ratio. Let's define it manually, though there are functions to do it 
 automatically.
 
 ```{r}
+## split data into training and test sets
 set.seed(0)
 
-idx_train = sample(nrow(PimaIndiansDiabetes), 
-                   size=0.75*nrow(PimaIndiansDiabetes),
-                   replace = FALSE)
+n_samples = nrow(PimaIndiansDiabetes)
+idx_train = sample(n_samples, size = 0.75 * n_samples, replace = FALSE)
 df_train = PimaIndiansDiabetes[idx_train, ]
 df_test  = PimaIndiansDiabetes[-idx_train, ] # recall the meaning of negative symbol
 ```
@@ -59,55 +58,62 @@ df_test  = PimaIndiansDiabetes[-idx_train, ] # recall the meaning of negative sy
 
 
 ### Fit logistic regression
-In logistic regression, the predicted probability to be class 1 is:
+In logistic regression, the predicted probability of being class 1 is:
 
 $$P(y=1|X, W) = \sigma(w_0, x_1 * w_1 + ... + x_p * w_p)$$
 
 where the $\sigma()$ denotes the logistic function.
 
-In R, the built-in package `stats` already have functions to fit 
+In R, the built-in package `stats` already has functions to fit 
 [generalised linear model (GLM)](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/glm), 
 including logistic regression, a type of GML.
 
-Here, let's start with the whole dataset to fit a logistic regression.
+Here, let's start with the entire dataset to fit a logistic regression model.
 
-**Note**, we will specify the model family as `binomial`, as the likelihood we
+**Note**, we will specify the model family as `binomial`, as the likelihood we 
 are using in logistic regression is a Bernoulli likelihood, a special case of
 binomial likelihood when the total trial `n=1`.
 
+
 ```{r}
-# Define formula in different ways
+## Define formula in different ways
 # my_formula = as.formula(diabetes ~ glucose + age)
 # my_formula = as.formula(paste(colnames(PimaIndiansDiabetes)[1:8], collapse= " + "))
 # my_formula = as.formula(diabetes ~ .)
 
-# Fit logistic regression
+## Fit logistic regression
 glm_res <- glm(diabetes ~ ., data=df_train, family = binomial)
 
-# We can use the logLik() function to obtain the log likelihood
+## We can use the logLik() function to obtain the log likelihood
 logLik(glm_res)
 ```
 
-We can use `summary()` function to see more details about the model fitting.
+We can use `summary()` function to see more details about the model fitting, including accessing the p-values.
 ```{r}
 summary(glm_res)
+
+## Access to the p-value
+summary_glm <- summary(glm_res)
+print("p-values can be access from the summary function:")
+summary_glm$coefficients[, "Pr(>|z|)"]
 ```
+
 ### Assess on test data
 Now, we can evaluate the accuracy of the model on the 25% test data.
 
 ```{r}
-# Train the full model on the training data
+## Train the full model on the training data
 glm_train <- glm(diabetes ~ ., data=df_train, family = binomial)
 
-# Predict the probability of being diabeties on test data
+## Predict the probability of being diabeties on test data
 # We can also set a threshold, e.g., 0.5 for the predicted label
 pred_prob = predict(glm_train, df_test, type = "response")
 pred_label = pred_prob >= 0.5
 
-# Observed label
+## Observed label
 obse_label = df_test$diabetes == 'pos'
 
-# Calculate the accuracy on test data
+## Calculate the accuracy on test data
 # think how accuracy is defined
 # we can use (TN + TP) / (TN + TP + FN + FP)
 # we can also directly compare the proportion of correctness
@@ -119,9 +125,25 @@ print(paste("Accuracy on test set:", accuracy))
 
 ### Model selection and diagnosis
 
+Similar to the multiple linear regression, selecting the predictive 
+features are essential to ensure the prediction performance in test sets. In 
+theory, there could 2^{p} combinations of feature usage for $p$-dimensional 
+features, making it a challenging task for selecting the best model, especially
+when $p$ is large.
+
+Here, we use a strategy of "recursive feature elimination". Namely, we will
+include all features first and remove features with relatively large p-value 
+(that we fail to reject the null distribution that the feature has a coefficient 
+of zero).
+
+Besides using p-value, we will also use the test set that we split from the 
+entire dataset, which a general strategy in assessing performance in 
+machine learning.
+
 #### Model2: New feature set by removing `triceps`
 ```{r}
-# Train the full model on the training data
+## Train the full model on the training data
+
 glm_mod2 <- glm(diabetes ~ pregnant + glucose + pressure + 
                    insulin + mass + pedigree + age, 
                 data=df_train, family = binomial)
@@ -132,7 +154,7 @@ summary(glm_mod2)
 
 
 ```{r}
-# Predict the probability of being diabeties on test data
+## Predict the probability of being diabeties on test data
 # We can also set a threshold, e.g., 0.5 for the predicted label
 pred_prob2 = predict(glm_mod2, df_test, type = "response")
 pred_label2 = pred_prob2 >= 0.5

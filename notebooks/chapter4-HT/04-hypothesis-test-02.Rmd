@@ -418,11 +418,19 @@ ggplot(marketing, aes(x=newspaper, y=sales)) +
 We can further use the `lm` function to fit the regression model, which will estimate the coefficients for each covariate as well as the intercept. In addition to the estimates, the function provides the standard errors of each coefficient, allowing us to derive the null distribution of each coefficient in the form of a t-distribution. By transforming the observed statistic—dividing the estimated coefficient by its standard error (similar to the two-group t-test described earlier)—we obtain the t-statistic and its corresponding p-value. All of these results are accessible through the output of the `lm` function, which returns a list containing each value.
 
 ```{r}
-# Fit linear regression
+library(datarium)
+data(marketing)
+
+## Fit linear regression
 res.lm <- lm(sales ~ newspaper, data = marketing)
 
-# We can check the test via the summary() function
+## We can check the test via the summary() function
 summary(res.lm)
+
+## Access to the p-value
+summary.lm <- summary(res.lm)
+print("p-values can be access from the summary function:")
+summary.lm$coefficients[, "Pr(>|t|)"]
 ```
 
 
@@ -482,11 +490,11 @@ Similarly, a more common scenario involves comparing success rates (or hit rates
 
 **Table 2.** Contingency table for handedness between male and female.
 
-|           | Right-handed | Left-handed | **Total**  |
-|-----------|--------------|-------------|------------|
-| Male      | a = 43       | b = 9       | a + b = 52 |
-| Female    | c = 44       | d = 4       | c + d = 48 |
-| **Total** | a +c = 87    | b + d = 13  | n = 100    |
+|           | Right-handed | Left-handed | **Total**     |
+|-----------|--------------|-------------|---------------|
+| Male      | a = 43       | b = 9       | a + b = 52    |
+| Female    | c = 44       | d = 4       | c + d = 48    |
+| **Total** | a +c = 87    | b + d = 13  | a+b+c+d = 100 |
 <br />
 
 Before diving into hypothesis testing, let's briefly review the hypergeometric distribution. In this context, we can arbitrarily choose any of the variables a, b, c, or d as the test statistic; without loss of generality, we choose $a$. To avoid confusion between variables and observed values, we'll use $x$ to denote the test statistic—in this case, the number of right-handed individuals among males (corresponding to $a$).

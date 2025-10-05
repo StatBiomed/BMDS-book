@@ -1,19 +1,29 @@
 
 
-## Linear Regression Using Simulated Data
+## Linear Regression Basics
 
-Let’s first simulate some data and look at how the 
-predicted values (*Y<sub>e</sub>*) differ from the actual value (*Y*).
+To understand how linear regression works and how effective the least squares 
+method is, we will start with simulated data, so that we can compare the 
+estimation to the ground truth for data generation.
 
-### Simulating data:
+Here, we use terminology by using capital letters to denote random variables, 
+e.g., $Y$ and $X$, and use lower letters to denote the value of individual 
+samples, e.g., $y$ and $x$ or $y_i$ and $x_i$ for a specific sample $i$. 
+
+<!-- Also, we will use $y$ as the actual observed output target, $\hat{y}$ as 
+the predicted (or estimated) value, and $\bar{y}$ of the average value of all 
+observed samples.
+-->
+
+### Simulating data
 - For *X*, we generate 100 normally distributed random numbers with mean 1.5 
   and standard deviation 2.5. 
 
-- For predicted value *Y<sub>e</sub>*, we assume an intercept (α) of 2 and a 
-  slope (β) of 0.3 and we write $Y_e = 2 + 0.3 x$
+- For predicted value $Y_e$, we assume an intercept ($\alpha$) of 2 and a 
+  slope ($\beta$) of 0.3 and we write $Y_e = 2 + 0.3 x$
 
-  Later, we will estimate the values of α and β using the least squares method 
-  and see how that changes the efficacy of the model. 
+  Later, we will estimate the values of $\alpha$ and $\beta$ using the least 
+  squares method and see how that changes the efficacy of the model. 
 
 - Though we estimate $Y_e = \alpha + \beta X$, in reality Y is rarely perfectly 
   linear. It usually has an error component or 
@@ -28,30 +38,27 @@ these three columns in a data frame. Read through the code carefully and run
 the cell to output a sample of our simulated data.
 
 ```{r}
-# Fix seed: each run gives the same random numbers so the same outputs. 
+## Fix seed: each run gives the same random numbers so the same outputs. 
 # Commenting out this line would read similar but different outputs at each run. 
 # Try it out!
 set.seed(0)
 
-# Generate data
+## Generate data
 X = 2.5 * rnorm(100) + 1.5   # Array of 100 values with mean = 1.5, stddev = 2.5
 ypred = 2 + 0.3 * X          # Prediction of Y, assuming a = 2, b = 0.3
 
 res = 0.5 * rnorm(100)       # Generate 100 residual terms
 yact = 2 + 0.3 * X + res     # Actual values of Y
 
-# Create dataframe to store our X, ypred, and yact values
+## Create dataframe to store our X, ypred, and yact values
 df = data.frame('X' = X, 'ypred' = ypred, 'yact' = yact)
-```
 
-```{r}
-# Show the first six rows of our dataframe
+## Show the first six rows of our dataframe
 head(df)
 ```
 
 
-
-Now let’s plot both the actual output (`yact`) and predicted output (`ypred`) 
+Now let’s plot both the actual output (`y`) and predicted output (`ypred`) 
 against the input variable (`X`) to see what the difference between `yact` and 
 `ypred` is, and therefore, to see how accurately the proposed equation 
 (`ypred = 2 + 0.3 * X`) has been able to predict the value of the output:
@@ -72,6 +79,111 @@ ggplot(df, aes(X)) +                              # basic graphical object
 ```
 
 
+### Least squares method
+
+Now, using our simulated data from the previous step, let’s estimate the 
+optimum values of our variable coefficients, $\alpha$ and $\beta$. Using the 
+predictor variable, `X`, and the output variable, `yact`, we will calculate the 
+values of $\alpha$ and $\beta$ using the Least Squares method described in the 
+lecture.
+
+$$\hat{\alpha}, \hat{\beta} = \text{argmin}_{\alpha, \beta} \sum_{i=1}^n(y_i - (\alpha + \beta * x_i))^2$$
+
+The cell below creates the same dataframe as previously. Run the cell to get 
+started!
+
+```{r}
+set.seed(0)
+
+# Generate data
+X = 2.5 * rnorm(100) + 1.5   # Array of 100 values with mean = 1.5, stddev = 2.5
+ypred = 2 + 0.3 * X          # Prediction of Y, assuming a = 2, b = 0.3
+
+res = 0.5 * rnorm(100)       # Generate 100 residual terms
+yact = 2 + 0.3 * X + res     # Actual values of Y
+
+# Create dataframe to store our X, ypred, and yact values
+df = data.frame('X' = X, 'ypred' = ypred, 'yact' = yact)
+```
+
+Just to reiterate, here are the formulas for $\alpha$ and $\beta$ again:
+
+ $$\hat\beta=\frac{\sum_{i=1}^n(X_i-\bar X)(Y_i-\bar Y)}{\sum_{i=1}^n(X_i-\bar X)^2}=\frac{\text{cov}(X,Y)}{\text{var}(X)}$$
+ 
+ $$\hat\alpha=\bar Y-\hat\beta * \bar X$$
+
+To calculate these coefficients, we will create a few more columns in our `df` 
+data frame. We need to calculate `xmean` and `ymean` to calculate the covariance
+of X and Y (`xycov`) and the variance of X (`xvar`) before we can work out the 
+values for `alpha` and `beta`.
+
+```{r}
+# Calculate the mean of X and Y
+xmean = mean(X)
+ymean = mean(yact)
+
+# Calculate the terms needed for the numator and denominator of beta
+df['xycov'] = (df['X'] - xmean) * (df['yact'] - ymean)
+df['xvar'] = (df['X'] - xmean)**2
+
+# Calculate beta and alpha
+beta = sum(df['xycov']) / sum(df['xvar'])
+alpha = ymean - (beta * xmean)
+print(paste('alpha =', alpha, ';', 'beta =', beta))
+```
+
+As we can see, the values are only a little different from what we had assumed 
+earlier. 
+
+Let’s see how the value of $R^2$  changes if we use the new values of $\alpha$ 
+and $\beta$. 
+
+The equation for the new model can be written as:
+$$ y=1.934 + 0.328 * x $$ 
+
+Let’s create a new column in `df` to accommodate the values generated by this 
+equation and call this `ypred2`, and calculate the new $R^2$. 
+
+```{r}
+# Create new column to store new predictions
+df['ypred2'] = alpha + beta * df['X']
+
+# Calculate new SSR with new predictions of Y.
+# Note that SST remains the same since yact and ymean do not change.
+df['SSR2'] = (df['ypred2'] - ymean)**2
+df['SST'] = (df['yact'] - ymean)**2
+SSR2 = sum(df['SSR2'])
+SST = sum(df['SST'])
+
+# Calculate new R2
+R2_2 = SSR2 / SST
+print(paste('New R2 =', R2_2))
+```
+
+The new value of $R^2= 0.695$ shows a slight improvement from the previous 
+value of $R^2=0.583$ (obtained with $\alpha=2,~\beta=0.3$).
+
+Let’s also plot our new prediction model against the actual values and our 
+earlier assumed model, just to get a better visual understanding. 
+
+```{r fig2-simu-OLS, out.width = '75%'}
+library(ggplot2)
+
+# Put color into aes
+ggplot(df, aes(X)) +                              # basic graphical object
+  geom_point(aes(y=yact), colour="black") +       # first layer
+  geom_line(aes(y=ypred, colour="Guess")) +       # second layer
+  geom_line(aes(y=ypred2, colour="OLS")) +        # third layer
+  scale_colour_manual(name="Models", values = c("Guess"="darkgreen", "OLS"="red")) +
+  ggtitle('Actual vs Predicted with guessed parameters vs Predicted with calculated parameters')
+```
+
+As we can see, the `ypred2` and `ypred` are more or less overlapping since the 
+respective values of ɑ and β are not very different.
+
+Next, we will explore other methods of determining model efficacy by using the 
+notebook called `02-linearReg-03.Rmd`.
+
 
 ### Model efficacy
 
@@ -86,6 +198,8 @@ Mathematically, we have
 $$ \sum_{i=1}^n\Bigl(\text{yact}_i - \text{yavg}\Bigr)^2
 = \sum_{i=1}^n\Bigl(\text{ypred}_i -\text{yavg} \Bigr)^2
 + \sum_{i=1}^n\Bigl(\text{yact}_i - \text{ypred}_i\Bigr)^2$$
+
+**Note,** this relationship only holds if using least squares method.
 
 The identity reads as 
 

@@ -35,12 +35,7 @@ knitr::opts_chunk$set(
 
 # Introduction to Linear Regression {#introLinearReg}
 
-Acknowledgements: this chapter is adapted and updated from the materials originally produced by STAT1005 teaching team, especially Prof. Jeff Yao.
-
 ```{r child="notebooks/chapter2-LR/02-linearReg-01.Rmd", echo=TRUE}
-```
-
-```{r child="notebooks/chapter2-LR/02-linearReg-02.Rmd", echo=TRUE}
 ```
 
 ```{r child="notebooks/chapter2-LR/02-linearReg-03.Rmd", echo=TRUE}

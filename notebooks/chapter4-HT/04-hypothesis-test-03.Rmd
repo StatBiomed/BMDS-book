@@ -1,8 +1,68 @@
 
-## Multiple testing and errors (To be updated)
+## Evaluation of hypothesis testing
 
-Hypothetical null distribution. 
-Feel feel to try any null distribution, examples below
+### Types of errors { #testing-errors }
+
+As a hypothesis test is about decision-making, there will be errors. Let's start with some examples, similar to Example 3.
+
+Testing if a gene expression changes between with and without treatment:
+
+* 30 COVID-19 patients, half with drug A and half without drug
+* There are 10,000 genes to test, namely 10,000 hypotheses to perform
+
+What errors in each of these 10,000 decisions?
+
+* **False positive (type I error)**: Genes are genuine, not different, but we thought they were (reject the null hypothesis)
+* **False negative (type II error)**: Genes are genuinely different, but we missed it (we didn’t reject the null hypothesis)
+
+A Type I error is generally more concerning, as we worry more about being fooled by random chance.
+
+
+#### Definition of common metrics
+
+Assuming we have the ground truth label of the testing events, we can categorize the events into the following four groups:
+
+* True Positive (TP),  hits
+* False Positive (FP), type I error, false alarm,  overestimation
+* False Negative (FN), type II error, miss, underestimation
+* True Negative (TN), Correct rejection
+
+**Table 3.** Definition of TP, FN, FP, and TN.
+
+|                     | Predicted Positive (PP) | Predicted Negative (PN) |
+|---------------------|-------------------------|-------------------------|
+| Actual Positive (P) | True Positive (TP)      | False Negative (FN)     |
+| Actual Negative (N) | False Positive (FP)     | True Negative (TN)      |
+
+
+
+Based on the false positive and false negative events, multiple assessment metrics are commonly used, with a specific definition as follows.
+
+* **True positive rate** (a.k.a., Power, Sensitivity, Hit rate, and Recall): TPR= TP / (TP + FN)
+* **True negative rate** (a.k.a., Specificity): TNR = TN / (TN + FP)
+* **Precision** (a.k.a., Positive Predictive Value, and 1- false discovery rate): Precision = 1 - FDR = TP / (FP + FP)
+
+
+### Multiple testing and correction { #multiple-test } 
+
+Let's think of an example related to Example 3, but this time we test if a gene expression changes between with and without treatment
+
+* 30 COVID-19 patients, half with drug A and half without drug A
+* There are 10,000 genes to test, namely 10,000 hypotheses to perform
+
+
+**Q1**: What would be the lowest p-value if treatment does not make any difference
+to any of these genes? 1, 0.5, 0.1, or 0.0001
+
+**Q2**: What is the distribution of the p-value if the null model is true?
+
+a) p-value follows the same distribution as the test statistic
+b) p-value is always 1.
+c) p-value follows a uniform distribution between 0 and 1.
+
+To answer these two questions, we need to understand how the p-value is distributed (by performing many times) if the null distribution is correct.
+
+Let's use a hypothetical null distribution for the test statistic. For example, we use the $\chi^2$ (chi-squared) distribution as the null distribution here. Feel free to try any null distribution by modifying the example codes below.
 
 ```{r}
 ## Example null distributions
@@ -15,47 +75,90 @@ pvals_null = 1 - pchisq(x_random, df=3)
 ```
 
 
-### Null distribution (of test statistic)
+#### Null distribution of test statistic
 
+We can visualize the null distribution of the test statistic by using a histogram.
 
 ```{r fig4-stat-null, out.width = '60%'}
 # Null distribution of test statistic
-hist(x_random)
+hist(x_random, breaks = 30)
 ```
 
-### Null distribution of p value
+#### Null distribution of p-value
+
+We can also visualize the distribution of the p-value if the null hypothesis is correct. As you can see, it follows a uniform distribution closely.
+
 
 ```{r fig4-pval-null, out.width = '60%'}
 # Null distribution of test statistic
-hist(pvals_null)
+hist(pvals_null, breaks = 30)
 ```
 
-### Minimal p values in 10 tests
+To understand this, let's use the left-tailed test as an example. We can obtain the cumulative probability function of a certain p-value $p_\text{obs}$, as follows.
 
-```{r}
+$$P = P(p \leq p_\text{obs})= P(x < x_\text{obs}) = p_\text{obs}$$
+The definition $P = P(p \leq p_\text{obs}) = p_\text{obs}$ is exactly the same as 
+[uniform distribution](https://en.wikipedia.org/wiki/Continuous_uniform_distribution): 
+$P = P(X \leq k) = k$.
+
+
+#### Minimal p values in 10 tests
+
+If we examine p-value for individual test, it follows a uniform distribution. This also means that if we choose a statistical significance level $\alpha$ (for example 0.05), our upper-bound false positive rate is expected to be $\alpha$, for one test. However, if we look at the top hit in multiple tests (the one with lowest p-value), our false positive of the top hit is much higher that the significance level $\alpha$.
+
+For example, with the null hypothesis correct, in 10 tests, the chance to see no tests with p-value <0.05 is equivalent to see all tests with p-value>0.95, namely the joint distribution as $(1 - 0.05)^{10}=0.6$. In other word, the chance to see at least one test with p<0.05, namely the false positive rate (for the top-1 hit), is
+
+$$\text{FPR}_\text{top1} = 1 - (1 - 0.05)^{10} = 0.4$$
+See a scientific comment:
+
+> 
+Altman, N., Krzywinski, M. P values and the search for significance. Nat Methods 14, 3–4 (2017). https://doi.org/10.1038/nmeth.4120
+
+
+```{r fig4-pmin-null, out.width = '60%'}
 # We use matrix to group 100 trials into a column
 # We then use apply() to calculate min value for each column
 
 pval_null_mtx = matrix(pvals_null, nrow=10)
-
 p_min_in10 = apply(pval_null_mtx, MARGIN=2, FUN=min)
-```
-
-```{r fig4-pmin-null, out.width = '60%'}
-hist(p_min_in10)
-```
-
-```{r}
 print(paste('Proportion of tests with min(p) < 0.05:', mean(p_min_in10 < 0.05)))
+
+hist(p_min_in10, breaks = 15)
 ```
 
-## Explore power and sample size (optional) { #power-analysis }
 
-1. Make a simulation of score: group A and B
-2. B follows normal(mean=0, std=1); A follows normal(mean=0.1, std=1)
-3. Generate 100 samples for each group, and do a t test, is difference significant? Please use set.seed(0) beforehand.
-4. Try 3) again but general 3,00 samples this time, later 1,000 samples. What 
-   do you find? Think the relation between power and sample size.
+#### Correction method
+As stated above, if we are performing multiple tests, the false positive rate for the top-1 hit will be much higher than the significance level $\alpha$. Therefore, people proposed several methods to correct the raw p-value and transform it into an adjusted p-value. Then, we use this adjusted p-value to compare with the significance level, e.g., 0.05, with the hope that a false positive rate among top-1 hits can still be within the significance level.
+
+While there is no perfect correction method, one commonly used method is called the FDR method, which controls the false discovery rate in the multiple testing setting. A popular procedure of this type of method is the Benjamini–Hochberg method (see the original paper in 
+[Journal of the Royal Statistical Society: Series B 1995](https://academic.oup.com/jrsssb/article/57/1/289/7035855)). 
+
+[Benjamini–Hochberg method](https://en.wikipedia.org/wiki/False_discovery_rate#Benjamini%E2%80%93Hochberg_procedure): 
+
+0. Sort the raw p-value from small to large
+1. For a given FDR $\alpha$, find the largest k that the $k$th $p_k \leq \frac{k}{m} \alpha$, where $m$ is the number of total tests.
+2. Reject the null hypothesis (i.e., declare discoveries) for all tests from i = 1, ..., k.
+
+Alternatively, you can adjust it with the following formula for the p-value of the $i$th test (ranked by the p-value):
+
+$$p_{adj} ^{(i)} = \text{FDR}^{(i)}_\text{BH} = \text{min}(\frac{m}{i} p^{(i)}, 1) $$
+
+Then, you can decide by comparing $p_{adj} ^{(i)} < \alpha$. If true, we can reject the null hypothesis (i.e., declare discoveries).
+
+
+### Power analysis and sample size { #power-analysis }
+
+As mentioned in the previous section, the **power** in statistics purely means sensitivity (or True positive rate). This part aims to discuss the relation between *power* and its related factors in experiment design, particularly *sample size*.
+
+Here, we will not discuss this part in detail for now. Instead, you may play with this simulation experiment to see that with the same effect size $\Delta\mu = 0.1$, whether the sample size will make it easier to reject the null hypothesis.
+
+>
+**Simulation 1**<br />
+1. Make a simulation of the score: group A and B<br />
+2. B follows normal(mean=0, std=1); A follows normal(mean=0.1, std=1)<br />
+3. Generate 100 samples for each group, and do a t-test, is the difference significant? Please use set.seed(0) beforehand.<br />
+4. Try 3) again, but general 3,00 samples this time, and then 1,000 samples. What 
+   do you find? Think about the relation between power and sample size.
 
 ```{r}
 set.seed(0)
@@ -66,46 +169,49 @@ xA = rnorm(n_sample, mean=0.1)
 t.test(xA, xB, var.equal = TRUE)
 ```
 
+If you see the results and wonder why, you may revisit the **Central Limit Theorem**, which describes the distribution ofthe  sample mean, including its variance that normalized to the sample size.
+
+
 ## Summary
 
-A statistical hypothesis test is a method of statistical inference used to decide whether the data provide sufficient evidence to reject a particular hypothesis. 
+A statistical hypothesis test is a method of statistical inference used to determine whether the data provide sufficient evidence to reject a specific hypothesis.
 
+If this is the first time that you study hypothesis testing or the concept of p-values, you will encounter them repeatedly throughout your journey in scientific study and research. Their importance cannot be overstated, as misusing or misunderstanding these concepts can easily lead to errors in scientific conclusions.
 
-If you haven't heard much about hypothesis testing or `p value`, you will hear
-them again and again throughout of your whole journey of scientific study and 
-research. This might be your first time study it, but very likely will not be
-the last time study it (via other courses or self-study). Its importance will 
-not be over rated, as misuse or misunderstanding can easily lead to errors in
-scientific conclusions.
+Before performing a hypothesis test, it is essential to understand the rationale behind it—why do we need a statistical approach for decision-making?
 
-Before we started with examples, I will concisely summarize the key elements 
-here, so you can come back after read through this chapter (or anytime you need
-to review).
+> When should you perform a hypothesis test?<br />
+  - When you're uncertain whether observed results are due to random variation (since randomness is pervasive, but understanding or acknowledging it is not always straightforward)<br />
 
-> When to perform hypothesis test
-  - unsure if the observed results are caused by randomness (randomness are 
-    everywhere but understanding or even admitting them are not always easy)
+> What are the key elements of a hypothesis test?<br />
+  - Selecting an appropriate test statistic<br />
+  - Approximating the null distribution of the test statistic<br />
 
-> What are the key elements in the hypothesis test
-  - choose a proper testing statistics
-  - approximate the null distribution of the test statistic
-
-> What is the major challenge?
-  - understand the randomness of certain variables in the system / process
-  - estimate the testing statistic under the null hypothesis
-  - find a more effective test statistic (or the null distribution estimateion)
+> What are the main challenges?<br />
+  - Understanding the role of randomness in certain variables within the system or process<br />
+  - Estimating the distribution of the test statistic under the null hypothesis<br />
+  - Finding a more effective test statistic (or the null distribution estimateion)<br />
   
-That's why you need to study more statistical course e.g., STAT2601 for the 
-mathematical of common variable distribution (or its more application-focused 
-alternative BIOF2013) and STAT2602 for advanced skills in deriving analytic or 
-asymptotic null distribution.
+Here are a few key concepts to re-ask yourself if you fully understand before you conclude this chapter.
+
+* **What exactly is the null hypothesis?** For example, if it is about the **sample mean** to be the same between two groups, you are not testing if other statistics or properties are the same between the two populations.
+
+* **How do you approximate the null distribution?** If the mathematical method requires long derivations, start trying permutation or resampling, and think about the mathematical summary of the procedures.
+
+* **What is the meaning of p-value?** First, p-value is a **cumulative** probability over a set of events, namely those events at least as extreme as we observed, in terms of the testing statistic.
+
+* **Understand the intrinsic errors.** 
+  - **False positive** is naturally there; if null is true, you still have a chance of significance level $\alpha$ to make a false positive error. 
+  - **False discovery** is a concern when you perform multiple tests. In a single test, the chance to have *one false positive* is upper-bounded by significance level $\alpha$, but in multiple tests, the chance to see *(at least) one false positive* is much higher than the significance level.
+  - **False negative** is a common challenge when the sample size is small. Intuitively, if we don't have any data, it is a 100% false negative.
 
 
-Namely, to determine how surprising my observation is, we can calculating a p-value!
+In the future, you may take more statistical courses, e.g., STAT2601 for the mathematical of common variable distribution (or its more application-focused alternative BIOF2013) and STAT2602 for advanced skills in deriving analytic or asymptotic null distribution.
 
-There are many circumstances where we simply want to check whether an observation looks like it is compatible with the null hypothesis, $H_{0}$.
+### Exercises
 
-Having decided on a significance level $\alpha$ and whether the situation warrants a one-tailed or a two-tailed test, we can use the cdf of the null distribution to calculate a p-value for the observation.
+Q1. In the Fisher's exact test section, try it yourself by calculating the one-tailed p-value for the alternative hypothesis that the right-handed proportion is lower in male than female, namely p_male < p_female.
 
 
-**Acknowledgement**: examples are from Dr John Pinney [link here](https://github.com/johnpinney/sampling_and_hypothesis_testing/blob/master/python_version/hypothesis_testing_python.ipynb)
+### Acknowledgement
+Some examples were adapted from Dr John Pinney's materials with link [here](https://github.com/johnpinney/sampling_and_hypothesis_testing/blob/master/python_version/hypothesis_testing_python.ipynb).
