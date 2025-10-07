@@ -197,11 +197,11 @@ if (!requireNamespace("pROC", quietly = TRUE)) {
 }
 
 # library(pROC)
-roc_summary <- pROC::roc(cv_res$obs == 'pos', cv_res$pos)
-print(paste("The AUC score of this ROC curve is", roc_summary$auc))
+roc_outs <- pROC::roc(cv_res$obs == 'pos', cv_res$pos)
+print(paste("The AUC score of this ROC curve is", roc_outs$auc))
 
 roc_table <- as.data.frame(
-  roc_summary[c("sensitivities", "specificities", "thresholds")]
+  roc_outs[c("sensitivities", "specificities", "thresholds")]
 )
 head(roc_table)
 ```
@@ -238,7 +238,7 @@ g = ggplot(roc_table, aes(x = 1 - specificities, y = sensitivities)) +
 
 ## Display the plot with more annotations
 g + 
-  annotate("text", x=0.8, y=0.1, label=paste("AUC =", round(roc_res$auc, 4))) +
+  annotate("text", x=0.8, y=0.1, label=paste("AUC =", round(roc_outs$auc, 4))) +
   geom_point(x = 1 - roc_table[idx, 2], y = roc_table[idx, 1]) + 
   geom_text(x = 1 - roc_table[idx, 2], y = roc_table[idx, 1],
             label = round(roc_table[idx, 3], 3), color = 'black', hjust = -0.3)
