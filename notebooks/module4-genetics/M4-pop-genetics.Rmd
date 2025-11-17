@@ -40,7 +40,7 @@
 #### Hands-on exercise : Association test
 
 Now, you are given a dataset of age- and sex-matched twin cohort with two cardiovascular phenotypes and 5 quantitative trait loci (QTL). Data set and template notebook are available on Moodle (recommended) and also on this 
-[GitHub Repo](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/module4-genetics/dataTwin2024.dat).
+[GitHub Repo](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/module4-genetics/dataTwin2025.dat).
 
 **The information for columns:**
 
@@ -49,10 +49,10 @@ Now, you are given a dataset of age- and sex-matched twin cohort with two cardio
 - The same 5 QTL (D1-D5) in dominance coding for T1 and T2
 - Phenotype scores of T1 and T2 for the two quantitative cardiovascular traits
 
-**Download the data `dataTwin2024.dat` to your working directory.** Start the RStudio program and set the working directory.
+**Download the data `dataTwin2025.dat` to your working directory.** Start the RStudio program and set the working directory.
 
 ```{r readDataR}
-dataTwin <- read.table("dataTwin2024.dat",h=T)
+dataTwin <- read.table("dataTwin2025.dat",h=T)
 ```
 
 **Exploratory analysis**
