@@ -1,8 +1,11 @@
 # Preface {-}
 
 This book is designed as the supporting textbook for 
-[BIOF1001: Introduction to Biomedical Data Science](),
+[BBMS1021: Introduction to AI and Biomedical Data Science](https://www.biomedsc.hku.hk),
 an undergraduate course (Year 1) at the University of Hong Kong.
+It can also support general readers who are new to (biomedical) data science, 
+including students in a master programme course 
+[SBMS7202 Foundations in Biomedical Data Science](https://mbioinno.hku.hk).
 
 This book is not aimed to be a comprehensive textbook, but rather more 
 Rmarkdown notebooks as supplementary to lecture notes so that students can 
@@ -29,8 +32,8 @@ which will be illustrated with both introduction and cases that are suitable for
 problem-based learning format:
 
 1) Medical imaging and digital health, by Dr Joshua Ho and Dr Eden Ti
-2) Cancer genomics, by Dr David Shih
-3) Epidemiology, by Dr Kathy Leung
+2) Epidemiology, by Dr Ray Hsu
+3) Cancer genomics, by Dr David Shih
 4) Population genetics, by Dr Clara Tang
 
 ### What we recommend you do while reading this book {-}
@@ -47,6 +50,11 @@ contents, we also recommend the following online books as reference:
 
 1. [Introduction to Data Science: Data Wrangling and Visualization with R](http://rafalab.dfci.harvard.edu/dsbook-part-1/) by Rafeal A. Irizarry
 2. [Advanced Data Science: Statistics and Prediction Algorithms Through Case Studies](http://rafalab.dfci.harvard.edu/dsbook-part-2/) by Rafeal A. Irizarry
+3. [Introduction to Modern Statistics](https://www.openintro.org/book/ims/) 
+   by Mine Çetinkaya-Rundel and Johanna Hardin (free PDF and html available)
+4. [An Introduction to Statistical Learning](https://www.statlearning.com/)
+   by Gareth James, Daniela Witten, Trevor Hastie, and Rob Tibshirani 
+   (free PDF available; meddle to advanced levels)
 
 
 ## Acknowledgements {-}
@@ -56,7 +64,7 @@ all years, including
 
 - 2022: Dr Lequan Yu and Dr Carlos Wong
 - 2022 & 2023: Dr Asif Javed, Dr Tommy Lam, and Dr Kathy Leung
-- Student helpers: Mr Mingze Gao, Ms Fangxin Cai, and Mr Hoi Man Chung.
+- Student helpers: Mr Mingze Gao, Ms Fangxin Cai, Mr Hoi Man Chung, Mr Tianjie Wang
 
 <!-- ## Last notes {-} -->
 

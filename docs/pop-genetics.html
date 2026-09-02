@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Population Genetics | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Population Genetics | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2025-11-18" />
+<meta name="date" content="2026-09-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,8 +55,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -269,6 +270,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1.1" data-path="pop-genetics.html"><a href="pop-genetics.html#part-1"><i class="fa fa-check"></i><b>8.1.1</b> Part 1</a></li>
 <li class="chapter" data-level="8.1.2" data-path="pop-genetics.html"><a href="pop-genetics.html#part-2"><i class="fa fa-check"></i><b>8.1.2</b> Part 2</a></li>
 <li class="chapter" data-level="8.1.3" data-path="pop-genetics.html"><a href="pop-genetics.html#references"><i class="fa fa-check"></i><b>8.1.3</b> References</a></li>
+<li class="chapter" data-level="8.1.4" data-path="pop-genetics.html"><a href="pop-genetics.html#open-discussion"><i class="fa fa-check"></i><b>8.1.4</b> Open discussion</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>III Appendix</b></span></li>
@@ -868,7 +870,863 @@ the coefficients 1/2 and 1/4 are based on quantitative genetic theory (Mather &a
 *by Prof. Jason Wong*
 
 *Date: 31-10-2024*
--->
+
+[The RMarkdown notebook to run your own code can be downloaded here](https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/M5-epidemiology.Rmd) [right click -> save link as]
+
+
+
+### Scenario
+
+You are a grants officer working for the Hong Kong Health Bureau. The HK government has recently announced new special funding in cancer research to be administered by the Bureau. You are tasked with coming up with a proposal for distribution of funding to specific cancer types that are in most need of research.
+
+[Discussion points:]{.underline}
+
+-   What is important to consider when selecting a cancer type in need of research?
+
+-   What type of data is required?
+
+### Hong Kong population
+
+You are aware that, generally, cancer is a disease that affects the elderly more than the young. You decide first to take a closer look at the structure of the population of Hong Kong.
+
+[Historical population of Hong Kong](https://www.censtatd.gov.hk/en/web_table.html?id=1A) can be obtained from the Census and Statistics Department.
+
+An abridged version of the full historical population of Hong Kong is provided here, containing the population of Hong Kong from 1965, 1975, 1985, 1995, 2005, 2015 and 2022 categorised by sex and age (0-19, 20-44, 45-64, 65+).
+
+[Discussion points:]{.underline}
+
+-   What is the trend in Hong Kong's population over the past \~60 years?
+
+-   What is the best way to visualise this data?
+
+#### Download population data
+
+
+``` r
+HKPop<- read.table("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/HK_population_1965-2022.txt", 
+    sep = "\t", header = TRUE, stringsAsFactor=FALSE, check.names = FALSE)
+HKPop
+#>      Sex   Age  1965  1975   1985   1995   2005   2015   2022
+#> 1   male  0-19 901.9 989.7  909.0  835.6  719.0  613.8  530.6
+#> 2   male 20-44 607.4 795.6 1210.2 1363.7 1263.7 1146.9 1039.2
+#> 3   male 45-64 266.5 414.3  525.9  615.7  896.6 1084.9 1046.2
+#> 4   male   65+  42.2  84.6  170.5  269.3  384.7  520.0  713.6
+#> 5 female  0-19 865.6 938.8  840.3  780.7  684.1  575.0  502.1
+#> 6 female 20-44 539.3 685.6 1093.7 1423.6 1530.4 1531.8 1338.7
+#> 7 female 45-64 286.3 400.7  470.7  535.0  884.7 1224.3 1314.7
+#> 8 female   65+  88.7 152.3  235.9  332.5  450.0  594.6  806.5
+```
+
+#### Format data for plotting
+
+Here we convert the original dataframe into simplified format for ggplot2.
+
+
+``` r
+
+male<-data.frame(year = as.numeric(colnames(HKPop[1,3:9])),
+                 `0-19`  = as.numeric(HKPop[1,3:9]),
+                 `20-44` = as.numeric(HKPop[2,3:9]),
+                 `45-64` = as.numeric(HKPop[3,3:9]),
+                 `65+` = as.numeric(HKPop[4,3:9]),
+                 check.names = FALSE)
+
+
+
+female<-data.frame(year = as.numeric(colnames(HKPop[1,3:9])),
+                 `0-19`  = as.numeric(HKPop[5,3:9]),
+                 `20-44` = as.numeric(HKPop[6,3:9]),
+                 `45-64` = as.numeric(HKPop[7,3:9]),
+                 `65+` = as.numeric(HKPop[8,3:9]),
+                 check.names = FALSE)
+
+if (!require("tidyverse")) install.packages("tidyverse")
+male<-as_tibble(male) %>% select(year,`0-19`,`20-44`,`45-64`,`65+`) %>% gather (key="age",value="population ('000s)",-year)
+female<-as_tibble(female) %>% select(year,`0-19`,`20-44`,`45-64`,`65+`) %>% gather (key="age",value="population ('000s)",-year)
+male
+#> # A tibble: 28 × 3
+#>     year age   `population ('000s)`
+#>    <dbl> <chr>                <dbl>
+#>  1  1965 0-19                  902.
+#>  2  1975 0-19                  990.
+#>  3  1985 0-19                  909 
+#>  4  1995 0-19                  836.
+#>  5  2005 0-19                  719 
+#>  6  2015 0-19                  614.
+#>  7  2022 0-19                  531.
+#>  8  1965 20-44                 607.
+#>  9  1975 20-44                 796.
+#> 10  1985 20-44                1210.
+#> # ℹ 18 more rows
+female
+#> # A tibble: 28 × 3
+#>     year age   `population ('000s)`
+#>    <dbl> <chr>                <dbl>
+#>  1  1965 0-19                  866.
+#>  2  1975 0-19                  939.
+#>  3  1985 0-19                  840.
+#>  4  1995 0-19                  781.
+#>  5  2005 0-19                  684.
+#>  6  2015 0-19                  575 
+#>  7  2022 0-19                  502.
+#>  8  1965 20-44                 539.
+#>  9  1975 20-44                 686.
+#> 10  1985 20-44                1094.
+#> # ℹ 18 more rows
+```
+
+#### Plotting population data
+
+Uses ggplot2 and gridExtra to make line plot of male and female population data side-by-side.
+
+
+``` r
+
+if (!require("ggplot2")) install.packages("gglot2")
+if (!require("gridExtra")) install.packages("gridExtra")
+library(ggplot2)
+library(gridExtra)
+#Import the necessary packages and libraries
+pmale<-ggplot(male,aes(x=year,y=`population ('000s)`,group=age))+
+  geom_line(aes(color=age))+
+  geom_point(aes(color=age))+
+  scale_color_brewer(palette="Spectral")+
+  theme_classic()+
+  ylim(0,1600)+
+  theme(legend.position="none")+
+  scale_x_continuous(breaks = seq(1965, 2022, by = 10))+
+  ggtitle("male")
+pfemale<-ggplot(female,aes(x=year,y=`population ('000s)`,group=age))+
+  geom_line(aes(color=age))+
+  geom_point(aes(color=age))+
+  scale_color_brewer(palette="Spectral")+
+  theme_classic()+
+  ylim(0,1600)+
+  theme(legend.position="right",axis.title.y = element_blank())+
+  scale_x_continuous(breaks = seq(1965, 2022, by = 10))+
+  ggtitle("female")
+grid.arrange(pmale,pfemale,ncol=2,widths=c(3,3.75))
+```
+
+<img src="BMDatSci_files/figure-html/plot%20data-1.png" width="672" />
+
+### Cancer registry data
+
+It is clear that Hong Kong has an aging population, thus cancer incidence would also likely increase. To examine cancer incidence and mortality in Hong Kong you obtain data from the [Hong Kong Cancer Registry](https://www3.ha.org.hk/cancereg/), which is maintained by the Hospital Authority.
+
+Cancer incidence data was summarised for the last three decades (1990-1999, 2000-2009 and 2010-2019).
+
+[Discussion points:]{.underline}
+
+-   Has incidence been increasing for most cancers? How about mortality?
+
+-   How has cancer risk and mortality rate changed in the past 3 decades?
+
+-   Has the incidence-to-mortality ratio been decreasing generally? Is it statistically significant?
+
+-   Which cancer type has the highest incidence in children (0-19) when compared with the elderly (65+). Is this statistically significantly different to incidence of children versus elderly cancers in general?
+
+#### Download cancer registry data
+
+
+``` r
+HKCancer<- read.table("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/HK_cancer_incidence_mortality_1990-2020.txt",
+                      sep = "\t", header = TRUE, stringsAsFactor=FALSE)
+HKCancer
+#>         Type    Sex   Age      Year Biliary Bladder Brain Breast Cervix
+#> 1  incidence   male  0-19 1990-1999       0       6   212      0      0
+#> 2  incidence   male 20-44 1990-1999      36     165   368      6      0
+#> 3  incidence   male 45-64 1990-1999     322    1266   393     28      0
+#> 4  incidence   male   65+ 1990-1999     830    2920   318     35      0
+#> 5  incidence   male  0-19 2000-2009       0       2   206      0      0
+#> 6  incidence   male 20-44 2000-2009      31     103   267      9      0
+#> 7  incidence   male 45-64 2000-2009     297     900   372     52      0
+#> 8  incidence   male   65+ 2000-2009    1134    3103   299     96      0
+#> 9  incidence   male  0-19 2010-2019       0       2   155      0      0
+#> 10 incidence   male 20-44 2010-2019      28      18   276     14      0
+#> 11 incidence   male 45-64 2010-2019     530     648   511     72      0
+#> 12 incidence   male   65+ 2010-2019    1568    2399   380    107      0
+#> 13 incidence female  0-19 1990-1999       0       2   149      6      0
+#> 14 incidence female 20-44 1990-1999      52      62   283   4228   1263
+#> 15 incidence female 45-64 1990-1999     246     246   238   5311   1839
+#> 16 incidence female   65+ 1990-1999     909    1199   284   4122   1574
+#> 17 incidence female  0-19 2000-2009       0       0   132      4      4
+#> 18 incidence female 20-44 2000-2009      34      39   223   5887   1204
+#> 19 incidence female 45-64 2000-2009     287     179   265  11833   1676
+#> 20 incidence female   65+ 2000-2009    1190    1090   237   5774   1329
+#> 21 incidence female  0-19 2010-2019       0       2   119      1      0
+#> 22 incidence female 20-44 2010-2019      36      17   223   6658   1294
+#> 23 incidence female 45-64 2010-2019     452     188   394  22096   2288
+#> 24 incidence female   65+ 2010-2019    1500     872   283  10337   1269
+#> 25 mortality   male  0-19 1990-1999       0       0    76      0      0
+#>    Colorectum Eye Hodgkin.lymphoma Kaposi Kidney Larynx Leukaemia Liver  Lung
+#> 1          15  29               35      0     24      1       356    58     6
+#> 2        1087   8               64      0    141     86       509  1741  1036
+#> 3        4644   9               47      0    530    824       453  5702  8420
+#> 4        8058  21               41      0    721   1265       623  4806 15152
+#> 5           5  38               32      0     20      0       329    33     3
+#> 6         957   8              119      9    221     37       437  1116   772
+#> 7        6418  18               77      4   1071    658       642  6015  7909
+#> 8       13352  13               77      8   1275   1125       864  5808 18870
+#> 9           6  26               53      0     31      0       338    24     2
+#> 10       1005  10              163     25    293     29       401   659   541
+#> 11      10034  28               87     18   1978    684      1033  6500  9523
+#> 12      18003  15              114     12   1977   1043      1381  6716 20588
+#> 13          2  33               10      0     25      0       296    37     7
+#> 14        932  11               61      0     98     13       393   353   597
+#> 15       3166   9               19      0    256     59       312  1093  2629
+#> 16       7728  16               33      0    503    130       534  2244  8428
+#> 17          5  14               30      0     15      0       219    13     5
+#> 18        938  12              122      2    120      5       405   212   625
+#> 19       4430  10               33      0    482     37       469  1041  3397
+#> 20      10810   8               35      0    830     85       723  2637  9517
+#> 21          5  14               32      0     19      0       237    21     0
+#> 22       1057   9              174      0    135      7       443   168   647
+#> 23       7200  16               58      4    887     47       786  1168  6312
+#> 24      13119  20               58      5   1203     84       913  3007 10872
+#> 25         10   3                0      0      2      0       120    36     1
+#>    Melanoma Mesothelioma Multiple.myeloma Nasal Nasopharynx
+#> 1         3            0                1     4          33
+#> 2        50            0               43    53        3049
+#> 3        82            0              210   109        3724
+#> 4       107            0              421   120        1212
+#> 5         1            0                1     7          16
+#> 6        41            5               38    38        2114
+#> 7        98           34              326   161        3750
+#> 8       137           77              674   137        1177
+#> 9         0            0                0     3          21
+#> 10       47            4               26    41        1339
+#> 11      186           51              525   174        3653
+#> 12      195          154              910   154        1207
+#> 13        2            0                1     1          13
+#> 14       44            0               19    31        1380
+#> 15       58            0              150    57        1157
+#> 16      102            0              417    93         536
+#> 17        2            0                0     5           6
+#> 18       41            8               21    36         942
+#> 19      102           12              185    74        1187
+#> 20      118           14              559    92         465
+#> 21        3            0                0     6           6
+#> 22       70           10               24    37         583
+#> 23      128           34              399   105        1145
+#> 24      179           24              636   102         389
+#> 25        2            0                0     0           6
+#>    Non.Hodgkin.lymphoma Non.melanoma.skin Oesophagus Oral Ovary Pancreas Penis
+#> 1                   137                 8          0   18     0        4     2
+#> 2                   596               211        158  324     0      106    19
+#> 3                   997               613       1873 1165     0      514    78
+#> 4                  1210               968       2203 1055     0      887   184
+#> 5                   111                 4          0    6     0        1     0
+#> 6                   454               220         82  312     0       71    18
+#> 7                  1216               917       1528 1354     0      780    71
+#> 8                  1756              1835       2126 1416     0     1440   199
+#> 9                   106                 1          0    9     0        1     0
+#> 10                  487               291         54  304     0      109    21
+#> 11                 1910              1782       1321 1941     0     1402   154
+#> 12                 2633              2975       1982 1813     0     2302   279
+#> 13                   75                 2          0   21    77        2     0
+#> 14                  444               156         48  241   854       60     0
+#> 15                  594               374        254  364   970      290     0
+#> 16                 1120              1249        761  485   776      875     0
+#> 17                   43                 4          1   20   108        0     0
+#> 18                  461               182         13  254  1299       62     0
+#> 19                  888               580        190  454  1846      461     0
+#> 20                 1409              2476        725  768   891     1329     0
+#> 21                   57                 4          0    9    84        3     0
+#> 22                  475               303         16  259  1466       92     0
+#> 23                 1561              1168        174  920  3166      923     0
+#> 24                 1883              3268        624 1091  1128     2101     0
+#> 25                   25                 0          0    1     0        3     0
+#>    Placenta Prostate Sarcoma Small.intestine Stomach Testis Thymus Thyroid
+#> 1         0        0     137               0       5     61     12      22
+#> 2         0       10     320              31     429    275     71     250
+#> 3         0      481     281             102    1990     80     70     288
+#> 4         0     3073     261             131    3634    129     59     194
+#> 5         0        0     118               0       6     57     16      21
+#> 6         0        6     307              34     331    395     96     333
+#> 7         0     1588     367             113    1954     65    137     447
+#> 8         0     8676     316             163    4256     44     94     278
+#> 9         0        1     110               1       2     53     23      17
+#> 10        0       18     299              46     192    587     68     496
+#> 11        0     4128     527             293    2158    100    137     834
+#> 12        0    14703     507             336    4720     15     85     424
+#> 13        1        0     128               1       1      0      3      80
+#> 14       13        0     283              22     492      0     38    1294
+#> 15        0        0     232              53     826      0     38     788
+#> 16        0        0     232             116    2319      0     38     479
+#> 17        0        0     105               0       2      0      1      81
+#> 18        8        0     322              24     379      0     64    1659
+#> 19        3        0     300              80     971      0    116    1570
+#> 20        0        0     247             153    2512      0     65     595
+#> 21        0        0      86               1       0      0      5     103
+#> 22       12        0     330              38     318      0     30    2291
+#> 23        3        0     509             221    1653      0     81    3200
+#> 24        0        0     351             251    2809      0     67     940
+#> 25        0        0      41               1       0      2      7       1
+#>    Uterus Vulva
+#> 1       0     0
+#> 2       0     0
+#> 3       0     0
+#> 4       0     0
+#> 5       0     0
+#> 6       0     0
+#> 7       0     0
+#> 8       0     0
+#> 9       0     0
+#> 10      0     0
+#> 11      0     0
+#> 12      0     0
+#> 13      2     1
+#> 14    478    49
+#> 15   1362    96
+#> 16    729   235
+#> 17      2     2
+#> 18    821    44
+#> 19   3071   147
+#> 20   1130   336
+#> 21      3     1
+#> 22   1165    57
+#> 23   6582   235
+#> 24   1864   486
+#> 25      0     0
+#>  [ reached 'max' / getOption("max.print") -- omitted 23 rows ]
+```
+
+#### a. Visualise changes in incidence and mortality
+
+
+``` r
+# first plot incidence for each cancer type
+
+#Import the necessary packages and libraries
+if (!require("ggplot2")) install.packages("gglot2")
+if (!require("gridExtra")) install.packages("gridExtra")
+if (!require("ggpubr")) install.packages("ggpubr")
+library(ggplot2)
+library(gridExtra)
+library(ggpubr)
+
+HKCancer_inc <- HKCancer[HKCancer$Type=='incidence',]
+
+p<-list()
+
+for (i in 1:(ncol(HKCancer_inc)-4)){
+  p[[i]]<-ggplot(HKCancer_inc,aes_string(fill=names(HKCancer_inc)[3],x=names(HKCancer_inc)[4],
+                                         y=names(HKCancer_inc)[i+4],group=names(HKCancer_inc)[3]))+
+       geom_bar(position="dodge",stat="identity")+
+       facet_wrap(~Sex) +
+       theme_classic()+
+       scale_fill_brewer(palette="Spectral")+
+       theme(legend.position="none")+
+       theme(text = element_text(size = 10))+ 
+       ggtitle(names(HKCancer_inc)[i+4])+
+       ylab("Incidence")
+}
+do.call('grid.arrange',c(p,ncol=3,nrow=12))
+```
+
+<img src="BMDatSci_files/figure-html/incidence-1.png" width="1344" />
+
+
+``` r
+# now plot mortality for each cancer type
+
+#Import the necessary packages and libraries
+if (!require("ggplot2")) install.packages("gglot2")
+if (!require("gridExtra")) install.packages("gridExtra")
+if (!require("ggpubr")) install.packages("ggpubr")
+if (!require("dplyr")) install.packages("dplyr")
+library(ggplot2)
+library(gridExtra)
+library(ggpubr)
+library(dplyr)
+
+HKCancer_mort <- HKCancer[HKCancer$Type=='mortality',]
+
+p<-list()
+#(ncol(HKCancer_inc)-4)
+for (i in 1:(ncol(HKCancer_mort)-4)){
+  p[[i]]<-ggplot(HKCancer_mort,aes_string(fill=names(HKCancer_mort)[3],x=names(HKCancer_mort)[4],
+                                          y=names(HKCancer_mort)[i+4],group=names(HKCancer_mort)[3]))+
+       geom_bar(position="dodge",stat="identity")+
+       facet_wrap(~Sex) +
+       theme_classic()+
+       scale_fill_brewer(palette="Spectral")+
+       theme(legend.position="none")+
+       theme(text = element_text(size = 10))+ 
+       ggtitle(names(HKCancer_mort)[i+4])+
+       ylab("Mortality")
+}
+do.call('grid.arrange',c(p,ncol=3,nrow=12))
+```
+
+<img src="BMDatSci_files/figure-html/mortality-1.png" width="1344" />
+
+#### b. Calculate cancer risk and mortality rate
+
+To calculate disease risk we need to calculated the number of new cases over the number of persons at risk over a specific time period. We have the incidence for each decade and can estimate the number of persons at risk based on the population in 1995, 2005 and 2015.
+
+
+``` r
+# cancer risk calculation
+
+HKCancer_inc <- HKCancer[HKCancer$Type=='incidence',]
+HKCancer_inc_risk <- HKCancer_inc[,1:5]
+
+risk <- function(x,age,sex,year){
+  if (is.integer(x)){
+    pop_n <- HKPop %>% filter(Sex==sex & Age==age)
+    if (year == "1990-1999"){ return (as.double(x)/as.double(pop_n$`1995`)) }
+    else if (year == "2000-2009") {return (as.double(x)/as.double(pop_n$`2005`))}
+    else { return (as.double(x)/as.double(pop_n$`2015`)) }
+  }
+  return (x)
+}
+
+for (i in 5:ncol(HKCancer_inc)){
+  HKCancer_inc_risk[names(HKCancer_inc)[i]] <- mapply(risk,HKCancer_inc[,i],HKCancer_inc[,3],HKCancer_inc[,2],HKCancer_inc[,4])
+}
+```
+
+
+``` r
+#visualise cancer risk
+
+p<-list()
+for (i in 1:(ncol(HKCancer_inc_risk)-4)){
+  p[[i]]<-ggplot(HKCancer_inc_risk,aes_string(fill=names(HKCancer_inc_risk)[3],x=names(HKCancer_inc_risk)[4],
+                                              y=names(HKCancer_inc_risk)[i+4],group=names(HKCancer_inc_risk)[3]))+
+       geom_bar(position="dodge",stat="identity")+
+       facet_wrap(~Sex) +
+       theme_classic()+
+       scale_fill_brewer(palette="Spectral")+
+       theme(legend.position="none")+
+       theme(text = element_text(size = 10))+ 
+       ggtitle(names(HKCancer_inc)[i+4])+
+       ylab("incidence per 1000")
+}
+do.call('grid.arrange',c(p,ncol=3,nrow=12))
+```
+
+<img src="BMDatSci_files/figure-html/cancer%20risk%20visulisation-1.png" width="1344" />
+
+
+``` r
+# mortality rate calculation
+
+HKCancer_mort <- HKCancer[HKCancer$Type=='mortality',]
+HKCancer_mort_risk <- HKCancer_mort[,1:5]
+
+risk <- function(x,age,sex,year){
+  if (is.integer(x)){
+    pop_n <- HKPop %>% filter(Sex==sex & Age==age)
+    if (year == "1990-1999"){ return (as.double(x)/as.double(pop_n$`1995`)) }
+    else if (year == "2000-2009") {return (as.double(x)/as.double(pop_n$`2005`))}
+    else { return (as.double(x)/as.double(pop_n$`2015`)) }
+  }
+  return (x)
+}
+
+for (i in 5:ncol(HKCancer_mort)){
+  HKCancer_mort_risk[names(HKCancer_mort)[i]] <- mapply(risk,HKCancer_mort[,i],HKCancer_mort[,3],HKCancer_mort[,2],HKCancer_mort[,4])
+}
+
+```
+
+
+``` r
+#visualise mortality rate
+
+p<-list()
+for (i in 1:(ncol(HKCancer_mort_risk)-4)){
+  p[[i]]<-ggplot(HKCancer_mort_risk,aes_string(fill=names(HKCancer_mort_risk)[3],x=names(HKCancer_mort_risk)[4],
+                                               y=names(HKCancer_mort_risk)[i+4],group=names(HKCancer_mort_risk)[3]))+
+       geom_bar(position="dodge",stat="identity")+
+       facet_wrap(~Sex) +
+       theme_classic()+
+       scale_fill_brewer(palette="Spectral")+
+       theme(legend.position="none")+
+       theme(text = element_text(size = 10))+ 
+       ggtitle(names(HKCancer_inc)[i+4])+
+       ylab("mortality per 1000")
+}
+do.call('grid.arrange',c(p,ncol=3,nrow=12))
+```
+
+<img src="BMDatSci_files/figure-html/mortality%20rate%20visulisation-1.png" width="1344" />
+
+#### c. Mortality-incidence ratio
+
+Cancer research can be focused on improving cancer outcomes in a number of ways. For example cancer prevention research that seeks to reduce cancer incidence which would also ultimately reduce cancer mortality. Another area is cancer therapy which would not affect incidence but seeks to reduce mortality, or at least prolong survival. We don't go into survival analysis in this tutorial, but a way to get an idea whether treatment is improving by looking at the mortality-incidence ratio.
+
+
+``` r
+
+HKCancer_inc <- HKCancer[HKCancer$Type=='incidence',]
+HKCancer_mort <- HKCancer[HKCancer$Type=='mortality',]
+HKCancer_mort_inc <- HKCancer_mort[,1:5]
+
+risk <- function(mort,inc){
+  if (inc == 0){ return (0) }
+  return (as.double(mort)/as.double(inc))
+}
+
+for (i in 5:ncol(HKCancer_mort)){
+  HKCancer_mort_inc[names(HKCancer_mort)[i]] <- mapply(risk,HKCancer_mort[,i],HKCancer_inc[,i])
+}
+
+```
+
+
+``` r
+#visualise mortality incidence ratio
+
+p<-list()
+for (i in 1:(ncol(HKCancer_mort_inc)-4)){
+  p[[i]]<-ggplot(HKCancer_mort_inc,aes_string(fill=names(HKCancer_mort_inc)[3],x=names(HKCancer_mort_inc)[4],
+                                              y=names(HKCancer_mort_inc)[i+4],group=names(HKCancer_mort_inc)[3]))+
+       geom_bar(position="dodge",stat="identity")+
+       facet_wrap(~Sex) +
+       theme_classic()+
+       scale_fill_brewer(palette="Spectral")+
+       theme(legend.position="none")+
+       theme(text = element_text(size = 10))+ 
+       ggtitle(names(HKCancer_inc)[i+4])+
+       ylab("mortality-incidence ratio")
+}
+do.call('grid.arrange',c(p,ncol=3,nrow=12))
+```
+
+<img src="BMDatSci_files/figure-html/mortality%20incidence%20ratio%20visulisation-1.png" width="1344" />
+
+#### d. Paired t-test on mortality-incidence ratio change
+
+In general, across the different cancer types is cancer treatment improving? We can use a paired t-test comparing the mortality-incidence ratio of cancers from the 1990-1999 period with the 2010-2019 period.
+
+
+``` r
+
+#First sum up all incidence and mortality data for each cancer type across age and sex
+
+HKCancer_inc_sum <- aggregate(HKCancer_inc[,-(1:4)],list(HKCancer_inc$Year),FUN=sum)
+HKCancer_mort_sum <- aggregate(HKCancer_mort[,-(1:4)],list(HKCancer_mort$Year),FUN=sum)
+HKCancer_mort_inc_year <- data.frame(Year=HKCancer_mort_sum[,1])
+
+risk <- function(mort,inc){
+  return (as.double(mort)/as.double(inc))
+}
+
+for (i in 2:ncol(HKCancer_mort_sum)){
+  HKCancer_mort_inc_year[names(HKCancer_mort_sum)[i]] <- mapply(risk,HKCancer_mort_sum[,i],HKCancer_inc_sum[,i])
+}
+
+HKCancer_mort_inc_year_m <-data.frame(`1990-1999` = as.numeric(HKCancer_mort_inc_year[1,2:37]),
+                                    `2000-2009` = as.numeric(HKCancer_mort_inc_year[2,2:37]),
+                                    `2010-2019` = as.numeric(HKCancer_mort_inc_year[3,2:37]),
+                                    check.names = FALSE)
+
+HKCancer_mort_inc_year_m$Cancer <- names(HKCancer_mort_inc_year)[-1]
+
+HKCancer_mort_inc_year_t<-as_tibble(HKCancer_mort_inc_year_m) %>% select(`Cancer`,`1990-1999`,`2000-2009`,`2010-2019`)%>% gather (key="Year",value="MIR",-Cancer)
+
+plot<-ggplot(HKCancer_mort_inc_year_t,aes(x=Year,y=MIR, color=Year))+
+       geom_boxplot(na.rm=T) +
+       theme_classic()+
+       scale_color_brewer(palette="Dark2")+
+       geom_jitter(shape=16, position=position_jitter(0.2),na.rm=T)+
+       ylab("mortality-incidence ratio")+
+       ylim(0,1.2) + geom_signif(comparisons = list(c("1990-1999", "2010-2019")),
+                                 map_signif_level=F, test= "t.test",test.args = list(paired = TRUE), na.rm = T, y_position = c(1.1, 1.3)) +
+       geom_signif(comparisons = list(c("1990-1999", "2000-2009")), map_signif_level=F, test= "t.test",test.args = list(paired = TRUE), na.rm = T) +
+       geom_signif(comparisons = list(c("2000-2009", "2010-2019")), map_signif_level=F, test= "t.test",test.args = list(paired = TRUE), na.rm = T)
+plot
+```
+
+<img src="BMDatSci_files/figure-html/paired%20t-test-1.png" width="480" />
+
+``` r
+
+p<-list()
+p[[1]]<-t.test(HKCancer_mort_inc_year_m$`1990-1999`,HKCancer_mort_inc_year_m$`2000-2009`,paired=TRUE,alternative_m = "two.sided")
+p[[2]]<-t.test(HKCancer_mort_inc_year_m$`1990-1999`,HKCancer_mort_inc_year_m$`2010-2019`,paired=TRUE,alternative_m = "two.sided")
+p[[3]]<-t.test(HKCancer_mort_inc_year_m$`2000-2009`,HKCancer_mort_inc_year_m$`2010-2019`,paired=TRUE,alternative_m = "two.sided")
+p
+#> [[1]]
+#> 
+#>  Paired t-test
+#> 
+#> data:  HKCancer_mort_inc_year_m$`1990-1999` and HKCancer_mort_inc_year_m$`2000-2009`
+#> t = 0.79695, df = 33, p-value = 0.4312
+#> alternative hypothesis: true mean difference is not equal to 0
+#> 95 percent confidence interval:
+#>  -0.01415536  0.03238636
+#> sample estimates:
+#> mean difference 
+#>     0.009115498 
+#> 
+#> 
+#> [[2]]
+#> 
+#>  Paired t-test
+#> 
+#> data:  HKCancer_mort_inc_year_m$`1990-1999` and HKCancer_mort_inc_year_m$`2010-2019`
+#> t = 2.1861, df = 33, p-value = 0.036
+#> alternative hypothesis: true mean difference is not equal to 0
+#> 95 percent confidence interval:
+#>  0.002055217 0.057209924
+#> sample estimates:
+#> mean difference 
+#>      0.02963257 
+#> 
+#> 
+#> [[3]]
+#> 
+#>  Paired t-test
+#> 
+#> data:  HKCancer_mort_inc_year_m$`2000-2009` and HKCancer_mort_inc_year_m$`2010-2019`
+#> t = 1.5413, df = 35, p-value = 0.1322
+#> alternative hypothesis: true mean difference is not equal to 0
+#> 95 percent confidence interval:
+#>  -0.005438019  0.039734021
+#> sample estimates:
+#> mean difference 
+#>        0.017148
+```
+
+#### e. Childhood versus elderly cancers
+
+Although it is clear that the incidence of cancer is typically higher in the elderly, some cancers affect children as well. What cancer types disproportionate affect children? For each cancer type, compare the proportion of 0-19 versus 65+ incidence against the 0-19 versus 65+ incidence for all other cancer types.
+
+
+``` r
+# Examine the proportion of childhood 
+
+HKCancer_inc <- HKCancer[HKCancer$Type=='incidence',]
+HKCancer_inc_age_sum <- aggregate(HKCancer_inc[,-(1:4)],list(HKCancer_inc$Age),FUN=sum)
+HKCancer_inc_age_sum$Total<- rowSums(HKCancer_inc_age_sum[,-1])
+HKCancer_inc_age_sum_csq <-  data.frame(cancer=names(HKCancer_inc_age_sum[,2:ncol(HKCancer_inc_age_sum)]))
+
+pval <- list()
+ratio <- list()
+for (i in 2:(ncol(HKCancer_inc_age_sum))){
+  val = Map('-',HKCancer_inc_age_sum$Total,HKCancer_inc_age_sum[,i])
+  dat <- data.frame(cancer=HKCancer_inc_age_sum[c(1,4),i], other =c(val[[1]],val[[2]]))
+  pval <- append(pval,fisher.test(dat)$p.val)
+  ratio<- append(ratio,log(as.double(dat[1,1]+0.1)/as.double(dat[2,1]+0.1)))
+}
+HKCancer_inc_age_sum_csq$pval <- pval
+HKCancer_inc_age_sum_csq$ratio <- ratio 
+
+plot_child<-ggplot(HKCancer_inc_age_sum_csq[-37,],aes(x=reorder(cancer,-as.numeric(ratio)),y=as.numeric(ratio)),fill=cancer)+
+       geom_bar(stat="identity",fill="red")+
+       geom_hline(yintercept=-4.12132318942113, linetype="dashed", 
+                color = "black", linewidth=0.5)+
+       theme_classic()+
+       scale_fill_brewer(palette="Spectral")+
+       theme(legend.position="none")+
+       #theme(text = element_text(size = 10))+
+       theme(axis.title.x=element_blank())+
+       theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+       ylab("log((child+0.1)/(elderly+0.1)")
+plot_child
+```
+
+<img src="BMDatSci_files/figure-html/childhood%20versus%20elderly-1.png" width="672" />
+
+``` r
+HKCancer_inc_age_sum_csq
+#>                  cancer          pval       ratio
+#> 1               Biliary  1.21618e-216   -11.17481
+#> 2               Bladder 9.601084e-314   -6.711128
+#> 3                 Brain             0   -0.615666
+#> 4                Breast             0   -7.519824
+#> 5                Cervix 1.635299e-126   -6.925188
+#> 6            Colorectum             0   -7.531208
+#> 7                   Eye 2.085337e-112   0.5039276
+#> 8      Hodgkin.lymphoma  3.658856e-81  -0.6227962
+#> 9                Kaposi       0.41662   -5.525453
+#> 10               Kidney  1.560619e-71   -3.882371
+#> 11               Larynx 1.963055e-113   -8.129416
+#> 12            Leukaemia             0   -1.043172
+#> 13                Liver             0   -4.909033
+#> 14                 Lung             0   -8.191896
+#> 15             Melanoma  6.246412e-15   -4.324192
+#> 16         Mesothelioma  5.396388e-09   -7.897668
+#> 17     Multiple.myeloma 6.126613e-106   -7.062026
+#> 18                Nasal  0.0001285609   -3.286427
+#> 19          Nasopharynx  4.628193e-74    -3.95948
+#> 20 Non.Hodgkin.lymphoma  4.513518e-11   -2.940272
+#> 21    Non.melanoma.skin             0   -6.315107
+#> 22           Oesophagus 1.377432e-251   -8.943186
+#> 23                 Oral 5.100139e-108   -4.379029
+#> 24                Ovary  0.0002847234    -2.34054
+#> 25             Pancreas  3.11451e-246   -6.690686
+#> 26                Penis  3.023792e-18   -5.753479
+#> 27             Placenta    0.07013259    2.397895
+#> 28             Prostate             0   -10.08778
+#> 29              Sarcoma 9.774701e-213   -1.028899
+#> 30      Small.intestine  1.479593e-31   -5.916202
+#> 31              Stomach             0   -7.137096
+#> 32               Testis  1.871184e-97 -0.09472556
+#> 33               Thymus  6.748934e-06   -1.915502
+#> 34              Thyroid  7.821825e-09   -2.194891
+#> 35               Uterus 1.457974e-105   -6.262217
+#> 36                Vulva  1.521831e-27   -5.552298
+#> 37                Total             1   -4.121323
+```
+
+### Existing cancer funding and publication data
+
+The Hong Kong government established in Health and Medical Research Fund (HMRF) in 2011 to specifically provide research funding for health and medical research in Hong Kong. Since 2016 over 370 projects in the category of Cancer has been funded for a total of \~\$400 M dollars. A list of all funded projects can be found on the Health Bureau [webpage](https://rfs1.healthbureau.gov.hk/search/#/fundedsearch/basicsearch?lang=en). You would like to use this data to see if there is any association between previous project funding and the epidemiology of cancers in Hong Kong.
+
+We can also do a similar thing with publications and ask if the research publications in Hong Kong have been aligned with the incidence and mortality. We can obtain this data from PubMed using the following terms: [("Hong Kong"[Affiliation]) AND (neoplasms[MeSH Terms])](https://pubmed.ncbi.nlm.nih.gov/?term=%28%22Hong+Kong%22%5BAffiliation%5D%29+AND+%28neoplasms%5BMeSH+Terms%5D%29)
+
+The data has been predownloaded as the Pubmed API via R is a bit slow.
+
+[Discussion points:]{.underline}
+
+-   Why has research publications increased dramatically in recent years? Is there something unusual with the dataset?
+-   What are the main cancer types being researched in Hong Kong?
+-   Is there any correlation between funding and cancer incidence and mortality?
+
+#### Download HMRF grants and Pubmed data
+
+
+``` r
+
+HMRF<- read.delim("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/HMRF_cancer_grants.txt", sep = "\t", header = TRUE, stringsAsFactor=FALSE, check.names = TRUE)
+#HMRF
+
+pubmed<- read.delim("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/pubmed__neoplasm_hongkong.txt", sep = "\t", header = TRUE, stringsAsFactor=FALSE, check.names = TRUE)
+#pubmed
+
+hist(pubmed$Publication.Year)
+```
+
+<img src="BMDatSci_files/figure-html/load%20HMRF-1.png" width="672" />
+
+#### Make word cloud for grants
+
+<!-- ```{r wordcloud grants, fig.height=8, fig.width=10} -->
+<!-- if (!require("ggwordcloud")) install.packages("ggwordcloud") -->
+<!-- if (!require("tm")) install.packages("tm") -->
+<!-- if (!require("dplyr")) install.packages("dplyr") -->
+<!-- if (!require("RColorBrewer")) install.packages("RColorBrewer") -->
+<!-- library(ggwordcloud) -->
+<!-- library(tm) -->
+<!-- library(dplyr) -->
+<!-- library(RColorBrewer) -->
+<!-- #Create a vector containing only the text -->
+<!-- gtext <- HMRF$Project.Title -->
+<!-- # Create a corpus -->
+<!-- gdocs <- Corpus(VectorSource(gtext)) -->
+<!-- gdocs <- gdocs %>% -->
+<!--   tm_map(removePunctuation) %>% -->
+<!--   tm_map(stripWhitespace) -->
+<!-- gdocs <- tm_map(gdocs, content_transformer(tolower)) -->
+<!-- gdocs <- tm_map(gdocs, removeWords, stopwords("english")) -->
+<!-- gdtm <- TermDocumentMatrix(gdocs) -->
+<!-- gmatrix <- as.matrix(gdtm) -->
+<!-- gwords <- sort(rowSums(gmatrix),decreasing=TRUE) -->
+<!-- gdf <- data.frame(word = names(gwords),freq=gwords) -->
+<!-- set.seed(1235) # for reproducibility -->
+<!-- gp<-ggwordcloud(words = gdf$word, freq = gdf$freq, min.freq = 1,max.words=200, random.order=FALSE, rot.per=0.35,            colors=brewer.pal(8, "Dark2")) -->
+<!-- #gp -->
+<!-- #Create a vector containing only the text -->
+<!-- pmtext <- pubmed$Title -->
+<!-- # Create a corpus -->
+<!-- pmdocs <- Corpus(VectorSource(pmtext)) -->
+<!-- pmdocs <- pmdocs %>% -->
+<!--   tm_map(removePunctuation) %>% -->
+<!--   tm_map(stripWhitespace) -->
+<!-- pmdocs <- tm_map(pmdocs, content_transformer(tolower)) -->
+<!-- pmdocs <- tm_map(pmdocs, removeWords, stopwords("english")) -->
+<!-- pmdtm <- TermDocumentMatrix(pmdocs) -->
+<!-- pmmatrix <- as.matrix(pmdtm) -->
+<!-- pmwords <- sort(rowSums(pmmatrix),decreasing=TRUE) -->
+<!-- pmdf <- data.frame(word = names(pmwords),freq=pmwords) -->
+<!-- set.seed(1235) # for reproducibility -->
+<!-- pm<-ggwordcloud(words = pmdf$word, freq = pmdf$freq, min.freq = 1,max.words=200, random.order=FALSE, rot.per=0.35,            colors=brewer.pal(8, "Dark2")) -->
+<!-- grid.arrange(arrangeGrob(pm, top = 'Pubmed'),arrangeGrob(gp, top = 'Grants'),nrow=2,heights=c(6,6)) -->
+<!-- ``` -->
+<div id="compare-grant-funding-with-incidence-and-mortality" class="section level4 hasAnchor" number="8.1.3.1">
+<h4><span class="header-section-number">8.1.3.1</span> Compare grant funding with incidence and mortality<a href="pop-genetics.html#compare-grant-funding-with-incidence-and-mortality" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="pop-genetics.html#cb171-1" tabindex="-1"></a></span>
+<span id="cb171-2"><a href="pop-genetics.html#cb171-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;ggrepel&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;ggrepel&quot;</span>)</span>
+<span id="cb171-3"><a href="pop-genetics.html#cb171-3" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;ggplot2&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;gglot2&quot;</span>)</span>
+<span id="cb171-4"><a href="pop-genetics.html#cb171-4" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;gridExtra&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;gridExtra&quot;</span>)</span>
+<span id="cb171-5"><a href="pop-genetics.html#cb171-5" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb171-6"><a href="pop-genetics.html#cb171-6" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb171-7"><a href="pop-genetics.html#cb171-7" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb171-8"><a href="pop-genetics.html#cb171-8" tabindex="-1"></a></span>
+<span id="cb171-9"><a href="pop-genetics.html#cb171-9" tabindex="-1"></a></span>
+<span id="cb171-10"><a href="pop-genetics.html#cb171-10" tabindex="-1"></a>grantpmsum<span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/module5-epidemi/Grants_pubmed_summary.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">stringsAsFactor=</span><span class="cn">FALSE</span>, <span class="at">check.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb171-11"><a href="pop-genetics.html#cb171-11" tabindex="-1"></a>grantpmsum</span>
+<span id="cb171-12"><a href="pop-genetics.html#cb171-12" tabindex="-1"></a><span class="co">#&gt;                  Cancer Grants Pubmed</span></span>
+<span id="cb171-13"><a href="pop-genetics.html#cb171-13" tabindex="-1"></a><span class="co">#&gt; 1               Biliary      0     72</span></span>
+<span id="cb171-14"><a href="pop-genetics.html#cb171-14" tabindex="-1"></a><span class="co">#&gt; 2               Bladder      0    141</span></span>
+<span id="cb171-15"><a href="pop-genetics.html#cb171-15" tabindex="-1"></a><span class="co">#&gt; 3                 Brain      2    294</span></span>
+<span id="cb171-16"><a href="pop-genetics.html#cb171-16" tabindex="-1"></a><span class="co">#&gt; 4                Breast     34   1147</span></span>
+<span id="cb171-17"><a href="pop-genetics.html#cb171-17" tabindex="-1"></a><span class="co">#&gt; 5                Cervix      9    408</span></span>
+<span id="cb171-18"><a href="pop-genetics.html#cb171-18" tabindex="-1"></a><span class="co">#&gt; 6            Colorectum     40    857</span></span>
+<span id="cb171-19"><a href="pop-genetics.html#cb171-19" tabindex="-1"></a><span class="co">#&gt; 7                   Eye      2     27</span></span>
+<span id="cb171-20"><a href="pop-genetics.html#cb171-20" tabindex="-1"></a><span class="co">#&gt; 8      Hodgkin lymphoma      0     21</span></span>
+<span id="cb171-21"><a href="pop-genetics.html#cb171-21" tabindex="-1"></a><span class="co">#&gt; 9                Kaposi      0      6</span></span>
+<span id="cb171-22"><a href="pop-genetics.html#cb171-22" tabindex="-1"></a><span class="co">#&gt; 10               Kidney      0    133</span></span>
+<span id="cb171-23"><a href="pop-genetics.html#cb171-23" tabindex="-1"></a><span class="co">#&gt; 11               Larynx      0      8</span></span>
+<span id="cb171-24"><a href="pop-genetics.html#cb171-24" tabindex="-1"></a><span class="co">#&gt; 12            Leukaemia     18    515</span></span>
+<span id="cb171-25"><a href="pop-genetics.html#cb171-25" tabindex="-1"></a><span class="co">#&gt; 13                Liver     97   2077</span></span>
+<span id="cb171-26"><a href="pop-genetics.html#cb171-26" tabindex="-1"></a><span class="co">#&gt; 14                 Lung     22    773</span></span>
+<span id="cb171-27"><a href="pop-genetics.html#cb171-27" tabindex="-1"></a><span class="co">#&gt; 15             Melanoma      0     99</span></span>
+<span id="cb171-28"><a href="pop-genetics.html#cb171-28" tabindex="-1"></a><span class="co">#&gt; 16         Mesothelioma      6     58</span></span>
+<span id="cb171-29"><a href="pop-genetics.html#cb171-29" tabindex="-1"></a><span class="co">#&gt; 17     Multiple myeloma      0    104</span></span>
+<span id="cb171-30"><a href="pop-genetics.html#cb171-30" tabindex="-1"></a><span class="co">#&gt; 18                Nasal      0     14</span></span>
+<span id="cb171-31"><a href="pop-genetics.html#cb171-31" tabindex="-1"></a><span class="co">#&gt; 19          Nasopharynx     24   1113</span></span>
+<span id="cb171-32"><a href="pop-genetics.html#cb171-32" tabindex="-1"></a><span class="co">#&gt; 20 Non-Hodgkin lymphoma      0     55</span></span>
+<span id="cb171-33"><a href="pop-genetics.html#cb171-33" tabindex="-1"></a><span class="co">#&gt; 21                 Skin      0     32</span></span>
+<span id="cb171-34"><a href="pop-genetics.html#cb171-34" tabindex="-1"></a><span class="co">#&gt; 22           Oesophagus      7    404</span></span>
+<span id="cb171-35"><a href="pop-genetics.html#cb171-35" tabindex="-1"></a><span class="co">#&gt; 23                 Oral      5    229</span></span>
+<span id="cb171-36"><a href="pop-genetics.html#cb171-36" tabindex="-1"></a><span class="co">#&gt; 24                Ovary     14    354</span></span>
+<span id="cb171-37"><a href="pop-genetics.html#cb171-37" tabindex="-1"></a><span class="co">#&gt; 25             Pancreas      2    141</span></span>
+<span id="cb171-38"><a href="pop-genetics.html#cb171-38" tabindex="-1"></a><span class="co">#&gt; 26                Penis      0      7</span></span>
+<span id="cb171-39"><a href="pop-genetics.html#cb171-39" tabindex="-1"></a><span class="co">#&gt; 27             Placenta      0      9</span></span>
+<span id="cb171-40"><a href="pop-genetics.html#cb171-40" tabindex="-1"></a><span class="co">#&gt; 28             Prostate      6    322</span></span>
+<span id="cb171-41"><a href="pop-genetics.html#cb171-41" tabindex="-1"></a><span class="co">#&gt; 29              Sarcoma      2    216</span></span>
+<span id="cb171-42"><a href="pop-genetics.html#cb171-42" tabindex="-1"></a><span class="co">#&gt; 30      Small intestine      0     11</span></span>
+<span id="cb171-43"><a href="pop-genetics.html#cb171-43" tabindex="-1"></a><span class="co">#&gt; 31              Stomach      5    455</span></span>
+<span id="cb171-44"><a href="pop-genetics.html#cb171-44" tabindex="-1"></a><span class="co">#&gt; 32               Testis      0     18</span></span>
+<span id="cb171-45"><a href="pop-genetics.html#cb171-45" tabindex="-1"></a><span class="co">#&gt; 33               Thymus      0      3</span></span>
+<span id="cb171-46"><a href="pop-genetics.html#cb171-46" tabindex="-1"></a><span class="co">#&gt; 34              Thyroid      2    231</span></span>
+<span id="cb171-47"><a href="pop-genetics.html#cb171-47" tabindex="-1"></a><span class="co">#&gt; 35               Uterus      0     72</span></span>
+<span id="cb171-48"><a href="pop-genetics.html#cb171-48" tabindex="-1"></a><span class="co">#&gt; 36                Vulva      0      8</span></span>
+<span id="cb171-49"><a href="pop-genetics.html#cb171-49" tabindex="-1"></a></span>
+<span id="cb171-50"><a href="pop-genetics.html#cb171-50" tabindex="-1"></a>HKCancer_inc <span class="ot">&lt;-</span> HKCancer[HKCancer<span class="sc">$</span>Type<span class="sc">==</span><span class="st">&#39;incidence&#39;</span>,]</span>
+<span id="cb171-51"><a href="pop-genetics.html#cb171-51" tabindex="-1"></a>HKCancer_inc_sum <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">incidence=</span><span class="fu">colSums</span>(HKCancer_inc[,<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)]))</span>
+<span id="cb171-52"><a href="pop-genetics.html#cb171-52" tabindex="-1"></a></span>
+<span id="cb171-53"><a href="pop-genetics.html#cb171-53" tabindex="-1"></a>HKCancer_mort <span class="ot">&lt;-</span> HKCancer[HKCancer<span class="sc">$</span>Type<span class="sc">==</span><span class="st">&#39;mortality&#39;</span>,]</span>
+<span id="cb171-54"><a href="pop-genetics.html#cb171-54" tabindex="-1"></a>HKCancer_mort_sum <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mortality=</span><span class="fu">colSums</span>(HKCancer_inc[,<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)]))</span>
+<span id="cb171-55"><a href="pop-genetics.html#cb171-55" tabindex="-1"></a></span>
+<span id="cb171-56"><a href="pop-genetics.html#cb171-56" tabindex="-1"></a>HKCancer_compare <span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">cancer=</span>grantpmsum<span class="sc">$</span>Cancer, <span class="at">grants=</span>grantpmsum<span class="sc">$</span>Grants, <span class="at">pubmed=</span>grantpmsum<span class="sc">$</span>Pubmed, <span class="at">incidence=</span><span class="fu">colSums</span>(HKCancer_inc[,<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)]), <span class="at">mortality=</span><span class="fu">colSums</span>(HKCancer_mort[,<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)]))</span>
+<span id="cb171-57"><a href="pop-genetics.html#cb171-57" tabindex="-1"></a></span>
+<span id="cb171-58"><a href="pop-genetics.html#cb171-58" tabindex="-1"></a>gp<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_compare, <span class="fu">aes</span>(<span class="at">y=</span>grants, <span class="at">x=</span>pubmed)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span>  <span class="fu">geom_label_repel</span>(<span class="at">data=</span>HKCancer_compare, <span class="fu">aes</span>(<span class="at">label=</span>cancer),  <span class="at">nudge_x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">3.5</span>,<span class="at">label.size =</span> <span class="cn">NA</span> ,<span class="at">min.segment.length =</span><span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">&#39;lines&#39;</span>), <span class="at">max.overlaps =</span> <span class="dv">45</span>, <span class="at">box.padding =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">3</span>, <span class="at">label.y =</span> <span class="dv">90</span>)</span>
+<span id="cb171-59"><a href="pop-genetics.html#cb171-59" tabindex="-1"></a></span>
+<span id="cb171-60"><a href="pop-genetics.html#cb171-60" tabindex="-1"></a>pinc<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_compare, <span class="fu">aes</span>(<span class="at">y=</span>pubmed, <span class="at">x=</span>incidence)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span>  <span class="fu">geom_label_repel</span>(<span class="at">data=</span>HKCancer_compare, <span class="fu">aes</span>(<span class="at">label=</span>cancer),  <span class="at">nudge_x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">3.5</span>,<span class="at">label.size =</span> <span class="cn">NA</span> ,<span class="at">min.segment.length =</span><span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">&#39;lines&#39;</span>), <span class="at">max.overlaps =</span> <span class="dv">15</span>, <span class="at">box.padding =</span> <span class="fl">0.5</span>)<span class="sc">+</span> <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">40000</span>, <span class="at">label.y =</span> <span class="dv">0</span>)</span>
+<span id="cb171-61"><a href="pop-genetics.html#cb171-61" tabindex="-1"></a></span>
+<span id="cb171-62"><a href="pop-genetics.html#cb171-62" tabindex="-1"></a>pmor<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_compare, <span class="fu">aes</span>(<span class="at">y=</span>pubmed, <span class="at">x=</span>mortality)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span>  <span class="fu">geom_label_repel</span>(<span class="at">data=</span>HKCancer_compare, <span class="fu">aes</span>(<span class="at">label=</span>cancer),  <span class="at">nudge_x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">3.5</span>,<span class="at">label.size =</span> <span class="cn">NA</span> ,<span class="at">min.segment.length =</span><span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">&#39;lines&#39;</span>), <span class="at">max.overlaps =</span> <span class="dv">15</span>, <span class="at">box.padding =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">40000</span>, <span class="at">label.y =</span> <span class="dv">0</span>)</span>
+<span id="cb171-63"><a href="pop-genetics.html#cb171-63" tabindex="-1"></a></span>
+<span id="cb171-64"><a href="pop-genetics.html#cb171-64" tabindex="-1"></a></span>
+<span id="cb171-65"><a href="pop-genetics.html#cb171-65" tabindex="-1"></a>ginc<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_compare, <span class="fu">aes</span>(<span class="at">y=</span>grants, <span class="at">x=</span>incidence)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span>  <span class="fu">geom_label_repel</span>(<span class="at">data=</span>HKCancer_compare, <span class="fu">aes</span>(<span class="at">label=</span>cancer),  <span class="at">nudge_x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">3.5</span>,<span class="at">label.size =</span> <span class="cn">NA</span> ,<span class="at">min.segment.length =</span><span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">&#39;lines&#39;</span>), <span class="at">max.overlaps =</span> <span class="dv">40</span>, <span class="at">box.padding =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">40000</span>, <span class="at">label.y =</span> <span class="dv">0</span>)</span>
+<span id="cb171-66"><a href="pop-genetics.html#cb171-66" tabindex="-1"></a></span>
+<span id="cb171-67"><a href="pop-genetics.html#cb171-67" tabindex="-1"></a>gmor<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_compare, <span class="fu">aes</span>(<span class="at">y=</span>grants, <span class="at">x=</span>mortality)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span>  <span class="fu">geom_label_repel</span>(<span class="at">data=</span>HKCancer_compare, <span class="fu">aes</span>(<span class="at">label=</span>cancer),  <span class="at">nudge_x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">3.5</span>,<span class="at">label.size =</span> <span class="cn">NA</span> ,<span class="at">min.segment.length =</span><span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">&#39;lines&#39;</span>), <span class="at">max.overlaps =</span> <span class="dv">40</span>, <span class="at">box.padding =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">40000</span>, <span class="at">label.y =</span> <span class="dv">0</span>)</span>
+<span id="cb171-68"><a href="pop-genetics.html#cb171-68" tabindex="-1"></a></span>
+<span id="cb171-69"><a href="pop-genetics.html#cb171-69" tabindex="-1"></a><span class="fu">grid.arrange</span>(gp,ginc,gmor,pinc, pmor, <span class="at">ncol=</span><span class="dv">3</span>)</span></code></pre></div>
+<p><img src="BMDatSci_files/figure-html/grants%20versus%20incidence%20and%20mortality-1.png" width="960" /></p>
+</div>
+</div>
+<div id="open-discussion" class="section level3 hasAnchor" number="8.1.4">
+<h3><span class="header-section-number">8.1.4</span> Open discussion<a href="pop-genetics.html#open-discussion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As a group discuss what cancer type would be most worthy of funding in Hong Kong. Discuss what statistics and figures could be used to support your decision. If possible also discuss other data/analyses that can be performed and/or other diseases that are also in need of funding in Hong Kong.
+–&gt;</p>
 <!--
 
 
@@ -877,7 +1735,383 @@ the coefficients 1/2 and 1/4 are based on quantitative genetic theory (Mather &a
 ## Case study 1: Genetic sequence analysis
 
 ### Sequence motif and k-mer
--->
+
+**Scenario:** You are a biomedical data science trainee, and you want to use 
+some real case studies to understand how to perform sequence analysis. From these
+practices, you hope to understand how the sickle cell disease happens and how 
+the choice of gene editing site makes a potential therapy.
+
+From the lecture, you already understood that:
+
+1. the sickle cell disease happens due to a single nucleotide mutation on HBB (
+coding the hemoglobin bata chain for adult use), causing a missense mutation on 
+amino acid 7 from E to V. 
+You can view more from ClinVar 
+[RCV000016574](https://www.ncbi.nlm.nih.gov/clinvar/RCV000016574/) and 
+OMIM [603903](https://www.omim.org/entry/603903).
+2. the therapy was to re-activate another gene HBG (gamma chain) that was used 
+in the fetus. The HBG gene was repressed by a transcription factor BCL11A (as a 
+protein) that serves as a repressor to HBG.
+
+**Q1.** How can we understand where the protein of the BCL11A gene prefers to 
+bind on DNA?
+
+<details>
+<summary>**Answers:** </summary>
+- Using the binding motif database JASPAR: BCL11A's motif is
+  [MA2324.1](https://jaspar.elixir.no/matrix/MA2324.1/)
+- It collected the sequences of many binding sites already, check the 
+  `FASTA file` or the 
+  [HTML file](https://jaspar.elixir.no/sites/MA2324.1).
+- It's Motif can be viewed as this file
+  ![MA2324.1 Motif logo](https://jaspar.elixir.no/static/logos/all/svg/MA2324.1.svg)
+</details>
+<br />
+
+
+**Q2.** What is the meaning of position frequency matrix (PFM) and how to 
+convert it into a position probability matrix (PPM, often used as position 
+weight matrix PWM)?
+
+
+``` r
+MA2324_PFM <- matrix(c(
+  343,    180,    125,   5724,    155,    143,   4495,
+  5024,   120,    281,     92,   5855,   5964,    641,
+  591,    165,   5747,    100,    141,     55,    385,
+  307,   5800,    112,    349,    114,    103,    744),
+  nrow = 4, byrow = TRUE
+)
+rownames(MA2324_PFM) = c("A", "C", "G", "T")
+MA2324_PFM
+#>   [,1] [,2] [,3] [,4] [,5] [,6] [,7]
+#> A  343  180  125 5724  155  143 4495
+#> C 5024  120  281   92 5855 5964  641
+#> G  591  165 5747  100  141   55  385
+#> T  307 5800  112  349  114  103  744
+
+# TODO: define position probability matrix
+
+```
+
+<details>
+<summary>**HowTo:** </summary>
+
+``` r
+MA2324_PWM = MA2324_PFM / sum(MA2324_PFM[, 1])
+MA2324_PWM
+#>         [,1]       [,2]       [,3]       [,4]       [,5]        [,6]       [,7]
+#> A 0.05474860 0.02873105 0.01995211 0.91364725 0.02474062 0.022825219 0.71747805
+#> C 0.80191540 0.01915403 0.04485235 0.01468476 0.93455706 0.951955307 0.10231445
+#> G 0.09433360 0.02633679 0.91731844 0.01596169 0.02250599 0.008778931 0.06145251
+#> T 0.04900239 0.92577813 0.01787709 0.05570630 0.01819633 0.016440543 0.11875499
+```
+</details>
+<br />
+
+**Q3.** Let's make the Motif logo ourselves by using 
+[weblogo.threeplusone.com](https://weblogo.threeplusone.com/create.cgi)
+
+You may use the first 500 lines of the sequences that we compiled: 
+  [MA2324.1.sites-h500.txt](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/module4-genetics/MA2324.1.sites-h500.txt)
+
+<details>
+<summary>**HowTo:** </summary>
+- Copy and paste to [weblogo.threeplusone.com](https://weblogo.threeplusone.com/create.cgi)
+- Check which position has the highest information content in _bit_.
+</details>
+<br />
+
+**Q4.** Given the motif, how good is a certain sequence in terms of consistency?
+Take these two sequences as examples:
+
+- sequence 1: `CGGACCA` (>hg38_chr1:1000830-1000836(+))
+- sequence 2: `CTGACCG` (hg38_chr1:940785-940791(-))
+
+
+
+``` r
+# Use this One hot encoding function
+Onehot_Encode <- function(sequence) {
+  idx = match(strsplit(sequence, '')[[1]], c("A", "C", "G", "T"))
+  seq_mat = matrix(0, 4, length(idx))
+  for (i in 1:length(idx)) seq_mat[idx[i], i] = 1
+  seq_mat
+}
+
+seq_vec1 = Onehot_Encode("CGGACCA")
+seq_vec2 = Onehot_Encode("CTGACCG")
+seq_vec2
+#>      [,1] [,2] [,3] [,4] [,5] [,6] [,7]
+#> [1,]    0    0    0    1    0    0    0
+#> [2,]    1    0    0    0    1    1    0
+#> [3,]    0    0    1    0    0    0    1
+#> [4,]    0    1    0    0    0    0    0
+```
+
+To calculate the consistency score of a certain sequence $S$ to a given motif 
+($M$ for the motif position weight matrix), you may recall what we 
+introduced in the lecture (same as the reference papers [1, 2]):
+
+$P(S|M) = \prod_{i=1}^k{M[s_i, i]}$
+
+Alternatively, you can also transform the sequence via our one hot encoding.
+Now, please try and see if you can calculate the motif score for the above two
+sequences (possibly in log10-scale).
+
+<details>
+<summary>**Example solution scripts:** </summary>
+- Meaning of motif score function: the log-likelihood of seeing a binding site 
+  sequence given the binding motif.
+- Manual calculation step by step:
+  
+  ``` r
+  colSums(seq_vec1 * MA2324_PWM)
+  #> [1] 0.80191540 0.02633679 0.91731844 0.91364725 0.93455706 0.95195531 0.71747805
+  
+  colSums(seq_vec2 * MA2324_PWM)
+  #> [1] 0.80191540 0.92577813 0.91731844 0.91364725 0.93455706 0.95195531 0.06145251
+  
+  seq_score1 = sum(log10(colSums(seq_vec1 * MA2324_PWM)))
+  seq_score2 = sum(log10(colSums(seq_vec2 * MA2324_PWM)))
+  
+  c(seq_score1, seq_score2)
+  #> [1] -1.946979 -1.468304
+  ```
+</details>
+<br />
+
+**Q5.** Given a segment of a long sequence, how to find the potential motif 
+sites?
+
+- Scan the whole sequence
+- Find the best matched position
+
+Here, we will take the gene [HBG2](https://www.ncbi.nlm.nih.gov/gene/3048)
+as an example, with the initial sequence segment as follows:
+
+```{}
+ref|NC_000011.10|:c5255019-5254782 Homo sapiens chromosome 11, GRCh38.p14 Primary Assembly
+ATAAAAAAAATTAAGCAGCAGTATCCTCTTGGGGGCCCCTTCCCCACACTATCTCAATGCAAATATCTGT
+CTGAAACGGTCCCTGGCTAAACTCCACCCATGGGTTGGCCAGCCTTGCCTTGACCAATAGCCTTGACAAG
+GCAAACTTGACCAATAGTCTTAGAGTATCCAGTGAGGCCAGGGGCCGGCGGCTGGCTAGGGATGAAGAAT
+AAAAGGAAGCACCCTTCAGCAGTTCCAC
+```
+
+We may load the sequence into R by our `Onehot_Encode` function:
+
+``` r
+HBG2_segment <- paste0(
+  "ATAAAAAAAATTAAGCAGCAGTATCCTCTTGGGGGCCCCTTCCCCACACTATCTCAATGCAAATATCTGT",
+  "CTGAAACGGTCCCTGGCTAAACTCCACCCATGGGTTGGCCAGCCTTGCCTTGACCAATAGCCTTGACAAG",
+  "GCAAACTTGACCAATAGTCTTAGAGTATCCAGTGAGGCCAGGGGCCGGCGGCTGGCTAGGGATGAAGAAT",
+  "AAAAGGAAGCACCCTTCAGCAGTTCCAC"
+)
+HBG2_segment
+#> [1] "ATAAAAAAAATTAAGCAGCAGTATCCTCTTGGGGGCCCCTTCCCCACACTATCTCAATGCAAATATCTGTCTGAAACGGTCCCTGGCTAAACTCCACCCATGGGTTGGCCAGCCTTGCCTTGACCAATAGCCTTGACAAGGCAAACTTGACCAATAGTCTTAGAGTATCCAGTGAGGCCAGGGGCCGGCGGCTGGCTAGGGATGAAGAATAAAAGGAAGCACCCTTCAGCAGTTCCAC"
+
+HBG2_seg_vec = Onehot_Encode(HBG2_segment)
+# HBG2_seg_vec
+```
+
+<details>
+<summary>**Example solution scripts:** </summary>
+
+``` r
+# TODO: try it yourself
+
+```
+</details>
+<br />
+
+**Q6.** With the same sequence above, count the frequency of each 3-mer:
+
+- List the all 3-mer 
+- Count each of the 3-mer in the sequence
+
+<details>
+<summary>**Example solution scripts:** </summary>
+
+``` r
+# TODO: try it yourself
+
+# Option 1: keep using one hot encoding matrix
+
+# Option 2: substr(x, start, stop) 
+# you may make a vector with k-mer as name and use the above substr as index
+# this is related to dictionary data structure
+
+k = 3
+bases = c("A", "C", "G", "T")
+kmer_mat = unique(t(combn(rep(bases, k), m = k)))
+kmer = apply(kmer_mat, 1, paste, collapse='')
+
+kmer_count = rep(0, length(kmer))
+names(kmer_count) = kmer
+
+# Keep trying
+```
+</details>
+<br />
+
+
+### Functional mapping
+In this part, we will see how the sequence features may help predict molecular
+phenotype, namely splicing efficiency. You may read more in the original paper
+[Hou & Huang 2021](https://doi.org/10.1093/bioinformatics/btac321) [4], if you 
+are interested.
+
+Let's look at the data
+[plicing_efficiency_pred.csv](https://github.com/StatBiomed/BMDS-book/blob/main/notebooks/module4-genetics/plicing_efficiency_pred.csv)
+
+- columns 1 & 2: gene ID and gene name (1850 genes)
+- column 3: splicing efficiency (log scale)
+- columns 4 to 99: 96 octamer features (the normalized frequency in intron 
+  sequence)
+
+**Q7.** Now, we can try using the multiple linear regression model to check how 
+predictive the octamer frequencies are for splicing efficiency.
+
+- Load the data (scripts below)
+- Linear regression model
+- Using 10-fold cross-validation to evaluate the model
+- You may propose other alternative methods for assessing the 
+  association between octamer and splicing efficiency.
+
+  ```
+  library(caret)
+  
+  df_splicing <- read.csv("plicing_efficiency_pred.csv")
+  
+  # Define training control
+  # We also want to have savePredictions=TRUE & classProbs=TRUE
+  set.seed(0) 
+  my_trControl <- trainControl(method = "cv", number = 10, 
+                               savePredictions = TRUE)
+  
+  # TODO: try it yourself to fill the rest
+  ```
+<br />
+
+
+### References
+1. Crooks, G. E., Hon, G., Chandonia, J. M., & Brenner, S. E. (2004). 
+   [WebLogo: a sequence logo generator](https://doi.org/10.1101/gr.849004).
+   Genome research, 14(6), 1188-1190.
+2. Schneider, T. D., & Stephens, R. M. (1990). 
+   [Sequence logos: a new way to display consensus sequences](https://doi.org/10.1093/nar/18.20.6097). 
+   Nucleic acids research, 18(20), 6097-6100.
+3. Canver, M. C., Smith, E. C., Sher, F., Pinello, L., Sanjana, N. E., Shalem,
+   O., ... & Bauer, D. E. (2015). 
+   [BCL11A enhancer dissection by Cas9-mediated in situ saturating mutagenesis](https://www.nature.com/articles/nature15521). 
+   Nature, 527(7577), 192-197.
+4. Hou, R., & Huang, Y. (2022). 
+   [Genomic sequences and RNA-binding proteins predict RNA splicing efficiency 
+   in various single-cell contexts](https://doi.org/10.1093/bioinformatics/btac321).
+   Bioinformatics, 38(12), 3231-3237.
+5. Splicing efficiency prediction dataset at
+   https://github.com/StatBiomed/scRNA-efficiency-prediction. 
+    <details>
+    <summary>**scripts to subset the data :** </summary>
+   ```{}
+    df_Y = read.csv(paste0(
+      "https://github.com/StatBiomed/scRNA-efficiency-prediction/", 
+      "raw/refs/heads/main/data/estimated/sck562_all_stochastical_gamma.csv"
+    ), row.names = 1)
+    
+    df_X0 = read.csv(paste0(
+      "https://github.com/StatBiomed/scRNA-efficiency-prediction/", 
+      "raw/refs/heads/main/data/features/humanproteincode_octamer_gene_level.csv"
+    ))
+    
+    df_use = merge(df_Y, df_X0, by="gene_id", incomparables = NA)
+    df_use$velocity_gamma = -log(df_use$velocity_gamma + 0.01)
+    colnames(df_use)[3] = "splicing_efficiency"
+    # df_use = df_use[-1600, ]
+    
+    df_use[, 4:ncol(df_use)] = df_use[, 4:ncol(df_use)] + 0.00001
+    df_use[, 3:ncol(df_use)] = round(df_use[, 3:ncol(df_use)], digits=6)
+    
+    options(digits = 3)
+    write.csv(df_use, "plicing_efficiency_pred.csv", 
+              quote = FALSE, row.names = FALSE)
+    ```
+    </details>
+    <br />
+
+#### Potential resources
+
+<details>
+<summary>**Scan motif** </summary>
+```
+# For Q5
+motif_score_all = rep(NA, ncol(HBG2_seg_vec)-ncol(MA2324_PWM))
+for (i in 1:(ncol(HBG2_seg_vec) - ncol(MA2324_PWM))) {
+  motif_score_all[i] = sum(log10(colSums(
+    HBG2_seg_vec[, i:(i + ncol(MA2324_PWM) - 1)] * MA2324_PWM
+    )))
+}
+motif_score_all[1:5]
+
+sort(motif_score_all, decreasing = TRUE)[1:7]
+
+# For Q4
+# Potential motif score function
+# motif_score <- function(sequence, motif_PWM) {
+#   seq_vec = Onehot_Encode(sequence)
+#   sum(log(colSums(seq_vec * motif_PWM)))
+# }
+```
+</details>
+<br />
+
+
+<details>
+<summary>**K-mer counting** </summary>
+```
+# For Q6
+kmer_count = rep(0, length(kmer))
+names(kmer_count) = kmer
+for (i in 1:(nchar(HBG2_segment) - k + 1)) {
+  a_kmer = substr(HBG2_segment, i, i+2)
+  kmer_count[a_kmer] = kmer_count[a_kmer] + 1
+}
+kmer_count
+```
+</details>
+<br />
+
+
+<details>
+<summary>**Cross-validation for linear regression** </summary>
+```
+# For Q7
+# Train the model
+cv_model <- train(splicing_efficiency ~ ., 
+                  data = df_splicing[, 3:ncol(df_splicing)], 
+                  method = "lm", trControl = my_trControl)
+
+# Check model performance
+print(cv_model)
+cor(cv_model$pred$obs, cv_model$pred$pred)
+
+ggplot(cv_model$pred, aes(x=obs, y=pred)) + 
+  geom_point()
+```
+</details>
+<br />
+
+
+
+
+
+<!-- Since it is only one amino acid change, you are curious how the protein  -->
+<!-- structure changes. You copy the protein sequence from UniProt [P68871](https://www.uniprot.org/uniprotkb/P68871/entry#sequences)  -->
+<!-- and put it into [AlphaFold server](https://alphafoldserver.com). Similarly, you -->
+<!-- can introduce the disease mutation and predict the structure again. -->
+<!-- Note, the predicted structure is also available: -->
+<!-- [AF-P68871-F1-v4](https://alphafold.ebi.ac.uk/entry/P68871) -->
+<p>–&gt;</p>
 <!--
 
 
@@ -1171,43 +2405,43 @@ lr_fm3 = as.formula(paste("SEF_log ~", paste(colnames(df)[c(2,6:19)], collapse="
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/statbiomed/BMDS-book/tree/main/02-data_topics.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["BMDatSci.pdf", "BMDatSci.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/statbiomed/BMDS-book/tree/main/02-data_topics.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["BMDatSci.pdf", "BMDatSci.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

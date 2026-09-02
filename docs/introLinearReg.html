@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Introduction to Linear Regression | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Introduction to Linear Regression | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2025-10-05" />
+<meta name="date" content="2026-09-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -813,7 +814,7 @@ than one predictor variable. It is represented as:
     \end{array}
 \]</span>
 For each sample <span class="math inline">\(i\)</span>, the predicted value by the model is:<br />
-<span class="math inline">\(\qquad Y_{i,e} = \alpha + \beta_1*X_1^{(i)} + \beta_2*X_2^{(i)} + \dots + \beta_p*X_p^{(i)}\)</span></p>
+<span class="math inline">\(\qquad Y_{i,e} = \alpha + \beta_1*X_1^{(i)}  + \beta_2*X_2^{(i)} + \dots  + \beta_p*X_p^{(i)}\)</span></p>
 <p>Define the sum of squares
 <span class="math display">\[   S(\alpha,\beta_1,\ldots,\beta_p) = \sum_{i=1}^n
 \left\{     Y_i -Y_{i,e}\right\}^2  =\sum_{i=1}^n \left\{
@@ -836,7 +837,7 @@ value of the sum squares with the estimated values of the parameters.</p>
 <p>Consider two regression models</p>
 <ol style="list-style-type: upper-roman">
 <li><p><span class="math inline">\(\quad ~ Y_e = \alpha + \beta_1*X_1\)</span></p></li>
-<li><p><span class="math inline">\(\quad \tilde Y_e = \alpha + \beta_1*X_1 + \beta_2*X_2\)</span></p></li>
+<li><p><span class="math inline">\(\quad  \tilde Y_e = \alpha + \beta_1*X_1  + \beta_2*X_2\)</span></p></li>
 </ol>
 <p>The model (II) has one more input variable <span class="math inline">\(X_2\)</span>.</p>
 <p>The <span class="math inline">\(SSE_I\)</span> of Model (I) is the minimum of</p>
@@ -1029,43 +1030,43 @@ Model 3 does not lead to any improvement.</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/statbiomed/BMDS-book/tree/main/01-introduction.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["BMDatSci.pdf", "BMDatSci.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/statbiomed/BMDS-book/tree/main/01-introduction.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["BMDatSci.pdf", "BMDatSci.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
 });
 });
 </script>
