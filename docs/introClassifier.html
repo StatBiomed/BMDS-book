@@ -700,8 +700,9 @@ leave-one-out cross-validation (LOOCV).</p>
 <h3><span class="header-section-number">4.3.2</span> K-fold CV with caret package<a href="introClassifier.html#k-fold-cv-with-caret-package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s load the dataset (again) first.</p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="introClassifier.html#cb132-1" tabindex="-1"></a><span class="co"># Load data</span></span>
-<span id="cb132-2"><a href="introClassifier.html#cb132-2" tabindex="-1"></a><span class="fu">library</span>(mlbench)</span>
-<span id="cb132-3"><a href="introClassifier.html#cb132-3" tabindex="-1"></a><span class="fu">data</span>(PimaIndiansDiabetes)</span></code></pre></div>
+<span id="cb132-2"><a href="introClassifier.html#cb132-2" tabindex="-1"></a><span class="co"># data(PimaIndiansDiabetes, package = &quot;mlbench&quot;)</span></span>
+<span id="cb132-3"><a href="introClassifier.html#cb132-3" tabindex="-1"></a>PimaIndiansDiabetes <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;mlbench_v2.1-9_PimaIndiansDiabetes.csv&quot;</span>, </span>
+<span id="cb132-4"><a href="introClassifier.html#cb132-4" tabindex="-1"></a>                               <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>The procedure of cross-validation is straightforward; therefore, we may manually
 implement from scratch (try it yourself with a for loop).</p>
 <p>On the other hand, there are also packages supporting the use of cross-validation

@@ -18,8 +18,9 @@ leave-one-out cross-validation (LOOCV).
 Let's load the dataset (again) first.
 ```{r}
 # Load data
-library(mlbench)
-data(PimaIndiansDiabetes)
+# data(PimaIndiansDiabetes, package = "mlbench")
+PimaIndiansDiabetes = read.csv("mlbench_v2.1-9_PimaIndiansDiabetes.csv", 
+                               stringsAsFactors = TRUE)
 ```
 
 The procedure of cross-validation is straightforward; therefore, we may manually 
