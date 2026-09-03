@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Introduction to Linear Regression | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Introduction to Linear Regression | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2026-09-02" />
+<meta name="date" content="2026-09-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -386,7 +386,7 @@ against the input variable (<code>X</code>) to see what the difference between <
 <span id="cb91-10"><a href="introLinearReg.html#cb91-10" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>yact), <span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span>       <span class="co"># first layer</span></span>
 <span id="cb91-11"><a href="introLinearReg.html#cb91-11" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>ypred), <span class="at">colour=</span><span class="st">&quot;darkgreen&quot;</span>) <span class="sc">+</span>   <span class="co"># second layer</span></span>
 <span id="cb91-12"><a href="introLinearReg.html#cb91-12" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;Actual vs Predicted values from the dummy dataset&#39;</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig2-simu-scatter-1.png" width="75%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig2-simu-scatter-1.png" alt="" width="75%" /></p>
 </div>
 <div id="least-squares-method" class="section level3 hasAnchor" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Least squares method<a href="introLinearReg.html#least-squares-method" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -464,7 +464,7 @@ earlier assumed model, just to get a better visual understanding.</p>
 <span id="cb95-7"><a href="introLinearReg.html#cb95-7" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>ypred2, <span class="at">colour=</span><span class="st">&quot;OLS&quot;</span>)) <span class="sc">+</span>        <span class="co"># third layer</span></span>
 <span id="cb95-8"><a href="introLinearReg.html#cb95-8" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">name=</span><span class="st">&quot;Models&quot;</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Guess&quot;</span><span class="ot">=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;OLS&quot;</span><span class="ot">=</span><span class="st">&quot;red&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb95-9"><a href="introLinearReg.html#cb95-9" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;Actual vs Predicted with guessed parameters vs Predicted with calculated parameters&#39;</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig2-simu-OLS-1.png" width="75%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig2-simu-OLS-1.png" alt="" width="75%" /></p>
 <p>As we can see, the <code>ypred2</code> and <code>ypred</code> are more or less overlapping since the
 respective values of ɑ and β are not very different.</p>
 <p>Next, we will explore other methods of determining model efficacy by using the
@@ -713,7 +713,7 @@ their relationship:</p>
 <span id="cb102-4"><a href="introLinearReg.html#cb102-4" tabindex="-1"></a><span class="fu">ggplot</span>(marketing, <span class="fu">aes</span>(<span class="at">x=</span>youtube, <span class="at">y=</span>sales)) <span class="sc">+</span> </span>
 <span id="cb102-5"><a href="introLinearReg.html#cb102-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb102-6"><a href="introLinearReg.html#cb102-6" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;YouTube vs Sales&#39;</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig2-sale-scatter-1.png" width="75%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig2-sale-scatter-1.png" alt="" width="75%" /></p>
 <p>As YouTube advertisement cost increases, sales also increase – they are
 positively correlated!</p>
 <p>Now with the linear model <code>lm</code> function, let’s create a line of best fit using
@@ -796,7 +796,7 @@ YouTube advertising costs to find the line of best fit:</p>
 <span id="cb108-4"><a href="introLinearReg.html#cb108-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>sales), <span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb108-5"><a href="introLinearReg.html#cb108-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>sales_pred), <span class="at">colour=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
 <span id="cb108-6"><a href="introLinearReg.html#cb108-6" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;YouTube vs Sales&#39;</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig2-sale-pred-1.png" width="75%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig2-sale-pred-1.png" alt="" width="75%" /></p>
 <p>In the next step, we will add more features as predictors and see whether it improves our model. Go to the the notebook called <code>02-linearReg-05.Rmd</code>.</p>
 </div>
 <div id="multiple-regression" class="section level2 hasAnchor" number="3.4">

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Introduction to Hypothesis test | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Introduction to Hypothesis test | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2026-09-02" />
+<meta name="date" content="2026-09-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -411,7 +411,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <p><br /></p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="introHypoTest.html#cb59-1" tabindex="-1"></a>fig4_dice</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig4-dice-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig4-dice-1.png" alt="" width="60%" /></p>
 <p>Here, if we sum up the probability of the events at least as extreme as we observed, namely seeing 43 or more sixes, we can have a probability (or <code>p-value</code>; see definition below), using math or R function <code>1 - pbinom(42, 100, 1/6)</code>.</p>
 <p><span class="math display">\[
 p(k \geq 43 | p=1/6) = \sum_{k=34}^{n=100} \binom{100}{k} p^k (1-p)^{(100-k)} = 5.4\times 10^{-10}
@@ -579,7 +579,7 @@ p(k \geq 43 | p=1/6) = \sum_{k=34}^{n=100} \binom{100}{k} p^k (1-p)^{(100-k)} = 
 </details>
 <p><br /></p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="introHypoTest.html#cb67-1" tabindex="-1"></a>fig4_perm_twoside</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig4-perm-twoside-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig4-perm-twoside-1.png" alt="" width="60%" /></p>
 <p>Now, we can finish the above steps 6 and 7 by computing the p-value=0.003 and make the decision that we reject the null hypothesis.</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="introHypoTest.html#cb68-1" tabindex="-1"></a>p_value <span class="ot">=</span> <span class="fu">mean</span>(<span class="fu">abs</span>(perm_null) <span class="sc">&gt;=</span> <span class="fu">abs</span>(stat_mu))</span>
 <span id="cb68-2"><a href="introHypoTest.html#cb68-2" tabindex="-1"></a>p_value</span>
@@ -641,7 +641,7 @@ For non-standardized one with supporting location and scale parameters, we may c
 </details>
 <p><br /></p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="introHypoTest.html#cb71-1" tabindex="-1"></a>fig_tdist</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig4-t-vs-normal-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig4-t-vs-normal-1.png" alt="" width="60%" /></p>
 <div id="null-distribution-approximated-by-t-distribution" class="section level4 hasAnchor" number="2.2.2.1">
 <h4><span class="header-section-number">2.2.2.1</span> Null distribution approximated by <span class="math inline">\(t\)</span> distribution<a href="introHypoTest.html#null-distribution-approximated-by-t-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s revisit Example 4, where our goal is to approximate the null distribution of the difference between group means, this time using the t-distribution.</p>
@@ -701,7 +701,7 @@ In a hypothesis testing framework, we set up the null and alternative hypotheses
 <span id="cb73-5"><a href="introHypoTest.html#cb73-5" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;p-value:&quot;</span>, cdf_left <span class="sc">+</span> cdf_right))</span>
 <span id="cb73-6"><a href="introHypoTest.html#cb73-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;p-value: 0.000105009117330513&quot;</span></span>
 <span id="cb73-7"><a href="introHypoTest.html#cb73-7" tabindex="-1"></a>fig_1group</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig4-t-onegroup-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig4-t-onegroup-1.png" alt="" width="60%" /></p>
 </div>
 <div id="two-group-t-test" class="section level4 hasAnchor" number="2.2.2.3">
 <h4><span class="header-section-number">2.2.2.3</span> Two-group t-test<a href="introHypoTest.html#two-group-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -768,7 +768,7 @@ Note, if the variances between the groups differ, the calculation would need to 
 <span id="cb75-5"><a href="introHypoTest.html#cb75-5" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;p-value:&quot;</span>, cdf_left <span class="sc">+</span> cdf_right))</span>
 <span id="cb75-6"><a href="introHypoTest.html#cb75-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;p-value: 0.00379258038486997&quot;</span></span>
 <span id="cb75-7"><a href="introHypoTest.html#cb75-7" tabindex="-1"></a>fig_2group</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig4-t-twogroups-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig4-t-twogroups-1.png" alt="" width="60%" /></p>
 <p><strong>Transform to a standardized <span class="math inline">\(t\)</span>-distribution</strong></p>
 <p>In addition to using the non-standardized t-distribution with its location and scale parameters, it is common to transform the t-statistic into a standardized form. Specifically, if we compute the t-statistic as <span class="math inline">\(t_{\text{statistic}} = d / \hat{\sigma}\)</span>, it follows a standardized t-distribution with the the same degree of freedom. This allows us to report both the t-statistic and the corresponding p-value for hypothesis testing.</p>
 <p><span class="math display">\[ t_{\text{statistic}} = \frac{\bar{X}_{1} - \bar{X}_{2}}{s_p \cdot \sqrt{\frac{1}{n_{1}} + \frac{1}{n_{2}}}} \]</span></p>
@@ -794,7 +794,7 @@ Note, if the variances between the groups differ, the calculation would need to 
 <span id="cb77-5"><a href="introHypoTest.html#cb77-5" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;p-value:&quot;</span>, cdf_left <span class="sc">+</span> cdf_right))</span>
 <span id="cb77-6"><a href="introHypoTest.html#cb77-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;p-value: 0.00379258038486997&quot;</span></span>
 <span id="cb77-7"><a href="introHypoTest.html#cb77-7" tabindex="-1"></a>fig_2group_st</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig4-t-twogroups_st-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig4-t-twogroups_st-1.png" alt="" width="60%" /></p>
 </div>
 <div id="direct-use-of-t.test" class="section level4 hasAnchor" number="2.2.2.4">
 <h4><span class="header-section-number">2.2.2.4</span> Direct use of <code>t.test()</code><a href="introHypoTest.html#direct-use-of-t.test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -850,7 +850,7 @@ Here, we use the <code>marketing</code> dataset as an example, and we can load t
 <p><br /></p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="introHypoTest.html#cb80-1" tabindex="-1"></a><span class="fu">ggplot</span>(marketing, <span class="fu">aes</span>(<span class="at">x=</span>newspaper, <span class="at">y=</span>sales)) <span class="sc">+</span> </span>
 <span id="cb80-2"><a href="introHypoTest.html#cb80-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm, <span class="at">formula =</span> <span class="st">&#39;y ~ x&#39;</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig4-glm-scatter-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig4-glm-scatter-1.png" alt="" width="60%" /></p>
 <p>We can further use the <code>lm</code> function to fit the regression model, which will estimate the coefficients for each covariate as well as the intercept. In addition to the estimates, the function provides the standard errors of each coefficient, allowing us to derive the null distribution of each coefficient in the form of a t-distribution. By transforming the observed statistic—dividing the estimated coefficient by its standard error (similar to the two-group t-test described earlier)—we obtain the t-statistic and its corresponding p-value. All of these results are accessible through the output of the <code>lm</code> function, which returns a list containing each value.</p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="introHypoTest.html#cb81-1" tabindex="-1"></a><span class="fu">library</span>(datarium)</span>
 <span id="cb81-2"><a href="introHypoTest.html#cb81-2" tabindex="-1"></a><span class="fu">data</span>(marketing)</span>
@@ -896,7 +896,7 @@ Here, we use the <code>marketing</code> dataset as an example, and we can load t
 <span id="cb82-8"><a href="introHypoTest.html#cb82-8" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
 <span id="cb82-9"><a href="introHypoTest.html#cb82-9" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> glm_t_val, <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">color=</span><span class="st">&quot;tomato&quot;</span>) <span class="sc">+</span></span>
 <span id="cb82-10"><a href="introHypoTest.html#cb82-10" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="sc">-</span>glm_t_val, <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">color=</span><span class="st">&#39;tomato&#39;</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig4-glm-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig4-glm-1.png" alt="" width="60%" /></p>
 </div>
 </div>
 <div id="fishers-exact-test" class="section level3 hasAnchor" number="2.2.3">
@@ -1105,14 +1105,14 @@ to any of these genes? 1, 0.5, 0.1, or 0.0001</p>
 <p>We can visualize the null distribution of the test statistic by using a histogram.</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="introHypoTest.html#cb86-1" tabindex="-1"></a><span class="co"># Null distribution of test statistic</span></span>
 <span id="cb86-2"><a href="introHypoTest.html#cb86-2" tabindex="-1"></a><span class="fu">hist</span>(x_random, <span class="at">breaks =</span> <span class="dv">30</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig4-stat-null-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig4-stat-null-1.png" alt="" width="60%" /></p>
 </div>
 <div id="null-distribution-of-p-value" class="section level4 hasAnchor" number="2.3.2.2">
 <h4><span class="header-section-number">2.3.2.2</span> Null distribution of p-value<a href="introHypoTest.html#null-distribution-of-p-value" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can also visualize the distribution of the p-value if the null hypothesis is correct. As you can see, it follows a uniform distribution closely.</p>
 <div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="introHypoTest.html#cb87-1" tabindex="-1"></a><span class="co"># Null distribution of test statistic</span></span>
 <span id="cb87-2"><a href="introHypoTest.html#cb87-2" tabindex="-1"></a><span class="fu">hist</span>(pvals_null, <span class="at">breaks =</span> <span class="dv">30</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig4-pval-null-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig4-pval-null-1.png" alt="" width="60%" /></p>
 <p>To understand this, let’s use the left-tailed test as an example. We can obtain the cumulative probability function of a certain p-value <span class="math inline">\(p_\text{obs}\)</span>, as follows.</p>
 <p><span class="math display">\[P = P(p \leq p_\text{obs})= P(x &lt; x_\text{obs}) = p_\text{obs}\]</span>
 The definition <span class="math inline">\(P = P(p \leq p_\text{obs}) = p_\text{obs}\)</span> is exactly the same as
@@ -1137,7 +1137,7 @@ See a scientific comment:</p>
 <span id="cb88-7"><a href="introHypoTest.html#cb88-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Proportion of tests with min(p) &lt; 0.05: 0.43&quot;</span></span>
 <span id="cb88-8"><a href="introHypoTest.html#cb88-8" tabindex="-1"></a></span>
 <span id="cb88-9"><a href="introHypoTest.html#cb88-9" tabindex="-1"></a><span class="fu">hist</span>(p_min_in10, <span class="at">breaks =</span> <span class="dv">15</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig4-pmin-null-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig4-pmin-null-1.png" alt="" width="60%" /></p>
 </div>
 <div id="correction-method" class="section level4 hasAnchor" number="2.3.2.4">
 <h4><span class="header-section-number">2.3.2.4</span> Correction method<a href="introHypoTest.html#correction-method" class="anchor-section" aria-label="Anchor link to header"></a></h4>

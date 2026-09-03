@@ -20,13 +20,15 @@ so on.
 
 ```{r}
 # Install the mlbench library for loading the datasets
+# The PimaIndiansDiabetes has been removed from mlbench v2.1-10 for licence issue.
 if (!requireNamespace("mlbench", quietly = TRUE)) {
-  install.packages("mlbench")
+  install.packages("remotes")
+  remotes::install_version("mlbench", version = "2.1-9")
 }
 
 # Load data
-library(mlbench)
-data(PimaIndiansDiabetes)
+# library(mlbench)
+data(PimaIndiansDiabetes, package = "mlbench")
 
 # Check the first few lines
 dim(PimaIndiansDiabetes)

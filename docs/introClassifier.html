@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Introduction to Classification | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Introduction to Classification | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2026-09-02" />
+<meta name="date" content="2026-09-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -344,7 +344,7 @@ it as follows.</p>
 <span id="cb115-4"><a href="introClassifier.html#cb115-4" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, ], </span>
 <span id="cb115-5"><a href="introClassifier.html#cb115-5" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span> </span>
 <span id="cb115-6"><a href="introClassifier.html#cb115-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="sc">-</span><span class="fl">2.3</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig3-decision-boundary-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig3-decision-boundary-1.png" alt="" width="60%" /></p>
 <p>In high-dimensional space, a linear decision boundary will be a
 <a href="https://en.wikipedia.org/wiki/Hyperplane">hyperplane</a>.
 We can further write this linear decision model in a general form for
@@ -428,14 +428,14 @@ function <code>qlogis()</code>, though with a different name.</p>
 <span id="cb120-10"><a href="introClassifier.html#cb120-10" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb120-11"><a href="introClassifier.html#cb120-11" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>logistic)) <span class="sc">+</span></span>
 <span id="cb120-12"><a href="introClassifier.html#cb120-12" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig3-logistic-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig3-logistic-1.png" alt="" width="60%" /></p>
 <p>Logit function</p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="introClassifier.html#cb121-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="fl">0.01</span>)</span>
 <span id="cb121-2"><a href="introClassifier.html#cb121-2" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&#39;x&#39;</span><span class="ot">=</span>x, <span class="st">&#39;logit&#39;</span><span class="ot">=</span><span class="fu">qlogis</span>(x))</span>
 <span id="cb121-3"><a href="introClassifier.html#cb121-3" tabindex="-1"></a></span>
 <span id="cb121-4"><a href="introClassifier.html#cb121-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>logit)) <span class="sc">+</span></span>
 <span id="cb121-5"><a href="introClassifier.html#cb121-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig3-logit-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig3-logit-1.png" alt="" width="60%" /></p>
 </div>
 </div>
 <div id="application-on-diabetes" class="section level2 hasAnchor" number="4.2">
@@ -455,31 +455,33 @@ one target outcome (dependent variable). Independent variables include the
 number of pregnancies the patient has had, their BMI, insulin level, age, and
 so on.</p>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="introClassifier.html#cb122-1" tabindex="-1"></a><span class="co"># Install the mlbench library for loading the datasets</span></span>
-<span id="cb122-2"><a href="introClassifier.html#cb122-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;mlbench&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb122-3"><a href="introClassifier.html#cb122-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;mlbench&quot;</span>)</span>
-<span id="cb122-4"><a href="introClassifier.html#cb122-4" tabindex="-1"></a>}</span>
-<span id="cb122-5"><a href="introClassifier.html#cb122-5" tabindex="-1"></a></span>
-<span id="cb122-6"><a href="introClassifier.html#cb122-6" tabindex="-1"></a><span class="co"># Load data</span></span>
-<span id="cb122-7"><a href="introClassifier.html#cb122-7" tabindex="-1"></a><span class="fu">library</span>(mlbench)</span>
-<span id="cb122-8"><a href="introClassifier.html#cb122-8" tabindex="-1"></a><span class="fu">data</span>(PimaIndiansDiabetes)</span>
-<span id="cb122-9"><a href="introClassifier.html#cb122-9" tabindex="-1"></a></span>
-<span id="cb122-10"><a href="introClassifier.html#cb122-10" tabindex="-1"></a><span class="co"># Check the first few lines</span></span>
-<span id="cb122-11"><a href="introClassifier.html#cb122-11" tabindex="-1"></a><span class="fu">dim</span>(PimaIndiansDiabetes)</span>
-<span id="cb122-12"><a href="introClassifier.html#cb122-12" tabindex="-1"></a><span class="co">#&gt; [1] 768   9</span></span>
-<span id="cb122-13"><a href="introClassifier.html#cb122-13" tabindex="-1"></a><span class="fu">head</span>(PimaIndiansDiabetes)</span>
-<span id="cb122-14"><a href="introClassifier.html#cb122-14" tabindex="-1"></a><span class="co">#&gt;   pregnant glucose pressure triceps insulin mass pedigree age diabetes</span></span>
-<span id="cb122-15"><a href="introClassifier.html#cb122-15" tabindex="-1"></a><span class="co">#&gt; 1        6     148       72      35       0 33.6    0.627  50      pos</span></span>
-<span id="cb122-16"><a href="introClassifier.html#cb122-16" tabindex="-1"></a><span class="co">#&gt; 2        1      85       66      29       0 26.6    0.351  31      neg</span></span>
-<span id="cb122-17"><a href="introClassifier.html#cb122-17" tabindex="-1"></a><span class="co">#&gt; 3        8     183       64       0       0 23.3    0.672  32      pos</span></span>
-<span id="cb122-18"><a href="introClassifier.html#cb122-18" tabindex="-1"></a><span class="co">#&gt; 4        1      89       66      23      94 28.1    0.167  21      neg</span></span>
-<span id="cb122-19"><a href="introClassifier.html#cb122-19" tabindex="-1"></a><span class="co">#&gt; 5        0     137       40      35     168 43.1    2.288  33      pos</span></span>
-<span id="cb122-20"><a href="introClassifier.html#cb122-20" tabindex="-1"></a><span class="co">#&gt; 6        5     116       74       0       0 25.6    0.201  30      neg</span></span></code></pre></div>
+<span id="cb122-2"><a href="introClassifier.html#cb122-2" tabindex="-1"></a><span class="co"># The PimaIndiansDiabetes has been removed from mlbench v2.1-10 for licence issue.</span></span>
+<span id="cb122-3"><a href="introClassifier.html#cb122-3" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;mlbench&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb122-4"><a href="introClassifier.html#cb122-4" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
+<span id="cb122-5"><a href="introClassifier.html#cb122-5" tabindex="-1"></a>  remotes<span class="sc">::</span><span class="fu">install_version</span>(<span class="st">&quot;mlbench&quot;</span>, <span class="at">version =</span> <span class="st">&quot;2.1-9&quot;</span>)</span>
+<span id="cb122-6"><a href="introClassifier.html#cb122-6" tabindex="-1"></a>}</span>
+<span id="cb122-7"><a href="introClassifier.html#cb122-7" tabindex="-1"></a></span>
+<span id="cb122-8"><a href="introClassifier.html#cb122-8" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb122-9"><a href="introClassifier.html#cb122-9" tabindex="-1"></a><span class="co"># library(mlbench)</span></span>
+<span id="cb122-10"><a href="introClassifier.html#cb122-10" tabindex="-1"></a><span class="fu">data</span>(PimaIndiansDiabetes, <span class="at">package =</span> <span class="st">&quot;mlbench&quot;</span>)</span>
+<span id="cb122-11"><a href="introClassifier.html#cb122-11" tabindex="-1"></a></span>
+<span id="cb122-12"><a href="introClassifier.html#cb122-12" tabindex="-1"></a><span class="co"># Check the first few lines</span></span>
+<span id="cb122-13"><a href="introClassifier.html#cb122-13" tabindex="-1"></a><span class="fu">dim</span>(PimaIndiansDiabetes)</span>
+<span id="cb122-14"><a href="introClassifier.html#cb122-14" tabindex="-1"></a><span class="co">#&gt; [1] 768   9</span></span>
+<span id="cb122-15"><a href="introClassifier.html#cb122-15" tabindex="-1"></a><span class="fu">head</span>(PimaIndiansDiabetes)</span>
+<span id="cb122-16"><a href="introClassifier.html#cb122-16" tabindex="-1"></a><span class="co">#&gt;   pregnant glucose pressure triceps insulin mass pedigree age diabetes</span></span>
+<span id="cb122-17"><a href="introClassifier.html#cb122-17" tabindex="-1"></a><span class="co">#&gt; 1        6     148       72      35       0 33.6    0.627  50      pos</span></span>
+<span id="cb122-18"><a href="introClassifier.html#cb122-18" tabindex="-1"></a><span class="co">#&gt; 2        1      85       66      29       0 26.6    0.351  31      neg</span></span>
+<span id="cb122-19"><a href="introClassifier.html#cb122-19" tabindex="-1"></a><span class="co">#&gt; 3        8     183       64       0       0 23.3    0.672  32      pos</span></span>
+<span id="cb122-20"><a href="introClassifier.html#cb122-20" tabindex="-1"></a><span class="co">#&gt; 4        1      89       66      23      94 28.1    0.167  21      neg</span></span>
+<span id="cb122-21"><a href="introClassifier.html#cb122-21" tabindex="-1"></a><span class="co">#&gt; 5        0     137       40      35     168 43.1    2.288  33      pos</span></span>
+<span id="cb122-22"><a href="introClassifier.html#cb122-22" tabindex="-1"></a><span class="co">#&gt; 6        5     116       74       0       0 25.6    0.201  30      neg</span></span></code></pre></div>
 <p>Now, let’s check two potential features: <code>glucose</code> and <code>age</code>, colored by the diabetes labels.</p>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="introClassifier.html#cb123-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb123-2"><a href="introClassifier.html#cb123-2" tabindex="-1"></a></span>
 <span id="cb123-3"><a href="introClassifier.html#cb123-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>PimaIndiansDiabetes, <span class="fu">aes</span>(<span class="at">x=</span>glucose, <span class="at">y=</span>age)) <span class="sc">+</span></span>
 <span id="cb123-4"><a href="introClassifier.html#cb123-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>diabetes))</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig3-diab-scatter-1.png" width="75%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig3-diab-scatter-1.png" alt="" width="75%" /></p>
 <p>Before we start fitting models, let’s split the data into training and test sets in
 a 3:1 ratio. Let’s define it manually, though there are functions to do it
 automatically.</p>
@@ -822,7 +824,7 @@ in the <code>caret</code> package.</p>
 <span id="cb138-4"><a href="introClassifier.html#cb138-4" tabindex="-1"></a><span class="fu">ggplot</span>(confusion_df, <span class="fu">aes</span>(pred, obs, <span class="at">fill=</span> Freq)) <span class="sc">+</span></span>
 <span id="cb138-5"><a href="introClassifier.html#cb138-5" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>Freq)) <span class="sc">+</span> </span>
 <span id="cb138-6"><a href="introClassifier.html#cb138-6" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low=</span><span class="st">&quot;white&quot;</span>, <span class="at">high=</span><span class="st">&quot;darkgreen&quot;</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig-3-confusion-mtx-1.png" width="60%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig-3-confusion-mtx-1.png" alt="" width="60%" /></p>
 <p>Also, the false positive rate, false negative rate, and true negative rate.
 <strong>Note</strong>, the denominator is always the number of <strong>observed</strong> samples with the
 <code>same</code> label, namely, they are a constant for a specific dataset.</p>
@@ -927,7 +929,7 @@ curve:</p>
 <span id="cb143-15"><a href="introClassifier.html#cb143-15" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> roc_table[idx, <span class="dv">2</span>], <span class="at">y =</span> roc_table[idx, <span class="dv">1</span>]) <span class="sc">+</span> </span>
 <span id="cb143-16"><a href="introClassifier.html#cb143-16" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> roc_table[idx, <span class="dv">2</span>], <span class="at">y =</span> roc_table[idx, <span class="dv">1</span>],</span>
 <span id="cb143-17"><a href="introClassifier.html#cb143-17" tabindex="-1"></a>            <span class="at">label =</span> <span class="fu">round</span>(roc_table[idx, <span class="dv">3</span>], <span class="dv">3</span>), <span class="at">color =</span> <span class="st">&#39;black&#39;</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.3</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/fig3-ROC-1.png" width="75%" /></p>
+<p><img src="BMDatSci_files/figure-html/fig3-ROC-1.png" alt="" width="75%" /></p>
 <p><strong>Acknowledgement</strong>: This notebook is adapted and updated from STAT1005.</p>
 </div>
 </div>

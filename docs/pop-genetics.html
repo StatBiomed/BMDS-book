@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Population Genetics | Biomedical Data Science - introduction with case studies</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Population Genetics | Biomedical Data Science - introduction with case studies" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="BIOF1001 teaching team" />
 
 
-<meta name="date" content="2026-09-02" />
+<meta name="date" content="2026-09-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -545,7 +545,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb162-25"><a href="pop-genetics.html#cb162-25" tabindex="-1"></a><span class="fu">plot</span>(dataTwin<span class="sc">$</span>pheno1_T1 <span class="sc">~</span> dataTwin<span class="sc">$</span>T1QTL_A1, <span class="at">col=</span><span class="st">&#39;grey&#39;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">7</span>))</span>
 <span id="cb162-26"><a href="pop-genetics.html#cb162-26" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), c_means, <span class="at">type=</span><span class="st">&quot;p&quot;</span>, <span class="at">col=</span><span class="dv">6</span>, <span class="at">lwd=</span><span class="dv">8</span>)</span>
 <span id="cb162-27"><a href="pop-genetics.html#cb162-27" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">sort</span>(dataTwin<span class="sc">$</span>T1QTL_A1),<span class="fu">sort</span>(linA1<span class="sc">$</span>fitted.values), <span class="at">type=</span><span class="st">&#39;b&#39;</span>, <span class="at">col=</span><span class="st">&quot;dark green&quot;</span>, <span class="at">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/lmAR-1.png" width="672" /></p>
+<p><img src="BMDatSci_files/figure-html/lmAR-1.png" alt="" width="672" /></p>
 <p>To test for the non-linearity, we can use the dominance coding of the QTL and add the dominance term to the regression model.</p>
 <ul>
 <li>Model: pheno1_T1 = b0 + b1* T1QTL_A1 + b2* T1QTL_D1 + e</li>
@@ -596,7 +596,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb163-25"><a href="pop-genetics.html#cb163-25" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), c_means, <span class="at">type=</span><span class="st">&#39;p&#39;</span>, <span class="at">col=</span><span class="dv">6</span>, <span class="at">lwd=</span><span class="dv">8</span>)</span>
 <span id="cb163-26"><a href="pop-genetics.html#cb163-26" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">sort</span>(dataTwin<span class="sc">$</span>T1QTL_A1),<span class="fu">sort</span>(linA1<span class="sc">$</span>fitted.values), <span class="at">type=</span><span class="st">&#39;b&#39;</span>, <span class="at">col=</span><span class="st">&quot;dark green&quot;</span>, <span class="at">lwd=</span><span class="dv">3</span>)</span>
 <span id="cb163-27"><a href="pop-genetics.html#cb163-27" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">sort</span>(dataTwin<span class="sc">$</span>T1QTL_A1),<span class="fu">sort</span>(linAD1<span class="sc">$</span>fitted.values), <span class="at">type=</span><span class="st">&#39;b&#39;</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/lmADR-1.png" width="672" /></p>
+<p><img src="BMDatSci_files/figure-html/lmADR-1.png" alt="" width="672" /></p>
 <strong>Q9.</strong> Repeat for the other 4 QTL and determine which QTL shows strongest association with the phenotype T1
 <details>
 <summary>
@@ -1008,7 +1008,7 @@ pfemale<-ggplot(female,aes(x=year,y=`population ('000s)`,group=age))+
 grid.arrange(pmale,pfemale,ncol=2,widths=c(3,3.75))
 ```
 
-<img src="BMDatSci_files/figure-html/plot%20data-1.png" width="672" />
+<img src="BMDatSci_files/figure-html/plot%20data-1.png" alt="" width="672" />
 
 ### Cancer registry data
 
@@ -1225,7 +1225,7 @@ for (i in 1:(ncol(HKCancer_inc)-4)){
 do.call('grid.arrange',c(p,ncol=3,nrow=12))
 ```
 
-<img src="BMDatSci_files/figure-html/incidence-1.png" width="1344" />
+<img src="BMDatSci_files/figure-html/incidence-1.png" alt="" width="1344" />
 
 
 ``` r
@@ -1260,7 +1260,7 @@ for (i in 1:(ncol(HKCancer_mort)-4)){
 do.call('grid.arrange',c(p,ncol=3,nrow=12))
 ```
 
-<img src="BMDatSci_files/figure-html/mortality-1.png" width="1344" />
+<img src="BMDatSci_files/figure-html/mortality-1.png" alt="" width="1344" />
 
 #### b. Calculate cancer risk and mortality rate
 
@@ -1308,7 +1308,7 @@ for (i in 1:(ncol(HKCancer_inc_risk)-4)){
 do.call('grid.arrange',c(p,ncol=3,nrow=12))
 ```
 
-<img src="BMDatSci_files/figure-html/cancer%20risk%20visulisation-1.png" width="1344" />
+<img src="BMDatSci_files/figure-html/cancer%20risk%20visulisation-1.png" alt="" width="1344" />
 
 
 ``` r
@@ -1353,7 +1353,7 @@ for (i in 1:(ncol(HKCancer_mort_risk)-4)){
 do.call('grid.arrange',c(p,ncol=3,nrow=12))
 ```
 
-<img src="BMDatSci_files/figure-html/mortality%20rate%20visulisation-1.png" width="1344" />
+<img src="BMDatSci_files/figure-html/mortality%20rate%20visulisation-1.png" alt="" width="1344" />
 
 #### c. Mortality-incidence ratio
 
@@ -1397,7 +1397,7 @@ for (i in 1:(ncol(HKCancer_mort_inc)-4)){
 do.call('grid.arrange',c(p,ncol=3,nrow=12))
 ```
 
-<img src="BMDatSci_files/figure-html/mortality%20incidence%20ratio%20visulisation-1.png" width="1344" />
+<img src="BMDatSci_files/figure-html/mortality%20incidence%20ratio%20visulisation-1.png" alt="" width="1344" />
 
 #### d. Paired t-test on mortality-incidence ratio change
 
@@ -1442,7 +1442,7 @@ plot<-ggplot(HKCancer_mort_inc_year_t,aes(x=Year,y=MIR, color=Year))+
 plot
 ```
 
-<img src="BMDatSci_files/figure-html/paired%20t-test-1.png" width="480" />
+<img src="BMDatSci_files/figure-html/paired%20t-test-1.png" alt="" width="480" />
 
 ``` r
 
@@ -1531,7 +1531,7 @@ plot_child<-ggplot(HKCancer_inc_age_sum_csq[-37,],aes(x=reorder(cancer,-as.numer
 plot_child
 ```
 
-<img src="BMDatSci_files/figure-html/childhood%20versus%20elderly-1.png" width="672" />
+<img src="BMDatSci_files/figure-html/childhood%20versus%20elderly-1.png" alt="" width="672" />
 
 ``` r
 HKCancer_inc_age_sum_csq
@@ -1603,7 +1603,7 @@ pubmed<- read.delim("https://github.com/StatBiomed/BMDS-book/raw/main/notebooks/
 hist(pubmed$Publication.Year)
 ```
 
-<img src="BMDatSci_files/figure-html/load%20HMRF-1.png" width="672" />
+<img src="BMDatSci_files/figure-html/load%20HMRF-1.png" alt="" width="672" />
 
 #### Make word cloud for grants
 
@@ -1720,7 +1720,7 @@ hist(pubmed$Publication.Year)
 <span id="cb171-67"><a href="pop-genetics.html#cb171-67" tabindex="-1"></a>gmor<span class="ot">&lt;-</span><span class="fu">ggplot</span>(HKCancer_compare, <span class="fu">aes</span>(<span class="at">y=</span>grants, <span class="at">x=</span>mortality)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span>  <span class="fu">geom_label_repel</span>(<span class="at">data=</span>HKCancer_compare, <span class="fu">aes</span>(<span class="at">label=</span>cancer),  <span class="at">nudge_x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">3.5</span>,<span class="at">label.size =</span> <span class="cn">NA</span> ,<span class="at">min.segment.length =</span><span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">&#39;lines&#39;</span>), <span class="at">max.overlaps =</span> <span class="dv">40</span>, <span class="at">box.padding =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">40000</span>, <span class="at">label.y =</span> <span class="dv">0</span>)</span>
 <span id="cb171-68"><a href="pop-genetics.html#cb171-68" tabindex="-1"></a></span>
 <span id="cb171-69"><a href="pop-genetics.html#cb171-69" tabindex="-1"></a><span class="fu">grid.arrange</span>(gp,ginc,gmor,pinc, pmor, <span class="at">ncol=</span><span class="dv">3</span>)</span></code></pre></div>
-<p><img src="BMDatSci_files/figure-html/grants%20versus%20incidence%20and%20mortality-1.png" width="960" /></p>
+<p><img src="BMDatSci_files/figure-html/grants%20versus%20incidence%20and%20mortality-1.png" alt="" width="960" /></p>
 </div>
 </div>
 <div id="open-discussion" class="section level3 hasAnchor" number="8.1.4">
