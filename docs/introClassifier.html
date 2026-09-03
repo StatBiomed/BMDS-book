@@ -456,26 +456,28 @@ number of pregnancies the patient has had, their BMI, insulin level, age, and
 so on.</p>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="introClassifier.html#cb122-1" tabindex="-1"></a><span class="co"># Install the mlbench library for loading the datasets</span></span>
 <span id="cb122-2"><a href="introClassifier.html#cb122-2" tabindex="-1"></a><span class="co"># The PimaIndiansDiabetes has been removed from mlbench v2.1-10 for licence issue.</span></span>
-<span id="cb122-3"><a href="introClassifier.html#cb122-3" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;mlbench&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb122-4"><a href="introClassifier.html#cb122-4" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
-<span id="cb122-5"><a href="introClassifier.html#cb122-5" tabindex="-1"></a>  remotes<span class="sc">::</span><span class="fu">install_version</span>(<span class="st">&quot;mlbench&quot;</span>, <span class="at">version =</span> <span class="st">&quot;2.1-9&quot;</span>)</span>
-<span id="cb122-6"><a href="introClassifier.html#cb122-6" tabindex="-1"></a>}</span>
-<span id="cb122-7"><a href="introClassifier.html#cb122-7" tabindex="-1"></a></span>
-<span id="cb122-8"><a href="introClassifier.html#cb122-8" tabindex="-1"></a><span class="co"># Load data</span></span>
-<span id="cb122-9"><a href="introClassifier.html#cb122-9" tabindex="-1"></a><span class="co"># library(mlbench)</span></span>
-<span id="cb122-10"><a href="introClassifier.html#cb122-10" tabindex="-1"></a><span class="fu">data</span>(PimaIndiansDiabetes, <span class="at">package =</span> <span class="st">&quot;mlbench&quot;</span>)</span>
-<span id="cb122-11"><a href="introClassifier.html#cb122-11" tabindex="-1"></a></span>
-<span id="cb122-12"><a href="introClassifier.html#cb122-12" tabindex="-1"></a><span class="co"># Check the first few lines</span></span>
-<span id="cb122-13"><a href="introClassifier.html#cb122-13" tabindex="-1"></a><span class="fu">dim</span>(PimaIndiansDiabetes)</span>
-<span id="cb122-14"><a href="introClassifier.html#cb122-14" tabindex="-1"></a><span class="co">#&gt; [1] 768   9</span></span>
-<span id="cb122-15"><a href="introClassifier.html#cb122-15" tabindex="-1"></a><span class="fu">head</span>(PimaIndiansDiabetes)</span>
-<span id="cb122-16"><a href="introClassifier.html#cb122-16" tabindex="-1"></a><span class="co">#&gt;   pregnant glucose pressure triceps insulin mass pedigree age diabetes</span></span>
-<span id="cb122-17"><a href="introClassifier.html#cb122-17" tabindex="-1"></a><span class="co">#&gt; 1        6     148       72      35       0 33.6    0.627  50      pos</span></span>
-<span id="cb122-18"><a href="introClassifier.html#cb122-18" tabindex="-1"></a><span class="co">#&gt; 2        1      85       66      29       0 26.6    0.351  31      neg</span></span>
-<span id="cb122-19"><a href="introClassifier.html#cb122-19" tabindex="-1"></a><span class="co">#&gt; 3        8     183       64       0       0 23.3    0.672  32      pos</span></span>
-<span id="cb122-20"><a href="introClassifier.html#cb122-20" tabindex="-1"></a><span class="co">#&gt; 4        1      89       66      23      94 28.1    0.167  21      neg</span></span>
-<span id="cb122-21"><a href="introClassifier.html#cb122-21" tabindex="-1"></a><span class="co">#&gt; 5        0     137       40      35     168 43.1    2.288  33      pos</span></span>
-<span id="cb122-22"><a href="introClassifier.html#cb122-22" tabindex="-1"></a><span class="co">#&gt; 6        5     116       74       0       0 25.6    0.201  30      neg</span></span></code></pre></div>
+<span id="cb122-3"><a href="introClassifier.html#cb122-3" tabindex="-1"></a><span class="co"># if (!requireNamespace(&quot;mlbench&quot;, quietly = TRUE)) {</span></span>
+<span id="cb122-4"><a href="introClassifier.html#cb122-4" tabindex="-1"></a><span class="co">#   install.packages(&quot;remotes&quot;)</span></span>
+<span id="cb122-5"><a href="introClassifier.html#cb122-5" tabindex="-1"></a><span class="co">#   remotes::install_version(&quot;mlbench&quot;, version = &quot;2.1-9&quot;)</span></span>
+<span id="cb122-6"><a href="introClassifier.html#cb122-6" tabindex="-1"></a><span class="co"># }</span></span>
+<span id="cb122-7"><a href="introClassifier.html#cb122-7" tabindex="-1"></a><span class="co"># data(PimaIndiansDiabetes, package = &quot;mlbench&quot;)</span></span>
+<span id="cb122-8"><a href="introClassifier.html#cb122-8" tabindex="-1"></a><span class="co"># write.csv(PimaIndiansDiabetes, &quot;mlbench_v2.1-9_PimaIndiansDiabetes.csv&quot;, row.names = FALSE)</span></span>
+<span id="cb122-9"><a href="introClassifier.html#cb122-9" tabindex="-1"></a></span>
+<span id="cb122-10"><a href="introClassifier.html#cb122-10" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb122-11"><a href="introClassifier.html#cb122-11" tabindex="-1"></a>PimaIndiansDiabetes <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;mlbench_v2.1-9_PimaIndiansDiabetes.csv&quot;</span>, </span>
+<span id="cb122-12"><a href="introClassifier.html#cb122-12" tabindex="-1"></a>                               <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb122-13"><a href="introClassifier.html#cb122-13" tabindex="-1"></a></span>
+<span id="cb122-14"><a href="introClassifier.html#cb122-14" tabindex="-1"></a><span class="co"># Check the first few lines</span></span>
+<span id="cb122-15"><a href="introClassifier.html#cb122-15" tabindex="-1"></a><span class="fu">dim</span>(PimaIndiansDiabetes)</span>
+<span id="cb122-16"><a href="introClassifier.html#cb122-16" tabindex="-1"></a><span class="co">#&gt; [1] 768   9</span></span>
+<span id="cb122-17"><a href="introClassifier.html#cb122-17" tabindex="-1"></a><span class="fu">head</span>(PimaIndiansDiabetes)</span>
+<span id="cb122-18"><a href="introClassifier.html#cb122-18" tabindex="-1"></a><span class="co">#&gt;   pregnant glucose pressure triceps insulin mass pedigree age diabetes</span></span>
+<span id="cb122-19"><a href="introClassifier.html#cb122-19" tabindex="-1"></a><span class="co">#&gt; 1        6     148       72      35       0 33.6    0.627  50      pos</span></span>
+<span id="cb122-20"><a href="introClassifier.html#cb122-20" tabindex="-1"></a><span class="co">#&gt; 2        1      85       66      29       0 26.6    0.351  31      neg</span></span>
+<span id="cb122-21"><a href="introClassifier.html#cb122-21" tabindex="-1"></a><span class="co">#&gt; 3        8     183       64       0       0 23.3    0.672  32      pos</span></span>
+<span id="cb122-22"><a href="introClassifier.html#cb122-22" tabindex="-1"></a><span class="co">#&gt; 4        1      89       66      23      94 28.1    0.167  21      neg</span></span>
+<span id="cb122-23"><a href="introClassifier.html#cb122-23" tabindex="-1"></a><span class="co">#&gt; 5        0     137       40      35     168 43.1    2.288  33      pos</span></span>
+<span id="cb122-24"><a href="introClassifier.html#cb122-24" tabindex="-1"></a><span class="co">#&gt; 6        5     116       74       0       0 25.6    0.201  30      neg</span></span></code></pre></div>
 <p>Now, let’s check two potential features: <code>glucose</code> and <code>age</code>, colored by the diabetes labels.</p>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="introClassifier.html#cb123-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb123-2"><a href="introClassifier.html#cb123-2" tabindex="-1"></a></span>

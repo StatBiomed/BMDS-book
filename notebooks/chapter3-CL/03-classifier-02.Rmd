@@ -21,14 +21,16 @@ so on.
 ```{r}
 # Install the mlbench library for loading the datasets
 # The PimaIndiansDiabetes has been removed from mlbench v2.1-10 for licence issue.
-if (!requireNamespace("mlbench", quietly = TRUE)) {
-  install.packages("remotes")
-  remotes::install_version("mlbench", version = "2.1-9")
-}
+# if (!requireNamespace("mlbench", quietly = TRUE)) {
+#   install.packages("remotes")
+#   remotes::install_version("mlbench", version = "2.1-9")
+# }
+# data(PimaIndiansDiabetes, package = "mlbench")
+# write.csv(PimaIndiansDiabetes, "mlbench_v2.1-9_PimaIndiansDiabetes.csv", row.names = FALSE)
 
 # Load data
-# library(mlbench)
-data(PimaIndiansDiabetes, package = "mlbench")
+PimaIndiansDiabetes = read.csv("mlbench_v2.1-9_PimaIndiansDiabetes.csv", 
+                               stringsAsFactors = TRUE)
 
 # Check the first few lines
 dim(PimaIndiansDiabetes)
