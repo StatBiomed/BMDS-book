@@ -168,9 +168,9 @@ In practical terms, statistical significance measures whether an observed result
 **Key steps in performing a hypothesis test**
 
 1)  Propose a research question;
-2)  Formulate the null hypothesis H0and alternative hypothesis $H_1$;
+2)  Formulate the null hypothesis $H_0$ and alternative hypothesis $H_1$;
 3)  Choose an appropriate statistical test, including defining the **test statistic** and its **null distribution**;
 4)  Choose an appropriate significance level, $\alpha$;
 5)  Calculate the test statistic based on the observed data;
-6)  Compute the p-value corresponding to the test statistic;
+6)  Compute the $p$-value corresponding to the test statistic;
 7)  Make a decision: reject $H_0$ if $p < \alpha$, otherwise, there is not enough evidence to reject $H_0$.

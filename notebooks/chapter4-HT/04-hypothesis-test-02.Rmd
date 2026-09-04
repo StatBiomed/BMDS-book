@@ -278,7 +278,7 @@ $$
 Under the null hypothesis, the t-distribution has a mean of $\mu=0$, with degrees of freedom df=$n_1+n_2-2$, since the means of the two samples are considered fixed. Similar to the one-sample test, the only unknown parameter to estimate is
 $\hat\sigma$. Assuming **Assumption 3**—*that the two groups have the same unknown variance*—we can approximate this parameter using the following calculation:
 
-$$\hat\sigma^2 \approx {s_p^2 \cdot (\frac{1}{n_{1}} + \frac{1}{n_{2}}})$$,
+$$\hat\sigma^2 \approx {s_p^2 \cdot (\frac{1}{n_{1}} + \frac{1}{n_{2}}}),$$
 
 where $s_p^2$ is the pooled variance and is given by $s_1^2$ and $s_2^2$, sample variance (i.e., the unbiased estimator of the population variance) in groups 1 and 2, as follows,
 
@@ -511,6 +511,34 @@ $$p(x, m=a+b, n=c+d, k=a+c) = \frac{\binom{a+b}{x} * \binom{c+d}{c}}{ \binom{a+c
 $$
 
 This distribution is called the [hypergeomatric distribution](https://en.wikipedia.org/wiki/Hypergeometric_distribution). In the terminology used above (for $m, n, k$), it corresponds to the R function [stats::Hypergeometric](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Hypergeometric.html), which allows us to compute the probability density function (PDF) for specific values.
+
+Here, we can check the probability mass function, and a close approximation with
+binomial distribution.
+
+```{r fig4-hyper, out.width = '60%'}
+# plot the probability mass function of hypergeomatric distribution
+# x need be 39<=x<=52, as n_male and n_female are >= 0.
+
+x = seq(35, 55)
+pmf_hyper = dhyper(x, m = 52, n = 48, k = 87)
+pmf_binom = dbinom(x, 52, p=87/100)
+df_hyper = data.frame(x=x, pmf=pmf_hyper, extreme=(x >= 48 | x <= 43))
+df_binom = data.frame(x=x, pmf=pmf_binom, extreme=NA)
+df = rbind(df_hyper, df_binom)
+
+library(ggplot2)
+
+fig_hyper = ggplot(df, aes(x=x)) + 
+  geom_point(aes(y=pmf, color=extreme)) +
+  scale_color_manual(values = c("black", "red", "grey"), 
+                     labels = c('non-extreme', 'extreme', 'binomial')) +
+  xlab('Number of male_right-handed') + 
+  ylab('Probability Mass Function') +
+  ggtitle('Hypergeometric distribution as Null')
+
+fig_hyper
+```
+
 
 
 With the **extreme events** and **null distribution** defined, we can now calculate the two-sided p-value with manual calculation, using built-in `dhyper()` function, or directly use `fisher.test()` for the test.
