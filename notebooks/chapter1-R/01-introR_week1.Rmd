@@ -1,6 +1,14 @@
-## Intro to R programming (Session 1) {#introR-w1}
+---
+title: "Introductory R Programming"
+author: "Jason Wong, Ray Hsu and Yuanhua Huang"
+date: "2026-09-17"
+output: bookdown::gitbook
+documentclass: book
+---
 
-This notebook collects the scripts used for teaching in BBMS1021/BIOF1001 for Introduction to R. You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR_week1.Rmd) (right-click and "save link as" to download).
+## Introduction to R programming (Session 1) {#introR}
+
+This notebook collects the scripts used for teaching in BBMS1021/BIOF1001 for Introduction to R (1 hour teaching). You can get this Rmd file on Moodle or [here](https://github.com/StatBiomed/BMDatSci-book/blob/main/notebooks/chapter1-R/01-introR_week1.Rmd) (right-click and "save link as" to download).
 
 R is a programming language, particularly popular for its power in statistical computing, elegant graphics, and also genomic data analysis. It is a free and open-source software, with active support and development from the community. Additionally, R is relatively easy to get started for scientific computing.
 
@@ -287,13 +295,13 @@ Save this as `calculate_bmi.R` .
 
 To run the script in the console, we can type:
 
-``` r
+```{r}
 source("calculate_bmi.R",echo=TRUE)
 ```
 
 If you get an error it is most likely the R script was saved in a directory different from the current directory. You can use `getwd()` to see whether the current directory the one where you saved the script. If not, you can either use `setwd()` to move to the directory where the script is, or alternatively, just resave the R script in the current directory.
 
-``` r
+```{r}
 getwd()
 ```
 
