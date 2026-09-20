@@ -129,56 +129,87 @@ model.
 
 ### F-statistics
 
-In a multiple regression model, apart from testing the significance of 
-individual variables by checking the p-values, it is also necessary to check 
-whether, as a group all the predictors are significant. This can be done using 
-the following hypothesis:
+#### The Global F-Test
 
-$$\begin{align*} \text{Null hypothesis}~  H_0~:~ & \beta_1=\beta_2=\cdots=\beta_p=0, \quad \text{versus} \\
-\text{Alternative hypothesis}~ H_1~:~& \text{at least one of the} ~\beta_k's ~ \text{is non zero}. \end{align*}  $$
- 
-This means that all set of the features are useless versus that some are useful.
-The statistic that is used to test this hypothesis is called the **F-statistic** 
-and is defined as a ratio of the variance explained by the model to the variance 
-that is left unexplained (noise), both are per degree of freedom (DF), as follows:
+In a multiple regression model, testing the significance of individual variables 
+via $p$-values is not sufficient. It is also necessary to determine whether the 
+predictors are significant **as a group**. This is achieved by testing the 
+following hypotheses:
 
-$$  F\text{-statistic} = \text{Fisher statistic}=  \frac{ \text{Expained Variance}  / \text{Model DF }}{ \text{Unexplained variance} / \text{Error DF} }
 $$
-In linear regression, we can write it explicitly as follows,
-$$  F\text{-statistic} =  \frac{ SSR/ p }{ SSE/(n-p-1)}
+\begin{aligned} 
+H_0: & \quad \beta_1 = \beta_2 = \dots = \beta_p = 0 \\
+H_1: & \quad \text{At least one } \beta_k \neq 0 
+\end{aligned}
 $$
 
-where $n$ = number of rows (sample points) in the dataset, $p$ = number of 
-predictor variables in the model, and $SSR = SST - SSE$ is the sum of squares 
-due to regression.
+Conceptually, the null hypothesis ($H_0$) suggests that the entire set of 
+features has no predictive power (i.e., the model is no better than the mean), 
+whereas the alternative hypothesis ($H_1$) suggests that at least one feature 
+is useful.
 
-There is a $p$-value that is associated with this $F$-statistic. If the 
-$p$-value is smaller than the chosen significance level, the null hypothesis 
-can be rejected.
+**The F-Statistic Formula**
+The statistic used to test this is the **F-statistic** (or Fisher statistic). 
+It is defined as the ratio of the variance explained by the model to the 
+unexplained variance (noise), each adjusted by their respective degrees of 
+freedom (DF):
 
-It is important to look at the F-statistic because:
+$$ F\text{-statistic} = \frac{\text{Explained Variance} / \text{Model DF}}{\text{Unexplained Variance} / \text{Error DF}} $$
 
-- p-values are about individual relationships between predictors and the outcome
-variable. However, one predictor's relationship with the output might be 
-impacted by the presence of other variables.
-- When the number of predictors in the model is very large and all the 
-$\beta_i$ are very close to zero, the individual p-values associated with the 
-predictors might give very small values so we might incorrectly conclude that 
-there is a relationship between the predictors and the outcome.
+In the context of linear regression, this is expressed explicitly as:
 
+$$ F = \frac{SSR / p}{SSE / (n - p - 1)} $$
 
-Moreover, one may use the F statistic for assessing a sub-group of features, say
-$q$ last features without loss of generality. We can set up the hypothesis 
-testing as follows,
-- Null hypothesis: $\beta_{p-q+1} = \beta_{p-q+2} = ... \beta_{p} = 0}
-- Alternative hypothesis: at least one of the coefficient is not zero.
+Where:
 
-Assuming, with the null hypothesis by dropping all the $q$ features, the new 
-Sum of Squared Error is $SSE_{sub}$. Then we can have the $F$-statistic as follow,
-$$  F\text{-statistic} =  \frac{ (SSE_{sub} - SSE_{full})/ q }{ SSE_{full}/(n-p-1)}
-$$
+*   **$n$**: The number of observations (sample points).
+*   **$p$**: The number of predictor variables (not including intercept).
+*   **$SSR$**: Sum of Squares due to Regression ($SST - SSE$).
+*   **$SSE$**: Sum of Squared Errors (Residual Sum of Squares).
 
-You may realize the default $F$-statistic by dropping all features is a special 
-case, as when not using any feature, $SSE_{sub}=SST$, as the sum of square total.
+**Interpretation**
+An associated $p$-value is calculated for this F-statistic based on the 
+$F(p, n-p-1)$ distribution. If this $p$-value is smaller than the chosen 
+significance level (e.g., $\alpha = 0.05$), we reject the null hypothesis and 
+conclude that the model is statistically significant, meaning some of the 
+features are useful.
 
 
+#### Why is the F-statistic necessary?
+
+It is important to look at the F-statistic rather than just individual 
+$p$-values for two main reasons:
+
+1.  **Interdependence of Predictors**: Individual $p$-values assess the 
+  relationship between a single predictor and the outcome, assuming other 
+  variables are held constant. If predictors are highly correlated 
+  (multicollinearity), their individual significance may be obscured. The 
+  F-statistic looks at the collective effect.
+2.  **The Multiple Comparisons Problem**: If a model contains a very large 
+  number of predictors, there is a high probability that at least one predictor 
+  will appear significant by random chance (a Type I error), even if all 
+  $\beta_i$ are actually zero. The F-statistic protects against this "false 
+  discovery" by providing a single test for the entire model.
+
+
+#### The Partial F-Test (Testing Sub-groups)
+
+One may also use the F-statistic to assess a specific sub-group of features 
+(for example, the last $q$ features added to a model). This helps determine if 
+adding those specific variables significantly improves the model.
+
+**Hypotheses:**
+
+*   **$H_0$**: $\beta_{p-q+1} = \beta_{p-q+2} = \dots = \beta_{p} = 0$
+*   **$H_1$**: At least one of these $q$ coefficients is non-zero.
+
+Let $SSE_{full}$ be the error sum of squares for the model with all $p$ 
+features, and $SSE_{sub}$ be the error sum of squares for the reduced model 
+(after dropping the $q$ features). The F-statistic is:
+
+$$ F = \frac{(SSE_{sub} - SSE_{full}) / q}{SSE_{full} / (n - p - 1)} $$
+
+**Connection to the Global Test**
+The default "global" F-statistic is a special case of this formula. When you 
+drop *all* features ($q = p$), the reduced model only contains the intercept, 
+making $SSE_{sub}$ equal to the **Total Sum of Squares (SST)**.
