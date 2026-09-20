@@ -83,9 +83,9 @@ You can spend a few minutes to create vectors and explore what happens to the da
 
 ```{r}
 # write your code here
-myVector <- c(TRUE,2:3,4.0)
-myVector
-typeof(myVector)
+
+
+
 ```
 
 #### Coercion
@@ -125,8 +125,9 @@ Can you write the code to calculate BMI from the vectors below?
 # complete the code to calculate BMI from the weights and heights vectors
 weights <- c(54, 66, 78, 45)
 heights <- c(1.55, 1.77, 1.75, 1.61)
-bmis <- weights/heights^2                                        # <--- write you code here
-bmis
+                      
+                                              # <--- write your code here
+
 
 ```
 
@@ -156,11 +157,11 @@ Can you write the code to retrieve the scores from:
 ```{r}
 scores <- c(44,56,63,75,77,78,81,90,93,99)
 # write the code to retieve the 1st position
-scores[1]
+
 # write the code to retrieve even positions
-scores[c(FALSE,TRUE)]
+
 # write the code to retrieve every 3rd position
-scores[c(FALSE,FALSE,TRUE)]
+
 ```
 
 #### Modifying a vector
@@ -202,10 +203,10 @@ Accessing items in a matrix is similar to vector but in 2 dimensions
 myMatrix <- matrix(1:12, nrow=3) 
 colnames(myMatrix) <- c("C1","C2","C3","C4") 
 rownames(myMatrix) <- c("R1","R2","R3") 
-myMatrix[1, 2]                          # retrieve item in row 1 column 2
-myMatrix["R2", "C2"]                    # retrieve item by row and col name in R2, C2
-myMatrix[1, 1:2]                        # retrieve items in row 1 and col 1 and 2. 
-myMatrix[1:2, c(2, 3)]                  # retrieve items in row 1-2 and col 2-3
+myMatrix[1, 2]                      # retrieve item in row 1 column 2
+myMatrix["R2", "C2"]                # retrieve item by row and col name in R2, C2
+myMatrix[1, 1:2]                    # retrieve items in row 1 and col 1 and 2. 
+myMatrix[1:2, c(2, 3)]              # retrieve items in row 1-2 and col 2-3
 ```
 
 #### Modify values
@@ -218,20 +219,24 @@ Modifying items in a matrix is similar to vector but in 2 dimensions. Can you wr
 
 3.  delete row 2
 
+myMatrix \<- myMatrix[-2, ]
+
+myMatrix
+
 ```{r}
 myMatrix <- matrix(1:12, nrow=3) 
 colnames(myMatrix) <- c("C1","C2","C3","C4") 
 rownames(myMatrix) <- c("R1","R2","R3")
 myMatrix
 # write code to replace row 3, column 3 with the value 7
-myMatrix[3,3] <- 7
-myMatrix
+
+
 # write code to replace row 1, column 4 using the row and col name with the value -5
-myMatrix["R1","C4"] <- -5
-myMatrix
+
+
 # write code to delete row 2
-myMatrix <- myMatrix[-2, ]
-myMatrix
+
+
 ```
 
 ### List
@@ -262,8 +267,8 @@ Can you retrieve the Height and Name from myList?
 
 ```{r}
 # write code to retrieve Height and Name from myList
-myList[c(1,4)]                       
-myList[c("Height","Name")]       # note that unlike the above, the retrieved values are still in a list as opposed to individual values like what you get with double brackets [[]]
+
+
 
 ```
 
