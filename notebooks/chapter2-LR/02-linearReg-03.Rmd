@@ -5,7 +5,8 @@
 Apart from the $R^2$ statistic, there are other statistics and parameters that 
 you need to look at in order to determine if the model is efficient. We will 
 discuss some commonly used statistics – Residual Standard Errors, $p$-values, 
-and $F$-statistics.
+and $F$-statistics, in the form of both simple linear regression and multiple
+regression.
 
 ### Residual Standard Errors
 
@@ -16,13 +17,13 @@ simple linear regression model, RSE is defined as:
 $$  RSE^2 = \frac{SSE}{n-2} = \frac1{n-2} \sum_{i=1}^n  \Bigl(\text{yact}_i - \text{ypred}_i \Bigr)^2.
 $$
 
-In general, 
+In general for multiple regression, 
 
 $$  RSE^2 = \frac{SSE}{n-p-1} = \frac1{n-p-1} \sum_{i=1}^n  \Bigl(\text{yact}_i - \text{ypred}_i \Bigr)^2.
 $$
  
 where $p$ is the number of predictor variables in a model where we have more 
-than one predictor variables.
+than one predictor variables. The $p$ predictors do not include intercept.
 
  
 A **multiple linear regression** model is a linear regression model with 
@@ -136,11 +137,15 @@ the following hypothesis:
 $$\begin{align*} \text{Null hypothesis}~  H_0~:~ & \beta_1=\beta_2=\cdots=\beta_p=0, \quad \text{versus} \\
 \text{Alternative hypothesis}~ H_1~:~& \text{at least one of the} ~\beta_k's ~ \text{is non zero}. \end{align*}  $$
  
-
+This means that all set of the features are useless versus that some are useful.
 The statistic that is used to test this hypothesis is called the **F-statistic** 
-and is defined as follows:
+and is defined as a ratio of the variance explained by the model to the variance 
+that is left unexplained (noise), both are per degree of freedom (DF), as follows:
 
-$$  F\text{-statistic} = \text{Fisher statistic}=  \frac{ SSR/(p-1)}{ SSE/(n-p)}
+$$  F\text{-statistic} = \text{Fisher statistic}=  \frac{ \text{Expained Variance}  / \text{Model DF }}{ \text{Unexplained variance} / \text{Error DF} }
+$$
+In linear regression, we can write it explicitly as follows,
+$$  F\text{-statistic} =  \frac{ SSR/ p }{ SSE/(n-p-1)}
 $$
 
 where $n$ = number of rows (sample points) in the dataset, $p$ = number of 
@@ -160,4 +165,20 @@ impacted by the presence of other variables.
 $\beta_i$ are very close to zero, the individual p-values associated with the 
 predictors might give very small values so we might incorrectly conclude that 
 there is a relationship between the predictors and the outcome.
+
+
+Moreover, one may use the F statistic for assessing a sub-group of features, say
+$q$ last features without loss of generality. We can set up the hypothesis 
+testing as follows,
+- Null hypothesis: $\beta_{p-q+1} = \beta_{p-q+2} = ... \beta_{p} = 0}
+- Alternative hypothesis: at least one of the coefficient is not zero.
+
+Assuming, with the null hypothesis by dropping all the $q$ features, the new 
+Sum of Squared Error is $SSE_{sub}$. Then we can have the $F$-statistic as follow,
+$$  F\text{-statistic} =  \frac{ (SSE_{sub} - SSE_{full})/ q }{ SSE_{full}/(n-p-1)}
+$$
+
+You may realize the default $F$-statistic by dropping all features is a special 
+case, as when not using any feature, $SSE_{sub}=SST$, as the sum of square total.
+
 

@@ -92,6 +92,9 @@ navigate towards the most efficient one.
   add significant variables. It is calculated by: 
 $$ R^2_{adj} = 1- (1-R^2) \frac{n-1}{n-p-1}$$
 
+Or you can rearrange and see the penalty factor more clearly:
+$$ (1 - R^2_{adj}) = (1-R^2) \frac{n-1}{n-p-1}$$
+
 Based on these guidelines, there are two approaches to select the predictor 
 variables in the final model:
 
