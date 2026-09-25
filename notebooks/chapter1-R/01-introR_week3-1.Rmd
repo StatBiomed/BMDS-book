@@ -93,14 +93,13 @@ drive(FALSE)                # I have not drunk alcohol
 
 Can you now write a function to evaluate whether someone may have Chikungunya virus infection based on their symptoms of either:
 
--   Being over 60 years old with a fever and joint pain.
+- Being over 60 years old with fever and joint pain.
 
--   Having a fever and bitten by a mosquito in the last 5 days.
+- Having joint pain and being bitten by a mosquito in the last 5 days.
 
 ```{r}
 # A function to check if someone might have Chikungunaya virus infection
 # Write your code here
-
 
 
 
